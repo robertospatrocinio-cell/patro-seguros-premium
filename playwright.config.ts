@@ -6,7 +6,8 @@ import { defineConfig } from "@playwright/test";
  * ambiente publicado.
  */
 export default defineConfig({
-  testDir: "./e2e",
+  testDir: ".",
+  testMatch: ["e2e/**/*.spec.ts", "src/lib/seo-runtime.spec.ts"],
   timeout: 30_000,
   retries: 1,
   reporter: [["list"]],

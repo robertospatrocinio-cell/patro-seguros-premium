@@ -49,7 +49,7 @@ const STEPS = [
     icon: ClipboardList,
     title: "Analisamos seu perfil",
     description:
-      `Nosso time consulta ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras e monta um comparativo transparente para o seu caso.`,
+      `Nosso time pode comparar alternativas entre até ${EMPRESA.metricas.seguradorasParceiras} seguradoras, conforme o seu caso.`,
   },
   {
     icon: Scale,

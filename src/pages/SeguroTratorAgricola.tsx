@@ -8,10 +8,10 @@ const SeguroTratorAgricola = () => {
       localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Trator Agrícola"
-      subtitle="Proteção premium para o motor da sua produtividade. Cobertura completa em todo o território nacional."
+      subtitle="Proteção para tratores conforme o produto, o uso, a aceitação e as coberturas contratadas."
       icon="🚜"
       badge="Especialista no Agronegócio"
-      metaDescription="Seguro para Tratores Agrícolas: proteção contra roubo, incêndio, colisão e tombamento em todo o Brasil. Cotação rápida com a Patro Seguros."
+      metaDescription="Seguro para Tratores Agrícolas: analise roubo, incêndio, colisão, tombamento e outras coberturas conforme a apólice."
       description="O trator é o coração da operação no campo. O Seguro de Trator Agrícola da Patro Seguros oferece a proteção robusta que o seu patrimônio exige, garantindo que imprevistos não paralisem sua safra."
       detailedDescription={`Sabemos que um trator parado é sinônimo de prejuízo. Seja por um defeito mecânico súbito, um acidente durante a operação ou a ação de terceiros, os riscos no campo são constantes e de alto impacto financeiro.
 
@@ -25,13 +25,13 @@ Com atendimento 100% remoto, a Patro Seguros facilita a vida do homem do campo: 
         { step: "4", title: "Proteção Ativa", description: "Emissão rápida e suporte 24h para garantir que você nunca fique na mão." },
       ]}
       coverages={[
-        { title: "Roubo e Furto Qualificado", description: "Proteção essencial contra a criminalidade crescente no campo." },
-        { title: "Incêndio e Explosão", description: "Cobre danos por fogo originado na própria máquina ou no ambiente." },
-        { title: "Colisão e Tombamento", description: "Proteção contra acidentes comuns em terrenos acidentados ou manobras." },
-        { title: "Danos Elétricos", description: "Seguro para sistemas eletrônicos sensíveis e chicotes elétricos." },
-        { title: "Responsabilidade Civil Operador", description: "Cobre danos materiais ou corporais a terceiros causados pelo trator." },
-        { title: "Transporte do Equipamento", description: "Garante a máquina durante o deslocamento entre propriedades." },
-        { title: "Quebra de Máquinas", description: "Cobertura adicional para falhas mecânicas e elétricas imprevistas." },
+        { title: "Roubo e furto", description: "Pode ser contratado conforme o produto, a aceitação, os limites e as condições da apólice." },
+        { title: "Incêndio e explosão", description: "Pode contemplar danos por fogo conforme a cobertura e os riscos previstos no contrato." },
+        { title: "Colisão e tombamento", description: "Podem ser cobertos quando contratados e quando o evento atender às condições da apólice." },
+        { title: "Danos elétricos", description: "A cobertura depende da previsão contratual, do evento e dos limites aplicáveis." },
+        { title: "Responsabilidade Civil do operador", description: "Danos a terceiros exigem cobertura de RC específica; não são automaticamente parte do casco." },
+        { title: "Transporte e deslocamento", description: "A proteção deve distinguir deslocamento por meios próprios de transporte da máquina como carga." },
+        { title: "Quebra de máquinas", description: "Pode existir em produto ou cobertura específica; não se confunde automaticamente com desgaste, manutenção ou pane." },
       ]}
       coverageExclusions={[
         "Desgaste natural de pneus, correias e lubrificantes",
@@ -49,7 +49,7 @@ Com atendimento 100% remoto, a Patro Seguros facilita a vida do homem do campo: 
           "Região geográfica da propriedade",
           "Existência de dispositivos de rastreamento",
         ],
-        note: "Tratores financiados por bancos ou cooperativas exigem apólices específicas que a Patro emite com agilidade.",
+        note: "Em financiamento, verifique se há exigência contratual da instituição e qual cláusula ou beneficiário deve constar. Financiamento não cria obrigação legal universal de seguro.",
       }}
       realScenarios={[
         { title: "Tombamento em Encosta", description: "Durante a preparação do terreno, o trator tombou em uma área íngreme. O seguro cobriu os danos estruturais de R$ 55.000, preservando o caixa do produtor." },
@@ -82,10 +82,10 @@ Com atendimento 100% remoto, a Patro Seguros facilita a vida do homem do campo: 
         "Suporte em sinistro com foco na rapidez da retomada do trabalho",
       ]}
       faqs={[
-        { question: "O seguro de trator é obrigatório?", answer: "Não é obrigatório por lei para uso em propriedade privada, mas é exigido por todos os bancos em caso de financiamento (BNDES, Pronaf, etc)." },
+        { question: "O seguro de trator é obrigatório?", answer: "Não se deve afirmar uma regra universal. A obrigação pode decorrer do contrato de financiamento ou da operação específica; consulte a instituição e a apólice aplicável." },
         { question: "A Patro atende a minha região?", answer: "Sim! Atendemos produtores rurais em todos os 26 estados do Brasil e no Distrito Federal de forma 100% remota e segura." },
         { question: "Quanto tempo leva para cotar?", answer: "Com os dados básicos da máquina, enviamos o comparativo de preços em até 24 horas úteis." },
-        { question: "O seguro cobre o trator na estrada?", answer: "Sim, se contratada a cobertura de transporte ou deslocamento em vias públicas." },
+        { question: "O seguro cobre o trator na estrada?", answer: "Pode cobrir se houver garantia aplicável ao deslocamento ou transporte, conforme a forma de circulação, o evento, os limites e as condições da apólice." },
       ]}
       relatedInsurances={[
         { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

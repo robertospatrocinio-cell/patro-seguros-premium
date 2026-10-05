@@ -60,7 +60,6 @@ export const SEO_HUBS: SeoHub[] = [
       "/seguro-moto-guarulhos",
       "/seguro-frota",
       "/seguro-motorista-app",
-      "/seguro-motorista-app",
       "/seguro-uber-guarulhos",
       "/seguro-taxi-guarulhos",
       "/seguro-carta-verde",

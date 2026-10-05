@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Cloc
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import ExternalLink from "@/components/ExternalLink";
-import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
@@ -34,7 +33,6 @@ const Footer = memo(() => {
               {EMPRESA.posicionamento}
             </p>
             <div className="flex items-center gap-4 mb-6">
-              <SeloMelhorCorretora size="sm" />
               <div className="text-[12px] leading-relaxed">
                 <div className="flex text-yellow-400 mb-1">
                   {[...Array(5)].map((_, i) => (

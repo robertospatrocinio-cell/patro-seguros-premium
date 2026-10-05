@@ -175,7 +175,7 @@ const faqs = [
   },
   {
     question: "Quanto custa um seguro de carro em Guarulhos?",
-    answer: `O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de ${EMPRESA.metricas.seguradorasParceiras} seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis.`,
+    answer: `O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros trabalha com 16 seguradoras, e a quantidade consultada pode variar conforme o produto, o perfil do cliente, as características do risco, os critérios de aceitação e a disponibilidade de integração.`,
   },
   {
     question: "Quais seguros a Patro Seguros oferece?",
@@ -214,7 +214,7 @@ const Index = () => {
     <>
       <PageMeta
         title="Patro Seguros | Corretora de Seguros em Guarulhos e Brasil"
-        description={`Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Atendimento humano e sem burocracia.`}
+        description="Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Trabalhamos com 16 seguradoras, conforme produto e perfil. Atendimento humano e orientação clara."
         absoluteTitle={true}
       />
 
@@ -228,7 +228,7 @@ const Index = () => {
       <AggregateRatingSchema
         serviceName="Corretora de Seguros em Guarulhos"
         url={CANONICAL_BASE_URL}
-        description={`Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras.`}
+        description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. A Patro trabalha com 16 seguradoras, conforme produto e perfil."
       />
       <Header />
       <main id="main-content">
@@ -359,8 +359,8 @@ const Index = () => {
               {[
                 {
                   step: "01",
-                  title: "Cotação em 2h",
-                  desc: "Sua proposta comparativa entregue via WhatsApp em tempo recorde.",
+                  title: "Cotação orientada",
+                  desc: "Analisamos os dados do risco e apresentamos alternativas conforme produto e perfil.",
                   icon: Clock,
                 },
                 {
@@ -371,8 +371,8 @@ const Index = () => {
                 },
                 {
                   step: "03",
-                  title: `${EMPRESA.metricas.seguradorasParceiras} Seguradoras`,
-                  desc: "Comparamos as maiores do Brasil para buscar a melhor relação entre cobertura e preço.",
+                  title: "Até 16 seguradoras",
+                  desc: "A Patro trabalha com 16 seguradoras; a quantidade consultada varia conforme produto, perfil e aceitação.",
                   icon: Building2,
                 },
               ].map((s) => (

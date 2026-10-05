@@ -11,7 +11,7 @@ const SeguroColheitadeiraGraos = () => {
       subtitle="Proteção premium para colheitadeiras de soja, milho e trigo. Cobertura nacional com consultoria especializada."
       icon="🚜"
       badge="Especialista em Colheita de Grãos"
-      metaDescription="Seguro para Colheitadeiras de Grãos: proteção contra incêndio, roubo, quebra de máquinas e tombamento. Cobertura em todo o Brasil com a Patro Seguros."
+      metaDescription="Seguro para Colheitadeiras de Grãos: analise incêndio, roubo, tombamento, danos e outras coberturas conforme a apólice."
       description="A colheitadeira de grãos é o motor financeiro da safra. O Seguro especializado da Patro Seguros oferece a segurança necessária para proteger equipamentos de alto valor tecnológico contra os riscos reais do campo."
       detailedDescription={`A janela de colheita é curta e não permite erros. Uma colheitadeira de grãos parada por um incêndio elétrico ou um tombamento pode comprometer o lucro de um ano inteiro de trabalho.
 
@@ -27,11 +27,11 @@ Com atendimento 100% remoto, atendemos produtores de grãos em todas as fronteir
       coverages={[
         { title: "Incêndio e Explosão", description: "Proteção vital contra riscos térmicos no motor e sistemas de trilha." },
         { title: "Roubo e Furto Qualificado", description: "Segurança para máquinas em frentes de trabalho ou pátios de fazendas." },
-        { title: "Tombamento e Colisão", description: "Cobre acidentes durante a operação em terrenos variados ou manobras." },
+        { title: "Tombamento e colisão", description: "Podem ser cobertos durante operação ou manobras quando previstos no produto e na apólice." },
         { title: "Danos Elétricos e Sensores", description: "Proteção para computadores de bordo, GPS e sistemas de agricultura de precisão." },
-        { title: "Quebra de Maquinário", description: "Cobertura para falhas mecânicas súbitas e imprevistas de componentes internos." },
+        { title: "Quebra de maquinário", description: "Pode existir em cobertura específica; não se confunde automaticamente com desgaste, manutenção, defeito ou pane." },
         { title: "Responsabilidade Civil Operador", description: "Protege contra danos causados a terceiros ou propriedades vizinhas." },
-        { title: "Transporte do Equipamento", description: "Garante a colheitadeira durante deslocamentos em pranchas entre propriedades." },
+        { title: "Transporte do equipamento", description: "Depende de cobertura específica para a máquina transportada como carga e das condições do trajeto." },
       ]}
       coverageExclusions={[
         "Desgaste natural de correias, navalhas e componentes de atrito",
@@ -54,11 +54,11 @@ Com atendimento 100% remoto, atendemos produtores de grãos em todas as fronteir
       realScenarios={[
         { title: "Incêndio em Colheita de Milho", description: "Acúmulo de palha causou incêndio no compartimento do motor. O seguro cobriu os R$ 220.000 em reparos, garantindo a continuidade da safra." },
         { title: "Tombamento em Talhão Úmido", description: "A colheitadeira tombou lateralmente em uma área de banhado. O seguro arcou com R$ 95.000 em custos de resgate e reparos estruturais." },
-        { title: "Quebra de Módulo Eletrônico", description: "Uma descarga elétrica queimou o monitor de produtividade e sensores. A reposição de R$ 38.000 foi paga integralmente." },
+        { title: "Módulo eletrônico", description: "Danos elétricos em monitor, sensores ou acessórios dependem da descrição do bem, da cobertura e dos limites contratados." },
       ]}
       importantDetails={[
         { title: "Agricultura de Precisão", content: "Nossas apólices permitem incluir separadamente itens de alto valor como antenas GPS, monitores e sensores de umidade, garantindo a proteção total da tecnologia." },
-        { title: "Suporte a Financiamentos", content: "Emitimos certificados e apólices nos padrões exigidos por BNDES, Banco do Brasil e Cooperativas de Crédito com total agilidade." },
+        { title: "Suporte a financiamentos", content: "Quando houver exigência contratual da instituição financeira, analisamos a cláusula de beneficiário e os documentos solicitados. Financiamento não equivale automaticamente a Penhor Rural." },
       ]}
       tips={[
         "Mantenha sempre os sistemas de combate a incêndio da máquina revisados",
@@ -82,10 +82,10 @@ Com atendimento 100% remoto, atendemos produtores de grãos em todas as fronteir
         "Atendimento 100% remoto para todas as regiões do Brasil",
       ]}
       faqs={[
-        { question: "O seguro cobre colheitadeiras de grãos usadas?", answer: "Sim, aceitamos máquinas com até 12-15 anos de uso, dependendo da marca e conservação." },
+        { question: "O seguro cobre colheitadeiras de grãos usadas?", answer: "A aceitação depende de idade, estado de conservação, inspeção, valor, utilização, seguradora e produto. Não há faixa universal de aceitação." },
         { question: "A Patro atende o Mato Grosso e Goiás?", answer: "Sim! Atendemos produtores em todos os estados do Brasil com a mesma eficiência e segurança." },
-        { question: "O seguro cobre a plataforma de corte?", answer: "Sim, a plataforma de corte faz parte da cobertura principal, sendo necessário informar o modelo e valor na contratação." },
-        { question: "Quanto tempo leva para receber a indenização?", answer: "O prazo médio é de 30 dias após a documentação, mas trabalhamos para agilizar casos críticos durante a safra." },
+        { question: "O seguro cobre a plataforma de corte?", answer: "A plataforma deve ser descrita e aceita conforme o produto, o valor, os limites e as condições da apólice; não se deve presumir inclusão automática." },
+        { question: "Quanto tempo leva para receber a indenização?", answer: "O prazo depende do evento, da cobertura, dos documentos, da regulação e da apólice. Não há prazo universal de pagamento." },
       ]}
       relatedInsurances={[
         { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

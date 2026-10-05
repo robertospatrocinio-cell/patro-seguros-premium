@@ -19,11 +19,11 @@ Mesmo médicos que atuam com excelência estão expostos: complicações inerent
         { step: "1", title: "Análise da Especialidade", description: "Avaliamos sua especialidade, volume de atendimentos, tipos de procedimentos e perfil de risco para dimensionar a cobertura ideal." },
         { step: "2", title: "Cotação Especializada", description: "A Patro Seguros cota com seguradoras especializadas em RC Médico, comparando preços e coberturas para cada perfil." },
         { step: "3", title: "Emissão da Apólice", description: "Apólice emitida com coberturas específicas para sua especialidade, incluindo retroatividade quando necessário." },
-        { step: "4", title: "Suporte em Sinistros", description: "Em caso de processo, a Patro Seguros acompanha todo o trâmite com a seguradora: designação de advogados, defesa e indenização." },
+        { step: "4", title: "Suporte em reclamações", description: "Em caso de reclamação, a Patro pode acompanhar a comunicação com a seguradora, observadas as coberturas, os procedimentos e os limites da apólice." },
       ]}
       coverages={[
         { title: "Indenizações por Danos a Pacientes", description: "Danos materiais, morais e estéticos decorrentes de alegação de erro médico. Inclui pensão vitalícia e lucros cessantes do paciente." },
-        { title: "Custos de Defesa Jurídica", description: "Honorários de advogados especializados, custas processuais, perícias e assistente técnico — cobertos mesmo se o médico for absolvido." },
+        { title: "Custos de Defesa Jurídica", description: "Honorários, custas, perícias e assistente técnico podem ser contemplados conforme a cobertura contratada e os procedimentos da apólice." },
         { title: "Processos Éticos no CRM", description: "Custos de defesa em processos ético-disciplinares no Conselho Regional de Medicina." },
         { title: "Processos Criminais", description: "Defesa em ações criminais por lesão corporal culposa ou homicídio culposo decorrentes de ato médico." },
         { title: "Cobertura Retroativa", description: "Protege contra reclamações feitas durante a vigência, referentes a atos praticados antes da contratação." },
@@ -79,8 +79,8 @@ Mesmo médicos que atuam com excelência estão expostos: complicações inerent
       faqs={[
         { question: "O RC do hospital me cobre individualmente?", answer: "Na maioria dos casos, não. O RC da instituição cobre a pessoa jurídica. Se o paciente processar você pessoalmente, precisa de sua própria apólice. A Patro Seguros recomenda RC pessoal mesmo para médicos com vínculo institucional." },
         { question: "Quanto custa o RC para médicos?", answer: "De R$ 1.500/ano (clínica geral) a R$ 20.000/ano (cirurgia plástica, neurocirurgia). A Patro Seguros, como especialista, consegue as melhores condições do mercado para cada especialidade." },
-        { question: "O seguro cobre processos de atos anteriores?", answer: "Sim, com cobertura retroativa. A apólice protege contra reclamações feitas durante a vigência referentes a atos praticados antes da contratação, dentro do período retroativo definido." },
-        { question: "Processos éticos no CRM são cobertos?", answer: "Sim, muitas apólices cobrem custos de defesa em processos ético-disciplinares no CRM. A Patro Seguros orienta sobre as melhores opções que incluem esta cobertura." },
+        { question: "O seguro cobre reclamações relacionadas a atos anteriores?", answer: "Pode haver cobertura retroativa, conforme o período, as datas e as condições da apólice. A análise deve ocorrer antes da contratação." },
+        { question: "Processos éticos no CRM são cobertos?", answer: "Alguns produtos podem contemplar custos de defesa em processos ético-disciplinares. A cobertura depende da seguradora, da profissão e das condições contratadas." },
         { question: "A Patro Seguros é especialista em RC Médico?", answer: "Sim! A Patro Seguros é especialista em seguros de Responsabilidade Civil Profissional, incluindo RC Médico para todas as especialidades. Trabalhamos com as principais seguradoras do mercado." },
       ]}
       relatedInsurances={[

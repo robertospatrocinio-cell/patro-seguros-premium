@@ -85,7 +85,7 @@ O Seguro Condomínio Empresarial da Patro Seguros oferece proteção contra inc�
         { question: "O seguro do condomínio cobre roubo dentro da minha sala?", answer: "Não. O seguro do condomínio cobre apenas o patrimônio comum. Bens dentro das salas devem ser protegidos por um Seguro Empresarial individual." },
         { question: "O síndico pode ser processado se um elevador cair?", answer: "Sim, ele pode ser responsabilizado. Por isso, a cobertura de RC Síndico é fundamental para protegê-lo." },
         { question: "Cobre danos por infiltração?", answer: "Geralmente infiltrações graduais são excluídas. O seguro foca em eventos súbitos e imprevistos, como estouro de tubulação comum (se contratada a cobertura de danos por água)." },
-        { question: "Quanto tempo leva para receber a indenização?", answer: "Após a entrega de toda a documentação, a seguradora tem até 30 dias por lei para realizar o pagamento." },
+        { question: "Quanto tempo leva para receber a indenização?", answer: "Não há um prazo único contado simplesmente do acidente. O prazo aplicável depende da comunicação, da documentação necessária, do reconhecimento da cobertura e das regras da apólice e da legislação vigente. A seguradora analisa e decide conforme o contrato; a corretora pode auxiliar na comunicação e no acompanhamento." },
       ]}
       relatedInsurances={[
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },

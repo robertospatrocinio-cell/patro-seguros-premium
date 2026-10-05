@@ -9,17 +9,17 @@ const SeguroRCProfissional = () => {
       subtitle="Proteção para profissionais liberais contra erros e omissões"
       icon="👔"
       metaDescription="Seguro RC Profissional (E&O) para médicos, advogados, engenheiros, contadores e arquitetos. Proteção contra erros e omissões. Cotação grátis Patro Seguros."
-      description="O Seguro de Responsabilidade Civil Profissional (E&O) protege profissionais liberais contra reclamações de clientes por erros, omissões ou negligência na prestação de serviços."
+      description="O Seguro de Responsabilidade Civil Profissional (E&O) pode proteger contra reclamações relacionadas à prestação dos serviços profissionais do segurado, conforme profissão, produto e condições contratuais."
       detailedDescription={`Profissionais liberais investem anos de estudo e dedicação para construir suas carreiras. Porém, um único processo por erro profissional pode destruir patrimônio pessoal acumulado ao longo de décadas. Médicos, advogados, engenheiros, arquitetos, contadores — todos estão expostos a reclamações que podem resultar em indenizações milionárias.
 
-O Seguro RC Profissional (também chamado E&O — Errors & Omissions) é a proteção financeira que garante que um erro, omissão ou negligência alegada por um cliente não comprometa seu patrimônio pessoal e familiar. A seguradora assume os custos de defesa e eventuais indenizações.
+O Seguro RC Profissional (também chamado E&O — Errors & Omissions) pode oferecer proteção financeira para reclamações relacionadas a erro, omissão ou falha profissional alegada na prestação do serviço. Custos de defesa, indenizações, processos administrativos e reclamações éticas dependem das coberturas, limites, exclusões e condições do contrato.
 
 A realidade brasileira mostra crescimento constante no número de processos contra profissionais liberais. Médicos enfrentam em média 1 processo a cada 5 anos de carreira. Advogados, engenheiros e contadores também estão cada vez mais expostos. Na Patro Seguros, oferecemos apólices específicas por profissão, com limites e coberturas adequados ao risco real de cada atividade.`}
       howItWorks={[
         { step: "1", title: "Identificação da Profissão", description: "Analisamos sua especialidade, tempo de atuação, volume de clientes e histórico para definir o perfil de risco" },
         { step: "2", title: "Definição de Coberturas", description: "Escolhemos coberturas específicas para sua profissão: erros, omissões, negligência, imperícia e processos éticos" },
         { step: "3", title: "Cotação Especializada", description: "Buscamos propostas de seguradoras que operam com RC Profissional, garantindo limites e condições adequados" },
-        { step: "4", title: "Proteção Contínua", description: "Em caso de reclamação, a seguradora assume a defesa (judicial e ética) e paga indenizações até o limite da apólice" },
+        { step: "4", title: "Proteção conforme o contrato", description: "Em caso de reclamação, a seguradora poderá prestar ou reembolsar defesa e indenização conforme as coberturas, limites e procedimentos da apólice" },
       ]}
       coverages={[
         { title: "Erros Profissionais", description: "Cobertura para equívocos na prestação de serviços" },
@@ -29,7 +29,7 @@ A realidade brasileira mostra crescimento constante no número de processos cont
         { title: "Despesas de Defesa", description: "Custos com advogados e processos administrativos/judiciais" },
         { title: "Indenizações", description: "Pagamento de condenações até o limite da apólice" },
         { title: "Danos Morais e Materiais", description: "Cobertura para prejuízos causados ao cliente" },
-        { title: "Processos Éticos", description: "Defesa em conselhos profissionais (CRM, OAB, CREA, etc)" },
+        { title: "Processos éticos", description: "Alguns produtos podem oferecer defesa em conselhos profissionais, conforme profissão, cobertura e condições contratuais." },
       ]}
       coverageExclusions={[
         "Atos dolosos (intencionais) do profissional",
@@ -58,7 +58,7 @@ A realidade brasileira mostra crescimento constante no número de processos cont
         { title: "Engenheiro e falha estrutural", description: "Um engenheiro foi responsabilizado por problemas estruturais em uma obra. O RC cobriu R$ 350.000 em indenização e custos de reparo, além da defesa no CREA." },
       ]}
       importantDetails={[
-        { title: "Base Claims-Made", content: "A maioria das apólices de RC Profissional opera na base claims-made: cobre reclamações feitas durante a vigência, independente de quando o fato ocorreu (desde que após a data de retroatividade). Manter a apólice ativa é essencial." },
+        { title: "Base de reclamações", content: "A forma de acionamento, a retroatividade e eventuais prazos complementar ou suplementar dependem das condições do produto. Verifique as datas de ocorrência, reclamação, notificação e aviso previstas na apólice." },
         { title: "Processos éticos e administrativos", content: "Além de processos judiciais, o RC cobre defesa em conselhos profissionais (CRM, OAB, CREA, CRC, CREF, etc). Esses processos podem resultar em suspensão ou cassação do registro profissional." },
         { title: "Extensão para sociedade", content: "Se você atua em sociedade (clínica, escritório), é possível incluir sócios e associados na mesma apólice, com condições especiais." },
       ]}
@@ -88,9 +88,9 @@ A realidade brasileira mostra crescimento constante no número de processos cont
       faqs={[
         { question: "Por que preciso de RC Profissional?", answer: "Processos por erro profissional podem resultar em indenizações milionárias e comprometer todo seu patrimônio pessoal. O seguro protege você e sua família." },
         { question: "Quanto custa o seguro RC Profissional?", answer: "Varia conforme a profissão, especialidade, localização, tempo de atuação e limite de cobertura desejado. Fazemos cotação personalizada." },
-        { question: "Cobre processos antigos?", answer: "Geralmente cobre processos de fatos ocorridos durante a vigência da apólice, mesmo que a reclamação seja feita depois. Analisamos as cláusulas de retroatividade." },
+        { question: "Cobre reclamações relacionadas a fatos anteriores?", answer: "Pode haver cobertura retroativa, prazo complementar ou prazo suplementar, conforme o produto e a apólice. As datas e condições devem ser analisadas antes da contratação." },
         { question: "Qual o limite de cobertura recomendado?", answer: "Depende da profissão e especialidade. Cirurgiões precisam de limites maiores que clínicos gerais, por exemplo. Orientamos conforme seu perfil." },
-        { question: "Cobre processos em conselhos profissionais?", answer: "Sim! A maioria das apólices cobre defesa em processos éticos nos conselhos (CRM, OAB, CREA, CRC, etc)." },
+        { question: "Cobre processos em conselhos profissionais?", answer: "Alguns produtos oferecem custos de defesa em processos éticos ou administrativos. A cobertura depende da profissão, da seguradora e das condições contratadas." },
       ]}
       relatedInsurances={[
         { title: "Seguro Responsabilidade Civil", link: "/seguro-rc" },

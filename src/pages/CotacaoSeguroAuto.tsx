@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const SEGFY_URL = "https://patroseguros.smartbroker.net.br";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro%20auto.";
@@ -46,6 +47,18 @@ const CotacaoSeguroAuto = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-10">
+          <div className="container mx-auto px-4 max-w-3xl text-center">
+            <h2 className="mb-4">Entenda o Seguro Auto antes de cotar</h2>
+            <p className="text-muted-foreground">
+              Veja como funcionam as coberturas, franquias e condições do produto no guia de{" "}
+              <Link to="/seguro-auto" className="font-medium text-primary underline underline-offset-4">
+                Seguro Auto
+              </Link>.
+            </p>
           </div>
         </section>
 

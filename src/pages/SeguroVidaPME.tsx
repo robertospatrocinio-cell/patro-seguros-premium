@@ -9,10 +9,10 @@ const SeguroVidaPME = () => {
       title="Seguro de Vida PME"
       subtitle="Proteção coletiva para pequenas e médias empresas"
       icon="🏢"
-      metaDescription="Seguro de Vida PME a partir de 3 vidas. Cobertura de morte, invalidez e assistência funeral. Benefício para retenção de talentos. Cotação grátis."
-      description="O Seguro de Vida PME é a solução ideal para pequenas e médias empresas que desejam oferecer proteção aos seus colaboradores com custo acessível. Com contratação a partir de 3 vidas, o seguro garante coberturas de morte, invalidez e assistências, funcionando como um diferencial competitivo na retenção de talentos. A Patro Seguros compara as melhores seguradoras para encontrar o plano perfeito para o porte e o orçamento da sua empresa."
+      metaDescription="Seguro de Vida PME para pequenas e médias empresas. Conheça coberturas e condições conforme o produto e a seguradora. Cotação com a Patro Seguros."
+      description="O Seguro de Vida PME pode ser uma alternativa para pequenas e médias empresas que desejam oferecer proteção aos colaboradores. A elegibilidade, o número mínimo de pessoas, as coberturas, os capitais e as assistências dependem do produto, da seguradora e do contrato."
       coverages={[
-        { title: "Morte Natural ou Acidental", description: "Indenização aos beneficiários do colaborador em caso de falecimento por qualquer causa" },
+        { title: "Morte", description: "Pode prever indenização aos beneficiários conforme a cobertura contratada, os limites e as condições da apólice" },
         { title: "Invalidez Permanente Total ou Parcial por Acidente (IPA)", description: "Indenização proporcional ao grau de invalidez causada por acidente" },
         { title: "Invalidez Funcional Permanente Total por Doença (IFPD)", description: "Cobertura para invalidez total causada por doença que impeça o colaborador de exercer qualquer atividade" },
         { title: "Despesas Médico-Hospitalares (DMH)", description: "Reembolso de gastos médicos e hospitalares em caso de acidente" },
@@ -31,7 +31,7 @@ const SeguroVidaPME = () => {
         "Indústrias e prestadores de serviço",
       ]}
       whyPatro={[
-        "Comparamos planos de diversas seguradoras para o melhor custo-benefício",
+        "Comparamos alternativas de diversas seguradoras conforme o perfil e as condições do produto",
         "Contratação a partir de 3 vidas com processo simplificado",
         "Consultoria para adequar coberturas ao perfil da empresa",
         "Gestão completa: inclusão, exclusão e sinistros",
@@ -49,7 +49,7 @@ const SeguroVidaPME = () => {
         },
         {
           question: "O Seguro de Vida PME é dedutível do Imposto de Renda?",
-          answer: "Sim! O valor pago pela empresa no Seguro de Vida PME pode ser deduzido como despesa operacional no Imposto de Renda de Pessoa Jurídica (IRPJ), representando uma economia tributária significativa.",
+          answer: "O tratamento tributário depende do regime da empresa, da natureza da despesa e da legislação vigente. Consulte a contabilidade antes de afirmar dedutibilidade ou economia tributária.",
         },
         {
           question: "Posso incluir sócios e proprietários no plano?",
@@ -61,7 +61,7 @@ const SeguroVidaPME = () => {
         },
         {
           question: "Como funciona o pagamento da indenização?",
-          answer: "Em caso de sinistro, a empresa ou os beneficiários acionam a seguradora com a documentação necessária. A Patro Seguros auxilia em todo o processo para garantir agilidade no pagamento, que geralmente ocorre em até 30 dias.",
+          answer: "Em caso de sinistro, a empresa ou os beneficiários podem comunicar a seguradora com a documentação aplicável. A Patro pode orientar e acompanhar o envio, mas a regulação, a decisão e o prazo dependem da seguradora, da apólice e do caso concreto.",
         },
       ]}
       extraSections={<RhOperationalSupport trackingContext="seguro-vida-pme-rh" />}

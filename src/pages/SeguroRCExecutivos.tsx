@@ -9,19 +9,19 @@ const SeguroRCExecutivos = () => {
       subtitle="Proteção patrimonial para diretores, administradores e conselheiros"
       icon="👔"
       metaDescription="Seguro RC Executivos (D&O) para diretores e administradores: proteção contra processos, reclamações e indenizações. Especialistas em RC."
-      description="O Seguro RC Executivos protege o patrimônio pessoal de diretores contra processos por atos de gestão. Garanta blindagem patrimonial para lideranças."
+      description="O Seguro RC Executivos (D&O) pode proteger diretores, administradores e conselheiros contra reclamações relacionadas a atos de gestão, conforme o produto e as condições da apólice."
       detailedDescription={`Em um cenário corporativo cada vez mais regulado e litigioso, executivos estão pessoalmente expostos a processos judiciais, administrativos e regulatórios decorrentes de suas decisões de gestão. O Seguro D&O é a principal ferramenta para blindar o patrimônio pessoal desses profissionais.
 
 Ações de acionistas minoritários, investigações de órgãos reguladores (CVM, CADE, Receita Federal), processos trabalhistas movidos por funcionários, reclamações de credores em recuperação judicial — todas essas situações podem atingir diretamente os bens pessoais dos executivos, mesmo quando agiram de boa-fé.
 
-O D&O cobre custos de defesa, indenizações, acordos e multas (quando seguráveis), garantindo que o executivo não precise comprometer seu patrimônio pessoal para se defender. É um seguro essencial para atrair e reter talentos em posições de liderança.
+O D&O pode contemplar custos de defesa, indenizações, acordos e extensões para multas quando previstas, juridicamente permitidas e contratadas. A cobertura é dirigida aos segurados definidos na apólice e não elimina automaticamente a responsabilidade pessoal do administrador nem protege qualquer ato ou conduta.
 
 Na Patro Seguros, somos especialistas em seguros de Responsabilidade Civil e entendemos as particularidades do mercado D&O. Analisamos a estrutura societária, o segmento de atuação e os riscos específicos para recomendar limites e coberturas adequados, sempre com as melhores seguradoras do mercado.`}
       howItWorks={[
         { step: "1", title: "Análise da Estrutura Societária", description: "Avaliamos a composição da diretoria, conselho e estrutura de governança para identificar exposições de risco" },
         { step: "2", title: "Mapeamento de Riscos", description: "Identificamos os principais riscos regulatórios, trabalhistas, societários e fiscais do segmento de atuação" },
         { step: "3", title: "Cotação Especializada", description: "Negociamos com seguradoras especializadas em D&O para obter as melhores condições e limites adequados" },
-        { step: "4", title: "Proteção Ativa", description: "Em caso de reclamação, a seguradora assume custos de defesa e indenizações, preservando o patrimônio pessoal do executivo" },
+        { step: "4", title: "Proteção conforme a apólice", description: "Em caso de reclamação, a seguradora poderá prestar ou reembolsar custos de defesa e indenizações conforme o contrato, limites e exclusões" },
       ]}
       coverages={[
         { title: "Custos de Defesa", description: "Honorários advocatícios e despesas processuais em ações judiciais e administrativas" },
@@ -31,7 +31,7 @@ Na Patro Seguros, somos especialistas em seguros de Responsabilidade Civil e ent
         { title: "Ações de Acionistas", description: "Reclamações de acionistas minoritários por prejuízos em decisões de gestão" },
         { title: "Investigações", description: "Custos de defesa em investigações criminais e administrativas" },
         { title: "Cônjuge e Herdeiros", description: "Extensão da cobertura ao patrimônio do cônjuge e herdeiros do executivo" },
-        { title: "Multas e Penalidades", description: "Cobertura de multas seguráveis impostas por órgãos reguladores" },
+        { title: "Multas e Penalidades", description: "Algumas extensões podem contemplar multas ou penalidades juridicamente seguráveis, conforme a apólice e seus limites." },
       ]}
       coverageExclusions={[
         "Atos dolosos comprovados judicialmente (fraude, desonestidade)",
@@ -60,7 +60,7 @@ Na Patro Seguros, somos especialistas em seguros de Responsabilidade Civil e ent
         { title: "Processo trabalhista contra diretor", description: "Um ex-funcionário processou pessoalmente o diretor de RH por assédio moral. O D&O cobriu R$ 180.000 em defesa e indenização, preservando os bens pessoais do executivo." },
       ]}
       importantDetails={[
-        { title: "Cobertura Claims Made", content: "O D&O opera na modalidade 'claims made' — cobre reclamações apresentadas durante a vigência da apólice, independentemente de quando o fato ocorreu (respeitada a retroatividade). Manter a apólice ativa continuamente é fundamental." },
+        { title: "Base de reclamações", content: "A forma de acionamento, as datas relevantes, a retroatividade e eventuais prazos complementar ou suplementar dependem das condições contratuais do produto. Não se deve presumir a mesma estrutura para todo D&O." },
         { title: "Limite Agregado", content: "O limite de indenização é compartilhado entre todos os segurados (diretores e conselheiros). Um único processo grande pode consumir boa parte do limite, deixando os demais desprotegidos." },
         { title: "Run-Off", content: "Quando um executivo deixa o cargo, é importante garantir a extensão de cobertura (run-off) para reclamações futuras relacionadas ao período de gestão." },
       ]}
@@ -89,10 +89,10 @@ Na Patro Seguros, somos especialistas em seguros de Responsabilidade Civil e ent
       ]}
       faqs={[
         { question: "Qual a diferença entre D&O e RC Profissional?", answer: "O D&O protege executivos por decisões de gestão empresarial. O RC Profissional protege contra erros técnicos na prestação de serviços. São coberturas complementares para perfis de risco diferentes." },
-        { question: "O D&O cobre multas?", answer: "Sim, desde que sejam multas seguráveis — geralmente multas administrativas e regulatórias. Multas de natureza criminal não são cobertas." },
+        { question: "O D&O cobre multas?", answer: "Depende da cobertura contratada e da natureza da penalidade. Algumas extensões podem contemplar multas ou penalidades juridicamente seguráveis, observados os limites, exclusões e condições da apólice." },
         { question: "Empresa de pequeno porte precisa de D&O?", answer: "Sim! Qualquer executivo que toma decisões estratégicas está exposto a riscos. Processos trabalhistas e fiscais atingem empresas de todos os portes." },
         { question: "O que acontece quando o executivo sai da empresa?", answer: "Com a cláusula de run-off, a cobertura é estendida por um período (geralmente 1 a 5 anos) para reclamações relacionadas ao período de gestão." },
-        { question: "O seguro cobre processos criminais?", answer: "Cobre os custos de defesa em processos criminais. Porém, se o executivo for condenado por ato doloso, pode haver obrigação de reembolso à seguradora." },
+        { question: "O seguro cobre processos criminais?", answer: "A cobertura de defesa em processos criminais, quando oferecida, depende do produto e das condições contratuais. Atos dolosos, fraude e condutas intencionais devem ser analisados conforme a regulamentação e a apólice, podendo existir direito de ressarcimento." },
         { question: "Por que a Patro Seguros é referência em D&O?", answer: "Somos especialistas em Responsabilidade Civil com profundo conhecimento do mercado D&O. Analisamos sua governança corporativa e negociamos condições diferenciadas com seguradoras líderes." },
       ]}
       relatedInsurances={[

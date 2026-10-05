@@ -8,13 +8,13 @@ const SeguroCyber = () => {
       title="Seguro Cyber / Segurança Cibernética"
       subtitle="Proteção contra ataques cibernéticos e vazamento de dados"
       icon="🔒"
-      metaDescription="Seguro Cyber contra ataques hackers e vazamento de dados. Proteção LGPD para empresas. Cobertura de custos de recuperação. Cotação grátis na Patro Seguros."
-      description="O Seguro Cyber protege empresas contra riscos digitais: ataques hackers, ransomware, vazamento de dados, invasões de sistemas e violações da LGPD."
-      detailedDescription={`O Brasil é o 2º país mais atacado por hackers no mundo. Só em 2023, mais de 100 bilhões de tentativas de ataque cibernético foram registradas no país. Empresas de todos os portes são alvos — e as consequências vão desde paralisação total das operações até multas milionárias pela LGPD.
+      metaDescription="Seguro Cyber para riscos cibernéticos, incidentes e dados pessoais. Coberturas dependem do produto, da apólice e da análise da seguradora."
+      description="O Seguro Cyber pode ajudar a transferir impactos financeiros de determinados incidentes cibernéticos, conforme o produto, as coberturas contratadas, os limites e as exclusões da apólice."
+      detailedDescription={`Empresas de diferentes portes podem estar expostas a incidentes cibernéticos. As consequências variam conforme o evento e podem envolver paralisação, recuperação de sistemas, reclamações de terceiros e obrigações regulatórias, sempre de acordo com o caso concreto e a legislação aplicável.
 
-Um ataque de ransomware pode criptografar todos os dados da empresa e exigir resgates de R$ 50.000 a R$ 5 milhões. Um vazamento de dados pode expor informações de clientes e gerar processos judiciais massivos. A LGPD prevê multas de até 2% do faturamento, limitadas a R$ 50 milhões por infração.
+Um ataque de ransomware pode comprometer sistemas e gerar extorsão, mas resposta, investigação, restauração e eventual pagamento relacionado ao resgate possuem regras, limites e exclusões próprios. Um incidente envolvendo dados pessoais pode exigir análise regulatória conforme a LGPD e a Resolução CD/ANPD nº 15/2024. A LGPD prevê sanções administrativas dentro das condições do art. 52; o teto legal não representa multa automática.
 
-O Seguro Cyber não é luxo — é necessidade para qualquer empresa que opera digitalmente. Ele cobre desde os custos de resposta ao incidente (perícia forense, notificação de afetados, assessoria jurídica) até indenizações a terceiros e lucros cessantes pela paralisação.
+O Seguro Cyber não substitui governança, segurança da informação ou conformidade com a LGPD. Dependendo do produto e das coberturas contratadas, pode contemplar custos de resposta a incidentes, investigação, restauração, responsabilidade perante terceiros, interrupção de negócios e outras garantias, sempre dentro da apólice.
 
 Na Patro Seguros, avaliamos a maturidade de segurança da sua empresa e recomendamos coberturas adequadas ao seu nível de exposição digital.`}
       howItWorks={[
@@ -24,14 +24,14 @@ Na Patro Seguros, avaliamos a maturidade de segurança da sua empresa e recomend
         { step: "4", title: "Resposta a Incidentes", description: "Em caso de ataque, a seguradora aciona equipe especializada 24/7 para contenção, investigação e recuperação" },
       ]}
       coverages={[
-        { title: "Vazamento de Dados (LGPD)", description: "Cobertura para custos de notificação e multas da LGPD" },
-        { title: "Ransomware e Extorsão", description: "Cobertura para pagamento de resgates e negociação" },
-        { title: "Interrupção de Negócios", description: "Indenização por parada de sistemas e perda de receita" },
-        { title: "Recuperação de Dados", description: "Custos com restauração de sistemas e informações" },
-        { title: "Responsabilidade Civil Cyber", description: "Cobre reclamações de clientes por vazamento de dados" },
-        { title: "Defesa e Investigação", description: "Custos com perícia forense e advogados especializados" },
-        { title: "Gestão de Crise e Reputação", description: "Suporte em comunicação e gestão de imagem" },
-        { title: "Fraudes Eletrônicas", description: "Cobertura para transferências fraudulentas" },
+        { title: "Incidentes e dados pessoais", description: "Pode contemplar resposta, notificação e custos relacionados, conforme coberturas, limites e condições contratadas." },
+        { title: "Ransomware e extorsão", description: "Resposta, investigação, restauração e eventual extorsão possuem regras e exclusões próprias; não há cobertura automática de resgate." },
+        { title: "Interrupção de negócios", description: "Pode contemplar perdas decorrentes de paralisação quando contratada e observados os requisitos da apólice." },
+        { title: "Recuperação de dados", description: "Custos de restauração podem ser cobertos quando previstos no produto e dentro dos limites contratados." },
+        { title: "Responsabilidade Civil Cyber", description: "Pode atender reclamações de terceiros relacionadas a incidentes cibernéticos, conforme o contrato." },
+        { title: "Defesa e investigação", description: "Perícia, honorários e resposta a incidentes dependem da cobertura, dos profissionais previstos e dos procedimentos da apólice." },
+        { title: "Gestão de crise", description: "Serviços de comunicação e gerenciamento de crise podem ser oferecidos conforme o produto contratado." },
+        { title: "Fraudes eletrônicas", description: "Ataques de engenharia social e transferências fraudulentas exigem cobertura específica, quando disponível." },
       ]}
       coverageExclusions={[
         "Ataques com participação ou conivência de funcionários (ato doloso)",
@@ -59,7 +59,7 @@ Na Patro Seguros, avaliamos a maturidade de segurança da sua empresa e recomend
         { title: "Fraude de CEO (BEC)", description: "Criminosos se passaram pelo CEO de uma empresa por e-mail e convenceram o financeiro a transferir R$ 350.000. O Seguro Cyber com cobertura de fraudes eletrônicas ressarciu o valor integralmente." },
       ]}
       importantDetails={[
-        { title: "LGPD e obrigações legais", content: "A Lei Geral de Proteção de Dados obriga empresas a notificar a ANPD e os afetados em caso de vazamento. O não cumprimento pode resultar em multas de até R$ 50 milhões. O seguro cobre todos os custos de adequação." },
+        { title: "LGPD e obrigações legais", content: "A LGPD e a Resolução CD/ANPD nº 15/2024 tratam da comunicação de incidentes de segurança com dados pessoais que possam acarretar risco ou dano relevante. A obrigação é analisada conforme o caso e recai sobre o controlador nos termos da regulamentação. Seguro Cyber não substitui medidas de conformidade e não cobre automaticamente multas ou custos de adequação." },
         { title: "Resposta nas primeiras horas", content: "As primeiras 24-48 horas após um ataque são críticas. O Seguro Cyber disponibiliza equipe especializada 24/7 para contenção imediata — cada hora conta para minimizar danos." },
         { title: "Segurança como pré-requisito", content: "Seguradoras avaliam suas medidas de segurança antes de cotar. Medidas básicas como MFA, backup, antivírus atualizado e firewall não são opcionais — são pré-requisitos para obter cobertura." },
       ]}
@@ -87,11 +87,11 @@ Na Patro Seguros, avaliamos a maturidade de segurança da sua empresa e recomend
         "Assessoria em plano de resposta a incidentes",
       ]}
       faqs={[
-        { question: "Minha empresa realmente precisa de seguro cyber?", answer: "Se você armazena dados de clientes digitalmente, sim! Ataques cibernéticos crescem exponencialmente e podem quebrar empresas." },
-        { question: "O seguro cobre multas da LGPD?", answer: "Sim! A maioria das apólices inclui cobertura para custos relacionados à LGPD, incluindo notificações obrigatórias e defesa contra autuações." },
+        { question: "Minha empresa fica em conformidade com a LGPD ao contratar Cyber?", answer: "Não. O Seguro Cyber pode transferir parte dos impactos financeiros de determinados incidentes, conforme a apólice, mas não substitui medidas jurídicas, organizacionais, técnicas e administrativas de conformidade." },
+        { question: "O seguro cobre multas da LGPD?", answer: "Depende da cobertura contratada, da natureza da penalidade, dos limites, das exclusões e da permissibilidade jurídica. Não há cobertura automática para multas da LGPD." },
         { question: "O que fazer se sofrer um ataque?", answer: "Entre em contato imediatamente. Acionamos especialistas em perícia forense, negociadores e advogados. Tempo de resposta é crítico." },
         { question: "Quanto custa o seguro cyber?", answer: "PMEs a partir de R$ 5.000/ano. O custo depende do porte, volume de dados e medidas de segurança existentes." },
-        { question: "Preciso ter certificações de segurança?", answer: "Não obrigatoriamente, mas medidas básicas (MFA, backup, antivírus) são pré-requisitos e reduzem o prêmio." },
+        { question: "Preciso ter certificações de segurança?", answer: "A exigência depende do produto e da análise da seguradora. Medidas como MFA, backup e controles de acesso podem ser avaliadas no questionário de risco, mas não constituem uma regra universal para todos os produtos." },
       ]}
       relatedInsurances={[
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },

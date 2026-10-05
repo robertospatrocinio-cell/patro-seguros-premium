@@ -11,7 +11,7 @@ const SeguroPulverizadorAgricola = () => {
       subtitle="Proteção para pulverizadores autopropelidos e de arrasto. Cobertura nacional com foco em tecnologia e precisão."
       icon="🚜"
       badge="Especialista em Tecnologia do Campo"
-      metaDescription="Seguro para Pulverizadores Agrícolas: proteção contra roubo, incêndio, quebra de barras e danos elétricos. Atendimento em todo o Brasil. Cotação Patro Seguros."
+      metaDescription="Seguro para Pulverizadores Agrícolas: analise roubo, incêndio, danos elétricos, barras e outras coberturas conforme a apólice."
       description="O pulverizador é um dos equipamentos mais tecnológicos e sensíveis do campo. O Seguro especializado da Patro Seguros garante a proteção contra danos mecânicos, elétricos e acidentais em todo o Brasil."
       detailedDescription={`A pulverização é uma etapa crítica para a saúde da lavoura. Um pulverizador autopropelido parado por uma quebra de barra, um curto-circuito no monitor de fluxo ou um tombamento em manobra pode comprometer toda a janela de aplicação de defensivos.
 
@@ -27,11 +27,11 @@ Com atendimento 100% remoto, facilitamos a contratação para produtores de todo
       coverages={[
         { title: "Incêndio e Explosão", description: "Proteção contra riscos térmicos no motor e sistemas hidráulicos." },
         { title: "Roubo e Furto Qualificado", description: "Segurança para equipamentos em galpões ou frentes de trabalho." },
-        { title: "Tombamento e Colisão", description: "Cobre acidentes durante a operação em terrenos irregulares ou manobras." },
-        { title: "Quebra de Barras e Estrutura", description: "Cobertura específica para danos acidentais nas barras de pulverização." },
+        { title: "Tombamento e colisão", description: "Podem ser cobertos durante a operação quando previstos no produto e na apólice." },
+        { title: "Quebra de barras e estrutura", description: "Pode existir cobertura específica para dano acidental; desgaste, manutenção e pane não são automaticamente cobertos." },
         { title: "Danos Elétricos e Eletrônicos", description: "Proteção para GPS, monitores, bicos eletrônicos e sensores de fluxo." },
         { title: "Responsabilidade Civil Operador", description: "Protege contra danos causados a propriedades vizinhas ou pessoas." },
-        { title: "RC Ambiental Eventual", description: "Cobre danos por contaminação acidental durante o uso do equipamento." },
+        { title: "RC Ambiental eventual", description: "Pode contemplar danos a terceiros ou ambientais quando a cobertura específica for contratada e o evento estiver abrangido." },
       ]}
       coverageExclusions={[
         "Desgaste natural de bicos, mangueiras e filtros",
@@ -52,8 +52,8 @@ Com atendimento 100% remoto, facilitamos a contratação para produtores de todo
         note: "Pulverizadores com sistemas de corte de seção e telemetria avançada possuem análise técnica diferenciada.",
       }}
       realScenarios={[
-        { title: "Quebra de Barra em Obstáculo", description: "A barra do pulverizador atingiu um poste oculto, gerando R$ 45.000 em danos. O seguro cobriu a substituição total da seção danificada." },
-        { title: "Curto no Sistema de GPS", description: "Uma sobrecarga elétrica queimou a antena e o monitor de orientação. A reposição de R$ 18.000 foi paga integralmente pela cobertura de danos elétricos." },
+        { title: "Dano em barra", description: "Danos acidentais em barras dependem da cobertura, do evento, dos limites e das condições da apólice." },
+        { title: "Sistema de GPS", description: "Danos em antena, monitor ou sensores dependem da descrição dos equipamentos e da cobertura de danos elétricos contratada." },
         { title: "Tombamento em Curva de Nível", description: "Máquina tombou durante aplicação em terreno íngreme. O seguro arcou com R$ 110.000 em reparos estruturais e resgate especializado." },
       ]}
       importantDetails={[
@@ -82,9 +82,9 @@ Com atendimento 100% remoto, facilitamos a contratação para produtores de todo
         "Atendimento nacional para todas as fronteiras agrícolas",
       ]}
       faqs={[
-        { question: "O seguro cobre pulverizadores de arrasto?", answer: "Sim, seguramos tanto os modelos autopropelidos quanto os acoplados ao trator." },
+        { question: "O seguro cobre pulverizadores de arrasto?", answer: "A aceitação de modelos autopropelidos ou acoplados depende do produto, da descrição do bem, do uso e dos critérios da seguradora." },
         { question: "O seguro cobre contaminação ambiental?", answer: "Sim, desde que seja contratada a cobertura adicional de Responsabilidade Civil Ambiental Eventual." },
-        { question: "Qual o prazo para receber a indenização?", answer: "Após a entrega da documentação, o prazo legal é de até 30 dias, mas buscamos agilizar o processo para evitar atrasos na safra." },
+        { question: "Qual o prazo para receber a indenização?", answer: "O prazo depende do evento, da cobertura, da documentação, da regulação, da apólice e da legislação aplicável. Não há promessa universal de prazo fixo." },
         { question: "Posso incluir o GPS e monitor de outra marca?", answer: "Sim, é possível incluir acessórios de agricultura de precisão instalados posteriormente, desde que informados na contratação." },
       ]}
       relatedInsurances={[

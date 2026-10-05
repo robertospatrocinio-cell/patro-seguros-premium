@@ -10,7 +10,6 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { Button } from "@/components/ui/button";
 import { getCanonicalUrl } from "@/lib/canonical";
-import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
@@ -249,7 +248,6 @@ const HubSegurosGuarulhos = () => {
         <section className="py-20" aria-labelledby="por-que-patro-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-12">
-              <SeloMelhorCorretora size="md" />
               <h2 id="por-que-patro-heading" className="mt-6">Por que escolher a Patro Seguros em Guarulhos?</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">

@@ -1,44 +1,43 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-galpoes.webp";
-import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 
 /**
- * FAQs da página /seguro-galpoes-industriais: 2 perguntas-base
- * historicamente exibidas + enriquecimento por intenção (informational,
- * technical, comparison, transactional) para reforçar Rich Snippets de
- * galpões industriais (estrutura metálica, lucros cessantes, AVCB,
- * sprinklers, RC operações).
+ * FAQs específicas da página, com linguagem dependente do produto,
+ * da seguradora e das condições da apólice.
  */
 const INDUSTRIAL_BASE_FAQS = [
-  { question: "O seguro cobre o conteúdo do galpão?", answer: "Sim, é possível segurar tanto a estrutura quanto máquinas, equipamentos e mercadorias armazenadas. Para galpão industrial, o ideal é declarar separadamente o LMI de Estrutura, Máquinas e Equipamentos, Mercadoria/Estoque e Equipamentos Eletrônicos para evitar subseguro em qualquer dos blocos." },
-  { question: "Quanto custa seguro de galpão industrial?", answer: "O valor depende da localização, tipo de atividade, valor do imóvel e coberturas. Para galpão industrial padrão de 3.000m² com LMI total de R$ 8 milhões, o seguro empresarial completo (incêndio, roubo, danos elétricos, RC operações, lucros cessantes) fica entre R$ 24.000 e R$ 55.000/ano. A Patro cota com 16 seguradoras especializadas em risco industrial pesado." },
+  { question: "O seguro pode proteger o conteúdo do galpão?", answer: "Pode ser analisado para estrutura, máquinas, equipamentos e mercadorias, desde que esses bens sejam aceitos, declarados e incluídos nas coberturas contratadas. Limites, franquias, eventos cobertos e exclusões dependem da apólice." },
+  { question: "Quais informações influenciam a análise do seguro?", answer: "A análise pode considerar atividade, construção, localização, valores em risco, estoque, equipamentos, medidas de proteção e histórico do risco. A aceitação e a composição das coberturas dependem da seguradora e do produto." },
+  { question: "O seguro pode contemplar paralisação da atividade?", answer: "Pode haver cobertura específica para interrupção ou lucros cessantes, mas ela não é automática. O alcance depende do evento coberto, dos limites, do período de indenização e das condições da apólice." },
+  { question: "Quais informações podem ser solicitadas para cotar um galpão industrial?", answer: "Podem ser solicitados dados sobre endereço, atividade, estrutura, valores de construção, estoque, máquinas, equipamentos, medidas de proteção e operação. A lista varia conforme o risco e a seguradora." },
 ];
-
-const INDUSTRIAL_FAQS = mergeGalpaoFAQs(INDUSTRIAL_BASE_FAQS, [
-  "informational",
-  "technical",
-  "comparison",
-  "transactional",
-]);
 
 const SeguroGalpoesIndustriais = () => {
   return (
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro de Galpões Industriais"
-      subtitle="Proteção completa para galpões, armazéns e instalações industriais contra incêndio, roubo e riscos operacionais."
-      description="Seguro de Galpões Industriais: proteção para instalações, mercadorias e maquinário. Cubra seu patrimônio contra incêndio, explosão e roubo em todo o Brasil."
+      title="Seguro para Galpões Industriais"
+      subtitle="Seguro para galpões industriais: análise de proteção patrimonial e operacional conforme o risco e a apólice"
+      description="O seguro para galpões industriais pode analisar estrutura, máquinas, equipamentos, estoque e responsabilidades da operação. A composição depende da atividade, construção, localização, valores em risco, medidas de proteção, seguradora e condições da apólice. Coberturas e limites só devem ser considerados quando aceitos e contratados."
+      detailedDescription={`## O que pode ser analisado no seguro para galpões industriais
+Galpões industriais podem reunir estrutura, máquinas, equipamentos, estoque e responsabilidades operacionais. A análise deve separar os bens, os valores em risco e a atividade exercida para identificar as alternativas disponíveis.
+
+## Como funciona a avaliação do risco
+A seguradora pode considerar construção, localização, operação, medidas de proteção, histórico de ocorrências e características do estoque. A aceitação, os limites, as franquias e as exclusões dependem do produto e da apólice.
+
+## O que depende da apólice
+Coberturas como danos elétricos, vendaval, roubo, responsabilidade civil e interrupção da atividade só devem ser apresentadas quando previstas e contratadas. A Patro Seguros orienta a comparação das alternativas conforme o perfil do risco.`}
       icon="🏭"
-      metaDescription="Seguro para Galpões Industriais: proteção contra incêndio, roubo, vendaval e danos ao estoque. Cobertura para armazéns e instalações. Cotação na Patro Seguros."
+      metaDescription="Seguro para galpões industriais: avalie proteção para estrutura, estoque, equipamentos, responsabilidade civil e paralisação conforme o risco e a apólice."
       coverages={[
-        { title: "Incêndio, Raio e Explosão", description: "Cobertura básica para o prédio e seu conteúdo." },
-        { title: "Vendaval e Granizo", description: "Proteção contra danos estruturais por fenômenos climáticos." },
-        { title: "Roubo e Furto Qualificado", description: "Cobertura para mercadorias e equipamentos." },
-        { title: "Danos Elétricos", description: "Proteção contra curto-circuito e oscilação de energia." },
-        { title: "Responsabilidade Civil", description: "Cobertura para danos a terceiros nas instalações." },
-        { title: "Lucros Cessantes", description: "Proteção financeira durante paralisação por sinistro." },
+        { title: "Incêndio, raio e explosão", description: "Pode ser analisada para a estrutura e o conteúdo conforme a apólice." },
+        { title: "Vendaval e granizo", description: "Pode ser incluída conforme o risco, os limites e as condições contratadas." },
+        { title: "Roubo e furto qualificado", description: "Pode contemplar mercadorias e equipamentos quando previsto no produto." },
+        { title: "Danos elétricos", description: "Pode ser avaliada para máquinas e equipamentos conforme a apólice." },
+        { title: "Responsabilidade civil", description: "Pode tratar de danos a terceiros conforme os eventos e limites contratados." },
+        { title: "Interrupção da atividade", description: "Pode ser analisada por meio de cobertura específica, quando disponível e contratada." },
       ]}
       whoNeeds={[
         "Indústrias de todos os portes",
@@ -49,13 +48,15 @@ const SeguroGalpoesIndustriais = () => {
       whyPatro={[
         "Análise de risco personalizada para cada instalação",
         "Coberturas sob medida para o perfil industrial",
-        "Experiência com seguros de grande porte",
-        "Suporte completo na regulação de sinistros",
+        "Orientação sobre alternativas para diferentes perfis de risco",
+        "Acompanhamento na comunicação de eventual sinistro",
       ]}
-      faqs={INDUSTRIAL_FAQS}
+      faqs={INDUSTRIAL_BASE_FAQS}
       relatedInsurances={[
         { title: "Máquinas Industriais", link: "/seguro-maquinas-industriais" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
+        { title: "Seguro de Armazenagem", link: "/seguro-armazenagem" },
+        { title: "Soluções empresariais", link: "/solucoes-empresariais" },
       ]}
     />
     <GalpaoStickyCTABar

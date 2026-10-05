@@ -16,8 +16,8 @@ export const SAUDE_PAGES = [
   },
   {
     slug: "plano-de-saude-para-mei-guarulhos",
-    title: "Plano de Saúde para MEI em Guarulhos | A partir de 2 Vidas",
-    metaDescription: "Plano de saúde para MEI em Guarulhos com valores até 40% menores que o individual. Atendimento Amil, Bradesco e operadoras regionais. Confira!",
+    title: "Plano de Saúde para MEI em Guarulhos",
+    metaDescription: "Plano de saúde para MEI em Guarulhos: consulte requisitos, carência e alternativas de operadoras conforme o produto e o perfil.",
     h1: "Plano de Saúde para MEI em Guarulhos",
   }
 ];
