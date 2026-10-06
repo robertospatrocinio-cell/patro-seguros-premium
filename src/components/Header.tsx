@@ -198,6 +198,7 @@ const Header = memo(() => {
     { label: "Transportadoras", to: "/nicho-transportadoras", section: "empresarial" },
     { label: "Galpões", to: "/seguro-galpoes-industriais", section: "empresarial" },
     { label: "Responsabilidade Civil", to: "/seguro-rc", section: "empresarial" },
+    { label: "RC Obras e Montagem", to: "/seguro-rc-obras", section: "empresarial" },
     { label: "Cyber", to: "/seguro-cyber", section: "empresarial" },
     { label: "Saúde PME", to: "/plano-saude-empresarial", section: "empresarial" },
     { label: "Vida em Grupo", to: "/seguro-vida-pme", section: "empresarial" },
@@ -375,6 +376,7 @@ const Header = memo(() => {
                         <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Riscos e Benefícios</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-rc" className="block py-1 hover:text-primary">Responsabilidade Civil</SmartLink>
+                          <SmartLink to="/seguro-rc-obras" className="block py-1 hover:text-primary">RC Obras e Montagem</SmartLink>
                           <SmartLink to="/seguro-cyber" className="block py-1 hover:text-primary">Seguro Cyber</SmartLink>
                           <SmartLink to="/plano-saude-empresarial" className="block py-1 hover:text-primary">Plano de Saúde PME</SmartLink>
                           <SmartLink to="/seguro-vida-pme" className="block py-1 hover:text-primary">Seguro de Vida em Grupo</SmartLink>
@@ -615,6 +617,7 @@ const Header = memo(() => {
               <MobileLink to="/seguro-frota">Seguro Frota</MobileLink>
               <MobileLink to="/seguro-transporte">Transporte e Carga</MobileLink>
               <MobileLink to="/plano-saude-empresarial">Plano de Saúde PME</MobileLink>
+              <MobileLink to="/seguro-rc-obras">RC Obras e Montagem</MobileLink>
             </MobileSection>
 
             <MobileSection id="agro" label="Agronegócio">
