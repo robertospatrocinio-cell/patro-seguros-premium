@@ -850,6 +850,11 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         description: "Entenda como funciona o consórcio para carro, imóvel e caminhão, suas vantagens, regras e quando vale a pena contratar.",
         h1: "Consórcio: Como Funciona",
       },
+      "/todos-os-seguros": {
+        title: "Todos os Seguros | Catálogo por Perfil | Patro Seguros",
+        description: "Catálogo completo de seguros da Patro Seguros para pessoas e famílias, empresas e agronegócio. Compare as opções e solicite sua cotação.",
+        h1: "Todos os seguros",
+      },
       "/servicos": {
         title: "Serviços | Patro Seguros — Corretora em Guarulhos",
         description: "Conheça todos os serviços da Patro Seguros: seguro auto, vida, residencial, saúde, empresarial, frota, consórcio e agronegócio em Guarulhos.",

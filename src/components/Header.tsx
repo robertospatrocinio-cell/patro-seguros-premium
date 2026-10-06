@@ -183,6 +183,7 @@ const Header = memo(() => {
 
 
   const allMobileLinks = useMemo(() => [
+    { label: "Todos os seguros", to: "/todos-os-seguros", section: "pessoal" },
     { label: "Auto", to: "/seguro-auto", section: "pessoal" },
     { label: "Moto", to: "/seguro-moto", section: "pessoal" },
     { label: "Residencial", to: "/seguro-residencial", section: "pessoal" },
@@ -317,7 +318,7 @@ const Header = memo(() => {
             <div className="hidden lg:flex items-center gap-1">
               <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</SmartLink>
               <SmartLink to="/seguros-guarulhos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Guarulhos</SmartLink>
-              <SmartLink to="/servicos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Serviços</SmartLink>
+              <SmartLink to="/todos-os-seguros" className="text-[13px] font-semibold text-primary hover:text-foreground transition-base px-3 py-2">Todos os seguros</SmartLink>
 
 
               {/* Para você */}
@@ -539,6 +540,9 @@ const Header = memo(() => {
             </div>
 
 
+            <Link to="/cotacao" onClick={() => trackCotacaoClick("header-mobile")} className="lg:hidden ml-auto mr-1">
+              <Button size="sm" className="rounded-lg text-[12px] font-semibold h-9 px-3">Cotação grátis</Button>
+            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2"
@@ -589,6 +593,15 @@ const Header = memo(() => {
 
           )}
 
+
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <SmartLink to="/todos-os-seguros" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center rounded-lg border border-primary text-primary font-semibold text-[13px] h-11">
+              Todos os seguros
+            </SmartLink>
+            <SmartLink to="/cotacao" onClick={() => { trackCotacaoClick("header-mobile-menu"); setIsMenuOpen(false); }} className="flex items-center justify-center rounded-lg bg-primary text-primary-foreground font-semibold text-[13px] h-11">
+              Solicitar cotação
+            </SmartLink>
+          </div>
 
           <div className="relative mb-4">
 

@@ -141,6 +141,7 @@ const Footer = memo(() => {
           <nav aria-label="Atendimento e Conteúdo">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Atendimento</h3>
             <ul className="space-y-2.5 text-[13px] mb-8">
+              <li><SmartLink to="/todos-os-seguros" className="text-white font-semibold hover:text-primary transition-colors">Todos os seguros</SmartLink></li>
               <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
               <li><SmartLink to="/indique-e-ganhe" className="hover:text-white transition-colors">Indique um Amigo</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>

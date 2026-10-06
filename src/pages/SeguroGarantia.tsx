@@ -360,6 +360,10 @@ const SeguroGarantia = () => {
             </ExternalLink>
           </div>
         </section>
+        <ObraSegurosComparativo />
+        <section className="py-8 border-t text-center">
+          <Link to="/todos-os-seguros" className="font-semibold text-primary underline">Ver todos os seguros</Link>
+        </section>
       </main>
       <Footer />
     </>
