@@ -17,6 +17,7 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/sobre-guarulhos",
   "/contato",
   "/servicos",
+  "/todos-os-seguros",
   "/verificar-susep",
   "/como-comparar-seguradoras-guarulhos",
   "/parceiros",

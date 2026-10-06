@@ -123,6 +123,16 @@ const SolutionGuide = ({ onSelectInsuranceType }: SolutionGuideProps) => {
             ),
           )}
         </div>
+
+        <div className="mt-8 text-center">
+          <Button asChild size="lg" variant="default">
+            <Link to="/todos-os-seguros">
+              Ver todos os seguros
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
+          <p className="mt-2 text-sm text-muted-foreground">Pessoas e famílias, empresas e agronegócio em um só lugar.</p>
+        </div>
       </div>
     </section>
   );

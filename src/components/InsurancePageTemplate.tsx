@@ -39,6 +39,7 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
+import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
@@ -1189,6 +1190,8 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
+        {["/seguro-engenharia", "/seguro-rc", "/seguro-rc-obras"].includes(location.pathname) && <ObraSegurosComparativo />}
+
         {/* Relacionados */}
         {relatedInsurances.length > 0 && (
           <section className="py-16 gradient-surface" aria-labelledby="relacionados-heading">
@@ -1204,6 +1207,14 @@ const InsurancePageTemplate = ({
             </div>
           </section>
         )}
+        <section className="py-8 border-t" aria-label="Catálogo de seguros">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-sm text-muted-foreground mb-3">Quer comparar com outras opções?</p>
+            <Link to="/todos-os-seguros">
+              <Button variant="default" className="rounded-xl">Ver todos os seguros <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" /></Button>
+            </Link>
+          </div>
+        </section>
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica.
             Páginas de escopo nacional (localSeo.skip) recebem heading sem geomodificador. */}
