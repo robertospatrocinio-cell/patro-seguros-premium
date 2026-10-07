@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck, MessageCircle, ArrowRight, CheckCircle, FileText, Building2 } from "lucide-react";
+import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
 import Header from "@/components/Header";
 import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
