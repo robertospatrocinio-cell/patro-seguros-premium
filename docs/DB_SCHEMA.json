@@ -1,0 +1,5608 @@
+{
+  "enums": [
+    {
+      "nome": "app_role",
+      "valores": [
+        "admin",
+        "user"
+      ]
+    }
+  ],
+  "funcoes": [
+    {
+      "nome": "bytea_to_text",
+      "retorno": "text",
+      "definicao": "CREATE OR REPLACE FUNCTION public.bytea_to_text(data bytea)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$bytea_to_text$function$\n",
+      "argumentos": "data bytea"
+    },
+    {
+      "nome": "check_rate_limit",
+      "retorno": "boolean",
+      "definicao": "CREATE OR REPLACE FUNCTION public.check_rate_limit(p_key text, p_window_seconds integer, p_max_requests integer)\n RETURNS boolean\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n    v_now TIMESTAMP WITH TIME ZONE := now();\n    v_reset_at TIMESTAMP WITH TIME ZONE;\n    v_count INTEGER;\nBEGIN\n    -- Cleanup expired entries for this specific key to keep table lean\n    DELETE FROM public.rate_limits WHERE reset_at < v_now;\n\n    -- Try to find existing bucket\n    SELECT count, reset_at INTO v_count, v_reset_at\n    FROM public.rate_limits\n    WHERE key = p_key\n    FOR UPDATE; -- Lock row for atomicity\n\n    IF NOT FOUND THEN\n        -- Create new bucket\n        INSERT INTO public.rate_limits (key, count, reset_at)\n        VALUES (p_key, 1, v_now + (p_window_seconds || ' seconds')::INTERVAL);\n        RETURN TRUE;\n    END IF;\n\n    -- Check if limit exceeded\n    IF v_count >= p_max_requests THEN\n        RETURN FALSE;\n    END IF;\n\n    -- Increment existing bucket\n    UPDATE public.rate_limits\n    SET count = count + 1\n    WHERE key = p_key;\n\n    RETURN TRUE;\nEND;\n$function$\n",
+      "argumentos": "p_key text, p_window_seconds integer, p_max_requests integer"
+    },
+    {
+      "nome": "delete_email",
+      "retorno": "boolean",
+      "definicao": "CREATE OR REPLACE FUNCTION public.delete_email(queue_name text, message_id bigint)\n RETURNS boolean\n LANGUAGE plpgsql\n SET search_path TO 'public', 'pgmq'\nAS $function$\nBEGIN\n  RETURN pgmq.delete(queue_name, message_id);\nEXCEPTION WHEN undefined_table THEN\n  RETURN FALSE;\nEND;\n$function$\n",
+      "argumentos": "queue_name text, message_id bigint"
+    },
+    {
+      "nome": "email_queue_dispatch",
+      "retorno": "void",
+      "definicao": "CREATE OR REPLACE FUNCTION public.email_queue_dispatch()\n RETURNS void\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\nBEGIN\n  IF NOT EXISTS (SELECT 1 FROM pgmq.q_auth_emails)\n     AND NOT EXISTS (SELECT 1 FROM pgmq.q_transactional_emails) THEN\n    BEGIN\n      -- Serialize disarm against email_queue_wake on a shared advisory lock, then\n      -- re-read under it: an enqueue racing the unschedule either committed (we\n      -- see its row and leave the cron) or waits and re-arms after we commit.\n      PERFORM pg_catalog.pg_advisory_xact_lock(7700000000000001);\n      IF EXISTS (SELECT 1 FROM pgmq.q_auth_emails)\n         OR EXISTS (SELECT 1 FROM pgmq.q_transactional_emails) THEN\n        RETURN;\n      END IF;\n      PERFORM cron.unschedule('process-email-queue');\n    EXCEPTION WHEN OTHERS THEN\n      RAISE WARNING 'email_queue_dispatch: cron unschedule failed: %', SQLERRM;\n    END;\n    RETURN;\n  END IF;\n\n  IF (SELECT retry_after_until FROM public.email_send_state WHERE id = 1) > now() THEN\n    RETURN;\n  END IF;\n\n  PERFORM net.http_post(\n    url := 'https://vjzsekwkeixbbpldiqmd.supabase.co/functions/v1/process-email-queue',\n    headers := jsonb_build_object(\n      'Content-Type', 'application/json',\n      'Lovable-Context', 'cron',\n      'Authorization', 'Bearer ' || (\n        SELECT decrypted_secret FROM vault.decrypted_secrets WHERE name = 'email_queue_service_role_key'\n      )\n    ),\n    body := '{}'::jsonb\n  );\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "email_queue_wake",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.email_queue_wake()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\nBEGIN\n  -- Runs inside the enqueue transaction; the outer handler guarantees nothing\n  -- below can roll back the customer's email. Shared advisory lock serializes\n  -- arming against email_queue_dispatch's disarm.\n  PERFORM pg_catalog.pg_advisory_xact_lock(7700000000000001);\n  IF NOT EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'process-email-queue') THEN\n    BEGIN\n      PERFORM cron.schedule('process-email-queue', '5 seconds', $cron$ SELECT public.email_queue_dispatch(); $cron$);\n    EXCEPTION WHEN OTHERS THEN\n      RAISE WARNING 'email_queue_wake: cron schedule failed: %', SQLERRM;\n    END;\n  END IF;\n\n  BEGIN\n    PERFORM net.http_post(\n      url := 'https://vjzsekwkeixbbpldiqmd.supabase.co/functions/v1/process-email-queue',\n      headers := jsonb_build_object(\n        'Content-Type', 'application/json',\n        'Lovable-Context', 'cron',\n        'Authorization', 'Bearer ' || (\n          SELECT decrypted_secret FROM vault.decrypted_secrets WHERE name = 'email_queue_service_role_key'\n        )\n      ),\n      body := '{}'::jsonb\n    );\n  EXCEPTION WHEN OTHERS THEN NULL;\n  END;\n\n  RETURN NULL;\nEXCEPTION WHEN OTHERS THEN\n  RAISE WARNING 'email_queue_wake failed (enqueue preserved): %', SQLERRM;\n  RETURN NULL;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "enqueue_email",
+      "retorno": "bigint",
+      "definicao": "CREATE OR REPLACE FUNCTION public.enqueue_email(queue_name text, payload jsonb)\n RETURNS bigint\n LANGUAGE plpgsql\n SET search_path TO 'public', 'pgmq'\nAS $function$\nBEGIN\n  RETURN pgmq.send(queue_name, payload);\nEXCEPTION WHEN undefined_table THEN\n  PERFORM pgmq.create(queue_name);\n  RETURN pgmq.send(queue_name, payload);\nEND;\n$function$\n",
+      "argumentos": "queue_name text, payload jsonb"
+    },
+    {
+      "nome": "get_web_vitals_correlation",
+      "retorno": "TABLE(page text, device_type text, sessions bigint, p75_lcp double precision, p75_cls double precision, p75_inp double precision, good_lcp_pct numeric, good_cls_pct numeric, good_inp_pct numeric, conversions bigint, leads_count bigint, conversion_rate numeric, lead_rate numeric)",
+      "definicao": "CREATE OR REPLACE FUNCTION public.get_web_vitals_correlation(p_days integer DEFAULT 30, p_device text DEFAULT NULL::text)\n RETURNS TABLE(page text, device_type text, sessions bigint, p75_lcp double precision, p75_cls double precision, p75_inp double precision, good_lcp_pct numeric, good_cls_pct numeric, good_inp_pct numeric, conversions bigint, leads_count bigint, conversion_rate numeric, lead_rate numeric)\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nBEGIN\n  IF NOT public.has_role(auth.uid(), 'admin') THEN\n    RAISE EXCEPTION 'Access denied';\n  END IF;\n\n  RETURN QUERY\n  WITH v AS (\n    SELECT wv.page, wv.device_type, wv.session_id, wv.metric_name, wv.value, wv.rating\n    FROM public.web_vitals_metrics wv\n    WHERE wv.created_at >= now() - (p_days || ' days')::interval\n      AND (p_device IS NULL OR wv.device_type = p_device)\n      AND wv.page IS NOT NULL\n  ),\n  agg AS (\n    SELECT\n      v.page,\n      v.device_type,\n      COUNT(DISTINCT v.session_id) AS sessions,\n      percentile_cont(0.75) WITHIN GROUP (ORDER BY v.value) FILTER (WHERE v.metric_name = 'LCP') AS p75_lcp,\n      percentile_cont(0.75) WITHIN GROUP (ORDER BY v.value) FILTER (WHERE v.metric_name = 'CLS') AS p75_cls,\n      percentile_cont(0.75) WITHIN GROUP (ORDER BY v.value) FILTER (WHERE v.metric_name = 'INP') AS p75_inp,\n      ROUND(100.0 * COUNT(*) FILTER (WHERE v.metric_name = 'LCP' AND v.rating = 'good')\n            / NULLIF(COUNT(*) FILTER (WHERE v.metric_name = 'LCP'), 0), 1) AS good_lcp_pct,\n      ROUND(100.0 * COUNT(*) FILTER (WHERE v.metric_name = 'CLS' AND v.rating = 'good')\n            / NULLIF(COUNT(*) FILTER (WHERE v.metric_name = 'CLS'), 0), 1) AS good_cls_pct,\n      ROUND(100.0 * COUNT(*) FILTER (WHERE v.metric_name = 'INP' AND v.rating = 'good')\n            / NULLIF(COUNT(*) FILTER (WHERE v.metric_name = 'INP'), 0), 1) AS good_inp_pct\n    FROM v\n    GROUP BY v.page, v.device_type\n  ),\n  conv AS (\n    SELECT\n      ce.page_path AS page,\n      COALESCE(NULLIF(\n        CASE\n          WHEN ce.user_agent ILIKE '%mobile%' THEN 'mobile'\n          WHEN ce.user_agent ILIKE '%tablet%' OR ce.user_agent ILIKE '%ipad%' THEN 'tablet'\n          ELSE 'desktop'\n        END, ''), 'desktop') AS device_type,\n      COUNT(*) AS conversions\n    FROM public.conversion_click_events ce\n    WHERE ce.created_at >= now() - (p_days || ' days')::interval\n      AND ce.page_path IS NOT NULL\n    GROUP BY 1, 2\n  ),\n  ld AS (\n    SELECT l.source_page AS page, COUNT(*) AS leads_count\n    FROM public.leads l\n    WHERE l.created_at >= now() - (p_days || ' days')::interval\n      AND l.source_page IS NOT NULL\n    GROUP BY 1\n  )\n  SELECT\n    agg.page,\n    agg.device_type,\n    agg.sessions,\n    agg.p75_lcp,\n    agg.p75_cls,\n    agg.p75_inp,\n    agg.good_lcp_pct,\n    agg.good_cls_pct,\n    agg.good_inp_pct,\n    COALESCE(conv.conversions, 0) AS conversions,\n    COALESCE(ld.leads_count, 0) AS leads_count,\n    ROUND(100.0 * COALESCE(conv.conversions, 0) / NULLIF(agg.sessions, 0), 2) AS conversion_rate,\n    ROUND(100.0 * COALESCE(ld.leads_count, 0) / NULLIF(agg.sessions, 0), 2) AS lead_rate\n  FROM agg\n  LEFT JOIN conv ON conv.page = agg.page AND conv.device_type = agg.device_type\n  LEFT JOIN ld ON ld.page = agg.page\n  ORDER BY agg.sessions DESC;\nEND;\n$function$\n",
+      "argumentos": "p_days integer DEFAULT 30, p_device text DEFAULT NULL::text"
+    },
+    {
+      "nome": "get_web_vitals_timeseries",
+      "retorno": "TABLE(day date, p75_value double precision, samples bigint)",
+      "definicao": "CREATE OR REPLACE FUNCTION public.get_web_vitals_timeseries(p_metric text, p_page text DEFAULT NULL::text, p_device text DEFAULT NULL::text, p_days integer DEFAULT 30)\n RETURNS TABLE(day date, p75_value double precision, samples bigint)\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nBEGIN\n  IF NOT public.has_role(auth.uid(), 'admin') THEN\n    RAISE EXCEPTION 'Access denied';\n  END IF;\n\n  RETURN QUERY\n  SELECT\n    date_trunc('day', wv.created_at)::date AS day,\n    percentile_cont(0.75) WITHIN GROUP (ORDER BY wv.value) AS p75_value,\n    COUNT(*) AS samples\n  FROM public.web_vitals_metrics wv\n  WHERE wv.created_at >= now() - (p_days || ' days')::interval\n    AND wv.metric_name = p_metric\n    AND (p_page IS NULL OR wv.page = p_page)\n    AND (p_device IS NULL OR wv.device_type = p_device)\n  GROUP BY 1\n  ORDER BY 1;\nEND;\n$function$\n",
+      "argumentos": "p_metric text, p_page text DEFAULT NULL::text, p_device text DEFAULT NULL::text, p_days integer DEFAULT 30"
+    },
+    {
+      "nome": "handle_updated_at",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.handle_updated_at()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    NEW.updated_at = now();\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "has_role",
+      "retorno": "boolean",
+      "definicao": "CREATE OR REPLACE FUNCTION public.has_role(_user_id uuid, _role app_role)\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\n  SELECT EXISTS (SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role = _role)\n$function$\n",
+      "argumentos": "_user_id uuid, _role app_role"
+    },
+    {
+      "nome": "http",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http(request http_request)\n RETURNS http_response\n LANGUAGE c\nAS '$libdir/http', $function$http_request$function$\n",
+      "argumentos": "request http_request"
+    },
+    {
+      "nome": "http_delete",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, $3, $2)::public.http_request) $function$\n",
+      "argumentos": "uri character varying, content character varying, content_type character varying"
+    },
+    {
+      "nome": "http_delete",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
+      "argumentos": "uri character varying"
+    },
+    {
+      "nome": "http_get",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_get(uri character varying, data jsonb)\n RETURNS http_response\n LANGUAGE sql\nAS $function$\n        SELECT public.http(('GET', $1 || '?' || public.urlencode($2), NULL, NULL, NULL)::public.http_request)\n    $function$\n",
+      "argumentos": "uri character varying, data jsonb"
+    },
+    {
+      "nome": "http_get",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_get(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('GET', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
+      "argumentos": "uri character varying"
+    },
+    {
+      "nome": "http_head",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_head(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('HEAD', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
+      "argumentos": "uri character varying"
+    },
+    {
+      "nome": "http_header",
+      "retorno": "http_header",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_header(field character varying, value character varying)\n RETURNS http_header\n LANGUAGE sql\nAS $function$ SELECT $1, $2 $function$\n",
+      "argumentos": "field character varying, value character varying"
+    },
+    {
+      "nome": "http_list_curlopt",
+      "retorno": "TABLE(curlopt text, value text)",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_list_curlopt()\n RETURNS TABLE(curlopt text, value text)\n LANGUAGE c\nAS '$libdir/http', $function$http_list_curlopt$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "http_patch",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_patch(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('PATCH', $1, NULL, $3, $2)::public.http_request) $function$\n",
+      "argumentos": "uri character varying, content character varying, content_type character varying"
+    },
+    {
+      "nome": "http_post",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_post(uri character varying, data jsonb)\n RETURNS http_response\n LANGUAGE sql\nAS $function$\n        SELECT public.http(('POST', $1, NULL, 'application/x-www-form-urlencoded', public.urlencode($2))::public.http_request)\n    $function$\n",
+      "argumentos": "uri character varying, data jsonb"
+    },
+    {
+      "nome": "http_post",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_post(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('POST', $1, NULL, $3, $2)::public.http_request) $function$\n",
+      "argumentos": "uri character varying, content character varying, content_type character varying"
+    },
+    {
+      "nome": "http_put",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_put(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('PUT', $1, NULL, $3, $2)::public.http_request) $function$\n",
+      "argumentos": "uri character varying, content character varying, content_type character varying"
+    },
+    {
+      "nome": "http_reset_curlopt",
+      "retorno": "boolean",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_reset_curlopt()\n RETURNS boolean\n LANGUAGE c\nAS '$libdir/http', $function$http_reset_curlopt$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "http_set_curlopt",
+      "retorno": "boolean",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_set_curlopt(curlopt character varying, value character varying)\n RETURNS boolean\n LANGUAGE c\nAS '$libdir/http', $function$http_set_curlopt$function$\n",
+      "argumentos": "curlopt character varying, value character varying"
+    },
+    {
+      "nome": "move_to_dlq",
+      "retorno": "bigint",
+      "definicao": "CREATE OR REPLACE FUNCTION public.move_to_dlq(source_queue text, dlq_name text, message_id bigint, payload jsonb)\n RETURNS bigint\n LANGUAGE plpgsql\n SET search_path TO 'public', 'pgmq'\nAS $function$\nDECLARE new_id BIGINT;\nBEGIN\n  SELECT pgmq.send(dlq_name, payload) INTO new_id;\n  PERFORM pgmq.delete(source_queue, message_id);\n  RETURN new_id;\nEXCEPTION WHEN undefined_table THEN\n  BEGIN\n    PERFORM pgmq.create(dlq_name);\n  EXCEPTION WHEN OTHERS THEN\n    NULL;\n  END;\n  SELECT pgmq.send(dlq_name, payload) INTO new_id;\n  BEGIN\n    PERFORM pgmq.delete(source_queue, message_id);\n  EXCEPTION WHEN undefined_table THEN\n    NULL;\n  END;\n  RETURN new_id;\nEND;\n$function$\n",
+      "argumentos": "source_queue text, dlq_name text, message_id bigint, payload jsonb"
+    },
+    {
+      "nome": "rate_limit_leads_trigger",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.rate_limit_leads_trigger()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nDECLARE\n    v_ip TEXT;\n    v_is_allowed BOOLEAN;\nBEGIN\n    v_ip := COALESCE(\n        NULLIF(current_setting('request.headers', true)::json->>'cf-connecting-ip', ''),\n        NULLIF(current_setting('request.headers', true)::json->>'x-real-ip', ''),\n        NULLIF(split_part(current_setting('request.headers', true)::json->>'x-forwarded-for', ',', 1), ''),\n        NEW.ip_address,\n        'unknown'\n    );\n\n    NEW.ip_address := v_ip;\n\n    SELECT public.check_rate_limit(\n        'leads_insert:' || v_ip,\n        300,\n        3\n    ) INTO v_is_allowed;\n\n    IF NOT v_is_allowed THEN\n        RAISE EXCEPTION 'Muitas solicitações em um curto período. Por favor, tente novamente mais tarde.'\n            USING ERRCODE = 'P0001';\n    END IF;\n\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "rate_limit_referrals_trigger",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.rate_limit_referrals_trigger()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_ip TEXT;\n  v_is_allowed BOOLEAN;\nBEGIN\n  v_ip := COALESCE(\n    NULLIF(current_setting('request.headers', true)::json->>'cf-connecting-ip', ''),\n    NULLIF(current_setting('request.headers', true)::json->>'x-real-ip', ''),\n    NULLIF(split_part(current_setting('request.headers', true)::json->>'x-forwarded-for', ',', 1), ''),\n    NEW.ip_address,\n    'unknown'\n  );\n  NEW.ip_address := v_ip;\n\n  SELECT public.check_rate_limit('referrals_insert:' || v_ip, 300, 3) INTO v_is_allowed;\n  IF NOT v_is_allowed THEN\n    RAISE EXCEPTION 'Muitas indicações em um curto período. Tente novamente em alguns minutos.'\n      USING ERRCODE = 'P0001';\n  END IF;\n  RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "read_email_batch",
+      "retorno": "TABLE(msg_id bigint, read_ct integer, message jsonb)",
+      "definicao": "CREATE OR REPLACE FUNCTION public.read_email_batch(queue_name text, batch_size integer, vt integer)\n RETURNS TABLE(msg_id bigint, read_ct integer, message jsonb)\n LANGUAGE plpgsql\n SET search_path TO 'public', 'pgmq'\nAS $function$\nBEGIN\n  RETURN QUERY SELECT r.msg_id, r.read_ct, r.message FROM pgmq.read(queue_name, vt, batch_size) r;\nEXCEPTION WHEN undefined_table THEN\n  PERFORM pgmq.create(queue_name);\n  RETURN;\nEND;\n$function$\n",
+      "argumentos": "queue_name text, batch_size integer, vt integer"
+    },
+    {
+      "nome": "text_to_bytea",
+      "retorno": "bytea",
+      "definicao": "CREATE OR REPLACE FUNCTION public.text_to_bytea(data text)\n RETURNS bytea\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$text_to_bytea$function$\n",
+      "argumentos": "data text"
+    },
+    {
+      "nome": "trigger_monitor_rich_results",
+      "retorno": "void",
+      "definicao": "CREATE OR REPLACE FUNCTION public.trigger_monitor_rich_results()\n RETURNS void\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\nDECLARE v_key text;\nBEGIN\n  SELECT decrypted_secret INTO v_key FROM vault.decrypted_secrets WHERE name = 'email_queue_service_role_key';\n  IF v_key IS NULL THEN\n    RAISE WARNING 'trigger_monitor_rich_results: service role key not found in vault';\n    RETURN;\n  END IF;\n  PERFORM net.http_post(\n    url := 'https://vjzsekwkeixbbpldiqmd.supabase.co/functions/v1/monitor-rich-results',\n    headers := jsonb_build_object('Content-Type', 'application/json', 'Authorization', 'Bearer ' || v_key),\n    body := '{}'::jsonb\n  );\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "trigger_quote_reminders",
+      "retorno": "void",
+      "definicao": "CREATE OR REPLACE FUNCTION public.trigger_quote_reminders()\n RETURNS void\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\nDECLARE v_key text;\nBEGIN\n  SELECT decrypted_secret INTO v_key FROM vault.decrypted_secrets WHERE name = 'email_queue_service_role_key';\n  IF v_key IS NULL THEN\n    RAISE WARNING 'trigger_quote_reminders: service role key not found in vault';\n    RETURN;\n  END IF;\n  PERFORM net.http_post(\n    url := 'https://vjzsekwkeixbbpldiqmd.supabase.co/functions/v1/quote-reminders-cron',\n    headers := jsonb_build_object('Content-Type', 'application/json', 'Authorization', 'Bearer ' || v_key),\n    body := '{}'::jsonb\n  );\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "update_customer_last_interaction",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.update_customer_last_interaction()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    UPDATE public.customers\n    SET last_interaction_at = NEW.interaction_date\n    WHERE id = NEW.customer_id;\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "update_last_activity",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.update_last_activity()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    NEW.last_activity = now();\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "update_lead_status_from_kanban",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.update_lead_status_from_kanban()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    IF NEW.kanban_stage_id IS NOT NULL THEN\n        SELECT name INTO NEW.lead_status FROM public.kanban_stages WHERE id = NEW.kanban_stage_id;\n    END IF;\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "update_updated_at_column",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.update_updated_at_column()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    NEW.updated_at = now();\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "urlencode",
+      "retorno": "text",
+      "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(string character varying)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode$function$\n",
+      "argumentos": "string character varying"
+    },
+    {
+      "nome": "urlencode",
+      "retorno": "text",
+      "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(string bytea)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode$function$\n",
+      "argumentos": "string bytea"
+    },
+    {
+      "nome": "urlencode",
+      "retorno": "text",
+      "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(data jsonb)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode_jsonb$function$\n",
+      "argumentos": "data jsonb"
+    },
+    {
+      "nome": "validate_lead_data",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.validate_lead_data()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n    -- Validate Full Name\n    IF NEW.full_name IS NULL OR length(trim(NEW.full_name)) < 3 THEN\n        RAISE EXCEPTION 'Nome completo inválido. Deve ter pelo menos 3 caracteres.';\n    END IF;\n\n    -- Validate Email\n    IF NEW.email IS NULL OR NEW.email !~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$' THEN\n        RAISE EXCEPTION 'E-mail inválido.';\n    END IF;\n\n    -- Validate Phone\n    IF NEW.phone IS NULL OR length(regexp_replace(NEW.phone, '\\D', '', 'g')) < 10 THEN\n        RAISE EXCEPTION 'Telefone inválido. Informe o DDD e o número completo.';\n    END IF;\n\n    RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    },
+    {
+      "nome": "validate_referral_data",
+      "retorno": "trigger",
+      "definicao": "CREATE OR REPLACE FUNCTION public.validate_referral_data()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'public'\nAS $function$\nBEGIN\n  IF NEW.referred_name IS NULL OR length(trim(NEW.referred_name)) < 3 THEN\n    RAISE EXCEPTION 'Nome do indicado inválido (mínimo 3 caracteres).';\n  END IF;\n  IF NEW.referrer_name IS NULL OR length(trim(NEW.referrer_name)) < 3 THEN\n    RAISE EXCEPTION 'Seu nome é obrigatório (mínimo 3 caracteres).';\n  END IF;\n  IF NEW.referrer_email IS NULL OR NEW.referrer_email !~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$' THEN\n    RAISE EXCEPTION 'E-mail do indicador inválido.';\n  END IF;\n  IF NEW.referred_phone IS NOT NULL AND length(regexp_replace(NEW.referred_phone, '\\D', '', 'g')) < 10 THEN\n    RAISE EXCEPTION 'Telefone do indicado inválido.';\n  END IF;\n  RETURN NEW;\nEND;\n$function$\n",
+      "argumentos": ""
+    }
+  ],
+  "tabelas": [
+    {
+      "tabela": "anchor_alerts",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "anchor",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "kind",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "status",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": "'open'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "streak_days",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "1",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "first_detected_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "last_detected_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "reviewed_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "reviewed_by",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "cluster_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "top_pathname",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "current_score",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "current_conversion_rate",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "previous_conversion_rate",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "metrics",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": "'{}'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "reason",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "anchor_priorities",
+      "colunas": [
+        {
+          "nome": "anchor",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "score",
+          "nulo": "NO",
+          "tipo": "numeric",
+          "default": "0",
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "conversion_rate",
+          "nulo": "NO",
+          "tipo": "numeric",
+          "default": "0",
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "sessions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "converting_sessions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "clicks",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "impressions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "position",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "top_pathname",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "whatsapp_conversions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "cotacao_conversions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        }
+      ]
+    },
+    {
+      "tabela": "anchor_priority_history",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "anchor",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "snapshot_date",
+          "nulo": "NO",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "score",
+          "nulo": "NO",
+          "tipo": "numeric",
+          "default": "0",
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "conversion_rate",
+          "nulo": "NO",
+          "tipo": "numeric",
+          "default": "0",
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "sessions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "converting_sessions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "clicks",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "impressions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "position",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "top_pathname",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "whatsapp_conversions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "cotacao_conversions",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "breadcrumb_overrides",
+      "colunas": [
+        {
+          "nome": "slug",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "category_label",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "category_href",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "pillar_label",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "pillar_href",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "updated_by",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "claims",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "client_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "description",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "claim_date",
+          "nulo": "NO",
+          "tipo": "date",
+          "default": "CURRENT_DATE",
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'Aberto'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "has_third_party",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "third_party_count",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "third_party_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "third_party_phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "tracking_notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "timezone('utc'::text, now())",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "timezone('utc'::text, now())",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "claim_number",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "policy_number",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "location",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "workshop",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "notification_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "deductible_amount",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        }
+      ]
+    },
+    {
+      "tabela": "contact_insurances",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "contact_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "contacts",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "full_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "cpf_cnpj",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "client_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "is_client",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "marital_status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "partner_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "partner_birthday",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "has_children",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "children_count",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "children_data",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": "'[]'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "car_count",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "has_motorcycle",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "has_life_insurance",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "has_home_insurance",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "health_plan_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "has_business_insurance",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "has_other_insurance",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "birth_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "life_insurance_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "life_insurance_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "home_insurance_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "home_insurance_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "health_insurance_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "health_insurance_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "business_insurance_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "business_insurance_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "other_insurance_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "other_insurance_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "last_contact_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "next_contact_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "profession",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "income_bracket",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "home_ownership",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "lead_source",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "satisfaction_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "last_interaction_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referral_contact_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "salesperson_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "partner_source_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "has_consortium",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "consortium_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "consortium_carrier",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "consortium_renewal",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "responsible_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "property_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "opportunities",
+          "nulo": "YES",
+          "tipo": "ARRAY",
+          "default": "'{}'::text[]",
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "opportunity_notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "first_license_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "zip_code",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "content_overrides",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "scope",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "slug",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "title",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "summary",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "intro",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "body",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "faqs",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": "'[]'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "published",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "updated_by",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "conversion_click_events",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "event_type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "source",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "page_path",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "analytics_loaded",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "seconds_since_page_start",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "session_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "user_agent",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "utm_source",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_medium",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_campaign",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_term",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_content",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referrer",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "landing_page",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "origin",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "lcp_ms",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "inp_ms",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "tbt_ms",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "cls",
+          "nulo": "YES",
+          "tipo": "double precision",
+          "default": null,
+          "tipo_udt": "float8"
+        },
+        {
+          "nome": "device_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "connection_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "crm_notifications",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "user_id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "title",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "message",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'alert'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "read",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "customer_responsible_history",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "role",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "previous_user_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "new_user_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "changed_by",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "changed_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "customers",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "full_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "cpf_cnpj",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "birth_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "address_street",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_number",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_complement",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_neighborhood",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_city",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "address_zip",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "client_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'pessoa_fisica'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "user_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "assigned_consultant_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "assigned_attendant_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "assigned_manager_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "relationship_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "100",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "relationship_status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'active'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "last_interaction_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "client_profile",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'common'::text",
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "documents",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "policy_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "file_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "file_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "file_path",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "category",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "contact_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "external_drive_link",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "domain_health_checks",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "hostname",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "checked_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "status",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "reasons",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": "'[]'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "dns_a",
+          "nulo": "NO",
+          "tipo": "ARRAY",
+          "default": "'{}'::text[]",
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "dns_cname",
+          "nulo": "NO",
+          "tipo": "ARRAY",
+          "default": "'{}'::text[]",
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "txt_lovable",
+          "nulo": "NO",
+          "tipo": "ARRAY",
+          "default": "'{}'::text[]",
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "expected_ip",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "http_status",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "final_url",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "redirect_chain",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": "'[]'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "details",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": "'{}'::jsonb",
+          "tipo_udt": "jsonb"
+        }
+      ]
+    },
+    {
+      "tabela": "email_send_log",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "message_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "template_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "recipient_email",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "status",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "error_message",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "metadata",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "email_send_state",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "1",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "retry_after_until",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "batch_size",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "10",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "send_delay_ms",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "200",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "auth_email_ttl_minutes",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "15",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "transactional_email_ttl_minutes",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "60",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "email_unsubscribe_tokens",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "token",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "email",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "used_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "gsc_indexation_alerts",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "url",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "previous_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "new_state",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "transition_type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "notified_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "gsc_indexation_status",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "url",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "coverage_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "indexing_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "verdict",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "last_crawl_time",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "google_canonical",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "user_canonical",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "page_fetch_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "robots_txt_state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "raw",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "checked_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "insurance_sales",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "carrier",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "sale_date",
+          "nulo": "NO",
+          "tipo": "date",
+          "default": "CURRENT_DATE",
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "amount",
+          "nulo": "NO",
+          "tipo": "numeric",
+          "default": "0",
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "interactions",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "interaction_date",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "user_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'completed'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "next_contact_date",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "internal_link_applications",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "destination",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "placement",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "sources",
+          "nulo": "NO",
+          "tipo": "ARRAY",
+          "default": "'{}'::text[]",
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "score",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "reason",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "period_days",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "status",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": "'planned'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "applied_by",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "applied_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "internal_link_click_events",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "placement",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "source",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "destination",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "label",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "page_path",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "session_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_source",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_medium",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_campaign",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referrer",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "device_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "user_agent",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "anchor",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "event_kind",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": "'click'::text",
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "kanban_stages",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "color",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'#cbd5e1'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "order_index",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "lead_quote_history",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "partial_quote_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "step_reached",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "field_changed",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "previous_value",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "new_value",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "snapshot",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "leads",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "full_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "source_page",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_source",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_medium",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "utm_campaign",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "raw_data",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": "'{}'::jsonb",
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "ip_address",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "cpf_cnpj",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "city",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "state",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "client_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'pessoa_fisica'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "source_origin",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'site'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "lead_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "lead_status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'novo'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "assigned_to",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "kanban_stage_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "kanban_order",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "responsible_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "monitored_urls",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "url",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "label",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "active",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "true",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "pagespeed_audits",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "url",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "strategy",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "performance_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "accessibility_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "best_practices_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "seo_score",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "lcp_ms",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "fcp_ms",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "tbt_ms",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "cls",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "speed_index_ms",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "partial_quotes",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "current_step",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "data",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "last_activity",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "reminder_sent_count",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "policies",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "insurance_type",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurer_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "policy_number",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "start_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "end_date",
+          "nulo": "YES",
+          "tipo": "date",
+          "default": null,
+          "tipo_udt": "date"
+        },
+        {
+          "nome": "premium_amount",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "commission_amount",
+          "nulo": "YES",
+          "tipo": "numeric",
+          "default": null,
+          "tipo_udt": "numeric"
+        },
+        {
+          "nome": "payment_status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'pending'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "installments_total",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "1",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "installments_paid",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'active'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "is_renewal",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "renewal_from_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "purge_logs",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "action",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "tags",
+          "nulo": "YES",
+          "tipo": "ARRAY",
+          "default": null,
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "total_urls",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "purged_urls",
+          "nulo": "YES",
+          "tipo": "ARRAY",
+          "default": null,
+          "tipo_udt": "_text"
+        },
+        {
+          "nome": "results",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "success",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "error_message",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "rate_limits",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "key",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "count",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "1",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "reset_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "referrals",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "referrer_customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "referred_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referred_phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referred_email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "insurance_type_interest",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'pending'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "conversion_date",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "reward_given",
+          "nulo": "YES",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "referrer_name",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referrer_email",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referrer_phone",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "referrer_relationship",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "notes",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "source_page",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "ip_address",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "user_agent",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "relationship_rules",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "profile",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "interaction_interval_days",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "alert_threshold_days",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "schema_audits",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "executed_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "page_path",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "has_breadcrumb",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "has_faq",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "has_rating",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "errors",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": "'[]'::jsonb",
+          "tipo_udt": "jsonb"
+        }
+      ]
+    },
+    {
+      "tabela": "seo_audit_findings",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "run_id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "route",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "severity",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "rule",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "message",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "is_new",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "ignored",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "first_seen_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "seo_audit_runs",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "started_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "finished_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "total_urls",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "passed",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "warned",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "failed",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "new_failures",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "duration_ms",
+          "nulo": "YES",
+          "tipo": "integer",
+          "default": null,
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "triggered_by",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": "'cron'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "alert_sent",
+          "nulo": "NO",
+          "tipo": "boolean",
+          "default": "false",
+          "tipo_udt": "bool"
+        },
+        {
+          "nome": "error_message",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        }
+      ]
+    },
+    {
+      "tabela": "seo_rich_results_checks",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "checked_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "total_errors",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "total_warnings",
+          "nulo": "NO",
+          "tipo": "integer",
+          "default": "0",
+          "tipo_udt": "int4"
+        },
+        {
+          "nome": "summary",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "issues",
+          "nulo": "NO",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        }
+      ]
+    },
+    {
+      "tabela": "sitemap_history",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "filename",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "hash",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "submitted_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "suppressed_emails",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "email",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "reason",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "metadata",
+          "nulo": "YES",
+          "tipo": "jsonb",
+          "default": null,
+          "tipo_udt": "jsonb"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "tasks",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "title",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "description",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "due_date",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": null,
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "status",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'pending'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "priority",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'medium'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "assigned_to",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "lead_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "policy_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        },
+        {
+          "nome": "updated_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "user_roles",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "user_id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "role",
+          "nulo": "NO",
+          "tipo": "USER-DEFINED",
+          "default": null,
+          "tipo_udt": "app_role"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "web_vitals_metrics",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "metric_name",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "value",
+          "nulo": "NO",
+          "tipo": "double precision",
+          "default": null,
+          "tipo_udt": "float8"
+        },
+        {
+          "nome": "rating",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "page",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "device_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "connection_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "user_agent",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "session_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "metric_id",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "phase",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "created_at",
+          "nulo": "NO",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    },
+    {
+      "tabela": "whatsapp_history",
+      "colunas": [
+        {
+          "nome": "id",
+          "nulo": "NO",
+          "tipo": "uuid",
+          "default": "gen_random_uuid()",
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "customer_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "lead_id",
+          "nulo": "YES",
+          "tipo": "uuid",
+          "default": null,
+          "tipo_udt": "uuid"
+        },
+        {
+          "nome": "direction",
+          "nulo": "NO",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "message_body",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "attachment_url",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": null,
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "message_type",
+          "nulo": "YES",
+          "tipo": "text",
+          "default": "'text'::text",
+          "tipo_udt": "text"
+        },
+        {
+          "nome": "sent_at",
+          "nulo": "YES",
+          "tipo": "timestamp with time zone",
+          "default": "now()",
+          "tipo_udt": "timestamptz"
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Admins can insert anchor alerts",
+      "tabela": "anchor_alerts",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read anchor alerts",
+      "tabela": "anchor_alerts",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can update anchor alerts",
+      "tabela": "anchor_alerts",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "anchor_priorities_admin_read",
+      "tabela": "anchor_priorities",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read anchor history",
+      "tabela": "anchor_priority_history",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "breadcrumb_overrides_admin_delete",
+      "tabela": "breadcrumb_overrides",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "breadcrumb_overrides_admin_insert",
+      "tabela": "breadcrumb_overrides",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "breadcrumb_overrides_admin_update",
+      "tabela": "breadcrumb_overrides",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": "true",
+      "policy": "breadcrumb_overrides_public_read",
+      "tabela": "breadcrumb_overrides",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage claims",
+      "tabela": "claims",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage all contact_insurances",
+      "tabela": "contact_insurances",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage all contacts",
+      "tabela": "contacts",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "content_overrides_admin_delete",
+      "tabela": "content_overrides",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "content_overrides_admin_insert",
+      "tabela": "content_overrides",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "content_overrides_admin_read",
+      "tabela": "content_overrides",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "content_overrides_admin_update",
+      "tabela": "content_overrides",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": "(published = true)",
+      "policy": "content_overrides_public_read_published",
+      "tabela": "content_overrides",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view conversion click events",
+      "tabela": "conversion_click_events",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": null,
+      "policy": "Anyone can register conversion click events",
+      "tabela": "conversion_click_events",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(event_type = ANY (ARRAY['cotacao_click'::text, 'whatsapp_click'::text]))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(auth.uid() = user_id)",
+      "policy": "Users can update their notifications",
+      "tabela": "crm_notifications",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.uid() = user_id)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(auth.uid() = user_id)",
+      "policy": "Users can view their own notifications",
+      "tabela": "crm_notifications",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins view customer responsible history",
+      "tabela": "customer_responsible_history",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": "(auth.role() = 'service_role'::text)",
+      "policy": "Service role can delete customer responsible history",
+      "tabela": "customer_responsible_history",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": null,
+      "policy": "Service role can insert customer responsible history",
+      "tabela": "customer_responsible_history",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.role() = 'service_role'::text)"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": "(auth.role() = 'service_role'::text)",
+      "policy": "Service role can update customer responsible history",
+      "tabela": "customer_responsible_history",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.role() = 'service_role'::text)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))",
+      "policy": "Admins manage customers",
+      "tabela": "customers",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage all documents",
+      "tabela": "documents",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view domain health checks",
+      "tabela": "domain_health_checks",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": null,
+      "policy": "Service role can insert send log",
+      "tabela": "email_send_log",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can read send log",
+      "tabela": "email_send_log",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can update send log",
+      "tabela": "email_send_log",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can manage send state",
+      "tabela": "email_send_state",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": null,
+      "policy": "Service role can insert tokens",
+      "tabela": "email_unsubscribe_tokens",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can mark tokens as used",
+      "tabela": "email_unsubscribe_tokens",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can read tokens",
+      "tabela": "email_unsubscribe_tokens",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view indexation alerts",
+      "tabela": "gsc_indexation_alerts",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins read gsc alerts",
+      "tabela": "gsc_indexation_alerts",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins read gsc status",
+      "tabela": "gsc_indexation_status",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage insurance sales",
+      "tabela": "insurance_sales",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage interactions",
+      "tabela": "interactions",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can delete internal link applications",
+      "tabela": "internal_link_applications",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Admins can insert internal link applications",
+      "tabela": "internal_link_applications",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(has_role(auth.uid(), 'admin'::app_role) AND (applied_by = auth.uid()))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can update internal link applications",
+      "tabela": "internal_link_applications",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view internal link applications",
+      "tabela": "internal_link_applications",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins read internal link clicks",
+      "tabela": "internal_link_click_events",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "public insert internal link clicks",
+      "tabela": "internal_link_click_events",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(((length(placement) >= 1) AND (length(placement) <= 64)) AND ((length(source) >= 1) AND (length(source) <= 128)) AND ((length(destination) >= 1) AND (length(destination) <= 512)) AND ((length(page_path) >= 1) AND (length(page_path) <= 512)) AND ((label IS NULL) OR (length(label) <= 256)) AND ((user_agent IS NULL) OR (length(user_agent) <= 512)) AND ((referrer IS NULL) OR (length(referrer) <= 512)))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))",
+      "policy": "Admins manage kanban stages",
+      "tabela": "kanban_stages",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read quote history",
+      "tabela": "lead_quote_history",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": "false",
+      "policy": "Deny client writes to lead_quote_history delete",
+      "tabela": "lead_quote_history",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Deny client writes to lead_quote_history insert",
+      "tabela": "lead_quote_history",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "false"
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": "false",
+      "policy": "Deny client writes to lead_quote_history update",
+      "tabela": "lead_quote_history",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "false"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage all leads",
+      "tabela": "leads",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": null,
+      "policy": "Service role can insert leads",
+      "tabela": "leads",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.role() = 'service_role'::text)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can delete monitored_urls",
+      "tabela": "monitored_urls",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Admins can insert monitored_urls",
+      "tabela": "monitored_urls",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can update monitored_urls",
+      "tabela": "monitored_urls",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view monitored_urls",
+      "tabela": "monitored_urls",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view pagespeed audits",
+      "tabela": "pagespeed_audits",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": null,
+      "policy": "Service role can insert pagespeed audits",
+      "tabela": "pagespeed_audits",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can delete partial quotes",
+      "tabela": "partial_quotes",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read partial quotes",
+      "tabela": "partial_quotes",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": null,
+      "policy": "Service role can insert partial quotes",
+      "tabela": "partial_quotes",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.role() = 'service_role'::text)"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "using": "(auth.role() = 'service_role'::text)",
+      "policy": "Service role can update partial quotes",
+      "tabela": "partial_quotes",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(auth.role() = 'service_role'::text)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage policies",
+      "tabela": "policies",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view purge logs",
+      "tabela": "purge_logs",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Allow service role full access on purge_logs",
+      "tabela": "purge_logs",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "anon"
+      ],
+      "using": "false",
+      "policy": "Deny anon read purge_logs",
+      "tabela": "purge_logs",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can manage rate limits",
+      "tabela": "rate_limits",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))",
+      "policy": "Admins manage referrals",
+      "tabela": "referrals",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))"
+    },
+    {
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Anyone can create referrals",
+      "tabela": "referrals",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(((char_length(btrim(referred_name)) >= 2) AND (char_length(btrim(referred_name)) <= 120)) AND ((referred_email IS NOT NULL) OR (referred_phone IS NOT NULL)) AND ((status IS NULL) OR (status = 'pendente'::text)) AND ((reward_given IS NULL) OR (reward_given = false)) AND (conversion_date IS NULL))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view relationship rules",
+      "tabela": "relationship_rules",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))",
+      "policy": "Admins manage relationship rules",
+      "tabela": "relationship_rules",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Only admins can manage schema audits",
+      "tabela": "schema_audits",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins read seo_audit_findings",
+      "tabela": "seo_audit_findings",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins update seo_audit_findings",
+      "tabela": "seo_audit_findings",
+      "comando": "UPDATE",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Admins can insert audit runs",
+      "tabela": "seo_audit_runs",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "admins read seo_audit_runs",
+      "tabela": "seo_audit_runs",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": null,
+      "policy": "Admins can insert rich results checks",
+      "tabela": "seo_rich_results_checks",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read rich results checks",
+      "tabela": "seo_rich_results_checks",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "true",
+      "policy": "Allow authenticated reads on sitemap_history",
+      "tabela": "sitemap_history",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can delete suppressed emails",
+      "tabela": "suppressed_emails",
+      "comando": "DELETE",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": null,
+      "policy": "Service role can insert suppressed emails",
+      "tabela": "suppressed_emails",
+      "comando": "INSERT",
+      "permissiva": "PERMISSIVE",
+      "with_check": "true"
+    },
+    {
+      "roles": [
+        "service_role"
+      ],
+      "using": "true",
+      "policy": "Service role can read suppressed emails",
+      "tabela": "suppressed_emails",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins manage tasks",
+      "tabela": "tasks",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "has_role(auth.uid(), 'admin'::app_role)"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can view all roles",
+      "tabela": "user_roles",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(auth.uid() = user_id)",
+      "policy": "Users can view their own roles",
+      "tabela": "user_roles",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "has_role(auth.uid(), 'admin'::app_role)",
+      "policy": "Admins can read web vitals",
+      "tabela": "web_vitals_metrics",
+      "comando": "SELECT",
+      "permissiva": "PERMISSIVE",
+      "with_check": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "using": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))",
+      "policy": "Admins manage whatsapp",
+      "tabela": "whatsapp_history",
+      "comando": "ALL",
+      "permissiva": "PERMISSIVE",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM user_roles\n  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role))))"
+    }
+  ],
+  "triggers": [
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "anchor_alerts",
+      "trigger": "anchor_alerts_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "breadcrumb_overrides",
+      "trigger": "breadcrumb_overrides_set_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "claims",
+      "trigger": "update_claims_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "contacts",
+      "trigger": "update_contacts_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "content_overrides",
+      "trigger": "content_overrides_set_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "customers",
+      "trigger": "set_customers_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "insurance_sales",
+      "trigger": "update_insurance_sales_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_customer_last_interaction()",
+      "evento": "INSERT",
+      "quando": "AFTER",
+      "tabela": "interactions",
+      "trigger": "trigger_update_customer_last_interaction"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_updated_at_column()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "internal_link_applications",
+      "trigger": "update_internal_link_applications_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "leads",
+      "trigger": "set_leads_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_lead_status_from_kanban()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "leads",
+      "trigger": "tr_update_lead_status_kanban"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_lead_status_from_kanban()",
+      "evento": "INSERT",
+      "quando": "BEFORE",
+      "tabela": "leads",
+      "trigger": "tr_update_lead_status_kanban"
+    },
+    {
+      "acao": "EXECUTE FUNCTION validate_lead_data()",
+      "evento": "INSERT",
+      "quando": "BEFORE",
+      "tabela": "leads",
+      "trigger": "tr_validate_lead_on_insert"
+    },
+    {
+      "acao": "EXECUTE FUNCTION rate_limit_leads_trigger()",
+      "evento": "INSERT",
+      "quando": "BEFORE",
+      "tabela": "leads",
+      "trigger": "trg_rate_limit_leads"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "monitored_urls",
+      "trigger": "trg_monitored_urls_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION update_last_activity()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "partial_quotes",
+      "trigger": "tr_update_last_activity"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "policies",
+      "trigger": "set_policies_updated_at"
+    },
+    {
+      "acao": "EXECUTE FUNCTION rate_limit_referrals_trigger()",
+      "evento": "INSERT",
+      "quando": "BEFORE",
+      "tabela": "referrals",
+      "trigger": "trg_rate_limit_referrals"
+    },
+    {
+      "acao": "EXECUTE FUNCTION validate_referral_data()",
+      "evento": "INSERT",
+      "quando": "BEFORE",
+      "tabela": "referrals",
+      "trigger": "trg_validate_referral"
+    },
+    {
+      "acao": "EXECUTE FUNCTION handle_updated_at()",
+      "evento": "UPDATE",
+      "quando": "BEFORE",
+      "tabela": "tasks",
+      "trigger": "set_tasks_updated_at"
+    }
+  ],
+  "gerado_em": "2026-10-08T18:28:26.929632+00:00",
+  "rls_ativo": {
+    "leads": true,
+    "tasks": true,
+    "claims": true,
+    "contacts": true,
+    "policies": true,
+    "customers": true,
+    "documents": true,
+    "referrals": true,
+    "purge_logs": true,
+    "user_roles": true,
+    "rate_limits": true,
+    "interactions": true,
+    "anchor_alerts": true,
+    "kanban_stages": true,
+    "schema_audits": true,
+    "email_send_log": true,
+    "monitored_urls": true,
+    "partial_quotes": true,
+    "seo_audit_runs": true,
+    "insurance_sales": true,
+    "sitemap_history": true,
+    "email_send_state": true,
+    "pagespeed_audits": true,
+    "whatsapp_history": true,
+    "anchor_priorities": true,
+    "content_overrides": true,
+    "crm_notifications": true,
+    "suppressed_emails": true,
+    "contact_insurances": true,
+    "lead_quote_history": true,
+    "relationship_rules": true,
+    "seo_audit_findings": true,
+    "web_vitals_metrics": true,
+    "breadcrumb_overrides": true,
+    "domain_health_checks": true,
+    "gsc_indexation_alerts": true,
+    "gsc_indexation_status": true,
+    "anchor_priority_history": true,
+    "conversion_click_events": true,
+    "seo_rich_results_checks": true,
+    "email_unsubscribe_tokens": true,
+    "internal_link_applications": true,
+    "internal_link_click_events": true,
+    "customer_responsible_history": true
+  },
+  "contagem_linhas": {
+    "leads": 1,
+    "tasks": 0,
+    "claims": 0,
+    "contacts": 3,
+    "policies": 0,
+    "customers": 0,
+    "documents": 0,
+    "referrals": 0,
+    "purge_logs": 0,
+    "user_roles": 3,
+    "rate_limits": 1,
+    "interactions": 0,
+    "anchor_alerts": 0,
+    "kanban_stages": 6,
+    "schema_audits": 0,
+    "email_send_log": 0,
+    "monitored_urls": 10,
+    "partial_quotes": 0,
+    "seo_audit_runs": 97,
+    "insurance_sales": 5,
+    "sitemap_history": 0,
+    "email_send_state": 1,
+    "pagespeed_audits": 0,
+    "whatsapp_history": 0,
+    "anchor_priorities": 0,
+    "content_overrides": 0,
+    "crm_notifications": 0,
+    "suppressed_emails": 0,
+    "contact_insurances": 14,
+    "lead_quote_history": 0,
+    "relationship_rules": 4,
+    "seo_audit_findings": 66125,
+    "web_vitals_metrics": 2142,
+    "breadcrumb_overrides": 0,
+    "domain_health_checks": 0,
+    "gsc_indexation_alerts": 0,
+    "gsc_indexation_status": 0,
+    "anchor_priority_history": 0,
+    "conversion_click_events": 41,
+    "seo_rich_results_checks": 0,
+    "email_unsubscribe_tokens": 0,
+    "internal_link_applications": 0,
+    "internal_link_click_events": 4,
+    "customer_responsible_history": 0
+  },
+  "chaves_primarias": [
+    {
+      "coluna": "id",
+      "tabela": "anchor_alerts"
+    },
+    {
+      "coluna": "anchor",
+      "tabela": "anchor_priorities"
+    },
+    {
+      "coluna": "id",
+      "tabela": "anchor_priority_history"
+    },
+    {
+      "coluna": "slug",
+      "tabela": "breadcrumb_overrides"
+    },
+    {
+      "coluna": "id",
+      "tabela": "claims"
+    },
+    {
+      "coluna": "id",
+      "tabela": "contact_insurances"
+    },
+    {
+      "coluna": "id",
+      "tabela": "contacts"
+    },
+    {
+      "coluna": "id",
+      "tabela": "content_overrides"
+    },
+    {
+      "coluna": "id",
+      "tabela": "conversion_click_events"
+    },
+    {
+      "coluna": "id",
+      "tabela": "crm_notifications"
+    },
+    {
+      "coluna": "id",
+      "tabela": "customer_responsible_history"
+    },
+    {
+      "coluna": "id",
+      "tabela": "customers"
+    },
+    {
+      "coluna": "id",
+      "tabela": "documents"
+    },
+    {
+      "coluna": "id",
+      "tabela": "domain_health_checks"
+    },
+    {
+      "coluna": "id",
+      "tabela": "email_send_log"
+    },
+    {
+      "coluna": "id",
+      "tabela": "email_send_state"
+    },
+    {
+      "coluna": "id",
+      "tabela": "email_unsubscribe_tokens"
+    },
+    {
+      "coluna": "id",
+      "tabela": "gsc_indexation_alerts"
+    },
+    {
+      "coluna": "id",
+      "tabela": "gsc_indexation_status"
+    },
+    {
+      "coluna": "id",
+      "tabela": "insurance_sales"
+    },
+    {
+      "coluna": "id",
+      "tabela": "interactions"
+    },
+    {
+      "coluna": "id",
+      "tabela": "internal_link_applications"
+    },
+    {
+      "coluna": "id",
+      "tabela": "internal_link_click_events"
+    },
+    {
+      "coluna": "id",
+      "tabela": "kanban_stages"
+    },
+    {
+      "coluna": "id",
+      "tabela": "lead_quote_history"
+    },
+    {
+      "coluna": "id",
+      "tabela": "leads"
+    },
+    {
+      "coluna": "id",
+      "tabela": "monitored_urls"
+    },
+    {
+      "coluna": "id",
+      "tabela": "pagespeed_audits"
+    },
+    {
+      "coluna": "id",
+      "tabela": "partial_quotes"
+    },
+    {
+      "coluna": "id",
+      "tabela": "policies"
+    },
+    {
+      "coluna": "id",
+      "tabela": "purge_logs"
+    },
+    {
+      "coluna": "id",
+      "tabela": "rate_limits"
+    },
+    {
+      "coluna": "id",
+      "tabela": "referrals"
+    },
+    {
+      "coluna": "id",
+      "tabela": "relationship_rules"
+    },
+    {
+      "coluna": "id",
+      "tabela": "schema_audits"
+    },
+    {
+      "coluna": "id",
+      "tabela": "seo_audit_findings"
+    },
+    {
+      "coluna": "id",
+      "tabela": "seo_audit_runs"
+    },
+    {
+      "coluna": "id",
+      "tabela": "seo_rich_results_checks"
+    },
+    {
+      "coluna": "id",
+      "tabela": "sitemap_history"
+    },
+    {
+      "coluna": "id",
+      "tabela": "suppressed_emails"
+    },
+    {
+      "coluna": "id",
+      "tabela": "tasks"
+    },
+    {
+      "coluna": "id",
+      "tabela": "user_roles"
+    },
+    {
+      "coluna": "id",
+      "tabela": "web_vitals_metrics"
+    },
+    {
+      "coluna": "id",
+      "tabela": "whatsapp_history"
+    }
+  ],
+  "chaves_estrangeiras": [
+    {
+      "coluna": "client_id",
+      "tabela": "claims",
+      "referencia": "contacts.id"
+    },
+    {
+      "coluna": "contact_id",
+      "tabela": "contact_insurances",
+      "referencia": "contacts.id"
+    },
+    {
+      "coluna": "referral_contact_id",
+      "tabela": "contacts",
+      "referencia": "contacts.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "crm_notifications",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "customer_responsible_history",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "documents",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "policy_id",
+      "tabela": "documents",
+      "referencia": "policies.id"
+    },
+    {
+      "coluna": "contact_id",
+      "tabela": "documents",
+      "referencia": "contacts.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "interactions",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "partial_quote_id",
+      "tabela": "lead_quote_history",
+      "referencia": "partial_quotes.id"
+    },
+    {
+      "coluna": "kanban_stage_id",
+      "tabela": "leads",
+      "referencia": "kanban_stages.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "policies",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "renewal_from_id",
+      "tabela": "policies",
+      "referencia": "policies.id"
+    },
+    {
+      "coluna": "referrer_customer_id",
+      "tabela": "referrals",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "run_id",
+      "tabela": "seo_audit_findings",
+      "referencia": "seo_audit_runs.id"
+    },
+    {
+      "coluna": "policy_id",
+      "tabela": "tasks",
+      "referencia": "policies.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "tasks",
+      "referencia": "customers.id"
+    },
+    {
+      "coluna": "lead_id",
+      "tabela": "tasks",
+      "referencia": "leads.id"
+    },
+    {
+      "coluna": "lead_id",
+      "tabela": "whatsapp_history",
+      "referencia": "leads.id"
+    },
+    {
+      "coluna": "customer_id",
+      "tabela": "whatsapp_history",
+      "referencia": "customers.id"
+    }
+  ],
+  "triggers_auth_users": [],
+  "geckoai_sincronizado_em": "2026-10-08T18:28:28.061Z"
+}
