@@ -10,14 +10,17 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     let mounted = true;
+    let revision = 0;
+    let scheduled: ReturnType<typeof setTimeout> | undefined;
 
     const check = async () => {
+      const current = ++revision;
+      if (mounted) setState("loading");
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        
-        if (!mounted) return;
-
-        if (!session) {
+        // Validate the session with Auth, not only with cached browser data.
+        const { data: { user }, error: authError } = await supabase.auth.getUser();
+        if (!mounted || current !== revision) return;
+        if (authError || !user || user.is_anonymous) {
           setState("unauth");
           return;
         }
@@ -25,43 +28,37 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         const { data, error } = await supabase
           .from("user_roles")
           .select("role")
-          .eq("user_id", session.user.id)
+          .eq("user_id", user.id)
+          .eq("role", "admin")
           .maybeSingle();
-
-        if (!mounted) return;
-
-        if (error) {
-          console.error("RequireAdmin: Erro ao consultar privilégios:", error);
-          setState("denied");
-          return;
-        }
-
-        if (data && data.role === "admin") {
-          setState("allowed");
-        } else {
-          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin");
-          setState("denied");
-        }
-      } catch (err) {
-        console.error("RequireAdmin: Erro inesperado:", err);
-        if (mounted) setState("denied");
+        if (!mounted || current !== revision) return;
+        setState(!error && data?.role === "admin" ? "allowed" : "denied");
+      } catch {
+        if (mounted && current === revision) setState("denied");
       }
     };
 
-    check();
+    void check();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (mounted) {
-        if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
-          check();
-        } else if (event === 'SIGNED_OUT') {
-          setState("unauth");
-        }
+      if (!mounted) return;
+      // Invalidate pending checks immediately so an old response cannot
+      // restore access after sign-out or an account change.
+      ++revision;
+      clearTimeout(scheduled);
+      if (event === "SIGNED_OUT" || !session) {
+        setState("unauth");
+        return;
       }
+      setState("loading");
+      // Supabase calls must run outside the synchronous Auth callback.
+      scheduled = setTimeout(() => { void check(); }, 0);
     });
 
     return () => {
       mounted = false;
+      ++revision;
+      clearTimeout(scheduled);
       subscription.unsubscribe();
     };
   }, []);
