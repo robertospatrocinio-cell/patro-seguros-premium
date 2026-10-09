@@ -187,6 +187,7 @@ const Header = memo(() => {
     { label: "Auto", to: "/seguro-auto", section: "pessoal" },
     { label: "Moto", to: "/seguro-moto", section: "pessoal" },
     { label: "Residencial", to: "/seguro-residencial", section: "pessoal" },
+    { label: "Seguro Fiança Locatícia", to: "/seguro-fianca-locaticia", section: "pessoal" },
     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
     { label: "Viagem", to: "/seguro-viagem", section: "pessoal" },
@@ -197,7 +198,7 @@ const Header = memo(() => {
     { label: "Frota", to: "/seguro-frota", section: "empresarial" },
     { label: "Transporte e Carga", to: "/seguro-transporte", section: "empresarial" },
     { label: "Transportadoras", to: "/nicho-transportadoras", section: "empresarial" },
-    { label: "Galpões", to: "/seguro-galpoes-industriais", section: "empresarial" },
+    { label: "Seguro Galpões", to: "/seguro-galpoes-industriais", section: "empresarial" },
     { label: "Responsabilidade Civil", to: "/seguro-rc", section: "empresarial" },
     { label: "RC Obras e Montagem", to: "/seguro-rc-obras", section: "empresarial" },
     { label: "Cyber", to: "/seguro-cyber", section: "empresarial" },
@@ -344,6 +345,7 @@ const Header = memo(() => {
                         <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</SmartLink>
+                          <SmartLink to="/seguro-fianca-locaticia" className="block py-1 hover:text-primary">Seguro Fiança Locatícia</SmartLink>
                           <SmartLink to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</SmartLink>
                           <SmartLink to="/seguro-motorista-app" className="block py-1 hover:text-primary">Motorista de Aplicativo</SmartLink>
                           <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
@@ -370,7 +372,8 @@ const Header = memo(() => {
                           <SmartLink to="/seguro-frota" className="block py-1 hover:text-primary">Seguro Frota</SmartLink>
                           <SmartLink to="/seguro-transporte" className="block py-1 hover:text-primary">Transporte e Carga</SmartLink>
                           <SmartLink to="/nicho-transportadoras" className="block py-1 hover:text-primary">Seguro para Transportadoras</SmartLink>
-                          <SmartLink to="/seguro-galpoes-industriais" className="block py-1 hover:text-primary">Seguro para Galpões</SmartLink>
+                          <SmartLink to="/seguro-galpoes-industriais" className="block py-1 hover:text-primary">Seguro Galpões</SmartLink>
+                          <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
                         </div>
                       </div>
                       <div>
@@ -620,6 +623,7 @@ const Header = memo(() => {
               <MobileLink to="/seguro-auto">Seguro Auto</MobileLink>
               <MobileLink to="/seguro-moto">Seguro Moto</MobileLink>
               <MobileLink to="/seguro-residencial">Seguro Residencial</MobileLink>
+              <MobileLink to="/seguro-fianca-locaticia">Seguro Fiança Locatícia</MobileLink>
               <MobileLink to="/seguro-vida">Seguro de Vida</MobileLink>
               <MobileLink to="/planos-de-saude">Plano de Saúde</MobileLink>
               <MobileLink to="/consorcio">Consórcio</MobileLink>
@@ -629,6 +633,8 @@ const Header = memo(() => {
               <MobileLink to="/seguro-empresarial">Seguro Empresarial</MobileLink>
               <MobileLink to="/seguro-frota">Seguro Frota</MobileLink>
               <MobileLink to="/seguro-transporte">Transporte e Carga</MobileLink>
+              <MobileLink to="/seguro-galpoes-industriais">Seguro Galpões</MobileLink>
+              <MobileLink to="/consorcio">Consórcio</MobileLink>
               <MobileLink to="/plano-saude-empresarial">Plano de Saúde PME</MobileLink>
               <MobileLink to="/seguro-rc-obras">RC Obras e Montagem</MobileLink>
             </MobileSection>
