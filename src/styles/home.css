@@ -169,10 +169,14 @@
   font-weight: 500;
 }
 .patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee { align-items: center; }
-.patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee a {
+.patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee :is(a, span.mx-8) {
   color: var(--home-navy);
   padding-block: 0.5rem;
   font-size: 1rem;
+  transition: color 200ms ease;
+}
+.patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee :is(a, span.mx-8):is(:hover, :focus-visible) {
+  color: var(--home-gold);
 }
 
 /* O formulário deixa de encobrir o link da faixa de seguradoras. */
