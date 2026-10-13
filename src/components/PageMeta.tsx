@@ -39,21 +39,16 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
   const location = useLocation();
 
   useEffect(() => {
-    // Brand suffix logic: Ensure unique titles and avoid exact H1 matches
+    // Acrescenta contexto local somente quando ele ainda não está no título.
+    let resolvedTitle = title;
+    if (title.length < 30 && !absoluteTitle && !title.includes("|") &&
+        location.pathname.includes("guarulhos") && !/guarulhos/i.test(title)) {
+      resolvedTitle = `${title} em Guarulhos`;
+    }
     const shouldAppendBrand =
       !absoluteTitle &&
-      !title.includes("Patro Seguros") &&
-      title.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH;
-    
-    // SEO Enhancement: If title is too short, we can be more descriptive
-    let resolvedTitle = title;
-    if (title.length < 30 && !absoluteTitle && !title.includes("|")) {
-      // Small titles benefit from context
-      if (location.pathname.includes("guarulhos")) {
-      resolvedTitle = `${title} em Guarulhos`;
-      }
-    }
-
+      !/patro seguros/i.test(resolvedTitle) &&
+      resolvedTitle.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH;
     const fullTitle = shouldAppendBrand ? `${resolvedTitle}${TITLE_SUFFIX}` : resolvedTitle;
     
     // Auto-validation for Title and Description length in development
@@ -72,8 +67,15 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     document.title = fullTitle;
 
     const setMetaContent = (selector: string, value: string) => {
-      const el = document.querySelector(selector);
-      if (el) el.setAttribute("content", value);
+      let el = document.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        const match = selector.match(/^meta\[(name|property)="([^"]+)"\]$/);
+        if (!match) return;
+        el = document.createElement("meta");
+        el.setAttribute(match[1], match[2]);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
     };
 
     // Description
@@ -110,28 +112,26 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     setMetaContent('meta[name="twitter:description"]', description);
     setMetaContent('meta[name="twitter:image"]', resolvedOgImage);
 
-    // Accessible alt text for the social-preview image
-    if (ogImageAlt) {
-      setMetaContent('meta[property="og:image:alt"]', ogImageAlt);
-      setMetaContent('meta[name="twitter:image:alt"]', ogImageAlt);
-    }
+    // Reset on every navigation so an earlier page's image description never leaks.
+    const resolvedOgImageAlt = ogImageAlt ?? (
+      resolvedOgImage === DEFAULT_OG_IMAGE ? "Patro Seguros — Corretora de Seguros" : fullTitle
+    );
+    setMetaContent('meta[property="og:image:alt"]', resolvedOgImageAlt);
+    setMetaContent('meta[name="twitter:image:alt"]', resolvedOgImageAlt);
 
     // Robots
-    let robots = document.querySelector('meta[name="robots"]');
     // Detecção de preview via sufixo codificado — não expõe nome de plataforma
     // como string literal no bundle público.
     const PREVIEW_SUFFIX = String.fromCharCode(46, 108, 111, 118, 97, 98, 108, 101, 46, 97, 112, 112);
     const DEV_SUFFIX = String.fromCharCode(46, 108, 111, 118, 97, 98, 108, 101, 46, 100, 101, 118);
     const isPreviewHost =
       typeof window !== "undefined" && (window.location.hostname.endsWith(PREVIEW_SUFFIX) || window.location.hostname.endsWith(DEV_SUFFIX));
-    if (robots) {
-      // Páginas de formulário: noindex mas com follow, para que os links
-      // internos continuem sendo rastreados. Preview/dev: bloqueio total.
-      robots.setAttribute(
-        "content",
-        isPreviewHost ? "noindex, nofollow" : noindex ? "noindex, follow" : "index, follow",
-      );
-    }
+    // Páginas de formulário: noindex com follow. Preview/dev: bloqueio total.
+    // Cria a tag também quando ela não veio no HTML inicial.
+    setMetaContent(
+      'meta[name="robots"]',
+      isPreviewHost ? "noindex, nofollow" : noindex ? "noindex, follow" : "index, follow",
+    );
 
     // Image preloads
     const managePreload = (id: string, href?: string, media?: string) => {

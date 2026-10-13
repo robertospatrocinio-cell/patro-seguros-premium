@@ -90,18 +90,18 @@ const HeroPatro = memo(() => {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Link to="/cotacao" onClick={handleCotacaoClick}>
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-[#14243d] border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
+                <Button asChild size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-[#14243d] border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
+                  <Link to="/cotacao" onClick={handleCotacaoClick}>
                     Solicitar cotação
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/5 hover:bg-white/10 text-white hover:text-white border-white/20 hover:border-white/40 font-medium transition-all">
-                    <MessageCircle className="mr-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/5 hover:bg-white/10 text-white hover:text-white border-white/20 hover:border-white/40 font-medium transition-all">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
+                    <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                     Falar no WhatsApp
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
 
               {/* Trust Indicators */}

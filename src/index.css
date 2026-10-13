@@ -170,3 +170,18 @@ p a[href] {
   text-underline-offset: 2px;
   text-decoration-thickness: from-font;
 }
+
+/* Foco perceptível também nos links e botões que não usam componentes UI. */
+:is(a[href], button, input, select, textarea, summary, [role="button"]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+main {
+  scroll-margin-top: 7rem;
+}
+
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
+}

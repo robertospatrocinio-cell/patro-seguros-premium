@@ -1,6 +1,7 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
+import DesktopNavDisclosure from "./DesktopNavDisclosure";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck, Trash2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -261,7 +262,16 @@ const Header = memo(() => {
 
   return (
     <>
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}>
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && isMenuOpen) {
+          event.preventDefault();
+          close();
+          event.currentTarget.querySelector<HTMLButtonElement>('[aria-controls="mobile-menu"]')?.focus();
+        }
+      }}
+    >
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1.5 text-[11px] gap-3">
@@ -323,143 +333,113 @@ const Header = memo(() => {
 
 
               {/* Para você */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3">
-                  Para você
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" />
-                </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                  <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="grid grid-cols-2 gap-8">
-                      <div>
-                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Mobilidade e Vida</p>
-                        <div className="space-y-0.5 text-[13px]">
-                          <SmartLink to="/seguro-auto" className="block py-1 hover:text-primary">Seguro Auto</SmartLink>
-                          <SmartLink to="/seguro-moto" className="block py-1 hover:text-primary">Seguro Moto</SmartLink>
-                          <SmartLink to="/seguro-vida" className="block py-1 hover:text-primary">Seguro de Vida</SmartLink>
-                          <SmartLink to="/planos-de-saude" className="block py-1 hover:text-primary">Plano de Saúde</SmartLink>
-                          <SmartLink to="/seguro-viagem" className="block py-1 hover:text-primary">Seguro Viagem</SmartLink>
-                        </div>
+              <DesktopNavDisclosure label="Para você" panelClassName="left-1/2 -translate-x-1/2 w-[520px]">
+                <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Mobilidade e Vida</p>
+                      <div className="space-y-0.5 text-[13px]">
+                        <SmartLink to="/seguro-auto" className="block py-1 hover:text-primary">Seguro Auto</SmartLink>
+                        <SmartLink to="/seguro-moto" className="block py-1 hover:text-primary">Seguro Moto</SmartLink>
+                        <SmartLink to="/seguro-vida" className="block py-1 hover:text-primary">Seguro de Vida</SmartLink>
+                        <SmartLink to="/planos-de-saude" className="block py-1 hover:text-primary">Plano de Saúde</SmartLink>
+                        <SmartLink to="/seguro-viagem" className="block py-1 hover:text-primary">Seguro Viagem</SmartLink>
                       </div>
-                      <div>
-                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
-                        <div className="space-y-0.5 text-[13px]">
-                          <SmartLink to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</SmartLink>
-                          <SmartLink to="/seguro-fianca-locaticia" className="block py-1 hover:text-primary">Seguro Fiança Locatícia</SmartLink>
-                          <SmartLink to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</SmartLink>
-                          <SmartLink to="/seguro-motorista-app" className="block py-1 hover:text-primary">Motorista de Aplicativo</SmartLink>
-                          <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
-                        </div>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
+                      <div className="space-y-0.5 text-[13px]">
+                        <SmartLink to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</SmartLink>
+                        <SmartLink to="/seguro-fianca-locaticia" className="block py-1 hover:text-primary">Seguro Fiança Locatícia</SmartLink>
+                        <SmartLink to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</SmartLink>
+                        <SmartLink to="/seguro-motorista-app" className="block py-1 hover:text-primary">Motorista de Aplicativo</SmartLink>
+                        <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </DesktopNavDisclosure>
 
               {/* Para sua empresa */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3">
-                  Para sua empresa
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" />
-                </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[580px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                  <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="grid grid-cols-2 gap-8">
-                      <div>
-                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Proteção Empresarial</p>
-                        <div className="space-y-0.5 text-[13px]">
-                          <SmartLink to="/seguro-empresarial" className="block py-1 hover:text-primary">Seguro Empresarial</SmartLink>
-                          <SmartLink to="/seguro-frota" className="block py-1 hover:text-primary">Seguro Frota</SmartLink>
-                          <SmartLink to="/seguro-transporte" className="block py-1 hover:text-primary">Transporte e Carga</SmartLink>
-                          <SmartLink to="/nicho-transportadoras" className="block py-1 hover:text-primary">Seguro para Transportadoras</SmartLink>
-                          <SmartLink to="/seguro-galpoes-industriais" className="block py-1 hover:text-primary">Seguro Galpões</SmartLink>
-                          <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
-                        </div>
+              <DesktopNavDisclosure label="Para sua empresa" panelClassName="left-1/2 -translate-x-1/2 w-[580px]">
+                <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Proteção Empresarial</p>
+                      <div className="space-y-0.5 text-[13px]">
+                        <SmartLink to="/seguro-empresarial" className="block py-1 hover:text-primary">Seguro Empresarial</SmartLink>
+                        <SmartLink to="/seguro-frota" className="block py-1 hover:text-primary">Seguro Frota</SmartLink>
+                        <SmartLink to="/seguro-transporte" className="block py-1 hover:text-primary">Transporte e Carga</SmartLink>
+                        <SmartLink to="/nicho-transportadoras" className="block py-1 hover:text-primary">Seguro para Transportadoras</SmartLink>
+                        <SmartLink to="/seguro-galpoes-industriais" className="block py-1 hover:text-primary">Seguro Galpões</SmartLink>
+                        <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
                       </div>
-                      <div>
-                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Riscos e Benefícios</p>
-                        <div className="space-y-0.5 text-[13px]">
-                          <SmartLink to="/seguro-rc" className="block py-1 hover:text-primary">Responsabilidade Civil</SmartLink>
-                          <SmartLink to="/seguro-rc-obras" className="block py-1 hover:text-primary">RC Obras e Montagem</SmartLink>
-                          <SmartLink to="/seguro-cyber" className="block py-1 hover:text-primary">Seguro Cyber</SmartLink>
-                          <SmartLink to="/plano-saude-empresarial" className="block py-1 hover:text-primary">Plano de Saúde PME</SmartLink>
-                          <SmartLink to="/seguro-vida-pme" className="block py-1 hover:text-primary">Seguro de Vida em Grupo</SmartLink>
-                          <SmartLink to="/seguro-maquinas" className="block py-1 hover:text-primary">Máquinas e Equipamentos</SmartLink>
-                        </div>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Riscos e Benefícios</p>
+                      <div className="space-y-0.5 text-[13px]">
+                        <SmartLink to="/seguro-rc" className="block py-1 hover:text-primary">Responsabilidade Civil</SmartLink>
+                        <SmartLink to="/seguro-rc-obras" className="block py-1 hover:text-primary">RC Obras e Montagem</SmartLink>
+                        <SmartLink to="/seguro-cyber" className="block py-1 hover:text-primary">Seguro Cyber</SmartLink>
+                        <SmartLink to="/plano-saude-empresarial" className="block py-1 hover:text-primary">Plano de Saúde PME</SmartLink>
+                        <SmartLink to="/seguro-vida-pme" className="block py-1 hover:text-primary">Seguro de Vida em Grupo</SmartLink>
+                        <SmartLink to="/seguro-maquinas" className="block py-1 hover:text-primary">Máquinas e Equipamentos</SmartLink>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </DesktopNavDisclosure>
 
               {/* Agronegócio */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3">
-                  Agronegócio
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" />
-                </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                  <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="space-y-0.5 text-[13px]">
-                      <SmartLink to="/seguro-rural" className="block py-1 hover:text-primary">Seguro Rural</SmartLink>
-                      <SmartLink to="/seguro-maquinas-agricolas" className="block py-1 hover:text-primary">Máquinas Agrícolas</SmartLink>
-                      <SmartLink to="/seguro-equipamentos-agricolas" className="block py-1 hover:text-primary">Equipamentos</SmartLink>
-                      <SmartLink to="/seguro-propriedade-rural" className="block py-1 hover:text-primary">Propriedade Rural</SmartLink>
-                      <SmartLink to="/seguro-pecuario" className="block py-1 hover:text-primary">Seguro Pecuário</SmartLink>
-                      <SmartLink to="/seguro-transporte-agro" className="block py-1 hover:text-primary">Transporte Agro</SmartLink>
-                      <SmartLink to="/seguro-drone" className="block py-1 hover:text-primary">Seguro Drone</SmartLink>
-                      <SmartLink to="/seguro-drone-agricola" className="block py-1 hover:text-primary">Seguro Drone (Casco)</SmartLink>
-                      <SmartLink to="/seguro-reta-drone" className="block py-1 hover:text-primary">RETA Drone (Responsabilidade Civil)</SmartLink>
-                    </div>
+              <DesktopNavDisclosure label="Agronegócio" panelClassName="left-1/2 -translate-x-1/2 w-[400px]">
+                <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <div className="space-y-0.5 text-[13px]">
+                    <SmartLink to="/seguro-rural" className="block py-1 hover:text-primary">Seguro Rural</SmartLink>
+                    <SmartLink to="/seguro-maquinas-agricolas" className="block py-1 hover:text-primary">Máquinas Agrícolas</SmartLink>
+                    <SmartLink to="/seguro-equipamentos-agricolas" className="block py-1 hover:text-primary">Equipamentos</SmartLink>
+                    <SmartLink to="/seguro-propriedade-rural" className="block py-1 hover:text-primary">Propriedade Rural</SmartLink>
+                    <SmartLink to="/seguro-pecuario" className="block py-1 hover:text-primary">Seguro Pecuário</SmartLink>
+                    <SmartLink to="/seguro-transporte-agro" className="block py-1 hover:text-primary">Transporte Agro</SmartLink>
+                    <SmartLink to="/seguro-drone" className="block py-1 hover:text-primary">Seguro Drone</SmartLink>
+                    <SmartLink to="/seguro-drone-agricola" className="block py-1 hover:text-primary">Seguro Drone (Casco)</SmartLink>
+                    <SmartLink to="/seguro-reta-drone" className="block py-1 hover:text-primary">RETA Drone (Responsabilidade Civil)</SmartLink>
                   </div>
                 </div>
-              </div>
+              </DesktopNavDisclosure>
 
               {/* Atendimento */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3">
-                  Atendimento
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" />
-                </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                  <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="space-y-0.5 text-[13px]">
-                      <SmartLink to="/cotacao" className="block py-1 hover:text-primary">Solicitar Cotação</SmartLink>
-                      <SmartLink to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</SmartLink>
-                      <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</SmartLink>
-                      <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
-                       <SmartLink to="/telefones-seguradoras" className="block py-1 hover:text-primary">Telefones e 0800</SmartLink>
-                       <SmartLink to="/consulta-tabela-fipe" className="block py-1 hover:text-primary">Consulta Tabela FIPE</SmartLink>
-                      <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
-                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
-                      <SmartLink to="/verificar-susep" className="flex items-center gap-1.5 py-1 font-semibold text-primary hover:text-primary/80">
-                        <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                        Verificar habilitação SUSEP
-                      </SmartLink>
-                      <SmartLink to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</SmartLink>
-                    </div>
+              <DesktopNavDisclosure label="Atendimento" panelClassName="left-1/2 -translate-x-1/2 w-[400px]">
+                <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <div className="space-y-0.5 text-[13px]">
+                    <SmartLink to="/cotacao" className="block py-1 hover:text-primary">Solicitar Cotação</SmartLink>
+                    <SmartLink to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</SmartLink>
+                    <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</SmartLink>
+                    <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
+                    <SmartLink to="/telefones-seguradoras" className="block py-1 hover:text-primary">Telefones e 0800</SmartLink>
+                    <SmartLink to="/consulta-tabela-fipe" className="block py-1 hover:text-primary">Consulta Tabela FIPE</SmartLink>
+                    <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
+                    <SmartLink to="/verificar-susep" className="flex items-center gap-1.5 py-1 font-semibold text-primary hover:text-primary/80">
+                      <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                      Verificar habilitação SUSEP
+                    </SmartLink>
+                    <SmartLink to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</SmartLink>
                   </div>
                 </div>
-              </div>
+              </DesktopNavDisclosure>
 
               {/* Conteúdo */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3">
-                  Conteúdo
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" />
-                </button>
-                <div className="absolute top-full right-0 pt-2 w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                  <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="space-y-0.5 text-[13px]">
-                      <SmartLink to="/blog" className="block py-1 hover:text-primary">Blog</SmartLink>
-                      <SmartLink to="/guias-seguros" className="block py-1 hover:text-primary">Central de Guias</SmartLink>
-                      <SmartLink to="/materiais-gratuitos-seguros" className="block py-1 hover:text-primary">Materiais Gratuitos</SmartLink>
-                      <SmartLink to="/glossario-seguros" className="block py-1 hover:text-primary">Glossário</SmartLink>
-                      <SmartLink to="/faq" className="block py-1 hover:text-primary">Perguntas Frequentes</SmartLink>
-                    </div>
+              <DesktopNavDisclosure label="Conteúdo" panelClassName="right-0 w-[200px]">
+                <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <div className="space-y-0.5 text-[13px]">
+                    <SmartLink to="/blog" className="block py-1 hover:text-primary">Blog</SmartLink>
+                    <SmartLink to="/guias-seguros" className="block py-1 hover:text-primary">Central de Guias</SmartLink>
+                    <SmartLink to="/materiais-gratuitos-seguros" className="block py-1 hover:text-primary">Materiais Gratuitos</SmartLink>
+                    <SmartLink to="/glossario-seguros" className="block py-1 hover:text-primary">Glossário</SmartLink>
+                    <SmartLink to="/faq" className="block py-1 hover:text-primary">Perguntas Frequentes</SmartLink>
                   </div>
                 </div>
-              </div>
+              </DesktopNavDisclosure>
             </div>
 
             <div className="hidden lg:flex items-center gap-3">
@@ -535,17 +515,17 @@ const Header = memo(() => {
                   </Tooltip>
                 </TooltipProvider>
               )}
-              <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
-                <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4 shadow-sm hover:shadow-md transition-shadow">
+              <Button asChild size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4 shadow-sm hover:shadow-md transition-shadow">
+                <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
                   Cotação grátis
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
 
-            <Link to="/cotacao" onClick={() => trackCotacaoClick("header-mobile")} className="lg:hidden ml-auto mr-1">
-              <Button size="sm" className="rounded-lg text-[12px] font-semibold h-9 px-3">Cotação grátis</Button>
-            </Link>
+            <Button asChild size="sm" className="lg:hidden ml-auto mr-1 rounded-lg text-[12px] font-semibold h-9 px-3">
+              <Link to="/cotacao" onClick={() => trackCotacaoClick("header-mobile")}>Cotação grátis</Link>
+            </Button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2"
@@ -607,18 +587,39 @@ const Header = memo(() => {
           </div>
 
           <div className="relative mb-4">
-
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <label htmlFor="mobile-insurance-search" className="sr-only">Buscar seguro no menu</label>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             <input
+              id="mobile-insurance-search"
               type="search"
               placeholder="Buscar seguro…"
               value={mobileSearch}
               onChange={(e) => setMobileSearch(e.target.value)}
+              aria-controls="mobile-search-results"
               className="w-full pl-9 pr-4 py-2 text-[13px] bg-muted rounded-lg border-0"
             />
           </div>
 
-          <div className="space-y-1">
+          <p role="status" className="sr-only">
+            {mobileSearch.trim() ? `${searchResults.length} seguros encontrados.` : ""}
+          </p>
+          <div id="mobile-search-results" hidden={!mobileSearch.trim()}>
+            {searchResults.length ? (
+              <ul aria-label="Resultados da busca de seguros">
+                {searchResults.map((result) => (
+                  <li key={`${result.section}-${result.to}`}>
+                    <SmartLink to={result.to} onClick={close} className="block rounded-md px-3 py-3 text-sm hover:bg-muted">
+                      {result.label}
+                    </SmartLink>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="px-3 py-3 text-sm text-muted-foreground">Nenhum seguro encontrado. Tente outro nome.</p>
+            )}
+          </div>
+
+          <div className="space-y-1" hidden={!!mobileSearch.trim()}>
             <MobileSection id="você" label="Para você">
               <MobileLink to="/seguro-auto">Seguro Auto</MobileLink>
               <MobileLink to="/seguro-moto">Seguro Moto</MobileLink>
@@ -681,7 +682,7 @@ const Header = memo(() => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("floating-desktop-sinistro")}
-            className="flex items-center gap-3 bg-green-700 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-800 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0"
+            className="flex items-center gap-3 bg-green-700 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-800 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0 focus-visible:translate-x-0"
           >
             <span className="text-xs font-bold whitespace-nowrap">WhatsApp de Emergência</span>
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600">
