@@ -2,6 +2,7 @@ import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
 import DesktopNavDisclosure from "./DesktopNavDisclosure";
+import { catalogoSeguros, correspondeBuscaCatalogo } from "@/data/catalogoSeguros";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck, Trash2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -183,44 +184,13 @@ const Header = memo(() => {
 
 
 
-  const allMobileLinks = useMemo(() => [
-    { label: "Todos os seguros", to: "/todos-os-seguros", section: "pessoal" },
-    { label: "Auto", to: "/seguro-auto", section: "pessoal" },
-    { label: "Moto", to: "/seguro-moto", section: "pessoal" },
-    { label: "Residencial", to: "/seguro-residencial", section: "pessoal" },
-    { label: "Seguro Fiança Locatícia", to: "/seguro-fianca-locaticia", section: "pessoal" },
-    { label: "Vida", to: "/seguro-vida", section: "pessoal" },
-    { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
-    { label: "Viagem", to: "/seguro-viagem", section: "pessoal" },
-    { label: "Celular", to: "/seguro-celular", section: "pessoal" },
-    { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
-    { label: "Consórcio", to: "/consorcio", section: "pessoal" },
-    { label: "Empresarial", to: "/seguro-empresarial", section: "empresarial" },
-    { label: "Frota", to: "/seguro-frota", section: "empresarial" },
-    { label: "Transporte e Carga", to: "/seguro-transporte", section: "empresarial" },
-    { label: "Transportadoras", to: "/nicho-transportadoras", section: "empresarial" },
-    { label: "Seguro Galpões", to: "/seguro-galpoes-industriais", section: "empresarial" },
-    { label: "Responsabilidade Civil", to: "/seguro-rc", section: "empresarial" },
-    { label: "RC Obras e Montagem", to: "/seguro-rc-obras", section: "empresarial" },
-    { label: "Cyber", to: "/seguro-cyber", section: "empresarial" },
-    { label: "Saúde PME", to: "/plano-saude-empresarial", section: "empresarial" },
-    { label: "Vida em Grupo", to: "/seguro-vida-pme", section: "empresarial" },
-    { label: "Máquinas e Equip.", to: "/seguro-maquinas", section: "empresarial" },
-    { label: "Rural", to: "/seguro-rural", section: "agro" },
-    { label: "Máquinas Agrícolas", to: "/seguro-maquinas-agricolas", section: "agro" },
-    { label: "Equipamentos", to: "/seguro-equipamentos-agricolas", section: "agro" },
-    { label: "Propriedade Rural", to: "/seguro-propriedade-rural", section: "agro" },
-    { label: "Pecuário", to: "/seguro-pecuario", section: "agro" },
-    { label: "Transporte Agro", to: "/seguro-transporte-agro", section: "agro" },
-    { label: "Seguro Drone", to: "/seguro-drone", section: "agro" },
-  ], []);
+  const allMobileLinks = useMemo(() => catalogoSeguros.flatMap((grupo) =>
+    grupo.items.map((item) => ({ ...item, section: grupo.id, categoria: grupo.title }))
+  ), []);
 
   const searchResults = useMemo(() => {
     if (!mobileSearch.trim()) return [];
-    const q = mobileSearch.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    return allMobileLinks.filter(link =>
-      link.label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q)
-    );
+    return allMobileLinks.filter((item) => correspondeBuscaCatalogo(item, mobileSearch, item.categoria));
   }, [mobileSearch, allMobileLinks]);
 
   const toggleMobileSection = useCallback((section: string) => {
@@ -329,7 +299,23 @@ const Header = memo(() => {
             <div className="hidden lg:flex items-center gap-1">
               <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</SmartLink>
               <SmartLink to="/seguros-guarulhos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Guarulhos</SmartLink>
-              <SmartLink to="/todos-os-seguros" className="text-[13px] font-semibold text-primary hover:text-foreground transition-base px-3 py-2">Todos os seguros</SmartLink>
+              <DesktopNavDisclosure label="Todos os seguros" panelClassName="left-0 w-[min(760px,70vw)]">
+                <div className="bg-card rounded-xl shadow-xl border p-5 max-h-[70vh] overflow-y-auto overscroll-contain">
+                  <SmartLink to="/todos-os-seguros" className="block mb-4 font-semibold text-primary hover:underline">Ver catálogo completo de seguros, saúde e consórcio →</SmartLink>
+                  <div className="grid grid-cols-2 gap-6">
+                    {catalogoSeguros.map((grupo) => (
+                      <section key={grupo.id} aria-label={grupo.title}>
+                        <SmartLink to={`/todos-os-seguros#${grupo.id}`} className="block mb-2 text-sm font-semibold text-primary hover:underline">{grupo.title}</SmartLink>
+                        <ul className="space-y-1">
+                          {grupo.items.map((item) => (
+                            <li key={item.to}><SmartLink to={item.to} className="block rounded px-2 py-1.5 text-[13px] hover:bg-muted hover:text-primary">{item.label}</SmartLink></li>
+                          ))}
+                        </ul>
+                      </section>
+                    ))}
+                  </div>
+                </div>
+              </DesktopNavDisclosure>
 
 
               {/* Para você */}
@@ -620,33 +606,13 @@ const Header = memo(() => {
           </div>
 
           <div className="space-y-1" hidden={!!mobileSearch.trim()}>
-            <MobileSection id="você" label="Para você">
-              <MobileLink to="/seguro-auto">Seguro Auto</MobileLink>
-              <MobileLink to="/seguro-moto">Seguro Moto</MobileLink>
-              <MobileLink to="/seguro-residencial">Seguro Residencial</MobileLink>
-              <MobileLink to="/seguro-fianca-locaticia">Seguro Fiança Locatícia</MobileLink>
-              <MobileLink to="/seguro-vida">Seguro de Vida</MobileLink>
-              <MobileLink to="/planos-de-saude">Plano de Saúde</MobileLink>
-              <MobileLink to="/consorcio">Consórcio</MobileLink>
-            </MobileSection>
-
-            <MobileSection id="empresa" label="Para sua empresa">
-              <MobileLink to="/seguro-empresarial">Seguro Empresarial</MobileLink>
-              <MobileLink to="/seguro-frota">Seguro Frota</MobileLink>
-              <MobileLink to="/seguro-transporte">Transporte e Carga</MobileLink>
-              <MobileLink to="/seguro-galpoes-industriais">Seguro Galpões</MobileLink>
-              <MobileLink to="/consorcio">Consórcio</MobileLink>
-              <MobileLink to="/plano-saude-empresarial">Plano de Saúde PME</MobileLink>
-              <MobileLink to="/seguro-rc-obras">RC Obras e Montagem</MobileLink>
-            </MobileSection>
-
-            <MobileSection id="agro" label="Agronegócio">
-              <MobileLink to="/seguro-rural">Seguro Rural</MobileLink>
-              <MobileLink to="/seguro-maquinas-agricolas">Máquinas Agrícolas</MobileLink>
-              <MobileLink to="/seguro-drone">Seguro Drone</MobileLink>
-              <MobileLink to="/seguro-drone-agricola">Seguro Drone (Casco)</MobileLink>
-              <MobileLink to="/seguro-reta-drone">RETA Drone (RC)</MobileLink>
-            </MobileSection>
+            {catalogoSeguros.map((grupo) => (
+              <MobileSection key={grupo.id} id={grupo.id} label={grupo.title}>
+                {grupo.items.map((item) => (
+                  <MobileLink key={item.to} to={item.to}>{item.label}</MobileLink>
+                ))}
+              </MobileSection>
+            ))}
 
             <MobileSection id="atendimento" label="Atendimento">
               <MobileLink to="/cotacao">Solicitar Cotação</MobileLink>

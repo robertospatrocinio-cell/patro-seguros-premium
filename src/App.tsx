@@ -13,7 +13,7 @@ import { CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
 
 
 // Helper for type-safe property passing to memoized components in lazy loading
-const withProps = <T extends object>(Component: React.ComponentType<T>, props: T) => {
+const withProps = < T extends object>(Component: React.ComponentType< T >, props: T) => {
   return memo(() => <Component {...props} />);
 };
 
@@ -979,6 +979,13 @@ const App = () => {
                   <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
                   <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
                   <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
+                  <Route path="/seguro-para-dentistas" element={<SeguroParaDentistas />} />
+                  <Route path="/seguro-para-veterinarios" element={<SeguroParaVeterinarios />} />
+                  <Route path="/seguro-clinica-veterinaria" element={<SeguroClinicaVeterinaria />} />
+                  <Route path="/seguro-hospital-veterinario" element={<SeguroHospitalVeterinario />} />
+                  <Route path="/seguro-equipamentos-veterinarios" element={<SeguroEquipamentosVeterinarios />} />
+                  <Route path="/plano-saude-clinicas-veterinarias" element={<PlanoSaudeClinicasVeterinarias />} />
+                  <Route path="/seguro-vida-clinicas-veterinarias" element={<SeguroVidaClinicasVeterinarias />} />
                   <Route path="/seguro-consultorio-odontologico" element={<SeguroConsultorioOdontologico />} />
                   <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
                   {/* === Vertical: Consultórios e Clínicas === */}

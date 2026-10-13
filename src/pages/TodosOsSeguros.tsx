@@ -31,8 +31,15 @@ const TodosOsSeguros = () => {
             <div className="max-w-3xl mx-auto text-center mt-4">
               <h1 className="text-3xl md:text-5xl font-bold mb-4">Todos os seguros</h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Encontre a proteção certa para você, sua empresa ou sua propriedade rural.
+                Seguros, planos de saúde e consórcio para pessoas e empresas em Guarulhos e Grande São Paulo.
+                Encontre seu produto por categoria, incluindo nossas especialidades em máquinas agrícolas,
+                equipamentos, drones e máquinas de linha amarela.
               </p>
+              <div className="flex flex-wrap justify-center gap-3 mb-6">
+                <Button asChild><a href="#maquinas">Máquinas, equipamentos e drones</a></Button>
+                <Button asChild variant="outline"><a href="#saude">Saúde e odontológico</a></Button>
+                <Button asChild variant="outline"><a href="#consorcio">Consórcio</a></Button>
+              </div>
               <nav aria-label="Perfis" className="flex flex-wrap justify-center gap-2">
                 {catalogoSeguros.map((p) => (
                   <Button key={p.id} asChild variant="outline" size="sm">
