@@ -846,9 +846,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         h1: "Seguro Para Motorista de App",
       },
       "/consorcio": {
-        title: "Consórcio | Como Funciona e Vantagens",
-        description: "Entenda como funciona o consórcio para carro, imóvel e caminhão, suas vantagens, regras e quando vale a pena contratar.",
-        h1: "Consórcio: Como Funciona",
+        title: "Consórcio em Guarulhos: Simule e Compare | Patro Seguros",
+        description: "Simule consórcio e compare com financiamento. Planeje imóveis, veículos e patrimônio em Guarulhos e Grande São Paulo com orientação da Patro Seguros.",
+        h1: "Consórcio em Guarulhos: simule e planeje seu patrimônio",
       },
       "/todos-os-seguros": {
         title: "Todos os Seguros | Catálogo por Perfil | Patro Seguros",

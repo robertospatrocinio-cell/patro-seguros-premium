@@ -9,6 +9,8 @@ import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
+import ConsorcioSimulator from "@/components/consorcio/ConsorcioSimulator";
+import { formatConsorcioCurrency } from "@/lib/consorcioSimulation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -96,7 +98,9 @@ const faqs = [
   { q: "Quanto tempo demora para ser contemplado?", a: "Não existe prazo garantido. A contemplação pode ocorrer em qualquer assembleia do grupo, por sorteio ou lance. Por isso o consórcio é indicado para quem pode planejar a aquisição." },
   { q: "Existe garantia de contemplação?", a: "Não. A única garantia é que todos os participantes ativos serão contemplados até o encerramento do grupo. Qualquer promessa de “carta contemplada garantida” em data específica deve ser vista com cautela." },
   { q: "Posso usar FGTS no consórcio de imóvel?", a: "Sim, conforme as regras vigentes do FGTS. O saldo pode ser utilizado para dar lance, complementar a carta de crédito ou amortizar parcelas, dentro das condições previstas pela Caixa." },
-  { q: "Consórcio vale mais a pena que financiamento?", a: "Depende do perfil. O consórcio costuma ter custo total menor por não ter juros de financiamento, mas exige planejamento porque a contemplação não é imediata. O financiamento é melhor para quem precisa do bem agora." },
+  { q: "Consórcio vale mais a pena que financiamento?", a: "Depende do perfil e das condições reais. Compare taxa de administração, reserva, seguros, reajustes, entrada e custo efetivo total do financiamento, além do momento em que precisa do bem. O simulador desta página usa valores hipotéticos e totais nominais: não considera o valor do dinheiro no tempo nem garante economia. A contratação deve ser avaliada com uma proposta completa." },
+  { q: "Consórcio é um investimento com rendimento garantido?", a: "Não. Consórcio é compra planejada em grupo, não uma aplicação financeira. Pode integrar uma estratégia patrimonial, mas valorização de imóveis, aluguel, liquidez da cota e retorno não são garantidos. Alavancagem exige capacidade de pagar parcelas e reajustes sem depender de ganhos futuros ou de contemplação antecipada." },
+  { q: "A simulação apresenta propostas da Porto ou MAPFRE?", a: "Não. A calculadora é educativa e usa condições que você pode alterar; ela não consulta tabelas comerciais dessas empresas. Consulte a Patro sobre opções disponíveis com Porto, MAPFRE e outras empresas, conforme produto e grupo. A proposta personalizada deve identificar a administradora responsável e detalhar os custos e as regras." },
   { q: "Posso fazer consórcio para empresa?", a: "Sim. Empresas usam o consórcio para adquirir veículos, máquinas, equipamentos e imóveis comerciais com planejamento e sem comprometer o fluxo de caixa com juros." },
   { q: "O que acontece se eu cancelar?", a: "O cancelamento é permitido, mas o reembolso segue as regras do contrato — normalmente ocorre ao final do grupo, com possíveis descontos previstos. Avalie sempre antes de contratar." },
   { q: "A Patro acompanha depois da contratação?", a: "Sim. Nosso atendimento continua após a contratação: tiramos dúvidas sobre assembleias, lances, reajustes e ajudamos no uso correto da carta de crédito quando você é contemplado." },
@@ -135,6 +139,7 @@ const Consorcio = () => {
     name: "", whatsapp: "", city: "Guarulhos", tipo: "", credito: "", horario: "",
   });
   const submittingRef = useRef(false);
+  const [scenarioSummary, setScenarioSummary] = useState("");
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -149,7 +154,7 @@ const Consorcio = () => {
     }
 
     // Idempotência entre sessões/refresh: hash do payload + janela de 5 min
-    const payloadHash = hashPayload(parsed.data as unknown as Record<string, string>);
+    const payloadHash = hashPayload({ ...parsed.data, cenario: scenarioSummary });
     try {
       const raw = sessionStorage.getItem(SUBMIT_DEDUPE_KEY);
       if (raw) {
@@ -157,7 +162,7 @@ const Consorcio = () => {
         if (prev.hash === payloadHash && Date.now() - prev.ts < SUBMIT_DEDUPE_WINDOW_MS) {
           toast.info("Já recebemos esta simulação há instantes. Vamos te chamar no WhatsApp!");
           const { name, whatsapp, city, tipo, credito, horario } = parsed.data;
-          const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}.`;
+          const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}. ${scenarioSummary}`;
           window.open(`https://wa.me/551151997500?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
           return;
         }
@@ -168,7 +173,7 @@ const Consorcio = () => {
     setLoading(true);
     try {
       const { name, whatsapp, city, tipo, credito, horario } = parsed.data;
-      const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}.`;
+      const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}. ${scenarioSummary}`;
 
       // 1. Persistir lead no CRM (Supabase via Edge Function service-role)
       const { error: crmError } = await submitLead({
@@ -183,6 +188,7 @@ const Consorcio = () => {
           credito_aproximado: credito,
           melhor_horario: horario,
           origem: "consorcio_simulacao",
+          cenario_educativo: scenarioSummary || null,
         },
       });
       if (crmError) {
@@ -199,6 +205,7 @@ const Consorcio = () => {
         `Cidade: ${city}`,
         `Tipo de consórcio: ${tipo}`,
         `Crédito aproximado: ${credito}`,
+        `Cenário educativo: ${scenarioSummary || "Não informado"}`,
         `Melhor horário para contato: ${horario}`,
         `Origem: /consorcio`,
       ].join("\n");
@@ -213,6 +220,7 @@ const Consorcio = () => {
           <tr><td style="padding:6px;border:1px solid #ddd"><strong>Melhor horário</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(horario)}</td></tr>
           <tr><td style="padding:6px;border:1px solid #ddd"><strong>Origem</strong></td><td style="padding:6px;border:1px solid #ddd">/consorcio</td></tr>
         </table>
+        ${scenarioSummary ? `<h3>Cenário educativo enviado pelo cliente</h3><p>${escapeHtml(scenarioSummary)}</p>` : ""}
       `;
       const { error: emailError } = await safeInvoke("send-form-email", {
         subject, textBody, htmlBody,
@@ -240,6 +248,7 @@ const Consorcio = () => {
         );
       } catch { /* ignore */ }
       setForm({ name: "", whatsapp: "", city: "Guarulhos", tipo: "", credito: "", horario: "" });
+      setScenarioSummary("");
     } catch (err) {
       console.error("Consorcio submit failed", err);
       showFriendlyError();
@@ -257,9 +266,9 @@ const Consorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta
-        title="Consórcio em Guarulhos | Imóveis, Veículos e Empresas"
-        description="Consórcio em Guarulhos com orientação consultiva. Simule crédito para imóvel, veículo, empresa ou serviços com explicação clara da Patro Seguros."
-      
+        title="Consórcio em Guarulhos: Simule e Compare | Patro Seguros"
+        description="Simule consórcio e compare com financiamento. Planeje imóveis, veículos e patrimônio em Guarulhos e Grande São Paulo com orientação da Patro Seguros."
+        canonicalPath="/consorcio"
       skipBreadcrumb
     />
       <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
@@ -292,14 +301,14 @@ const Consorcio = () => {
                   <MapPin className="h-3 w-3" /> Cidade Maia, Guarulhos/SP
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold tracking-tight leading-[1.1] mb-5 text-white">
-                  Consórcio em Guarulhos com orientação consultiva
+                  Consórcio em Guarulhos: simule e planeje seu patrimônio
                 </h1>
                 <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-xl">
-                  Planeje a compra do seu imóvel, veículo ou projeto pessoal com uma consultoria que explica cada etapa: crédito, parcelas, lances, assembleias e contemplação.
+                  Compare consórcio e financiamento para imóvel, veículo ou empresa. Entenda custos, prazos e riscos antes de decidir, com orientação da Patro em Guarulhos e Grande São Paulo.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                  <Button size="lg" onClick={goToForm} className="rounded-xl text-base px-7 h-12 bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d] shadow-lg">
-                    Simular consórcio <ArrowRight className="h-4 w-4 ml-2" />
+                  <Button asChild size="lg" className="rounded-xl text-base px-7 h-12 bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d] shadow-lg">
+                    <a href="#comparar">Simular e comparar <ArrowRight className="h-4 w-4 ml-2" /></a>
                   </Button>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio_hero")}>
                     <Button size="lg" variant="outline" className="rounded-xl text-base px-7 h-12 border-white/30 bg-white/5 text-white hover:bg-white/10 w-full sm:w-auto">
@@ -361,6 +370,13 @@ const Consorcio = () => {
                         <SelectItem value="Qualquer horário comercial">Qualquer horário comercial</SelectItem>
                       </SelectContent>
                     </Select>
+                    {scenarioSummary && (
+                      <div className="rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm text-slate-700">
+                        <p className="font-semibold">Seu cenário será enviado com a solicitação</p>
+                        <p className="mt-2 text-xs leading-relaxed">{scenarioSummary}</p>
+                        <button type="button" onClick={() => setScenarioSummary("")} className="mt-2 min-h-11 text-[#003366] underline">Remover cenário da solicitação</button>
+                      </div>
+                    )}
                     <Button type="submit" disabled={loading} className="w-full h-12 rounded-xl bg-[#003366] hover:bg-[#0a2a52] text-white font-semibold text-base">
                       {loading ? "Enviando..." : (<span className="flex items-center gap-2">Receber simulação <ArrowRight className="h-4 w-4" /></span>)}
                     </Button>
@@ -370,6 +386,46 @@ const Consorcio = () => {
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <ConsorcioSimulator onRequest={(credit, summary) => {
+          setScenarioSummary(summary);
+          update("credito", formatConsorcioCurrency(credit));
+          goToForm();
+        }} />
+
+        <section aria-labelledby="patrimonio-title" className="py-16 md:py-20 bg-white text-slate-900">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <span className="text-sm font-semibold text-[#003366]">Planejamento patrimonial • Guarulhos e Grande São Paulo</span>
+              <h2 id="patrimonio-title" className="mt-3 text-3xl md:text-4xl font-heading font-semibold">Consórcio para construir patrimônio, sem promessas de rendimento</h2>
+              <p className="mt-5 text-slate-600 leading-relaxed">A aquisição planejada de imóveis ou bens produtivos pode fazer parte da sua estratégia patrimonial. O consórcio, porém, é uma modalidade de compra em grupo — não uma aplicação financeira com rentabilidade ou liquidez garantidas. A carta não é dinheiro de livre utilização e sua liberação depende de contemplação, análise e regras contratuais.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5 mt-8">
+              {[
+                { title: "Imóvel para locação", text: "Considere a espera até a contemplação, despesas de aquisição, manutenção, tributos e vacância. O aluguel futuro não é garantido e pode não cobrir as parcelas." },
+                { title: "Alavancagem com responsabilidade", text: "Usar a carta para adquirir um ativo mantendo parte dos recursos próprios exige reserva financeira e capacidade de pagar reajustes. Não conte com valorização, revenda de cota ou contemplação antecipada para pagar o plano." },
+                { title: "Expansão da empresa", text: "Planeje máquinas, veículos ou imóvel comercial conforme a categoria admitida pelo grupo. Se o bem é necessário agora, avalie também financiamento e seu custo efetivo total." },
+              ].map((item) => <article key={item.title} className="rounded-2xl border border-slate-200 p-6"><h3 className="text-xl font-semibold text-[#003366]">{item.title}</h3><p className="mt-3 text-slate-600 leading-relaxed">{item.text}</p></article>)}
+            </div>
+            <div className="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-6 md:p-8">
+              <h3 className="text-2xl font-semibold">Porto, MAPFRE e outras opções: compare condições, não só parcelas</h3>
+              <p className="mt-3 text-slate-600 leading-relaxed">Consulte a Patro sobre as opções de consórcio disponíveis com Porto, MAPFRE e outras empresas. A disponibilidade depende do produto e do grupo. Antes de contratar, confirme a administradora responsável e sua autorização no Banco Central, taxa de administração total, fundo de reserva, seguros, índice de reajuste e regras de lance e cancelamento.</p>
+              <p className="mt-3 text-slate-600">O simulador acima é independente e educativo: não consulta tabelas dessas empresas nem promete aprovação ou contemplação. A proposta personalizada identifica a administradora e as condições reais.</p>
+              <Button onClick={goToForm} className="mt-5 h-auto min-h-12 whitespace-normal bg-[#003366] text-white hover:bg-[#0a2a52]">Quero comparar propostas para meu objetivo</Button>
+            </div>
+            <div className="mt-8 max-w-3xl">
+              <h3 className="text-xl font-semibold">Atendimento local, planejamento para cada objetivo</h3>
+              <p className="mt-3 text-slate-600">A Patro atende em Cidade Maia, Guarulhos, com orientação para clientes do Centro, Cumbica, Bonsucesso, Vila Galvão e demais bairros, além de São Paulo e da região metropolitana. Informe sua cidade para avaliar as opções disponíveis ao seu perfil, sem pressupor uma unidade física em cada localidade.</p>
+              <nav aria-label="Consórcios por objetivo em Guarulhos" className="flex flex-wrap gap-x-5 gap-y-3 mt-5 text-sm text-[#003366] underline underline-offset-4">
+                <Link to="/consorcio-guarulhos">Consórcio em Guarulhos</Link>
+                <Link to="/consorcio-imoveis-guarulhos">Consórcio de imóveis</Link>
+                <Link to="/consorcio-veiculos-guarulhos">Consórcio de veículos</Link>
+                <Link to="/consorcio-empresarial-guarulhos">Consórcio para empresas</Link>
+                <Link to="/todos-os-seguros">Todos os seguros e soluções da Patro</Link>
+              </nav>
             </div>
           </div>
         </section>
