@@ -452,6 +452,24 @@
   }
 }
 
+/* No celular, a faixa é navegada por toque, sem animação contínua. */
+@media (max-width: 767px) {
+  .patro-home section[aria-label="Seguradoras parceiras"] > .animate-marquee {
+    animation: none;
+    transform: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    padding-block: 0.5rem;
+  }
+  .patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee > a {
+    flex-shrink: 0;
+  }
+  .patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee > [aria-hidden="true"] {
+    display: none;
+  }
+}
+
 @media (max-width: 639px) {
   .patro-home .home-hero-trust { gap: 1.25rem; align-items: start; }
   .patro-home .home-hero-trust > div { align-items: flex-start; line-height: 1.5; }

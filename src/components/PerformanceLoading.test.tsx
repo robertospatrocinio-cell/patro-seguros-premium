@@ -67,13 +67,17 @@ describe("Seções carregadas por proximidade", () => {
     });
     const loader = vi.fn(() => Promise.resolve({}));
     const { unmount } = render(
-      <LazySection rootMargin="300px" prefetch={[loader]}><p>Seção distante</p></LazySection>,
+      <LazySection rootMargin="300px" prefetch={[loader]} placeholderId="cotacao-express">
+        <div id="cotacao-express"><p>Seção distante</p></div>
+      </LazySection>,
     );
     expect(loader).not.toHaveBeenCalled();
+    expect(document.querySelectorAll("#cotacao-express")).toHaveLength(1);
     expect(screen.queryByText("Seção distante")).not.toBeInTheDocument();
     expect(prefetchOnVisible).toHaveBeenCalledWith(expect.any(HTMLElement), loader, { rootMargin: "600px" });
     act(() => notify());
     expect(screen.getByText("Seção distante")).toBeInTheDocument();
+    expect(document.querySelectorAll("#cotacao-express")).toHaveLength(1);
     unmount();
     expect(disconnect).toHaveBeenCalled();
     const dispose = vi.mocked(prefetchOnVisible).mock.results[0].value;

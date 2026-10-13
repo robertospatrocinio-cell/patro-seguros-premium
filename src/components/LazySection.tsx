@@ -22,6 +22,8 @@ interface LazySectionProps {
    * adaptada à conexão, sem impor 800px em redes com economia de dados.
    */
   prefetchRootMargin?: string;
+  /** Mantém âncoras acessíveis enquanto o conteúdo ainda não foi montado. */
+  placeholderId?: string;
 }
 
 const LazySection = ({
@@ -31,6 +33,7 @@ const LazySection = ({
    className = "",
    prefetch,
    prefetchRootMargin,
+   placeholderId,
 }: LazySectionProps) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -75,6 +78,7 @@ const LazySection = ({
   return (
     <div
       ref={ref}
+      id={visible ? undefined : placeholderId}
       className={className}
       style={
         visible

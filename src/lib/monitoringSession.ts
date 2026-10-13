@@ -62,10 +62,18 @@ export function getNetworkProfile(): NetworkProfile {
 }
 
 export function getLazyMarginMultiplier(): number {
-  switch (getNetworkProfile()) {
-    case "fast": return 1.5;
-    case "medium": return 1;
-    case "slow": return 0.5;
-    case "save-data": return 0.35;
-  }
+  const profile = getNetworkProfile();
+  const networkMultiplier = {
+    fast: 1.5,
+    medium: 1,
+    slow: 0.5,
+    "save-data": 0.35,
+  }[profile];
+
+  // Uma conexão 4G não significa CPU rápida. No celular, não antecipe
+  // várias seções distantes enquanto a pessoa ainda está lendo o topo.
+  const isMobile = typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia("(max-width: 767px)").matches;
+  return isMobile ? Math.min(networkMultiplier, 0.75) : networkMultiplier;
 }

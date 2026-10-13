@@ -12,7 +12,7 @@
  *  - uma única FAQ comercial (FAQ de sinistro vive em /central-de-sinistro);
  *  - CTAs de cotação por produto via /cotacao?tipo=...
  */
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 import { Link } from "react-router-dom";
 import {
@@ -46,7 +46,6 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import LazySection from "@/components/LazySection";
 import GooglePreferredSource from "@/components/GooglePreferredSource";
-import { prefetchOnIdleAll } from "@/lib/prefetch";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { INSURER_WEBSITES } from "@/data/insurerWebsites";
 import SolutionGuide from "@/components/SolutionGuide";
@@ -198,19 +197,6 @@ const faqs = [
 
 const Index = () => {
   const [quickLeadInsuranceType, setQuickLeadInsuranceType] = useState<string>();
-  useEffect(() => {
-    // O warm-up desses chunks (formulário + widget do Google) puxa o cliente do
-    // backend e roda avaliação de JS. Em mobile a primeira janela ociosa chega
-    // antes do LCP, então esperamos o `load` + idle para não competir com a
-    // primeira pintura.
-    const start = () => prefetchOnIdleAll([loadQuickLeadForm, loadGoogleBusinessWidget], 8000);
-    if (document.readyState === "complete") {
-      start();
-      return;
-    }
-    window.addEventListener("load", start, { once: true });
-    return () => window.removeEventListener("load", start);
-  }, []);
 
   return (
     <>
@@ -345,10 +331,12 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 6. COTAÇÃO EXPRESS */}
-        <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
-          <QuickLeadForm prefillInsuranceType={quickLeadInsuranceType} />
-        </Suspense>
+        {/* O formulário só baixa seu código ao se aproximar da tela. */}
+        <LazySection minHeight="520px" rootMargin="300px" prefetch={[loadQuickLeadForm]} placeholderId="cotacao-express">
+          <Suspense fallback={<div id="cotacao-express" style={{ minHeight: 520 }} aria-hidden="true" />}>
+            <QuickLeadForm prefillInsuranceType={quickLeadInsuranceType} />
+          </Suspense>
+        </LazySection>
 
         <SolutionGuide onSelectInsuranceType={setQuickLeadInsuranceType} />
 
@@ -660,9 +648,11 @@ const Index = () => {
                     <div className="h-1 w-12 bg-primary rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-widest">Nossa Sede em Guarulhos</span>
                   </div>
-                  <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
-                    <GoogleBusinessWidget />
-                  </Suspense>
+                  <LazySection minHeight="300px" rootMargin="300px" prefetch={[loadGoogleBusinessWidget]}>
+                    <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
+                      <GoogleBusinessWidget />
+                    </Suspense>
+                  </LazySection>
                 </div>
               </div>
             </div>
