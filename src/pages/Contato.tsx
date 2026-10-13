@@ -72,11 +72,9 @@ const Contato = () => {
 
   const getFieldError = (key: string) => {
     if (!touched[key]) return "";
-    const value = (formState as any)[key] || "";
-    if (key === "nome" && !value.trim()) return "Nome é obrigatório";
-    if (key === "telefone" && !value.trim()) return "WhatsApp é obrigatório";
-    if (key === "email" && value.trim() && !/^\S+@\S+\.\S+$/.test(value)) return "E-mail inválido";
-    return "";
+    const parsed = contatoSchema.safeParse(formState);
+    if (parsed.success) return "";
+    return parsed.error.issues.find(issue => issue.path[0] === key)?.message || "";
   };
 
   const handleBlur = (key: string) => setTouched(prev => ({ ...prev, [key]: true }));
@@ -90,6 +88,9 @@ const Contato = () => {
     const parsed = contatoSchema.safeParse(formState);
     if (!parsed.success) {
       toast({ title: firstZodMessage(parsed.error), variant: "destructive" });
+      const field = document.getElementById(String(parsed.error.issues[0]?.path[0] || "nome"));
+      field?.focus({ preventScroll: true });
+      field?.scrollIntoView({ behavior: "auto", block: "center" });
       return;
     }
 
@@ -245,76 +246,73 @@ const Contato = () => {
                       </Button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} noValidate aria-label="Enviar mensagem para a Patro Seguros" aria-busy={sending} className="space-y-4">
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                           <Label htmlFor="nome" className={getFieldError("nome") ? "text-destructive" : ""}>Nome *</Label>
-                          <Input 
-                            id="nome" 
-                            placeholder="Seu nome completo" 
-                            value={formState.nome} 
-                            onChange={e => update("nome", e.target.value)} 
+                          <Label htmlFor="nome" className={getFieldError("nome") ? "text-destructive" : ""}>Nome *</Label>
+                          <Input
+                            id="nome" name="nome" autoComplete="name"
+                            placeholder="Seu nome completo…"
+                            value={formState.nome}
+                            onChange={e => update("nome", e.target.value)}
                             onBlur={() => handleBlur("nome")}
-                            maxLength={100} 
-                            required 
+                            maxLength={100} required
                             className={getFieldError("nome") ? "border-destructive focus-visible:ring-destructive" : ""}
                             aria-invalid={!!getFieldError("nome")}
                             aria-describedby={getFieldError("nome") ? "error-nome" : undefined}
                           />
-                          {getFieldError("nome") && <p id="error-nome" className="text-xs text-destructive">{getFieldError("nome")}</p>}
+                          {getFieldError("nome") && <p id="error-nome" className="text-xs text-destructive" aria-live="polite">{getFieldError("nome")}</p>}
                         </div>
                         <div className="space-y-1.5">
                           <Label htmlFor="telefone" className={getFieldError("telefone") ? "text-destructive" : ""}>Telefone / WhatsApp *</Label>
-                          <Input 
-                            id="telefone" 
-                            placeholder="(11) 99999-9999" 
-                            value={formState.telefone} 
-                            onChange={e => update("telefone", e.target.value)} 
+                          <Input
+                            id="telefone" name="telefone" type="tel" inputMode="tel" autoComplete="tel"
+                            placeholder="(11) 99999-9999…"
+                            value={formState.telefone}
+                            onChange={e => update("telefone", e.target.value)}
                             onBlur={() => handleBlur("telefone")}
-                            maxLength={20} 
-                            required 
+                            maxLength={20} required
                             className={getFieldError("telefone") ? "border-destructive focus-visible:ring-destructive" : ""}
                             aria-invalid={!!getFieldError("telefone")}
                             aria-describedby={getFieldError("telefone") ? "error-telefone" : undefined}
                           />
-                          {getFieldError("telefone") && <p id="error-telefone" className="text-xs text-destructive">{getFieldError("telefone")}</p>}
+                          {getFieldError("telefone") && <p id="error-telefone" className="text-xs text-destructive" aria-live="polite">{getFieldError("telefone")}</p>}
                         </div>
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="email" className={getFieldError("email") ? "text-destructive" : ""}>E-mail</Label>
-                        <Input 
-                          id="email" 
-                          type="email" 
-                          placeholder="seu@email.com" 
-                          value={formState.email} 
-                          onChange={e => update("email", e.target.value)} 
+                        <Input
+                          id="email" name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false}
+                          placeholder="seu@email.com…"
+                          value={formState.email}
+                          onChange={e => update("email", e.target.value)}
                           onBlur={() => handleBlur("email")}
-                          maxLength={255} 
+                          maxLength={255}
                           className={getFieldError("email") ? "border-destructive focus-visible:ring-destructive" : ""}
                           aria-invalid={!!getFieldError("email")}
                           aria-describedby={getFieldError("email") ? "error-email" : undefined}
                         />
-                        {getFieldError("email") && <p id="error-email" className="text-xs text-destructive">{getFieldError("email")}</p>}
+                        {getFieldError("email") && <p id="error-email" className="text-xs text-destructive" aria-live="polite">{getFieldError("email")}</p>}
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="servico">Tipo de Serviço</Label>
-                        <Select value={formState.servico} onValueChange={v => update("servico", v)}>
+                        <Select name="servico" value={formState.servico} onValueChange={v => update("servico", v)}>
                           <SelectTrigger id="servico" aria-label="Tipo de Serviço">
-                            <SelectValue placeholder="Selecione o serviço de interesse" />
+                            <SelectValue placeholder="Selecione o serviço de interesse…" />
                           </SelectTrigger>
                           <SelectContent>
-                            {servicoOptions.map(s => (
-                              <SelectItem key={s} value={s}>{s}</SelectItem>
-                            ))}
+                            {servicoOptions.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
                           </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="mensagem">Mensagem</Label>
-                        <Textarea id="mensagem" placeholder="Como podemos te ajudar?" value={formState.mensagem} onChange={e => update("mensagem", e.target.value)} maxLength={1000} rows={4} />
+                        <Textarea id="mensagem" name="mensagem" autoComplete="off" placeholder="Como podemos te ajudar?…" value={formState.mensagem} onChange={e => update("mensagem", e.target.value)} onBlur={() => handleBlur("mensagem")} maxLength={1000} rows={4} aria-invalid={!!getFieldError("mensagem")} aria-describedby={getFieldError("mensagem") ? "error-mensagem" : undefined} />
+                        {getFieldError("mensagem") && <p id="error-mensagem" className="text-xs text-destructive" aria-live="polite">{getFieldError("mensagem")}</p>}
                       </div>
+                      <p role="status" className="sr-only">{sending ? "Enviando mensagem…" : ""}</p>
                       <Button type="submit" variant="cta" className="w-full" disabled={sending}>
-                        {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Enviar Mensagem</>}
+                        {sending ? <><Send className="mr-2 h-4 w-4 animate-pulse" aria-hidden="true" /> Enviando…</> : <><Send className="mr-2 h-4 w-4" aria-hidden="true" /> Enviar Mensagem</>}
                       </Button>
                       <p className="text-xs text-muted-foreground text-center">Ao enviar, você será redirecionado ao nosso WhatsApp para atendimento imediato.</p>
                     </form>

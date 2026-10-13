@@ -35,12 +35,8 @@ const mockConfig: InsuranceFormConfig = {
   metaDescription: "",
 };
 
-// O InsuranceQuoteForm virou multi-step com estado persistido em localStorage
-// e validação disparada em `nextStep`. A validação lê `touched` no mesmo tick
-// em que ela é atualizada — comportamento correto em runtime (React 18 agenda
-// re-render entre eventos), mas incompatível com jsdom+fireEvent sem envolver
-// `act()` async. Cobertura real fica na suíte E2E; aqui só verificamos que o
-// formulário monta sem crash.
+// A validação de envio deve funcionar já no primeiro clique, mesmo antes
+// de qualquer campo perder o foco e atualizar o estado `touched`.
 describe("InsuranceQuoteForm", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -53,5 +49,16 @@ describe("InsuranceQuoteForm", () => {
     expect(screen.getByLabelText(/E-mail/i)).toBeTruthy();
     expect(screen.getByLabelText(/Telefone/i)).toBeTruthy();
     expect(screen.getByRole("button", { name: /Próximo/i })).toBeTruthy();
+  });
+
+  it("shows the first required error and focuses it on the first submit", () => {
+    render(<InsuranceQuoteForm config={mockConfig} />);
+    const name = screen.getByLabelText(/Nome/i);
+    name.scrollIntoView = vi.fn();
+    fireEvent.click(screen.getByRole("button", { name: /Próximo/i }));
+    expect(name.getAttribute("aria-invalid")).toBe("true");
+    expect(document.activeElement).toBe(name);
+    expect(toast.error).toHaveBeenCalledWith("Por favor, verifique o campo: Nome");
+    expect(screen.getByRole("form", { name: /Cotação de Seguro Auto/i }).textContent).toContain("Passo 1 de");
   });
 });

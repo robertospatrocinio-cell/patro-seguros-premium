@@ -147,6 +147,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   }, [formData, checkboxGroups, currentStep, saveToCloud]);
 
   const startOver = () => {
+    if (!window.confirm("Limpar os dados desta cotação? Você precisará preenchê-los novamente.")) return;
     logForgottenQuote(config.type, currentStep, storageKey);
     clearFormData();
     clearCheckboxes();
@@ -199,8 +200,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   };
 
 
-  const getFieldError = (field: FormFieldConfig) => {
-    if (!touched[field.id]) return "";
+  const getFieldError = (field: FormFieldConfig, force = false) => {
+    if (!force && !touched[field.id]) return "";
     const value = formData[field.id] || "";
     
     if (field.required) {
@@ -247,13 +248,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     if (!step) return true;
     
     for (const field of step.fields) {
-      if (!field.required) continue;
-      if (field.type === "checkbox-group") {
-        if (!(checkboxGroups[field.id]?.length > 0)) return false;
-      } else {
-        if (!formData[field.id]?.trim()) return false;
-      }
-      if (getFieldError(field)) return false;
+      if (getFieldError(field, true)) return false;
     }
 
     if (step.id === "review") {
@@ -271,12 +266,15 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     setTouched(newTouched);
 
     if (!isStepValid(currentStep)) {
-      const firstErrorField = steps[currentStep - 1].fields.find(f => getFieldError(f));
+      const firstErrorField = steps[currentStep - 1].fields.find(f => getFieldError(f, true));
       if (firstErrorField) {
         toast.error(`Por favor, verifique o campo: ${firstErrorField.label}`);
-        // Scroll to the error field
         const element = document.getElementById(`iq-${firstErrorField.id}`);
-        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const control = element?.matches('input, button, select, textarea')
+          ? element
+          : element?.querySelector<HTMLElement>('input, button, select, textarea');
+        control?.focus({ preventScroll: true });
+        element?.scrollIntoView({ behavior: 'auto', block: 'center' });
       } else if (steps[currentStep - 1].id === "review") {
         if (!captchaToken) {
           toast.error("Por favor, complete o desafio de segurança (CAPTCHA).");
@@ -289,7 +287,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      requestAnimationFrame(() => {
+        const heading = document.getElementById("iq-step-title");
+        heading?.focus({ preventScroll: true });
+        heading?.scrollIntoView({ behavior: "auto", block: "center" });
+      });
     }
     // Set captcha as touched when reaching review step
     if (currentStep === totalSteps - 1) {
@@ -301,7 +303,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      requestAnimationFrame(() => {
+        const heading = document.getElementById("iq-step-title");
+        heading?.focus({ preventScroll: true });
+        heading?.scrollIntoView({ behavior: "auto", block: "center" });
+      });
     }
   };
 
@@ -313,13 +319,15 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       return;
     }
 
-    if (!consent) {
-      toast.error("Por favor, aceite os termos para continuar.");
-      return;
-    }
-
-    if (!isChecklistComplete) {
-      toast.error("Por favor, confirme todos os itens do checklist antes de enviar.");
+    setTouched(prev => ({ ...prev, review: true }));
+    if (!consent || !isChecklistComplete) {
+      const message = !consent
+        ? "Por favor, aceite os termos para continuar."
+        : "Por favor, confirme todos os itens do checklist antes de enviar.";
+      toast.error(message);
+      const control = document.getElementById(!consent ? "iq-consent" : checklistOptions.find(item => !checklistItems[item.id])!.id);
+      control?.focus({ preventScroll: true });
+      control?.scrollIntoView({ behavior: "auto", block: "center" });
       return;
     }
 
@@ -429,7 +437,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
   if (sent) {
     return (
-      <div className="bg-primary/[0.03] border border-primary/10 rounded-2xl p-8 text-center animate-in zoom-in-95 duration-300">
+      <div role="status" className="bg-primary/[0.03] border border-primary/10 rounded-2xl p-8 text-center animate-in zoom-in-95 duration-300">
         <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="h-8 w-8 text-green-600" />
         </div>
@@ -439,12 +447,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
         </p>
         
         <div className="space-y-4">
-          <Button 
-            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-lg h-auto gap-3"
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`, "_blank")}
+          <Button
+            asChild
+            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-lg h-auto gap-3 whitespace-normal"
           >
-            <MessageCircle className="h-6 w-6" />
-            Continuar no WhatsApp
+            <ExternalLink href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`}>
+              <MessageCircle className="h-6 w-6 shrink-0" aria-hidden="true" />
+              Continuar no WhatsApp
+            </ExternalLink>
           </Button>
 
           <div className="bg-white/50 rounded-xl p-4 border border-dashed border-primary/20">
@@ -517,13 +527,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl" aria-hidden="true">{config.emoji}</span>
-        <h3 className="text-lg font-bold">{steps[currentStep - 1].title}</h3>
+        <h3 id="iq-step-title" tabIndex={-1} className="text-lg font-bold">{steps[currentStep - 1].title}</h3>
       </div>
       <p className="text-sm text-muted-foreground mb-6">
         {currentStep === 1 ? config.subtitle : `Preencha os detalhes para sua cotação de ${config.type}`}
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} noValidate aria-label={`Cotação de ${config.type}`} aria-busy={sending} className="space-y-6">
+        <p role="status" className="sr-only">Passo {currentStep} de {totalSteps}: {steps[currentStep - 1].title}</p>
         {/* Step Content */}
         <div className="space-y-4 animate-in fade-in slide-in-from-right-2 duration-300">
           {steps[currentStep - 1].id === "review" ? (
@@ -537,6 +548,10 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   <label key={item.id} className="flex items-start gap-3 cursor-pointer group">
                     <Checkbox 
                       id={item.id}
+                      name={item.id}
+                      aria-required="true"
+                      aria-invalid={!!touched.review && !checklistItems[item.id]}
+                      aria-describedby={touched.review && !isChecklistComplete ? "iq-checklist-error" : undefined}
                       checked={checklistItems[item.id] || false}
                       onCheckedChange={() => toggleChecklistItem(item.id)}
                       className="mt-1"
@@ -546,15 +561,21 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                     </span>
                   </label>
                 ))}
+                {touched.review && !isChecklistComplete && (
+                  <p id="iq-checklist-error" className="text-xs text-destructive" aria-live="polite">Confirme todos os itens acima antes de enviar.</p>
+                )}
               </div>
 
               <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
                 <label className="flex items-start gap-3 cursor-pointer group">
-                  <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-1" />
+                  <Checkbox id="iq-consent" name="consent" checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-1" aria-required="true" aria-invalid={!!touched.review && !consent} aria-describedby={touched.review && !consent ? "iq-consent-error" : undefined} />
                   <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
                     Concordo em receber contato especializado da Patro Seguros via WhatsApp ou E-mail para tratar desta cotação.
                   </span>
                 </label>
+                {touched.review && !consent && (
+                  <p id="iq-consent-error" className="text-xs text-destructive mt-2" aria-live="polite">Aceite o contato para receber esta cotação.</p>
+                )}
               </div>
 
               <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl border border-primary/10 shadow-sm overflow-hidden">
@@ -579,7 +600,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
               const error = getFieldError(field);
               return (
                 <div key={field.id} className="space-y-2">
-                  <Label htmlFor={`iq-${field.id}`} className={error ? "text-destructive font-semibold" : "font-semibold"}>
+                  <Label id={`label-iq-${field.id}`} htmlFor={field.type === "radio" || field.type === "checkbox-group" ? undefined : `iq-${field.id}`} className={error ? "text-destructive font-semibold" : "font-semibold"}>
                     {field.label} {field.required && <span className="text-destructive">*</span>}
                   </Label>
 
@@ -610,11 +631,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   )}
 
                   {field.type === "radio" && field.options && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div id={`iq-${field.id}`} role="radiogroup" aria-labelledby={`label-iq-${field.id}`} aria-required={field.required} aria-invalid={!!error} aria-describedby={error ? `error-iq-${field.id}` : undefined} className="grid grid-cols-1 sm:grid-cols-2 gap-2 [&>label:focus-within]:ring-2 [&>label:focus-within]:ring-primary [&>label:focus-within]:ring-offset-2">
                       {field.options.map(opt => (
                         <label
                           key={opt}
-                          className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-all text-sm ${
+                          className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-colors text-sm ${
                             formData[field.id] === opt
                               ? "border-primary bg-primary/5 text-primary-foreground font-medium ring-1 ring-primary"
                               : error 
@@ -647,7 +668,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   )}
 
                   {field.type === "checkbox-group" && field.options && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div id={`iq-${field.id}`} role="group" aria-labelledby={`label-iq-${field.id}`} aria-invalid={!!error} aria-describedby={error ? `error-iq-${field.id}` : undefined} className="grid grid-cols-1 sm:grid-cols-2 gap-2 [&>label:focus-within]:ring-2 [&>label:focus-within]:ring-primary [&>label:focus-within]:ring-offset-2">
                       {field.options.map(opt => {
                         const checked = opt === "Todos"
                           ? (checkboxGroups[field.id]?.length === (field.options!.filter(o => o !== "Todos").length))
@@ -655,7 +676,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                         return (
                           <label
                             key={opt}
-                            className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-all text-sm ${
+                            className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-colors text-sm ${
                               checked 
                                 ? "border-primary bg-primary/5 ring-1 ring-primary" 
                                 : error 
@@ -680,8 +701,12 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   {(field.type === "tel" || field.type === "email" || field.type === "text" || field.type === "date" || field.type === "currency") && (
                     <Input
                       id={`iq-${field.id}`}
-                      type={field.type === "email" ? "text" : field.type === "tel" ? "tel" : field.type === "date" ? "date" : "text"}
-                      placeholder={field.placeholder || (field.type === "tel" ? "(11) 99999-9999" : field.type === "email" ? "seu@email.com" : "")}
+                      name={field.id}
+                      type={field.type === "email" ? "email" : field.type === "tel" ? "tel" : field.type === "date" ? "date" : "text"}
+                      inputMode={field.type === "tel" ? "tel" : field.type === "email" ? "email" : field.type === "currency" || field.id.toLowerCase().includes("cep") ? "numeric" : undefined}
+                      autoComplete={field.type === "tel" ? "tel" : field.type === "email" ? "email" : /^(nome|name)$/.test(field.id) ? "name" : field.id.toLowerCase().includes("cep") ? "postal-code" : "off"}
+                      spellCheck={field.type === "email" ? false : undefined}
+                      placeholder={field.placeholder || (field.type === "tel" ? "(11) 99999-9999…" : field.type === "email" ? "seu@email.com…" : "")}
                       value={formData[field.id] || ""}
                       onChange={e => {
                         let val = e.target.value;
@@ -699,7 +724,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   )}
 
                   {error && (
-                    <p id={`error-iq-${field.id}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">
+                    <p id={`error-iq-${field.id}`} aria-live="polite" className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">
                       {error}
                     </p>
                   )}
@@ -723,18 +748,19 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             </Button>
           )}
           
-          <Button 
-            type="submit" 
-            variant="cta" 
-            className={`h-12 font-bold text-base flex-1 order-1 sm:order-2 ${currentStep === 1 ? "w-full" : ""}`}
+          <span role="status" className="sr-only">{sending ? "Enviando cotação…" : ""}</span>
+          <Button
+            type="submit"
+            variant="cta"
+            className={`h-auto min-h-12 py-3 whitespace-normal font-bold text-base flex-1 order-1 sm:order-2 ${currentStep === 1 ? "w-full" : ""}`}
             disabled={sending}
           >
             {sending ? (
-              "Enviando..."
+              <><svg viewBox="0 0 24 24" className="mr-2 h-4 w-4 shrink-0 animate-spin" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.25" /><path d="M12 3a9 9 0 0 1 9 9" fill="none" stroke="currentColor" strokeWidth="3" /></svg>Enviando…</>
             ) : currentStep < totalSteps ? (
-              <>Próximo Passo <ChevronRight className="ml-2 h-4 w-4" /></>
+              <>Próximo Passo <ChevronRight className="ml-2 h-4 w-4" aria-hidden="true" /></>
             ) : (
-              <><Send className="mr-2 h-4 w-4" /> Finalizar e Receber Cotação</>
+              <><Send className="mr-2 h-4 w-4 shrink-0" aria-hidden="true" /> Finalizar e Receber Cotação</>
             )}
           </Button>
         </div>

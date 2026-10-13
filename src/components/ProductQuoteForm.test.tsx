@@ -135,4 +135,33 @@ describe("Captação por produto", () => {
     expect(trackCotacaoSubmit).not.toHaveBeenCalled();
     expect(screen.queryByRole("status")).toBeNull();
   });
+
+  it("associa o erro ao primeiro campo inválido e leva o foco até ele", () => {
+    render(<ProductQuoteForm productName="Drone agrícola" productPath="/seguro-drone-agricola" />);
+    fireEvent.submit(screen.getByRole("form"));
+    const name = screen.getByLabelText("Nome *");
+    expect(name).toHaveFocus();
+    expect(name).toHaveAttribute("aria-invalid", "true");
+    expect(name).toHaveAccessibleDescription("Informe seu nome com pelo menos 2 letras.");
+    expect(safeInvoke).not.toHaveBeenCalled();
+  });
+
+  it("valida o e-mail opcional antes do envio", () => {
+    render(<ProductQuoteForm productName="Drone agrícola" productPath="/seguro-drone-agricola" />);
+    fillContact();
+    const email = screen.getByLabelText("E-mail (opcional)");
+    fireEvent.change(email, { target: { value: "email-invalido" } });
+    fireEvent.submit(screen.getByRole("form"));
+    expect(email).toHaveFocus();
+    expect(email).toHaveAttribute("aria-invalid", "true");
+    expect(email).toHaveAccessibleDescription("Confira seu e-mail. Ex.: nome@email.com.");
+    expect(safeInvoke).not.toHaveBeenCalled();
+  });
+
+  it("mantém identificadores únicos quando há dois formulários do mesmo produto", () => {
+    render(<><ProductQuoteForm productName="Drone agrícola" productPath="/seguro-drone-agricola" /><ProductQuoteForm productName="Drone agrícola" productPath="/seguro-drone-agricola" /></>);
+    const names = screen.getAllByLabelText("Nome *");
+    expect(names[0].id).not.toBe(names[1].id);
+    expect(names.every(input => input.getAttribute("autocomplete") === "name")).toBe(true);
+  });
 });

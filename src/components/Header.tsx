@@ -19,6 +19,25 @@ const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
 const WHATSAPP_SINISTRO_URL = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
 
+const MobileSection = ({ id, label, isOpen, onToggle, children }: { id: string; label: string; isOpen: boolean; onToggle: (id: string) => void; children: React.ReactNode }) => (
+  <div className="border-b border-border/50 last:border-0">
+    <button
+      type="button"
+      id={`mobile-section-trigger-${id}`}
+      onClick={() => onToggle(id)}
+      className="flex items-center justify-between w-full py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary transition-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      aria-expanded={isOpen}
+      aria-controls={`mobile-section-${id}`}
+    >
+      {label}
+      <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+    </button>
+    <div id={`mobile-section-${id}`} hidden={!isOpen} className="pb-3 px-3" role="region" aria-labelledby={`mobile-section-trigger-${id}`}>
+      {isOpen ? children : null}
+    </div>
+  </div>
+);
+
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
@@ -141,6 +160,7 @@ const Header = memo(() => {
   const handleForgetClick = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
     if (recoverableSession) {
+      if (!window.confirm("Esquecer esta cotação? Os dados salvos neste dispositivo serão apagados.")) return;
       // Log to local history before removing
       logForgottenQuote(
         recoverableSession.type, 
@@ -202,28 +222,6 @@ const Header = memo(() => {
     setMobileSearch(""); 
   }, []);
 
-  const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
-    const isOpen = openMobileSection === id;
-    return (
-      <div className="border-b border-border/50 last:border-0">
-        <button
-          onClick={() => toggleMobileSection(id)}
-          className="flex items-center justify-between w-full py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary transition-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          aria-expanded={isOpen}
-          aria-controls={`mobile-section-${id}`}
-        >
-          {label}
-          <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
-        </button>
-        {isOpen && (
-          <div id={`mobile-section-${id}`} className="pb-3 px-3" role="region">
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  };
-
   const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
     <SmartLink to={to} className="block py-1.5 px-2 text-[13px] text-foreground/60 hover:text-primary rounded-md hover:bg-muted/50 transition-base" onClick={close}>
       {children}
@@ -233,7 +231,7 @@ const Header = memo(() => {
   return (
     <>
     <header
-      className={`patro-site-header sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}
+      className={`patro-site-header sticky top-0 z-50 w-full transition-transform duration-300 focus-within:!translate-y-0 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && isMenuOpen) {
           event.preventDefault();
@@ -607,14 +605,14 @@ const Header = memo(() => {
 
           <div className="space-y-1" hidden={!!mobileSearch.trim()}>
             {catalogoSeguros.map((grupo) => (
-              <MobileSection key={grupo.id} id={grupo.id} label={grupo.title}>
+              <MobileSection key={grupo.id} id={grupo.id} label={grupo.title} isOpen={openMobileSection === grupo.id} onToggle={toggleMobileSection}>
                 {grupo.items.map((item) => (
                   <MobileLink key={item.to} to={item.to}>{item.label}</MobileLink>
                 ))}
               </MobileSection>
             ))}
 
-            <MobileSection id="atendimento" label="Atendimento">
+            <MobileSection id="atendimento" label="Atendimento" isOpen={openMobileSection === "atendimento"} onToggle={toggleMobileSection}>
               <MobileLink to="/cotacao">Solicitar Cotação</MobileLink>
               <MobileLink to="/contato">Renovar Seguro</MobileLink>
               <MobileLink to="/central-de-sinistro">Central de Sinistro</MobileLink>
@@ -648,7 +646,7 @@ const Header = memo(() => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("floating-desktop-sinistro")}
-            className="flex items-center gap-3 bg-green-700 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-800 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0 focus-visible:translate-x-0"
+            className="flex items-center gap-3 bg-green-700 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-800 transition-[background-color,transform] translate-x-[calc(100%-48px)] hover:translate-x-0 focus-visible:translate-x-0"
           >
             <span className="text-xs font-bold whitespace-nowrap">WhatsApp de Emergência</span>
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600">

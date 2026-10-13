@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Download, CheckCircle, X } from "lucide-react";
+import { Download, CheckCircle } from "lucide-react";
 import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
 import { whatsappSchema, firstZodMessage } from "@/lib/leadValidation";
 
@@ -85,61 +85,53 @@ const ExitIntentPopup = () => {
 
   return (
     <Dialog open={open} onOpenChange={(v) => { if (!v) dismiss(); }}>
-      <DialogContent className="max-w-md p-0 gap-0 rounded-2xl overflow-hidden border-0 bg-gradient-to-b from-[hsl(210,100%,14%)] to-[hsl(210,100%,20%)]">
+      <DialogContent aria-describedby="exit-popup-description" className="max-w-md p-0 gap-0 rounded-2xl overflow-y-auto border-0 bg-gradient-to-b from-[hsl(210,100%,14%)] to-[hsl(210,100%,20%)]">
         <DialogTitle className="sr-only">E-book Gratuito - Seguro Auto</DialogTitle>
-        <button
-          onClick={dismiss}
-          className="absolute right-4 top-4 z-10 text-white/40 hover:text-white transition-colors"
-          aria-label="Fechar"
-        >
-          <X className="h-5 w-5" />
-        </button>
-
         <div className="p-8 text-center">
           {!sent ? (
             <>
-              <div className="text-4xl mb-4">🛑</div>
+              <div className="text-4xl mb-4" aria-hidden="true">🛑</div>
               <h3 className="text-xl font-extrabold text-white mb-2">
                 Espere! Não feche seu seguro antes de ler isso.
               </h3>
-              <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                Descubra como motoristas de Guarulhos estão <strong className="text-white/80">economizando até 30%</strong> na renovação.
+              <p id="exit-popup-description" className="text-white/80 text-sm mb-6 leading-relaxed">
+                Descubra como motoristas de Guarulhos estão <strong className="text-white/90">economizando até 30%</strong> na renovação.
               </p>
-
-               <form onSubmit={handleSubmit} className="space-y-3">
+              <form onSubmit={handleSubmit} className="space-y-3" aria-label="Receber e-book gratuito">
+                <label htmlFor="ebook-whatsapp" className="sr-only">Seu WhatsApp com DDD</label>
                 <Input
-                  placeholder="Seu WhatsApp (DDD + número)"
-                  aria-label="Seu WhatsApp (DDD + número)"
+                  id="ebook-whatsapp"
+                  name="whatsapp"
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder="(11) 99999-9999…"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(formatWhatsApp(e.target.value))}
-                  className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-center focus-visible:ring-amber-400"
+                  className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/70 text-center focus-visible:ring-amber-400"
                   required
                   inputMode="tel"
+                  pattern="\([0-9]{2}\) 9[0-9]{4}-[0-9]{4}"
+                  title="Informe um celular com DDD, no formato (11) 99999-9999."
                   maxLength={16}
                 />
-                <Button
-                  type="submit"
-                  disabled={!canSubmit}
-                  className="w-full h-12 rounded-xl bg-amber-500 hover:bg-amber-400 text-primary font-bold text-sm shadow-lg shadow-amber-500/20 disabled:opacity-40"
-                >
-                  <Download className="mr-2 h-4 w-4" /> Quero meu E-book Grátis
+                <Button type="submit" className="w-full h-auto min-h-12 py-3 whitespace-normal rounded-xl bg-amber-500 hover:bg-amber-400 text-primary font-bold text-sm shadow-lg shadow-amber-500/20">
+                  <Download className="mr-2 h-4 w-4 shrink-0" aria-hidden="true" /> Quero meu E-book Grátis
                 </Button>
               </form>
-
-              <p className="text-white/30 text-[11px] mt-4">
+              <p className="text-white/75 text-[11px] mt-4">
                 🔒 Odiamos spam. Seu contato está seguro.
               </p>
             </>
           ) : (
-            <div className="py-4 space-y-4">
-              <CheckCircle className="h-14 w-14 text-green-400 mx-auto" />
+            <div className="py-4 space-y-4" role="status">
+              <CheckCircle className="h-14 w-14 text-green-400 mx-auto" aria-hidden="true" />
               <p className="text-white font-semibold text-lg">Sucesso!</p>
-              <p className="text-white/60 text-sm">O link para baixar o seu Guia está pronto.</p>
-              <a href={EBOOK_URL} download>
-                <Button className="bg-amber-500 hover:bg-amber-400 text-primary font-bold rounded-xl h-12 px-8">
-                  <Download className="mr-2 h-4 w-4" /> Baixar E-book Agora
-                </Button>
-              </a>
+              <p id="exit-popup-description" className="text-white/80 text-sm">O link para baixar o seu Guia está pronto.</p>
+              <Button asChild className="bg-amber-500 hover:bg-amber-400 text-primary font-bold rounded-xl min-h-12 h-auto py-3 px-8 whitespace-normal">
+                <a href={EBOOK_URL} download>
+                  <Download className="mr-2 h-4 w-4 shrink-0" aria-hidden="true" /> Baixar E-book Agora
+                </a>
+              </Button>
             </div>
           )}
         </div>

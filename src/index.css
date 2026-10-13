@@ -90,8 +90,12 @@
   .gold-rule { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent); }
   .gradient-glass { background: linear-gradient(135deg, hsla(0 0% 100% / 0.08) 0%, hsla(0 0% 100% / 0.03) 100%); }
   .gradient-surface { background: linear-gradient(180deg, hsl(36 24% 98%) 0%, hsl(220 16% 96%) 100%); }
-  .transition-base { transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
-  .transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .transition-base, .transition-smooth {
+    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .transition-base { transition-duration: 0.15s; }
+  .transition-smooth { transition-duration: 0.3s; }
   .text-balance { text-wrap: balance; }
   .glass-card {
     background: hsla(0, 0%, 100%, 0.05);
@@ -146,8 +150,31 @@
 [id$="-heading"] {
   scroll-margin-top: 7rem;
 }
-[id$="-heading"]:focus {
-  outline: none;
+[id$="-heading"]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+html {
+  scroll-padding-block: 8rem 7rem;
+}
+
+:is(a[href], button, input, select, textarea, summary, [role="button"]) {
+  touch-action: manipulation;
+  scroll-margin-block: 1rem;
+}
+
+[role="dialog"], [role="alertdialog"], [data-radix-scroll-area-viewport] {
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Print styles for interactive checklists (PDF export via browser) */

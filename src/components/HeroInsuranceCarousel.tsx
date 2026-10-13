@@ -664,7 +664,7 @@ const HeroInsuranceCarousel = ({
           {/* Mobile: dots + hint */}
           <div className="mt-5 flex flex-col items-center gap-2 md:hidden">
             {snaps.length > 1 && (
-              <div className="flex items-center gap-1.5" role="tablist" aria-label="Navegar entre seguros">
+              <div className="flex items-center gap-1.5" role="group" aria-label="Navegar entre seguros">
                 {snaps.map((_, i) => {
                   const active = i === selectedSnap;
                   const theme = AUDIENCE_THEMES[audience];
@@ -672,8 +672,7 @@ const HeroInsuranceCarousel = ({
                     <button
                       key={i}
                       type="button"
-                      role="tab"
-                      aria-selected={active}
+                      aria-current={active ? "true" : undefined}
                       aria-label={`Ir para o slide ${i + 1}`}
                       onClick={() => emblaApi?.scrollTo(i)}
                       className="inline-flex h-6 w-6 items-center justify-center"

@@ -86,6 +86,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
   }, [form, currentStep, saveToCloud]);
 
   const startOver = () => {
+    if (!window.confirm("Limpar os dados desta cotação? Você precisará preenchê-los novamente.")) return;
     logForgottenQuote(insuranceType, currentStep, storageKey);
     clearForm();
     clearStep();
@@ -135,27 +136,35 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setTouched(prev => ({ ...prev, [key]: true }));
   };
 
+  const focusField = (key: string) => {
+    requestAnimationFrame(() => {
+      const element = document.getElementById(`qq-${key === "telefone" ? "tel" : key}-${trackingLabel}`);
+      element?.focus({ preventScroll: true });
+      element?.scrollIntoView({ behavior: "auto", block: "center" });
+    });
+  };
+
   const nextStep = () => {
     if (currentStep === 1) {
       const nomeError = validateField("nome", form.nome);
       const telError = validateField("telefone", form.telefone);
-      
       setTouched(prev => ({ ...prev, nome: true, telefone: true }));
-
       if (nomeError || telError) {
         toast.error(nomeError || telError || "Verifique as informações para continuar.");
-        const firstErrorKey = nomeError ? "nome" : "telefone";
-        const element = document.getElementById(`qq-${firstErrorKey}-${trackingLabel}`);
-        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        focusField(nomeError ? "nome" : "telefone");
         return;
       }
       setCurrentStep(2);
+      focusField("email");
     }
   };
 
 
   const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      focusField("nome");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -178,6 +187,8 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
     if (nomeError || telError || emailError) {
       toast.error(nomeError || telError || emailError || "Por favor, corrija os erros no formulário.");
+      if (nomeError || telError) setCurrentStep(1);
+      focusField(nomeError ? "nome" : telError ? "telefone" : "email");
       return;
     }
 
@@ -319,7 +330,8 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
           : "Só mais alguns detalhes para personalizar sua proposta."}
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} noValidate aria-label={`Cotação de ${insuranceType}`} aria-busy={sending} className="space-y-4">
+        <p role="status" className="sr-only">Passo {currentStep} de {totalSteps}</p>
         {currentStep === 1 ? (
           <div className="space-y-4 animate-in fade-in slide-in-from-right-2 duration-300">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -329,7 +341,9 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                 </Label>
                 <Input
                   id={`qq-nome-${trackingLabel}`}
-                  placeholder="Seu nome completo"
+                  name="nome"
+                  autoComplete="name"
+                  placeholder="Seu nome completo…"
                   value={form.nome}
                   onChange={e => update("nome", e.target.value)}
                   onBlur={() => handleBlur("nome")}
@@ -349,7 +363,11 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                 </Label>
                 <Input
                   id={`qq-tel-${trackingLabel}`}
-                  placeholder="(11) 99999-9999"
+                  name="telefone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="(11) 99999-9999…"
                   value={form.telefone}
                   onChange={e => update("telefone", e.target.value)}
                   onBlur={() => handleBlur("telefone")}
@@ -372,8 +390,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                 </Label>
                 <Input
                   id={`qq-email-${trackingLabel}`}
-                  type="text"
-                  placeholder="seu@email.com"
+                  name="email"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  spellCheck={false}
+                  placeholder="seu@email.com…"
                   value={form.email || ""}
                   onChange={e => update("email", e.target.value)}
                   onBlur={() => handleBlur("email")}
@@ -396,8 +418,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
               </Label>
               <Input
                 id={`qq-email-${trackingLabel}`}
-                type="text"
-                placeholder="seu@email.com"
+                name="email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                spellCheck={false}
+                placeholder="seu@email.com…"
                 value={form.email || ""}
                 onChange={e => update("email", e.target.value)}
                 onBlur={() => handleBlur("email")}
@@ -444,6 +470,8 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                   ) : (
                     <Input
                       id={`qq-${field.id}-${trackingLabel}`}
+                      name={field.id}
+                      autoComplete="off"
                       placeholder={field.placeholder}
                       value={form[field.id] || ""}
                       onChange={e => update(field.id, e.target.value)}
@@ -476,18 +504,19 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
             </Button>
           )}
           
-          <Button 
-            type="submit" 
-            variant="cta" 
-            className="h-12 font-bold text-sm order-1 sm:order-2 flex-[2]" 
+          <span role="status" className="sr-only">{sending ? "Enviando cotação…" : ""}</span>
+          <Button
+            type="submit"
+            variant="cta"
+            className="h-12 font-bold text-sm order-1 sm:order-2 flex-[2]"
             disabled={sending}
           >
             {sending ? (
-              "Enviando..."
+              <><Send className="mr-2 h-4 w-4 animate-pulse" aria-hidden="true" /> Enviando…</>
             ) : currentStep < totalSteps ? (
-              <>Próximo <ChevronRight className="ml-2 h-4 w-4" /></>
+              <>Próximo <ChevronRight className="ml-2 h-4 w-4" aria-hidden="true" /></>
             ) : (
-              <><Send className="mr-2 h-4 w-4" /> Cotar agora</>
+              <><Send className="mr-2 h-4 w-4" aria-hidden="true" /> Cotar agora</>
             )}
           </Button>
         </div>
