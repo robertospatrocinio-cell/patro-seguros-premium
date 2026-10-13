@@ -83,26 +83,35 @@ const preservePrerenderedContent = (root: HTMLElement) => {
   root.style.visibility = "hidden";
 
   let done = false;
+  let frame = 0;
+  let revealScheduled = false;
+  let safetyTimer = 0;
   const reveal = () => {
     if (done) return;
     done = true;
+    observer.disconnect();
+    cancelAnimationFrame(frame);
+    window.clearTimeout(safetyTimer);
     root.style.visibility = "";
     shell.remove();
   };
 
   const check = () => {
-    if (done) return;
-    if (root.querySelector("main")) {
-      // Deixa o browser pintar o conteúdo real antes de remover o shell.
-      requestAnimationFrame(() => requestAnimationFrame(reveal));
-      return;
-    }
-    requestAnimationFrame(check);
+    if (done || revealScheduled || !root.querySelector("main")) return;
+    revealScheduled = true;
+    observer.disconnect();
+    // Mantém a troca após a pintura, sem consultar o DOM a cada frame
+    // enquanto o navegador ainda está baixando o chunk da rota.
+    frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(reveal);
+    });
   };
-  requestAnimationFrame(check);
+  const observer = new MutationObserver(check);
+  observer.observe(root, { childList: true, subtree: true });
 
   // Rede de segurança: nunca manter #root oculto indefinidamente.
-  window.setTimeout(reveal, 6000);
+  safetyTimer = window.setTimeout(reveal, 6000);
+  check();
 };
 
 if (rootElement) {

@@ -62,7 +62,8 @@ const loadGoogleBusinessWidget = () => import("@/components/GoogleBusinessWidget
 const loadProvaSocialPatro = () => import("@/components/ProvaSocialPatro");
 const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
 const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
-const HeroPatro = lazy(() => import("@/components/HeroPatro"));
+// O hero é conteúdo crítico: acompanha a rota, sem uma segunda espera de rede.
+import HeroPatro from "@/components/HeroPatro";
 
 const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
 const LocalSavingsCalculator = lazy(loadLocalSavingsCalculator);
@@ -233,9 +234,7 @@ const Index = () => {
       <Header />
       <main id="main-content">
         {/* 2. HERO */}
-        <Suspense fallback={<div className="min-h-[640px] bg-slate-900 animate-pulse" />}>
-          <HeroPatro />
-        </Suspense>
+        <HeroPatro />
 
         {/* 3. PROPOSTA DE VALOR + 4. CTA PRINCIPAL */}
         <section className="py-14 md:py-20 bg-white border-t border-slate-100" aria-labelledby="home-seo-intro">

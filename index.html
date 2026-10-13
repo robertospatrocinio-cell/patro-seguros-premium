@@ -86,31 +86,24 @@
     <!-- Preload LCP candidates — só a imagem exata que cada breakpoint irá pintar -->
     <!-- Logo do header (above-the-fold em todos os viewports) -->
     <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
-    <!-- Hero LCP: AVIF responsivo com imagesrcset (browser escolhe a largura ideal).
-         `type=image/avif` faz o preload ser ignorado por browsers sem suporte, que
-         então usam os preloads WebP abaixo. Um único preload por formato/breakpoint
-         evita disputa de banda com a logo e o selo. -->
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      href="/images/hero-home-960.avif"
-      imagesrcset="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-      imagesizes="100vw"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      as="image"
-      type="image/webp"
-      href="/images/hero-home-960.webp"
-      imagesrcset="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-      imagesizes="100vw"
-      fetchpriority="high"
-    />
-    <!-- Selo: só desktop (em mobile fica abaixo do H1 e competiria banda com o hero LCP).
-         Uma única variante @2x em desktop cobre monitores retina sem duplicar download. -->
-    <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-width: 1024px)" />
+    <!-- Apenas a home usa este hero. Antecipar um único formato evita baixar
+         AVIF e WebP juntos; sem AVIF, o picture descobre o fallback WebP.
+         O sizes acompanha exatamente o HeroPatro, inclusive no desktop. -->
+    <script>
+      (function () {
+        if (location.pathname !== '/' || document.getElementById('home-hero-preload')) return;
+        var hero = document.createElement('link');
+        hero.id = 'home-hero-preload';
+        hero.rel = 'preload';
+        hero.as = 'image';
+        hero.type = 'image/avif';
+        hero.href = '/images/hero-home-960.avif';
+        hero.setAttribute('imagesrcset', '/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w');
+        hero.setAttribute('imagesizes', '(max-width: 1024px) 100vw, 50vw');
+        hero.setAttribute('fetchpriority', 'high');
+        document.head.appendChild(hero);
+      })();
+    </script>
 
     <!-- Theme color for instant UA chrome paint (no layout cost) -->
     <meta name="theme-color" content="#003366" />

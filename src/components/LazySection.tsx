@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, ReactNode } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { prefetchOnIdle, prefetchOnVisible } from "@/lib/prefetch";
+import { prefetchOnVisible } from "@/lib/prefetch";
 import { getLazyMarginMultiplier } from "@/lib/monitoringSession";
 
 interface LazySectionProps {
@@ -12,16 +12,14 @@ interface LazySectionProps {
   className?: string;
   /**
    * Loaders (`() => import("...")`) dos componentes lazy que esta seção
-   * usa. Serão pré-carregados quando a main thread ficar ociosa E ainda
-   * antecipados via IntersectionObserver (com margem maior que a de
-   * renderização), garantindo que o chunk chegue antes do Suspense.
-   * Não impacta TBT — roda em requestIdleCallback.
+   * usa. O pré-carregamento começa por proximidade via IntersectionObserver,
+   * antes da renderização. Seções distantes não baixam todos os chunks
+   * apenas porque o navegador encontrou uma janela ociosa.
    */
   prefetch?: Array<() => Promise<unknown>>;
   /**
-   * Margem extra para o prefetch por visibilidade. Default: 2× rootMargin
-   * de renderização (mínimo 800px). Assim o download começa antes da
-   * hidratação.
+   * Margem extra para o prefetch por visibilidade. Default: 2× a margem
+   * adaptada à conexão, sem impor 800px em redes com economia de dados.
    */
   prefetchRootMargin?: string;
 }
@@ -45,6 +43,11 @@ const LazySection = ({
 
   useEffect(() => {
     if (!ref.current) return;
+    // Navegadores sem observer ainda precisam exibir o conteúdo.
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -58,16 +61,11 @@ const LazySection = ({
     return () => observer.disconnect();
   }, [effectiveMargin]);
 
-  // Prefetch em idle + antecipação por proximidade de scroll.
+  // Antecipa apenas as seções próximas, sem disputar banda com a rota atual.
   useEffect(() => {
-    if (!prefetch || prefetch.length === 0) return;
-    // 1) Idle: puxa os chunks na primeira janela ociosa (sem custo de TBT).
-    prefetch.forEach((l) => prefetchOnIdle(l));
-    // 2) Visibilidade adiantada: se o usuário scrollar rápido, garante que
-    // o download já começou antes do rootMargin de renderização.
-    if (!ref.current) return;
+    if (!prefetch || prefetch.length === 0 || !ref.current) return;
     const eagerMargin =
-      prefetchRootMargin ?? `${Math.max(effectiveMarginPx * 2, 800)}px`;
+      prefetchRootMargin ?? `${effectiveMarginPx * 2}px`;
     const disposers = prefetch.map((l) =>
       prefetchOnVisible(ref.current, l, { rootMargin: eagerMargin }),
     );

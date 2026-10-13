@@ -1,10 +1,12 @@
+import { getNetworkProfile } from "./monitoringSession";
+
 /**
- * prefetch.ts — warm-up de chunks lazy sem custo de TBT.
+ * prefetch.ts — antecipação seletiva de chunks lazy.
  *
  * Estratégias:
- *  - prefetchOnIdle(loader): dispara o import() dentro de requestIdleCallback
- *    (fallback: setTimeout). Só roda quando a main thread está ociosa, então
- *    não conta para TBT / não briga com o hero.
+ *  - prefetchOnIdle(loader): agenda o import() em requestIdleCallback
+ *    (fallback: setTimeout). Evita antecipação ociosa em redes lentas ou com
+ *    economia de dados; um import ainda pode consumir banda e tempo de CPU.
  *  - prefetchOnVisible(el, loader, {rootMargin}): usa IntersectionObserver
  *    com margem generosa (default 800px) para começar a baixar o chunk
  *    ANTES do usuário chegar à seção — o LazySection resolve o Suspense
@@ -51,7 +53,15 @@ export function scheduleIdle(cb: () => void, timeout = 2000): void {
 }
 
 export function prefetchOnIdle(loader: Loader, timeout = 2000): void {
-  schedule(() => once(loader), timeout);
+  const allowsPrefetch = () => {
+    const profile = getNetworkProfile();
+    return profile !== "slow" && profile !== "save-data";
+  };
+  if (!allowsPrefetch()) return;
+  schedule(() => {
+    // A conexão pode mudar entre o agendamento e a execução.
+    if (allowsPrefetch()) once(loader);
+  }, timeout);
 }
 
 export function prefetchOnIdleAll(loaders: Loader[], timeout = 2000): void {
