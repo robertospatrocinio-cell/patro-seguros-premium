@@ -101,4 +101,29 @@ Nenhuma mudança no banco ou criação de novas landing pages foi feita nesta et
 
 Foram adicionados testes para cobertura dos destinos do catálogo, distinção das especialidades, preservação dos campos, autorização, conteúdo enviado, troca de produto, bloqueio de envios repetidos e tratamento de falha. O teste da página RETA também verifica a presença do formulário específico e os atalhos de cotação. Os testes, build, navegação no preview e envios reais **não foram executados neste ambiente**. A entrega depende da configuração e disponibilidade da função de envio e do serviço de e-mail existentes no Lovable; não houve alteração de banco nem de funções nesta etapa.
 
-Antes de investir em campanhas, validar no preview um pedido de máquinas agrícolas, um de linha amarela e um de drone/RETA; conferir recebimento dos e-mails e registro no CRM com origem e produto corretos. Medir pedidos qualificados por produto e dispositivo para avaliar conversão — a implementação não comprova alta conversão. SEO/GEO permanece reservado à etapa 3.
+Antes de investir em campanhas, validar no preview um pedido de máquinas agrícolas, um de linha amarela e um de drone/RETA; conferir recebimento dos e-mails e registro no CRM com origem e produto corretos. Medir pedidos qualificados por produto e dispositivo para avaliar conversão — a implementação não comprova alta conversão.
+
+## Etapa 3 — SEO, descoberta e especialidades
+
+### Conteúdo visível e ligações internas
+
+- **Todos os seguros** recebeu título e descrição que identificam seguros, saúde, consórcio, Guarulhos e Grande São Paulo, sem alegação de liderança ou posicionamento.
+- Uma seção editorial **Especialidades da Patro: da operação ao seguro** foi integrada ao catálogo, à página **Grande São Paulo** e às páginas de máquinas/equipamentos/drones do catálogo que utilizam `InsurancePageTemplate`. Não foi aplicada indiscriminadamente a todos os produtos ou a campanhas com outros templates.
+- O conteúdo diferencia máquinas agrícolas, linha amarela, equipamentos industriais, casco de drone, RETA e riscos da pulverização. Explica o que informar para uma análise e ressalva aceitação, coberturas, exclusões e autorizações de operação.
+- Os links editoriais conectam os produtos específicos aos hubs de Guarulhos, Grande São Paulo, saúde e consórcio. A sede em Guarulhos foi diferenciada do atendimento digital nacional para máquinas agrícolas; não foram inventadas filiais.
+- Saúde recebeu orientação sobre rede nas cidades de uso, carências e coparticipação; consórcio, sobre taxas e ausência de data garantida para contemplação.
+
+### Metadados e informações estruturadas
+
+- O catálogo passou a emitir `CollectionPage` com `ItemList` baseado na mesma lista visível dos menus, sem preços ou avaliações inventados. Os redirecionamentos exatos conhecidos são resolvidos nos destinos dessa lista estruturada.
+- `ServiceSchema` deixou de acrescentar automaticamente “em Guarulhos” a qualquer nome de serviço. Agora diferencia atendimento regional e nacional; o template informa escopo nacional quando a página já declara `localSeo.skip`, conforme a convenção existente. Outros consumidores mantêm o padrão regional.
+- Foi desativado o breadcrumb automático de `PageMeta` dentro de `InsurancePageTemplate`, pois esse template já emite seu próprio breadcrumb estruturado.
+- `llms.txt` ganhou um índice de catálogo, território e especialidades, incluindo linha amarela e RETA, e ressalvas sobre coberturas, saúde e consórcio. Esse arquivo auxilia a consulta, mas não obriga assistentes de IA a utilizá-lo ou citar a empresa.
+
+### Descoberta, verificações e limites
+
+- O `robots.txt` existente permite rastrear as páginas públicas e mantém restrições administrativas; não foi necessário alterá-lo.
+- O gerador de sitemap já contém o catálogo, máquinas agrícolas, linha amarela e os três destinos de drone, além de usar a configuração regional. Não foram criadas novas URLs nesta etapa nem alterados os sitemaps; isso não equivale a uma validação completa de todos os destinos do catálogo no sitemap publicado.
+- Foram adicionados testes para a correspondência entre catálogo e lista estruturada, destinos canônicos conhecidos, presença das especialidades e registro das rotas dos novos links editoriais. **Testes, build, inspeção do preview, validação externa de dados estruturados e consultas ao Search Console não foram executados neste ambiente.**
+- Esta etapa não reconciliou todas as rotas locais duplicadas do App nem auditou novamente todo o conteúdo legado. O escopo foi reforçar os hubs e especialidades sem criar páginas locais repetitivas ou mudar rotas ativas.
+- Após publicar, conferir a nova seção no catálogo, em Grande São Paulo e em máquinas agrícolas; validar as informações estruturadas e acompanhar descoberta/indexação no Search Console. O preview do Lovable permanece não indexável por configuração existente, corretamente. Não há promessa de ranking, rich results, citação por IA ou conversão.

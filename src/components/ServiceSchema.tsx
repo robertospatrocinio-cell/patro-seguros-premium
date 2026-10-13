@@ -1,37 +1,34 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 
 interface ServiceSchemaProps {
   name: string;
   description: string;
   serviceType?: string;
+  scope?: "regional" | "national";
 }
 
-const ServiceSchema = ({ name, description, serviceType = "Insurance" }: ServiceSchemaProps) => {
+const ServiceSchema = ({ name, description, serviceType = "Insurance", scope = "regional" }: ServiceSchemaProps) => {
   const { pathname } = useLocation();
-  const cleanPath = pathname === "/" ? "" : pathname.replace(/\/+$/, "");
+  const url = getCanonicalUrl(pathname);
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${CANONICAL_BASE_URL}${cleanPath}#service`,
-    "name": `${name} em Guarulhos`,
+    "@id": `${url}#service`,
+    "url": url,
+    "name": name,
     "description": description,
     "provider": {
-      "@id": "https://www.patroseguros.com.br/#insurance-agency"
+      "@id": `${CANONICAL_BASE_URL}/#insurance-agency`
     },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Guarulhos",
-        "sameAs": "https://pt.wikipedia.org/wiki/Guarulhos"
-      },
-      {
-        "@type": "City",
-        "name": "São Paulo",
-        "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo"
-      }
-    ],
+    // Área de atendimento não equivale à localização de uma filial.
+    "areaServed": scope === "national"
+      ? [{ "@type": "Country", "name": "Brasil" }]
+      : [
+          { "@type": "City", "name": "Guarulhos" },
+          { "@type": "AdministrativeArea", "name": "Região Metropolitana de São Paulo" }
+        ],
     "serviceType": serviceType
   };
 

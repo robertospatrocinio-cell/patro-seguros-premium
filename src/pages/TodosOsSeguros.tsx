@@ -8,6 +8,7 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
+import EspecialidadesPatro from "@/components/EspecialidadesPatro";
 import { Button } from "@/components/ui/button";
 import { catalogoSeguros, CATALOGO_PATH } from "@/data/catalogoSeguros";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -19,8 +20,8 @@ const TodosOsSeguros = () => {
   return (
     <Fragment>
       <PageMeta
-        title="Todos os Seguros | Catálogo por Perfil | Patro Seguros"
-        description="Catálogo completo de seguros da Patro Seguros para pessoas e famílias, empresas e agronegócio. Compare as opções e solicite sua cotação."
+        title="Seguros, Saúde e Consórcio em Guarulhos | Patro Seguros"
+        description="Seguros, planos de saúde e consórcio em Guarulhos e Grande São Paulo. Especialidades em máquinas agrícolas, linha amarela e drones. Solicite uma análise."
         skipBreadcrumb
       />
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Todos os seguros", url: CATALOGO_PATH }]} />
@@ -93,6 +94,7 @@ const TodosOsSeguros = () => {
           </div>
         </section>
 
+        <EspecialidadesPatro catalog />
         <ObraSegurosComparativo />
 
         <section className="py-14 text-center">

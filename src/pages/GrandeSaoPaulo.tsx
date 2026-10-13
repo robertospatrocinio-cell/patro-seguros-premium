@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
+import EspecialidadesPatro from "@/components/EspecialidadesPatro";
 import { Button } from "@/components/ui/button";
 import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -150,6 +151,8 @@ const GrandeSaoPaulo = () => {
             </div>
           </div>
         </section>
+
+        <EspecialidadesPatro />
 
         {/* Sede */}
         <section className="py-12 bg-muted/40">

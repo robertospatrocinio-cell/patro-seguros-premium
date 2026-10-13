@@ -42,6 +42,7 @@ import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
+import EspecialidadesPatro from "@/components/EspecialidadesPatro";
 import SmartText from "@/components/SmartText";
 import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
@@ -413,6 +414,7 @@ const InsurancePageTemplate = ({
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
          absoluteTitle={!!headline && headline !== title}
+         skipBreadcrumb
        />
        
       <InsuranceAgencySchema />
@@ -479,9 +481,10 @@ const InsurancePageTemplate = ({
           um Service por rota, com @id canônico `${url}#service`. */}
       {localSeo?.skip && (
         <ServiceSchema
-          name={title}
+          name={headline || title}
           description={description}
           serviceType={inferQuoteType(title) === "saude" ? "HealthInsurance" : "Insurance"}
+          scope="national"
         />
       )}
       {(inferQuoteType(title) === "saude" || title.toLowerCase().includes("plano")) && <MedicalOrganizationSchema />}
@@ -1183,6 +1186,8 @@ const InsurancePageTemplate = ({
         </section>
 
         {["/seguro-engenharia", "/seguro-rc", "/seguro-rc-obras"].includes(location.pathname) && <ObraSegurosComparativo />}
+
+        {!supportMode && <EspecialidadesPatro pathname={location.pathname} />}
 
         {/* Relacionados */}
         {relatedInsurances.length > 0 && (
