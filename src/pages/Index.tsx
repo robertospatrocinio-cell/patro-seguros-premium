@@ -64,6 +64,7 @@ const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
 const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
 // O hero é conteúdo crítico: acompanha a rota, sem uma segunda espera de rede.
 import HeroPatro from "@/components/HeroPatro";
+import "@/styles/home.css";
 
 const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
 const LocalSavingsCalculator = lazy(loadLocalSavingsCalculator);
@@ -232,7 +233,7 @@ const Index = () => {
         description={`Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras.`}
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="patro-home">
         {/* 2. HERO */}
         <HeroPatro />
 
@@ -587,7 +588,7 @@ const Index = () => {
           </section>
         </LazySection>
 
-        <section className="py-20 bg-slate-900 text-white">
+        <section className="home-business py-20 bg-slate-900 text-white">
           <div className="container mx-auto px-4 text-center lg:text-left">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -714,7 +715,7 @@ const Index = () => {
         <ClaimsSupportTimeline compact />
 
         {/* CHAMADA CENTRAL DE SINISTRO */}
-        <div className="bg-orange-700 py-3 text-white">
+        <div className="home-claims-callout bg-orange-700 py-3 text-white">
           <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
             <div className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 animate-pulse text-white" aria-hidden="true" />
@@ -732,7 +733,7 @@ const Index = () => {
         </div>
 
         {/* 14. CTA FINAL */}
-        <section className="py-20 bg-primary text-primary-foreground text-center">
+        <section className="home-final-cta py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-6">Pronto para proteger o que importa?</h2>
             <p className="text-xl mb-10 opacity-90">Compare propostas em até 2 horas úteis.</p>

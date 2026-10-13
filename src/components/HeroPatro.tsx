@@ -14,9 +14,9 @@ const HeroPatro = memo(() => {
   const handleWhatsAppClick = () => trackWhatsAppClick("hero");
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 pt-0">
-      {/* Background Image Container - Desktop/Tablet Right Side, Mobile Background */}
-      <div className="absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
+    <section className="home-hero relative overflow-hidden bg-slate-900 pt-0">
+      {/* A foto mantém as mesmas fontes responsivas e prioridade de carregamento. */}
+      <div className="home-hero-media absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent z-10 hidden lg:block" />
         <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
         <picture>
@@ -45,13 +45,13 @@ const HeroPatro = memo(() => {
       </div>
 
       <div className="container relative z-20 mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center min-h-[600px] lg:min-h-[720px] py-20 lg:py-0">
+        <div className="home-hero-layout flex flex-col lg:flex-row items-center min-h-[600px] lg:min-h-[720px] py-20 lg:py-0">
           {/* Content Area */}
-          <div className="w-full lg:w-[58%] text-left">
-            <div className="max-w-[680px]">
-              {/* Header Label */}
-              <span className="inline-block text-[11px] md:text-[13px] font-bold tracking-widest text-primary-light mb-4 uppercase">
-                SEDE EM GUARULHOS • ATENDIMENTO NA GRANDE SÃO PAULO
+          <div className="home-hero-content w-full lg:w-[58%] text-left">
+            <div className="home-hero-copy max-w-[680px]">
+              {/* Área de atendimento */}
+              <span className="home-hero-label inline-block text-[11px] md:text-[13px] font-bold tracking-widest text-primary-light mb-4 uppercase">
+                Sede em Guarulhos • Atendimento na Grande São Paulo
               </span>
               
               {/* H1 Title */}
@@ -61,8 +61,8 @@ const HeroPatro = memo(() => {
 
               {/* Prova social imediatamente abaixo do H1 (CRO) */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="flex text-yellow-400">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex shrink-0 text-yellow-400">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
@@ -89,7 +89,7 @@ const HeroPatro = memo(() => {
 
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="home-hero-actions flex flex-col sm:flex-row gap-4 mb-10">
                 <Button asChild size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-[#14243d] border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
                   <Link to="/cotacao" onClick={handleCotacaoClick}>
                     Solicitar cotação
@@ -105,7 +105,7 @@ const HeroPatro = memo(() => {
               </div>
 
               {/* Trust Indicators */}
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
+              <div className="home-hero-trust grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <Clock className="h-4 w-4 shrink-0 text-primary-light" />
                   <span>Mais de {EMPRESA.metricas.experienciaAnos} anos de experiência</span>
