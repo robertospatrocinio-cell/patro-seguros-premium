@@ -1,8 +1,12 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { requireAdminOrService } from '../_shared/admin-auth.ts'
+import { parsePurgeRequest } from '../_shared/purge-request.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Cache-Control': 'no-store',
 }
 
 // Tag → URL prefix mapping for cache purging
@@ -78,18 +82,18 @@ Deno.serve(async (req) => {
     return new Response("ok", { headers: corsHeaders })
   }
 
-  // Auth: require a simple bearer token
-  const authHeader = req.headers.get("authorization")
-  const PURGE_SECRET = Deno.env.get("PURGE_SECRET")
-  if (!PURGE_SECRET) {
-    return new Response(JSON.stringify({ error: "PURGE_SECRET not configured" }), {
-      status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
+  if (!["GET", "POST"].includes(req.method)) {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405, headers: { ...corsHeaders, Allow: "GET, POST, OPTIONS", "Content-Type": "application/json" },
     })
   }
-  if (authHeader !== `Bearer ${PURGE_SECRET}`) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" },
-    })
+
+  // Keep the existing server automation credential; browsers use an admin session.
+  const token = req.headers.get("authorization")?.match(/^Bearer\s+(\S+)$/i)?.[1]
+  const automationSecret = Deno.env.get("PURGE_SECRET")
+  if (!automationSecret || token !== automationSecret) {
+    const denied = await requireAdminOrService(req, corsHeaders, ["GET", "POST"])
+    if (denied) return denied
   }
 
   // Supabase client for logging
@@ -123,11 +127,11 @@ Deno.serve(async (req) => {
     })
   }
 
-  let body: { tags?: string[]; urls?: string[]; purgeEverything?: boolean }
+  let body: ReturnType<typeof parsePurgeRequest>
   try {
-    body = await req.json()
-  } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON body" }), {
+    body = parsePurgeRequest(await req.json(), Object.keys(TAG_URL_MAP))
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error instanceof Error ? error.message : "Invalid request" }), {
       status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
     })
   }
@@ -153,8 +157,12 @@ Deno.serve(async (req) => {
     }
   }
 
+  // A full purge is an explicit administrator/automation decision, never a
+  // fallback for invalid tags. It takes precedence over individual URLs.
+  if (body.purgeEverything) urlSet.clear()
+
   if (urlSet.size === 0) {
-    // If tag "all", explicit purgeEverything, or no valid tags, purge everything
+    // Only an explicit full-purge request may invalidate the entire site.
     const purgeAll = body.purgeEverything === true || body.tags?.some((tag) => tag.toLowerCase() === "all")
     if (purgeAll) {
       const cfRes = await fetch(

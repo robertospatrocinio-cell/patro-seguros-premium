@@ -1,5 +1,10 @@
 project_id = "vjzsekwkeixbbpldiqmd"
 
+# This endpoint validates administrator sessions itself and also supports the
+# existing server-only PURGE_SECRET automation credential (not a JWT).
+[functions.purge-cache]
+verify_jwt = false
+
 [functions.process-email-queue]
 verify_jwt = true
 [functions.monitor-sitemap-errors]

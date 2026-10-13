@@ -7,7 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 import { RefreshCw, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -28,115 +28,70 @@ const PurgeLogs = () => {
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [urlsInput, setUrlsInput] = useState("");
-  const [purgeSecret, setPurgeSecret] = useState("");
   const [purging, setPurging] = useState(false);
   const [purgingAll, setPurgingAll] = useState(false);
 
   const handlePurgeUrls = async () => {
-    if (!purgeSecret.trim()) {
-      toast.error("Informe o token de autenticação (PURGE_SECRET).");
-      return;
-    }
-    const urls = urlsInput
-      .split("\n")
-      .map((u) => u.trim())
-      .filter((u) => u.length > 0);
-    if (urls.length === 0) {
-      toast.error("Informe ao menos uma URL ou path (ex: / ou /seguro-auto).");
+    const urls = urlsInput.split("\n").map((url) => url.trim()).filter(Boolean);
+    if (!urls.length || urls.length > 300) {
+      toast.error("Informe entre 1 e 300 URLs do site, uma por linha.");
       return;
     }
     setPurging(true);
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/purge-cache`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${purgeSecret}`,
-          },
-          body: JSON.stringify({ urls }),
-        }
-      );
-      const data = await res.json();
-      if (res.ok && data.action) {
-        toast.success(`Purga concluída: ${data.total_urls} URL(s) invalidadas.`);
-        setUrlsInput("");
-        fetchLogs();
-      } else {
-        toast.error(data.error || "Erro ao purgar cache.");
+      const { data, error } = await supabase.functions.invoke("purge-cache", { body: { urls } });
+      if (error || data?.error || !data?.action) throw new Error("Não foi possível purgar o cache. Verifique sua sessão e tente novamente.");
+      if (!data.results?.every((result: { success: boolean }) => result.success)) {
+        throw new Error("Uma ou mais URLs não foram invalidadas. Consulte os logs antes de tentar novamente.");
       }
-    } catch (err: any) {
-      toast.error("Falha na requisição: " + (err.message || "erro desconhecido"));
+      toast.success(`Purga concluída: ${data.total_urls} URL(s) invalidadas.`);
+      setUrlsInput("");
+      void fetchLogs();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Falha ao purgar cache.");
     } finally {
       setPurging(false);
     }
   };
 
   const handlePurgeAll = async () => {
-    if (!purgeSecret.trim()) {
-      toast.error("Informe o token de autenticação (PURGE_SECRET).");
-      return;
-    }
+    if (!window.confirm("Deseja limpar todo o cache do site? Esta ação afeta todas as páginas.")) return;
     setPurgingAll(true);
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/purge-cache`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${purgeSecret}`,
-          },
-          body: JSON.stringify({ purgeEverything: true }),
-        }
-      );
-      const data = await res.json();
-      if (res.ok && data.action === "purge_all") {
-        toast.success("Cache limpo: purge total enviado para publicação atualizada.");
-        fetchLogs();
-      } else {
-        toast.error(data.error || "Erro ao limpar todo o cache.");
+      const { data, error } = await supabase.functions.invoke("purge-cache", {
+        body: { purgeEverything: true },
+      });
+      if (error || data?.action !== "purge_all" || data?.success !== true) {
+        throw new Error("Não foi possível limpar todo o cache. Verifique sua sessão e consulte os logs.");
       }
-    } catch (err: any) {
-      toast.error("Falha na requisição: " + (err.message || "erro desconhecido"));
+      toast.success("Limpeza total do cache confirmada.");
+      void fetchLogs();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Falha ao limpar cache.");
     } finally {
       setPurgingAll(false);
     }
   };
 
   const fetchLogs = async () => {
-    if (!purgeSecret.trim()) {
-      setLogs([]);
-      setLoading(false);
-      return;
-    }
-
     setLoading(true);
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const res = await fetch(`https://${projectId}.supabase.co/functions/v1/purge-cache`, {
-        method: "GET",
-        headers: { Authorization: `Bearer ${purgeSecret}` },
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setLogs((data.logs || []) as PurgeLog[]);
-      } else {
-        setLogs([]);
-        toast.error(data.error || "Não foi possível carregar os logs.");
-      }
-    } catch (err: any) {
+      // The database independently enforces administrator-only access.
+      const { data, error } = await supabase.from("purge_logs")
+        .select("id, action, tags, total_urls, purged_urls, results, success, error_message, created_at")
+        .order("created_at", { ascending: false }).limit(50);
+      if (error) throw error;
+      setLogs((data || []) as PurgeLog[]);
+    } catch {
       setLogs([]);
-      toast.error("Falha ao carregar logs: " + (err.message || "erro desconhecido"));
+      toast.error("Não foi possível carregar os logs. Verifique sua sessão administrativa.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
-    setLoading(false);
+    void fetchLogs();
   }, []);
 
   const formatDate = (iso: string) => {
@@ -152,7 +107,7 @@ const PurgeLogs = () => {
           <h1 className="text-2xl font-bold text-[hsl(var(--primary))]">
             Logs de Purga do Cache
           </h1>
-          <Button variant="outline" size="sm" onClick={fetchLogs} disabled={loading || !purgeSecret.trim()}>
+          <Button variant="outline" size="sm" onClick={fetchLogs} disabled={loading}>
             <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
             Atualizar
           </Button>
@@ -163,18 +118,9 @@ const PurgeLogs = () => {
             <CardTitle className="text-lg">Purgar URLs Específicas</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
-              <label className="text-sm font-medium mb-1 block">Token (PURGE_SECRET)</label>
-              <Input
-                type="password"
-                placeholder="Cole seu PURGE_SECRET aqui"
-                value={purgeSecret}
-                onChange={(e) => setPurgeSecret(e.target.value)}
-              />
-              <p className="text-xs text-muted-foreground mt-1">
-                Necessário para purgar cache e consultar os logs operacionais.
-              </p>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              Acesso autorizado pela sua conta administrativa. Não é necessário informar nenhum segredo do servidor.
+            </p>
             <div>
               <label className="text-sm font-medium mb-1 block">URLs / Paths (uma por linha)</label>
               <Textarea
@@ -201,18 +147,10 @@ const PurgeLogs = () => {
           </CardContent>
         </Card>
 
-        {logs.length === 0 && !loading && purgeSecret.trim() && (
+        {logs.length === 0 && !loading && (
           <Card>
             <CardContent className="py-12 text-center text-muted-foreground">
-              Nenhum log de purga encontrado. Execute uma purga para ver os resultados aqui.
-            </CardContent>
-          </Card>
-        )}
-
-        {logs.length === 0 && !loading && !purgeSecret.trim() && (
-          <Card>
-            <CardContent className="py-12 text-center text-muted-foreground">
-              Informe o PURGE_SECRET acima e clique em Atualizar para carregar os logs.
+              Nenhum log de purga disponível. Clique em Atualizar para consultar novamente.
             </CardContent>
           </Card>
         )}

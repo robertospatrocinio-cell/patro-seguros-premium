@@ -5,13 +5,14 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 export async function requireAdminOrService(
   req: Request,
   corsHeaders: Record<string, string>,
+  allowedMethods: readonly string[] = ["POST"],
 ): Promise<Response | null> {
   const deny = (status: number, error: string) => new Response(
     JSON.stringify({ error }),
     { status, headers: { ...corsHeaders, "Content-Type": "application/json" } },
   );
 
-  if (req.method !== "POST") return deny(405, "Method not allowed");
+  if (!allowedMethods.includes(req.method)) return deny(405, "Method not allowed");
 
   const token = req.headers.get("authorization")?.match(/^Bearer\s+(\S+)$/i)?.[1];
   if (!token) return deny(401, "Authentication required");

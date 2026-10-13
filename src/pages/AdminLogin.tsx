@@ -15,7 +15,11 @@ export default function AdminLogin() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const next = params.get("next") || "/crm";
+  // Only return to known internal administration paths, never arbitrary URLs.
+  const requestedNext = params.get("next") || "";
+  const next = requestedNext === "/crm" || (
+    /^\/admin\/[a-z0-9-]+$/.test(requestedNext) && requestedNext !== "/admin/login"
+  ) ? requestedNext : "/crm";
 
   useEffect(() => {
     document.title = "Admin · Login | Patro Seguros";
