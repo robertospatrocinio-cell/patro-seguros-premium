@@ -47,6 +47,7 @@ import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
+import { getCaptacaoProduto, mergeCaptacaoFields } from "@/data/captacaoProdutos";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
 const inferGalleryKeywords = (title: string): string[] => {
@@ -113,6 +114,7 @@ const inferQuoteType = (title: string): string => {
 };
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
+const ProductQuoteForm = lazy(() => import("@/components/ProductQuoteForm"));
 
 const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
 
@@ -337,6 +339,8 @@ const InsurancePageTemplate = ({
   sectionCtas,
 }: InsurancePageProps) => {
   const location = useLocation();
+  const captacao = supportMode ? null : getCaptacaoProduto(location.pathname);
+  const captacaoFields = mergeCaptacaoFields(quoteFormFields, captacao?.fields);
   // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
   // "próximo passo" no painel de correlação de links internos × GSC.
   const currentSlug =
@@ -557,7 +561,7 @@ const InsurancePageTemplate = ({
                       <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportCtaText || "Falar com Atendimento"}
                     </Button>
                   </ExternalLink>
-                ) : quoteUrl ? (
+                ) : quoteUrl && !(captacao && /^(?:https:\/\/(?:www\.)?patroseguros\.com\.br)?\/cotacao(?:[?#]|$)/.test(quoteUrl)) ? (
                   quoteUrl.startsWith('/') ? (
                     <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                       <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
@@ -572,11 +576,11 @@ const InsurancePageTemplate = ({
                     </ExternalLink>
                   )
                 ) : (
-                  <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                  <a href="#solicitar-cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                       {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
-                  </Link>
+                  </a>
                 )}
                 <ExternalLink
                   href={supportMode ? buildSupportWhatsAppUrl(title) : buildProductWhatsAppUrl(title)}
@@ -946,49 +950,31 @@ const InsurancePageTemplate = ({
                </div>
              )}
              {!supportMode && (
-             <section aria-labelledby="formulario-heading" className="grid lg:grid-cols-2 gap-12 items-center">
+             <section id="solicitar-cotacao" aria-labelledby="formulario-heading" className="grid lg:grid-cols-2 gap-12 items-start scroll-mt-28">
                <div>
-                 <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
                  <h2 id="formulario-heading" className="text-3xl md:text-4xl mb-6">
-                   {title === "Consórcio de Automóveis" 
-                     ? "Simule sua economia real vs. financiamento"
-                     : title.includes("Galpão")
-                     ? "Solicite uma análise de risco estratégica"
-                     : `Solicite sua cotação de ${title}`}
+                   {captacao?.path.includes("consorcio") ? `Solicite uma simulação de ${title}` : `Solicite sua cotação de ${title}`}
                  </h2>
                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                   {title === "Consórcio de Automóveis"
-                     ? "Descubra como o consórcio pode acelerar seu crescimento patrimonial sem pagar juros bancários."
-                     : title.includes("Galpão")
-                     ? "Proteja seu ativo logístico com quem conhece profundamente os riscos de Guarulhos e Cumbica."
-                     : "Resposta em até 2 horas úteis com o comparativo das melhores seguradoras do mercado."}
+                   {captacao?.intro ?? "Conte sua necessidade. A equipe da Patro analisa as informações e orienta os próximos passos para sua proposta."}
                  </p>
-                 <div className="space-y-4">
-                   {[
-                     "Consultoria técnica especializada",
-                     `Comparativo entre ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
-                     "Atendimento humano e ágil",
-                     "Suporte completo do início ao sinistro"
-                   ].map((item, i) => (
-                     <div key={i} className="flex items-center gap-3">
-                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                         <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                       </div>
-                       <span className="text-sm font-medium text-foreground/80">{item}</span>
-                     </div>
+                 <ul className="space-y-4">
+                   {(captacao?.checklist ?? ["Consultoria técnica especializada", "Comparação de condições e coberturas", "Atendimento humano", "Suporte durante a contratação e em caso de sinistro"]).map(item => (
+                     <li key={item} className="flex items-start gap-3 text-sm text-foreground/80">
+                       <CheckCircle className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
+                       {item}
+                     </li>
                    ))}
-                 </div>
+                 </ul>
+                 {captacao && <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{captacao.note}</p>}
                </div>
- 
-               <div>
-                 <Suspense fallback={<div className="h-[400px] bg-muted animate-pulse rounded-2xl" />}>
-                   <QuickQuoteForm
-                     insuranceType={title}
-                     extraFields={quoteFormFields}
-                     trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
-                   />
-                 </Suspense>
-               </div>
+               <Suspense fallback={<div className="h-[400px] bg-muted animate-pulse rounded-2xl" />}>
+                 {captacao ? (
+                   <ProductQuoteForm key={location.pathname} productName={captacao.label} productPath={captacao.path} fields={captacaoFields} />
+                 ) : (
+                   <QuickQuoteForm key={location.pathname} insuranceType={title} extraFields={quoteFormFields} trackingLabel={title.toLowerCase().replace(/\s+/g, "-")} />
+                 )}
+               </Suspense>
              </section>
              )}
            </div>
@@ -1006,8 +992,8 @@ const InsurancePageTemplate = ({
               </>
             ) : (
               <>
-                <h2 className="text-white mb-4">Pronto para proteger o seu {title}?</h2>
-                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">Cotação gratuita do {title} em até 2h úteis — fale agora com um especialista da Patro.</p>
+                <h2 className="text-white mb-4">{captacao ? `Vamos avaliar sua necessidade de ${captacao.label}?` : `Pronto para proteger o seu ${title}?`}</h2>
+                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">{captacao ? "Informe seu contato e os detalhes que souber. A equipe orienta os próximos passos e as condições da proposta, sem compromisso de contratação." : `Cotação gratuita do ${title} em até 2h úteis — fale agora com um especialista da Patro.`}</p>
               </>
             )}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -1022,6 +1008,12 @@ const InsurancePageTemplate = ({
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportCtaText || "Falar com Atendimento"}
                   </Button>
                 </ExternalLink>
+              ) : captacao && (!quoteUrl || /^(?:https:\/\/(?:www\.)?patroseguros\.com\.br)?\/cotacao(?:[?#]|$)/.test(quoteUrl)) ? (
+                <a href="#solicitar-cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || (captacao.path.includes("consorcio") ? "Solicitar simulação" : `Pedir Cotação do ${captacao.label}`)}
+                  </Button>
+                </a>
               ) : quoteUrl ? (
                 quoteUrl.startsWith('/') ? (
                   <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>

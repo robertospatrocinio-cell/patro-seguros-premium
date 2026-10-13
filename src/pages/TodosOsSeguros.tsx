@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+import { Fragment, lazy, Suspense } from "react";
+const ProductQuoteForm = lazy(() => import("@/components/ProductQuoteForm"));
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
@@ -35,6 +36,9 @@ const TodosOsSeguros = () => {
                 Encontre seu produto por categoria, incluindo nossas especialidades em máquinas agrícolas,
                 equipamentos, drones e máquinas de linha amarela.
               </p>
+              <Button asChild size="lg" variant="cta" className="mb-6">
+                <a href="#solicitar-cotacao" onClick={() => trackCotacaoClick("todos-os-seguros:hero")}>Solicitar cotação ou simulação</a>
+              </Button>
               <div className="flex flex-wrap justify-center gap-3 mb-6">
                 <Button asChild><a href="#maquinas">Máquinas, equipamentos e drones</a></Button>
                 <Button asChild variant="outline"><a href="#saude">Saúde e odontológico</a></Button>
@@ -79,6 +83,16 @@ const TodosOsSeguros = () => {
           ))}
         </div>
 
+        <section id="solicitar-cotacao" className="bg-muted/30 py-14 scroll-mt-28" aria-labelledby="cotacao-catalogo-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 id="cotacao-catalogo-heading" className="text-2xl md:text-3xl font-bold mb-3">Solicite uma análise para o produto que procura</h2>
+            <p className="text-muted-foreground mb-6">Selecione um seguro, plano de saúde ou consórcio. Seu pedido chega à equipe com o produto escolhido e os detalhes que você informar.</p>
+            <Suspense fallback={<div className="min-h-[400px] rounded-2xl bg-muted animate-pulse" />}>
+              <ProductQuoteForm />
+            </Suspense>
+          </div>
+        </section>
+
         <ObraSegurosComparativo />
 
         <section className="py-14 text-center">
@@ -87,7 +101,7 @@ const TodosOsSeguros = () => {
             <p className="text-muted-foreground mb-6">Conte o que precisa proteger e indicamos as opções adequadas.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" variant="cta">
-                <Link to="/cotacao" onClick={() => trackCotacaoClick("todos-os-seguros")}>Solicitar cotação</Link>
+                <a href="#solicitar-cotacao" onClick={() => trackCotacaoClick("todos-os-seguros")}>Solicitar cotação ou simulação</a>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a href={waUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("todos-os-seguros")}>

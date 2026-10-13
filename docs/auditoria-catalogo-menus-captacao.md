@@ -77,3 +77,28 @@ Também existem fluxos de cotação em `/cotacao`, `/cotacao-seguro-auto`, `/seg
 - **Etapa 3:** SEO/GEO local, entidades e informações consistentes, conteúdos úteis e citáveis, navegação entre pilares e especialidades, dados estruturados e sitemaps. Há rotas locais duplicadas de saúde e Guarulhos no App que merecem reconciliação antes de ampliar páginas locais; não foram alteradas nesta etapa.
 
 Nenhuma mudança no banco ou criação de novas landing pages foi feita nesta etapa. SEO/GEO não garante posição no Google nem citação por assistentes de IA.
+
+## Etapa 2 — captação por ramo implementada
+
+### Onde a experiência muda
+
+- As páginas atendidas por `InsurancePageTemplate` e reconhecidas no catálogo passam a apresentar conteúdo de qualificação e formulário específico na seção de cotação. Isso inclui as especialidades em máquinas agrícolas, tratores, colheitadeiras, pulverizadores, linha amarela, drone, drone agrícola e RETA.
+- A configuração compartilhada diferencia operação agrícola, construção, equipamentos, casco e responsabilidade civil; também oferece perfis para agro, saúde, consórcio, RC e campos por modalidade para os demais produtos.
+- Campos que a própria página já definia são preservados, com prioridade sobre sugestões de mesmo identificador. Os detalhes complementares ficam opcionais; nome, WhatsApp e autorização de contato são exigidos.
+- Os botões inicial e final dos produtos reconhecidos levam ao formulário na mesma página quando não possuem destino próprio ou apontam para a cotação genérica. Destinos próprios de parceiros e campanhas permanecem preservados.
+- **Todos os seguros** ganha uma seção de solicitação com seletor para todos os destinos do catálogo, inclusive produtos que utilizam outros templates. Os botões de cotação no início e no final do catálogo levam a essa seção. Trocar o produto atualiza as orientações e limpa os detalhes do produto anterior.
+- A qualificação diferencia também lotação e operação no APP de passageiros, rotas e mercadorias no transporte agro e características dos equipamentos veterinários.
+- Não foram criadas URLs duplicadas nem substituídos os layouts das campanhas independentes. A LP geral de máquinas e os formulários de outros templates continuam existentes; a adaptação automática por página se limita ao template compartilhado descrito acima.
+
+### Entrega e continuidade
+
+- O novo formulário reutiliza `send-form-email`, já existente, enviando produto, página de origem, campanha, detalhes e autorização de contato. Essa função envia o e-mail e tenta registrar o lead no CRM; o código existente não garante o registro no CRM caso essa segunda operação falhe.
+- A confirmação só aparece depois de resposta positiva do serviço. Em falha, o formulário preserva os dados na tela e oferece WhatsApp com contexto; não há redirecionamento automático nem confirmação fictícia.
+- Os dados do novo formulário não são gravados automaticamente no navegador nem enviados parcialmente. O usuário encontra o aviso de privacidade antes de enviar.
+- Saúde não pede diagnósticos ou documentos médicos. Consórcio explica custos e ausência de data garantida de contemplação. O bloco de drones diferencia danos ao equipamento, RETA e riscos da pulverização, sujeitos à análise.
+
+### Verificação e limites
+
+Foram adicionados testes para cobertura dos destinos do catálogo, distinção das especialidades, preservação dos campos, autorização, conteúdo enviado, troca de produto, bloqueio de envios repetidos e tratamento de falha. O teste da página RETA também verifica a presença do formulário específico e os atalhos de cotação. Os testes, build, navegação no preview e envios reais **não foram executados neste ambiente**. A entrega depende da configuração e disponibilidade da função de envio e do serviço de e-mail existentes no Lovable; não houve alteração de banco nem de funções nesta etapa.
+
+Antes de investir em campanhas, validar no preview um pedido de máquinas agrícolas, um de linha amarela e um de drone/RETA; conferir recebimento dos e-mails e registro no CRM com origem e produto corretos. Medir pedidos qualificados por produto e dispositivo para avaliar conversão — a implementação não comprova alta conversão. SEO/GEO permanece reservado à etapa 3.

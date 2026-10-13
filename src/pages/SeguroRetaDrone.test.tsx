@@ -11,7 +11,7 @@ vi.mock("@/components/JumpLinksNav", () => ({ default: () => <nav aria-label="Na
 vi.mock("@/hooks/useBreadcrumbOverrides", () => ({ useBreadcrumbOverrides: () => ({ data: undefined }) }));
 
 describe("SeguroRetaDrone", () => {
-  it("separa RETA de casco e evita preços não verificados", () => {
+  it("separa RETA de casco e oferece captação específica sem preços não verificados", async () => {
     render(
       <HelmetProvider>
         <MemoryRouter initialEntries={["/seguro-reta-drone"]}>
@@ -25,5 +25,9 @@ describe("SeguroRetaDrone", () => {
     expect(screen.getByRole("link", { name: /Conhecer o seguro casco/i })).toHaveAttribute("href", "/seguro-drone-agricola");
     expect(screen.getByText(/não publica um preço fixo/i)).toBeInTheDocument();
     expect(screen.queryByText(/R\$\s*585,64/i)).not.toBeInTheDocument();
+    expect(await screen.findByRole("form", { name: "Solicitar RETA Drone — Responsabilidade Civil" })).toBeInTheDocument();
+    expect(screen.getByLabelText("Peso máximo de decolagem, se souber")).toBeInTheDocument();
+    const formLinks = screen.getAllByRole("link").filter(link => link.getAttribute("href") === "#solicitar-cotacao");
+    expect(formLinks.length).toBeGreaterThanOrEqual(2);
   });
 });
