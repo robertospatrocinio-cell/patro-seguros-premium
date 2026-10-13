@@ -233,7 +233,7 @@ const Header = memo(() => {
   return (
     <>
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}
+      className={`patro-site-header sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && isMenuOpen) {
           event.preventDefault();

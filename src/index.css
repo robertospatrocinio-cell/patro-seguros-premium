@@ -12,34 +12,34 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 25% 10%;
+    --foreground: 215 36% 17%;
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 215 36% 17%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 212 100% 20%;
+    --popover-foreground: 215 36% 17%;
+    --primary: 215 48% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 212 100% 16%;
-    --primary-light: 212 50% 97%;
-    --primary-glow: 212 80% 32%;
-    --secondary: 220 18% 97%;
-    --secondary-foreground: 212 100% 20%;
-    --accent: 42 55% 52%;
-    --accent-foreground: 212 100% 14%;
-    --accent-hover: 42 60% 46%;
-    --muted: 220 16% 96%;
-    --muted-foreground: 220 10% 40%;
+    --primary-hover: 215 48% 15%;
+    --primary-light: 215 30% 96%;
+    --primary-glow: 215 42% 32%;
+    --secondary: 210 20% 97%;
+    --secondary-foreground: 215 48% 20%;
+    --accent: 40 42% 62%;
+    --accent-foreground: 215 48% 14%;
+    --accent-hover: 40 42% 70%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 14% 40%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 212 100% 20%;
+    --border: 214 18% 88%;
+    --input: 214 18% 83%;
+    --ring: 215 48% 26%;
     --radius: 0.5rem;
-    --cta: 42 55% 52%;
-    --cta-foreground: 0 0% 100%;
-    --gold: 42 55% 52%;
-    --gold-soft: 42 50% 72%;
-    --gold-deep: 38 50% 38%;
+    --cta: 40 42% 62%;
+    --cta-foreground: 215 48% 14%;
+    --gold: 40 42% 62%;
+    --gold-soft: 40 40% 78%;
+    --gold-deep: 38 44% 34%;
     --shadow-xs: 0 1px 2px 0 hsl(212 40% 14% / 0.04);
     --shadow-sm: 0 1px 3px 0 hsl(212 40% 14% / 0.05), 0 1px 2px -1px hsl(212 40% 14% / 0.04);
     --shadow-md: 0 6px 16px -4px hsl(212 40% 14% / 0.08);
@@ -82,8 +82,8 @@
 
 @layer utilities {
   .gradient-hero { background: linear-gradient(165deg, hsl(212 60% 8%) 0%, hsl(212 70% 14%) 55%, hsl(212 60% 20%) 100%); }
-  .gradient-cta { background: linear-gradient(135deg, hsl(42 60% 58%) 0%, hsl(38 55% 44%) 100%); }
-  .gradient-gold { background: linear-gradient(135deg, hsl(42 70% 68%) 0%, hsl(38 55% 44%) 100%); }
+  .gradient-cta { background: linear-gradient(135deg, hsl(var(--gold-soft)) 0%, hsl(var(--gold)) 100%); }
+  .gradient-gold { background: linear-gradient(135deg, hsl(var(--gold-soft)) 0%, hsl(var(--gold)) 100%); }
   .text-gold { color: hsl(var(--gold)); }
   .bg-gold { background-color: hsl(var(--gold)); }
   .border-gold { border-color: hsl(var(--gold)); }
@@ -184,4 +184,54 @@ main {
 .animate-marquee:hover,
 .animate-marquee:focus-within {
   animation-play-state: paused;
+}
+
+/* Identidade compartilhada: navegação discreta e rodapé institucional. */
+.patro-site-header > div:first-child {
+  background: #13263e;
+}
+.patro-site-header > div:nth-child(2) {
+  background: rgb(255 255 255 / 98%);
+  border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 6px 24px -20px rgb(19 38 62 / 30%);
+}
+.patro-site-header nav[aria-label="Navegação principal"] > a img {
+  height: 3.5rem;
+  width: auto;
+}
+.patro-site-header > div:first-child a[aria-label="Falar no WhatsApp"] {
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(199 176 135 / 50%);
+  color: #f0dfbf;
+  border-radius: 0.25rem;
+}
+.patro-site-header > div:first-child a[aria-label="Falar no WhatsApp"]:hover {
+  background: rgb(255 255 255 / 16%);
+  color: white;
+}
+.patro-site-footer {
+  background: #13263e;
+  border-top: 1px solid hsl(var(--gold) / 60%);
+}
+.patro-site-footer nav h3 {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.patro-site-footer nav a {
+  display: inline-block;
+  padding-block: 0.1875rem;
+  line-height: 1.5;
+}
+.patro-site-footer nav a.text-primary {
+  color: #dfcba7;
+}
+.patro-site-footer nav a:hover {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .patro-site-header { transition: none; }
 }

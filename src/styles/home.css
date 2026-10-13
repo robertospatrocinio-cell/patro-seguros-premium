@@ -1,12 +1,12 @@
-/* Direção da home: consultoria local, fotografia em destaque e azul/dourado da marca.
-   Tudo fica sob .patro-home: páginas internas e componentes compartilhados não mudam. */
+/* Direção premium: azul profundo, dourado fosco e títulos editoriais.
+   O layout fica sob .patro-home; as cores compartilhadas vivem em index.css. */
 .patro-home {
-  --home-navy: #003366;
-  --home-ink: #14243d;
-  --home-gold: #c8a349;
+  --home-navy: #1b304b;
+  --home-ink: #13263e;
+  --home-gold: #c7b087;
   --home-paper: #ffffff;
-  --home-mist: #f2f6fa;
-  --home-rule: #d9e2ec;
+  --home-mist: #f3f5f7;
+  --home-rule: #dce2e8;
   color: var(--home-ink);
   background: var(--home-paper);
 }
@@ -21,10 +21,11 @@
 }
 
 .patro-home h2 {
-  font-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.625rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.875rem, 1.25rem + 1.6vw, 2.75rem);
   line-height: 1.16;
-  letter-spacing: -0.035em;
-  font-weight: 650;
+  letter-spacing: -0.025em;
+  font-weight: 400;
 }
 
 .patro-home h3 {
@@ -40,25 +41,39 @@
 }
 
 /* A foto existente mantém a prioridade de carregamento, sem novas fontes ou imagens. */
-.patro-home .home-hero { background: var(--home-ink); }
+.patro-home .home-hero {
+  background: var(--home-ink);
+  border-bottom: 1px solid var(--home-gold);
+}
 .patro-home .home-hero-layout {
   min-height: 0;
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(3.75rem, 7vw, 6.5rem);
 }
 .patro-home .home-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0;
+  font-weight: 400;
+  letter-spacing: 0.015em;
   text-transform: none;
-  color: #ecdaac;
-  margin-bottom: 1.5rem;
+  color: #dfcba7;
+  margin-bottom: 1.75rem;
+}
+.patro-home .home-hero-label::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--home-gold);
 }
 .patro-home .home-hero h1 {
-  max-width: 19ch;
-  font-size: clamp(2.125rem, 1.3rem + 2.8vw, 3.5rem);
-  line-height: 1.1;
-  font-weight: 650;
-  letter-spacing: -0.04em;
+  max-width: 20ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 1.6rem + 2.7vw, 4rem);
+  line-height: 1.09;
+  font-weight: 400;
+  letter-spacing: -0.035em;
 }
 .patro-home .home-hero-copy > p {
   max-width: 48ch;
@@ -100,10 +115,19 @@
 
 @media (min-width: 1024px) {
   .patro-home .home-hero-media {
-    width: 44%;
-    top: 2.5rem;
-    height: calc(100% - 5rem);
-    border-radius: 1.5rem 0 0 1.5rem;
+    width: 43%;
+    top: 3.5rem;
+    right: max(2rem, calc((100vw - 1440px) / 2));
+    height: calc(100% - 7rem);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(199 176 135 / 35%);
+  }
+  .patro-home .home-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 1px solid rgb(255 255 255 / 25%);
+    pointer-events: none;
   }
   .patro-home .home-hero-content { width: 54%; padding-right: 1.5rem; }
   .patro-home .home-hero-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -349,6 +373,80 @@
 .patro-home .home-final-cta a:first-child > button { background: var(--home-gold); color: var(--home-ink); }
 .patro-home .home-final-cta a:first-child > button:hover { background: #dfbf6d; }
 .patro-home .home-final-cta a:last-child > button:hover { color: white; }
+
+/* A consultoria patrimonial ganha uma área própria, sem repetir os cards de produtos. */
+.patro-home .home-private {
+  background: var(--home-ink);
+  color: #e2e8f0;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  border-block: 1px solid rgb(199 176 135 / 35%);
+}
+.patro-home .home-private > .container {
+  display: grid;
+  gap: 2.5rem;
+}
+.patro-home .home-private-signature {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  color: #dfcba7;
+  margin-bottom: 1.5rem;
+}
+.patro-home .home-private h2 {
+  color: white;
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
+}
+.patro-home .home-private-intro > p {
+  max-width: 48ch;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.patro-home .home-private-cta {
+  background: var(--home-gold);
+  color: var(--home-ink);
+  border: 1px solid var(--home-gold);
+  border-radius: 0.375rem;
+  height: auto;
+  min-height: 3.25rem;
+  padding: 0.875rem 1.25rem;
+  white-space: normal;
+}
+.patro-home .home-private-cta:hover { background: #dfcba7; }
+.patro-home .home-private-paths { border-top: 1px solid #536073; }
+.patro-home .home-private-paths > a {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid #536073;
+}
+.patro-home .home-private-paths h3 {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.patro-home .home-private-paths p {
+  color: #c6d0dc;
+  font-size: 0.9375rem;
+  margin: 0;
+  max-width: 42ch;
+}
+.patro-home .home-private-paths svg { flex-shrink: 0; color: #dfcba7; }
+.patro-home .home-private-paths > a:hover h3 {
+  color: #dfcba7;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (min-width: 1024px) {
+  .patro-home .home-private > .container {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+  }
+}
 
 @media (max-width: 639px) {
   .patro-home .home-hero-trust { gap: 1.25rem; align-items: start; }

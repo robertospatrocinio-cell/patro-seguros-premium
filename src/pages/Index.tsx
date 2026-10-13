@@ -442,6 +442,48 @@ const Index = () => {
           </div>
         </section>
 
+        <section className="home-private" aria-labelledby="home-private-heading">
+          <div className="container mx-auto">
+            <div className="home-private-intro">
+              <span className="home-private-signature">Patro Private</span>
+              <h2 id="home-private-heading">Um olhar completo sobre o seu patrimônio.</h2>
+              <p>
+                Imóveis de alto padrão, veículos especiais e os planos da sua família merecem uma análise
+                cuidadosa. Conheça nossa consultoria para organizar a proteção do que você construiu.
+              </p>
+              <Button asChild size="lg" className="home-private-cta">
+                <Link to="/patro-private">
+                  Conhecer a Patro Private
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </div>
+            <div className="home-private-paths">
+              <Link to="/seguro-residencial-alto-padrao-guarulhos">
+                <div>
+                  <h3>Residências de alto padrão</h3>
+                  <p>Uma análise que considera o imóvel e o patrimônio da sua família.</p>
+                </div>
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </Link>
+              <Link to="/seguro-auto-premium-guarulhos">
+                <div>
+                  <h3>Veículos premium</h3>
+                  <p>Orientação para comparar coberturas, assistência e condições.</p>
+                </div>
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </Link>
+              <Link to="/consorcio">
+                <div>
+                  <h3>Planejamento com consórcio</h3>
+                  <p>Simule a aquisição de imóveis e veículos de forma planejada.</p>
+                </div>
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* 9. COMO FUNCIONA A COTAÇÃO */}
         <LazySection
           minHeight="480px"

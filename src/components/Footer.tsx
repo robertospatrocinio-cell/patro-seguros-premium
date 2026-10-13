@@ -14,7 +14,7 @@ const logoFull = "/images/logo-full.webp";
 
 const Footer = memo(() => {
   return (
-    <footer className="bg-foreground text-white/80" role="contentinfo">
+    <footer className="patro-site-footer bg-foreground text-white/80" role="contentinfo">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
@@ -60,7 +60,7 @@ const Footer = memo(() => {
               <li>
                 <ExternalLink
                   href={GOOGLE_MAPS_URL}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#F2994A] px-3 py-2 font-bold text-[12px] text-[#1a1a1a] hover:brightness-110 transition"
+                  className="inline-flex items-center gap-2 rounded-md bg-gold px-3 py-2 font-semibold text-[12px] text-accent-foreground hover:bg-gold-soft transition-colors"
                   aria-label="Ver a Patro Seguros no Google Maps (abre em nova aba)"
                 >
                   <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Ver no Google Maps
@@ -162,7 +162,7 @@ const Footer = memo(() => {
                   Patro Private →
                 </SmartLink>
               </li>
-              <li><SmartLink to="/crm" className="text-[#F2994A] font-bold hover:text-white">Área do Cliente</SmartLink></li>
+              <li><SmartLink to="/crm" className="text-gold-soft font-semibold hover:text-white">Área do Cliente</SmartLink></li>
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
             <ul className="space-y-2.5 text-[13px]">
