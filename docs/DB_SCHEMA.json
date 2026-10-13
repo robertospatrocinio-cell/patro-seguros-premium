@@ -78,13 +78,19 @@
     {
       "nome": "http_delete",
       "retorno": "http_response",
-      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, $3, $2)::public.http_request) $function$\n",
-      "argumentos": "uri character varying, content character varying, content_type character varying"
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
+      "argumentos": "uri character varying"
     },
     {
       "nome": "http_delete",
       "retorno": "http_response",
-      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_delete(uri character varying, content character varying, content_type character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('DELETE', $1, NULL, $3, $2)::public.http_request) $function$\n",
+      "argumentos": "uri character varying, content character varying, content_type character varying"
+    },
+    {
+      "nome": "http_get",
+      "retorno": "http_response",
+      "definicao": "CREATE OR REPLACE FUNCTION public.http_get(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('GET', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
       "argumentos": "uri character varying"
     },
     {
@@ -92,12 +98,6 @@
       "retorno": "http_response",
       "definicao": "CREATE OR REPLACE FUNCTION public.http_get(uri character varying, data jsonb)\n RETURNS http_response\n LANGUAGE sql\nAS $function$\n        SELECT public.http(('GET', $1 || '?' || public.urlencode($2), NULL, NULL, NULL)::public.http_request)\n    $function$\n",
       "argumentos": "uri character varying, data jsonb"
-    },
-    {
-      "nome": "http_get",
-      "retorno": "http_response",
-      "definicao": "CREATE OR REPLACE FUNCTION public.http_get(uri character varying)\n RETURNS http_response\n LANGUAGE sql\nAS $function$ SELECT public.http(('GET', $1, NULL, NULL, NULL)::public.http_request) $function$\n",
-      "argumentos": "uri character varying"
     },
     {
       "nome": "http_head",
@@ -222,12 +222,6 @@
     {
       "nome": "urlencode",
       "retorno": "text",
-      "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(string character varying)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode$function$\n",
-      "argumentos": "string character varying"
-    },
-    {
-      "nome": "urlencode",
-      "retorno": "text",
       "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(string bytea)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode$function$\n",
       "argumentos": "string bytea"
     },
@@ -236,6 +230,12 @@
       "retorno": "text",
       "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(data jsonb)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode_jsonb$function$\n",
       "argumentos": "data jsonb"
+    },
+    {
+      "nome": "urlencode",
+      "retorno": "text",
+      "definicao": "CREATE OR REPLACE FUNCTION public.urlencode(string character varying)\n RETURNS text\n LANGUAGE c\n IMMUTABLE STRICT\nAS '$libdir/http', $function$urlencode$function$\n",
+      "argumentos": "string character varying"
     },
     {
       "nome": "validate_lead_data",
@@ -4992,7 +4992,7 @@
       "roles": [
         "authenticated"
       ],
-      "using": "true",
+      "using": "has_role(( SELECT auth.uid() AS uid), 'admin'::app_role)",
       "policy": "Allow authenticated reads on sitemap_history",
       "tabela": "sitemap_history",
       "comando": "SELECT",
@@ -5230,7 +5230,7 @@
       "trigger": "set_tasks_updated_at"
     }
   ],
-  "gerado_em": "2026-10-08T18:28:26.929632+00:00",
+  "gerado_em": "2026-10-13T18:45:06.145933+00:00",
   "rls_ativo": {
     "leads": true,
     "tasks": true,
@@ -5296,7 +5296,7 @@
     "email_send_log": 0,
     "monitored_urls": 10,
     "partial_quotes": 0,
-    "seo_audit_runs": 97,
+    "seo_audit_runs": 102,
     "insurance_sales": 5,
     "sitemap_history": 0,
     "email_send_state": 1,
@@ -5309,8 +5309,8 @@
     "contact_insurances": 14,
     "lead_quote_history": 0,
     "relationship_rules": 4,
-    "seo_audit_findings": 66125,
-    "web_vitals_metrics": 2142,
+    "seo_audit_findings": 73660,
+    "web_vitals_metrics": 2172,
     "breadcrumb_overrides": 0,
     "domain_health_checks": 0,
     "gsc_indexation_alerts": 0,
@@ -5320,7 +5320,7 @@
     "seo_rich_results_checks": 0,
     "email_unsubscribe_tokens": 0,
     "internal_link_applications": 0,
-    "internal_link_click_events": 4,
+    "internal_link_click_events": 5,
     "customer_responsible_history": 0
   },
   "chaves_primarias": [
@@ -5604,5 +5604,5 @@
     }
   ],
   "triggers_auth_users": [],
-  "geckoai_sincronizado_em": "2026-10-08T18:28:28.061Z"
+  "geckoai_sincronizado_em": "2026-10-13T18:45:07.291Z"
 }
