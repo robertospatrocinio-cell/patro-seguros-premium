@@ -2,6 +2,17 @@ import { BlogArticleMeta } from "@/lib/blogData";
 
 export const agroArticles: BlogArticleMeta[] = [
   {
+    slug: "seguro-penhor-rural-maquinas-financiadas",
+    title: "Seguro Penhor Rural para Máquinas Financiadas: Guia e Dúvidas",
+    excerpt: "Entenda o seguro penhor rural para tratores e colheitadeiras financiados: coberturas, vidros, transporte, exigências do banco, documentos e indenização.",
+    category: "Agronegócio",
+    tags: ["seguro penhor rural", "máquinas financiadas", "seguro trator", "colheitadeiras", "crédito rural"],
+    author: "Roberto Patro",
+    date: "2026-10-15",
+    updatedAt: "2026-10-15",
+    readTime: 9,
+  },
+  {
     slug: "psr-passo-a-passo-produtor-rural-subvencao",
     title: "PSR Passo a Passo: Como o Produtor Rural Acessa a Subvenção do Seguro Agrícola",
     excerpt: "Entenda como funciona o Programa de Subvenção ao Prêmio do Seguro Rural (PSR), quais culturas são contempladas e como contratar com a Patro Seguros.",

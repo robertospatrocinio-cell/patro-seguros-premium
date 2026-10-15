@@ -23,7 +23,8 @@ Em colhedoras vinculadas ao crédito rural, envie o contrato para conferência d
       { title: "Roubo e furto qualificado", description: "A contratação depende dos eventos previstos e das condições de guarda declaradas." },
       { title: "Colisão e tombamento", description: "Danos acidentais durante a operação devem estar previstos na cobertura contratada." },
       { title: "Danos elétricos", description: "Monitores, sensores e chicotes exigem identificação e análise de cobertura específica." },
-      { title: "Transporte entre frentes", description: "Confira deslocamento próprio, transporte em prancha, carga e descarga separadamente." },
+      { title: "Quebra de vidros da cabine", description: "Consulte cobertura para para-brisa, vidros laterais e traseiro, conforme as peças e causas aceitas. Confira limites e franquia; desgaste e riscos superficiais não têm cobertura automática." },
+      { title: "Transporte entre frentes", description: "Consulte cobertura para danos durante o transporte em caminhão ou prancha. Declare rotas e transportador e confira a inclusão de carga e descarga. Deslocamento por meios próprios exige análise separada." },
       { title: "Responsabilidade civil", description: "Danos a terceiros exigem análise de atividade, limites e exclusões próprios." },
     ]}
     coverageExclusions={[
@@ -55,6 +56,7 @@ Em colhedoras vinculadas ao crédito rural, envie o contrato para conferência d
       { question: "Há prazo garantido de indenização?", answer: "Não prometemos pagamento ou conclusão em prazo fixo. A regulação depende do evento, dos documentos e das regras aplicáveis. A Patro acompanha o encaminhamento com a seguradora." },
     ]}
     relatedInsurances={[
+      { title: "Guia: Penhor Rural para Máquinas Financiadas", link: "/blog/seguro-penhor-rural-maquinas-financiadas" },
       { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
       { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
       { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },

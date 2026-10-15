@@ -67,6 +67,22 @@ check(template.includes('return "agro"'), 'Template permite direcionar cotação
 const articles = read('src/data/blogAgroContent.ts');
 check(articles.includes('[seguro penhor rural](/seguro-penhor-rural)'), 'Artigos apontam para penhor rural');
 check(articles.includes('[seguro RETA para drone](/seguro-reta-drone)'), 'Artigo de drone diferencia RETA');
+
+const penhorSlug = 'seguro-penhor-rural-maquinas-financiadas';
+for (const component of ['SeguroTratorAgricola', 'SeguroColheitadeiraGraos', 'SeguroColhedoraCana', 'SeguroColhedoraAlgodao']) {
+  const source = read(`src/pages/${component}.tsx`);
+  const coverages = source.match(/coverages=\{\[([\s\S]*?)\]\}/)?.[1] ?? '';
+  check(coverages.includes('Quebra de vidros da cabine'), `${component}: cobertura de vidros visível`);
+  check(/title: "Transporte/.test(coverages), `${component}: transporte listado nas coberturas`);
+  check(coverages.includes('carga e descarga'), `${component}: condições do transporte explicadas`);
+  check(source.includes(`/blog/${penhorSlug}`), `${component}: link para o guia de máquinas financiadas`);
+}
+const penhorArticle = articles.split(`"${penhorSlug}": {`)[1]?.split('\n  "psr-passo-a-passo-produtor-rural-subvencao"')[0] ?? '';
+check(penhorArticle.includes('## O que é seguro penhor rural?'), 'Guia de penhor: conteúdo cadastrado');
+check((penhorArticle.match(/\{ q:/g) ?? []).length >= 10, 'Guia de penhor: principais dúvidas respondidas');
+check(read('src/data/blogAgroData.ts').includes(`slug: "${penhorSlug}"`), 'Guia de penhor: listado no blog');
+check(read('public/sitemap-blog.xml').includes(`/blog/${penhorSlug}</loc>`), 'Guia de penhor: URL no sitemap');
+check(read('src/pages/SeguroPenhorRural.tsx').includes('id="solicitar-cotacao"'), 'Guia de penhor: destino da cotação existe');
 console.log(`\n${failures} falha(s). ${built ? 'HTML local conferido.' : 'HTML publicado não foi conferido; use --dist após a pré-renderização.'}`);
 console.log('Este teste não mede ranking, desempenho, indexação ou elegibilidade a resultados enriquecidos.');
 process.exitCode = failures ? 1 : 0;

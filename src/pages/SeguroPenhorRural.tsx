@@ -108,9 +108,10 @@ const SeguroPenhorRural = () => (
       <div id="duvidas" className="scroll-mt-28">
         <FAQBlock title="Dúvidas sobre Seguro Penhor Rural" items={faqs} headingId="faq-penhor-heading" className="py-12" />
       </div>
-      <section className="container mx-auto max-w-4xl px-4 pb-24 pt-8 text-center">
+      <section id="solicitar-cotacao" className="container mx-auto max-w-4xl scroll-mt-28 px-4 pb-24 pt-8 text-center">
         <h2 className="text-2xl font-bold">Vai financiar, retirar ou renovar o seguro da máquina?</h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">Comece informando o equipamento, o município de operação e se existe financiamento. Nossa equipe orienta os próximos documentos e a análise das alternativas.</p>
+        <Link to="/blog/seguro-penhor-rural-maquinas-financiadas" className="mt-4 inline-flex min-h-11 items-center text-primary underline underline-offset-4">Leia o guia de Penhor Rural para máquinas financiadas e tire suas dúvidas</Link>
         <a href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("penhor-rural:final")} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Falar com especialista em Penhor Rural</a>
         <div className="mt-8 flex flex-wrap justify-center gap-5 text-sm text-primary underline underline-offset-4"><Link className="py-2" to="/seguro-agro">Todas as soluções Agro</Link><Link className="py-2" to="/verificar-susep">Como verificar a corretora na SUSEP</Link><a className="py-2" href="https://www.gov.br/susep/pt-br" target="_blank" rel="noopener noreferrer">Informações oficiais da SUSEP</a></div>
       </section>

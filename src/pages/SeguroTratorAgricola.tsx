@@ -32,7 +32,8 @@ Nossa parceria com a rede de concessionárias dos principais fabricantes facilit
       { title: "Colisão e tombamento", description: "Analise danos acidentais durante o uso informado e aceito pela seguradora." },
       { title: "Danos elétricos", description: "Componentes e acessórios eletrônicos podem exigir contratação e limites específicos." },
       { title: "Responsabilidade civil", description: "Danos a terceiros precisam de cobertura própria, com atividades e limites definidos." },
-      { title: "Transporte e deslocamento", description: "Confira separadamente vias públicas, transporte em prancha, carga e descarga." },
+      { title: "Quebra de vidros da cabine", description: "Consulte cobertura para para-brisa, vidros laterais e traseiro. Itens aceitos, causas cobertas, limites e franquia variam conforme a seguradora; riscos e desgaste não estão automaticamente incluídos." },
+      { title: "Transporte do trator", description: "Consulte cobertura para danos durante o transporte em caminhão ou prancha. Informe rotas e transportador e confira se carga e descarga estão incluídas. Circulação por meios próprios exige análise separada." },
     ]}
     coverageExclusions={[
       "Desgaste de pneus e correias, manutenção e corrosão não têm cobertura automática.",
@@ -57,6 +58,7 @@ Nossa parceria com a rede de concessionárias dos principais fabricantes facilit
       { question: "Qual o prazo para cotar ou indenizar?", answer: "A cotação depende dos documentos e da análise do risco. A regulação de sinistro depende do evento, da documentação e das regras aplicáveis; não prometemos emissão ou pagamento em prazo fixo." },
     ]}
     relatedInsurances={[
+      { title: "Guia: Penhor Rural para Máquinas Financiadas", link: "/blog/seguro-penhor-rural-maquinas-financiadas" },
       { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
       { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
       { title: "Equipamentos e Implementos", link: "/seguro-equipamentos-agricolas" },

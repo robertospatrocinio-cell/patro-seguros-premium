@@ -23,7 +23,8 @@ Se a máquina estiver vinculada ao crédito rural, envie o contrato para anális
       { title: "Roubo e furto qualificado", description: "Verifique os eventos aceitos e as condições de guarda nas frentes de trabalho e nos pátios." },
       { title: "Tombamento e colisão", description: "Danos acidentais durante a operação dependem da cobertura contratada e do uso declarado." },
       { title: "Eletrônica e sensores", description: "Declare os sistemas embarcados. Danos elétricos podem exigir cobertura e limites próprios." },
-      { title: "Transporte do equipamento", description: "Deslocamentos, transporte em prancha, carga e descarga precisam de análise específica." },
+      { title: "Quebra de vidros da cabine", description: "Consulte cobertura para para-brisa, vidros laterais e traseiro. Peças, causas aceitas, limites e franquia variam conforme o produto; riscos superficiais e desgaste não estão automaticamente incluídos." },
+      { title: "Transporte do equipamento", description: "Consulte cobertura para danos durante o transporte em caminhão ou prancha. Informe rotas e transportador e confira a inclusão de carga e descarga. Deslocamentos por meios próprios exigem análise separada." },
       { title: "Responsabilidade civil", description: "Danos a terceiros devem ser analisados em cobertura própria, com limites e exclusões definidos." },
     ]}
     coverageExclusions={[
@@ -56,6 +57,7 @@ Se a máquina estiver vinculada ao crédito rural, envie o contrato para anális
       { question: "A apólice é emitida em até 48 horas?", answer: "Não há promessa de emissão em prazo fixo. O prazo depende dos documentos, da análise e de eventual vistoria. O pedido de cotação não inicia cobertura." },
     ]}
     relatedInsurances={[
+      { title: "Guia: Penhor Rural para Máquinas Financiadas", link: "/blog/seguro-penhor-rural-maquinas-financiadas" },
       { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
       { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
       { title: "Colheitadeira de Grãos", link: "/seguro-colheitadeira-graos" },

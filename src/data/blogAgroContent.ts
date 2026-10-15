@@ -1,4 +1,115 @@
 export const agroArticlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-penhor-rural-maquinas-financiadas": {
+    title: "Seguro Penhor Rural para Máquinas Financiadas: Guia e Dúvidas",
+    content: `Ao financiar um trator ou uma colheitadeira, o produtor precisa conferir como proteger a máquina e atender às exigências do banco ou da cooperativa. O **seguro penhor rural** pode ser a modalidade aplicável quando o equipamento está vinculado em garantia a uma operação de crédito rural. A escolha depende do contrato, do bem e das condições aceitas pela seguradora.
+
+Neste guia, explicamos o que conferir antes de contratar, como analisar vidros e transporte e o que acontece em um sinistro. A Patro atende produtores em todo o Brasil, com especialização em máquinas agrícolas e parceria com a rede de concessionárias dos principais fabricantes.
+
+## O que é seguro penhor rural?
+
+O [seguro penhor rural](/seguro-penhor-rural) protege os bens vinculados em garantia a operações de crédito rural contra os riscos previstos na apólice. No caso de máquinas financiadas, é preciso identificar o equipamento e o interesse do credor, além de conferir coberturas, limites e vigência.
+
+O penhor é uma garantia da operação de crédito; o seguro é um contrato de proteção contra riscos definidos. **Ter uma máquina financiada não significa que qualquer apólice chamada penhor rural atenda ao contrato.** O enquadramento deve ser analisado com o credor e a seguradora.
+
+Esse seguro não cobre automaticamente atraso de parcelas, falta de recursos, queda no preço da produção ou perda de safra. Também não substitui seguro prestamista, garantia do fabricante ou manutenção do equipamento.
+
+## Quando ele se aplica a tratores e colheitadeiras financiados?
+
+A análise começa pelo contrato de crédito e pela descrição do bem em garantia. Um [trator agrícola](/seguro-trator-agricola), uma [colheitadeira de grãos](/seguro-colheitadeira-graos), uma [colhedora de cana](/seguro-colhedora-cana) ou uma [colhedora de algodão](/seguro-colhedora-algodao) podem exigir condições diferentes conforme a operação e o produto disponível.
+
+Peça ao banco ou à cooperativa os requisitos por escrito. Confira a modalidade aceita, o valor exigido, a identificação do credor, as cláusulas e o período de proteção. Não basta incluir o nome do banco em uma proposta genérica. A emissão do seguro não garante a aprovação ou a liberação do financiamento.
+
+Para máquinas quitadas ou sem vínculo com crédito rural, avalie o [seguro de máquinas agrícolas](/seguro-maquinas-agricolas) adequado ao uso. O nome do produto, isoladamente, não demonstra quais riscos estão protegidos.
+
+## Quais coberturas devem ser avaliadas?
+
+Compare os eventos cobertos e as exclusões, e não apenas o preço. Entre as coberturas a consultar estão incêndio, raio, explosão, colisão, tombamento, roubo, furto qualificado e danos elétricos. A disponibilidade e a composição das coberturas variam conforme a seguradora e o equipamento.
+
+Confira o limite máximo de indenização, que é o teto previsto para a cobertura, e a franquia ou participação do segurado, que é a parcela do prejuízo que pode ficar a seu cargo. O valor informado na proposta não significa pagamento integral em qualquer situação.
+
+Plataformas de corte, plantadeiras, GPS, piloto automático e outros acessórios precisam ser declarados com seus valores. Verifique a proteção durante uso, guarda e transporte, inclusive quando ficam desacoplados. Desgaste, corrosão, manutenção e defeitos de fabricação não são automaticamente cobertos. Danos a terceiros exigem análise própria de responsabilidade civil.
+
+### Vidros da cabine: o que perguntar antes de contratar
+
+Consulte a **cobertura de quebra de vidros** para para-brisa, vidros laterais e traseiro do trator ou da colheitadeira. Confira quais peças e causas de quebra são aceitas, o limite por evento, a franquia e as regras de reparo ou substituição. Espelhos, faróis, películas e componentes associados não devem ser presumidos como incluídos.
+
+Uma pedra que atinge o para-brisa durante o trabalho é um exemplo de situação a apresentar na cotação. A existência de cobertura para incêndio ou tombamento não permite concluir que uma quebra isolada de vidro esteja protegida. Riscos superficiais e desgaste também precisam ser distinguidos de quebra coberta.
+
+### Transporte: a cobertura da lavoura não basta
+
+Solicite análise da **cobertura durante o transporte em caminhão ou prancha**. Informe origem, destino, frequência, responsável pelo transporte e os equipamentos embarcados. Confirme se carga e descarga estão incluídas e quais exigências de acondicionamento e segurança se aplicam.
+
+A entrega da máquina pela concessionária merece atenção: confira quando a vigência começa e quem responde pelo transporte. Não presuma que uma apólice em análise já proteja o trajeto até a fazenda. Deslocamento por meios próprios em vias públicas e transporte da máquina sobre outro veículo são situações distintas.
+
+Se a colheitadeira acompanha safras entre estados, declare essa mobilidade. Atendimento nacional da corretora não equivale a cobertura automática de toda rota. O seguro do transportador também não deve ser tratado como substituto automático da proteção da sua máquina.
+
+## Quem recebe a indenização: o produtor ou o banco?
+
+A destinação depende das cláusulas da apólice, do interesse do credor e da análise do sinistro. Pode haver previsão de pagamento ao credor ou necessidade de sua participação na autorização para reparo ou destinação dos valores. Confira isso antes da contratação.
+
+Em dano parcial, avaliam-se os reparos cobertos e as condições aplicáveis. Em perda total coberta, o cálculo considera os critérios de avaliação, limites, franquias e demais regras contratuais. **Valor da máquina, saldo devedor e indenização são valores diferentes.** Não há garantia de que o pagamento quite todo o financiamento ou de que eventual diferença seja entregue ao produtor sem análise.
+
+O aviso de sinistro não suspende automaticamente as parcelas. Mantenha contato com o credor para tratar das obrigações do contrato enquanto a seguradora analisa o evento.
+
+## Quais documentos separar para a cotação?
+
+- Identificação do produtor ou da empresa e dados de contato.
+- Marca, modelo, ano, número de série ou chassi e valor de cada máquina.
+- Nota fiscal ou documento de propriedade e relação de acessórios com valores.
+- Contrato de crédito, dados do credor e exigências do financiamento.
+- Culturas, municípios e estados de operação, uso próprio ou prestação de serviços.
+- Informações sobre guarda, transporte, carga e descarga.
+- Apólice anterior, histórico de sinistros e fotos ou registros de manutenção, quando solicitados.
+
+A lista pode variar. A concessionária parceira ajuda a reunir dados técnicos e documentos de compra; a aceitação do seguro cabe à seguradora. Vistoria pode ser necessária, inclusive para máquinas usadas.
+
+## Quanto custa e como comparar propostas?
+
+Não existe uma taxa única para todo trator ou colheitadeira. Modelo, ano, valor, operação, regiões, transporte, histórico de sinistros, coberturas e franquias influenciam a análise. Requisitos do financiamento também precisam entrar na comparação.
+
+Verifique se as propostas incluem os mesmos bens e riscos. Uma opção mais barata pode ter limite menor para vidros, excluir transporte ou exigir participação maior em um sinistro. Peça a descrição dessas diferenças antes de decidir.
+
+Confira o critério de avaliação da máquina e mantenha os valores atualizados. Valor insuficiente pode afetar a indenização, conforme as condições do contrato. Solicitar uma cotação não inicia a cobertura.
+
+## Renovação, troca de máquina e quitação
+
+Acompanhe o término da vigência e as exigências do financiamento para evitar períodos sem proteção. Não presuma que o seguro acompanhe automaticamente todo o prazo do crédito ou se renove sozinho.
+
+Ao trocar a máquina, incluir plataforma, mudar as regiões de trabalho ou começar a prestar serviços, solicite análise da alteração. Ela pode exigir um endosso, que é a formalização da mudança na apólice. Confirme a aceitação antes de considerar a nova situação coberta.
+
+Depois da quitação, comunique a corretora e apresente a documentação do credor. A retirada ou alteração de cláusulas e a continuidade do seguro dependem da análise contratual. Quitar o financiamento não elimina os riscos da operação agrícola.
+
+## O que fazer em caso de sinistro?
+
+Priorize a segurança das pessoas e evite agravar os danos, quando isso puder ser feito sem risco. Avise a seguradora e a corretora assim que possível, seguindo os procedimentos aplicáveis. Registre fotos, local, data, circunstâncias e identificação da máquina.
+
+Preserve documentos e evidências e solicite orientação antes de autorizar reparos ou descartar peças. Em roubo ou outro evento que exija registro policial, siga as orientações das autoridades. Informe o vínculo com o financiamento para que as cláusulas do credor sejam consideradas.
+
+A análise depende da causa, dos documentos e das condições da apólice. A corretora acompanha o encaminhamento, mas não decide a cobertura nem garante prazo ou valor de pagamento.
+
+## Como a Patro ajuda o produtor e a concessionária
+
+A Patro organiza os dados da máquina, da operação e do crédito para comparar as condições disponíveis. Atendemos produtores do Centro-Oeste, Sul, Sudeste, Norte e Nordeste, incluindo as regiões do MATOPIBA, por canais digitais. Vistorias e procedimentos de sinistro seguem as exigências da seguradora.
+
+Na análise, peça atenção expressa aos vidros da cabine, ao transporte e às cláusulas do financiamento. A parceria com concessionárias facilita a documentação, sem representar aceitação automática ou exclusividade com um fabricante.
+
+[Solicitar análise de seguro penhor rural para minha máquina](/seguro-penhor-rural#solicitar-cotacao)
+
+Este conteúdo é informativo. As condições da apólice e do contrato de crédito precisam ser avaliadas em cada caso. Para informações institucionais, consulte a [SUSEP](https://www.gov.br/susep/pt-br) e o [Banco Central do Brasil](https://www.bcb.gov.br).`,
+    faqs: [
+      { q: "Seguro penhor rural é obrigatório para toda máquina financiada?", a: "Não se deve generalizar. Confira as exigências legais e do contrato de crédito, a garantia vinculada e a modalidade aceita pelo credor. A apólice precisa atender ao contrato e à operação da máquina." },
+      { q: "Preciso contratar o seguro oferecido pelo banco?", a: "Peça os requisitos de cobertura e os critérios para apresentação de uma apólice de outra seguradora. Compare alternativas com a corretora e confirme a adequação com o credor antes de substituir ou cancelar um seguro vigente." },
+      { q: "Qual a diferença entre penhor rural e seguro de máquinas agrícolas?", a: "O penhor rural considera o vínculo do bem em garantia a uma operação de crédito rural. O seguro de máquinas trata da proteção do equipamento conforme o produto contratado. Coberturas podem se aproximar, mas enquadramento e cláusulas do credor precisam ser conferidos." },
+      { q: "O seguro paga as parcelas se eu não conseguir pagar?", a: "Não por simples falta de recursos ou atraso. Ele trata de danos aos bens nos riscos contratados. Não equivale a seguro prestamista nem garante quitação do financiamento em qualquer sinistro." },
+      { q: "Vidros de tratores e colheitadeiras estão incluídos?", a: "A cobertura precisa ser consultada e contratada conforme o produto. Confira para-brisa, vidros laterais e traseiro, causas aceitas, limite e franquia. Não presuma que a cobertura da máquina inclua qualquer quebra isolada." },
+      { q: "Há cobertura no transporte em prancha?", a: "Pode ser contratada conforme disponibilidade e aceitação. Informe rotas, transportador e bens transportados e verifique carga e descarga. A proteção durante a operação na lavoura não garante automaticamente o transporte." },
+      { q: "A indenização vai para o banco ou para o produtor?", a: "Depende das cláusulas, do interesse do credor e do sinistro. Pode haver pagamento ao credor ou sua participação na autorização para reparo. Não há garantia de quitação integral da dívida ou de saldo para o produtor." },
+      { q: "Trator ou colheitadeira usados podem ser segurados?", a: "Podem ser submetidos à análise. Modelo, idade, conservação, valor, manutenção e disponibilidade de peças influenciam a aceitação. A seguradora pode solicitar documentos adicionais ou vistoria." },
+      { q: "O seguro termina quando quito o financiamento?", a: "Não presuma cancelamento automático. Comunique a quitação e apresente a documentação para avaliar as cláusulas do credor e a continuidade da proteção adequada à máquina." },
+      { q: "Posso usar a máquina em outros estados ou prestar serviços?", a: "Declare regiões, deslocamentos e prestação de serviços na cotação. Mudanças durante a vigência precisam ser analisadas. Atendimento nacional da corretora não significa cobertura automática de qualquer atividade ou rota." },
+      { q: "A Patro atende produtores fora de São Paulo?", a: "Sim. O atendimento comercial é nacional por canais digitais. A análise considera a localização e a operação da máquina; vistorias e procedimentos de sinistro podem exigir presença no local conforme a seguradora." }
+    ]
+  },
   "psr-passo-a-passo-produtor-rural-subvencao": {
     title: "PSR Passo a Passo: Como o Produtor Rural Acessa a Subvenção do Seguro Agrícola",
     content: "O **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, instituído pela Lei nº 10.823/2003 e operacionalizado pelo Ministério da Agricultura, é a principal política pública de apoio ao seguro no campo. Por meio dele, o governo federal paga parte do prêmio da apólice, reduzindo o custo do [Seguro Agrícola](/seguro-agro) para o produtor rural.\n\nNeste guia, organizamos o passo a passo de como acessar o PSR com apoio da [Patro Seguros](/sobre), corretora com atendimento nacional para o agronegócio.\n\n## 1. O que é o PSR e quem pode contratar\n\nO PSR é um auxílio financeiro do Governo Federal sobre o prêmio do seguro rural. Podem se beneficiar pessoas físicas ou jurídicas que sejam produtores rurais, desde que a seguradora esteja habilitada no programa e a cultura/atividade conste do Plano Trienal do PSR vigente.\n\n## 2. Modalidades cobertas\n\nO PSR contempla diferentes modalidades, conforme aceitação da seguradora:\n\n- **Agrícola** (lavoura): soja, milho, trigo, café, frutas, hortaliças, entre outras.\n- **Pecuário**: bovinos, suínos, aves, conforme produto contratado.\n- **Aquícola**: criação de peixes e camarões.\n- **Florestas**: plantios comerciais (eucalipto, pinus etc.).\n\nO percentual de subvenção varia por cultura e ano-safra, conforme portarias do MAPA.\n\n## 3. Passo a passo prático\n\n1. **Diagnóstico da propriedade** — área, cultura, histórico de perdas, localização (CAR e georreferenciamento).\n2. **Cotação multi-seguradora** — a Patro consulta seguradoras habilitadas no PSR (sujeito a aceitação).\n3. **Escolha das coberturas** — granizo, geada, seca, vendaval, chuva excessiva, incêndio, raio, conforme produto.\n4. **Emissão da apólice** com indicação de uso da subvenção.\n5. **Solicitação da subvenção** pela seguradora ao MAPA, dentro do limite anual por produtor (conforme regras vigentes).\n6. **Acompanhamento da safra** e aviso imediato em caso de sinistro.\n\n## 4. Cuidados que evitam recusa\n\n- Declaração correta de área plantada e produtividade esperada.\n- Respeito ao **Zoneamento Agrícola de Risco Climático (ZARC)**: plantar fora da janela do ZARC tende a recusa de cobertura.\n- Adoção das **práticas de manejo** previstas na apólice.\n- Comunicação imediata de sinistro, antes da colheita, para perícia de campo.\n\n[[CTA_AGRISHOW]]\n\n## 5. Como a Patro Seguros ajuda\n\nAtendemos produtores rurais em todo o Brasil, com foco em [máquinas agrícolas](/seguro-maquinas-agricolas), [silos](/seguro-silo-agricola), [propriedade rural](/seguro-propriedade-rural) e lavoura. Comparamos seguradoras habilitadas no PSR e estruturamos a contratação respeitando as regras do programa.\n\n[Solicitar Cotação de Seguro Agrícola com PSR](/cotacao?tipo=agro)",
