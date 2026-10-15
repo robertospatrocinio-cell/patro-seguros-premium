@@ -138,9 +138,10 @@ export const catalogoSeguros: CatalogoPerfil[] = [
   },
   {
     id: "agro", title: "Agronegócio",
-    description: "Proteção para a propriedade rural, produção, estruturas e transporte agropecuário.",
+    description: "Seguro Penhor Rural, máquinas, drones e proteção da atividade agrícola em todo o Brasil.",
     items: [
-      { label: "Seguro Agro", to: "/seguro-agro", short: "Conheça as soluções para o agronegócio." },
+      { label: "Seguro Agro", to: "/seguro-agro", short: "Especialistas em máquinas, drones e penhor rural; atendimento nacional." },
+      { label: "Seguro Penhor Rural", to: "/seguro-penhor-rural", short: "Bens vinculados ao crédito rural e análise das exigências do credor." },
       { label: "Seguro Rural", to: "/seguro-rural", short: "Proteção adaptada à atividade no campo." },
       { label: "Propriedade Rural", to: "/seguro-propriedade-rural", short: "Estruturas e patrimônio da propriedade." },
       { label: "Seguro Pecuário", to: "/seguro-pecuario", short: "Proteção para a atividade pecuária." },

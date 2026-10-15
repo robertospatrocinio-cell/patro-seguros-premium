@@ -57,6 +57,7 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-empresarial",
   "/seguros-empresariais",
   "/seguro-agro",
+  "/seguro-penhor-rural",
   "/seguro-rural",
   "/seguro-maquinas",
   "/seguro-maquinas-agricolas",

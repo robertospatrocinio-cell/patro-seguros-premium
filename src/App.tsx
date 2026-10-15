@@ -188,6 +188,7 @@ const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoS
 const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"), "SeguroAutoMarcas");
 const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
 const SeguroAgro = lazyWithRetry(() => import("./pages/SeguroAgro"), "SeguroAgro");
+const SeguroPenhorRural = lazyWithRetry(() => import("./pages/SeguroPenhorRural"), "SeguroPenhorRural");
 const GlossarioSeguros = lazyWithRetry(() => import("./pages/GlossarioSeguros"), "GlossarioSeguros");
 const GlossarioLetra = lazyWithRetry(() => import("./pages/GlossarioLetra"), "GlossarioLetra");
 const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
@@ -1137,6 +1138,7 @@ const App = () => {
                   <Route path="/seguro-auto/comparativo-coberturas" element={<SeguroAutoComparativoCoberturas />} />
                   {/* Hub Agro + Glossário */}
                   <Route path="/seguro-agro" element={<SeguroAgro />} />
+                  <Route path="/seguro-penhor-rural" element={<SeguroPenhorRural />} />
                   <Route path="/glossario-seguros" element={<GlossarioSeguros />} />
                   <Route path="/glossario-seguros/letra/:letra" element={<GlossarioLetra />} />
                   <Route path="/seguro-hb20-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-hyundai-guarulhos" }); return <Comp />; })()} />

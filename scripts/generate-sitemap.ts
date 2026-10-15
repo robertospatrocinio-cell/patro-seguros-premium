@@ -185,7 +185,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/seguro-rc-profissional", "/seguro-cyber", "/seguro-engenharia",
   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-caminhao",
   "/seguro-vida-pme", "/seguro-galpao", "/seguro-galpoes-industriais", "/seguro-maquinas",
-  "/seguro-rural", "/seguro-maquinas-agricolas", "/seguro-granja",
+  "/seguro-agro", "/seguro-penhor-rural", "/seguro-rural", "/seguro-maquinas-agricolas", "/seguro-granja",
   "/consorcio", "/previdencia-privada", "/plano-saude-empresarial",
   "/seguro-vida/formulario",
   "/seguro-vistoriadora-veicular",
@@ -428,7 +428,7 @@ function buildImageSitemap(): string {
         { loc: "/images/logo-full.webp", title: "Logo Patro Seguros" },
         { loc: "/images/selo-melhor-corretora.webp", title: "Selo Melhor Corretora de Seguros" },
         ...partners.map((p) => ({
-          loc: `/logos/${p}.png`,
+          loc: ["/logos", `${p}.png`].join("/"),
           title: `Logo ${p.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}`,
           caption: "Seguradora parceira Patro Seguros",
         })),

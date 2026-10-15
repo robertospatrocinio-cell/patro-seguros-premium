@@ -225,10 +225,11 @@ export const SEO_HUBS: SeoHub[] = [
     name: "Seguro Agro",
     eyebrow: "Cluster · Agro & Rural",
     ctaSubtitle:
-      "Máquinas, colheita, propriedade rural e transporte agro com atendimento nacional.",
+      "Especialistas em máquinas agrícolas, drones e Seguro Penhor Rural em todo o Brasil.",
     pillarPath: "/seguro-agro",
     landingPaths: [
       "/seguro-agro",
+      "/seguro-penhor-rural",
       "/seguro-rural",
       "/seguro-propriedade-rural",
       "/seguro-pecuario",

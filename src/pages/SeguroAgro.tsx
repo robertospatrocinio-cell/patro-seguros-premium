@@ -51,7 +51,9 @@ const PECUARIA: Item[] = [
 ];
 
 const MAQUINAS: Item[] = [
-  { name: "Seguro de Trator Agrícola", slug: "seguro-trator-agricola", desc: "John Deere, Massey Ferguson, New Holland, Valtra, Case IH, Mahindra, Jacto e mais." },
+  { name: "Seguro Penhor Rural", slug: "seguro-penhor-rural", desc: "Análise de máquinas e bens vinculados ao crédito rural, coberturas e exigências do credor." },
+  { name: "Seguro de Máquinas Agrícolas", slug: "seguro-maquinas-agricolas", desc: "Proteção de máquinas próprias ou financiadas, conforme o uso e a aceitação da seguradora." },
+  { name: "Seguro de Trator Agrícola", slug: "seguro-trator-agricola", desc: "Análise para diferentes marcas e modelos, sem vínculo exclusivo com fabricantes." },
   { name: "Seguro de Colheitadeira de Grãos", slug: "seguro-colheitadeira-graos", desc: "Soja, milho, trigo e demais grãos — cobertura para colheitadeiras de alto valor." },
   { name: "Seguro de Colhedora de Cana", slug: "seguro-colhedora-cana", desc: "Proteção para colhedoras de cana-de-açúcar em operação e em deslocamento." },
   { name: "Seguro de Colhedora de Algodão", slug: "seguro-colhedora-algodao", desc: "Cobertura específica para colhedoras de algodão e implementos atrelados." },
@@ -63,7 +65,7 @@ const MAQUINAS: Item[] = [
 const PROPRIEDADE: Item[] = [
   { name: "Seguro de Propriedade Rural", slug: "seguro-propriedade-rural", desc: "Sede, benfeitorias, máquinas paradas, estoque e RC contra incêndio, raio e vendaval." },
   { name: "Seguro de Silo Agrícola", slug: "seguro-silo-agricola", desc: "Silos metálicos e armazéns graneleiros — cobertura para estrutura, conteúdo e perda de qualidade do grão." },
-  { name: "Seguro Rural (Penhor Rural)", slug: "seguro-rural", desc: "Estoque rural (grãos, insumos, defensivos) penhorado em operação de crédito." },
+  { name: "Seguro Rural", slug: "seguro-rural", desc: "Conheça as modalidades de proteção da atividade rural e suas diferenças." },
 ];
 
 const TRANSPORTE: Item[] = [
@@ -71,56 +73,15 @@ const TRANSPORTE: Item[] = [
 ];
 
 const FAQS = [
-  {
-    question: "O que cobre um seguro agro completo?",
-    answer:
-      "Um programa agro completo cobre quatro frentes: (1) a lavoura/cultura no campo contra eventos climáticos cobertos (granizo, geada, vendaval, chuva excessiva, seca, conforme produto); (2) máquinas e implementos contra incêndio, colisão, tombamento, roubo e furto qualificado; (3) propriedade rural — sede, benfeitorias e estoque em silo/armazém; (4) transporte de grãos, insumos e maquinário. As coberturas são contratadas separadamente ou em conjunto, conforme aceitação da seguradora e perfil da operação.",
-  },
-  {
-    question: "A Patro atende produtor de fora de São Paulo?",
-    answer:
-      "Sim. Apesar de a sede ficar em Guarulhos/SP, a Patro atende produtores rurais e agroindústrias em todo o Brasil de forma digital. Operamos com seguradoras de presença nacional (Porto Seguro, Allianz, Tokio Marine, HDI, Sancor, Mapfre, Essor, entre outras parceiras) — o que muda por região é o apetite técnico e a aceitação do CNAE, não o atendimento.",
-  },
-  {
-    question: "Seguro agrícola tem PSR (Programa de Subvenção ao Prêmio)?",
-    answer:
-      "Sim, parte das apólices de seguro agrícola é elegível à subvenção federal do PSR, que reduz o custo do prêmio para o produtor. A elegibilidade depende da cultura, da região, do volume orçamentário liberado pelo Ministério da Agricultura no ano e da seguradora habilitada. Ajudamos a verificar enquadramento e a documentação — sujeito a disponibilidade de cota da seguradora.",
-  },
-  {
-    question: "Qual a diferença entre Seguro Agrícola e Penhor Rural?",
-    answer:
-      "O Seguro Agrícola cobre a lavoura no campo (planta) contra eventos climáticos durante o ciclo da cultura. O Penhor Rural (Seguro Rural) cobre o estoque já colhido — grãos, insumos, defensivos — quando esse estoque está dado em garantia a uma instituição financeira em operação de crédito rural. São produtos complementares, não substitutos.",
-  },
-  {
-    question: "Trator e colheitadeira têm seguro como o de carro?",
-    answer:
-      "A lógica é parecida, mas o produto é específico para máquinas agrícolas. Cobre incêndio, colisão, tombamento, roubo, furto qualificado e RC para danos a terceiros durante a operação. Trabalhamos com Porto Seguro, Allianz, HDI, Tokio Marine, Sancor e Essor para tratores e colheitadeiras de John Deere, Massey Ferguson, New Holland, Case IH, Valtra, Mahindra e Jacto — conforme aceitação da seguradora.",
-  },
-  {
-    question: "Silo metálico e armazém de grãos têm seguro?",
-    answer:
-      "Sim. O seguro de silo agrícola cobre a estrutura metálica (incêndio, raio, explosão, vendaval, colapso), o conteúdo armazenado (grãos) e, em alguns produtos, perda de qualidade por falha de equipamento de aeração ou termometria. Valor segurado considera capacidade em sacas e cotação da commodity na data do sinistro, conforme cláusula contratada.",
-  },
-  {
-    question: "Drone de pulverização precisa de seguro?",
-    answer:
-      "Sim, e é altamente recomendado. Cobre danos ao próprio drone (queda, colisão, falha mecânica) e Responsabilidade Civil do operador por danos a terceiros, lavouras vizinhas ou pessoas. Operadores certificados pela ANAC têm aceitação mais ampla nas seguradoras.",
-  },
-  {
-    question: "Como funciona o sinistro agro?",
-    answer:
-      "Comunicação imediata via WhatsApp da Patro (11) 5199-7500. A seguradora envia regulador (presencial para máquinas/silo, ou peritagem por imagem em drone/satélite para lavoura). Indenização paga após apuração técnica do prejuízo, descontada franquia e cláusulas contratuais. Acompanhamos cada etapa para evitar travas comuns (subseguro, documentação incompleta, divergência de NF de máquina).",
-  },
-  {
-    question: "Vocês cotam apólice de agroindústria e cooperativa?",
-    answer:
-      "Sim. Atendemos produtores individuais (PF e PJ), agroindústrias, cooperativas, revendas de insumos e tradings. Para operações grandes, montamos programa multilinha com cláusulas específicas (lucros cessantes, RC produto, transporte internacional, D&O) — sujeito a análise da seguradora e visita técnica.",
-  },
-  {
-    question: "Preciso ir até Guarulhos para fechar a apólice?",
-    answer:
-      "Não. Todo o atendimento — cotação, envio de documentação, assinatura digital da proposta e regulação de sinistro — é feito remotamente por WhatsApp, e-mail e plataforma das seguradoras. Recebemos produtores do Centro-Oeste, Sul, Sudeste e Nordeste dessa forma há anos.",
-  },
+  { question: "Qual é a especialidade da Patro no agronegócio?", answer: "Somos especialistas em seguros de máquinas e equipamentos agrícolas, drones agrícolas e Seguro Penhor Rural. Mantemos parceria com a rede de concessionárias dos principais fabricantes e atendemos produtores, cooperativas e prestadores de serviços em todo o Brasil. A análise considera o equipamento, seu uso e as exigências do financiamento, quando houver." },
+  { question: "Seguro Penhor Rural é apenas para grãos armazenados?", answer: "Não. O Seguro Penhor Rural pode proteger máquinas, equipamentos, produtos e outros bens vinculados como garantia a operações de crédito rural, conforme o enquadramento e a aceitação da seguradora. O penhor é a garantia do crédito; o seguro protege o bem contra eventos contratados. Não paga automaticamente parcelas em atraso." },
+  { question: "Qual a diferença entre seguro agrícola, de máquinas e penhor rural?", answer: "O seguro agrícola trata de riscos da lavoura conforme a apólice. O seguro de máquinas protege equipamentos conforme seu uso e as coberturas contratadas. No Seguro Penhor Rural, o vínculo do bem com o crédito rural e os requisitos do credor precisam ser avaliados. São necessidades diferentes, que podem se complementar." },
+  { question: "A concessionária pode ajudar na cotação?", answer: "Sim. A parceria com concessionárias facilita o levantamento de informações técnicas, nota fiscal e dados do equipamento. A Patro conduz a análise do seguro com o produtor. Isso não significa representação exclusiva de uma marca, aprovação automática pela seguradora ou liberação garantida de financiamento." },
+  { question: "O que informar para cotar trator, colheitadeira ou implemento?", answer: "Informe marca, modelo, ano, número de série, valor, município/UF e uso: área própria, arrendada ou prestação de serviços. Indique transporte entre propriedades, acessórios e financiamento. A seguradora pode solicitar documentos adicionais e vistoria antes da aceitação." },
+  { question: "O seguro de drone agrícola inclui RETA e danos por pulverização?", answer: "Não automaticamente. O casco protege o próprio equipamento conforme os riscos contratados. A responsabilidade civil aeronáutica, como RETA quando aplicável, tem finalidade diferente. Danos por pulverização, deriva e danos ambientais exigem avaliação específica e previsão expressa. Regularidade da operação e documentação também são analisadas." },
+  { question: "A Patro atende produtores fora de São Paulo?", answer: "Sim. O atendimento é nacional, incluindo Centro-Oeste, Sul, Sudeste, Norte e Nordeste. A sede fica em Guarulhos/SP, mas o risco é analisado pelo município onde o equipamento opera. A cotação e o acompanhamento podem ser digitais; vistorias e regulação seguem os procedimentos da seguradora." },
+  { question: "Há subsídio do governo para qualquer seguro agro?", answer: "Não se deve presumir subvenção para qualquer produto. A elegibilidade ao Programa de Subvenção ao Prêmio do Seguro Rural depende das regras vigentes, modalidade, atividade, seguradora habilitada e recursos disponíveis. A cotação de uma máquina ou de penhor rural não implica direito automático ao benefício." },
+  { question: "Como funciona o atendimento em caso de sinistro?", answer: "Comunique o evento à seguradora e à Patro assim que possível, preserve os registros e siga as orientações para evitar agravamento dos danos. Acompanhamos documentação e andamento. Cobertura, franquia, beneficiário e indenização dependem da apólice e da apuração, sem garantia de pagamento ou prazo fixo." },
 ];
 
 const CategoryBlock = ({
@@ -216,13 +177,12 @@ const SeguroAgro = () => {
   return (
     <>
       <PageMeta
-        title="Seguro Agro — Lavoura, Máquinas, Silo e Propriedade Rural | Patro Seguros"
-        description="Hub completo de seguro agro: lavoura (PSR), pecuário, trator, colheitadeira, pulverizador, silo, propriedade rural e transporte agro. Atendimento nacional pela Patro Seguros."
-      
-      skipBreadcrumb
-    />
+        title="Seguro Agro: Máquinas, Drones e Penhor Rural | Patro Seguros"
+        description="Especialistas em máquinas agrícolas, drones e Seguro Penhor Rural. Parceria com concessionárias e atendimento em todo o Brasil. Consulte a Patro Seguros."
+        absoluteTitle
+        skipBreadcrumb
+      />
       <Helmet>
-        <link rel="canonical" href="https://www.patroseguros.com.br/seguro-agro" />
         <script type="application/ld+json">{JSON.stringify(agriculturalServiceSchema)}</script>
       </Helmet>
       <FAQSchema faqs={FAQS} />
@@ -242,19 +202,19 @@ const SeguroAgro = () => {
         <section className="py-14 md:py-20 bg-gradient-to-b from-primary/5 to-background relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,51,102,0.03)_0%,transparent_100%)]" />
           <div className="container mx-auto px-4 max-w-5xl text-center relative z-10">
-            <span className="section-label">Cluster Agro</span>
+            <span className="section-label">Especialistas no agronegócio brasileiro</span>
             <h1 className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
-              Seguro Agro — proteção completa do plantio à porteira
+              Seguro Agro: máquinas agrícolas, drones e penhor rural
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Especialistas em seguro rural, lavoura, máquinas agrícolas, silo, propriedade e
-              transporte agro. Atendimento <strong>nacional</strong> via WhatsApp e e-mail, com
-              cotação simultânea nas principais seguradoras do agronegócio brasileiro — conforme
-              aceitação da seguradora e perfil da operação.
+              Proteja o equipamento que mantém sua produção em movimento. A Patro é especialista
+              em <strong>máquinas e equipamentos agrícolas, drones agrícolas e Seguro Penhor Rural</strong>,
+              com parceria junto à rede de concessionárias dos principais fabricantes.
+              Analisamos o uso no campo, as coberturas e as exigências do financiamento antes da contratação.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-              Sede em Guarulhos/SP · Atendimento nacional · Carteira ativa de apólices PME
+              Atendimento a produtores e concessionárias em todo o Brasil · Sede em Guarulhos/SP
             </div>
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -277,139 +237,63 @@ const SeguroAgro = () => {
           </div>
         </section>
 
-        {/* Trust strip */}
-        <section className="py-8 border-y border-border bg-card">
+        <section className="py-8 border-y border-border bg-card" aria-label="Especialidades Patro Agro">
           <div className="container mx-auto px-4 max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <ShieldCheck className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">16+ seguradoras</p>
-              <p className="text-xs text-muted-foreground">Cotação simultânea</p>
-            </div>
-            <div>
-              <Sprout className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">PSR elegível</p>
-              <p className="text-xs text-muted-foreground">Subvenção federal</p>
-            </div>
-            <div>
-              <Tractor className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">Todas as marcas</p>
-              <p className="text-xs text-muted-foreground">JD, MF, NH, Case, Valtra, Jacto</p>
-            </div>
-            <div>
-              <MapPin className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">Cobertura nacional</p>
-              <p className="text-xs text-muted-foreground">Atendimento digital</p>
-            </div>
+            {[
+              { Icon: ShieldCheck, title: "Penhor rural", text: "Bens vinculados ao crédito" },
+              { Icon: Sprout, title: "Concessionárias parceiras", text: "Apoio na compra e renovação" },
+              { Icon: Tractor, title: "Máquinas e drones", text: "Análise do uso no campo" },
+              { Icon: MapPin, title: "Atendimento nacional", text: "Produtores de todas as regiões" },
+            ].map(({ Icon, title, text }) => <div key={title}><Icon className="h-6 w-6 text-primary mx-auto" aria-hidden="true" /><p className="mt-2 text-sm font-semibold text-foreground">{title}</p><p className="text-xs text-muted-foreground">{text}</p></div>)}
           </div>
         </section>
 
-        {/* Categorias */}
+        <section className="py-12 border-b border-border">
+          <div className="container mx-auto px-4 max-w-6xl grid md:grid-cols-[1.4fr_1fr] gap-8 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Máquina financiada? Comece pelo Seguro Penhor Rural</h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">O Seguro Penhor Rural não é exclusivo de grãos estocados: pode proteger máquinas, equipamentos e outros bens vinculados a operações de crédito rural, conforme o enquadramento e a aceitação da seguradora. Conferimos as exigências do banco ou cooperativa, o uso do equipamento, a vigência e a cláusula beneficiária.</p>
+              <Link to="/seguro-penhor-rural" onClick={() => trackInternalLinkClick({ source: "hub-agro:penhor", destination: "/seguro-penhor-rural", label: "Seguro Penhor Rural" })} className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground">Conhecer e cotar Seguro Penhor Rural <ArrowRight className="h-5 w-5" aria-hidden="true" /></Link>
+            </div>
+            <aside className="border-l-4 border-primary/30 pl-6">
+              <h3 className="text-lg font-semibold">Da concessionária à operação no campo</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">Nossa parceria com a rede de concessionárias dos principais fabricantes facilita a coleta dos dados técnicos do bem. A recomendação considera a necessidade do produtor, sem prometer aprovação do crédito, exclusividade com marcas ou cobertura antes da aceitação.</p>
+            </aside>
+          </div>
+        </section>
+
         <section className="py-14">
           <div className="container mx-auto px-4 max-w-6xl space-y-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Linhas de seguro agro que cotamos
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Escolha a frente da sua operação. Cada produto abre a página dedicada com
-                coberturas, exclusões frequentes, exigências de aceitação e exemplos de sinistro.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Encontre o seguro para sua operação agrícola</h2>
+              <p className="mt-3 text-muted-foreground">Comece pelo equipamento ou pela necessidade de financiamento. As coberturas dependem do produto contratado, das condições e da aceitação da seguradora.</p>
             </div>
-
-            <CategoryBlock
-              title="Lavoura e culturas"
-              description="Proteção do ciclo da cultura contra eventos climáticos cobertos. Elegível ao PSR conforme cultura, região e cota da seguradora."
-              icon={Wheat}
-              items={LAVOURA}
-              source="lavoura"
-            />
-
-            <CategoryBlock
-              title="Pecuária e granja"
-              description="Cobertura para rebanho e instalações de produção animal — bovino, equino, ovino, suíno e avícola."
-              icon={Beef}
-              items={PECUARIA}
-              source="pecuaria"
-            />
-
-            <CategoryBlock
-              title="Máquinas e equipamentos"
-              description="Tratores, colheitadeiras, pulverizadores, implementos e drones. Cobertura para operação, deslocamento e pernoite."
-              icon={Tractor}
-              items={MAQUINAS}
-              source="maquinas"
-            />
-
-            <CategoryBlock
-              title="Propriedade rural, silo e estoque"
-              description="Sede, benfeitorias, silos metálicos, armazéns graneleiros e estoque dado em penhor rural."
-              icon={Warehouse}
-              items={PROPRIEDADE}
-              source="propriedade"
-            />
-
-            <CategoryBlock
-              title="Transporte agro"
-              description="Movimentação de grãos, insumos, fertilizantes e maquinário entre lavoura, armazém, indústria e porto."
-              icon={Truck}
-              items={TRANSPORTE}
-              source="transporte"
-            />
+            <CategoryBlock title="Máquinas, equipamentos, drones e penhor rural" description="Nossa especialidade: proteger o patrimônio que trabalha no campo, com ou sem financiamento. Operação, transporte e prestação de serviços precisam ser avaliados." icon={Tractor} items={MAQUINAS} source="maquinas" />
+            <CategoryBlock title="Propriedade rural, silo e estoque" description="Análise de sede, benfeitorias, silos e armazéns, com identificação de estrutura, conteúdo e riscos contratados." icon={Warehouse} items={PROPRIEDADE} source="propriedade" />
+            <CategoryBlock title="Transporte agro" description="Movimentação de grãos, insumos e maquinário. A modalidade depende da carga, do trajeto e da responsabilidade do contratante." icon={Truck} items={TRANSPORTE} source="transporte" />
+            <CategoryBlock title="Lavoura e culturas" description="Proteção contra eventos contratados. Eventual subvenção depende das regras vigentes, elegibilidade e recursos disponíveis." icon={Wheat} items={LAVOURA} source="lavoura" />
+            <CategoryBlock title="Pecuária e granja" description="Análise dos riscos de rebanhos e instalações de produção animal, conforme modalidade e aceitação." icon={Beef} items={PECUARIA} source="pecuaria" />
           </div>
         </section>
 
-        {/* AEO Block — Quando faz sentido */}
-        <section className="py-14 bg-gradient-to-b from-background to-primary/5">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
-              Quando faz sentido contratar seguro agro
-            </h2>
-            <div className="mt-8 grid md:grid-cols-2 gap-5">
-              {[
-                { title: "Tomou crédito rural (Pronaf, Pronamp, custeio)", body: "A maioria das linhas exige seguro da lavoura ou penhor rural sobre o estoque como garantia adicional." },
-                { title: "Investiu em maquinário acima de R$ 300 mil", body: "Trator, colheitadeira e pulverizador novos representam patrimônio relevante — incêndio, tombamento ou roubo sem seguro inviabiliza a safra seguinte." },
-                { title: "Cultura sensível a clima (café, fruta, hortaliça)", body: "Geada, granizo e vendaval em culturas de alto valor agregado justificam apólice específica e, quando possível, enquadramento no PSR." },
-                { title: "Silo ou armazém próprio com grão estocado", body: "Estrutura metálica + commodity armazenada concentram risco alto de incêndio e perda por umidade — cobertura específica protege estrutura e conteúdo." },
-                { title: "Transporte regular de grãos ou insumos", body: "Apólice de transporte (RCTR-C / RCF-DC / RCA-C) cobre acidente, tombamento, roubo e avaria durante o deslocamento." },
-                { title: "Operação de drone de pulverização", body: "RC do operador e cobertura do equipamento — exigência cada vez mais frequente de tomadores de serviço e cooperativas." },
-              ].map((item) => (
-                <div key={item.title} className="rounded-xl border border-border bg-card p-5">
-                  <p className="font-semibold text-foreground">{item.title}</p>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA mid */}
         <section className="py-12 bg-primary/5 border-y border-border">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Quer um diagnóstico da sua operação agro?
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Mande no WhatsApp o que você tem hoje (apólices, máquinas, hectares, cultura, silo,
-              caminhões) e devolvemos em até 2 horas úteis um mapa de risco e proposta multilinha
-              com as melhores seguradoras do agro — sem custo e sem compromisso.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={WA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("hub-agro:mid")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 transition-colors"
-              >
-                <MessageCircle className="h-5 w-5" /> Diagnóstico no WhatsApp
-              </a>
-              <Link
-                to="/cotacao?tipo=agro"
-                onClick={() => trackCotacaoClick("hub-agro:mid")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 transition-colors"
-              >
-                <Calculator className="h-5 w-5" /> Formulário de cotação
-              </Link>
+          <div className="container mx-auto px-4 max-w-6xl grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold">Atendimento onde o agro produz</h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Atendemos produtores de Mato Grosso, Mato Grosso do Sul e Goiás; Paraná, Santa Catarina e Rio Grande do Sul; Minas Gerais e interior de São Paulo; Bahia, Maranhão, Piauí e Tocantins, além dos demais estados brasileiros.</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">O município de operação, os deslocamentos entre propriedades e a prestação de serviços orientam a análise. A sede em Guarulhos/SP não limita o atendimento ao produtor. Vistorias e sinistros seguem os procedimentos de cada seguradora.</p>
+              <Link to="/atendimento-nacional" className="mt-4 inline-flex min-h-11 items-center text-primary underline underline-offset-4">Veja o atendimento nacional da Patro</Link>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold">O que enviar para começar a cotação</h2>
+              <ul className="mt-4 list-disc pl-5 space-y-3 text-muted-foreground">
+                <li>Marca, modelo, ano e valor da máquina ou drone.</li>
+                <li>Município/UF, tipo de uso e deslocamentos previstos.</li>
+                <li>Existência de financiamento e exigências do banco ou cooperativa.</li>
+                <li>Apólice atual, se for renovação; documentos adicionais serão orientados pela equipe.</li>
+              </ul>
+              <a href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-agro:mid")} className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground"><MessageCircle className="h-5 w-5" aria-hidden="true" /> Cotar com especialista agro</a>
+              <p className="mt-3 text-sm text-muted-foreground">Prazo e condições dependem da documentação e da análise da seguradora.</p>
             </div>
           </div>
         </section>
