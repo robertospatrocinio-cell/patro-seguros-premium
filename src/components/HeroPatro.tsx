@@ -84,7 +84,7 @@ const HeroPatro = memo(() => {
 
               {/* Subtitle */}
               <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
-                Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano do início ao sinistro.
+                Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano desde a cotação até em caso de sinistro.
               </p>
 
 
