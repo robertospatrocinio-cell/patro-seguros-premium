@@ -103,6 +103,7 @@ const buildAutoGallery = (title: string, keywords?: string[]): string[] => {
 // Map page title keywords to the Cotacao select values
 const inferQuoteType = (title: string): string => {
   const t = title.toLowerCase();
+  if (/agrícola|agricola|agronegócio|penhor rural|trator|colheitadeira|colhedora|pulverizador/.test(t)) return "agro";
   if (t.includes("auto") || t.includes("carro") || t.includes("moto")) return "auto";
   if (t.includes("vida")) return "vida";
   if (t.includes("residencial") || t.includes("casa") || t.includes("imóvel") || t.includes("condom")) return "residencial";
@@ -335,7 +336,7 @@ const InsurancePageTemplate = ({
   canonicalUrl: canonicalUrlProp,
   howto,
   localSeo,
-  semGuarulhos = false,
+  semGuarulhos = localSeo?.skip ?? false,
   jumpLinks,
   sectionCtas,
 }: InsurancePageProps) => {
@@ -932,7 +933,7 @@ const InsurancePageTemplate = ({
              {/* Bloco de autoridade / E-E-A-T — fundadores + credenciais */}
              <div className="mb-10">
                {semGuarulhos ? (
-                 <AutoridadePatro hideSede copy="Consultoria humana que analisa as entrelinhas das apólices para garantir que você tenha a melhor proteção pelo menor custo real, com atendimento remoto em todo o Brasil." />
+                 <AutoridadePatro hideSede copy="Consultoria humana para comparar coberturas, limites, franquias e exclusões, com atendimento remoto em todo o Brasil. A aceitação e as condições dependem da análise da seguradora." />
                ) : (
                  <AutoridadePatro />
                )}
@@ -996,7 +997,7 @@ const InsurancePageTemplate = ({
             ) : (
               <>
                 <h2 className="text-white mb-4">{captacao ? `Vamos avaliar sua necessidade de ${captacao.label}?` : `Pronto para proteger o seu ${title}?`}</h2>
-                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">{captacao ? "Informe seu contato e os detalhes que souber. A equipe orienta os próximos passos e as condições da proposta, sem compromisso de contratação." : `Cotação gratuita do ${title} em até 2h úteis — fale agora com um especialista da Patro.`}</p>
+                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">{captacao || localSeo?.skip ? "Informe seu contato e os detalhes que souber. A equipe orienta os próximos passos e as condições da proposta, sem compromisso de contratação. O prazo depende da documentação e da análise do risco." : `Cotação gratuita do ${title} em até 2h úteis — fale agora com um especialista da Patro.`}</p>
               </>
             )}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

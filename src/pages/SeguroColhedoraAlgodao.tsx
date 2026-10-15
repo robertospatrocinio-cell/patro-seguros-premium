@@ -1,100 +1,67 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-agro-maquinas.webp";
 
+const SeguroColhedoraAlgodao = () => (
+  <InsurancePageTemplate
+    localSeo={{ skip: true }}
+    semGuarulhos
+    heroImage={heroImg}
+    title="Seguro de Colhedora de Algodão | Patro Seguros"
+    headline="Seguro de colhedora de algodão e seus sistemas embarcados"
+    subtitle="Análise da máquina, dos acessórios e do financiamento. Atendimento nacional a produtores, prestadores e concessionárias."
+    icon="🚜"
+    badge="Especialistas em máquinas agrícolas e penhor rural"
+    metaDescription="Seguro de colhedora de algodão: confira incêndio, eletrônica, transporte e penhor rural. Atendimento nacional, incluindo Mato Grosso e oeste da Bahia."
+    description="A Patro analisa colhedoras de algodão de cestos e de fardos conforme o modelo e a operação. Nossa parceria com a rede de concessionárias dos principais fabricantes ajuda a reunir os documentos para comparar as condições disponíveis."
+    detailedDescription={`A colhedora de algodão concentra componentes de colheita, transporte e formação de fardos. Declare o modelo, os sistemas embarcados, os acessórios e os valores para que a proposta identifique o conjunto corretamente.
 
-const SeguroColhedoraAlgodao = () => {
-  return (
-    <InsurancePageTemplate
-      localSeo={{ skip: true }}
-      heroImage={heroImg}
-      title="Seguro de Colhedora de Algodão"
-      subtitle="Proteção premium para colhedoras de fardos e cestos. Cobertura nacional para o 'Ouro Branco' do agronegócio."
-      icon="🚜"
-      badge="Especialista em Colheita de Alta Tecnologia"
-      metaDescription="Seguro para Colhedoras de Algodão: proteção contra incêndio, roubo, quebra de máquinas e eletrônica embarcada. Cotação nacional Patro Seguros."
-      description="A colhedora de algodão é uma das máquinas mais complexas e caras do mundo agrícola. O seguro da Patro Seguros oferece a robustez necessária para proteger esse investimento de milhões de reais contra imprevistos na safra."
-      detailedDescription={`Colher algodão exige precisão cirúrgica e equipamentos de altíssimo valor agregado. Uma colhedora de fardos cilíndricos (como a John Deere CP770 ou Case IH Module Express) representa um dos maiores ativos de uma fazenda, e qualquer parada operacional por incêndio em resíduos, falha eletrônica ou tombamento gera prejuízos em escala exponencial.
+Incêndio em resíduos, tombamento e danos elétricos precisam ser avaliados conforme as condições do seguro. Falhas mecânicas, desgaste e defeitos de fabricação não têm cobertura automática. A apólice da máquina também não inclui necessariamente o algodão colhido ou os fardos armazenados.
 
-Nossa consultoria para Seguro de Colhedora de Algodão foca na proteção total do bem e da tecnologia embarcada. Cobrimos desde danos materiais acidentais até a fundamental 'Quebra de Máquinas', além da Responsabilidade Civil do Operador. Atendemos grandes produtores do Mato Grosso, Bahia e demais fronteiras agrícolas, garantindo que o seu 'Ouro Branco' seja colhido com segurança.
-
-Com atendimento 100% remoto, a Patro Seguros facilita a emissão de apólices para financiamentos bancários (BNDES/BB) e oferece suporte especializado na regulação de sinistros complexos.`}
-      howItWorks={[
-        { step: "1", title: "Ficha Técnica Premium", description: "Informe marca, modelo, ano e valor real de mercado da colhedora e de seus sistemas de enfardamento." },
-        { step: "2", title: "Análise de Risco Geográfico", description: "Avaliamos a região de operação (MT, BA, GO, etc.) e o histórico de sinistralidade local." },
-        { step: "3", title: "Desenho da Apólice", description: "Estruturamos verbas elevadas para incêndio, danos elétricos e quebra de componentes mecânicos." },
-        { step: "4", title: "Proteção Nacional", description: "Emissão ágil e suporte total para vistorias técnicas e gestão de sinistros na fazenda." },
-      ]}
-      coverages={[
-        { title: "Incêndio e Explosão", description: "Proteção vital contra o alto risco de ignição de fibras de algodão e resíduos no motor." },
-        { title: "Roubo e Furto Qualificado", description: "Segurança total para ativos de milhões de reais em frentes de trabalho ou pátios." },
-        { title: "Tombamento e Colisão", description: "Cobre acidentes durante a operação em terrenos instáveis ou durante o transporte." },
-        { title: "Eletrônica e Sensores", description: "Proteção para sistemas de monitoramento de fardos, GPS e automação de última geração." },
-        { title: "Quebra de Máquinas", description: "Cobertura para falhas mecânicas súbitas e imprevistas dos sistemas de colheita e enfardamento." },
-        { title: "Responsabilidade Civil", description: "Garante danos causados a propriedades vizinhas ou pessoas durante a operação." },
-        { title: "Transporte do Bem", description: "Garante a máquina durante o deslocamento entre fazendas ou estados em pranchas." },
-      ]}
-      coverageExclusions={[
-        "Desgaste natural de correias, fusos, correntes e pneus",
-        "Danos por falta de limpeza técnica ou manutenção preventiva",
-        "Operação por pessoas sem o treinamento específico da marca",
-        "Atos de guerra, sabotagem ou vandalismo não comprovados",
-        "Danos estéticos que não impedem a colheita ou a qualidade do fardo",
-      ]}
-      pricingInfo={{
-        intro: "O prêmio é calculado com base no valor de reposição (que pode superar R$ 5 milhões) e no histórico do produtor.",
-        factors: [
-          "Marca e Valor de Mercado (John Deere, Case IH)",
-          "Tipo de tecnologia (Fardos Cilíndricos vs Cestos)",
-          "Horas de motor e regime de trabalho na safra",
-          "Existência de sistemas de supressão de incêndio automáticos",
-          "Região de operação e histórico de ventos/raios",
-        ],
-        note: "Grandes produtores com frotas de colhedoras possuem acesso a taxas diferenciadas e faturamento parcelado.",
-      }}
-      realScenarios={[
-        { title: "Incêndio em Sistema de Enfardamento", description: "Um curto-circuito no monitor de fardos causou incêndio no compartimento traseiro. O seguro cobriu R$ 450.000 em reparos e peças eletrônicas." },
-        { title: "Tombamento em Manobra", description: "A máquina tombou lateralmente ao desviar de uma vala oculta, gerando R$ 180.000 em danos estruturais. A cobertura de acidentes externos arcou com o resgate." },
-        { title: "Falha de Sensor de Colheita", description: "Uma descarga elétrica destruiu toda a rede de sensores de bico e unidade central. A reposição de R$ 65.000 foi paga integralmente." },
-      ]}
-      importantDetails={[
-        { title: "Sistemas de Supressão", content: "Muitas seguradoras só aceitam colhedoras de algodão equipadas com sistemas automáticos de combate a incêndio (como Fogmaker ou similar). Nossa consultoria ajuda a regularizar essa exigência." },
-        { title: "Cobertura em Trânsito", content: "Devido ao tamanho e peso, o transporte de colhedoras de algodão é crítico. Garantimos que a apólice cubra o bem durante todo o deslocamento entre talhões ou propriedades." },
-      ]}
-      tips={[
-        "Faça a limpeza rigorosa dos resíduos de algodão no motor pelo menos duas vezes ao dia",
-        "Mantenha os certificados de calibração dos sistemas de supressão de incêndio sempre atualizados",
-        "Contrate verbas de RC condizentes: o potencial de incêndio em lavouras vizinhas é altíssimo",
-        "Para máquinas importadas via importação direta, consulte-nos sobre a modalidade de seguro específica",
-      ]}
-      whoNeeds={[
-        "Grandes Grupos Produtores de Algodão",
-        "Empresas de Prestação de Serviços de Colheita Mecanizada",
-        "Cooperativas Agrícolas com Frotas Tecnológicas",
-        "Produtores de Sementes de Algodão",
-        "Investidores do Agronegócio com Ativos Imobilizados",
-      ]}
-      whyPatro={[
-        "Especialista em seguros de máquinas e equipamentos",
-        "Parceria com fabricantes e concessionárias pelo Brasil",
-        "Especialistas em máquinas de altíssimo valor e complexidade",
-        "Consultoria para dimensionamento de verbas em frotas de fardos cilíndricos",
-        "Suporte em sinistros com foco na retomada imediata da colheita",
-        "Atendimento em todas as fronteiras agrícolas (MT, BA, MS, GO, PI, MA)",
-      ]}
-      faqs={[
-        { question: "O seguro cobre colhedoras de cestos antigas?", answer: "Sim, aceitamos máquinas com até 15 anos de uso, dependendo da conservação, mas o foco principal é na linha de fardos moderna." },
-        { question: "A Patro atende o oeste da Bahia (LEM)?", answer: "Sim! Atendemos produtores em Luís Eduardo Magalhães e em todo o Brasil de forma 100% remota." },
-        { question: "O seguro cobre os fardos de algodão dentro da máquina?", answer: "Sim, se estiverem dentro do processo de colheita e o evento for coberto (como incêndio), mas para o estoque no campo recomendamos o Seguro Rural de Benfeitorias/Produtos." },
-        { question: "Quanto tempo leva para emitir a apólice?", answer: "Após a vistoria e aprovação, a emissão ocorre em até 48 horas úteis, ideal para liberações bancárias urgentes." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro de Colheitadeira de Grãos", link: "/seguro-colheitadeira-graos" },
-        { title: "Seguro de Pulverizador Agrícola", link: "/seguro-pulverizador-agricola" },
-        { title: "Seguro Rural", link: "/seguro-rural" },
-      ]}
-    />
-  );
-};
+Se a máquina estiver vinculada ao crédito rural, envie o contrato para análise de seguro penhor rural e das exigências do credor. A identificação do bem, a vigência e as cláusulas devem ser conferidas antes da contratação. Não prometemos aprovação da seguradora ou liberação do financiamento em prazo fixo.`}
+    coverages={[
+      { title: "Incêndio, raio e explosão", description: "Confira eventos cobertos, exigências de prevenção, limites e franquias na proposta." },
+      { title: "Roubo e furto qualificado", description: "Verifique os eventos aceitos e as condições de guarda nas frentes de trabalho e nos pátios." },
+      { title: "Tombamento e colisão", description: "Danos acidentais durante a operação dependem da cobertura contratada e do uso declarado." },
+      { title: "Eletrônica e sensores", description: "Declare os sistemas embarcados. Danos elétricos podem exigir cobertura e limites próprios." },
+      { title: "Transporte do equipamento", description: "Deslocamentos, transporte em prancha, carga e descarga precisam de análise específica." },
+      { title: "Responsabilidade civil", description: "Danos a terceiros devem ser analisados em cobertura própria, com limites e exclusões definidos." },
+    ]}
+    coverageExclusions={[
+      "Desgaste de fusos, correias, correntes e pneus não é automaticamente coberto.",
+      "Quebra mecânica e defeitos de fabricação não equivalem a acidente coberto.",
+      "Perda de produção, paralisação e locação de equipamento substituto não estão automaticamente incluídas.",
+      "Algodão colhido e fardos armazenados exigem análise separada da máquina.",
+    ]}
+    howItWorks={[
+      { step: "1", title: "Dados do conjunto", description: "Envie marca, modelo, série, ano, valor e relação dos acessórios." },
+      { step: "2", title: "Operação e prevenção", description: "Informe locais de trabalho, transporte, manutenção e sistemas de prevenção de incêndio." },
+      { step: "3", title: "Propostas e crédito", description: "Compare limites, franquias e as exigências do financiamento, quando houver." },
+      { step: "4", title: "Conferência da vigência", description: "Após a aceitação, confira bens, cláusulas e início da cobertura na apólice." },
+    ]}
+    pricingInfo={{ intro: "O preço depende do equipamento e da operação declarada.", factors: ["Modelo, ano e valor do conjunto", "Sistemas de colheita e formação de fardos", "Regime de trabalho, manutenção e prevenção de incêndio", "Regiões, deslocamentos e histórico de sinistros", "Coberturas, limites, franquias e financiamento"], note: "Frotas e máquinas de alto valor são analisadas individualmente, sem garantia de taxa ou aceitação." }}
+    importantDetails={[
+      { title: "Mato Grosso e oeste da Bahia", content: "Atendemos produtores em Mato Grosso, Luís Eduardo Magalhães, Barreiras e demais regiões produtoras de algodão. Informe todos os municípios e estados de operação, inclusive quando a máquina acompanha frentes de colheita fora da propriedade." },
+      { title: "Prevenção de incêndio", content: "Siga as instruções do fabricante para limpeza e manutenção. Sistemas de supressão e seus registros podem ser exigidos pela seguradora; a exigência varia conforme o risco e o produto." },
+      { title: "Valor da máquina e penhor rural", content: "Confira o critério de avaliação do bem, os limites e as cláusulas do credor. Valor declarado e eventual indenização não são necessariamente iguais; podem incidir franquias e outras condições contratuais." },
+    ]}
+    tips={["Mantenha registros de manutenção e limpeza", "Documente acessórios e alterações técnicas", "Informe mudanças nos locais e no regime de trabalho", "Em sinistro, priorize a segurança e comunique a seguradora"]}
+    whoNeeds={["Produtores de algodão com máquinas próprias ou financiadas", "Prestadores de serviços de colheita", "Cooperativas e empresas com frotas agrícolas", "Concessionárias que apoiam seus compradores"]}
+    whyPatro={["Especialização em máquinas agrícolas e penhor rural", "Parceria com a rede de concessionárias dos principais fabricantes", "Conferência dos acessórios e das exigências do credor", "Atendimento nacional e orientação documental em sinistros"]}
+    faqs={[
+      { question: "Colhedoras de cestos usadas podem ser seguradas?", answer: "Podem ser submetidas à análise. Modelo, idade, conservação e manutenção influenciam a aceitação. Não há garantia de aprovação nem limite de idade único para todas as seguradoras." },
+      { question: "A Patro atende o oeste da Bahia?", answer: "Sim, atendemos Luís Eduardo Magalhães, Barreiras e todo o Brasil por canais digitais. A sede é em Guarulhos/SP. Vistorias e procedimentos de sinistro podem exigir presença no local, conforme a seguradora." },
+      { question: "Os fardos dentro da máquina estão cobertos?", answer: "Não presuma essa inclusão. Algodão colhido, fardos e estoque precisam de análise de cobertura própria. O seguro do equipamento não garante automaticamente o produto agrícola." },
+      { question: "O seguro cobre falha do sistema de enfardamento?", answer: "Depende da causa e das condições contratadas. Desgaste, quebra interna e defeitos podem estar excluídos; danos acidentais e eventual cobertura específica precisam ser conferidos." },
+      { question: "Como cotar uma colhedora financiada?", answer: "Envie os dados do bem, o contrato de crédito e as exigências do credor. A Patro analisa o penhor rural ou o seguro aplicável e compara as condições disponíveis." },
+      { question: "A apólice é emitida em até 48 horas?", answer: "Não há promessa de emissão em prazo fixo. O prazo depende dos documentos, da análise e de eventual vistoria. O pedido de cotação não inicia cobertura." },
+    ]}
+    relatedInsurances={[
+      { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
+      { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+      { title: "Colheitadeira de Grãos", link: "/seguro-colheitadeira-graos" },
+      { title: "Pulverizador Agrícola", link: "/seguro-pulverizador-agricola" },
+    ]}
+  />
+);
 
 export default SeguroColhedoraAlgodao;

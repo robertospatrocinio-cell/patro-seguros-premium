@@ -1,99 +1,68 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-agro-maquinas.webp";
 
+const SeguroTratorAgricola = () => (
+  <InsurancePageTemplate
+    localSeo={{ skip: true }}
+    semGuarulhos
+    heroImage={heroImg}
+    title="Seguro de Trator Agrícola e Financiado | Patro Seguros"
+    headline="Seguro de trator agrícola para o trabalho e o financiamento"
+    subtitle="Análise do trator, dos implementos e da operação. Atendimento nacional a produtores e concessionárias."
+    icon="🚜"
+    badge="Especialistas em máquinas agrícolas e penhor rural"
+    metaDescription="Seguro de trator agrícola próprio ou financiado. Compare coberturas, transporte e exigências de penhor rural com atendimento nacional da Patro."
+    description="A Patro analisa os riscos do trator conforme o uso em lavoura própria, área arrendada ou prestação de serviços. Conferimos as condições disponíveis e as exigências do credor para máquinas financiadas."
+    detailedDescription={`O trator pode trabalhar com plantadeira, grade, carreta ou outros implementos. Informe cada item e seu valor: o seguro do trator não inclui automaticamente tudo o que estiver acoplado. GPS e piloto automático também precisam ser declarados.
 
-const SeguroTratorAgricola = () => {
-  return (
-    <InsurancePageTemplate
-      localSeo={{ skip: true }}
-      heroImage={heroImg}
-      title="Seguro de Trator Agrícola"
-      subtitle="Proteção premium para o motor da sua produtividade. Cobertura completa em todo o território nacional."
-      icon="🚜"
-      badge="Especialista no Agronegócio"
-      metaDescription="Seguro para Tratores Agrícolas: proteção contra roubo, incêndio, colisão e tombamento em todo o Brasil. Cotação rápida com a Patro Seguros."
-      description="O trator é o coração da operação no campo. O Seguro de Trator Agrícola da Patro Seguros oferece a proteção robusta que o seu patrimônio exige, garantindo que imprevistos não paralisem sua safra."
-      detailedDescription={`Sabemos que um trator parado é sinônimo de prejuízo. Seja por um defeito mecânico súbito, um acidente durante a operação ou a ação de terceiros, os riscos no campo são constantes e de alto impacto financeiro.
+Incêndio, colisão e tombamento são eventos a conferir na proposta. Defeito mecânico e desgaste não devem ser confundidos com acidente coberto. Responsabilidade civil, transporte em prancha e circulação em vias públicas exigem análise das condições específicas.
 
-Nossa consultoria especializada desenha apólices que cobrem desde o uso em lavouras próprias até a prestação de serviços em propriedades de terceiros. Trabalhamos com coberturas para danos elétricos, quebra de vidros e, fundamentalmente, a cobertura de Responsabilidade Civil do Operador, protegendo o produtor contra danos causados a outras pessoas ou propriedades durante o trabalho.
+Em um financiamento rural, envie o contrato e as exigências do banco ou cooperativa para avaliação de seguro penhor rural. A identificação da máquina, a vigência e as cláusulas do credor devem corresponder ao bem e à operação contratados.
 
-Com atendimento 100% remoto, a Patro Seguros facilita a vida do homem do campo: da cotação rápida via WhatsApp até o suporte total na regulação de sinistros em qualquer estado do Brasil.`}
-      howItWorks={[
-        { step: "1", title: "Ficha Técnica", description: "Informe marca, modelo, ano e valor (nota fiscal ou FIPE) do seu trator." },
-        { step: "2", title: "Perfil de Uso", description: "Definimos se o uso é em lavoura própria, arrendada ou prestação de serviços." },
-        { step: "3", title: "Comparativo de Mercado", description: "Enviamos as melhores opções das seguradoras líderes do agro no Brasil." },
-        { step: "4", title: "Proteção Ativa", description: "Emissão rápida e suporte 24h para garantir que você nunca fique na mão." },
-      ]}
-      coverages={[
-        { title: "Roubo e Furto Qualificado", description: "Proteção essencial contra a criminalidade crescente no campo." },
-        { title: "Incêndio e Explosão", description: "Cobre danos por fogo originado na própria máquina ou no ambiente." },
-        { title: "Colisão e Tombamento", description: "Proteção contra acidentes comuns em terrenos acidentados ou manobras." },
-        { title: "Danos Elétricos", description: "Seguro para sistemas eletrônicos sensíveis e chicotes elétricos." },
-        { title: "Responsabilidade Civil Operador", description: "Cobre danos materiais ou corporais a terceiros causados pelo trator." },
-        { title: "Transporte do Equipamento", description: "Garante a máquina durante o deslocamento entre propriedades." },
-        { title: "Quebra de Máquinas", description: "Cobertura adicional para falhas mecânicas e elétricas imprevistas." },
-      ]}
-      coverageExclusions={[
-        "Desgaste natural de pneus, correias e lubrificantes",
-        "Manutenção básica negligenciada (falta de óleo ou água)",
-        "Uso por operadores sem a devida habilitação ou treinamento",
-        "Danos causados por sobrecarga intencional do equipamento",
-        "Atos de guerra, terrorismo ou convulsões sociais",
-      ]}
-      pricingInfo={{
-        intro: "O custo do seguro é um investimento pequeno perto do valor do equipamento e do risco de perda total.",
-        factors: [
-          "Marca e valor de reposição do trator",
-          "Ano de fabricação e estado de conservação",
-          "Tipo de atividade e culturas onde opera",
-          "Região geográfica da propriedade",
-          "Existência de dispositivos de rastreamento",
-        ],
-        note: "Tratores financiados por bancos ou cooperativas exigem apólices específicas que a Patro emite com agilidade.",
-      }}
-      realScenarios={[
-        { title: "Tombamento em Encosta", description: "Durante a preparação do terreno, o trator tombou em uma área íngreme. O seguro cobriu os danos estruturais de R$ 55.000, preservando o caixa do produtor." },
-        { title: "Curto-circuito no Painel", description: "Um superaquecimento elétrico destruiu o chicote e o painel digital. A reposição de R$ 12.000 foi paga integralmente pela cobertura de danos elétricos." },
-        { title: "Roubo em Propriedade", description: "Bandidos levaram o trator durante a madrugada. A seguradora indenizou o valor total acordado em 22 dias, permitindo a compra de uma nova máquina." },
-      ]}
-      importantDetails={[
-        { title: "Atendimento Nacional", content: "Não importa onde sua fazenda esteja localizada, a Patro Seguros atende do Rio Grande do Sul ao Mato Grosso com a mesma eficiência." },
-        { title: "Acessórios e Implementos", content: "Lembre-se de incluir na apólice acessórios como GPS e implementos específicos para que a proteção seja total." },
-      ]}
-      tips={[
-        "Sempre mantenha a Nota Fiscal do equipamento em local seguro e digitalizada",
-        "Certifique-se de que seus operadores estão treinados e utilizam EPIs",
-        "Contrate a verba de RC Operador; acidentes com terceiros podem gerar processos caros",
-        "Em caso de financiamento, informe os dados da instituição para o beneficiário da apólice",
-      ]}
-      whoNeeds={[
-        "Produtores de Soja, Milho, Café e Cana",
-        "Empresas de Terraplenagem e Serviços Rurais",
-        "Pequenos Agricultores Familiares",
-        "Cooperativas Agrícolas",
-        "Usinas e Grandes Grupos do Agro",
-      ]}
-      whyPatro={[
-        "Especialista em seguros de máquinas e equipamentos",
-        "Parceria com fabricantes e concessionárias pelo Brasil",
-        "Consultoria técnica para evitar coberturas desnecessárias",
-        "Parceria direta com John Deere, Case, Massey Ferguson e Valtra",
-        "Agilidade total na emissão de certificados para financiamentos",
-        "Suporte em sinistro com foco na rapidez da retomada do trabalho",
-      ]}
-      faqs={[
-        { question: "O seguro de trator é obrigatório?", answer: "Não é obrigatório por lei para uso em propriedade privada, mas é exigido por todos os bancos em caso de financiamento (BNDES, Pronaf, etc)." },
-        { question: "A Patro atende a minha região?", answer: "Sim! Atendemos produtores rurais em todos os 26 estados do Brasil e no Distrito Federal de forma 100% remota e segura." },
-        { question: "Quanto tempo leva para cotar?", answer: "Com os dados básicos da máquina, enviamos o comparativo de preços em até 24 horas úteis." },
-        { question: "O seguro cobre o trator na estrada?", answer: "Sim, se contratada a cobertura de transporte ou deslocamento em vias públicas." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro de Colheitadeira", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro Rural", link: "/seguro-rural" },
-      ]}
-    />
-  );
-};
+Nossa parceria com a rede de concessionárias dos principais fabricantes facilita a organização de dados técnicos e documentos. A seguradora decide a aceitação após analisar o risco; a parceria não implica aprovação automática nem vínculo direto com cada fabricante.`}
+    howItWorks={[
+      { step: "1", title: "Identifique o trator", description: "Envie marca, modelo, ano, série ou chassi, valor e documento de propriedade." },
+      { step: "2", title: "Declare o trabalho", description: "Informe culturas, municípios, implementos, prestação de serviços e deslocamentos." },
+      { step: "3", title: "Confira o financiamento", description: "Envie o contrato, quando houver, e compare coberturas, franquias e cláusulas do credor." },
+      { step: "4", title: "Verifique a vigência", description: "Após a aceitação, confira os dados e o início da cobertura na apólice." },
+    ]}
+    coverages={[
+      { title: "Incêndio, raio e explosão", description: "Eventos sujeitos às condições, aos limites e à franquia da cobertura contratada." },
+      { title: "Roubo e furto qualificado", description: "Confira eventos aceitos e exigências de guarda; furto simples não deve ser presumido como incluído." },
+      { title: "Colisão e tombamento", description: "Analise danos acidentais durante o uso informado e aceito pela seguradora." },
+      { title: "Danos elétricos", description: "Componentes e acessórios eletrônicos podem exigir contratação e limites específicos." },
+      { title: "Responsabilidade civil", description: "Danos a terceiros precisam de cobertura própria, com atividades e limites definidos." },
+      { title: "Transporte e deslocamento", description: "Confira separadamente vias públicas, transporte em prancha, carga e descarga." },
+    ]}
+    coverageExclusions={[
+      "Desgaste de pneus e correias, manutenção e corrosão não têm cobertura automática.",
+      "Quebra mecânica e defeitos de fabricação não são automaticamente cobertos.",
+      "Perda de safra, paralisação e aluguel de trator substituto exigem análise específica.",
+      "Uso e operadores fora das condições aceitas podem afetar a cobertura, conforme a apólice.",
+    ]}
+    pricingInfo={{ intro: "O custo depende do trator e da rotina de trabalho.", factors: ["Modelo, ano e valor", "Culturas e locais de operação", "Implementos e eletrônica embarcada", "Uso próprio ou prestação de serviços", "Coberturas, franquias e financiamento"], note: "Compare limites e exclusões. O pedido de cotação não inicia cobertura." }}
+    importantDetails={[
+      { title: "Trator financiado e penhor rural", content: "O contrato de crédito define as exigências a conferir. Não presuma que todo financiamento tenha as mesmas cláusulas ou que qualquer apólice de máquinas seja suficiente." },
+      { title: "Regiões agrícolas e mobilidade", content: "Atendemos todo o Brasil, incluindo grãos no Centro-Oeste e Sul, café em Minas Gerais e cana no interior de São Paulo. Informe relevo, culturas e deslocamentos; essas características importam mais do que uma indicação genérica do estado." },
+      { title: "Conservação e segurança", content: "Siga as orientações do fabricante para manutenção e operação. Registros de revisão e identificação dos acessórios ajudam na análise, mas não garantem aceitação ou desconto." },
+    ]}
+    whoNeeds={["Produtores com tratores próprios ou financiados", "Prestadores de serviços rurais", "Cooperativas com frota agrícola", "Concessionárias que apoiam o comprador"]}
+    whyPatro={["Especialização em máquinas, equipamentos agrícolas e penhor rural", "Parceria com a rede de concessionárias dos principais fabricantes", "Conferência documental do equipamento e do financiamento", "Atendimento nacional e orientação em sinistros"]}
+    faqs={[
+      { question: "O seguro de trator é obrigatório?", answer: "Confira as exigências da atividade e do contrato de crédito. Financiamentos podem exigir seguro e cláusulas em favor do credor. Isso não significa que todo banco ou contrato tenha condições idênticas." },
+      { question: "Seguro penhor rural substitui qualquer seguro de trator?", answer: "O penhor rural deve ser analisado quando o bem está vinculado ao crédito rural. É necessário conferir os riscos cobertos e os requisitos do credor, além do uso da máquina. A modalidade não garante cobertura para todo evento." },
+      { question: "A Patro atende fora de São Paulo?", answer: "Sim. A sede é em Guarulhos/SP e o atendimento comercial é nacional por canais digitais. Vistorias e procedimentos de sinistro seguem as regras da seguradora e podem exigir presença no local." },
+      { question: "O seguro cobre transporte em prancha?", answer: "Somente conforme a cobertura e as condições aceitas. Informe rotas, forma de transporte e operações de carga e descarga antes de contratar." },
+      { question: "Implementos e GPS estão incluídos?", answer: "Não automaticamente. Declare os itens, seus valores e usos e confira a descrição na proposta e na apólice." },
+      { question: "Qual o prazo para cotar ou indenizar?", answer: "A cotação depende dos documentos e da análise do risco. A regulação de sinistro depende do evento, da documentação e das regras aplicáveis; não prometemos emissão ou pagamento em prazo fixo." },
+    ]}
+    relatedInsurances={[
+      { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
+      { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+      { title: "Equipamentos e Implementos", link: "/seguro-equipamentos-agricolas" },
+      { title: "Colheitadeira de Grãos", link: "/seguro-colheitadeira-graos" },
+    ]}
+  />
+);
 
 export default SeguroTratorAgricola;

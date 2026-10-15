@@ -43,10 +43,10 @@ export const agroArticles: BlogArticleMeta[] = [
   },
   {
     slug: "drone-agricola-anac-seguro-rcf-pulverizacao",
-    title: "Drone Agrícola, ANAC e Seguro RCF: O Que o Produtor Precisa Cumprir em 2026",
-    excerpt: "Regras da ANAC, cadastro SISANT, RCF obrigatório, casco do drone e operação de pulverização: o que o produtor e a prestadora precisam ter em ordem para operar legalmente.",
+    title: "Drone Agrícola: Casco, RETA e Cuidados na Pulverização",
+    excerpt: "Entenda a diferença entre casco e RETA, os cuidados com deriva e acessórios e a análise do drone financiado. Confira as regras aplicáveis à sua operação.",
     category: "Agronegócio",
-    tags: ["agronegócio", "drone agrícola", "ANAC", "RCF", "pulverização", "tecnologia"],
+    tags: ["agronegócio", "drone agrícola", "ANAC", "RETA", "pulverização", "penhor rural"],
     author: "Roberto Patro",
     date: "2026-06-18",
     readTime: 11,

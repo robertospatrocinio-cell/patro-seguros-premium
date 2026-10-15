@@ -1,100 +1,69 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-agro-maquinas.webp";
 
+const SeguroPulverizadorAgricola = () => (
+  <InsurancePageTemplate
+    localSeo={{ skip: true }}
+    semGuarulhos
+    heroImage={heroImg}
+    title="Seguro de Pulverizador Agrícola | Patro Seguros"
+    headline="Seguro de pulverizador agrícola conforme a operação"
+    subtitle="Autopropelidos e implementos de arrasto. Analise a máquina, as barras, a eletrônica e a responsabilidade pela aplicação."
+    icon="🚜"
+    badge="Especialistas em máquinas agrícolas e penhor rural"
+    metaDescription="Seguro de pulverizador agrícola: confira barras, eletrônica, responsabilidade civil e penhor rural. Atendimento nacional a produtores e prestadores."
+    description="A Patro compara as condições disponíveis para pulverizadores e confere as exigências do financiamento. Nossa parceria com a rede de concessionárias dos principais fabricantes ajuda na organização dos dados técnicos e documentos."
+    detailedDescription={`Um pulverizador reúne barras, bicos, sensores, monitores e sistemas de orientação. Informe os componentes e seus valores, inclusive equipamentos instalados depois da compra. Danos acidentais às barras não devem ser confundidos com desgaste, corrosão ou quebra interna.
 
-const SeguroPulverizadorAgricola = () => {
-  return (
-    <InsurancePageTemplate
-      localSeo={{ skip: true }}
-      heroImage={heroImg}
-      title="Seguro de Pulverizador Agrícola"
-      subtitle="Proteção para pulverizadores autopropelidos e de arrasto. Cobertura nacional com foco em tecnologia e precisão."
-      icon="🚜"
-      badge="Especialista em Tecnologia do Campo"
-      metaDescription="Seguro para Pulverizadores Agrícolas: proteção contra roubo, incêndio, quebra de barras e danos elétricos. Atendimento em todo o Brasil. Cotação Patro Seguros."
-      description="O pulverizador é um dos equipamentos mais tecnológicos e sensíveis do campo. O Seguro especializado da Patro Seguros garante a proteção contra danos mecânicos, elétricos e acidentais em todo o Brasil."
-      detailedDescription={`A pulverização é uma etapa crítica para a saúde da lavoura. Um pulverizador autopropelido parado por uma quebra de barra, um curto-circuito no monitor de fluxo ou um tombamento em manobra pode comprometer toda a janela de aplicação de defensivos.
+O seguro da máquina trata dos danos ao equipamento nos eventos contratados. Responsabilidade civil pela aplicação de defensivos exige análise separada. Deriva, contaminação, danos ambientais e prejuízos a lavouras vizinhas não estão automaticamente incluídos em uma cobertura genérica de RC.
 
-Nossa consultoria para Seguro de Pulverizador Agrícola entende a complexidade desses equipamentos. Cobrimos desde a estrutura física até os sistemas de agricultura de precisão, sensores de bico e eletrônica embarcada. Trabalhamos com as melhores seguradoras do agro para oferecer coberturas como 'Quebra de Máquinas' e Responsabilidade Civil Operacional, protegendo o produtor contra danos ambientais ou a terceiros.
+Declare culturas, produtos aplicados, locais, operadores e eventual prestação de serviços. A atividade precisa ser informada e aceita pela seguradora. A apólice não substitui as obrigações técnicas, ambientais e de segurança aplicáveis.
 
-Com atendimento 100% remoto, facilitamos a contratação para produtores de todos os estados, garantindo agilidade na emissão e um suporte técnico de alto nível em caso de sinistros.`}
-      howItWorks={[
-        { step: "1", title: "Dados do Equipamento", description: "Informe marca (Jacto, John Deere, Case, etc), modelo, ano e tecnologia embarcada." },
-        { step: "2", title: "Análise Operacional", description: "Definimos o perfil de uso, região de atuação e histórico de manutenção." },
-        { step: "3", title: "Proposta Personalizada", description: "Apresentamos as melhores opções com foco em coberturas técnicas e preço justo." },
-        { step: "4", title: "Emissão Digital", description: "Apólice emitida rapidamente com assinatura digital, válida em todo o território nacional." },
-      ]}
-      coverages={[
-        { title: "Incêndio e Explosão", description: "Proteção contra riscos térmicos no motor e sistemas hidráulicos." },
-        { title: "Roubo e Furto Qualificado", description: "Segurança para equipamentos em galpões ou frentes de trabalho." },
-        { title: "Tombamento e Colisão", description: "Cobre acidentes durante a operação em terrenos irregulares ou manobras." },
-        { title: "Quebra de Barras e Estrutura", description: "Cobertura específica para danos acidentais nas barras de pulverização." },
-        { title: "Danos Elétricos e Eletrônicos", description: "Proteção para GPS, monitores, bicos eletrônicos e sensores de fluxo." },
-        { title: "Responsabilidade Civil Operador", description: "Protege contra danos causados a propriedades vizinhas ou pessoas." },
-        { title: "RC Ambiental Eventual", description: "Cobre danos por contaminação acidental durante o uso do equipamento." },
-      ]}
-      coverageExclusions={[
-        "Desgaste natural de bicos, mangueiras e filtros",
-        "Danos por falta de limpeza ou resíduos químicos acumulados",
-        "Operação por pessoas sem a devida qualificação técnica",
-        "Atos ilícitos intencionais ou negligência grave comprovada",
-        "Danos estéticos que não afetam a funcionalidade do pulverizador",
-      ]}
-      pricingInfo={{
-        intro: "O prêmio é calculado conforme o valor tecnológico e a região de operação do equipamento.",
-        factors: [
-          "Marca e valor de mercado (incluindo tecnologia embarcada)",
-          "Ano de fabricação e estado das barras e motor",
-          "Tipo de cultura e regime de aplicação (safra/safrinha)",
-          "Existência de dispositivos de rastreamento e telemetria",
-          "Localização da propriedade e histórico de sinistros",
-        ],
-        note: "Pulverizadores com sistemas de corte de seção e telemetria avançada possuem análise técnica diferenciada.",
-      }}
-      realScenarios={[
-        { title: "Quebra de Barra em Obstáculo", description: "A barra do pulverizador atingiu um poste oculto, gerando R$ 45.000 em danos. O seguro cobriu a substituição total da seção danificada." },
-        { title: "Curto no Sistema de GPS", description: "Uma sobrecarga elétrica queimou a antena e o monitor de orientação. A reposição de R$ 18.000 foi paga integralmente pela cobertura de danos elétricos." },
-        { title: "Tombamento em Curva de Nível", description: "Máquina tombou durante aplicação em terreno íngreme. O seguro arcou com R$ 110.000 em reparos estruturais e resgate especializado." },
-      ]}
-      importantDetails={[
-        { title: "Proteção de Bicos e Sensores", content: "Muitas seguradoras não cobrem itens periféricos; nossa consultoria garante que os sensores de alta tecnologia e o sistema de pulverização estejam descritos na apólice." },
-        { title: "Uso de Defensivos", content: "A cobertura de Responsabilidade Civil é fundamental para resguardar o produtor em caso de deriva acidental que atinja lavouras vizinhas." },
-      ]}
-      tips={[
-        "Mantenha sempre os relatórios de calibração do sistema de pulverização em dia",
-        "Sempre digitalize a Nota Fiscal do equipamento e de upgrades tecnológicos",
-        "Instale protetores de surto adicionais para proteger a eletrônica sensível",
-        "Em caso de vazamento químico acidental, acione o seguro imediatamente para contenção",
-      ]}
-      whoNeeds={[
-        "Produtores de Grandes Culturas (Soja, Milho, Algodão)",
-        "Empresas de Aviação e Pulverização Agrícola",
-        "Cooperativas Rurais com Frotas de Aplicação",
-        "Prestadores de Serviços de Pulverização",
-        "Produtores de Fruticultura Mechanizada",
-      ]}
-      whyPatro={[
-        "Especialista em seguros de máquinas e equipamentos",
-        "Parceria com fabricantes e concessionárias pelo Brasil",
-        "Especialistas em riscos rurais e alta tecnologia no campo",
-        "Consultoria para correta valoração de tecnologia embarcada",
-        "Suporte em sinistros com foco na agilidade de aplicação",
-        "Atendimento nacional para todas as fronteiras agrícolas",
-      ]}
-      faqs={[
-        { question: "O seguro cobre pulverizadores de arrasto?", answer: "Sim, seguramos tanto os modelos autopropelidos quanto os acoplados ao trator." },
-        { question: "O seguro cobre contaminação ambiental?", answer: "Sim, desde que seja contratada a cobertura adicional de Responsabilidade Civil Ambiental Eventual." },
-        { question: "Qual o prazo para receber a indenização?", answer: "Após a entrega da documentação, o prazo legal é de até 30 dias, mas buscamos agilizar o processo para evitar atrasos na safra." },
-        { question: "Posso incluir o GPS e monitor de outra marca?", answer: "Sim, é possível incluir acessórios de agricultura de precisão instalados posteriormente, desde que informados na contratação." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro de Trator Agrícola", link: "/seguro-trator-agricola" },
-        { title: "Seguro de Drone Agrícola", link: "/seguro-drone-agricola" },
-        { title: "Seguro Rural", link: "/seguro-rural" },
-      ]}
-    />
-  );
-};
+Para pulverizadores vinculados ao crédito rural, envie o contrato e os requisitos do credor para análise de seguro penhor rural. A aceitação depende do equipamento e da operação; o pedido de cotação não inicia cobertura.`}
+    howItWorks={[
+      { step: "1", title: "Equipamento e acessórios", description: "Envie marca, modelo, série, ano, valor e relação da tecnologia embarcada." },
+      { step: "2", title: "Atividade de aplicação", description: "Informe culturas, locais, operadores, produtos aplicados e prestação de serviços." },
+      { step: "3", title: "Análise por risco", description: "Compare danos à máquina, responsabilidade civil, transporte e requisitos do crédito." },
+      { step: "4", title: "Conferência da apólice", description: "Após a aceitação, confira coberturas, exclusões, franquias e início da vigência." },
+    ]}
+    coverages={[
+      { title: "Incêndio, raio e explosão", description: "Eventos sujeitos às condições, aos limites e à franquia da cobertura contratada." },
+      { title: "Roubo e furto qualificado", description: "Verifique os eventos aceitos e as condições de guarda do pulverizador e dos acessórios." },
+      { title: "Tombamento e colisão", description: "Danos acidentais durante o uso declarado precisam estar previstos na proposta." },
+      { title: "Danos acidentais às barras", description: "Confira a inclusão das barras e os eventos aceitos. Desgaste e quebra interna não têm cobertura automática." },
+      { title: "Eletrônica embarcada", description: "Declare GPS, monitores e sensores; danos elétricos podem exigir cobertura e limites próprios." },
+      { title: "Responsabilidade pela aplicação", description: "Deriva, danos ambientais e prejuízos a terceiros exigem análise expressa e podem não ser aceitos." },
+    ]}
+    coverageExclusions={[
+      "Desgaste de bicos, mangueiras e filtros e corrosão não equivalem a acidente coberto.",
+      "Defeitos de fabricação, resíduos acumulados e falhas de manutenção podem estar excluídos.",
+      "Perda de safra, paralisação e despesas de locação não estão automaticamente incluídas.",
+      "Danos por defensivos e contaminação não devem ser presumidos como parte do seguro da máquina.",
+    ]}
+    pricingInfo={{ intro: "O custo depende do equipamento, da atividade e das coberturas analisadas.", factors: ["Modelo, ano e valor, incluindo acessórios", "Culturas, locais e produtos aplicados", "Uso próprio ou prestação de serviços", "Transporte e histórico de sinistros", "Limites, franquias e exigências do credor"], note: "Telemetria e treinamento não garantem desconto ou aceitação. Compare as condições além do preço." }}
+    importantDetails={[
+      { title: "Atendimento às regiões agrícolas", content: "Atendemos operações de grãos e algodão em Mato Grosso, Goiás e Bahia, cana no interior paulista e demais culturas e regiões do Brasil. Informe todos os municípios e deslocamentos; atendimento nacional não significa aceitação automática de qualquer operação." },
+      { title: "Pulverizador financiado", content: "Confira a identificação da máquina, dos acessórios e as cláusulas exigidas no crédito rural. Penhor rural e responsabilidade pela aplicação são análises distintas." },
+      { title: "Pulverização terrestre e por drone", content: "O pulverizador terrestre e o drone precisam de análise própria. Seguro de máquinas não garante casco aeronáutico ou RETA. Declare cada equipamento e sua atividade antes de contratar." },
+    ]}
+    tips={["Mantenha registros de calibração e manutenção", "Documente acessórios instalados após a compra", "Siga orientações técnicas e regras aplicáveis à aplicação", "Em vazamento, priorize a segurança, acione os responsáveis competentes e comunique a seguradora"]}
+    whoNeeds={["Produtores com pulverizadores próprios ou financiados", "Prestadores de serviços de aplicação terrestre", "Cooperativas com frotas de pulverização", "Concessionárias que apoiam seus compradores"]}
+    whyPatro={["Especialização em máquinas, equipamentos agrícolas e penhor rural", "Parceria com a rede de concessionárias dos principais fabricantes", "Análise separada do equipamento e da responsabilidade pela aplicação", "Atendimento nacional e orientação documental em sinistros"]}
+    faqs={[
+      { question: "Pulverizadores de arrasto podem ser segurados?", answer: "Podem ser submetidos à análise. Declare o implemento, seu valor, o trator utilizado e a rotina de operação. Não presuma inclusão automática no seguro do trator." },
+      { question: "O seguro cobre contaminação e deriva?", answer: "Não automaticamente. A aplicação deve ser informada e aceita, com análise expressa de danos a terceiros, lavouras vizinhas e meio ambiente. Pode haver exclusões ou necessidade de contratação específica, conforme disponibilidade." },
+      { question: "Quebra de barra está sempre coberta?", answer: "Não. Uma colisão acidental deve ser diferenciada de desgaste, corrosão ou falha interna. A causa, a inclusão do item e as condições da apólice determinam a análise." },
+      { question: "Posso incluir GPS e monitor de outra marca?", answer: "Informe modelo, valor e instalação dos acessórios. A inclusão depende da aceitação e deve constar na proposta e na apólice; não é automática." },
+      { question: "Quando avaliar seguro penhor rural?", answer: "Quando o pulverizador estiver vinculado a uma operação de crédito rural, envie o contrato e as exigências do credor. A Patro confere o enquadramento e as cláusulas necessárias." },
+      { question: "Qual o prazo para receber a indenização?", answer: "A regulação depende do evento, dos documentos e das regras aplicáveis. A Patro acompanha o processo, mas não garante pagamento integral ou conclusão em prazo fixo." },
+    ]}
+    relatedInsurances={[
+      { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
+      { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+      { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
+      { title: "Drone Agrícola", link: "/seguro-drone-agricola" },
+    ]}
+  />
+);
 
 export default SeguroPulverizadorAgricola;

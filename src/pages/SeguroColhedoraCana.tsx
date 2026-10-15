@@ -1,99 +1,66 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-agro-maquinas.webp";
 
+const SeguroColhedoraCana = () => (
+  <InsurancePageTemplate
+    localSeo={{ skip: true }}
+    semGuarulhos
+    heroImage={heroImg}
+    title="Seguro de Colhedora de Cana e Penhor Rural | Patro"
+    headline="Seguro de colhedora de cana para usinas e prestadores"
+    subtitle="Análise da máquina, das frentes de colheita e do financiamento. Atendimento nacional com apoio à organização dos documentos."
+    icon="🚜"
+    badge="Especialistas em máquinas agrícolas"
+    metaDescription="Seguro de colhedora de cana: analise incêndio, tombamento, transporte e exigências de penhor rural. Atendimento nacional da Patro a produtores e usinas."
+    description="A Patro é especialista em máquinas agrícolas e mantém parceria com a rede de concessionárias dos principais fabricantes. Conferimos os riscos declarados e as condições disponíveis para colhedoras próprias ou financiadas."
+    detailedDescription={`O regime de trabalho na safra, o acúmulo de resíduos e os deslocamentos entre frentes de colheita precisam ser informados na cotação. Registros de limpeza e manutenção ajudam a documentar a conservação da colhedora, mas não garantem aceitação ou desconto.
 
-const SeguroColhedoraCana = () => {
-  return (
-    <InsurancePageTemplate
-      localSeo={{ skip: true }}
-      heroImage={heroImg}
-      title="Seguro de Colhedora de Cana"
-      subtitle="Proteção premium para o ativo mais valioso da sua colheita. Cobertura nacional com consultoria técnica especializada."
-      icon="🚜"
-      badge="Especialista no Setor Sucroenergético"
-      metaDescription="Seguro para Colhedoras de Cana: proteção contra incêndio, roubo, quebra de máquinas e tombamento em todo o Brasil. Cotação rápida Patro Seguros."
-      description="A colhedora de cana é um investimento de alto impacto que não pode parar. O seguro especializado da Patro Seguros garante a proteção do seu patrimônio contra os riscos severos da safra."
-      detailedDescription={`No setor sucroenergético, a eficiência operacional é ditada pelo ritmo das máquinas. Uma colhedora de cana representa um investimento de milhões de reais e opera em condições extremas, sujeita a riscos de incêndio por superaquecimento, tombamentos em terrenos irregulares e danos elétricos em seus complexos sistemas de automação.
+Incêndio, colisão e tombamento são eventos a conferir na proposta. Quebra de componentes internos, desgaste e falhas mecânicas não estão automaticamente cobertos. Danos elétricos e responsabilidade civil também precisam de análise própria.
 
-Nossa consultoria para Seguro de Colhedora de Cana oferece um desenho de apólice que entende a realidade das usinas e dos grandes produtores. Cobrimos desde danos materiais acidentais até a fundamental cobertura de 'Quebra de Máquinas', além da Responsabilidade Civil do Operador, essencial para proteger a empresa contra danos a terceiros.
-
-Com atendimento 100% remoto e agilidade na regulação de sinistros, a Patro Seguros é a parceira estratégica para garantir que sua colheita não seja interrompida por imprevistos financeiros.`}
-      howItWorks={[
-        { step: "1", title: "Levantamento de Ativos", description: "Identificação de marca, modelo, ano e tecnologia embarcada das colhedoras." },
-        { step: "2", title: "Análise de Operação", description: "Avaliação do regime de trabalho (safra 24h), local de operação e guarda." },
-        { step: "3", title: "Estruturação da Apólice", description: "Definição de limites para incêndio, danos elétricos, quebra e RC." },
-        { step: "4", title: "Suporte e Gestão", description: "Acompanhamento total desde a emissão até a renovação e sinistros." },
-      ]}
-      coverages={[
-        { title: "Incêndio e Explosão", description: "Proteção vital contra o risco térmico elevado na colheita mecanizada." },
-        { title: "Roubo e Furto Qualificado", description: "Segurança para máquinas em frentes de trabalho ou pátios de usinas." },
-        { title: "Tombamento e Colisão", description: "Cobre acidentes operacionais comuns em terrenos de difícil manobra." },
-        { title: "Danos Elétricos", description: "Proteção para computadores de bordo, sensores e chicotes eletrônicos." },
-        { title: "Quebra de Máquinas", description: "Cobertura para falhas mecânicas súbitas de componentes internos." },
-        { title: "Responsabilidade Civil Operador", description: "Garante danos causados a propriedades vizinhas ou pessoas." },
-        { title: "Transporte do Equipamento", description: "Cobertura durante o deslocamento entre frentes de colheita ou usinas." },
-      ]}
-      coverageExclusions={[
-        "Desgaste natural de facas, correias, óleos e pneus",
-        "Danos por falta de manutenção preventiva recomendada",
-        "Operação por pessoas sem a devida qualificação técnica",
-        "Atos ilícitos intencionais ou negligência comprovada",
-        "Danos estéticos que não impedem a operação da máquina",
-      ]}
-      pricingInfo={{
-        intro: "O prêmio é calculado com base no valor de reposição e no perfil tecnológico do maquinário.",
-        factors: [
-          "Marca (John Deere, Case IH, etc.) e valor de mercado",
-          "Ano de fabricação e histórico de manutenção",
-          "Regime de trabalho e horas de operação por safra",
-          "Região de operação e histórico de sinistros",
-          "Implementação de sistemas de combate a incêndio onboard",
-        ],
-        note: "Usinas com frotas acima de 5 máquinas possuem condições diferenciadas de taxa e franquia.",
-      }}
-      realScenarios={[
-        { title: "Incêndio por Superaquecimento", description: "Uma colhedora sofreu incêndio total devido ao acúmulo de resíduos no motor. O seguro pagou a indenização integral em 25 dias, permitindo a reposição imediata." },
-        { title: "Tombamento em Talhão", description: "Máquina tombou durante manobra em terreno úmido, gerando R$ 140.000 em danos estruturais. A cobertura de acidentes externos arcou com o reparo." },
-        { title: "Falha Eletrônica Crítica", description: "Uma descarga elétrica queimou o módulo central de controle. A reposição de R$ 45.000 foi paga pela cobertura de danos elétricos." },
-      ]}
-      importantDetails={[
-        { title: "Combate a Incêndio Onboard", content: "Muitas seguradoras oferecem descontos significativos para máquinas equipadas com sistemas automáticos de extinção de incêndio no compartimento do motor." },
-        { title: "Valor Acordado", content: "Para máquinas de alto valor e tecnologia específica, trabalhamos com a modalidade de valor acordado, evitando discussões de depreciação em caso de perda total." },
-      ]}
-      tips={[
-        "Mantenha sempre os certificados de manutenção preventiva digitalizados",
-        "Certifique-se de que os sistemas de supressão de incêndio estão carregados e testados",
-        "Contrate verbas de RC elevadas: o potencial de dano em áreas vizinhas é alto",
-        "Para máquinas financiadas, informe os dados da instituição para agilizar a apólice",
-      ]}
-      whoNeeds={[
-        "Grandes Usinas de Açúcar e Álcool",
-        "Produtores de Cana-de-Açúcar Mechanizados",
-        "Empresas de Prestação de Serviços de Colheita",
-        "Cooperativas do Setor Sucroenergético",
-        "Locadoras de Maquinário Pesado para o Agro",
-      ]}
-      whyPatro={[
-        "Especialista em seguros de máquinas e equipamentos",
-        "Parceria com fabricantes e concessionárias pelo Brasil",
-        "Profundo conhecimento técnico do setor sucroenergético",
-        "Consultoria para dimensionamento de verbas em frotas complexas",
-        "Suporte em sinistros com foco na mínima parada operacional",
-        "Atendimento nacional para todas as regiões produtoras do Brasil",
-      ]}
-      faqs={[
-        { question: "O seguro cobre colhedoras usadas?", answer: "Sim, seguramos máquinas com até 10-12 anos de uso, dependendo do estado de conservação e marca." },
-        { question: "Qual o prazo para receber a indenização?", answer: "Após a entrega da documentação, o prazo legal é de 30 dias, mas trabalhamos para agilizar o processo em até 20 dias para nossos clientes." },
-        { question: "O seguro é válido em todo o Brasil?", answer: "Sim, a cobertura tem abrangência em todo o território nacional, incluindo transporte entre propriedades." },
-        { question: "Posso segurar só contra incêndio e roubo?", answer: "Sim, existe a modalidade de cobertura básica (incêndio e roubo), mas para colhedoras recomendamos sempre a cobertura compreensiva com quebra de máquinas." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro de Trator Agrícola", link: "/seguro-trator-agricola" },
-        { title: "Seguro Rural", link: "/seguro-rural" },
-      ]}
-    />
-  );
-};
+Em colhedoras vinculadas ao crédito rural, envie o contrato para conferência do seguro penhor rural, do interesse do credor e da vigência exigida. A emissão depende da análise da seguradora; o pedido de cotação não inicia cobertura nem garante liberação bancária.`}
+    coverages={[
+      { title: "Incêndio, raio e explosão", description: "Confira eventos aceitos, medidas de segurança, limites e franquia na proposta." },
+      { title: "Roubo e furto qualificado", description: "A contratação depende dos eventos previstos e das condições de guarda declaradas." },
+      { title: "Colisão e tombamento", description: "Danos acidentais durante a operação devem estar previstos na cobertura contratada." },
+      { title: "Danos elétricos", description: "Monitores, sensores e chicotes exigem identificação e análise de cobertura específica." },
+      { title: "Transporte entre frentes", description: "Confira deslocamento próprio, transporte em prancha, carga e descarga separadamente." },
+      { title: "Responsabilidade civil", description: "Danos a terceiros exigem análise de atividade, limites e exclusões próprios." },
+    ]}
+    coverageExclusions={[
+      "Desgaste de facas, correias e pneus e manutenção rotineira não têm cobertura automática.",
+      "Quebra mecânica e defeitos de fabricação não equivalem a acidente coberto.",
+      "Perda de produção, paralisação e locação de outra máquina não estão automaticamente incluídas.",
+      "Uso, operadores e locais fora das condições aceitas precisam ser avaliados conforme a apólice.",
+    ]}
+    howItWorks={[
+      { step: "1", title: "Identifique o ativo", description: "Envie marca, modelo, ano, série, valor e documento de propriedade." },
+      { step: "2", title: "Informe a operação", description: "Descreva frentes de colheita, regime de trabalho, transporte e prestação de serviços." },
+      { step: "3", title: "Compare as condições", description: "Confira coberturas, franquias e requisitos do financiamento, quando houver." },
+      { step: "4", title: "Confira a apólice", description: "Após a aceitação, verifique bens, cláusulas e início da vigência." },
+    ]}
+    pricingInfo={{ intro: "O preço depende da colhedora e da rotina de operação.", factors: ["Modelo, ano e valor", "Regime de trabalho e histórico de manutenção", "Regiões, transporte e frentes de colheita", "Coberturas, limites e franquias", "Financiamento e histórico de sinistros"], note: "Frotas são analisadas individualmente. Quantidade de máquinas não garante taxa menor." }}
+    importantDetails={[
+      { title: "Regiões produtoras de cana", content: "Atendemos usinas e prestadores no interior de São Paulo, Goiás, Minas Gerais, Mato Grosso do Sul e demais regiões produtoras. Informe todos os locais de atuação e as rotas de transporte, inclusive mudanças durante a safra." },
+      { title: "Segurança e valor do bem", content: "Confira as exigências de prevenção de incêndio e o critério de avaliação da máquina. Valor declarado, limite da cobertura e valor de eventual indenização não são necessariamente iguais." },
+      { title: "Concessionária e financiamento", content: "A parceria com concessionárias ajuda a reunir ficha técnica, nota fiscal e dados do crédito. A Patro confere as exigências de penhor rural sem prometer aceitação ou liberação do financiamento." },
+    ]}
+    tips={["Siga as orientações do fabricante sobre limpeza e manutenção", "Mantenha registros dos sistemas de prevenção de incêndio", "Informe mudanças de operação antes de assumir que estão cobertas"]}
+    whoNeeds={["Usinas de açúcar e etanol", "Produtores de cana com colheita mecanizada", "Prestadores de serviços de colheita", "Cooperativas e proprietários de máquinas financiadas"]}
+    whyPatro={["Especialização em máquinas agrícolas e penhor rural", "Parceria com a rede de concessionárias dos principais fabricantes", "Conferência do uso e das exigências do credor", "Atendimento nacional e orientação documental em sinistros"]}
+    faqs={[
+      { question: "Colhedoras usadas podem ser seguradas?", answer: "Podem ser submetidas à análise. Modelo, idade, conservação e manutenção influenciam a aceitação; não existe um limite único de idade para todas as seguradoras." },
+      { question: "Quebra de máquinas está incluída?", answer: "Não automaticamente. Falhas internas e desgaste podem estar excluídos. Eventual cobertura específica depende do produto disponível e da aceitação da seguradora." },
+      { question: "O seguro inclui transporte entre usinas?", answer: "Somente conforme as condições contratadas. Informe rotas, meio de transporte, carga e descarga; não presuma que a cobertura na lavoura inclua o transporte." },
+      { question: "Como funciona para colhedora financiada?", answer: "Envie o contrato e os requisitos do credor para análise de penhor rural ou do seguro aplicável. Confira identificação da máquina, vigência e cláusulas exigidas." },
+      { question: "Há prazo garantido de indenização?", answer: "Não prometemos pagamento ou conclusão em prazo fixo. A regulação depende do evento, dos documentos e das regras aplicáveis. A Patro acompanha o encaminhamento com a seguradora." },
+    ]}
+    relatedInsurances={[
+      { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
+      { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+      { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
+      { title: "Colheitadeira de Grãos", link: "/seguro-colheitadeira-graos" },
+    ]}
+  />
+);
 
 export default SeguroColhedoraCana;

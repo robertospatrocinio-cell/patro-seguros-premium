@@ -1,118 +1,85 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-drone.webp";
 
-const SeguroDroneAgricola = () => {
-  return (
-    <InsurancePageTemplate
-      localSeo={{ skip: true }}
-      heroImage={heroImg}
-      title="Seguro Drone Agrícola"
-      subtitle="Proteção completa para drones utilizados na agricultura de precisão. Atendemos operadores de todos os estados do Brasil."
-      icon="🚁"
-      metaDescription="Seguro para Drone Agrícola: proteção contra quedas, colisões e falhas técnicas em drones de pulverização e mapeamento. Cotação grátis."
-      badge="Atendimento em Todo o Brasil"
-      description="Os drones agrícolas revolucionaram o campo, mas são equipamentos de alto valor sujeitos a quedas, colisões e falhas técnicas. Proteja seu investimento."
-      detailedDescription={`A agricultura de precisão transformou o agronegócio brasileiro, e os drones estão no centro dessa revolução. Drones de pulverização como o DJI Agras T40 custam de R$ 150.000 a R$ 500.000. Um único equipamento pode cobrir centenas de hectares por dia, gerando economia de insumos e mão de obra.
+const SeguroDroneAgricola = () => (
+  <InsurancePageTemplate
+    localSeo={{ skip: true }}
+    heroImage={heroImg}
+    title="Seguro de Drone Agrícola: Casco e RC | Patro Seguros"
+    headline="Seguro de drone agrícola para pulverização e mapeamento"
+    subtitle="Analise danos ao equipamento e responsabilidade civil em contratações adequadas à sua operação. Atendimento nacional a produtores, prestadores de serviços e concessionárias."
+    icon="🚁"
+    metaDescription="Seguro de drone agrícola para pulverização e mapeamento. Entenda casco, RETA, responsabilidade civil e financiamento com a orientação da Patro."
+    badge="Especialistas no agro • Atendimento nacional"
+    quoteCtaText="Analisar o seguro do meu drone"
+    description="A Patro é especialista em máquinas, equipamentos e drones agrícolas e tem parceria com a rede de concessionárias dos principais fabricantes. Conferimos o uso declarado, os acessórios e as condições disponíveis, sem tratar casco, RETA e pulverização como uma única cobertura."
+    detailedDescription={`Um drone agrícola pode operar na própria lavoura ou prestar serviços em várias propriedades. Pulverização, aplicação de insumos, mapeamento e monitoramento têm riscos diferentes. Informe a atividade, os municípios de operação, os operadores e a documentação aplicável antes de comparar propostas.
 
-Porém, drones agrícolas operam em condições extremas: voos baixos sobre lavouras, exposição a ventos, chuva repentina, interferência eletromagnética e obstáculos como linhas de transmissão e árvores. Quedas, colisões e falhas de GPS são riscos reais que podem destruir um equipamento caro em segundos.
+O seguro de casco trata dos danos ao próprio equipamento nos eventos contratados. O RETA trata da responsabilidade civil aeronáutica nos limites e condições da apólice. Ter RETA não significa que o drone esteja coberto contra queda, roubo ou danos aos acessórios.
 
-O Seguro Drone Agrícola protege contra danos físicos, roubo, falhas técnicas, responsabilidade civil por danos a terceiros e lavouras vizinhas, e até lucros cessantes pela parada do equipamento. Algumas seguradoras também cobrem equipamentos embarcados como câmeras multiespectrais e tanques de pulverização.
+Danos por deriva de defensivos, contaminação, prejuízos a lavouras vizinhas e danos ambientais precisam de análise expressa. Não presuma que estejam incluídos no RETA ou em uma cobertura genérica de responsabilidade civil. A atividade de pulverização deve ser informada e aceita pela seguradora.
 
-Na Patro Seguros, atendemos operadores de drones agrícolas em todos os estados do Brasil — de Mato Grosso ao Rio Grande do Sul. Todo o processo é 100% remoto.`}
-      howItWorks={[
-        { step: "1", title: "Dados do Drone", description: "Informamos marca, modelo, série, valor, acessórios embarcados e região de operação" },
-        { step: "2", title: "Análise de Uso", description: "Avaliamos tipo de operação (pulverização, mapeamento), frequência de voo e qualificação do operador" },
-        { step: "3", title: "Cotação Especializada", description: "Buscamos propostas de seguradoras que operam com drones agrícolas para as melhores condições" },
-        { step: "4", title: "Proteção no Campo", description: "Em caso de sinistro, orientamos todo o processo de regulação para reparo ou substituição rápida" },
-      ]}
-      coverages={[
-        { title: "Danos Físicos ao Drone", description: "Cobertura para danos causados por quedas, colisões, pousos forçados e acidentes operacionais" },
-        { title: "Roubo e Furto", description: "Proteção contra roubo e furto qualificado do drone, controle remoto e acessórios" },
-        { title: "Responsabilidade Civil", description: "Cobertura para danos causados a terceiros, lavouras vizinhas, animais e propriedades durante o voo" },
-        { title: "Falhas Técnicas e Mecânicas", description: "Proteção contra defeitos de fabricação, falha de GPS, perda de sinal e pane elétrica" },
-        { title: "Danos por Condições Climáticas", description: "Cobertura para danos causados por ventos fortes, chuva, granizo e tempestades durante operação" },
-        { title: "Equipamentos Embarcados", description: "Proteção para câmeras, sensores multiespectrais, tanques de pulverização e baterias" },
-        { title: "Transporte do Drone", description: "Cobertura durante o transporte terrestre do drone entre propriedades e bases de operação" },
-        { title: "Lucros Cessantes", description: "Indenização pela perda de receita durante o período de reparo ou substituição do equipamento" },
-      ]}
-      coverageExclusions={[
-        "Desgaste natural e manutenção preventiva (baterias, hélices, etc.)",
-        "Operação sem certificação/registro exigido pela ANAC",
-        "Voo em áreas proibidas ou restritas sem autorização",
-        "Danos causados por operador não qualificado",
-        "Uso de peças não originais ou modificações não autorizadas pelo fabricante",
-        "Danos por software/firmware desatualizado",
-      ]}
-      pricingInfo={{
-        intro: "O custo do seguro de drone agrícola varia de 3% a 8% do valor do equipamento ao ano.",
-        factors: [
-          "Marca, modelo e valor do drone (DJI Agras, etc.)",
-          "Valor dos equipamentos embarcados (sensores, tanques, câmeras)",
-          "Tipo de operação (pulverização é maior risco que mapeamento)",
-          "Região de operação e frequência de voos",
-          "Qualificação e experiência do operador",
-          "Número de drones na frota (desconto progressivo)",
-        ],
-        note: "Um DJI Agras T40 de R$ 250.000 pode custar de R$ 7.500 a R$ 20.000/ano de seguro. Com bom histórico e operador qualificado, fica na faixa inferior. Frotas de 3+ drones têm condições especiais.",
-      }}
-      realScenarios={[
-        { title: "Queda durante pulverização", description: "Um drone DJI Agras T30 perdeu sinal GPS durante pulverização em Mato Grosso e caiu sobre a lavoura. O reparo custou R$ 85.000. O seguro cobriu integralmente, e o produtor recebeu R$ 12.000 em lucros cessantes pelos 10 dias de parada." },
-        { title: "Colisão com linha de transmissão", description: "Um drone de mapeamento colidiu com linha de transmissão em Goiás, resultando em perda total do equipamento de R$ 180.000. O seguro indenizou o valor integral em 20 dias úteis." },
-        { title: "Roubo durante transporte", description: "Um drone agrícola foi roubado do veículo durante transporte entre fazendas no Paraná. O seguro cobriu R$ 220.000 do equipamento e R$ 35.000 em acessórios." },
-      ]}
-      importantDetails={[
-        { title: "Registro na ANAC", content: "Drones acima de 250g devem ser registrados na ANAC (SISANT). Operar sem registro pode invalidar a cobertura do seguro e resultar em multas administrativas." },
-        { title: "Qualificação do operador", content: "Seguradoras podem exigir que o operador tenha certificação ou treinamento formal. Operadores certificados pelo fabricante (ex: DJI) geralmente obtêm melhores condições de seguro." },
-        { title: "Baterias e componentes de desgaste", content: "Baterias LiPo são componentes de desgaste natural e geralmente não são cobertos por defeito ou perda de capacidade. Porém, danos acidentais às baterias (queda, incêndio) são cobertos." },
-      ]}
-      tips={[
-        "Mantenha o firmware do drone sempre atualizado — versões desatualizadas podem ser motivo de negativa de sinistro",
-        "Registre o drone na ANAC e mantenha as licenças em dia — é requisito legal e de seguro",
-        "Faça checklist pré-voo documentado — demonstra operação responsável e fortalece sinistros",
-        "Para frotas de drones, negocie condições especiais com desconto progressivo",
-        "Inclua cobertura de lucros cessantes se o drone é sua principal fonte de renda",
-      ]}
-      whoNeeds={[
-        "Produtores rurais que utilizam drones para pulverização em qualquer estado",
-        "Empresas de aviação agrícola com frota de drones em todo o Brasil",
-        "Cooperativas e associações agrícolas de todas as regiões",
-        "Prestadores de serviço de mapeamento e sensoriamento",
-        "Agrônomos e consultores que usam drones para monitoramento",
-        "Empresas de agricultura de precisão",
-        "Produtores de café, soja, milho, cana e algodão",
-        "Operadores de drones de pulverização como DJI Agras",
-      ]}
-      whyPatro={[
-        "Atendemos operadores de drones em todos os estados do Brasil",
-        "Especialistas em seguros para o agronegócio",
-        "Coberturas específicas para drones agrícolas de todos os modelos",
-        "Cotação gratuita e 100% remota — por WhatsApp, telefone ou e-mail",
-        "Parceria com as melhores seguradoras do mercado",
-        "Atendimento consultivo com conhecimento do setor agro",
-        "Agilidade na emissão e no atendimento de sinistros",
-        "Condições especiais para frotas de drones",
-      ]}
-      faqs={[
-        { question: "A Patro Seguros atende operadores de drone fora de São Paulo?", answer: "Sim! Atendemos em todos os estados do Brasil. O atendimento é 100% remoto." },
-        { question: "Preciso de seguro para drone agrícola?", answer: "Sim. Além de proteger equipamento de alto valor, o seguro cobre RC por danos a terceiros e pode ser exigência da ANAC." },
-        { question: "Quanto custa o seguro de drone agrícola?", answer: "De 3% a 8% do valor do equipamento ao ano. Um drone de R$ 250.000 pode custar de R$ 7.500 a R$ 20.000/ano." },
-        { question: "O seguro cobre queda durante pulverização?", answer: "Sim. A cobertura de danos físicos protege contra quedas e acidentes operacionais durante voos." },
-        { question: "Drones DJI Agras são cobertos?", answer: "Sim! Trabalhamos com seguros para todos os modelos, incluindo DJI Agras T10, T16, T20, T30, T40 e T50." },
-        { question: "Posso segurar a frota de drones?", answer: "Sim! Condições especiais com descontos progressivos para frotas de drones agrícolas." },
-        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais e empresas do agronegócio em todos os 26 estados brasileiros e o Distrito Federal — capitais, interior e zona rural. Do Sul (PR, SC, RS) ao Norte (PA, TO, RO), passando por Centro-Oeste (MT, MS, GO), Sudeste (SP, MG, ES, RJ) e Nordeste (BA, PI, MA). Nossa sede é em Guarulhos/SP, mas o atendimento é 100% remoto." },
-        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações sobre o bem ou atividade a ser segurada, retornamos com propostas comparativas de diversas seguradoras em até 24 horas úteis." },
-        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto. Basta entrar em contato pelo WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos a documentação digitalmente e acompanhamos tudo à distância — da cotação à regulação de sinistro." },
-        { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro RETA Drone", link: "/seguro-reta-drone" },
-        { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro Rural", link: "/seguro-rural" },
-        { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
-        { title: "Seguro Ambiental", link: "/seguro-ambiental" },
-      ]}
-    />
-  );
-};
+Se o drone estiver financiado ou vinculado a uma garantia de crédito rural, envie o contrato. A Patro confere as exigências do credor e a possibilidade de enquadramento do bem no seguro apropriado. O penhor rural não substitui automaticamente o casco aeronáutico nem a responsabilidade civil.`}
+    coverages={[
+      { title: "Casco: danos ao drone", description: "Queda, colisão e pouso forçado precisam estar previstos na cobertura contratada, respeitando o uso aceito, as franquias e os limites." },
+      { title: "Roubo e furto qualificado", description: "Verifique os eventos aceitos, locais de guarda e itens descritos. Furto simples e desaparecimento não devem ser considerados incluídos." },
+      { title: "Responsabilidade civil e RETA", description: "Analise danos a terceiros e os limites aplicáveis à operação. Essa proteção é distinta do seguro do próprio drone." },
+      { title: "Pulverização e deriva", description: "A responsabilidade por aplicação de insumos exige avaliação específica. Danos ambientais e a lavouras vizinhas não têm cobertura automática." },
+      { title: "Baterias e acessórios", description: "Declare baterias, controles, sensores, câmeras e tanques. Confirme valores, inclusão e condições de uso, guarda e recarga." },
+      { title: "Transporte terrestre", description: "Informe o transporte entre propriedades e verifique se há cobertura durante deslocamentos, carga e descarga." },
+    ]}
+    coverageExclusions={[
+      "Desgaste de hélices e perda gradual da capacidade de baterias não equivalem a acidente coberto.",
+      "Defeito de fabricação, pane, falha de GPS e perda de sinal não têm cobertura automática; causa e consequências dependem da apólice.",
+      "Lucros cessantes, perda de safra e despesas com equipamento substituto não estão automaticamente incluídos.",
+      "Operações, operadores ou locais fora das condições legais e contratuais precisam ser avaliados conforme as regras aplicáveis e a apólice.",
+    ]}
+    howItWorks={[
+      { step: "1", title: "Drone e acessórios", description: "Envie marca, modelo, série, ano, valor, documento de propriedade e relação dos acessórios." },
+      { step: "2", title: "Atividade e documentação", description: "Informe pulverização ou mapeamento, locais, operadores, registros e autorizações aplicáveis à operação." },
+      { step: "3", title: "Análise por risco", description: "Compare casco, responsabilidade civil, transporte e eventuais exigências do credor nas propostas disponíveis." },
+      { step: "4", title: "Aceitação e vigência", description: "Confira condições, franquias e início da vigência após a análise da seguradora. Cotação não inicia cobertura." },
+    ]}
+    importantDetails={[
+      { title: "Regras para operar", content: "Verifique as exigências vigentes da ANAC, do DECEA e da ANATEL conforme aeronave e operação. Na aplicação aeroagrícola, confira também as regras do MAPA e demais autoridades competentes. Cadastro, habilitação e autorizações variam; a apólice não regulariza uma operação." },
+      { title: "Operação nas regiões agrícolas", content: "Atendemos produtores e prestadores no Centro-Oeste, Sul, Sudeste e MATOPIBA, além das demais regiões do Brasil. Informe todos os estados de atuação, especialmente quando o drone acompanha safras em Mato Grosso, Goiás, Paraná, Minas Gerais ou Bahia. Atendimento nacional não significa que qualquer operação esteja aceita." },
+      { title: "Financiamento e concessionária", content: "Organizamos os dados técnicos com o produtor e a concessionária parceira. Em drones financiados, conferimos o bem, os acessórios e as cláusulas exigidas pelo credor sem presumir aceitação no penhor rural." },
+    ]}
+    pricingInfo={{
+      intro: "Não existe uma taxa única que represente todas as operações de drone agrícola.",
+      factors: ["Modelo, ano e valor do drone e dos acessórios", "Pulverização, mapeamento ou outras atividades declaradas", "Regiões de operação e experiência dos operadores", "Coberturas de casco e responsabilidade civil, limites e franquias", "Guarda, recarga, transporte e histórico de sinistros"],
+      note: "A cotação depende de análise. Frota, treinamento ou histórico favorável não garantem desconto nem aceitação.",
+    }}
+    whoNeeds={[
+      "Produtores que utilizam drones na própria lavoura",
+      "Prestadores de serviços de pulverização e mapeamento",
+      "Cooperativas e empresas de agricultura de precisão",
+      "Compradores de drones financiados e concessionárias que os atendem",
+    ]}
+    whyPatro={[
+      "Especialização em máquinas, equipamentos agrícolas, drones e penhor rural",
+      "Parceria com a rede de concessionárias dos principais fabricantes",
+      "Análise separada de casco, responsabilidade civil e exigências do financiamento",
+      "Atendimento nacional por canais digitais e orientação documental",
+      "Acompanhamento do sinistro conforme os procedimentos da seguradora",
+    ]}
+    faqs={[
+      { question: "RETA cobre queda do meu drone agrícola?", answer: "O RETA é voltado à responsabilidade civil aeronáutica e não substitui o seguro de casco. Para danos ao próprio drone, confira a contratação de casco, os eventos previstos, os limites e as franquias." },
+      { question: "Danos por pulverização e deriva estão cobertos?", answer: "Não automaticamente. Declare a aplicação de insumos e peça análise expressa para danos a terceiros, lavouras vizinhas e meio ambiente. Esses riscos podem ter exclusões ou exigir contratação específica, conforme a disponibilidade da seguradora." },
+      { question: "O seguro cobre falha de GPS ou defeito de fabricação?", answer: "Não é possível afirmar isso de forma geral. Defeitos e panes podem estar excluídos, e eventuais danos consequentes dependem da causa e das condições contratadas. O seguro não substitui garantia do fabricante nem manutenção." },
+      { question: "Posso cotar um DJI Agras ou outra marca?", answer: "Sim, podemos encaminhar os dados para análise. Marca, modelo, idade, documentação e operação influenciam a aceitação. Isso não representa aprovação de todos os modelos nem vínculo exclusivo com o fabricante." },
+      { question: "Drone financiado pode ter seguro penhor rural?", answer: "É necessário analisar o contrato de crédito, a garantia, o equipamento e os produtos disponíveis. A aceitação não é automática. Mesmo quando há vínculo com penhor rural, casco e responsabilidade civil aeronáutica devem ser conferidos separadamente." },
+      { question: "Baterias e controles estão incluídos?", answer: "Somente conforme a identificação dos itens e as condições aceitas. Informe quantidade, valor e forma de uso, guarda e recarga. Desgaste e perda de capacidade não devem ser confundidos com danos acidentais cobertos." },
+      { question: "Como cotar fora de São Paulo?", answer: "Envie os dados do equipamento, dos operadores e da atividade por nossos canais digitais. A Patro tem sede em Guarulhos/SP e atende todo o Brasil. Prazos, vistorias e documentos adicionais dependem da seguradora; não há início de cobertura apenas com o pedido de cotação." },
+    ]}
+    relatedInsurances={[
+      { title: "Seguro RETA Drone", link: "/seguro-reta-drone" },
+      { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
+      { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+      { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
+      { title: "Seguros para o Agronegócio", link: "/seguro-agro" },
+    ]}
+  />
+);
 
 export default SeguroDroneAgricola;

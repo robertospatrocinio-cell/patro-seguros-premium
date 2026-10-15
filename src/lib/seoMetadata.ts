@@ -176,21 +176,21 @@ const premiumPages: Record<string, PremiumMeta> = {
 
   // ===== Agro =====
   "/seguro-trator-agricola": {
-    title: "Seguro Trator Agrícola | Cobertura Nacional | Patro",
-    description: "Seguro para tratores agrícolas John Deere, Massey, New Holland, Valtra e Case: roubo, colisão, tombamento, incêndio e RC. Atendimento em todo o Brasil.",
-    h1: "Seguro para Tratores Agrícolas",
+    title: "Seguro de Trator Agrícola e Financiado | Patro Seguros",
+    description: "Seguro de trator agrícola próprio ou financiado. Compare coberturas, transporte e exigências de penhor rural com atendimento nacional da Patro.",
+    h1: "Seguro de trator agrícola para o trabalho e o financiamento",
     serviceType: "Seguro de Máquinas Agrícolas",
   },
   "/seguro-colheitadeira-graos": {
-    title: "Seguro Colheitadeira de Grãos | Soja, Milho e Trigo",
-    description: "Seguro para colheitadeiras de soja, milho, trigo e sorgo: cobertura para incêndio na lavoura, tombamento, colisão e quebra de plataforma. Cotação nacional.",
-    h1: "Seguro para Colheitadeira de Grãos",
+    title: "Seguro de Colheitadeira de Grãos | Patro Seguros",
+    description: "Seguro de colheitadeira de grãos: confira plataforma, transporte, coberturas e penhor rural. Atendimento nacional para produtores e prestadores de serviços.",
+    h1: "Seguro de colheitadeira de grãos para cada frente de trabalho",
     serviceType: "Seguro de Colheitadeira",
   },
   "/seguro-pulverizador-agricola": {
-    title: "Seguro Pulverizador Agrícola Autopropelido | Patro",
-    description: "Seguro para pulverizadores autopropelidos Jacto, John Deere, Stara e Case: cobertura para tombamento, colisão, incêndio e deriva. Atendimento nacional.",
-    h1: "Seguro para Pulverizador Agrícola",
+    title: "Seguro de Pulverizador Agrícola | Patro Seguros",
+    description: "Seguro de pulverizador agrícola: confira barras, eletrônica, responsabilidade civil e penhor rural. Atendimento nacional a produtores e prestadores.",
+    h1: "Seguro de pulverizador agrícola conforme a operação",
     serviceType: "Seguro de Pulverizador Autopropelido",
   },
   "/seguro-silo-agricola": {
@@ -200,9 +200,9 @@ const premiumPages: Record<string, PremiumMeta> = {
     serviceType: "Seguro de Silos e Armazenagem Agrícola",
   },
   "/seguro-equipamentos-agricolas": {
-    title: "Seguro Equipamentos Agrícolas | Implementos | Patro",
-    description: "Seguro para implementos agrícolas, plantadeiras, plataformas, grades e arados. Cobertura nacional para máquinas paradas e em operação na lavoura.",
-    h1: "Seguro para Equipamentos e Implementos Agrícolas",
+    title: "Seguro de Equipamentos Agrícolas e Implementos | Patro",
+    description: "Seguro de equipamentos agrícolas, implementos, irrigação e GPS. Confira coberturas, documentos e penhor rural com atendimento nacional da Patro.",
+    h1: "Seguro de equipamentos agrícolas conforme o uso no campo",
     serviceType: "Seguro de Equipamentos Agrícolas",
   },
 
