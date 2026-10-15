@@ -74,9 +74,14 @@ describe("Seções carregadas por proximidade", () => {
     expect(loader).not.toHaveBeenCalled();
     expect(document.querySelectorAll("#cotacao-express")).toHaveLength(1);
     expect(screen.queryByText("Seção distante")).not.toBeInTheDocument();
+    const wrapper = document.getElementById("cotacao-express")!;
+    expect(wrapper.style.minHeight).toBe("200px");
+    expect(wrapper.style.containIntrinsicSize).toBe("auto 1px auto 200px");
     expect(prefetchOnVisible).toHaveBeenCalledWith(expect.any(HTMLElement), loader, { rootMargin: "600px" });
     act(() => notify());
     expect(screen.getByText("Seção distante")).toBeInTheDocument();
+    expect(wrapper.style.minHeight).toBe("");
+    expect(wrapper.style.containIntrinsicSize).toBe("auto 1px auto 200px");
     expect(document.querySelectorAll("#cotacao-express")).toHaveLength(1);
     unmount();
     expect(disconnect).toHaveBeenCalled();

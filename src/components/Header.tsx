@@ -82,7 +82,7 @@ const Header = memo(() => {
         { key: "quote-form-seguro-empresarial", label: "Seguro Empresarial" }
       ];
       
-      let foundSession = null;
+      let foundSession: typeof recoverableSession = null;
 
       for (const config of storageKeys) {
         const item = localStorage.getItem(config.key);
@@ -116,7 +116,18 @@ const Header = memo(() => {
         }
       }
       
-      setRecoverableSession(foundSession);
+      // A verificação periódica não deve redesenhar todo o menu se nada mudou.
+      setRecoverableSession((previous) => {
+        if (previous === null || foundSession === null) {
+          return previous === foundSession ? previous : foundSession;
+        }
+        return previous.key === foundSession.key &&
+          previous.type === foundSession.type &&
+          previous.name === foundSession.name &&
+          previous.step === foundSession.step
+          ? previous
+          : foundSession;
+      });
     };
 
 

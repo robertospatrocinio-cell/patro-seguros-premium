@@ -62,7 +62,8 @@ export default function DesktopNavDisclosure({ label, panelClassName, children }
         hidden={!open}
         className={`absolute top-full pt-2 z-50 ${panelClassName}`}
       >
-        {children}
+        {/* Evita montar todos os links dos menus fechados, inclusive no celular. */}
+        {open ? children : null}
       </div>
     </div>
   );

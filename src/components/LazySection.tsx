@@ -80,11 +80,13 @@ const LazySection = ({
       ref={ref}
       id={visible ? undefined : placeholderId}
       className={className}
-      style={
-        visible
-          ? { contentVisibility: "auto", containIntrinsicSize: `1px ${minHeight}` } as any
-          : { minHeight, contentVisibility: "auto", containIntrinsicSize: `1px ${minHeight}` } as any
-      }
+      // Memoriza a altura real depois da primeira renderização. Sem "auto",
+      // sair da tela restaura a altura estimada e pode deslocar a rolagem.
+      style={{
+        minHeight: visible ? undefined : minHeight,
+        contentVisibility: "auto",
+        containIntrinsicSize: `auto 1px auto ${minHeight}`,
+      }}
     >
       {visible ? children : (
         <div className="space-y-4 p-4">

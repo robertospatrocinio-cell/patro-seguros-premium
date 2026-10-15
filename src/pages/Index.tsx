@@ -584,7 +584,7 @@ const Index = () => {
         </section>
 
         <LazySection minHeight="420px" rootMargin="300px" className="bg-muted/10" prefetch={[loadLocalTestimonials]}>
-          <Suspense fallback={null}>
+          <Suspense fallback={<div className="min-h-[420px]" aria-hidden="true" />}>
             <LocalTestimonials />
           </Suspense>
         </LazySection>
@@ -592,7 +592,7 @@ const Index = () => {
         <LazySection minHeight="380px" rootMargin="400px" className="py-14 bg-white" prefetch={[loadProvaSocialPatro]}>
           <section aria-label="Prova social consolidada">
             <div className="container mx-auto px-4 max-w-4xl">
-              <Suspense fallback={null}>
+              <Suspense fallback={<div className="min-h-[380px]" aria-hidden="true" />}>
                 <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
               </Suspense>
               <div className="mt-8 border-t border-slate-200 pt-8">
@@ -611,7 +611,7 @@ const Index = () => {
         >
           <section aria-label="Autoridade e credenciais">
             <div className="container mx-auto px-4 max-w-4xl">
-              <Suspense fallback={null}>
+              <Suspense fallback={<div className="min-h-[420px]" aria-hidden="true" />}>
                 <AutoridadePatro />
               </Suspense>
             </div>
@@ -703,11 +703,24 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CONTEÚDOS E FERRAMENTAS */}
-        <LazySection prefetch={[loadLocalSavingsCalculator, loadHomeBlogSection, loadPortoPartnershipSection]}>
-          <Suspense fallback={null}>
+        {/* Cada bloco carrega por proximidade, sem esperar os demais. */}
+        <LazySection minHeight="800px" rootMargin="300px" prefetch={[loadLocalSavingsCalculator]}>
+          <Suspense fallback={<div className="min-h-[800px]" aria-hidden="true" />}>
             <LocalSavingsCalculator />
+          </Suspense>
+        </LazySection>
+        <LazySection
+          minHeight="var(--blog-placeholder-height)"
+          rootMargin="300px"
+          className="[--blog-placeholder-height:1500px] md:[--blog-placeholder-height:750px]"
+          prefetch={[loadHomeBlogSection]}
+        >
+          <Suspense fallback={<div className="min-h-[var(--blog-placeholder-height)]" aria-hidden="true" />}>
             <HomeBlogSection />
+          </Suspense>
+        </LazySection>
+        <LazySection minHeight="500px" rootMargin="300px" prefetch={[loadPortoPartnershipSection]}>
+          <Suspense fallback={<div className="min-h-[500px]" aria-hidden="true" />}>
             <PortoPartnershipSection />
           </Suspense>
         </LazySection>

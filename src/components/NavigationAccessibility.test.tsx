@@ -9,6 +9,26 @@ afterEach(() => {
 });
 
 describe("Navegação acessível", () => {
+  it("só monta o conteúdo do menu quando ele é aberto", () => {
+    const renderContent = vi.fn();
+    const MenuContent = () => {
+      renderContent();
+      return <a href="/seguro-auto">Seguro Auto</a>;
+    };
+    render(
+      <DesktopNavDisclosure label="Todos os seguros" panelClassName="w-64">
+        <MenuContent />
+      </DesktopNavDisclosure>,
+    );
+    expect(renderContent).not.toHaveBeenCalled();
+    const trigger = screen.getByRole("button", { name: "Todos os seguros" });
+    fireEvent.click(trigger);
+    expect(renderContent).toHaveBeenCalledOnce();
+    expect(screen.getByRole("link", { name: "Seguro Auto" })).toBeInTheDocument();
+    fireEvent.keyDown(trigger, { key: "Escape" });
+    expect(screen.queryByText("Seguro Auto")).not.toBeInTheDocument();
+  });
+
   it("abre o menu por botão e fecha com Escape devolvendo o foco", () => {
     render(
       <DesktopNavDisclosure label="Para você" panelClassName="w-64">
