@@ -12,15 +12,17 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
     let mounted = true;
     let revision = 0;
     let scheduled: ReturnType<typeof setTimeout> | undefined;
+    let verifiedUserId: string | null = null;
 
-    const check = async () => {
+    const check = async (showLoading: boolean) => {
       const current = ++revision;
-      if (mounted) setState("loading");
+      if (mounted && showLoading) setState("loading");
       try {
         // Validate the session with Auth, not only with cached browser data.
         const { data: { user }, error: authError } = await supabase.auth.getUser();
         if (!mounted || current !== revision) return;
         if (authError || !user || user.is_anonymous) {
+          verifiedUserId = null;
           setState("unauth");
           return;
         }
@@ -32,27 +34,40 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
           .eq("role", "admin")
           .maybeSingle();
         if (!mounted || current !== revision) return;
-        setState(!error && data?.role === "admin" ? "allowed" : "denied");
+        const ok = !error && data?.role === "admin";
+        verifiedUserId = ok ? user.id : null;
+        setState(ok ? "allowed" : "denied");
       } catch {
-        if (mounted && current === revision) setState("denied");
+        if (mounted && current === revision) {
+          verifiedUserId = null;
+          setState("denied");
+        }
       }
     };
 
-    void check();
+    void check(true);
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (!mounted) return;
-      // Invalidate pending checks immediately so an old response cannot
-      // restore access after sign-out or an account change.
-      ++revision;
-      clearTimeout(scheduled);
       if (event === "SIGNED_OUT" || !session) {
+        ++revision;
+        clearTimeout(scheduled);
+        verifiedUserId = null;
         setState("unauth");
         return;
       }
-      setState("loading");
+      const sameUser = verifiedUserId !== null && session.user.id === verifiedUserId;
+      // Routine refreshes for the already-verified admin keep the page mounted.
+      if (sameUser && event !== "USER_UPDATED") return;
+      ++revision;
+      clearTimeout(scheduled);
+      if (!sameUser) {
+        // Account changed: block access until the new account is verified.
+        verifiedUserId = null;
+        setState("loading");
+      }
       // Supabase calls must run outside the synchronous Auth callback.
-      scheduled = setTimeout(() => { void check(); }, 0);
+      scheduled = setTimeout(() => { void check(!sameUser); }, 0);
     });
 
     return () => {
