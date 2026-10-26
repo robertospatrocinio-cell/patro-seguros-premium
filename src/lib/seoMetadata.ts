@@ -983,14 +983,15 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     };
   }
 
-  // 6. Blog Posts
+  // 6. Blog Posts — preserve the editorial title and excerpt, as on the React page.
+  // Length is a review hint, not a reason to remove the distinguishing words.
   if (cleanPath.startsWith("/blog/")) {
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
       return {
-        title: `${post.title.length > 50 ? post.title.slice(0, 47) + "..." : post.title} | Patro`,
-        description: post.excerpt.length > 160 ? post.excerpt.slice(0, 157).trim() + "..." : post.excerpt,
+        title: `${post.title} | Patro Seguros`,
+        description: post.excerpt,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
         ogUrl: `${DOMAIN}${cleanPath}`,
@@ -998,11 +999,11 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         schema: {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": post.title.length > 110 ? post.title.slice(0, 107).trim() + "..." : post.title,
+          "headline": post.title,
           "description": post.excerpt,
-          "image": [`${DOMAIN}${getArticleImage(blogSlug)}`],
+          "image": [new URL(getArticleImage(blogSlug), DOMAIN).href],
           "datePublished": `${post.date}T09:00:00-03:00`,
-          "dateModified": `${post.date}T09:00:00-03:00`,
+          "dateModified": `${post.updatedAt || post.date}T09:00:00-03:00`,
           "author": { "@type": "Person", "name": post.author },
           "publisher": {
             "@type": "Organization",

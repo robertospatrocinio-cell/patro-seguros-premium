@@ -62,7 +62,7 @@ const BlogArticle = () => {
   ].filter(f => f.q && f.a);
 
 
-  const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
+  const articleImageUrl = slug ? new URL(getArticleImage(slug), CANONICAL_BASE_URL).href : undefined;
 
   const insuranceType = meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
@@ -74,7 +74,8 @@ const BlogArticle = () => {
       <PageMeta
         title={`${article.title} | Patro Seguros`}
         description={meta?.excerpt || `${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros em Guarulhos.`}
-        ogType="article"
+        noindex={article === defaultArticle}
+        ogType={article === defaultArticle ? "website" : "article"}
         ogImage={articleImageUrl}
         ogImageAlt={slug ? getArticleImageAlt(slug, article.title) : undefined}
       />
@@ -90,7 +91,7 @@ const BlogArticle = () => {
         // Canonical URL uses the www. host to match the <link rel="canonical">
         // emitted by PageMeta, keeping JSON-LD `url`/`@id` consistent across signals.
         const articleUrl = getCanonicalUrl(`/blog/${slug}`);
-        const imageUrl = `${CANONICAL_BASE_URL}${getArticleImage(slug)}`;
+        const imageUrl = new URL(getArticleImage(slug), CANONICAL_BASE_URL).href;
         const howToSchema = extraFaqBlock?.timeline ? {
           "@context": "https://schema.org",
           "@type": "HowTo",

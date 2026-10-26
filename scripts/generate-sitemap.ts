@@ -707,9 +707,13 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/politica-de-privacidade",
   ]);
 
-  const allEntries = [...dedup.values()].filter(
-    (e) => !REDIRECTED_PATHS.has(e.loc.toLowerCase().replace(/\/+$/, "")),
-  );
+  // These forms intentionally publish noindex,follow in PageMeta and prerender.
+  // Keep them accessible, but do not ask search engines to index them.
+  const NOINDEX_PATHS = new Set(["/contato", "/cotacao"]);
+  const allEntries = [...dedup.values()].filter((e) => {
+    const pathname = e.loc.toLowerCase().replace(/\/+$/, "");
+    return !REDIRECTED_PATHS.has(pathname) && !NOINDEX_PATHS.has(pathname);
+  });
 
   // ---- Split by cluster ----------------------------------------------------
 

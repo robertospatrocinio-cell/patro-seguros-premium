@@ -330,6 +330,11 @@ async function run() {
     }
   });
 
+  // Forms need their own static metadata even though noindex pages are
+  // deliberately absent from the public sitemap.
+  routes.add("/contato");
+  routes.add("/cotacao");
+
   console.log(`🚀 Prerendering ${routes.size} routes...`);
 
   for (const route of routes) {
@@ -338,27 +343,42 @@ async function run() {
 
     let html = indexContent;
 
-    html = html.replace(/<title>[^<]*<\/title>/g, `<title>${metadata.title}</title>`);
-    html = html.replace(/<meta name="description" content="[^"]*"/g, `<meta name="description" content="${metadata.description}"`);
+    // Escape attributes and use replacer functions: quotes, & and $& in
+    // editorial text must remain text, not break the head or replacement.
+    html = html.replace(/<title>[^<]*<\/title>/g, () => `<title>${escapeHtml(metadata.title)}</title>`);
+    html = html.replace(/<meta name="description" content="[^"]*"/g, () => `<meta name="description" content="${escapeHtml(metadata.description)}"`);
 
-    const canonicalTag = `<link rel="canonical" href="${metadata.canonical}" />`;
+    const canonicalTag = `<link rel="canonical" href="${escapeHtml(metadata.canonical)}" />`;
     if (html.includes('rel="canonical"')) {
-      html = html.replace(/<link rel="canonical" href="[^"]*"[^>]*>/g, canonicalTag);
+      html = html.replace(/<link rel="canonical" href="[^"]*"[^>]*>/g, () => canonicalTag);
     } else {
-      html = html.replace("</head>", `  ${canonicalTag}\n</head>`);
+      html = html.replace("</head>", () => `  ${canonicalTag}\n</head>`);
     }
 
     const socialTitle = metadata.socialTitle || metadata.title;
-    html = html.replace(/<meta property="og:title" content="[^"]*"/g, `<meta property="og:title" content="${socialTitle}"`);
-    html = html.replace(/<meta property="og:description" content="[^"]*"/g, `<meta property="og:description" content="${metadata.description}"`);
-    html = html.replace(/<meta property="og:url" content="[^"]*"/g, `<meta property="og:url" content="${metadata.ogUrl}"`);
-    html = html.replace(/<meta property="og:type" content="[^"]*"/g, `<meta property="og:type" content="${metadata.ogType}"`);
+    html = html.replace(/<meta property="og:title" content="[^"]*"/g, () => `<meta property="og:title" content="${escapeHtml(socialTitle)}"`);
+    html = html.replace(/<meta property="og:description" content="[^"]*"/g, () => `<meta property="og:description" content="${escapeHtml(metadata.description)}"`);
+    html = html.replace(/<meta property="og:url" content="[^"]*"/g, () => `<meta property="og:url" content="${escapeHtml(metadata.ogUrl)}"`);
+    html = html.replace(/<meta property="og:type" content="[^"]*"/g, () => `<meta property="og:type" content="${escapeHtml(metadata.ogType)}"`);
     
-    html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, `<meta name="twitter:title" content="${socialTitle}"`);
-    html = html.replace(/<meta name="twitter:description" content="[^"]*"/g, `<meta name="twitter:description" content="${metadata.description}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, () => `<meta name="twitter:title" content="${escapeHtml(socialTitle)}"`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*"/g, () => `<meta name="twitter:description" content="${escapeHtml(metadata.description)}"`);
+
+    // Share the article's actual image before JavaScript runs (social crawlers
+    // generally do not execute PageMeta). Preserve the global image elsewhere.
+    const articleImage = metadata.ogType === "article" ? metadata.schema?.image : undefined;
+    const imageSource = Array.isArray(articleImage) ? articleImage[0] : articleImage;
+    if (typeof imageSource === "string" && imageSource) {
+      const imageUrl = new URL(imageSource, "https://www.patroseguros.com.br").href;
+      const imageAlt = metadata.h1 || metadata.title;
+      html = html.replace(/<meta property="og:image" content="[^"]*"/g, () => `<meta property="og:image" content="${escapeHtml(imageUrl)}"`);
+      html = html.replace(/<meta name="twitter:image" content="[^"]*"/g, () => `<meta name="twitter:image" content="${escapeHtml(imageUrl)}"`);
+      html = html.replace(/<meta property="og:image:alt" content="[^"]*"/g, () => `<meta property="og:image:alt" content="${escapeHtml(imageAlt)}"`);
+      html = html.replace(/<meta name="twitter:image:alt" content="[^"]*"/g, () => `<meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}"`);
+    }
 
     if (metadata.schema) {
-      const schemaScript = `\n    <script type="application/ld+json">\n      ${JSON.stringify(metadata.schema, null, 2)}\n    </script>`;
+      const schemaScript = `\n    <script type="application/ld+json">\n      ${JSON.stringify(metadata.schema, null, 2).replace(/</g, "\\u003c")}\n    </script>`;
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
@@ -496,6 +516,8 @@ async function run() {
   let errorHtml = indexContent;
   errorHtml = errorHtml.replace(/<title>[^<]*<\/title>/, `<title>Página Não Encontrada (404) | Patro Seguros</title>`);
   errorHtml = errorHtml.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A página solicitada não foi encontrada. Explore nossos seguros auto, residenciais e de vida em Guarulhos."`);
+  // Replace the inherited index directive instead of publishing conflicting tags.
+  errorHtml = errorHtml.replace(/<meta\s+name="robots"[^>]*>/gi, "");
   errorHtml = errorHtml.replace("</head>", `  <meta name="robots" content="noindex, follow">\n</head>`);
   errorHtml = errorHtml.replace('<div id="root"></div>', `
     <div id="crawler-content" style="display:none">
