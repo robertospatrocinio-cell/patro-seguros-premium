@@ -96,6 +96,10 @@ const Cidades = ({ estado }: { estado: EstadoNacional }) => (
         {estado.nome} ({estado.uf}) <ArrowRight className="h-3 w-3" aria-hidden="true" />
       </Link>
     </h3>
+    <p className="text-sm text-muted-foreground mb-3">{estado.perfil}</p>
+    <p className="text-sm font-medium text-foreground mb-1">
+      {estado.uf === "DF" ? "Referência no Distrito Federal:" : "Cidades de referência:"}
+    </p>
     <ul className="text-sm flex flex-wrap gap-x-3 gap-y-1">
       {estado.cidades.map((c) => (
         <li key={c}>
@@ -209,9 +213,9 @@ Cada seguradora define as localidades em que aceita cada tipo de risco. Confirma
 
 A Patro Seguros atende ${estado.nome} por WhatsApp, e-mail e videochamada. A análise do risco, a comparação de propostas, a contratação e o pós-venda são feitos sem que você precise se deslocar.
 
-## Disponibilidade por município
+## Disponibilidade por localidade
 
-Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, confirmamos na cotação quais produtos e seguradoras estão disponíveis para a sua cidade em ${estado.nome}.`}
+Cada seguradora define onde aceita cada tipo de risco. Confirmamos na cotação quais produtos, coberturas e redes de atendimento estão disponíveis para o endereço informado, antes da contratação.`}
         howItWorks={como}
         coverages={coberturas}
         whoNeeds={[
@@ -229,11 +233,20 @@ Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, c
         extraSections={
           <section aria-labelledby="cidades-estado-heading" className="space-y-6">
             <h2 id="cidades-estado-heading" className="text-2xl md:text-3xl font-bold text-foreground inline-flex items-center gap-2">
-              <MapPin className="h-6 w-6 text-primary" aria-hidden="true" /> Cidades de referência em {estado.nome}
+              <MapPin className="h-6 w-6 text-primary" aria-hidden="true" /> {estado.uf === "DF" ? "Atendimento no Distrito Federal" : `Cidades de referência em ${estado.nome}`}
             </h2>
             <p className="text-muted-foreground">
-              Atendemos também os demais municípios do estado, sempre de forma remota.
+              {estado.uf === "DF"
+                ? "Brasília é a referência para o atendimento no Distrito Federal. Atendemos também as demais regiões administrativas, de forma remota. O DF não se divide em municípios."
+                : "As cidades listadas são exemplos de localidades atendidas, não uma lista completa nem indicação de escritórios locais. Atendemos também os demais municípios do estado de forma remota."}
+              {" "}A disponibilidade de cada produto é confirmada na cotação.
             </p>
+            {estado.uf === "SP" && (
+              <p className="text-muted-foreground">
+                O atendimento inclui a capital, a região metropolitana, o interior e o litoral. Veja também a página da{" "}
+                <Link to="/grande-sao-paulo" className="text-primary hover:underline">Grande São Paulo</Link>.
+              </p>
+            )}
             <ul className="flex flex-wrap gap-3">
               {estado.cidades.map((c) => (
                 <li key={c}>
@@ -245,7 +258,7 @@ Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, c
             <ProdutosLinks />
             {vizinhos.length > 0 && (
               <>
-                <h3 className="font-semibold text-foreground">Outros estados da {regiao.nome}</h3>
+                <h3 className="font-semibold text-foreground">Outras unidades da Federação na {regiao.nome}</h3>
                 <ul className="flex flex-wrap gap-3">
                   {vizinhos.map((v) => (
                     <li key={v.slug}>
@@ -282,7 +295,7 @@ Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, c
 
 ${regiao.destaques.map((d) => `- ${d}`).join("\n")}
 
-## Disponibilidade por município
+## Disponibilidade por localidade
 
 A disponibilidade de cada produto e seguradora varia conforme a localidade. Confirmamos isso na cotação, antes de qualquer contratação.`}
       howItWorks={como}
@@ -302,8 +315,13 @@ A disponibilidade de cada produto e seguradora varia conforme a localidade. Conf
       extraSections={
         <section aria-labelledby="estados-regiao-heading" className="space-y-6">
           <h2 id="estados-regiao-heading" className="text-2xl md:text-3xl font-bold text-foreground">
-            Estados e cidades atendidos na {regiao.nome}
+            Unidades da Federação e localidades atendidas na {regiao.nome}
           </h2>
+          <p className="text-muted-foreground">
+            Os resumos apresentam o contexto econômico de cada unidade da Federação. As localidades listadas são referências,
+            não uma lista completa de atendimento nem indicação de escritórios locais. Atendemos também outras localidades
+            de forma remota, com disponibilidade dos produtos confirmada na cotação.
+          </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {estados.map((x) => (
               <Cidades key={x.slug} estado={x} />

@@ -52,9 +52,9 @@ export interface RegiaoNacional {
 
 const faqsComuns = (regiao: string) => [
   {
-    question: `A Patro Seguros atende clientes em ${regiao} sem escritório local?`,
+    question: `A Patro Seguros atende clientes ${regiao} sem escritório local?`,
     answer:
-      "Sim. O atendimento é feito de forma remota por WhatsApp, e-mail e videochamada. A apólice é emitida pela seguradora escolhida, que tem cobertura e rede de atendimento nacionais conforme as condições contratadas.",
+      "Sim. O atendimento é feito de forma remota por WhatsApp, e-mail e videochamada. A disponibilidade do produto, a abrangência da cobertura e a rede de atendimento dependem da seguradora e das condições contratadas. Confirmamos esses pontos na cotação para a sua localidade.",
   },
   {
     question: "Como funciona a vistoria ou a análise de risco à distância?",
@@ -92,7 +92,7 @@ export const regioesNacionais: RegiaoNacional[] = [
     titulo: "Seguros na Região Sudeste",
     resumo: "Empresas, logística, saúde PME e agro em SP, MG, RJ e ES.",
     intro: [
-      "Com sede em Guarulhos/SP, a Patro Seguros atende também o interior paulista e os demais estados do Sudeste. A região concentra polos logísticos, indústria, serviços e áreas agrícolas de cana, café, laranja e grãos.",
+      "Com sede em Guarulhos/SP, a Patro Seguros atende a capital paulista, a região metropolitana, o interior e o litoral de São Paulo, além de Minas Gerais, Rio de Janeiro e Espírito Santo. O Sudeste reúne indústria, serviços, logística e produção agropecuária, incluindo cana, café, laranja e grãos.",
       "Para quem está fora da Grande São Paulo, o atendimento é remoto, com o mesmo acompanhamento consultivo de cotação, contratação e pós-venda.",
     ],
     destaques: ["Seguro empresarial e responsabilidade civil", "Plano de saúde empresarial", "Frotas e caminhões", "Rural, máquinas e drones agrícolas"],
@@ -102,9 +102,9 @@ export const regioesNacionais: RegiaoNacional[] = [
     slug: "centro-oeste",
     nome: "Região Centro-Oeste",
     titulo: "Seguros na Região Centro-Oeste",
-    resumo: "Grãos, pecuária, máquinas, drones e transporte em MT, MS, GO e DF.",
+    resumo: "Agro, transporte, indústria e serviços em MT, MS, GO e no DF.",
     intro: [
-      "O Centro-Oeste é uma das principais fronteiras agrícolas do país, com grandes áreas de soja, milho, algodão e pecuária, além de intenso transporte rodoviário da safra.",
+      "O Centro-Oeste reúne Mato Grosso, Mato Grosso do Sul, Goiás e o Distrito Federal. A produção de soja, milho, algodão e a pecuária convivem com agroindústria, transporte de cargas, comércio e serviços. No Distrito Federal, a administração pública e os serviços têm destaque.",
       "A Patro Seguros atende produtores rurais, operadores de drones agrícolas, transportadoras e empresas da região de forma remota, com análise técnica de cada operação.",
     ],
     destaques: ["Seguro rural e pecuário", "Máquinas e implementos agrícolas", "Drone agrícola (casco e RETA)", "Transporte agro e frotas"],
@@ -116,7 +116,7 @@ export const regioesNacionais: RegiaoNacional[] = [
     titulo: "Seguros na Região Nordeste",
     resumo: "Agro do Matopiba, fruticultura, comércio e logística no Nordeste.",
     intro: [
-      "O Nordeste combina polos agrícolas como o oeste baiano, o sul do Maranhão e do Piauí (Matopiba) e a fruticultura irrigada, com capitais de comércio, serviços e logística portuária.",
+      "O Nordeste reúne nove estados, com comércio, serviços, indústria, turismo, agropecuária e logística portuária. O oeste da Bahia e áreas do Maranhão e do Piauí integram o Matopiba, que também abrange o Tocantins, na Região Norte. A fruticultura irrigada se destaca no Vale do São Francisco.",
       "A Patro Seguros atende produtores, empresas e frotas nordestinas de forma remota, comparando seguradoras com atuação nacional.",
     ],
     destaques: ["Seguro rural e máquinas agrícolas", "Drones agrícolas", "Seguro empresarial e saúde PME", "Frotas e caminhões"],
@@ -126,9 +126,9 @@ export const regioesNacionais: RegiaoNacional[] = [
     slug: "norte",
     nome: "Região Norte",
     titulo: "Seguros na Região Norte",
-    resumo: "Agro em expansão, transporte e empresas em TO, PA, RO e demais estados.",
+    resumo: "Indústria, serviços, agro e logística em AC, AP, AM, PA, RO, RR e TO.",
     intro: [
-      "Na Região Norte, a agricultura e a pecuária crescem em estados como Tocantins, Pará e Rondônia, ao lado de polos industriais e de logística fluvial e rodoviária.",
+      "A Região Norte reúne Acre, Amapá, Amazonas, Pará, Rondônia, Roraima e Tocantins. Suas atividades incluem indústria em Manaus, mineração no Pará, agropecuária, extrativismo, comércio e serviços, com transporte fluvial e rodoviário.",
       "A Patro Seguros atende produtores, transportadoras e empresas da região de forma remota, sempre verificando a disponibilidade de cada seguradora para a localidade.",
     ],
     destaques: ["Seguro rural e pecuário", "Máquinas agrícolas e drones", "Transporte e frotas", "Seguro empresarial"],
@@ -147,16 +147,16 @@ export const estadosNacionais: EstadoNacional[] = [
   e("sul", "PR", "Paraná", "parana", "agro", "O Paraná combina produção de grãos, cooperativas agroindustriais, avicultura e um polo industrial e logístico ligado ao Porto de Paranaguá.", ["Curitiba", "Londrina", "Maringá", "Cascavel", "Ponta Grossa", "Toledo"]),
   e("sul", "SC", "Santa Catarina", "santa-catarina", "empresas", "Santa Catarina tem indústria diversificada, forte agroindústria de proteína animal no oeste e portos movimentados no litoral.", ["Florianópolis", "Joinville", "Blumenau", "Chapecó", "Itajaí"]),
   e("sul", "RS", "Rio Grande do Sul", "rio-grande-do-sul", "agro", "O Rio Grande do Sul reúne lavouras de soja, arroz e trigo, pecuária, indústria metalmecânica e intenso transporte rodoviário.", ["Porto Alegre", "Caxias do Sul", "Passo Fundo", "Santa Maria", "Cruz Alta"]),
-  // Sudeste
-  e("sudeste", "SP", "São Paulo (interior e litoral)", "sao-paulo-interior", "empresas", "O interior e o litoral paulista concentram indústria, centros de distribuição, cana-de-açúcar, laranja e café, além do Porto de Santos.", ["Campinas", "Ribeirão Preto", "Sorocaba", "São José dos Campos", "Piracicaba", "Bauru", "Santos"]),
-  e("sudeste", "MG", "Minas Gerais", "minas-gerais", "agro", "Minas Gerais tem forte produção de café, leite e grãos no Triângulo e no Alto Paranaíba, além de mineração e indústria.", ["Belo Horizonte", "Uberlândia", "Uberaba", "Patos de Minas", "Montes Claros"]),
+  // Sudeste — mantém o slug histórico de SP para preservar os links publicados.
+  e("sudeste", "SP", "São Paulo", "sao-paulo-interior", "empresas", "São Paulo reúne serviços e indústria na capital e na região metropolitana, polos industriais e agropecuários no interior e logística portuária no litoral. Cana-de-açúcar, laranja e café integram a produção agrícola do estado.", ["Campinas", "Ribeirão Preto", "Sorocaba", "São José dos Campos", "Piracicaba", "Bauru", "Santos"]),
+  e("sudeste", "MG", "Minas Gerais", "minas-gerais", "agro", "Minas Gerais reúne serviços, mineração e indústria, além de produção de leite, café e grãos. O café se destaca no Sul de Minas, no Cerrado Mineiro e nas Matas de Minas; o Triângulo Mineiro e o Alto Paranaíba também têm atividade agropecuária diversificada.", ["Belo Horizonte", "Uberlândia", "Uberaba", "Patos de Minas", "Montes Claros"]),
   e("sudeste", "RJ", "Rio de Janeiro", "rio-de-janeiro", "empresas", "O Rio de Janeiro concentra serviços, comércio, energia e logística portuária, com agropecuária no norte e noroeste fluminense.", ["Rio de Janeiro", "Niterói", "Campos dos Goytacazes", "Volta Redonda"]),
   e("sudeste", "ES", "Espírito Santo", "espirito-santo", "logistica", "O Espírito Santo se destaca na produção de café conilon, rochas ornamentais e na logística portuária.", ["Vitória", "Serra", "Linhares", "Cachoeiro de Itapemirim"]),
   // Centro-Oeste
   e("centro-oeste", "MT", "Mato Grosso", "mato-grosso", "agro", "Mato Grosso é um dos maiores produtores de soja, milho e algodão do país, com grande frota de máquinas e transporte rodoviário da safra.", ["Cuiabá", "Rondonópolis", "Sinop", "Sorriso", "Lucas do Rio Verde", "Primavera do Leste"]),
   e("centro-oeste", "MS", "Mato Grosso do Sul", "mato-grosso-do-sul", "agro", "Mato Grosso do Sul combina grãos, pecuária de corte, cana e celulose, com polos industriais em expansão.", ["Campo Grande", "Dourados", "Três Lagoas", "Maracaju"]),
   e("centro-oeste", "GO", "Goiás", "goias", "agro", "Goiás tem produção relevante de soja, milho, cana e pecuária, além de agroindústria e distribuição logística.", ["Goiânia", "Rio Verde", "Jataí", "Anápolis", "Cristalina"]),
-  e("centro-oeste", "DF", "Distrito Federal", "distrito-federal", "empresas", "O Distrito Federal concentra serviços, comércio e empresas, com produção agrícola na região do PAD-DF.", ["Brasília"]),
+  e("centro-oeste", "DF", "Distrito Federal", "distrito-federal", "empresas", "O Distrito Federal abriga Brasília, capital do país, e reúne administração pública, serviços, comércio e produção agrícola em áreas como o PAD-DF. Sua organização territorial é feita em regiões administrativas, não em municípios.", ["Brasília"]),
   // Nordeste
   e("nordeste", "BA", "Bahia", "bahia", "agro", "A Bahia reúne o polo de grãos e algodão do oeste baiano, a fruticultura do Vale do São Francisco e um grande setor de comércio e serviços.", ["Salvador", "Luís Eduardo Magalhães", "Barreiras", "Feira de Santana", "Juazeiro"]),
   e("nordeste", "MA", "Maranhão", "maranhao", "agro", "O Maranhão integra o Matopiba, com soja e milho no sul do estado, e tem logística portuária em São Luís.", ["São Luís", "Balsas", "Imperatriz"]),
@@ -171,10 +171,10 @@ export const estadosNacionais: EstadoNacional[] = [
   e("norte", "TO", "Tocantins", "tocantins", "agro", "Tocantins integra o Matopiba, com grãos e pecuária em expansão e logística ligada à Ferrovia Norte-Sul.", ["Palmas", "Araguaína", "Gurupi", "Porto Nacional"]),
   e("norte", "PA", "Pará", "para", "agro", "O Pará combina pecuária, grãos no sudeste e oeste do estado, mineração e logística fluvial.", ["Belém", "Paragominas", "Marabá", "Santarém"]),
   e("norte", "RO", "Rondônia", "rondonia", "agro", "Rondônia tem pecuária, grãos e café em expansão, com transporte rodoviário e fluvial.", ["Porto Velho", "Vilhena", "Ji-Paraná"]),
-  e("norte", "AM", "Amazonas", "amazonas", "empresas", "O Amazonas concentra indústria e comércio na Zona Franca de Manaus, com logística fluvial.", ["Manaus"]),
-  e("norte", "AC", "Acre", "acre", "empresas", "O Acre tem economia de comércio, serviços e agropecuária, com destaque para Rio Branco.", ["Rio Branco"]),
-  e("norte", "RR", "Roraima", "roraima", "agro", "Roraima tem produção de grãos em expansão e comércio concentrado em Boa Vista.", ["Boa Vista"]),
-  e("norte", "AP", "Amapá", "amapa", "empresas", "O Amapá concentra comércio e serviços em Macapá, com logística fluvial e portuária.", ["Macapá"]),
+  e("norte", "AM", "Amazonas", "amazonas", "empresas", "O Amazonas reúne o Polo Industrial de Manaus, comércio, serviços e atividades de pesca, extrativismo e agropecuária no interior. O transporte fluvial tem papel importante na circulação de pessoas e mercadorias.", ["Manaus"]),
+  e("norte", "AC", "Acre", "acre", "empresas", "O Acre reúne administração pública, comércio e serviços, além de pecuária, agricultura e extrativismo florestal. Rio Branco é a capital e um polo de serviços do estado.", ["Rio Branco"]),
+  e("norte", "RR", "Roraima", "roraima", "agro", "Roraima reúne administração pública, comércio e serviços em Boa Vista, além de agricultura e pecuária em outras áreas do estado. A produção rural inclui soja, arroz e milho.", ["Boa Vista"]),
+  e("norte", "AP", "Amapá", "amapa", "empresas", "O Amapá reúne administração pública, comércio e serviços em Macapá, atividades portuárias em Santana e produção pesqueira, extrativista e agropecuária em outras áreas do estado.", ["Macapá"]),
 ];
 
 export const estadoPath = (slug: string) => `${ATENDIMENTO_NACIONAL_PATH}/estado/${slug}`;

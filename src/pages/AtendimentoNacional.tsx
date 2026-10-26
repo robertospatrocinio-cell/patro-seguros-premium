@@ -235,7 +235,9 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
               seguradoras parceiras e acompanhamos a apólice do início ao sinistro.
             </p>
             <p className="opacity-90 mb-3">
-              Escolha sua região para ver os estados e cidades de referência e os seguros mais procurados.
+              Atendemos as 27 unidades da Federação: os 26 estados e o Distrito Federal. Escolha sua região para consultar
+              os resumos e as localidades de referência. A lista de cidades é ilustrativa; a disponibilidade de cada seguro
+              é confirmada na cotação para o endereço informado.
             </p>
             <div className="mt-4">
               <Cta local="minha cidade (fora de Guarulhos)" id="atendimento-nacional:hub" />
