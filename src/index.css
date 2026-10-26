@@ -37,6 +37,8 @@
     --radius: 0.5rem;
     --cta: 40 42% 62%;
     --cta-foreground: 215 48% 14%;
+    --whatsapp-hover: 142 72% 29%;
+    --whatsapp-hover-foreground: 0 0% 100%;
     --gold: 40 42% 62%;
     --gold-soft: 40 40% 78%;
     --gold-deep: 38 44% 34%;
@@ -261,4 +263,44 @@ main {
 }
 @media (prefers-reduced-motion: reduce) {
   .patro-site-header { transition: none; }
+}
+
+/* WhatsApp: estado compartilhado, inclusive nos CTAs com botão interno.
+   A prioridade é intencional para superar cores locais, gradientes e estilos inline.
+   Não pintar o link externo quando o botão interno já desenha a superfície. */
+:is(
+  a[href^="https://wa.me/"],
+  a[href^="https://api.whatsapp.com/"],
+  a[href^="https://web.whatsapp.com/"],
+  [data-whatsapp-cta]
+):is(:hover, :focus-visible):not(:has(> button, > div.rounded-full)),
+:is(
+  a[href^="https://wa.me/"],
+  a[href^="https://api.whatsapp.com/"],
+  a[href^="https://web.whatsapp.com/"]
+):is(:hover, :focus-visible) > :is(button, div.rounded-full),
+:is(
+  a[href^="https://wa.me/"],
+  a[href^="https://api.whatsapp.com/"],
+  a[href^="https://web.whatsapp.com/"]
+) > button:focus-visible {
+  background-color: hsl(var(--whatsapp-hover)) !important;
+  background-image: none !important;
+  border-color: hsl(var(--whatsapp-hover)) !important;
+  color: hsl(var(--whatsapp-hover-foreground)) !important;
+}
+
+/* Ícones e rótulos com cor própria também precisam de contraste sobre o verde. */
+:is(
+  a[href^="https://wa.me/"],
+  a[href^="https://api.whatsapp.com/"],
+  a[href^="https://web.whatsapp.com/"],
+  [data-whatsapp-cta]
+):is(:hover, :focus-visible) :is(svg, span),
+:is(
+  a[href^="https://wa.me/"],
+  a[href^="https://api.whatsapp.com/"],
+  a[href^="https://web.whatsapp.com/"]
+) > button:focus-visible :is(svg, span) {
+  color: hsl(var(--whatsapp-hover-foreground)) !important;
 }

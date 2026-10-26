@@ -708,7 +708,8 @@ const Cotacao = () => {
 
                           <div className="pt-4 flex flex-col gap-4">
                             <Button 
-                              type="button" 
+                              type="button"
+                              data-whatsapp-cta
                               variant="outline" 
                               size="sm"
                               className="w-full text-xs font-medium border-dashed text-slate-500"
