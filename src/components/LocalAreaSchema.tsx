@@ -64,7 +64,7 @@ const LocalAreaSchema = ({
     description,
     url,
     areaServed,
-    provider: { "@id": agencyId },
+    provider: { "@type": "InsuranceAgency", "@id": agencyId },
   };
 
   if (priceRange) {
