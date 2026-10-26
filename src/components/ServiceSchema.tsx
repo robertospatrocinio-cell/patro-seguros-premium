@@ -20,6 +20,7 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance", scope = "
     "name": name,
     "description": description,
     "provider": {
+      "@type": "InsuranceAgency",
       "@id": `${CANONICAL_BASE_URL}/#insurance-agency`
     },
     // Área de atendimento não equivale à localização de uma filial.
