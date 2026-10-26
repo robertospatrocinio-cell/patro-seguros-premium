@@ -50,22 +50,35 @@ const Header = memo(() => {
 
 
   useEffect(() => {
-    let ticking = false;
-    let lastState = false;
+    // O deslocamento do cabeçalho só existe a partir de md. No celular,
+    // não executar trabalho a cada rolagem para um efeito que não é exibido.
+    const desktop = window.matchMedia("(min-width: 768px)");
+    let frame = 0;
     const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const next = window.scrollY > 20;
-        if (next !== lastState) {
-          lastState = next;
-          setIsScrolled(next);
-        }
-        ticking = false;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20);
+        frame = 0;
       });
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const syncViewport = () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(frame);
+      frame = 0;
+      if (desktop.matches) {
+        setIsScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    syncViewport();
+    desktop.addEventListener("change", syncViewport);
+    return () => {
+      desktop.removeEventListener("change", syncViewport);
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {

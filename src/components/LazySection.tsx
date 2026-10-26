@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, ReactNode } from "react";
+import { startTransition, useState, useRef, useEffect, ReactNode } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { prefetchOnVisible } from "@/lib/prefetch";
 import { getLazyMarginMultiplier } from "@/lib/monitoringSession";
@@ -54,8 +54,10 @@ const LazySection = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
           observer.disconnect();
+          // A montagem de seções secundárias não deve disputar prioridade
+          // com toques, digitação e outras interações no celular.
+          startTransition(() => setVisible(true));
         }
       },
       { rootMargin: effectiveMargin }

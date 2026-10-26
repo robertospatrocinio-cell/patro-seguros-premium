@@ -6,6 +6,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import ExternalLink from "@/components/ExternalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LazySection from "@/components/LazySection";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import HowToSchema, { type HowToStep } from "@/components/HowToSchema";
@@ -972,13 +973,15 @@ const InsurancePageTemplate = ({
                  </ul>
                  {captacao && <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{captacao.note}</p>}
                </div>
-               <Suspense fallback={<div className="h-[400px] bg-muted animate-pulse rounded-2xl" />}>
-                 {captacao ? (
-                   <ProductQuoteForm key={location.pathname} productName={captacao.label} productPath={captacao.path} fields={captacaoFields} />
-                 ) : (
-                   <QuickQuoteForm key={location.pathname} insuranceType={title} extraFields={quoteFormFields} trackingLabel={title.toLowerCase().replace(/\s+/g, "-")} />
-                 )}
-               </Suspense>
+               <LazySection key={location.pathname} minHeight="400px" rootMargin="300px">
+                 <Suspense fallback={<div className="h-[400px] bg-muted animate-pulse rounded-2xl" />}>
+                   {captacao ? (
+                     <ProductQuoteForm key={location.pathname} productName={captacao.label} productPath={captacao.path} fields={captacaoFields} />
+                   ) : (
+                     <QuickQuoteForm key={location.pathname} insuranceType={title} extraFields={quoteFormFields} trackingLabel={title.toLowerCase().replace(/\s+/g, "-")} />
+                   )}
+                 </Suspense>
+               </LazySection>
              </section>
              )}
            </div>
