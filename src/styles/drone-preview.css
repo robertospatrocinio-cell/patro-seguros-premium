@@ -1,0 +1,65 @@
+/* Isolado à prévia: não modifica o cabeçalho nem as páginas publicadas. */
+.drone-preview-shell {
+  overflow-wrap: anywhere;
+}
+.drone-preview-shell main {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.drone-preview-shell main section[id] {
+  scroll-margin-top: 1.5rem;
+}
+.drone-preview-shell main .grid > * {
+  min-width: 0;
+}
+.drone-preview-shell :is(a, button, input, select, summary):focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
+.drone-preview-shell main a:not(.inline-flex),
+.drone-preview-shell footer a,
+.drone-preview-shell aside a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.drone-preview-shell nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+.drone-preview-shell main input:not([type="checkbox"]),
+.drone-preview-shell main select {
+  min-height: 48px;
+  font-size: 16px;
+}
+.drone-preview-shell main summary {
+  min-height: 48px;
+  padding-block: 10px;
+}
+.drone-preview-shell main summary::after {
+  content: " +";
+  margin-left: auto;
+  padding-left: 12px;
+}
+.drone-preview-shell main details[open] > summary::after {
+  content: " −";
+}
+/* O header institucional é mantido, mas não acompanha a rolagem nesta prévia. */
+.drone-preview-header .patro-site-header {
+  position: relative;
+  transform: none;
+}
+/* Evita a segunda ação flutuante de sinistro sobre o formulário. */
+.drone-preview-header > .fixed {
+  display: none;
+}
+/* O mesmo consentimento existente permanece no fluxo, sem encobrir CTAs. */
+.drone-preview-cookies > .fixed {
+  position: static;
+  animation: none;
+  padding: 24px 0 0;
+}
+.drone-preview-cookies button {
+  min-height: 44px;
+  font-size: 14px;
+}

@@ -130,6 +130,8 @@ import { LEGACY_BAIRRO_REDIRECTS } from "@/lib/legacyBairroRedirects";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
+const DroneAgricolaPreview = lazy(() => import("@/pages/DroneAgricolaPreview"));
+import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost } from "@/data/droneAgricolaPreview";
 
 
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
@@ -502,12 +504,19 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
-const DeferredGlobalUi = () => (
-  <Suspense fallback={null}>
-    <WhatsAppButton />
-    <CookieBanner />
-  </Suspense>
-);
+const DeferredGlobalUi = () => {
+  const { pathname } = useLocation();
+  const dronePreview = (pathname === DRONE_PREVIEW_PATH || pathname === RETA_PREVIEW_PATH) &&
+    typeof window !== "undefined" && isDronePreviewHost(window.location.hostname);
+  // A prévia usa consentimento no fluxo e ações locais, sem sobrepor o formulário.
+  if (dronePreview) return null;
+  return (
+    <Suspense fallback={null}>
+      <WhatsAppButton />
+      <CookieBanner />
+    </Suspense>
+  );
+};
 
 const App = () => {
   useEffect(() => {
@@ -589,6 +598,8 @@ const App = () => {
               <Suspense fallback={<PageSkeleton />}>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path={DRONE_PREVIEW_PATH} element={<DroneAgricolaPreview />} />
+                  <Route path={RETA_PREVIEW_PATH} element={<DroneAgricolaPreview />} />
                 <Route path={B2B_HUB_PATH} element={<SegurosEmpresariaisEspecializados />} />
                 <Route path={GARANTIA_LOCAL_PATH} element={<SeguroGarantiaGuarulhos />} />
                 <Route path={CREDITO_HUB_PATH} element={<SeguroDeCredito />} />

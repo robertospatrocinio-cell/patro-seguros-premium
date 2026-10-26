@@ -9,9 +9,9 @@ import { safeInvoke } from "@/lib/supabase-helpers";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
-type Props = { productName?: string; productPath?: string; fields?: CaptacaoField[] };
+type Props = { productName?: string; productPath?: string; fields?: CaptacaoField[]; compactContact?: boolean };
 
-export default function ProductQuoteForm({ productName, productPath, fields }: Props) {
+export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false }: Props) {
   const [selected, setSelected] = useState("/seguro-maquinas-agricolas");
   const profile = getCaptacaoProduto(productPath ?? selected);
   const name = productName ?? profile?.label ?? "Seguro";
@@ -122,6 +122,7 @@ export default function ProductQuoteForm({ productName, productPath, fields }: P
           <Input id={`${prefix}-telefone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" required maxLength={20} placeholder="(11) 99999-9999…" value={contact.phone} onChange={e => setContact({ ...contact, phone: e.target.value })} aria-invalid={fieldError?.field === "phone"} aria-describedby={fieldError?.field === "phone" ? `${prefix}-phone-error` : undefined} />
           {fieldError?.field === "phone" && <p id={`${prefix}-phone-error`} className="text-sm text-destructive">{fieldError.message}</p>}
         </div>
+        {!compactContact && <>
         <div className="space-y-2">
           <Label htmlFor={`${prefix}-email`}>E-mail (opcional)</Label>
           <Input id={`${prefix}-email`} name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} maxLength={200} value={contact.email} onChange={e => setContact({ ...contact, email: e.target.value })} aria-invalid={fieldError?.field === "email"} aria-describedby={fieldError?.field === "email" ? `${prefix}-email-error` : undefined} />
@@ -134,6 +135,7 @@ export default function ProductQuoteForm({ productName, productPath, fields }: P
           onMessageChange={value => setDetails(prev => ({ ...prev, quote_message: value }))}
           disabled={sending}
         />
+        </>}
       </fieldset>
       <details className="border-y py-4">
         <summary className="cursor-pointer min-h-11 text-sm font-semibold">Adicionar detalhes de {name} (opcional)</summary>
