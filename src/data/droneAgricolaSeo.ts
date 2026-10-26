@@ -23,7 +23,7 @@ export function getDroneSeo(pathname: string) {
           "@type": "Service", "@id": `${canonical}#service`, url: canonical,
           name: h1, description,
           serviceType: reta ? "Análise de RETA para drones agrícolas" : "Análise de casco e RETA para drones agrícolas",
-          provider: { "@id": `${origin}/#insurance-agency` },
+          provider: { "@type": "InsuranceAgency", "@id": `${origin}/#insurance-agency` },
           areaServed: { "@type": "Country", name: "Brasil" },
         },
         {
