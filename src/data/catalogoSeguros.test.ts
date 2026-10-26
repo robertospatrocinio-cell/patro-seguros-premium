@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import appSource from "../App.tsx?raw";
-import b2bSource from "./b2bVertical.ts?raw";
+import b2bSource from "./b2bRoutes.ts?raw";
 import { landingPagesData } from "./landingPages";
 import { catalogoSeguros, correspondeBuscaCatalogo } from "./catalogoSeguros";
 

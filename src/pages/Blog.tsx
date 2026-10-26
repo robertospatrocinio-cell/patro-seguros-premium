@@ -156,8 +156,14 @@ const Blog = () => {
     }
   }, [query, selectedCategory, currentPage, searchParams, setSearchParams]);
 
+  // A ordem por data não muda com a busca: calcule uma vez por montagem.
+  const sortedAll = useMemo(
+    () => [...articles].sort((a, b) => b.date.localeCompare(a.date)),
+    [],
+  );
+
   const filtered = useMemo(() => {
-    let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+    let list = sortedAll;
     if (selectedCategory) list = list.filter(a => a.category === selectedCategory);
     if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
     const q = query.trim().toLowerCase();
@@ -169,7 +175,7 @@ const Blog = () => {
       );
     }
     return list;
-  }, [selectedCategory, selectedTag, query]);
+  }, [sortedAll, selectedCategory, selectedTag, query]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const currentArticles = useMemo(() => {
@@ -226,11 +232,7 @@ const Blog = () => {
     return out;
   }, [currentPage, totalPages]);
 
-  // Artigo em destaque: pega o mais recente que tenha capa dedicada.
-  const sortedAll = useMemo(
-    () => [...articles].sort((a, b) => b.date.localeCompare(a.date)),
-    [],
-  );
+  // Artigo em destaque: reutiliza a mesma ordenação da listagem.
   const featured = sortedAll[0];
   const featuredImg = getArticleImage(featured.slug);
   const featuredAlt = getArticleImageAlt(featured.slug, featured.title);

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
@@ -207,11 +208,11 @@ export const useContacts = () => {
     }
   });
 
-  const forceRefetch = async () => {
+  const forceRefetch = useCallback(async () => {
     try {
-      // Invalidate the cache and refetch. Avoid `removeQueries` because it
-      // forces a hard re-mount that doubles the round-trip.
-      await queryClient.invalidateQueries({ queryKey: ["contacts"] });
+      // Marque o cache como desatualizado sem disparar uma consulta aqui.
+      // O refetch abaixo já atualiza todos os observadores desta mesma chave.
+      await queryClient.invalidateQueries({ queryKey: ["contacts"], refetchType: "none" });
       await refetch();
       toast.success("Agenda e contatos sincronizados com o servidor.");
     } catch (error) {
@@ -219,7 +220,7 @@ export const useContacts = () => {
       toast.error("Erro ao sincronizar dados: " + msg);
       throw error;
     }
-  };
+  }, [queryClient, refetch]);
 
   return {
     contacts: data,

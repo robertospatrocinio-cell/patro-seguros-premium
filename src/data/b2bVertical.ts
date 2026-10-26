@@ -46,11 +46,13 @@ export const TRANSPARENCY_NOTICE =
 export const PRUDENT_LANGUAGE =
   "A aceitação depende da análise da seguradora, do tipo de obrigação, documentação apresentada e regras do edital ou contrato.";
 
-export const B2B_HUB_PATH = "/seguros-empresariais-especializados";
-export const GARANTIA_HUB_PATH = "/seguro-garantia";
-export const GARANTIA_LOCAL_PATH = "/seguro-garantia-guarulhos";
-export const CREDITO_HUB_PATH = "/seguro-de-credito";
-export const CREDITO_LOCAL_PATH = "/seguro-de-credito-guarulhos";
+export {
+  B2B_HUB_PATH,
+  GARANTIA_HUB_PATH,
+  GARANTIA_LOCAL_PATH,
+  CREDITO_HUB_PATH,
+  CREDITO_LOCAL_PATH,
+} from "./b2bRoutes";
 
 export const B2B_INSURERS_GARANTIA = [
   "Pottencial",
