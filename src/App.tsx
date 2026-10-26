@@ -508,8 +508,8 @@ const DeferredGlobalUi = () => {
   const { pathname } = useLocation();
   const dronePreview = (pathname === DRONE_PREVIEW_PATH || pathname === RETA_PREVIEW_PATH) &&
     typeof window !== "undefined" && isDronePreviewHost(window.location.hostname);
-  // A prévia usa consentimento no fluxo e ações locais, sem sobrepor o formulário.
-  if (dronePreview) return null;
+  // Drones usam consentimento no fluxo e ações locais, sem sobrepor o formulário.
+  if (dronePreview || pathname === "/seguro-drone-agricola" || pathname === "/seguro-reta-drone") return null;
   return (
     <Suspense fallback={null}>
       <WhatsAppButton />

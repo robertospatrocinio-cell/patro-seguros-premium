@@ -36,7 +36,7 @@ describe("Catálogo compartilhado pelos menus", () => {
     for (const path of [
       "/seguro-maquinas-agricolas", "/seguro-maquinas-linha-amarela",
       "/seguro-trator-agricola", "/seguro-colheitadeira-graos",
-      "/seguro-drone", "/seguro-drone-agricola", "/seguro-reta-drone",
+      "/seguro-drone-agricola", "/seguro-reta-drone",
       "/planos-de-saude", "/seguro-odonto", "/consorcio",
       "/consorcio-imoveis", "/consorcio-veiculos-pesados",
       "/seguro-clinica-veterinaria", "/seguro-hospital-veterinario",

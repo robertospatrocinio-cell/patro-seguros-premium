@@ -1,3 +1,4 @@
+import { getDroneSeo } from "@/data/droneAgricolaSeo";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
@@ -674,6 +675,8 @@ function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
 
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
+  const droneMetadata = getDroneSeo(cleanPath);
+  if (droneMetadata) return droneMetadata;
   let slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;
   
   const isLP = slug.startsWith("lp/");

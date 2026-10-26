@@ -1,4 +1,35 @@
-# Prévia de drones agrícolas — aguardando aprovação
+# Drones agrícolas — aplicação nas páginas públicas
+
+## Etapa 2 — versão aplicada após solicitação de continuidade
+
+A solicitação de execução da etapa 2 foi considerada aprovação da proposta editorial. `/seguro-drone-agricola` passa a exibir a versão agrícola como página principal, e `/seguro-reta-drone` usa a versão complementar. Ambas reutilizam o formulário compacto integrado, sem documentos no primeiro contato. Os endereços de revisão continuam separados e sem indexação.
+
+### Consolidação e descoberta
+
+- `/seguro-drone` foi incluído na fonte central de redirecionamentos permanentes para `/seguro-drone-agricola`, preservando um destino único. O processo de pré-compilação existente gera a regra HTTP 301 no `.htaccess`; há também navegação substitutiva no React, preservando parâmetros e fragmento.
+- A resposta HTTP 301 depende de a hospedagem executar o `.htaccess` gerado. A prévia SPA sozinha não comprova o código HTTP; conferir a resposta no domínio público após a implantação.
+- Menu, catálogo, especialidades, guia de soluções e produtos do atendimento nacional apontam diretamente para a página principal. O arquivo de orientação para assistentes também foi atualizado.
+- A geração do sitemap exclui o endereço antigo. Metadados e canonical das duas páginas públicas descrevem exclusivamente operações agrícolas.
+- Dados estruturados de serviço e perguntas frequentes usam as mesmas informações editoriais da página. O gerador de HTML para buscadores recebe o conteúdo agrícola completo, sem depender de consulta ao banco ou do carregamento da rota React.
+- As ações flutuantes globais são suprimidas somente nessas páginas e nas prévias reconhecidas; o aviso de cookies permanece no fluxo do rodapé.
+
+### Revisão regulatória e limites desta execução
+
+O texto aplicado não afirma obrigatoriedade, dispensa por peso, valores mínimos legais, validade de registros ou enquadramento automático em penhor rural. Não promete cobertura de deriva, pane, perda de sinal ou dano ambiental; pede análise das condições disponíveis. A referência a DJI Agras e XAG não representa parceria nem aceitação garantida.
+
+Não foi possível consultar fontes oficiais externas neste ambiente. Portanto, a atualização não equivale a uma validação regulatória vigente: antes de acrescentar regras legais, conferir as orientações atuais de ANAC, MAPA, DECEA e SUSEP, conforme a atividade. O registro da corretora foi reutilizado da configuração institucional e ainda precisa de conferência externa, assim como a disponibilidade efetiva dos produtos junto às seguradoras.
+
+### Verificações e pendências de implantação
+
+Foi feita revisão estática das rotas, redirecionamento central, exclusão do sitemap, formulário, metadados, conteúdo agrícola e geração de HTML. Os testes de catálogo foram ajustados para deixar de exigir o endereço consolidado; os testes públicos foram atualizados para a página principal, RETA, canonical, conteúdo estático e regra de redirecionamento.
+
+Não foram executados compilação, testes automatizados, inspeção visual em celular/computador, consulta HTTP ou envio real de formulário. A inclusão dos testes não significa que passaram. No Lovable, executar a compilação e os testes; conferir ambas as páginas públicas, navegação por teclado, imagem, cookies e recebimento de um contato identificado como teste. Após implantar, conferir o 301 e os arquivos de sitemap/HTML gerados.
+
+---
+
+## Histórico da etapa 1 — prévia apresentada para aprovação
+
+As observações abaixo descrevem o estado anterior à aplicação da etapa 2, não as páginas públicas atuais.
 
 ## Como revisar
 

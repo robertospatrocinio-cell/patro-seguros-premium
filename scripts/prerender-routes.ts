@@ -65,7 +65,7 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-engenharia",
   "/seguro-cyber",
   "/seguro-reta-drone",
-  "/seguro-drone",
+  "/seguro-drone-agricola",
   "/atendimento-nacional",
   "/atendimento-nacional/estado/parana",
   "/atendimento-nacional/estado/santa-catarina",

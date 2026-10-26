@@ -42,7 +42,7 @@ describe("Descoberta do catálogo da Patro", () => {
     const urls = buildCatalogCollectionSchema().mainEntity.itemListElement.map((entry) => entry.url);
     for (const path of [
       "/seguro-maquinas-agricolas", "/seguro-maquinas-linha-amarela",
-      "/seguro-drone", "/seguro-drone-agricola", "/seguro-reta-drone",
+      "/seguro-drone-agricola", "/seguro-reta-drone",
       "/plano-de-saude-guarulhos", "/consorcio",
     ]) expect(urls).toContain(getCanonicalUrl(path));
   });

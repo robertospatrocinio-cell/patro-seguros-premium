@@ -29,9 +29,8 @@ const especialidades = [
     title: "Drones: casco, RETA e uso agrícola",
     text: "Casco protege o próprio drone contra os eventos contratados. RETA trata de responsabilidade por danos a terceiros e não substitui o casco. Na pulverização, danos por deriva e outros riscos da atividade exigem análise específica; não presuma que estejam incluídos.",
     links: [
-      { to: "/seguro-drone", label: "Seguro de drone: opções de proteção" },
-      { to: "/seguro-drone-agricola", label: "Casco de drone agrícola" },
-      { to: "/seguro-reta-drone", label: "RETA drone: responsabilidade civil" },
+      { to: "/seguro-drone-agricola", label: "Seguro para drones agrícolas: casco e RETA" },
+      { to: "/seguro-reta-drone", label: "RETA para drones agrícolas" },
     ],
   },
 ];

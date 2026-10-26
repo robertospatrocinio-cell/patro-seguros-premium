@@ -36,6 +36,11 @@ export interface GoneRule {
  */
 export const EXACT_REDIRECTS: RedirectRule[] = [
   {
+    from: "/seguro-drone",
+    to: "/seguro-drone-agricola",
+    reason: "Consolidação do conteúdo de drones na página principal exclusivamente agrícola.",
+  },
+  {
     from: "/seguro-app-motoristas-passageiros",
     to: "/seguro-acidentes-pessoais-passageiros",
     reason: "Consolidação do tema APP em página principal para evitar canibalização.",

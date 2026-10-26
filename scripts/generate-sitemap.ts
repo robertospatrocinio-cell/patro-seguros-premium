@@ -696,6 +696,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/seguro-transportadora-guarulhos",
     "/seguro-para-empresas-de-vistoria-veicular",
     // Redirects declarados em src/lib/redirects.ts
+    "/seguro-drone",
     "/seguros-cidade-maia-guarulhos",
     "/planos-de-saude",
     "/seguro-saude",

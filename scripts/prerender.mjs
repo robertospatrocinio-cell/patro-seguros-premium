@@ -98,8 +98,11 @@ function buildSeoBlock(route, metadata) {
   if (!content) return null;
 
   const h1 = content.h1 || metadata.title;
+  // Nas páginas agrícolas, mantém a leitura também antes de o JavaScript iniciar.
+  const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone"
+    ? "" : ' style="display:none"';
   return `
-    <div id="crawler-content" style="display:none">
+    <div id="crawler-content"${visibility}>
       <h1>${h1}</h1>
       ${content.body}
     </div>
@@ -127,6 +130,11 @@ async function run() {
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
   const REGIONAL = await loadDataModule("src/data/segurosSaoPauloRegional.ts");
+  const { dronePublicPaths, getDroneStaticContent } = await loadDataModule("src/data/droneAgricolaSeo.ts");
+  // A mesma fonte editorial alimenta as páginas e o HTML anterior ao React.
+  for (const route of dronePublicPaths) {
+    FULL_SEO_CONTENT[route] = getDroneStaticContent(route);
+  }
 
   // ---- Expansão regional (hub Grande São Paulo + bairros piloto da capital)
   // Injeta o conteúdo textual, os links internos e as FAQs dessas rotas no

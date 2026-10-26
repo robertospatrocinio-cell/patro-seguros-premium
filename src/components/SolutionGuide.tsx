@@ -42,7 +42,7 @@ const profiles = [
     Icon: Wheat,
     solutions: [
       { label: "Tratores e Máquinas Agrícolas", href: "/seguro-maquinas-agricolas" },
-      { label: "Seguro Drone", href: "/seguro-drone" },
+      { label: "Seguro Drone Agrícola", href: "/seguro-drone-agricola" },
       { label: "Seguro Rural", href: "/seguro-rural" },
       { label: "Transporte Agro", href: "/seguro-transporte-agro" },
     ] satisfies Solution[],

@@ -1,6 +1,6 @@
 import type { CaptacaoField } from "@/data/captacaoProdutos";
 
-// Rascunhos sem links no catálogo, sem sitemap e disponíveis apenas no editor.
+// As rotas de revisão continuam sem indexação e disponíveis apenas no editor.
 export const DRONE_PREVIEW_PATH = "/previa/drones-agricolas";
 export const RETA_PREVIEW_PATH = "/previa/reta-drone-agricola";
 export function isDronePreviewHost(hostname: string) {
