@@ -165,11 +165,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   // Inclui campos de tipo de imóvel se não presentes
   const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
   
-  // Garantir que tipo de imóvel esteja no step correto se for uma modalidade residencial
-  const fields = config.fields.map(f => {
-    if (f.id === "tipo" && !config.fields.find(f2 => f2.id === "tipo")) return f;
-    return f;
-  });
+  // Toda solicitação permite informar cidade e mensagem, sem perder os campos do produto.
+  const fields: FormFieldConfig[] = [...config.fields];
+  if (!fields.some(field => /^(cidade|city)$/.test(field.id))) {
+    fields.push({ id: "cidade", label: "Cidade (opcional)", type: "text", placeholder: "Ex.: Guarulhos / SP" });
+  }
+  if (!fields.some(field => /^(mensagem|message)$/.test(field.id))) {
+    fields.push({ id: "mensagem", label: "Mensagem (opcional)", type: "text", placeholder: "Conte o que precisa proteger" });
+  }
 
   const contactFields = fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
   const coverageFields = fields.filter(f => f.type === "checkbox-group");
@@ -342,6 +345,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       `*Lead:* ${leadName}`,
       `*Contato:* ${leadPhone}`,
       `*Produto:* ${config.type}`,
+      `Cidade: ${formData.cidade?.trim() || formData.city?.trim() || "Não informada"}`,
+      `Mensagem: ${formData.mensagem?.trim() || formData.message?.trim() || "Não informada"}`,
       `---`,
       ...config.fields.map(f => {
         if (f.type === "checkbox-group") {
@@ -401,15 +406,15 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     }
 
     // 2. Enviar e-mail de notificação
-    const { error } = await safeInvoke("send-form-email", { 
+    const { data, error } = await safeInvoke<{ success?: boolean }>("send-form-email", { 
       subject, 
       textBody: parts, 
       htmlBody 
     });
 
-      if (error) {
+      if (error || !data?.success) {
         console.error("Erro no envio:", error);
-        handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
+        handleSupabaseError(error || new Error("Envio não confirmado"), "Não foi possível confirmar o envio por e-mail. Seus dados foram mantidos.");
         toast.error("Ocorreu um erro no servidor. Por favor, tente novamente ou fale conosco via WhatsApp.", { 
           duration: 10000,
           action: {

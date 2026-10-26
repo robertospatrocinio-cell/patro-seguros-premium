@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import QuoteRequestFields from "@/components/QuoteRequestFields";
 import { catalogoSeguros } from "@/data/catalogoSeguros";
 import { getCaptacaoProduto, type CaptacaoField } from "@/data/captacaoProdutos";
 import { safeInvoke } from "@/lib/supabase-helpers";
@@ -50,7 +51,7 @@ export default function ProductQuoteForm({ productName, productPath, fields }: P
   }
   const simulation = product.includes("consorcio") || product.includes("previdencia");
   const detailLines = extraFields.filter(field => details[field.id]?.trim()).map(field => `${field.label}: ${details[field.id].trim()}`);
-  const message = [`Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name}.`, `Nome: ${contact.name.trim()}`, ...detailLines, `Produto: ${product}`].join("\n");
+  const message = [`Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name}.`, `Nome: ${contact.name.trim()}`, `Tipo de seguro: ${name}`, `Cidade: ${details.quote_city?.trim() || "Não informada"}`, `Mensagem: ${details.quote_message?.trim() || "Não informada"}`, ...detailLines, `Produto: ${product}`].join("\n");
   const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(message)}`;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -67,7 +68,7 @@ export default function ProductQuoteForm({ productName, productPath, fields }: P
     try {
       const params = new URLSearchParams(window.location.search);
       const source = window.location.pathname;
-      const raw = { product_path: product, details: Object.fromEntries(extraFields.map(field => [field.id, details[field.id]?.trim() || ""])), consent: true, consent_at: new Date().toISOString(), consent_text: "Autorizo a Patro Seguros a usar estes dados para responder à minha solicitação.", utm_term: params.get("utm_term"), utm_content: params.get("utm_content") };
+      const raw = { product_path: product, city: details.quote_city?.trim() || null, message: details.quote_message?.trim() || null, details: Object.fromEntries(extraFields.map(field => [field.id, details[field.id]?.trim() || ""])), consent: true, consent_at: new Date().toISOString(), consent_text: "Autorizo a Patro Seguros a usar estes dados para responder à minha solicitação.", utm_term: params.get("utm_term"), utm_content: params.get("utm_content") };
       const { data, error: failure } = await safeInvoke<{ success?: boolean }>("send-form-email", {
         subject: `Solicitação de ${name}`,
         textBody: [message, `WhatsApp: ${contact.phone}`, `E-mail: ${contact.email || "Não informado"}`, `Origem: ${source}`, ...["utm_source", "utm_medium", "utm_campaign"].map(key => `${key}: ${params.get(key) || "Não informado"}`), raw.consent_text].join("\n"),
@@ -126,6 +127,13 @@ export default function ProductQuoteForm({ productName, productPath, fields }: P
           <Input id={`${prefix}-email`} name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} maxLength={200} value={contact.email} onChange={e => setContact({ ...contact, email: e.target.value })} aria-invalid={fieldError?.field === "email"} aria-describedby={fieldError?.field === "email" ? `${prefix}-email-error` : undefined} />
           {fieldError?.field === "email" && <p id={`${prefix}-email-error`} className="text-sm text-destructive">{fieldError.message}</p>}
         </div>
+        <QuoteRequestFields
+          city={details.quote_city}
+          message={details.quote_message}
+          onCityChange={value => setDetails(prev => ({ ...prev, quote_city: value }))}
+          onMessageChange={value => setDetails(prev => ({ ...prev, quote_message: value }))}
+          disabled={sending}
+        />
       </fieldset>
       <details className="border-y py-4">
         <summary className="cursor-pointer min-h-11 text-sm font-semibold">Adicionar detalhes de {name} (opcional)</summary>

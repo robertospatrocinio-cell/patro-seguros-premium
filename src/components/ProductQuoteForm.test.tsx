@@ -67,6 +67,8 @@ describe("Captação por produto", () => {
     vi.mocked(safeInvoke).mockResolvedValue({ data: { success: true }, error: null });
     render(<ProductQuoteForm productName="Drone agrícola" productPath="/seguro-drone-agricola" />);
     fillContact();
+    fireEvent.change(screen.getByLabelText("Cidade (opcional)"), { target: { value: "Guarulhos / SP" } });
+    fireEvent.change(screen.getByLabelText("Mensagem (opcional)"), { target: { value: "Quero proteger meu drone" } });
     fireEvent.change(screen.getByLabelText("Marca, modelo e ano"), { target: { value: "Drone de teste 2026" } });
     fireEvent.submit(screen.getByRole("form"));
     await screen.findByRole("status");
@@ -79,6 +81,11 @@ describe("Captação por produto", () => {
         raw_data: expect.objectContaining({ consent: true, product_path: "/seguro-drone-agricola", details: expect.objectContaining({ equipamento: "Drone de teste 2026" }) }),
       }),
     }));
+    const payload = vi.mocked(safeInvoke).mock.calls[0][1];
+    for (const text of ["Nome: Maria Teste", "WhatsApp: 11999999999", "Cidade: Guarulhos / SP", "Tipo de seguro: Drone agrícola", "Mensagem: Quero proteger meu drone"]) {
+      expect(payload.textBody).toContain(text);
+    }
+    expect(payload.lead.raw_data).toEqual(expect.objectContaining({ city: "Guarulhos / SP", message: "Quero proteger meu drone" }));
     expect(trackCotacaoSubmit).toHaveBeenCalledOnce();
   });
 

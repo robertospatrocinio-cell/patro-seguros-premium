@@ -20,6 +20,7 @@ import { buildWhatsAppUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import QuoteRequestFields from "@/components/QuoteRequestFields";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -281,7 +282,7 @@ const Cotacao = () => {
     };
     const waUrl = buildWhatsAppUrl(ctaOptions);
 
-    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${mergedMessage}`;
+    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nCidade: ${assetData.quote_city?.trim() || assetData.cidade?.trim() || "Não informada"}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${mergedMessage}`;
     const assetRowsHtml = assetLines
       .map((l) => {
         const [labelRaw, ...rest] = l.replace(/^- /, "").split(":");
@@ -324,7 +325,12 @@ const Cotacao = () => {
         },
       },
     );
-    const leadId = invokeData?.leadId ?? null;
+    if (!invokeData?.success) {
+      setIsSubmitting(false);
+      toast.error("Não foi possível confirmar o envio por e-mail. Seus dados foram mantidos; tente novamente.");
+      return;
+    }
+    const leadId = invokeData.leadId ?? null;
 
     localStorage.removeItem("cotacao_progress");
     localStorage.removeItem("partial_quote_id");
@@ -597,7 +603,7 @@ const Cotacao = () => {
                       {step === 3 && (
                         <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
                           <h3 className="text-xl font-bold text-slate-900 mb-2">Como podemos te enviar a cotação?</h3>
-                          <p className="text-sm text-slate-500 mb-4">Você recebe pelo WhatsApp em até 2h úteis — e uma cópia no seu e-mail.</p>
+                          <p className="text-sm text-slate-500 mb-4">Seu pedido será enviado por e-mail à equipe da Patro Seguros, que retornará pelos contatos informados.</p>
                           <FormField
                             control={form.control}
                             name="name"
@@ -674,6 +680,12 @@ const Cotacao = () => {
                                 <FormMessage />
                               </FormItem>
                             )}
+                          />
+
+                          <QuoteRequestFields
+                            city={assetData.quote_city || ""}
+                            onCityChange={value => updateAsset("quote_city", value)}
+                            disabled={isSubmitting}
                           />
 
                           <FormField

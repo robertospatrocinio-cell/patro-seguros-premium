@@ -14,6 +14,8 @@ import {
 } from "@/data/quickLeadInsuranceTypes";
 import { useWebMcpTool } from "@/hooks/useWebMcpTool";
 import { textResult } from "@/lib/webmcp";
+import { safeInvoke } from "@/lib/supabase-helpers";
+import QuoteRequestFields from "@/components/QuoteRequestFields";
 
 /** Cotação online imediata de Seguro Auto (SmartBroker). */
 const SMARTBROKER_AUTO_URL = "https://patroseguros.smartbroker.net.br";
@@ -56,6 +58,8 @@ interface QuickLeadFormProps {
 
 const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
   const [loading, setLoading] = useState(false);
+  const [requestMessage, setRequestMessage] = useState("");
+  const pending = useRef(false);
   const [formData, setFormData] = useState<QuickLeadFields>({
     name: "",
     phone: "",
@@ -99,7 +103,7 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
       () => ({
         name: "preparar_solicitacao_cotacao",
         description:
-          "Preenche o formulário de Cotação Express da Patro Seguros para revisão do visitante. NÃO envia a solicitação, não abre o WhatsApp nem o site de cotação online, não grava dados e não calcula cotação. O visitante precisa revisar e clicar no botão de envio do próprio formulário. Para Seguro Auto, o envio abre a cotação online imediata (SmartBroker) em vez do WhatsApp.",
+          "Preenche o formulário de Cotação Express da Patro Seguros para revisão do visitante. NÃO envia a solicitação, não abre outro site, não grava dados e não calcula cotação. O visitante precisa revisar e clicar no botão do próprio formulário para enviar o pedido à equipe por e-mail.",
         inputSchema: {
           type: "object",
           properties: {
@@ -243,7 +247,7 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
             campos_pendentes: pendentes,
             enviado: false,
             proximo_passo:
-              "Os dados estão visíveis e editáveis no formulário Cotação Express. Para Seguro Auto, o botão de envio abre a cotação online imediata; nos demais tipos, abre o WhatsApp. Nenhuma cotação foi calculada ou enviada.",
+              "Os dados estão visíveis e editáveis no formulário Cotação Express. Revise e clique em Enviar pedido de cotação para enviar à equipe por e-mail. Nenhuma cotação foi calculada ou enviada.",
           });
         },
       }),
@@ -260,51 +264,37 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
       return;
     }
 
+    if (pending.current) return;
+    pending.current = true;
     setLoading(true);
     try {
       const { name, phone, email, city, insuranceType } = parsed.data;
-
-      // Seguro Auto: cotação online imediata no SmartBroker, sem esperar 2 horas.
-      if (insuranceType === "Auto") {
-        trackCotacaoSubmit(insuranceType, { origin: "quick_lead_form_smartbroker" });
-        const popup = window.open(SMARTBROKER_AUTO_URL, "_blank", "noopener,noreferrer");
-        if (!popup) {
-          toast.error("Não conseguimos abrir a cotação online automaticamente.", {
-            duration: 10000,
-            action: {
-              label: "Abrir cotação online",
-              onClick: () => window.open(SMARTBROKER_AUTO_URL, "_blank", "noopener,noreferrer"),
-            },
-          });
-          return;
-        }
-        toast.success("Abrindo sua cotação online do Seguro Auto — leva poucos minutos.");
-        setFormData({ name: "", phone: "", email: "", city: "", insuranceType: "" });
-        return;
-      }
-
-      const msg = `Olá, meu nome é ${name} (${phone}). Sou de ${city} e gostaria de uma cotação de ${insuranceType}.\nE-mail: ${email}`;
-
-      const popup = window.open(
-        `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`,
-        "_blank",
-        "noopener,noreferrer",
-      );
-      if (!popup) {
-        showFriendlyError(
-          "Não conseguimos abrir o WhatsApp automaticamente. Toque no botão abaixo para falar com a gente.",
-          { whatsappMessage: msg },
-        );
-        return;
-      }
-
+      const label = QUICK_LEAD_INSURANCE_TYPES.find(type => type.id === insuranceType)?.label || insuranceType;
+      const message = requestMessage.trim();
+      const { data, error } = await safeInvoke<{ success?: boolean }>("send-form-email", {
+        subject: `Nova cotação — ${label}`,
+        textBody: [`Nome: ${name}`, `Telefone: ${phone}`, `E-mail: ${email}`, `Cidade: ${city}`, `Tipo de seguro: ${label}`, `Mensagem: ${message || "Não informada"}`, `Origem: ${window.location.pathname}`].join("\n"),
+        lead: {
+          full_name: name, phone, email, insurance_type: label,
+          source_page: window.location.pathname, source_origin: "cotacao-express",
+          raw_data: { city, message },
+        },
+      });
+      if (error || !data?.success) throw new Error("Envio não confirmado");
       trackCotacaoSubmit(insuranceType, { origin: "quick_lead_form_home" });
-      toast.success("Recebemos seu contato! Um consultor responderá em até 2 horas.");
+      toast.success("Solicitação enviada à equipe por e-mail. Entraremos em contato.", {
+        duration: 10000,
+        ...(insuranceType === "Auto" ? { action: {
+          label: "Abrir cotação online",
+          onClick: () => window.open(SMARTBROKER_AUTO_URL, "_blank", "noopener,noreferrer"),
+        } } : {}),
+      });
       setFormData({ name: "", phone: "", email: "", city: "", insuranceType: "" });
-    } catch (err) {
-      console.error("QuickLeadForm submit failed", err);
-      showFriendlyError();
+      setRequestMessage("");
+    } catch {
+      showFriendlyError("Não foi possível confirmar o envio por e-mail. Seus dados foram mantidos; tente novamente.");
     } finally {
+      pending.current = false;
       setLoading(false);
     }
   };
@@ -321,9 +311,7 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
             <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Cotação Express</span>
             <h2 className="text-xl font-bold tracking-tight text-slate-900 leading-tight">Resposta em até 2 horas</h2>
             <p className="text-sm text-slate-500 mt-2">
-              {isAuto
-                ? "Preencha 5 campos e faça sua cotação online em minutos."
-                : "Preencha 5 campos e receba propostas no WhatsApp."}
+              Envie seu pedido à nossa equipe por e-mail. Retornaremos pelos contatos informados.
             </p>
           </div>
 
@@ -403,6 +391,9 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
               </Select>
             </div>
 
+            <div className="md:col-span-2 lg:col-span-3">
+              <QuoteRequestFields message={requestMessage} onMessageChange={setRequestMessage} disabled={loading} />
+            </div>
             <div className="flex flex-col gap-2 md:col-span-2 lg:col-span-3">
               <Button
                 type="submit"
@@ -411,18 +402,11 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
               >
                 {loading ? "Enviando..." : (
                   <span className="flex items-center gap-2">
-                    {isAuto ? (
-                      <>
-                        Fazer Cotação Online Agora <ArrowRight className="h-4 w-4" />
-                      </>
-                    ) : (
-                      <>
-                        Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
-                      </>
-                    )}
+                    Enviar pedido de cotação <ArrowRight className="h-4 w-4" />
                   </span>
                 )}
               </Button>
+              {isAuto && <a href={SMARTBROKER_AUTO_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">Prefere cotar o Seguro Auto online? Acesse aqui</a>}
 
               <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
                 <span className="flex items-center gap-1.5">
@@ -430,7 +414,7 @@ const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
                   Dados protegidos pela LGPD
                 </span>
                 <span className="italic line-clamp-1 max-w-[60%] text-right">
-                  {isAuto ? "Você será direcionado à cotação online do Seguro Auto." : `"${whatsappMessage}"`}
+                  {isAuto ? "Envio por e-mail; cotação online disponível no link acima." : `"${whatsappMessage}"`}
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">

@@ -14,6 +14,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 
 
 import { Input } from "@/components/ui/input";
+import QuoteRequestFields from "@/components/QuoteRequestFields";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -198,6 +199,9 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       `Olá! Gostaria de uma cotação de *${insuranceType}*.`,
       `Nome: ${form.nome.trim()}`,
       `Telefone: ${form.telefone.trim()}`,
+      `Cidade: ${form.quote_city?.trim() || "Não informada"}`,
+      `Tipo de seguro: ${insuranceType}`,
+      `Mensagem: ${form.quote_message?.trim() || "Não informada"}`,
       form.email?.trim() && `E-mail: ${form.email.trim()}`,
       ...extraFields
         .filter(f => form[f.id]?.trim())
@@ -228,14 +232,14 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       </table>
     `;
 
-    const { error } = await safeInvoke("send-form-email", {
+    const { data, error } = await safeInvoke<{ success?: boolean }>("send-form-email", {
       subject,
       textBody: parts,
       htmlBody
     });
 
-    if (error) {
-      handleSupabaseError(error, "Ops! Ocorreu um erro ao processar seu pedido de cotação.");
+    if (error || !data?.success) {
+      handleSupabaseError(error || new Error("Envio não confirmado"), "Não foi possível confirmar o envio por e-mail. Seus dados foram mantidos; tente novamente.");
       setSending(false);
       return;
     }
@@ -270,7 +274,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         </div>
         <h3 className="font-semibold text-lg mb-2">Cotação enviada!</h3>
         <p className="text-sm text-muted-foreground mb-6">
-          Você foi redirecionado ao WhatsApp. Retornaremos em até 2h úteis.
+          Seu pedido foi enviado à equipe por e-mail. Você também pode continuar o atendimento pelo WhatsApp.
         </p>
         <Button
           variant="outline"
@@ -490,6 +494,14 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
             })}
           </div>
         )}
+
+        {currentStep === totalSteps && <QuoteRequestFields
+          city={form.quote_city}
+          message={form.quote_message}
+          onCityChange={value => update("quote_city", value)}
+          onMessageChange={value => update("quote_message", value)}
+          disabled={sending}
+        />}
 
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
           {currentStep > 1 && (
