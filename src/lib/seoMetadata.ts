@@ -14,6 +14,7 @@ import { EMPRESA } from "@/config/empresa";
 import { cidadesRegiao, getCidadeRegiao, CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
 import { GRANDE_SP_HUB, bairrosSaoPauloAuto } from "@/data/segurosSaoPauloRegional";
 import { bairrosGrupoA, residencialBairrosSp, empresarialBairrosSp } from "@/data/segurosSaoPauloProdutos";
+import { ATENDIMENTO_NACIONAL_PATH, regioesNacionais, estadosNacionais, cidadesNacionais, regiaoPath, estadoPath, cidadePath } from "@/data/atendimentoNacional";
 
 
 export interface Metadata {
@@ -680,6 +681,37 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     slug = slug.replace("lp/", "");
   }
 
+  // Atendimento nacional: use the same names and descriptions as the rendered
+  // pages, not the generic slug fallback (which incorrectly adds Guarulhos).
+  if (cleanPath === ATENDIMENTO_NACIONAL_PATH || cleanPath.startsWith(`${ATENDIMENTO_NACIONAL_PATH}/`)) {
+    const regiao = regioesNacionais.find((r) => regiaoPath(r.slug) === cleanPath);
+    const estado = estadosNacionais.find((e) => estadoPath(e.slug) === cleanPath);
+    const cidade = cidadesNacionais.find((c) => cidadePath(c.slug) === cleanPath);
+    const national = cleanPath === ATENDIMENTO_NACIONAL_PATH ? {
+      title: "Seguros em Todo o Brasil | Atendimento Nacional | Patro Seguros",
+      description: "Corretora com sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Cotação comparando seguradoras.",
+      h1: "Seguros com atendimento em todo o Brasil",
+    } : regiao ? {
+      title: `${regiao.titulo} | Agro, Frotas e Empresas | Patro Seguros`,
+      description: `${regiao.titulo}: ${regiao.resumo} Atendimento remoto da Patro Seguros, com cotação comparando seguradoras.`,
+      h1: regiao.titulo,
+    } : estado ? {
+      title: `Seguros em ${estado.nome} (${estado.uf}) | Agro, Frotas e Empresas | Patro`,
+      description: `Seguros em ${estado.nome} (${estado.uf}): rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME. Atendimento remoto da Patro Seguros, sem preço tabelado.`,
+      h1: `Seguros em ${estado.nome}`,
+    } : cidade ? {
+      title: `Seguros em ${cidade.nome} - ${cidade.estado.uf} | Rural, Frotas e Empresas | Patro Seguros`,
+      description: `Seguros em ${cidade.nome} - ${cidade.estado.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras, sem preço tabelado.`,
+      h1: `Seguros em ${cidade.nome} - ${cidade.estado.uf}`,
+    } : null;
+    if (national) return {
+      ...national,
+      canonical: `${DOMAIN}${cleanPath}`,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+    };
+  }
+
   // Premium overrides para rotas restauradas (RC, galpões, agro, consórcio, hubs)
   if (!isLP) {
     const premium = premiumPages[cleanPath];
@@ -880,8 +912,10 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const staticPage = staticPages[cleanPath];
     if (staticPage) {
       return {
-        title: staticPage.title.length > 65 ? staticPage.title.slice(0, 62).trim() + "..." : staticPage.title,
-        description: staticPage.description.length > 160 ? staticPage.description.slice(0, 157).trim() + "..." : staticPage.description,
+        // Preserve the words that distinguish each city, neighborhood and service.
+        // Search engines choose snippet length; never truncate editorial metadata.
+        title: staticPage.title,
+        description: staticPage.description,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: staticPage.h1,
         ogUrl: `${DOMAIN}${cleanPath}`,
@@ -900,10 +934,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     seoLocalBairrosGuarulhos[slug];
 
   if (localConfig) {
-    const rawTitle = localConfig.title.includes("Patro") ? localConfig.title : `${localConfig.title} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
-    const rawDesc = localConfig.metaDescription || localConfig.description;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const title = localConfig.title.includes("Patro") ? localConfig.title : `${localConfig.title} | Patro`;
+    const description = localConfig.metaDescription || localConfig.description;
     
     return {
       title,

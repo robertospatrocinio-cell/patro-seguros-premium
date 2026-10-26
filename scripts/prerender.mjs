@@ -115,6 +115,7 @@ async function run() {
   const indexContent = fs.readFileSync(INDEX_HTML, "utf-8");
 
   const { getMetadataForRoute } = await loadDataModule("src/lib/seoMetadata.ts");
+  const { getGeneratedOgImage } = await loadDataModule("src/data/generatedOgImages.ts");
   const { generateSitemapBundle } = await loadDataModule("scripts/generate-sitemap.ts");
   const { articles, allCategories, slugifyCategory } = await loadDataModule("src/lib/blogData.ts");
   const { seoLocalPageSlugs: autoSlugs } = await loadDataModule("src/data/seoLocalAutoPages.ts");
@@ -364,10 +365,11 @@ async function run() {
     html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, () => `<meta name="twitter:title" content="${escapeHtml(socialTitle)}"`);
     html = html.replace(/<meta name="twitter:description" content="[^"]*"/g, () => `<meta name="twitter:description" content="${escapeHtml(metadata.description)}"`);
 
-    // Share the article's actual image before JavaScript runs (social crawlers
-    // generally do not execute PageMeta). Preserve the global image elsewhere.
+    // Social crawlers usually do not execute PageMeta. Reuse the existing
+    // neighborhood images here too, so static and browser previews agree.
     const articleImage = metadata.ogType === "article" ? metadata.schema?.image : undefined;
-    const imageSource = Array.isArray(articleImage) ? articleImage[0] : articleImage;
+    const imageSource = (Array.isArray(articleImage) ? articleImage[0] : articleImage)
+      || getGeneratedOgImage(route);
     if (typeof imageSource === "string" && imageSource) {
       const imageUrl = new URL(imageSource, "https://www.patroseguros.com.br").href;
       const imageAlt = metadata.h1 || metadata.title;
@@ -390,7 +392,14 @@ async function run() {
     let acc = "";
     for (const s of segs) {
       acc += `/${s}`;
-      crumbs.push({ name: humanize(s), url: `${BASE}${acc}` });
+      // These segments organize URLs but are not navigable pages.
+      if (acc === "/atendimento-nacional/estado" || acc === "/atendimento-nacional/cidade") continue;
+      const name = acc === "/atendimento-nacional"
+        ? "Atendimento nacional"
+        : route.startsWith("/atendimento-nacional/") && acc === route
+          ? metadata.h1
+          : humanize(s);
+      crumbs.push({ name, url: `${BASE}${acc}` });
     }
     if (!html.includes('data-breadcrumb="1"') && crumbs.length >= 2) {
       const bc = {

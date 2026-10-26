@@ -72,6 +72,20 @@ describe("PageMeta robots meta by hostname", () => {
     expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
   });
 
+  it("resolve a imagem social local no domínio público, inclusive no preview", () => {
+    setHostname("preview.lovable.dev");
+    render(
+      <MemoryRouter initialEntries={["/seguro-auto"]}>
+        <PageMeta title="Seguro Auto" description="Compare coberturas de seguro auto." ogImage="/images/og-cover.webp" ogImageAlt="Patro Seguros" skipBreadcrumb />
+      </MemoryRouter>,
+    );
+    for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+      expect(document.querySelector(selector)).toHaveAttribute("content", "https://www.patroseguros.com.br/images/og-cover.webp");
+    }
+    expect(document.querySelector('meta[property="og:image:alt"]')).toHaveAttribute("content", "Patro Seguros");
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+  });
+
   it("limpa a descrição social anterior e não duplica tags ao atualizar", () => {
     setHostname("www.patroseguros.com.br");
     const page = (customAlt?: string, noindex = false) => (

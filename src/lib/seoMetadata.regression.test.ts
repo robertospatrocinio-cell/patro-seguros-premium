@@ -44,3 +44,38 @@ describe("Metadados estáticos dos artigos", () => {
     expect(metadata?.schema.dateModified).toBe("2026-02-12T09:00:00-03:00");
   });
 });
+
+describe("Metadados regionais sem títulos genéricos ou cortes", () => {
+  it("individualiza as regiões, as 27 UFs e todas as cidades do atendimento nacional", async () => {
+    const { regioesNacionais, estadosNacionais, cidadesNacionais, regiaoPath, estadoPath, cidadePath } = await import("@/data/atendimentoNacional");
+    const entries = [
+      ...regioesNacionais.map((r) => ({ path: regiaoPath(r.slug), name: r.titulo })),
+      ...estadosNacionais.map((e) => ({ path: estadoPath(e.slug), name: e.nome })),
+      ...cidadesNacionais.map((c) => ({ path: cidadePath(c.slug), name: `${c.nome} - ${c.estado.uf}` })),
+    ];
+    const titles = new Set<string>();
+    const descriptions = new Set<string>();
+    for (const { path, name } of entries) {
+      const metadata = getMetadataForRoute(path)!;
+      expect(metadata.title).toContain(name);
+      expect(metadata.h1).toContain(name);
+      expect(metadata.description).toContain(name);
+      expect(metadata.title).not.toContain("em Guarulhos");
+      expect(metadata.title).not.toContain("...");
+      expect(metadata.description).not.toContain("...");
+      expect(metadata.canonical).toBe(`https://www.patroseguros.com.br${path}`);
+      expect(metadata.ogUrl).toBe(metadata.canonical);
+      titles.add(metadata.title);
+      descriptions.add(metadata.description);
+    }
+    expect(titles.size).toBe(entries.length);
+    expect(descriptions.size).toBe(entries.length);
+  });
+
+  it("preserva o atendimento nacional e títulos completos dos bairros", () => {
+    expect(getMetadataForRoute("/atendimento-nacional")?.h1).toBe("Seguros com atendimento em todo o Brasil");
+    expect(getMetadataForRoute("/vila-nova-conceicao")?.title).toBe(
+      "Seguros em Vila Nova Conceição | Auto, Residencial e Empresarial | Patro Seguros",
+    );
+  });
+});

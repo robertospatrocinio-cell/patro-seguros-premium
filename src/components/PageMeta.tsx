@@ -102,8 +102,10 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     setMetaContent('meta[property="og:url"]', canonicalUrl);
     setMetaContent('meta[property="og:type"]', ogType);
     // Precedência: prop explícita > OG gerado por bairro/produto×bairro > fallback global.
-    const resolvedOgImage =
-      ogImage ?? getGeneratedOgImage(location.pathname) ?? DEFAULT_OG_IMAGE;
+    const imageSource = ogImage ?? getGeneratedOgImage(location.pathname) ?? DEFAULT_OG_IMAGE;
+    // Social previews require an absolute URL on the public domain, even when
+    // a page supplies a local path or is opened on the preview host.
+    const resolvedOgImage = new URL(imageSource, `${BASE_URL}/`).href;
     setMetaContent('meta[property="og:image"]', resolvedOgImage);
 
     // Twitter
