@@ -29,7 +29,7 @@ const items = [
 const ObraSegurosComparativo = () => {
   const { pathname } = useLocation();
   return (
-    <section id="seguros-da-obra" className="py-16 bg-muted/40" aria-labelledby="seguros-obra-heading">
+    <section id="seguros-da-obra" className="py-16 bg-muted/40 scroll-mt-28" aria-labelledby="seguros-obra-heading">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-8 max-w-2xl mx-auto">
           <h2 id="seguros-obra-heading" className="text-2xl md:text-3xl mb-3">Engenharia, Garantia ou Responsabilidade Civil?</h2>
@@ -49,8 +49,11 @@ const ObraSegurosComparativo = () => {
                 {atual ? (
                   <span className="mt-4 text-sm font-semibold text-muted-foreground">Você está nesta página</span>
                 ) : (
-                  <Button asChild variant="outline" className="mt-4 justify-between">
-                    <Link to={to}>Ver {title} <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                  <Button asChild variant="outline" className="mt-4 h-auto min-h-11 w-full justify-between whitespace-normal py-3 text-left">
+                    <Link to={to}>
+                      <span className="min-w-0 break-words">Ver {title}</span>
+                      <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    </Link>
                   </Button>
                 )}
               </div>

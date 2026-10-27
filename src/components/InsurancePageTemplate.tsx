@@ -1198,11 +1198,14 @@ const InsurancePageTemplate = ({
           <section className="py-16 gradient-surface" aria-labelledby="relacionados-heading">
             <div className="container mx-auto px-4">
               <h2 id="relacionados-heading" className="text-center text-xl mb-8">Você também pode se interessar</h2>
-              <nav className="flex flex-wrap gap-3 justify-center" aria-label="Seguros relacionados">
+              <nav className="flex flex-col gap-3 sm:flex-row sm:flex-wrap justify-center" aria-label="Seguros relacionados">
                 {relatedInsurances.map((ins, i) => (
-                  <Link key={i} to={ins.link}>
-                    <Button variant="outline" className="rounded-xl text-sm">{ins.title} <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" /></Button>
-                  </Link>
+                  <Button key={i} asChild variant="outline" className="h-auto min-h-11 max-w-full rounded-xl whitespace-normal py-3 text-sm">
+                    <Link to={ins.link}>
+                      <span className="min-w-0 break-words">{ins.title}</span>
+                      <ArrowRight className="ml-1 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    </Link>
+                  </Button>
                 ))}
               </nav>
             </div>
@@ -1211,9 +1214,9 @@ const InsurancePageTemplate = ({
         <section className="py-8 border-t" aria-label="Catálogo de seguros">
           <div className="container mx-auto px-4 text-center">
             <p className="text-sm text-muted-foreground mb-3">Quer comparar com outras opções?</p>
-            <Link to="/todos-os-seguros">
-              <Button variant="default" className="rounded-xl">Ver todos os seguros <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" /></Button>
-            </Link>
+            <Button asChild variant="default" className="min-h-11 rounded-xl">
+              <Link to="/todos-os-seguros">Ver todos os seguros <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" /></Link>
+            </Button>
           </div>
         </section>
 

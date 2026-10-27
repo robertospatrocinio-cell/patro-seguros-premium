@@ -363,7 +363,7 @@ const SeguroGarantia = () => {
         </section>
         <ObraSegurosComparativo />
         <section className="py-8 border-t text-center">
-          <Link to="/todos-os-seguros" className="font-semibold text-primary underline">Ver todos os seguros</Link>
+          <Link to="/todos-os-seguros" className="inline-flex min-h-11 items-center px-4 font-semibold text-primary underline underline-offset-4 hover:text-primary/80">Ver todos os seguros</Link>
         </section>
       </main>
       <Footer />

@@ -37,21 +37,21 @@ const TodosOsSeguros = () => {
                 Encontre seu produto por categoria, incluindo nossas especialidades em máquinas agrícolas,
                 equipamentos, drones e máquinas de linha amarela.
               </p>
-              <Button asChild size="lg" variant="cta" className="mb-6">
+              <Button asChild size="lg" variant="cta" className="mb-6 h-auto min-h-11 max-w-full whitespace-normal">
                 <a href="#solicitar-cotacao" onClick={() => trackCotacaoClick("todos-os-seguros:hero")}>Solicitar cotação ou simulação</a>
               </Button>
-              <div className="flex flex-wrap justify-center gap-3 mb-6">
-                <Button asChild><a href="#maquinas">Máquinas, equipamentos e drones</a></Button>
-                <Button asChild variant="outline"><a href="#saude">Saúde e odontológico</a></Button>
-                <Button asChild variant="outline"><a href="#consorcio">Consórcio</a></Button>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 mb-6">
+                <Button asChild className="h-auto min-h-11 whitespace-normal"><a href="#maquinas">Máquinas, equipamentos e drones</a></Button>
+                <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal"><a href="#saude">Saúde e odontológico</a></Button>
+                <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal"><a href="#consorcio">Consórcio</a></Button>
               </div>
               <nav aria-label="Perfis" className="flex flex-wrap justify-center gap-2">
                 {catalogoSeguros.map((p) => (
-                  <Button key={p.id} asChild variant="outline" size="sm">
+                  <Button key={p.id} asChild variant="outline" size="sm" className="h-auto min-h-11 max-w-full whitespace-normal py-2">
                     <a href={`#${p.id}`}>{p.title}</a>
                   </Button>
                 ))}
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-11 max-w-full whitespace-normal py-2">
                   <a href="#seguros-da-obra">Seguros para obras</a>
                 </Button>
               </nav>
@@ -102,7 +102,7 @@ const TodosOsSeguros = () => {
             <h2 className="text-2xl font-bold mb-3">Não sabe por onde começar?</h2>
             <p className="text-muted-foreground mb-6">Conte o que precisa proteger e indicamos as opções adequadas.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" variant="cta">
+              <Button asChild size="lg" variant="cta" className="h-auto min-h-11 whitespace-normal">
                 <a href="#solicitar-cotacao" onClick={() => trackCotacaoClick("todos-os-seguros")}>Solicitar cotação ou simulação</a>
               </Button>
               <Button asChild size="lg" variant="outline">
