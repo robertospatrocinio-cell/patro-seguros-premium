@@ -227,6 +227,18 @@ main {
 .patro-site-header nav[aria-label="Navegação principal"] > a img {
   height: 3.5rem;
   width: auto;
+  transform-origin: left center;
+  transition: transform 250ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .patro-site-header nav[aria-label="Navegação principal"] > a:hover img {
+    transform: scale(1.75);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .patro-site-header nav[aria-label="Navegação principal"] > a img {
+    transition: none;
+  }
 }
 .patro-site-header > div:first-child a[aria-label="Falar no WhatsApp"] {
   background: rgb(255 255 255 / 8%);
