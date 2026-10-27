@@ -125,7 +125,15 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
           { text: "Cotação Gratuita", href: "/cotacao" },
         ],
       }}
+      featuredArticle={{
+        eyebrow: "Planejamento familiar",
+        title: "Seguro de vida como instrumento de sucessão",
+        description: "Entenda como o capital segurado pode ajudar os beneficiários a manter despesas e organizar o patrimônio, sem confundir seguro com investimento ou substituto de orientação jurídica.",
+        href: "/seguro-vida-sucessao",
+        ctaText: "Entender vida e sucessão",
+      }}
       relatedInsurances={[
+        { title: "Vida e Sucessão", link: "/seguro-vida-sucessao" },
         { title: "Previdência Privada", link: "/previdencia-privada" },
         { title: "Seguro Saúde", link: "/seguro-saude" },
         { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },

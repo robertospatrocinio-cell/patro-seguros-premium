@@ -114,6 +114,15 @@ const highIntentTransactional: SitemapEntry[] = [
    { loc: "/cotacao-seguro-residencial-online", priority: "0.9", changefreq: "weekly" },
    { loc: "/contato", priority: "0.8", changefreq: "weekly" },
    { loc: "/sobre", priority: "0.8", changefreq: "monthly" },
+   { loc: "/artigos-sobre-seguros", priority: "0.7", changefreq: "monthly" },
+   { loc: "/seguro-vida-sucessao", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-auto-coberturas", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-residencial-patrimonio", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-empresarial-continuidade", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-rc-profissional", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-maquinas-equipamentos", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-drone-agricola-casco-reta", priority: "0.6", changefreq: "monthly" },
+   { loc: "/artigo-seguro-viagem-assistencia", priority: "0.6", changefreq: "monthly" },
 ];
 
 // Expansão regional — hub Grande São Paulo + bairros piloto da capital.

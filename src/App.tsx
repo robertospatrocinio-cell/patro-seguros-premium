@@ -134,6 +134,7 @@ const DroneAgricolaPreview = lazy(() => import("@/pages/DroneAgricolaPreview"));
 import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost } from "@/data/droneAgricolaPreview";
 
 
+const InsuranceEditorial = lazyWithRetry(() => import("./pages/InsuranceEditorial"), "InsuranceEditorial");
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");
@@ -626,6 +627,15 @@ const App = () => {
                   <Route path="/contato" element={<Contato />} />
                   <Route path="/servicos" element={<Servicos />} />
                   <Route path="/todos-os-seguros" element={<TodosOsSeguros />} />
+                  <Route path="/artigos-sobre-seguros" element={<InsuranceEditorial />} />
+                  <Route path="/seguro-vida-sucessao" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-auto-coberturas" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-residencial-patrimonio" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-empresarial-continuidade" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-rc-profissional" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-maquinas-equipamentos" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-drone-agricola-casco-reta" element={<InsuranceEditorial />} />
+                  <Route path="/artigo-seguro-viagem-assistencia" element={<InsuranceEditorial />} />
                   <Route path="/depoimentos" element={<Depoimentos />} />
                   <Route path="/avaliacoes-clientes" element={<AvaliacoesClientes />} />
                   <Route path="/seguro-bmw" element={<SeguroBMW />} />

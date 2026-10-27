@@ -41,6 +41,7 @@ import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
+import InsuranceEditorialLinks from "@/components/InsuranceEditorialLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import EspecialidadesPatro from "@/components/EspecialidadesPatro";
@@ -1063,11 +1064,15 @@ const InsurancePageTemplate = ({
 
         {showEbookConsorcio && <EbookConsorcioBanner variant="compact" />}
 
+        {!supportMode && !featuredArticle && (
+          <InsuranceEditorialLinks productPath={location.pathname.replace(/\/+$/, "")} />
+        )}
+
         {/* Artigo em destaque */}
         {featuredArticle && (
           <section className="py-20 bg-background" aria-labelledby="artigo-destaque-heading">
             <div className="container mx-auto px-4 max-w-5xl">
-              <div className="premium-card overflow-hidden grid md:grid-cols-2 gap-0">
+              <div className={`premium-card overflow-hidden grid gap-0 ${featuredArticle.image ? "md:grid-cols-2" : ""}`}>
                 {featuredArticle.image && (
                   <div className="relative min-h-[240px] md:min-h-full">
                     <OptimizedImage

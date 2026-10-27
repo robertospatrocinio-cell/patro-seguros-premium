@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ObraSegurosComparativo from "@/components/ObraSegurosComparativo";
 import EspecialidadesPatro from "@/components/EspecialidadesPatro";
+import InsuranceEditorialLinks from "@/components/InsuranceEditorialLinks";
 import { Button } from "@/components/ui/button";
 import { catalogoSeguros, CATALOGO_PATH } from "@/data/catalogoSeguros";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -54,6 +55,9 @@ const TodosOsSeguros = () => {
                 <Button asChild variant="outline" size="sm" className="h-auto min-h-11 max-w-full whitespace-normal py-2">
                   <a href="#seguros-da-obra">Seguros para obras</a>
                 </Button>
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-11 max-w-full whitespace-normal py-2">
+                  <Link to="/artigos-sobre-seguros">Artigos por modalidade</Link>
+                </Button>
               </nav>
             </div>
           </div>
@@ -94,6 +98,7 @@ const TodosOsSeguros = () => {
           </div>
         </section>
 
+        <InsuranceEditorialLinks />
         <EspecialidadesPatro catalog />
         <ObraSegurosComparativo />
 
