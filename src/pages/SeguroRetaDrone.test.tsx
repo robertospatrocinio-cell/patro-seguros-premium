@@ -38,6 +38,17 @@ describe("Páginas públicas de drones agrícolas", () => {
     expect(screen.queryByText(/R\$\s*585,64/)).not.toBeInTheDocument();
   });
 
+  it.each(["/seguro-drone-agricola", "/seguro-reta-drone"])("exibe marcas e modelos com análise condicionada em %s", path => {
+    showPage(path, path === "/seguro-reta-drone" ? <SeguroRetaDrone /> : <SeguroDroneAgricola />);
+    expect(screen.getByRole("heading", { level: 2, name: "Seguro para drones agrícolas DJI, XAG e outras marcas" })).toBeInTheDocument();
+    for (const name of ["DJI Agras", "XAG", "Eavision", "Arpac e outras marcas"]) {
+      expect(screen.getByRole("heading", { level: 3, name })).toBeInTheDocument();
+    }
+    expect(screen.getByRole("link", { name: "Marcas e modelos" })).toHaveAttribute("href", "#marcas-drone");
+    expect(screen.getByRole("link", { name: "Solicitar análise da minha marca e modelo" })).toHaveAttribute("href", "#cotacao-drone");
+    expect(screen.getByText(/As marcas e os modelos são referências para cotação, sem vínculo/)).toBeInTheDocument();
+  });
+
   it("consolida o endereço antigo na regra permanente e no fallback SPA", () => {
     expect(resolveRoute("/seguro-drone")).toMatchObject({ kind: "redirect", to: "/seguro-drone-agricola" });
     const { container } = showPage("/seguro-drone?utm_source=agro#cotacao-drone", <SeguroDrone />);
@@ -54,6 +65,14 @@ describe("Páginas públicas de drones agrícolas", () => {
     expect(content.body).toContain("Pulverização");
     expect(metadata.schema["@graph"].map(node => node["@type"])).toEqual(["Service", "FAQPage"]);
     expect(metadata.faqs).toHaveLength(10);
+    expect(metadata.title).toContain("DJI e XAG");
+    for (const brand of ["DJI Agras", "XAG", "Eavision", "Arpac"]) {
+      expect(content.body).toContain(brand);
+    }
+    expect(content.body).toContain('id="marcas-drone"');
+    expect(content.body).toContain("sem vínculo ou parceria oficial");
+    expect(metadata.faqs.some(faq => faq.question.includes("DJI Agras, XAG, Eavision e Arpac"))).toBe(true);
+    expect(JSON.stringify(metadata.schema)).toContain("P100 Pro");
     expect(content.body).not.toMatch(/filmagens|recreativo|inspeções urbanas/i);
   });
 });

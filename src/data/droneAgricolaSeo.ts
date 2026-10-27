@@ -1,4 +1,4 @@
-import { droneComparison, droneFaqs, droneTopics, retaAgricolaTopics } from "./droneAgricolaPreview";
+import { droneComparison, droneFaqs, droneTopics, retaAgricolaTopics, droneBrands, droneBrandHeading, droneBrandIntro, droneBrandDisclaimer } from "./droneAgricolaPreview";
 
 const origin = "https://www.patroseguros.com.br";
 export const dronePublicPaths = ["/seguro-drone-agricola", "/seguro-reta-drone"] as const;
@@ -9,11 +9,14 @@ export function getDroneSeo(pathname: string) {
   const reta = path === "/seguro-reta-drone";
   const h1 = reta ? "RETA para drones agrícolas" : "Seguro para drones agrícolas";
   const description = reta
-    ? "Avalie RETA para drones agrícolas: responsabilidade por danos a terceiros, limites e cuidados com pulverização e deriva. Atendimento nacional da Patro."
-    : "Analise casco e RETA para drones agrícolas, baterias e acessórios. Cotação com a Patro para produtores e prestadores em todo o Brasil.";
+    ? "RETA para drones agrícolas DJI, XAG e outras marcas. Analise danos a terceiros, limites e cuidados com pulverização e deriva. Atendimento nacional."
+    : "Seguro para drones agrícolas DJI Agras, XAG, Eavision e Arpac: análise de casco, baterias, acessórios e RETA. Cotação com atendimento em todo o Brasil.";
+  const title = reta
+    ? "RETA para drones agrícolas DJI e XAG | Patro Seguros"
+    : "Seguro de drones agrícolas DJI e XAG | Patro Seguros";
   const canonical = `${origin}${path}`;
   return {
-    h1, title: `${h1} | Patro Seguros`, description, canonical, ogUrl: canonical,
+    h1, title, description, canonical, ogUrl: canonical,
     ogType: "website" as const,
     faqs: droneFaqs,
     schema: {
@@ -57,7 +60,11 @@ export function getDroneStaticContent(pathname: string) {
     '<h3>Casco — proteção do equipamento</h3><p>Trata dos danos ao próprio drone nos eventos contratados. Inclua na análise baterias, controles, sensores, tanques e demais acessórios, com seus valores e condições de uso.</p>',
     '<h3>RETA — responsabilidade civil aeronáutica</h3><p>Trata da responsabilidade por danos a terceiros, conforme os limites e condições contratados. Não é a proteção do próprio drone.</p>',
     '<p>Casco e RETA têm finalidades diferentes. A responsabilidade pela pulverização e por deriva exige análise específica.</p>',
-    '<h2>Vamos entender sua operação?</h2><p>Nome, WhatsApp e autorização para contato são suficientes para começar. Os detalhes do equipamento são opcionais. Sem CPF, nota fiscal ou envio de arquivos nesta etapa. Nossa equipe solicitará a documentação necessária na sequência. Pedir uma cotação não inicia a cobertura.</p>',
+    `<section id="marcas-drone"><h2>${escapeHtml(droneBrandHeading)}</h2>`,
+    `<p>${escapeHtml(droneBrandIntro)}</p>`,
+    ...droneBrands.map(brand => `<h3>${escapeHtml(brand.name)}</h3><p>${escapeHtml(brand.text)}</p>`),
+    `<p>${escapeHtml(droneBrandDisclaimer)}</p><a href="#cotacao-drone">Solicitar análise da minha marca e modelo</a></section>`,
+    '<h2 id="cotacao-drone">Vamos entender sua operação?</h2><p>Nome, WhatsApp e autorização para contato são suficientes para começar. Os detalhes do equipamento são opcionais. Sem CPF, nota fiscal ou envio de arquivos nesta etapa. Nossa equipe solicitará a documentação necessária na sequência. Pedir uma cotação não inicia a cobertura.</p>',
     '<h2>Casco e RETA em uma comparação</h2>',
     ...droneComparison.map(row => `<h3>${escapeHtml(row.label)}</h3><p><strong>Casco:</strong> ${escapeHtml(row.casco)}</p><p><strong>RETA:</strong> ${escapeHtml(row.reta)}</p>`),
     `<h2>${reta ? "O que conferir no RETA agrícola" : "O que analisar antes de contratar"}</h2>`,

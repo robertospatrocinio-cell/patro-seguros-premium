@@ -10,7 +10,7 @@ import NotFound from "@/pages/NotFound";
 import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import droneImage from "@/assets/blog-generated/drone-agricola-anac-seguro-rcf-pulverizacao.webp";
-import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost, droneQuoteFields, droneComparison, droneTopics, retaAgricolaTopics } from "@/data/droneAgricolaPreview";
+import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost, droneQuoteFields, droneComparison, droneTopics, retaAgricolaTopics, droneBrands, droneBrandHeading, droneBrandIntro, droneBrandDisclaimer } from "@/data/droneAgricolaPreview";
 import "@/styles/drone-preview.css";
 
 const action = "inline-flex min-h-12 items-center justify-center rounded-md px-5 py-3 text-center font-semibold";
@@ -22,6 +22,7 @@ export default function DroneAgricolaPreview({ preview = true }: { preview?: boo
   const dronePath = preview ? DRONE_PREVIEW_PATH : "/seguro-drone-agricola";
   const retaPath = preview ? RETA_PREVIEW_PATH : "/seguro-reta-drone";
   const title = reta ? "RETA para drones agrícolas" : "Seguro para drones agrícolas";
+  const seo = getDroneSeo(reta ? "/seguro-reta-drone" : "/seguro-drone-agricola")!;
   const message = reta
     ? "Olá, Patro! Quero avaliar RETA para meu drone agrícola, usado em pulverização ou mapeamento agrícola."
     : "Olá, Patro! Quero cotar meu drone agrícola e avaliar casco, baterias, acessórios e RETA para minha operação no campo.";
@@ -31,9 +32,9 @@ export default function DroneAgricolaPreview({ preview = true }: { preview?: boo
   const waClick = () => trackWhatsAppClick(preview ? "drone-agricola-previa" : reta ? "seguro-reta-drone" : "seguro-drone-agricola", { origin: preview ? "previa-drone" : "pagina-drone", insuranceType: formName });
 
   return <div className="drone-preview-shell bg-background text-foreground">
-    {!preview && <Helmet><script type="application/ld+json">{JSON.stringify(getDroneSeo(reta ? retaPath : dronePath)?.schema).replace(/</g, "\\u003c")}</script></Helmet>}
-    <PageMeta title={`${title} | Patro Seguros`} absoluteTitle noindex={preview} skipBreadcrumb={preview} canonicalPath={preview ? pathname : reta ? retaPath : dronePath}
-      description={reta ? "Avalie RETA para drones agrícolas: responsabilidade por danos a terceiros, limites e cuidados com pulverização e deriva. Atendimento nacional da Patro." : "Analise casco e RETA para drones agrícolas, baterias e acessórios. Cotação com a Patro para produtores e prestadores em todo o Brasil."}
+    {!preview && <Helmet><script type="application/ld+json">{JSON.stringify(seo.schema).replace(/</g, "\\u003c")}</script></Helmet>}
+    <PageMeta title={seo.title} absoluteTitle noindex={preview} skipBreadcrumb={preview} canonicalPath={preview ? pathname : reta ? retaPath : dronePath}
+      description={seo.description}
       ogImage={droneImage} ogImageAlt="Drone agrícola em atividade no campo" />
     <div className="drone-preview-header"><Header /></div>
     {preview && <aside className="border-b bg-secondary px-4 py-3 text-sm" aria-label="Versão para aprovação">
@@ -59,7 +60,7 @@ export default function DroneAgricolaPreview({ preview = true }: { preview?: boo
         <img src={droneImage} alt="Drone agrícola em operação sobre uma lavoura" width={768} height={512} loading="eager" fetchPriority="high" className="aspect-[3/2] w-full rounded-xl object-cover" />
       </section>
       <nav aria-label="Nesta página" className="flex flex-wrap gap-x-6 gap-y-2 border-y py-3 text-sm font-semibold">
-        <a href="#protecao-drone">Casco e RETA</a><a href="#cotacao-drone">Cotação</a><a href="#comparacao-drone">Comparativo</a><a href="#cuidados-drone">{reta ? "Operação agrícola" : "Riscos no campo"}</a><a href="#perguntas-drone">Perguntas frequentes</a>
+        <a href="#protecao-drone">Casco e RETA</a><a href="#marcas-drone">Marcas e modelos</a><a href="#cotacao-drone">Cotação</a><a href="#comparacao-drone">Comparativo</a><a href="#cuidados-drone">{reta ? "Operação agrícola" : "Riscos no campo"}</a><a href="#perguntas-drone">Perguntas frequentes</a>
       </nav>
       <section id="protecao-drone" aria-labelledby="protecao-title" className="py-8">
         <h2 id="protecao-title" className="mb-5 text-2xl md:text-3xl">Duas proteções, finalidades diferentes</h2>
@@ -76,6 +77,18 @@ export default function DroneAgricolaPreview({ preview = true }: { preview?: boo
           </article>
         </div>
         <p className="mt-4 rounded-md border-l-4 border-accent bg-secondary p-4 font-medium">Casco e RETA têm finalidades diferentes. A responsabilidade pela pulverização e por deriva exige análise específica.</p>
+      </section>
+      <section id="marcas-drone" aria-labelledby="marcas-title" className="border-t py-8">
+        <h2 id="marcas-title" className="text-2xl md:text-3xl">{droneBrandHeading}</h2>
+        <p className="mt-4 max-w-3xl">{droneBrandIntro}</p>
+        <div className="mt-6 grid gap-x-10 gap-y-7 md:grid-cols-2">
+          {droneBrands.map(brand => <article key={brand.name}>
+            <h3 className="text-xl">{brand.name}</h3>
+            <p className="mt-2">{brand.text}</p>
+          </article>)}
+        </div>
+        <p className="mt-6 rounded-md border-l-4 border-accent bg-secondary p-4 text-sm">{droneBrandDisclaimer}</p>
+        <a href="#cotacao-drone" className={`${action} mt-5 bg-primary text-primary-foreground`}>Solicitar análise da minha marca e modelo</a>
       </section>
       <section id="cotacao-drone" aria-labelledby="cotacao-title" className="grid gap-6 border-t py-8 md:grid-cols-[0.8fr_1.2fr]">
         <div>
