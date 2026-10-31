@@ -39,7 +39,7 @@ const BlogCalendario90Dias = () => {
     <Fragment>
       <PageMeta
         title="Calendário Editorial 90 Dias — Blog Patro Seguros"
-        description="11 artigos novos do calendário editorial 90 dias da Patro Seguros: seguro auto, empresarial, frota, transporte, saúde, residencial, condomínio, fiança e RC profissional em Guarulhos."
+        description="11 artigos novos do calendário editorial de 90 dias: seguro auto, empresarial, frota, transporte, saúde, residencial, condomínio e RC profissional."
       />
       <Header />
       <main id="main-content" className="outline-none">
