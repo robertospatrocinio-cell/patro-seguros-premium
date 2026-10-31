@@ -717,20 +717,20 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const estado = estadosNacionais.find((e) => estadoPath(e.slug) === cleanPath);
     const cidade = cidadesNacionais.find((c) => cidadePath(c.slug) === cleanPath);
     const national = cleanPath === ATENDIMENTO_NACIONAL_PATH ? {
-      title: "Seguros em Todo o Brasil | Atendimento Nacional | Patro Seguros",
-      description: "Corretora com sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Cotação comparando seguradoras.",
+      title: "Seguros em Todo o Brasil | Patro Seguros",
+      description: "Sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Peça sua cotação.",
       h1: "Seguros com atendimento em todo o Brasil",
     } : regiao ? {
-      title: `${regiao.titulo} | Agro, Frotas e Empresas | Patro Seguros`,
+      title: `${regiao.titulo} | Patro Seguros`,
       description: `${regiao.titulo}: ${regiao.resumo} Atendimento remoto da Patro Seguros, com cotação comparando seguradoras.`,
       h1: regiao.titulo,
     } : estado ? {
-      title: `Seguros em ${estado.nome} (${estado.uf}) | Agro, Frotas e Empresas | Patro`,
-      description: `Seguros em ${estado.nome} (${estado.uf}): rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME. Atendimento remoto da Patro Seguros, sem preço tabelado.`,
+      title: `Seguros em ${estado.nome} (${estado.uf}) | Patro Seguros`,
+      description: `Seguros em ${estado.nome} (${estado.uf}): rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME. Atendimento remoto da Patro Seguros.`,
       h1: `Seguros em ${estado.nome}`,
     } : cidade ? {
-      title: `Seguros em ${cidade.nome} - ${cidade.estado.uf} | Rural, Frotas e Empresas | Patro Seguros`,
-      description: `Seguros em ${cidade.nome} - ${cidade.estado.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras, sem preço tabelado.`,
+      title: `Seguros em ${cidade.nome} - ${cidade.estado.uf} | Patro Seguros`,
+      description: `Seguros em ${cidade.nome} - ${cidade.estado.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras.`,
       h1: `Seguros em ${cidade.nome} - ${cidade.estado.uf}`,
     } : null;
     if (national) return {
