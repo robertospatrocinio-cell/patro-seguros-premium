@@ -1006,10 +1006,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 4. Landing Pages / LP focus (Conversion/Quote focus)
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
-    const rawTitle = `${lpConfig.title} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
+    const title = clampTitle(`${lpConfig.title} | Patro`);
     const rawDesc = lpConfig.metaDescription || lpConfig.description;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
 
     return {
       title,
@@ -1029,9 +1028,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const serviceContent = (servicePagesContent as any)[slug];
   if (serviceContent) {
     const baseTitle = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    const rawTitle = `${baseTitle} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
-    const description = serviceContent.content.length > 160 ? serviceContent.content.slice(0, 157).trim() + "..." : serviceContent.content;
+    const title = clampTitle(`${baseTitle} | Patro`);
+    const description = clampDescription(serviceContent.content);
 
     return {
       title,
@@ -1142,9 +1140,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const isGuarulhos = slug.includes("guarulhos");
     
     const rawTitle = `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const title = clampTitle(rawTitle);
     const rawDesc = `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos.`;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
 
     return {
       title,
