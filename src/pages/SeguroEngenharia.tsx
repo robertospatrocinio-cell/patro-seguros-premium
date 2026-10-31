@@ -61,7 +61,7 @@ const SeguroEngenharia = () => {
       headline="Sua obra e seus equipamentos merecem proteção pensada para cada etapa"
       subtitle="Obras e montagens expõem bens, materiais, estruturas e máquinas a acidentes. O Seguro de Engenharia pode amparar prejuízos materiais aos bens descritos na apólice, quando decorrentes de riscos cobertos, observados os limites, franquias e condições contratados."
       icon="🏗️"
-      metaDescription="Seguro de Engenharia e Riscos de Engenharia para obras civis, instalação e montagem, quebra de máquinas e equipamentos eletrônicos. Solicite cotação com a Patro Seguros."
+      metaDescription="Seguro de Engenharia para obras civis, instalação e montagem, quebra de máquinas e equipamentos eletrônicos. Cotação com a Patro Seguros."
       description="Seguro de Riscos de Engenharia para construtoras, incorporadoras, indústrias e montadores: proteção contra danos materiais em obras, conforme a apólice."
       detailedDescription={`Cada projeto de engenharia tem etapas, bens e riscos próprios. Por isso, o seguro é estruturado a partir da descrição da obra ou da montagem: o que será construído ou instalado, onde, em que prazo e com quais máquinas, materiais e etapas.
 

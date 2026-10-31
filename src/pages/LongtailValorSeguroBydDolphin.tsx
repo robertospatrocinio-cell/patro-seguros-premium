@@ -24,7 +24,7 @@ O que afeta mais o valor do seguro do BYD Dolphin: (1) cláusula específica par
 
 A Patro Seguros trabalha com Porto Seguro, Allianz, HDI, Tokio Marine e Bradesco Auto — as seguradoras com melhor experiência em elétricos no Brasil — e compara todas simultaneamente para você contratar seguro BYD Dolphin com preço justo e cobertura correta.`}
     icon="⚡"
-    metaDescription="Valor do seguro BYD Dolphin em 2026: R$ 2.500 a R$ 4.800/ano. Cotação Porto Seguro, Allianz e HDI para elétricos, com cobertura de bateria de tração. Patro Seguros."
+    metaDescription="Valor do seguro BYD Dolphin em 2026: R$ 2.500 a R$ 4.800/ano. Cotação Porto, Allianz e HDI para elétricos, com cobertura de bateria. Patro Seguros."
     coverages={[
       { title: "Bateria de Tração (Blade Battery)", description: "Cobertura integral do componente mais caro do BYD Dolphin — item que muitas apólices excluem ou cobrem parcialmente." },
       { title: "Rede Autorizada BYD", description: "Reparo apenas em oficinas certificadas BYD para preservar a garantia de fábrica e a integridade dos componentes de alta voltagem." },
