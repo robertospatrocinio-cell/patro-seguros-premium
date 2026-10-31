@@ -699,7 +699,7 @@ function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
 
 
 
-export function getMetadataForRoute(pathname: string): Metadata | null {
+function getMetadataForRouteInternal(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
   const droneMetadata = getDroneSeo(cleanPath);
   if (droneMetadata) return droneMetadata;
@@ -1155,4 +1155,25 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   }
 
   return null;
+}
+
+/**
+ * Ponto único de saída dos metadados: garante title ≤60 e description ≤155
+ * em TODAS as rotas (auditoria title_too_long / description_too_long).
+ * Em desenvolvimento, alerta no console quando uma rota precisou ser truncada,
+ * para que o texto seja revisado na fonte em vez de depender do corte.
+ */
+export function getMetadataForRoute(pathname: string): Metadata | null {
+  const meta = getMetadataForRouteInternal(pathname);
+  if (!meta) return null;
+  const title = clampTitle(meta.title);
+  const description = clampDescription(meta.description);
+  if ((title !== meta.title || description !== meta.description) && import.meta.env?.DEV) {
+    console.warn(
+      `[seo] metadados acima do limite em ${pathname}: ` +
+      `title ${meta.title.length}→${title.length} chars, description ${meta.description.length}→${description.length} chars. ` +
+      `Revise o texto na fonte (máx: title ${SEO_TITLE_MAX}, description ${SEO_DESCRIPTION_MAX}).`
+    );
+  }
+  return { ...meta, title, description };
 }
