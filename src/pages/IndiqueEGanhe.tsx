@@ -212,7 +212,7 @@ const IndiqueEGanhe = () => {
     <Fragment>
       <PageMeta
         title="Indique um amigo e fortaleça sua rede | Patro Seguros"
-        description="Programa oficial de indicações da Patro Seguros. Indique amigos, familiares e parceiros para receber cotações de seguros com atendimento especializado em Guarulhos/SP."
+        description="Programa oficial de indicações da Patro Seguros: indique amigos e familiares para cotações de seguros com atendimento especializado em Guarulhos/SP."
         canonicalPath="/indique-e-ganhe"
       />
       <ServiceSchema

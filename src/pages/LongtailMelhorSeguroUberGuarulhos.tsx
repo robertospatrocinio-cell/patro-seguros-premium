@@ -15,7 +15,7 @@ const LongtailMelhorSeguroUberGuarulhos = () => (
     ]}
     title="Qual o Melhor Seguro para Uber em Guarulhos? Ranking 2026"
     subtitle="Comparativo direto entre as 4 seguradoras que realmente cobrem Uber em Guarulhos: Porto Seguro, Allianz, HDI e Tokio Marine. Preço, franquia, aceitação de app e cobertura em corrida — lado a lado."
-    description="Ranking técnico das melhores seguradoras para motorista Uber em Guarulhos, com base em 200+ cotações reais feitas pela Patro Seguros. Apenas produtos com cláusula expressa de uso por aplicativo — nenhum risco de negativa em sinistro durante corrida."
+    description="Ranking das melhores seguradoras para Uber em Guarulhos, com base em 200+ cotações reais da Patro. Só produtos com cláusula de uso por aplicativo."
     detailedDescription={`Perguntar 'qual o melhor seguro para Uber em Guarulhos' é a dúvida mais comum entre motoristas de app da região. A resposta técnica não é uma seguradora única — é a que oferece a melhor combinação de preço, franquia baixa, cláusula expressa para app e assistência 24h para o seu perfil e CEP dentro de Guarulhos. Neste ranking consolidamos as 4 seguradoras que trabalham com Uber, 99 e InDriver em Guarulhos, com base em 200+ cotações reais feitas pela Patro em 2025 e 2026.
 
 Ranking Patro 2026 (motorista 32 anos, Onix 2022, CEP Cidade Maia, sem sinistros, 8h/dia em app):

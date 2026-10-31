@@ -77,7 +77,7 @@ const GuiaClusterLongtail = () => {
     <>
       <PageMeta
         title="Guia de Clusters Long-tail | Patro Seguros"
-        description="Mapa de navegação entre as páginas long-tail da Patro Seguros: Uber, BYD Dolphin, cotação residencial online e planos de saúde em Guarulhos, conectados por âncoras profundas."
+        description="Mapa de navegação das páginas long-tail da Patro Seguros: Uber, BYD Dolphin, cotação residencial online e planos de saúde em Guarulhos."
         canonicalPath="/guia-cluster-longtail"
       />
       <FAQSchema faqs={FAQS} />
