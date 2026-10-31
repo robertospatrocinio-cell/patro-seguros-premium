@@ -42,7 +42,7 @@ const SolucoesEmpresariais = () => {
     <div className="min-h-screen bg-background text-foreground">
       <PageMeta
         title="Soluções empresariais Patro Seguros"
-        description="Programas empresariais da Patro Seguros: locadoras de equipamentos, galpões e centros de distribuição, seguro cibernético PME e responsabilidade de administradores e profissionais."
+        description="Programas empresariais da Patro: locadoras de equipamentos, galpões e centros de distribuição, seguro cibernético PME e RC de administradores."
       />
       <Helmet>
         <script type="application/ld+json">
