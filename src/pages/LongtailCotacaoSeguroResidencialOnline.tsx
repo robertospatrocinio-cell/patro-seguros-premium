@@ -24,7 +24,7 @@ A cotação de seguro residencial online tem 3 armadilhas comuns: (1) simuladore
 
 A Patro Seguros mostra o comparativo completo com franquia, sublimites por cobertura, assistência 24h (chaveiro, encanador, eletricista) e diferenciais de cada produto — não apenas o preço. Você escolhe o que faz sentido para o seu imóvel em Guarulhos ou Grande SP e contrata em 24h.`}
     icon="🏠"
-    metaDescription="Cotação de seguro residencial online grátis: compare Porto, Bradesco, Allianz e HDI em 2 horas. Preço a partir de R$ 25/mês para casas e apartamentos. Patro Seguros."
+    metaDescription="Cotação de seguro residencial online grátis: compare Porto, Bradesco, Allianz e HDI em 2 horas. Preço a partir de R$ 25/mês. Patro Seguros."
     coverages={[
       { title: "Básica (Incêndio, Raio, Explosão)", description: "Cobertura obrigatória em toda apólice residencial. Indeniza danos à estrutura e conteúdo por fogo, raio direto ou explosão de gás/vazamento." },
       { title: "Roubo e Furto Qualificado", description: "Indenização de móveis, eletrônicos e joias em caso de roubo com arrombamento. Sublimite variável — atenção ao teto." },
