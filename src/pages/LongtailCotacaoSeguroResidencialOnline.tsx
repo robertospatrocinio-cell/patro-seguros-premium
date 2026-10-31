@@ -15,7 +15,7 @@ const LongtailCotacaoSeguroResidencialOnline = () => (
     ]}
     title="Cotação de Seguro Residencial Online — Preço em 2 Minutos"
     subtitle="Faça sua cotação de seguro residencial online e receba propostas de Porto Seguro, Bradesco, Allianz, SulAmérica e HDI em até 2 horas. Cobertura completa a partir de R$ 25/mês para casas e apartamentos em Guarulhos e Grande SP."
-    description="Cotação de seguro residencial online 100% gratuita e sem compromisso. A Patro Seguros compara 16 seguradoras em uma única cotação e envia o comparativo por WhatsApp em até 2h — com preço, coberturas, franquia e assistência 24h de cada uma."
+    description="Cotação de seguro residencial online grátis e sem compromisso: a Patro compara 16 seguradoras e envia o comparativo por WhatsApp em até 2h."
     detailedDescription={`Fazer cotação de seguro residencial online deveria ser simples, mas na prática cada seguradora tem seu próprio simulador com perguntas diferentes, resultados que variam bastante e coberturas nem sempre comparáveis. A Patro Seguros resolve isso: você preenche um único formulário rápido (endereço, tipo do imóvel, valor a segurar e coberturas desejadas) e nós cotamos em Porto Seguro, Bradesco Auto RE, Allianz Casa, SulAmérica Residencial, HDI Residencial, Tokio Marine, Mapfre e Liberty em uma única passada.
 
 O preço médio de seguro residencial online em 2026 para um apartamento de R$ 400 mil em Guarulhos, com R$ 40 mil em bens (móveis, eletrônicos), cobertura básica (incêndio, raio, explosão) mais roubo e danos elétricos, fica entre R$ 320 e R$ 580/ano — o equivalente a R$ 27 a R$ 48/mês. Para casa térrea de R$ 600 mil com R$ 80 mil em bens e coberturas ampliadas (impacto de veículos, vendaval, danos por água), o preço vai de R$ 480 a R$ 890/ano.
@@ -24,7 +24,7 @@ A cotação de seguro residencial online tem 3 armadilhas comuns: (1) simuladore
 
 A Patro Seguros mostra o comparativo completo com franquia, sublimites por cobertura, assistência 24h (chaveiro, encanador, eletricista) e diferenciais de cada produto — não apenas o preço. Você escolhe o que faz sentido para o seu imóvel em Guarulhos ou Grande SP e contrata em 24h.`}
     icon="🏠"
-    metaDescription="Cotação de seguro residencial online grátis: compare Porto, Bradesco, Allianz e HDI em 2 horas. Preço a partir de R$ 25/mês para casas e apartamentos. Patro Seguros."
+    metaDescription="Cotação de seguro residencial online grátis: compare Porto, Bradesco, Allianz e HDI em 2 horas. Preço a partir de R$ 25/mês. Patro Seguros."
     coverages={[
       { title: "Básica (Incêndio, Raio, Explosão)", description: "Cobertura obrigatória em toda apólice residencial. Indeniza danos à estrutura e conteúdo por fogo, raio direto ou explosão de gás/vazamento." },
       { title: "Roubo e Furto Qualificado", description: "Indenização de móveis, eletrônicos e joias em caso de roubo com arrombamento. Sublimite variável — atenção ao teto." },

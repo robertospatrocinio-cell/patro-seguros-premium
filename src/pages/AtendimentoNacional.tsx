@@ -217,7 +217,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Seguros em Todo o Brasil | Atendimento Nacional | Patro Seguros"
-        description="Corretora com sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Cotação comparando seguradoras."
+        description="Sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Peça sua cotação."
         absoluteTitle
       />
       <Header />

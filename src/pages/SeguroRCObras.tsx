@@ -37,8 +37,8 @@ const SeguroRCObras = () => {
       headline="Proteja sua empresa dos imprevistos durante a obra"
       subtitle="Obras, reformas e serviços de instalação e montagem podem causar danos a clientes, vizinhos, visitantes, prestadores ou propriedades de terceiros. O seguro pode amparar a responsabilidade civil da sua empresa por acidentes cobertos, conforme as garantias contratadas e as condições da apólice."
       icon="🏗️"
-      metaDescription="Seguro de Responsabilidade Civil para Obras Civis e Serviços de Montagem: proteção para danos a terceiros durante a obra, com coberturas adicionais. Solicite cotação."
-      description="O Seguro de Responsabilidade Civil para Obras Civis e Serviços de Montagem é voltado a empresas e profissionais que executam obras, reformas, instalações e montagens. O foco é amparar a responsabilidade civil da empresa por danos materiais e corporais causados a terceiros em acidentes cobertos, conforme as condições da apólice."
+      metaDescription="Seguro de RC para Obras Civis e Serviços de Montagem: proteção para danos a terceiros durante a obra, com coberturas adicionais. Cotação."
+      description="Seguro de RC para Obras Civis e Serviços de Montagem: ampara danos materiais e corporais causados a terceiros em obras, reformas e montagens."
       detailedDescription={`Todo canteiro de obras envolve riscos para quem está ao redor: vizinhos, clientes, visitantes, pedestres e outros prestadores. Um acidente durante a execução pode gerar reclamações de terceiros e impacto financeiro relevante para a empresa responsável pela obra ou pelo serviço.
 
 A base do produto é a Responsabilidade Civil Básica, obrigatória para a contratação das coberturas adicionais. Ela pode amparar danos materiais e corporais causados a terceiros em decorrência de acidentes durante a execução da obra ou do serviço declarado na apólice.

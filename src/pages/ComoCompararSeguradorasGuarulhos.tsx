@@ -135,7 +135,7 @@ const ComoCompararSeguradorasGuarulhos = () => (
   <div className="min-h-screen bg-background">
     <PageMeta
       title="Como comparar seguradoras em Guarulhos"
-      description="Guia prático para escolher e comparar seguradoras em Guarulhos e São Paulo: cobertura, franquia, serviços, aceitação por CEP e reputação. FAQ completo pela Patro Seguros."
+      description="Guia prático para comparar seguradoras em Guarulhos e São Paulo: cobertura, franquia, serviços, aceitação por CEP e reputação. FAQ da Patro Seguros."
       ogImage={`${CANONICAL_BASE_URL}/images/og-seguradoras-parceiras.jpg`}
       ogImageAlt="Como comparar seguradoras em Guarulhos — guia da Patro Seguros, corretora local em Guarulhos/SP."
     

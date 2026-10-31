@@ -40,6 +40,32 @@ const DEFAULT_GEO_PLACENAME = "Guarulhos, São Paulo";
 const ANSWER_READY_TEMPLATE = EMPRESA.posicionamento;
 
 /**
+ * Limites rígidos de SEO técnico (auditoria: title_too_long / description_too_long).
+ * Title ≤ 60 chars (incluindo sufixo de marca) e Description ≤ 155 chars.
+ */
+export const SEO_TITLE_MAX = 60;
+export const SEO_DESCRIPTION_MAX = 155;
+
+/**
+ * Trunca no limite de palavra, sem reticências, preservando legibilidade.
+ * Se o corte ficaria curto demais (palavra muito longa), corta no caractere.
+ */
+export function clampAtWord(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const sliced = text.slice(0, max);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return (lastSpace > max * 0.5 ? sliced.slice(0, lastSpace) : sliced).trim();
+}
+
+export function clampTitle(title: string): string {
+  return clampAtWord(title, SEO_TITLE_MAX);
+}
+
+export function clampDescription(description: string): string {
+  return clampAtWord(description, SEO_DESCRIPTION_MAX);
+}
+
+/**
  * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para
  * emitir `hasPart` no CollectionPage e passar a checagem do Google Rich
  * Results (requer `hasPart` ou `mainEntity`).
@@ -673,7 +699,7 @@ function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
 
 
 
-export function getMetadataForRoute(pathname: string): Metadata | null {
+function getMetadataForRouteInternal(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
   const droneMetadata = getDroneSeo(cleanPath);
   if (droneMetadata) return droneMetadata;
@@ -691,20 +717,20 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const estado = estadosNacionais.find((e) => estadoPath(e.slug) === cleanPath);
     const cidade = cidadesNacionais.find((c) => cidadePath(c.slug) === cleanPath);
     const national = cleanPath === ATENDIMENTO_NACIONAL_PATH ? {
-      title: "Seguros em Todo o Brasil | Atendimento Nacional | Patro Seguros",
-      description: "Corretora com sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Cotação comparando seguradoras.",
+      title: "Seguros em Todo o Brasil | Patro Seguros",
+      description: "Sede em Guarulhos/SP e atendimento remoto em todo o Brasil: seguro rural, drones, frotas, caminhões, empresarial e saúde PME. Peça sua cotação.",
       h1: "Seguros com atendimento em todo o Brasil",
     } : regiao ? {
-      title: `${regiao.titulo} | Agro, Frotas e Empresas | Patro Seguros`,
+      title: `${regiao.titulo} | Patro Seguros`,
       description: `${regiao.titulo}: ${regiao.resumo} Atendimento remoto da Patro Seguros, com cotação comparando seguradoras.`,
       h1: regiao.titulo,
     } : estado ? {
-      title: `Seguros em ${estado.nome} (${estado.uf}) | Agro, Frotas e Empresas | Patro`,
-      description: `Seguros em ${estado.nome} (${estado.uf}): rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME. Atendimento remoto da Patro Seguros, sem preço tabelado.`,
+      title: `Seguros em ${estado.nome} (${estado.uf}) | Patro Seguros`,
+      description: `Seguros em ${estado.nome} (${estado.uf}): rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME. Atendimento remoto da Patro Seguros.`,
       h1: `Seguros em ${estado.nome}`,
     } : cidade ? {
-      title: `Seguros em ${cidade.nome} - ${cidade.estado.uf} | Rural, Frotas e Empresas | Patro Seguros`,
-      description: `Seguros em ${cidade.nome} - ${cidade.estado.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras, sem preço tabelado.`,
+      title: `Seguros em ${cidade.nome} - ${cidade.estado.uf} | Patro Seguros`,
+      description: `Seguros em ${cidade.nome} - ${cidade.estado.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras.`,
       h1: `Seguros em ${cidade.nome} - ${cidade.estado.uf}`,
     } : null;
     if (national) return {
@@ -980,10 +1006,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 4. Landing Pages / LP focus (Conversion/Quote focus)
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
-    const rawTitle = `${lpConfig.title} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
+    const title = clampTitle(`${lpConfig.title} | Patro`);
     const rawDesc = lpConfig.metaDescription || lpConfig.description;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
 
     return {
       title,
@@ -1003,9 +1028,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const serviceContent = (servicePagesContent as any)[slug];
   if (serviceContent) {
     const baseTitle = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    const rawTitle = `${baseTitle} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
-    const description = serviceContent.content.length > 160 ? serviceContent.content.slice(0, 157).trim() + "..." : serviceContent.content;
+    const title = clampTitle(`${baseTitle} | Patro`);
+    const description = clampDescription(serviceContent.content);
 
     return {
       title,
@@ -1024,9 +1048,16 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
+      // Title ≤60: encurta o título editorial no limite de palavra e usa o
+      // sufixo curto "| Patro". O título completo segue em socialTitle (OG/Twitter).
+      const fullTitle = `${post.title} | Patro Seguros`;
+      const title = fullTitle.length > SEO_TITLE_MAX
+        ? `${clampAtWord(post.title, SEO_TITLE_MAX - " | Patro".length)} | Patro`
+        : fullTitle;
       return {
-        title: `${post.title} | Patro Seguros`,
-        description: post.excerpt,
+        title,
+        description: clampDescription(post.excerpt),
+        socialTitle: fullTitle,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
         ogUrl: `${DOMAIN}${cleanPath}`,
@@ -1062,12 +1093,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       : articleSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
     const rawTitle = `${humanTitle} | Patro Seguros`;
     // Alvo ≤60 chars para passar no audit-seo-runtime.
-    const title = rawTitle.length > 60
-      ? `${humanTitle.slice(0, 60 - " | Patro".length).trim()} | Patro`
+    const title = rawTitle.length > SEO_TITLE_MAX
+      ? `${clampAtWord(humanTitle, SEO_TITLE_MAX - " | Patro".length)} | Patro`
       : rawTitle;
     const rawDesc = post?.excerpt
       || `Leia o artigo "${humanTitle}" no blog da Patro Seguros — corretora em Guarulhos especialista em seguros e planos de saúde.`;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
     // Deduplicação: /artigos/{slug} e /blog/{slug} servem o mesmo conteúdo.
     // A URL canônica oficial (também listada no sitemap) é /blog/{slug}.
     const canonicalUrl = `${DOMAIN}/blog/${articleSlug}`;
@@ -1109,9 +1140,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const isGuarulhos = slug.includes("guarulhos");
     
     const rawTitle = `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const title = clampTitle(rawTitle);
     const rawDesc = `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos.`;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
 
     return {
       title,
@@ -1124,4 +1155,25 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   }
 
   return null;
+}
+
+/**
+ * Ponto único de saída dos metadados: garante title ≤60 e description ≤155
+ * em TODAS as rotas (auditoria title_too_long / description_too_long).
+ * Em desenvolvimento, alerta no console quando uma rota precisou ser truncada,
+ * para que o texto seja revisado na fonte em vez de depender do corte.
+ */
+export function getMetadataForRoute(pathname: string): Metadata | null {
+  const meta = getMetadataForRouteInternal(pathname);
+  if (!meta) return null;
+  const title = clampTitle(meta.title);
+  const description = clampDescription(meta.description);
+  if ((title !== meta.title || description !== meta.description) && import.meta.env?.DEV) {
+    console.warn(
+      `[seo] metadados acima do limite em ${pathname}: ` +
+      `title ${meta.title.length}→${title.length} chars, description ${meta.description.length}→${description.length} chars. ` +
+      `Revise o texto na fonte (máx: title ${SEO_TITLE_MAX}, description ${SEO_DESCRIPTION_MAX}).`
+    );
+  }
+  return { ...meta, title, description };
 }

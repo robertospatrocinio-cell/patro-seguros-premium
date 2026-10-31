@@ -51,7 +51,7 @@ const AtendimentoDigital = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Atendimento Digital por WhatsApp e E-mail | Patro Seguros"
-        description="Fale com a Patro Seguros por WhatsApp ou e-mail: cotação, contratação e acompanhamento de seguros 100% digitais, com consultores de verdade na sede em Guarulhos."
+        description="Fale com a Patro Seguros por WhatsApp ou e-mail: cotação, contratação e acompanhamento de seguros 100% digitais, com consultores de verdade."
         absoluteTitle
       />
       <FAQSchema faqs={FAQS} />

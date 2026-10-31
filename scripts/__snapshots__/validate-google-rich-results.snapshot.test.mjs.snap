@@ -170,18 +170,6 @@ exports[`dist/google-rich-results-report.json — snapshot breakdown por @type �
 }
 `;
 
-exports[`dist/google-rich-results-report.json — snapshot summary — snapshot 1`] = `
-{
-  "blocks": 4540,
-  "eligible": 3630,
-  "eligibleWarn": 0,
-  "files": 766,
-  "ineligible": 0,
-  "nodes": 8386,
-  "unsupported": 4756,
-}
-`;
-
 exports[`dist/google-rich-results-report.json — snapshot conjunto de @types cobertos — snapshot 1`] = `
 [
   "BlogPosting",
@@ -194,4 +182,16 @@ exports[`dist/google-rich-results-report.json — snapshot conjunto de @types co
   "SiteNavigationElement",
   "WebSite",
 ]
+`;
+
+exports[`dist/google-rich-results-report.json — snapshot summary — snapshot 1`] = `
+{
+  "blocks": 4540,
+  "eligible": 3630,
+  "eligibleWarn": 0,
+  "files": 766,
+  "ineligible": 0,
+  "nodes": 8386,
+  "unsupported": 4756,
+}
 `;

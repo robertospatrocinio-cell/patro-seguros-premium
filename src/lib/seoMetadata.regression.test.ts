@@ -21,9 +21,13 @@ vi.mock("@/lib/blogImages", () => ({
 describe("Metadados estáticos dos artigos", () => {
   const path = "/blog/guia-de-coberturas-para-empresas";
 
-  it("preserva o título editorial completo, sem cortes arbitrários", () => {
+  it("limita o <title> a 60 chars com corte em limite de palavra e preserva o título editorial no socialTitle", () => {
     const metadata = getMetadataForRoute(path);
-    expect(metadata?.title).toBe(
+    // Auditoria title_too_long: <title> nunca ultrapassa 60 caracteres.
+    expect(metadata?.title.length).toBeLessThanOrEqual(60);
+    expect(metadata?.title).toBe("Seguro empresarial: como comparar coberturas, | Patro");
+    // O título editorial completo segue disponível para OG/Twitter e H1/schema.
+    expect(metadata?.socialTitle).toBe(
       "Seguro empresarial: como comparar coberturas, franquias e assistência para sua empresa | Patro Seguros",
     );
     expect(metadata?.schema.headline).toBe(metadata?.h1);
@@ -72,10 +76,12 @@ describe("Metadados regionais sem títulos genéricos ou cortes", () => {
     expect(descriptions.size).toBe(entries.length);
   });
 
-  it("preserva o atendimento nacional e títulos completos dos bairros", () => {
+  it("preserva o atendimento nacional e limita os títulos dos bairros a 60 chars", () => {
     expect(getMetadataForRoute("/atendimento-nacional")?.h1).toBe("Seguros com atendimento em todo o Brasil");
-    expect(getMetadataForRoute("/vila-nova-conceicao")?.title).toBe(
-      "Seguros em Vila Nova Conceição | Auto, Residencial e Empresarial | Patro Seguros",
-    );
+    const bairro = getMetadataForRoute("/vila-nova-conceicao");
+    // Auditoria title_too_long: título individualizado, dentro do limite e sem reticências.
+    expect(bairro?.title.length).toBeLessThanOrEqual(60);
+    expect(bairro?.title).toContain("Seguros em Vila Nova Conceição");
+    expect(bairro?.title).not.toContain("...");
   });
 });

@@ -61,8 +61,8 @@ const SeguroEngenharia = () => {
       headline="Sua obra e seus equipamentos merecem proteção pensada para cada etapa"
       subtitle="Obras e montagens expõem bens, materiais, estruturas e máquinas a acidentes. O Seguro de Engenharia pode amparar prejuízos materiais aos bens descritos na apólice, quando decorrentes de riscos cobertos, observados os limites, franquias e condições contratados."
       icon="🏗️"
-      metaDescription="Seguro de Engenharia e Riscos de Engenharia para obras civis, instalação e montagem, quebra de máquinas e equipamentos eletrônicos. Solicite cotação com a Patro Seguros."
-      description="O Seguro de Riscos de Engenharia é voltado a construtoras, incorporadoras, indústrias, instaladores, montadores e proprietários de empreendimentos. Ele pode proteger bens e trabalhos segurados contra danos materiais decorrentes de acidentes cobertos, conforme o projeto, as garantias contratadas e as condições da apólice."
+      metaDescription="Seguro de Engenharia para obras civis, instalação e montagem, quebra de máquinas e equipamentos eletrônicos. Cotação com a Patro Seguros."
+      description="Seguro de Riscos de Engenharia para construtoras, incorporadoras, indústrias e montadores: proteção contra danos materiais em obras, conforme a apólice."
       detailedDescription={`Cada projeto de engenharia tem etapas, bens e riscos próprios. Por isso, o seguro é estruturado a partir da descrição da obra ou da montagem: o que será construído ou instalado, onde, em que prazo e com quais máquinas, materiais e etapas.
 
 A cobertura básica de Obras Civis em Construção e/ou Instalação e Montagem (OCC/IM) pode amparar danos materiais aos bens descritos na apólice, causados por acidentes de origem externa, súbita, imprevista e involuntária durante as etapas seguradas. Podem ser incluídos a obra descrita, os materiais destinados a ela e máquinas, equipamentos ou estruturas instalados ou montados de forma permanente, quando especificados na apólice.

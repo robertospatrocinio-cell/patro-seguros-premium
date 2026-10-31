@@ -15,7 +15,7 @@ const LongtailPlanosSaudeGuarulhosComparativo = () => (
     ]}
     title="Planos de Saúde Guarulhos — Comparativo 2026 (Preços, Redes e Coberturas)"
     subtitle="Comparativo direto entre os principais planos de saúde em Guarulhos: Amil, Bradesco Saúde, SulAmérica, Hapvida NotreDame e Porto Saúde. Preço, rede credenciada em Guarulhos e cobertura, lado a lado."
-    description="Comparativo completo dos planos de saúde disponíveis em Guarulhos, com preços atualizados, rede credenciada local, carências e diferenciais de cada operadora. A Patro Seguros é hub oficial de 20+ operadoras e faz a análise técnica gratuita para você escolher o melhor plano de saúde em Guarulhos sem perder benefício."
+    description="Comparativo de planos de saúde em Guarulhos: preços, rede credenciada, carências e diferenciais de cada operadora. Análise técnica gratuita da Patro Seguros."
     detailedDescription={`Escolher planos de saúde em Guarulhos não é trivial: são mais de 20 operadoras ativas na cidade, com redes credenciadas diferentes por bairro, faixas etárias com reajustes distintos e coberturas que variam de plano ambulatorial simples até apartamento com obstetrícia e reembolso nacional. Este comparativo consolida as opções mais contratadas em Guarulhos (individual/familiar, PME e adesão) para que você decida com base em dados, não em promessa de vendedor.
 
 A rede credenciada é o critério que mais pesa: um plano barato que não atende no seu bairro perde valor rapidamente. Em Guarulhos, os hospitais de referência são Stella Maris, Padre Bento, Bosque da Saúde, IGESP, Hospital Cruz Azul e Hospital São Lucas. Nem toda operadora credencia todos — por isso comparamos por bairro (Cidade Maia, Vila Galvão, Jardim Maia, Cocaia, Ponte Grande, Macedo, Vila Rio de Janeiro, Vila Augusta, Cumbica e Pimentas).
@@ -24,7 +24,7 @@ Preço médio (2026, titular 30 anos, enfermaria, com obstetrícia): Hapvida Not
 
 Para escolher o melhor plano de saúde em Guarulhos para o seu perfil, veja também o comparativo por bairro no nosso hub local — cada região tem prestadores diferentes e o preço muda por CEP.`}
     icon="🏥"
-    metaDescription="Planos de saúde Guarulhos: comparativo 2026 com Amil, Bradesco, SulAmérica, Hapvida e Porto Saúde. Preços, rede credenciada por bairro e coberturas. Cotação grátis pela Patro Seguros."
+    metaDescription="Planos de saúde Guarulhos: comparativo 2026 com Amil, Bradesco, SulAmérica, Hapvida e Porto Saúde. Preços, rede e coberturas. Cotação grátis."
     coverages={[
       { title: "Ambulatorial", description: "Consultas, exames simples e complexos, terapias e pequenas cirurgias sem internação. Ideal para quem tem baixa sinistralidade." },
       { title: "Hospitalar com Obstetrícia", description: "Internação, cirurgias, UTI e parto, com escolha de enfermaria ou apartamento. Cobertura mais completa para famílias." },

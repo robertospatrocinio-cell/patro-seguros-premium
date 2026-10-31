@@ -96,7 +96,7 @@ const CotacaoComparativaBairros = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Cotação de Seguro Auto por Bairro em São Paulo | Patro Seguros"
-        description="Compare seguradoras de seguro auto bairro a bairro em São Paulo: veja o que muda em franquia, oficina e danos a terceiros e receba a cotação comentada da Patro Seguros."
+        description="Compare seguradoras de seguro auto bairro a bairro em São Paulo: franquia, oficina e danos a terceiros, com cotação comentada da Patro Seguros."
         absoluteTitle
       />
       <FAQSchema faqs={FAQS} />
