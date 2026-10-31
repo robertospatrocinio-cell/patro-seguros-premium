@@ -24,7 +24,7 @@ Preço médio (2026, titular 30 anos, enfermaria, com obstetrícia): Hapvida Not
 
 Para escolher o melhor plano de saúde em Guarulhos para o seu perfil, veja também o comparativo por bairro no nosso hub local — cada região tem prestadores diferentes e o preço muda por CEP.`}
     icon="🏥"
-    metaDescription="Planos de saúde Guarulhos: comparativo 2026 com Amil, Bradesco, SulAmérica, Hapvida e Porto Saúde. Preços, rede credenciada por bairro e coberturas. Cotação grátis pela Patro Seguros."
+    metaDescription="Planos de saúde Guarulhos: comparativo 2026 com Amil, Bradesco, SulAmérica, Hapvida e Porto Saúde. Preços, rede e coberturas. Cotação grátis."
     coverages={[
       { title: "Ambulatorial", description: "Consultas, exames simples e complexos, terapias e pequenas cirurgias sem internação. Ideal para quem tem baixa sinistralidade." },
       { title: "Hospitalar com Obstetrícia", description: "Internação, cirurgias, UTI e parto, com escolha de enfermaria ou apartamento. Cobertura mais completa para famílias." },

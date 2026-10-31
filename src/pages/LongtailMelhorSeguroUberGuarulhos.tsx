@@ -32,7 +32,7 @@ Bradesco Auto, SulAmérica Auto e Mapfre não aceitam expressamente uso por app 
 
 O critério mais importante para escolher o melhor seguro Uber em Guarulhos não é apenas o preço: é ter cláusula expressa no contrato reconhecendo o uso remunerado. Sem isso, mesmo apólice cara pode ser negada em sinistro.`}
     icon="🏆"
-    metaDescription="Melhor seguro para Uber em Guarulhos 2026: ranking Porto Seguro, Allianz, HDI e Tokio Marine com preços reais (R$ 3.100 a R$ 3.800/ano) e cláusula de app. Cotação Patro."
+    metaDescription="Melhor seguro para Uber em Guarulhos 2026: ranking Porto, Allianz, HDI e Tokio Marine com preços reais e cláusula de app. Cotação Patro."
     coverages={[
       { title: "Cláusula Expressa para App", description: "Contrato que reconhece uso por Uber/99/InDriver — única forma de ter cobertura real em sinistro durante corrida." },
       { title: "Roubo e Furto em Guarulhos", description: "Indenização 100% FIPE, válida em Cumbica, Pimentas, Vila Galvão, Cidade Maia e demais bairros de Guarulhos." },
