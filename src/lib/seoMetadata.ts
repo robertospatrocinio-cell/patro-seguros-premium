@@ -40,6 +40,32 @@ const DEFAULT_GEO_PLACENAME = "Guarulhos, São Paulo";
 const ANSWER_READY_TEMPLATE = EMPRESA.posicionamento;
 
 /**
+ * Limites rígidos de SEO técnico (auditoria: title_too_long / description_too_long).
+ * Title ≤ 60 chars (incluindo sufixo de marca) e Description ≤ 155 chars.
+ */
+export const SEO_TITLE_MAX = 60;
+export const SEO_DESCRIPTION_MAX = 155;
+
+/**
+ * Trunca no limite de palavra, sem reticências, preservando legibilidade.
+ * Se o corte ficaria curto demais (palavra muito longa), corta no caractere.
+ */
+export function clampAtWord(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const sliced = text.slice(0, max);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return (lastSpace > max * 0.5 ? sliced.slice(0, lastSpace) : sliced).trim();
+}
+
+export function clampTitle(title: string): string {
+  return clampAtWord(title, SEO_TITLE_MAX);
+}
+
+export function clampDescription(description: string): string {
+  return clampAtWord(description, SEO_DESCRIPTION_MAX);
+}
+
+/**
  * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para
  * emitir `hasPart` no CollectionPage e passar a checagem do Google Rich
  * Results (requer `hasPart` ou `mainEntity`).
