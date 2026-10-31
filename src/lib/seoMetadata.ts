@@ -1050,9 +1050,16 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
+      // Title ≤60: encurta o título editorial no limite de palavra e usa o
+      // sufixo curto "| Patro". O título completo segue em socialTitle (OG/Twitter).
+      const fullTitle = `${post.title} | Patro Seguros`;
+      const title = fullTitle.length > SEO_TITLE_MAX
+        ? `${clampAtWord(post.title, SEO_TITLE_MAX - " | Patro".length)} | Patro`
+        : fullTitle;
       return {
-        title: `${post.title} | Patro Seguros`,
-        description: post.excerpt,
+        title,
+        description: clampDescription(post.excerpt),
+        socialTitle: fullTitle,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
         ogUrl: `${DOMAIN}${cleanPath}`,
@@ -1088,12 +1095,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       : articleSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
     const rawTitle = `${humanTitle} | Patro Seguros`;
     // Alvo ≤60 chars para passar no audit-seo-runtime.
-    const title = rawTitle.length > 60
-      ? `${humanTitle.slice(0, 60 - " | Patro".length).trim()} | Patro`
+    const title = rawTitle.length > SEO_TITLE_MAX
+      ? `${clampAtWord(humanTitle, SEO_TITLE_MAX - " | Patro".length)} | Patro`
       : rawTitle;
     const rawDesc = post?.excerpt
       || `Leia o artigo "${humanTitle}" no blog da Patro Seguros — corretora em Guarulhos especialista em seguros e planos de saúde.`;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = clampDescription(rawDesc);
     // Deduplicação: /artigos/{slug} e /blog/{slug} servem o mesmo conteúdo.
     // A URL canônica oficial (também listada no sitemap) é /blog/{slug}.
     const canonicalUrl = `${DOMAIN}/blog/${articleSlug}`;
