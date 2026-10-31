@@ -93,7 +93,7 @@ const Patro = () => {
     <Fragment>
       <PageMeta
         title="Patro Corretora de Seguros — Cotação em 2h | Guarulhos/SP"
-        description="Patro Seguros: corretora SUSEP em Guarulhos com cotação comparativa em 2h. 16+ seguradoras, atendimento humano e suporte completo em sinistros. Fale no WhatsApp."
+        description="Patro Seguros: corretora SUSEP em Guarulhos com cotação em 2h, 16+ seguradoras, atendimento humano e suporte em sinistros. Fale no WhatsApp."
       />
       <FAQSchema faqs={faqs} />
       <Header />

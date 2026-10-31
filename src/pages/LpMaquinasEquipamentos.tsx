@@ -255,7 +255,7 @@ const LpMaquinasEquipamentos = () => {
     <div className="min-h-screen bg-background text-foreground">
       <PageMeta
         title="Seguro para Máquinas e Equipamentos"
-        description="Seguro especializado para empilhadeiras, plataformas, geradores, máquinas industriais e equipamentos alugados. Análise consultiva da sua operação com a Patro Seguros."
+        description="Seguro para empilhadeiras, plataformas, geradores, máquinas industriais e equipamentos alugados. Análise consultiva com a Patro Seguros."
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

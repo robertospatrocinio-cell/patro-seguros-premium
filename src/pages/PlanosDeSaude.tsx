@@ -172,7 +172,7 @@ const faqs = [
 const PlanosDeSaude = () => {
   return (
     <>
-      <PageMeta title="Planos de Saúde em Guarulhos | Compare 20+ Operadoras | Patro" description="Planos de saúde em Guarulhos: compare Bradesco, Amil, SulAmérica e mais 20 operadoras. Consultoria gratuita para encontrar o melhor preço para você ou sua empresa." />
+      <PageMeta title="Planos de Saúde em Guarulhos | Compare 20+ Operadoras | Patro" description="Planos de saúde em Guarulhos: compare Bradesco, Amil, SulAmérica e mais 20 operadoras. Consultoria gratuita para você ou sua empresa." />
       <FAQSchema faqs={faqs} />
       <ServiceSchema 
         name="Plano de Saúde" 

@@ -15,7 +15,7 @@ const LongtailValorSeguroBydDolphin = () => (
     ]}
     title="Valor do Seguro BYD Dolphin 2026 — Preço, Cotação e Cobertura"
     subtitle="Quanto custa o seguro do BYD Dolphin? Faixa real de preço (R$ 2.500 a R$ 4.800/ano), o que afeta o valor e cotação nas seguradoras que aceitam elétricos: Porto Seguro, Allianz, HDI e Tokio Marine."
-    description="Descubra o valor exato do seguro do BYD Dolphin com base em cotações reais feitas pela Patro Seguros em Guarulhos e região metropolitana de SP. Comparamos as seguradoras que cobrem carros elétricos com cláusula específica para bateria de tração, guincho com prancha e rede autorizada BYD."
+    description="Valor do seguro do BYD Dolphin com base em cotações reais da Patro em Guarulhos e região: bateria de tração, guincho com prancha e rede BYD."
     detailedDescription={`O BYD Dolphin é hoje um dos elétricos mais vendidos do Brasil, e o valor do seu seguro varia bastante entre seguradoras — de R$ 2.500 a R$ 4.800 por ano para o mesmo perfil de motorista. A razão é simples: nem toda seguradora tem tabela consolidada para elétricos e algumas cobram um adicional de risco de 15% a 30% por falta de dados de sinistralidade e por complexidade de reparo (bateria de tração, componentes de alta voltagem, oficinas certificadas).
 
 Faixa de preço realista (2026, cobertura compreensiva 100% FIPE, CEP Guarulhos/SP, motorista 35 anos, sem sinistros, garagem em residência): BYD Dolphin GS (versão de entrada) fica entre R$ 2.500 e R$ 3.400/ano. BYD Dolphin Plus (versão mais equipada) fica entre R$ 2.900 e R$ 3.900/ano. BYD Dolphin Mini entre R$ 2.300 e R$ 3.100/ano. Versões com autonomia estendida e itens premium podem chegar a R$ 4.800/ano em perfis mais jovens ou CEPs de maior risco.

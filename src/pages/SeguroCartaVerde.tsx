@@ -10,7 +10,7 @@ const SeguroCartaVerde = () => {
       subtitle="Conte com a Patro Seguros para contratar o seguro obrigatório para circular com veículo brasileiro em países como Argentina, Uruguai, Paraguai, Chile, Bolívia e Peru."
       icon="🌎"
       metaDescription="Contrate Seguro Carta Verde para viajar com veículo brasileiro pela América do Sul. Atendimento em Guarulhos e SP para Argentina, Uruguai, Paraguai, Chile e mais."
-      description="Vai viajar com seu carro para outro país da América do Sul? A Patro Seguros ajuda você a contratar o Seguro Carta Verde com orientação rápida, atendimento em Guarulhos/São Paulo e suporte para viajar com mais tranquilidade."
+      description="Vai viajar de carro pela América do Sul? A Patro Seguros ajuda a contratar o Seguro Carta Verde com orientação rápida em Guarulhos/SP."
       detailedDescription={`O Seguro Carta Verde é uma proteção de responsabilidade civil exigida para veículos brasileiros que circulam em determinados países da América do Sul. Ele cobre danos materiais e corporais causados a terceiros no exterior, de acordo com as regras do país visitado e as condições da apólice.
 
 Importante: o Seguro Carta Verde não substitui o seguro auto tradicional. Ele é uma cobertura específica para responsabilidade civil no exterior — sem ela, o veículo pode ser impedido de entrar em fronteiras como as da Argentina, Uruguai, Paraguai, Chile, Bolívia e Peru.
