@@ -891,6 +891,11 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         description: "Conheça coberturas para proteger empresas contra incêndio, roubo, danos, lucros cessantes e RC.",
         h1: "Seguro Empresarial",
       },
+      "/seguro-lojas-shopping": {
+        title: "Seguro Loja em Shopping: Estoque, RC e Lucros Cessantes",
+        description: "Seguro para loja em shopping: estoque, incêndio, roubo, RC e lucros cessantes. Confira as exigências do contrato de locação e peça sua cotação.",
+        h1: "Seguro para loja em shopping: proteja estoque e operação",
+      },
       "/planos-de-saude": {
         title: "Planos de Saúde em Guarulhos | Compare Operadoras",
         description: "Encontre o melhor plano de saúde em Guarulhos para você, sua família ou empresa.",

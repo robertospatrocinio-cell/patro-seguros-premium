@@ -65,6 +65,23 @@ describe("Metadados estáticos dos artigos", () => {
   });
 });
 
+describe("Landing de seguro para lojas em shopping", () => {
+  it("mantém o snippet estático alinhado ao título, à descrição e ao H1 da página", async () => {
+    const { default: pageSource } = await import("@/pages/SeguroLojasShopping.tsx?raw");
+    const metadata = getMetadataForRoute("/seguro-lojas-shopping")!;
+
+    expect(metadata.title).toBe("Seguro Loja em Shopping: Estoque, RC e Lucros Cessantes");
+    expect(metadata.description).toBe("Seguro para loja em shopping: estoque, incêndio, roubo, RC e lucros cessantes. Confira as exigências do contrato de locação e peça sua cotação.");
+    expect(metadata.h1).toBe("Seguro para loja em shopping: proteja estoque e operação");
+    expect(pageSource).toContain(`title="${metadata.title}"`);
+    expect(pageSource).toContain(`metaDescription="${metadata.description}"`);
+    expect(pageSource).toContain(`headline="${metadata.h1}"`);
+    expect(metadata.canonical).toBe("https://www.patroseguros.com.br/seguro-lojas-shopping");
+    expect(metadata.ogUrl).toBe(metadata.canonical);
+    expect(metadata.description).not.toContain("2h");
+  });
+});
+
 describe("Metadados regionais sem títulos genéricos ou cortes", () => {
   it("individualiza as regiões, as 27 UFs e todas as cidades do atendimento nacional", async () => {
     const { regioesNacionais, estadosNacionais, cidadesNacionais, regiaoPath, estadoPath, cidadePath } = await import("@/data/atendimentoNacional");
