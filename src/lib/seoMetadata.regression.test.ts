@@ -21,17 +21,16 @@ vi.mock("@/lib/blogImages", () => ({
 describe("Metadados estáticos dos artigos", () => {
   const path = "/blog/guia-de-coberturas-para-empresas";
 
-  it("limita o <title> a 60 chars com corte em limite de palavra e preserva o título editorial no socialTitle", () => {
+  it("preserva o título e a descrição editoriais, sem cortes automáticos", () => {
     const metadata = getMetadataForRoute(path);
-    // Auditoria title_too_long: <title> nunca ultrapassa 60 caracteres.
-    expect(metadata?.title.length).toBeLessThanOrEqual(60);
-    expect(metadata?.title).toBe("Seguro empresarial: como comparar coberturas, | Patro");
-    // O título editorial completo segue disponível para OG/Twitter e H1/schema.
-    expect(metadata?.socialTitle).toBe(
+    expect(metadata?.title).toBe(
       "Seguro empresarial: como comparar coberturas, franquias e assistência para sua empresa | Patro Seguros",
     );
+    expect(metadata?.socialTitle).toBe(metadata?.title);
     expect(metadata?.schema.headline).toBe(metadata?.h1);
-    expect(metadata?.description).toContain('"danos elétricos"');
+    expect(metadata?.description).toBe(
+      'Entenda a cobertura de "danos elétricos" e compare opções para proteger sua empresa sem confundir limites, franquias e exclusões.',
+    );
   });
 
   it("mantém uma URL canônica comum ao compartilhamento e aos dados do artigo", () => {
@@ -46,6 +45,23 @@ describe("Metadados estáticos dos artigos", () => {
     expect(metadata?.schema.image).toEqual(["https://cdn.example.com/seguro-empresarial.webp"]);
     expect(metadata?.schema.datePublished).toBe("2026-01-10T09:00:00-03:00");
     expect(metadata?.schema.dateModified).toBe("2026-02-12T09:00:00-03:00");
+  });
+
+  it("usa a URL oficial, a imagem externa e a atualização também no endereço antigo", () => {
+    const metadata = getMetadataForRoute("/artigos/guia-de-coberturas-para-empresas");
+    expect(metadata?.canonical).toBe(`https://www.patroseguros.com.br${path}`);
+    expect(metadata?.ogUrl).toBe(metadata?.canonical);
+    expect(metadata?.schema.image).toEqual(["https://cdn.example.com/seguro-empresarial.webp"]);
+    expect(metadata?.schema.dateModified).toBe("2026-02-12T09:00:00-03:00");
+    expect(metadata?.schema.headline).toBe(metadata?.h1);
+  });
+
+  it("aponta a coleção do blog diretamente para os artigos oficiais", async () => {
+    const { buildBlogCollectionSchema } = await import("./collectionPageSchemas");
+    const schema = buildBlogCollectionSchema([
+      { slug: "guia-de-coberturas-para-empresas", title: "Seguro empresarial" },
+    ], "Guias sobre seguros");
+    expect(schema.mainEntity.itemListElement[0].url).toBe(`https://www.patroseguros.com.br${path}`);
   });
 });
 

@@ -247,11 +247,11 @@ const Blog = () => {
   const blogSchema = useMemo(() => {
     const posts = sortedAll.slice(0, 20).map((a) => ({
       "@type": "BlogPosting",
-      "@id": `${CANONICAL_BASE_URL}/artigos/${a.slug}#article`,
-      headline: a.title.length > 110 ? a.title.slice(0, 107) + "..." : a.title,
+      "@id": `${CANONICAL_BASE_URL}/blog/${a.slug}#article`,
+      headline: a.title,
       description: a.excerpt,
-      url: `${CANONICAL_BASE_URL}/artigos/${a.slug}`,
-      image: `${CANONICAL_BASE_URL}${getArticleImage(a.slug)}`,
+      url: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
+      image: new URL(getArticleImage(a.slug), `${CANONICAL_BASE_URL}/`).href,
       datePublished: a.date,
       dateModified: a.updatedAt || a.date,
       author: { "@type": "Person", name: a.author },
@@ -259,7 +259,7 @@ const Blog = () => {
       articleSection: a.category,
       keywords: a.tags.join(", "),
       inLanguage: "pt-BR",
-      mainEntityOfPage: `${CANONICAL_BASE_URL}/artigos/${a.slug}`,
+      mainEntityOfPage: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
     }));
     return {
       "@context": "https://schema.org",
@@ -281,7 +281,7 @@ const Blog = () => {
         description={pageDescription}
         noindex={isSearching || currentPage > 1}
         ogType="website"
-        ogImage={`${CANONICAL_BASE_URL}${featuredImg}`}
+        ogImage={new URL(featuredImg, `${CANONICAL_BASE_URL}/`).href}
         ogImageAlt={`Blog Patro Seguros — ${featured.title}`}
         canonicalPath={canonicalPath}
       />

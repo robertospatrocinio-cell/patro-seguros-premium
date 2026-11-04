@@ -1048,15 +1048,12 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
-      // Title ≤60: encurta o título editorial no limite de palavra e usa o
-      // sufixo curto "| Patro". O título completo segue em socialTitle (OG/Twitter).
+      // Preserva as palavras que distinguem cada artigo, assim como a página React.
+      // Comprimento é um alerta editorial, não motivo para cortar automaticamente.
       const fullTitle = `${post.title} | Patro Seguros`;
-      const title = fullTitle.length > SEO_TITLE_MAX
-        ? `${clampAtWord(post.title, SEO_TITLE_MAX - " | Patro".length)} | Patro`
-        : fullTitle;
       return {
-        title,
-        description: clampDescription(post.excerpt),
+        title: fullTitle,
+        description: post.excerpt,
         socialTitle: fullTitle,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
@@ -1116,11 +1113,11 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         schema: {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": humanTitle.length > 110 ? humanTitle.slice(0, 107).trim() + "..." : humanTitle,
+          "headline": humanTitle,
           "description": post.excerpt,
-          "image": [`${DOMAIN}${getArticleImage(articleSlug)}`],
+          "image": [new URL(getArticleImage(articleSlug), `${DOMAIN}/`).href],
           "datePublished": `${post.date}T09:00:00-03:00`,
-          "dateModified": `${post.date}T09:00:00-03:00`,
+          "dateModified": `${post.updatedAt || post.date}T09:00:00-03:00`,
           "author": { "@type": "Person", "name": post.author },
           "publisher": {
             "@type": "Organization",
@@ -1158,16 +1155,16 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
 }
 
 /**
- * Ponto único de saída dos metadados: garante title ≤60 e description ≤155
- * em TODAS as rotas (auditoria title_too_long / description_too_long).
- * Em desenvolvimento, alerta no console quando uma rota precisou ser truncada,
- * para que o texto seja revisado na fonte em vez de depender do corte.
+ * Mantém os metadados editoriais dos artigos publicados em /blog/ iguais aos
+ * da página React, sem remover as palavras que diferenciam títulos e descrições.
+ * As demais rotas mantêm o tratamento existente de tamanho.
  */
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const meta = getMetadataForRouteInternal(pathname);
   if (!meta) return null;
-  const title = clampTitle(meta.title);
-  const description = clampDescription(meta.description);
+  const isBlogArticle = meta.ogType === "article" && pathname.startsWith("/blog/");
+  const title = isBlogArticle ? meta.title : clampTitle(meta.title);
+  const description = isBlogArticle ? meta.description : clampDescription(meta.description);
   if ((title !== meta.title || description !== meta.description) && import.meta.env?.DEV) {
     console.warn(
       `[seo] metadados acima do limite em ${pathname}: ` +
