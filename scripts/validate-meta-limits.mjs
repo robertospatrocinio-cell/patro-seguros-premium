@@ -41,13 +41,27 @@ Object.values(bundle.files).forEach((xml) => {
 routes.add("/contato");
 routes.add("/cotacao");
 
+// Artigos do blog preservam título e resumo editoriais completos (decisão
+// editorial em getMetadataForRoute). Para eles o comprimento é só um alerta.
+const isBlogArticle = (route, meta) => meta.ogType === "article" && route.startsWith("/blog/");
+
 const longTitles = [];
 const longDescs = [];
+const editorialTitles = [];
+const editorialDescs = [];
 for (const route of routes) {
   const meta = getMetadataForRoute(route);
   if (!meta) continue;
-  if (meta.title && meta.title.length > TITLE_MAX) longTitles.push([route, meta.title.length]);
-  if (meta.description && meta.description.length > DESCRIPTION_MAX) longDescs.push([route, meta.description.length]);
+  const editorial = isBlogArticle(route, meta);
+  if (meta.title && meta.title.length > TITLE_MAX) (editorial ? editorialTitles : longTitles).push([route, meta.title.length]);
+  if (meta.description && meta.description.length > DESCRIPTION_MAX) (editorial ? editorialDescs : longDescs).push([route, meta.description.length]);
+}
+
+if (editorialTitles.length || editorialDescs.length) {
+  console.warn(
+    `⚠️  validate-meta-limits: ${editorialTitles.length} title(s) e ${editorialDescs.length} description(s) de artigos do blog acima do limite ` +
+    `(preservados por decisão editorial; revise na fonte se quiser encurtar).`,
+  );
 }
 
 if (longTitles.length || longDescs.length) {
