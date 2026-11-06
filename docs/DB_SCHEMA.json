@@ -5230,7 +5230,7 @@
       "trigger": "set_tasks_updated_at"
     }
   ],
-  "gerado_em": "2026-11-04T14:09:19.49449+00:00",
+  "gerado_em": "2026-11-06T19:29:43.079686+00:00",
   "rls_ativo": {
     "leads": true,
     "tasks": true,
@@ -5296,7 +5296,7 @@
     "email_send_log": 0,
     "monitored_urls": 0,
     "partial_quotes": 0,
-    "seo_audit_runs": 0,
+    "seo_audit_runs": 2,
     "insurance_sales": 0,
     "sitemap_history": 0,
     "email_send_state": 0,
@@ -5309,8 +5309,8 @@
     "contact_insurances": 0,
     "lead_quote_history": 0,
     "relationship_rules": 0,
-    "seo_audit_findings": 0,
-    "web_vitals_metrics": 0,
+    "seo_audit_findings": 3084,
+    "web_vitals_metrics": 49,
     "breadcrumb_overrides": 0,
     "domain_health_checks": 0,
     "gsc_indexation_alerts": 0,
@@ -5604,5 +5604,5 @@
     }
   ],
   "triggers_auth_users": [],
-  "geckoai_sincronizado_em": "2026-11-04T14:09:22.405Z"
+  "geckoai_sincronizado_em": "2026-11-06T19:29:46.932Z"
 }
