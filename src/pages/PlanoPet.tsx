@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-plano-pet.webp";
 import PetPlanConversion from "@/components/PetPlanConversion";
+import PetPlanMoments from "@/components/PetPlanMoments";
 
 const PlanoPet = () => {
   return (
@@ -12,6 +13,7 @@ const PlanoPet = () => {
       quoteCtaText="Ver opções para meu pet"
       quoteAnchor="#opcoes-plano-pet"
       afterHeroContent={<PetPlanConversion />}
+      galleryContent={<PetPlanMoments />}
       semGuarulhos
       jumpLinks={[
         { label: "Ver opções para meu pet", href: "#opcoes-plano-pet" },

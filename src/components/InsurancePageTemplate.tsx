@@ -213,6 +213,8 @@ export interface InsurancePageProps {
   galleryImages?: string[];
   /** Palavras-chave em inglês para o fallback automático de galeria. */
   galleryKeywords?: string[];
+  /** Galeria editorial específica da página, no lugar da galeria automática. */
+  galleryContent?: ReactNode;
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
@@ -329,6 +331,7 @@ const InsurancePageTemplate = ({
   mobileHeroImage,
   galleryImages,
   galleryKeywords,
+  galleryContent,
   quoteFormFields,
   contextualLinks,
   featuredArticle,
@@ -615,8 +618,8 @@ const InsurancePageTemplate = ({
           <AgrishowPromoBanner source={title.toLowerCase().replace(/\s+/g, "-")} variant="compact" />
         )}
 
-        {/* Galeria temática do produto (3-6 imagens reais) */}
-        {(() => {
+        {/* Galeria editorial específica ou galeria temática automática. */}
+        {galleryContent ?? (() => {
           const gallery = (galleryImages && galleryImages.length >= 3)
             ? galleryImages.slice(0, 6)
             : buildAutoGallery(title, galleryKeywords);

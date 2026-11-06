@@ -11,8 +11,16 @@ export default function PetPlanConversion() {
       <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-2 lg:items-start lg:gap-16">
         <div className="max-w-xl">
           <h2 id="pet-opcoes-heading" className="text-2xl md:text-3xl">Qual plano faz sentido para o seu pet?</h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">Não escolha só pela mensalidade. A Patro ajuda você a entender as opções Petlove para a rotina do seu cão ou gato e a conferir onde poderá usar o plano.</p>
-          <ul className="mt-7 divide-y divide-border">
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">Ele faz parte da sua vida. Na hora de cuidar, não escolha só pela mensalidade. A Patro ajuda você a entender as opções Petlove para a rotina do seu cão ou gato e a conferir onde poderá usar o plano.</p>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl bg-muted">
+              <img src="/images/plano-pet-tutora-cachorro.jpg" alt="Tutora abraça seu golden retriever no chão da sala, com o cachorro apoiado em seu ombro" width={1536} height={1024} loading="lazy" decoding="async" className="aspect-[3/2] h-auto w-full object-cover" />
+            </div>
+            <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">O carinho já faz parte da rotina. Planejar os cuidados também pode fazer. <span className="block mt-1 text-xs">Imagem ilustrativa.</span></figcaption>
+          </figure>
+        </div>
+        <div className="order-3 max-w-xl lg:order-none lg:col-start-1 lg:row-start-2">
+          <ul className="divide-y divide-border">
             {[
               ["Cuidado no dia a dia", "Confira consultas, exames e cuidados preventivos incluídos em cada opção."],
               ["Atenção aos imprevistos", "Compare a inclusão de urgências, cirurgias e internação, com seus limites e carências."],
@@ -30,7 +38,7 @@ export default function PetPlanConversion() {
           </div>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("plano-pet:comparacao", { origin: "plano-pet-conversao", insuranceType: "Plano Pet (Petlove)" })} className="mt-5 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Prefiro tirar minhas dúvidas pelo WhatsApp</a>
         </div>
-        <div>
+        <div className="order-2 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-span-2">
           <Suspense fallback={<div role="status" className="min-h-[560px] rounded-2xl border bg-card p-6 text-sm text-muted-foreground">Carregando formulário de Plano Pet…</div>}>
             <ProductQuoteForm productName="Plano Pet (Petlove)" productPath="/plano-pet" compactContact />
           </Suspense>
