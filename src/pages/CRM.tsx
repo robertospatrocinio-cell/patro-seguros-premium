@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { lazy, Suspense, useState, useMemo, useEffect } from "react";
 import { 
   Search, 
   Users, 
@@ -25,14 +25,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DashboardOverview } from "@/components/crm/DashboardOverview";
-import RelationshipModule from "@/components/crm/RelationshipModule";
-import ContactsModule from "@/components/crm/ContactsModule";
-import OpportunitiesModule from "@/components/crm/OpportunitiesModule";
-import PerformanceReports from "@/components/crm/PerformanceReports";
+// As abas secundárias só baixam seu código quando são abertas.
+const RelationshipModule = lazy(() => import("@/components/crm/RelationshipModule"));
+const ContactsModule = lazy(() => import("@/components/crm/ContactsModule"));
+const OpportunitiesModule = lazy(() => import("@/components/crm/OpportunitiesModule"));
+const PerformanceReports = lazy(() => import("@/components/crm/PerformanceReports"));
 import { useLeads } from "@/hooks/queries/useLeads";
-import ClaimsModule from "@/components/crm/ClaimsModule";
+const ClaimsModule = lazy(() => import("@/components/crm/ClaimsModule"));
 import { LeadsTable } from "@/components/crm/LeadsTable";
-import { KanbanBoard } from "@/components/crm/KanbanBoard";
+const KanbanBoard = lazy(() => import("@/components/crm/KanbanBoard").then(m => ({ default: m.KanbanBoard })));
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useContacts } from "@/hooks/queries/useContacts";
@@ -384,29 +385,36 @@ const CRMPage = () => {
               </Card>
             </TabsContent>
 
-            <TabsContent value="pipeline" className="mt-0">
-              <KanbanBoard leads={leads} />
-            </TabsContent>
+            <Suspense fallback={
+              <div className="flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
+                <RefreshCw className="w-10 h-10 text-primary animate-spin mb-4" />
+                <p className="text-muted-foreground font-medium">Carregando dados do CRM...</p>
+              </div>
+            }>
+              <TabsContent value="pipeline" className="mt-0">
+                <KanbanBoard leads={leads} />
+              </TabsContent>
 
-            <TabsContent value="relationship" className="mt-0">
-              <RelationshipModule />
-            </TabsContent>
+              <TabsContent value="relationship" className="mt-0">
+                <RelationshipModule />
+              </TabsContent>
 
-            <TabsContent value="opportunities" className="mt-0">
-              <OpportunitiesModule initialTab={opportunitySubTab} />
-            </TabsContent>
+              <TabsContent value="opportunities" className="mt-0">
+                <OpportunitiesModule initialTab={opportunitySubTab} />
+              </TabsContent>
 
-            <TabsContent value="performance" className="mt-0">
-              <PerformanceReports />
-            </TabsContent>
+              <TabsContent value="performance" className="mt-0">
+                <PerformanceReports />
+              </TabsContent>
 
-            <TabsContent value="contacts" className="mt-0">
-              <ContactsModule initialEditContact={selectedContact} />
-            </TabsContent>
+              <TabsContent value="contacts" className="mt-0">
+                <ContactsModule initialEditContact={selectedContact} />
+              </TabsContent>
 
-            <TabsContent value="claims" className="mt-0">
-              <ClaimsModule />
-            </TabsContent>
+              <TabsContent value="claims" className="mt-0">
+                <ClaimsModule />
+              </TabsContent>
+            </Suspense>
           </Tabs>
             </div>
           )}

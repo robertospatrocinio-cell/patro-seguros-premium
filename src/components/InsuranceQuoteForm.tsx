@@ -390,27 +390,26 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       </table>
     `;
 
-    // 1. Integrar com o CRM via Edge Function (service role)
-    const { error: crmError } = await submitLead({
-      full_name: formData.nome || formData.name || "Cliente Interessado",
-      phone: formData.whatsapp || formData.telefone || formData.phone || "",
-      email: formData.email || "",
-      insurance_type: config.type,
-      raw_data: { ...formData, checkboxGroups },
-    });
+    // CRM e e-mail usam o mesmo retrato do formulário, sem depender um do outro.
+    const [{ error: crmError }, { data, error }] = await Promise.all([
+      submitLead({
+        full_name: formData.nome || formData.name || "Cliente Interessado",
+        phone: formData.whatsapp || formData.telefone || formData.phone || "",
+        email: formData.email || "",
+        insurance_type: config.type,
+        raw_data: { ...formData, checkboxGroups },
+      }),
+      safeInvoke<{ success?: boolean }>("send-form-email", {
+        subject,
+        textBody: parts,
+        htmlBody,
+      }),
+    ]);
 
     if (crmError) {
       console.error("Erro ao registrar lead no CRM:", crmError);
-      // Continuamos o processo mesmo se falhar no CRM, para não bloquear o usuário, 
-      // mas o email servirá de backup.
+      // O e-mail continua servindo de backup quando o CRM falha.
     }
-
-    // 2. Enviar e-mail de notificação
-    const { data, error } = await safeInvoke<{ success?: boolean }>("send-form-email", { 
-      subject, 
-      textBody: parts, 
-      htmlBody 
-    });
 
       if (error || !data?.success) {
         console.error("Erro no envio:", error);
