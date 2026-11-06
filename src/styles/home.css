@@ -263,12 +263,30 @@
   border-radius: 0.75rem;
   padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: none;
-  transition: border-color 150ms;
+  transition: background-color 180ms ease, border-color 180ms ease;
 }
-.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) { border-color: #839ab2; }
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) {
+  background: var(--home-navy);
+  border-color: var(--home-navy);
+}
 .patro-home section[aria-labelledby="home-solucoes"] .grid p { font-size: 1rem; }
 .patro-home section[aria-labelledby="home-solucoes"] .grid a { padding-block: 0.375rem; }
 .patro-home section[aria-labelledby="home-solucoes"] .grid .text-xs { font-size: 0.875rem; color: #526175; }
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) :is(h3, a) {
+  color: #ffffff;
+}
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) p {
+  color: #e2e8f0;
+}
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) > .rounded-xl {
+  background: rgb(255 255 255 / 10%);
+}
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) > .rounded-xl svg {
+  color: #dfcba7;
+}
+@media (prefers-reduced-motion: reduce) {
+  .patro-home section[aria-labelledby="home-solucoes"] .grid > div { transition: none; }
+}
 
 /* Depoimentos: prioridade para a leitura, não para sombras decorativas. */
 .patro-home section[aria-labelledby="home-depoimentos"] { padding-block: clamp(3rem, 6vw, 5rem); }
