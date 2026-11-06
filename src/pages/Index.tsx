@@ -481,7 +481,7 @@ const Index = () => {
         >
           <section aria-label="Como funciona a cotação">
             <div className="container mx-auto px-4 max-w-5xl">
-              <Suspense fallback={null}>
+              <Suspense fallback={<div style={{ minHeight: "calc(480px - 7rem)" }} aria-hidden="true" />}>
                 <ComoPatroAjuda
                   trackingContext="home:como-ajuda"
                   quoteHref="/cotacao"

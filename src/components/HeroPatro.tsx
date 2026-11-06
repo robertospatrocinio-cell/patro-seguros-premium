@@ -23,12 +23,12 @@ const HeroPatro = memo(() => {
           <source
             type="image/avif"
             srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(min-width: 1024px) 43vw, 100vw"
           />
           <source
             type="image/webp"
             srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(min-width: 1024px) 43vw, 100vw"
           />
           <img
             src="/images/hero-home-1280.webp"
