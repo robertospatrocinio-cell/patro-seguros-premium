@@ -110,7 +110,13 @@ export function getCaptacaoProduto(pathname: string): (CaptacaoProfile & { label
     ?? (path.startsWith("/lp/") ? captacaoProdutos.find(item => item.to === path.replace("/lp/", "/")) : undefined);
   if (!product) return null;
   let profile: CaptacaoProfile | undefined;
-  if (/reta-drone/.test(path)) profile = reta;
+  if (path === "/plano-pet") profile = {
+    intro: "Conte sobre seu cão ou gato e a cidade onde precisa de atendimento. A Patro ajuda a comparar as opções Petlove e a entender o que está incluído antes de contratar.",
+    checklist: ["Mensalidade e possíveis coparticipações por procedimento", "Clínicas e hospitais disponíveis na sua região", "Carências, limites de uso e coberturas de cada opção"],
+    note: "Valores, rede, aceitação e coberturas dependem da opção e das condições da Petlove. O envio não contrata o plano nem libera atendimento imediato.",
+    fields: [text("localOperacao", "Cidade e UF de atendimento", "Ex.: Guarulhos/SP"), text("pet", "Espécie e idade do pet", "Ex.: gato, 5 anos"), text("necessidade", "Cuidados que procura", "Consultas, exames ou outras necessidades")],
+  };
+  else if (/reta-drone/.test(path)) profile = reta;
   else if (/drone-agricola/.test(path)) profile = droneAgro;
   else if (/drone/.test(path)) profile = drone;
   else if (/linha-amarela|trator-industrial/.test(path)) profile = yellow;

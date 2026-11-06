@@ -1,95 +1,106 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-plano-pet.webp";
+import PetPlanConversion from "@/components/PetPlanConversion";
 
 const PlanoPet = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Plano Pet (Petlove)"
-      subtitle="Plano de saúde para cães e gatos com a maior plataforma pet do Brasil"
+      headline="Plano Petlove: cuidado para seu cão ou gato, com orientação para escolher"
+      subtitle="Compare as opções com a Patro Seguros. Confira mensalidade, rede veterinária perto de você, carências e possíveis coparticipações antes de decidir."
+      quoteCtaText="Ver opções para meu pet"
+      quoteAnchor="#opcoes-plano-pet"
+      afterHeroContent={<PetPlanConversion />}
+      semGuarulhos
+      jumpLinks={[
+        { label: "Ver opções para meu pet", href: "#opcoes-plano-pet" },
+        { label: "O que pode cobrir", href: "#coberturas-heading" },
+        { label: "Quanto custa", href: "#preco-heading" },
+        { label: "Tire suas dúvidas", href: "#faq-heading" },
+      ]}
       icon="🐶"
       metaDescription="Plano Pet Petlove: plano de saúde para cães e gatos com consultas, exames e cirurgias. Cotação grátis na Patro Seguros, corretora parceira da Petlove."
-      description="O Plano Pet da Petlove é a forma inteligente de cuidar da saúde do seu cão ou gato. Cobertura para consultas, exames e cirurgias com mensalidades acessíveis."
-      detailedDescription={`O Brasil tem mais de 149 milhões de animais de estimação — o terceiro maior mercado pet do mundo. Cães e gatos são verdadeiros membros da família, mas os custos veterinários podem pegar os tutores de surpresa: uma cirurgia de emergência pode custar de R$ 3.000 a R$ 15.000, e tratamentos oncológicos ultrapassam facilmente R$ 20.000.
+      description="Seu pet faz parte da família. Um plano de saúde pode ajudar a organizar os cuidados veterinários, desde consultas de rotina até procedimentos previstos na opção contratada. A Patro Seguros ajuda você a comparar os planos Petlove e entender as condições antes de contratar."
+      detailedDescription={`Para escolher um plano pet, comece pela rotina do seu cão ou gato: idade, cuidados que costuma precisar e clínicas onde você gostaria de ser atendido. Um plano focado em consultas não deve ser comparado com outro que também prevê cirurgias e internação olhando apenas a mensalidade.
 
-O Plano Pet da Petlove funciona como um plano de saúde humano: você paga uma mensalidade fixa e tem acesso a consultas, exames, cirurgias e internações em clínicas e hospitais veterinários credenciados em todo o Brasil.
+Na rede credenciada, o atendimento segue as regras da opção contratada. Verifique os procedimentos incluídos, as carências, os limites de utilização e se existe coparticipação. Uma mensalidade não significa que todos os atendimentos estejam liberados ou que não haja outros valores a pagar.
 
-A Petlove é a maior plataforma pet da América Latina, com mais de 6.000 clínicas e hospitais veterinários credenciados. A Patro Seguros é parceira da Petlove e oferece atendimento consultivo para ajudar você a escolher o plano ideal para o seu pet — considerando raça, idade, histórico de saúde e orçamento.`}
+A Patro Seguros é parceira da Petlove e oferece orientação para essa escolha. Conte sobre seu pet e a cidade onde precisa de atendimento: a equipe ajuda a conferir as opções, esclarecer as diferenças e avaliar o que faz sentido para você.`}
       howItWorks={[
-        { step: "1", title: "Escolha do Plano", description: "A Patro Seguros apresenta as opções de plano da Petlove e orienta sobre qual é o mais adequado para o perfil, idade e raça do seu pet." },
-        { step: "2", title: "Cadastro do Pet", description: "Informações básicas do animal: nome, raça, idade, peso e condições pré-existentes. Alguns planos exigem avaliação veterinária inicial." },
-        { step: "3", title: "Carência", description: "Após a contratação, há períodos de carência que variam por tipo de procedimento — consultas têm carência menor, cirurgias eletivas carência maior." },
-        { step: "4", title: "Utilização", description: "Agende consultas e procedimentos na rede credenciada Petlove (mais de 6.000 clínicas). Apresente a carteirinha digital e pronto — sem reembolso, sem burocracia." },
+        { step: "1", title: "Conte sobre seu pet", description: "Comece com seu nome e WhatsApp. Se quiser, informe a espécie, a idade e a cidade de atendimento nos detalhes opcionais." },
+        { step: "2", title: "Compare as opções", description: "A Patro orienta sobre mensalidades, coberturas e possíveis coparticipações. Confira também se as clínicas de interesse atendem à opção escolhida." },
+        { step: "3", title: "Entenda as condições", description: "Antes de contratar, verifique carências por procedimento, limites de uso, regras de aceitação e cuidados já necessários ao pet." },
+        { step: "4", title: "Contrate e planeje os cuidados", description: "Após a contratação, utilize a rede conforme a vigência, as carências e as regras do plano. O pedido de cotação não inicia a cobertura." },
       ]}
       coverages={[
-        { title: "Consultas Veterinárias", description: "Consultas com clínicos gerais e especialistas (dermatologia, ortopedia, cardiologia, oftalmologia, oncologia) na rede credenciada Petlove." },
-        { title: "Exames e Diagnósticos", description: "Hemograma, bioquímico, raio-x, ultrassom, ecocardiograma, tomografia e ressonância magnética conforme o plano contratado." },
-        { title: "Cirurgias", description: "Cobertura para cirurgias de emergência e eletivas: castração, retirada de tumores, cirurgias ortopédicas, abdominais e oftalmológicas." },
-        { title: "Internação", description: "Internação com acompanhamento veterinário 24h, medicação, fluidoterapia e monitoramento." },
-        { title: "Emergência e Urgência 24h", description: "Atendimento de emergência a qualquer hora — envenenamento, traumas, obstruções, convulsões e demais urgências." },
-        { title: "Vacinas e Medicina Preventiva", description: "Alguns planos incluem vacinas, vermífugos e antipulgas como parte do pacote preventivo." },
-        { title: "Fisioterapia e Reabilitação", description: "Sessões de fisioterapia e hidroterapia para recuperação pós-cirúrgica ou tratamento de problemas locomotores." },
-        { title: "Telemedicina Veterinária", description: "Consultas online com veterinários para orientação inicial, triagem e acompanhamento de tratamentos." },
+        { title: "Consultas Veterinárias", description: "Confira consultas com clínicos gerais e a disponibilidade de especialidades na rede da opção escolhida. Verifique limites e coparticipações." },
+        { title: "Exames e Diagnósticos", description: "Compare quais exames estão incluídos, dos laboratoriais aos de imagem. Exames mais complexos podem ter regras e carências específicas." },
+        { title: "Cirurgias", description: "Verifique quais cirurgias eletivas ou de urgência estão previstas, os limites e a necessidade de autorização. Nem toda opção inclui esses procedimentos." },
+        { title: "Internação", description: "Confira se há internação, quais serviços estão incluídos e os limites de utilização. Medicamentos e outros itens devem ser conferidos nas condições do plano." },
+        { title: "Urgência e Emergência", description: "Consulte os estabelecimentos disponíveis, horários e regras de atendimento. A contratação não garante atendimento imediato ou dispensa de carência." },
+        { title: "Cuidados Preventivos", description: "Veja se a opção inclui vacinas e outros cuidados preventivos. Confira os procedimentos previstos e a frequência permitida." },
+        { title: "Fisioterapia e Reabilitação", description: "Para pets que precisam de recuperação ou cuidados locomotores, verifique disponibilidade, indicação e limites de sessões." },
+        { title: "Orientação Veterinária Online", description: "Confira a disponibilidade e o escopo do atendimento remoto. A orientação online não substitui atendimento presencial em situações de emergência." },
       ]}
       coverageExclusions={[
-        "Doenças e condições pré-existentes (diagnosticadas antes da contratação) podem ter carência especial",
-        "Procedimentos estéticos sem indicação clínica (conchectomia, caudectomia eletiva)",
-        "Animais com idade acima do limite aceito pelo plano (varia conforme a operadora)",
-        "Tratamentos experimentais não reconhecidos pelo CFMV",
-        "Reprodução assistida e partos programados (algumas operadoras)",
+        "Procedimentos não previstos na opção contratada",
+        "Atendimentos antes do cumprimento das carências aplicáveis",
+        "Serviços fora da rede ou sem as autorizações exigidas, conforme as regras do plano",
+        "Utilizações acima dos limites ou frequências previstos",
+        "Condições anteriores à contratação, quando sujeitas a restrições nas condições do plano",
       ]}
       pricingInfo={{
-        intro: "Os planos Petlove têm mensalidades acessíveis que variam conforme a cobertura, a idade e a raça do animal. A Patro Seguros orienta sobre o melhor custo-benefício.",
+        intro: "O valor precisa ser consultado para a opção disponível ao seu pet e à sua região. Compare o custo mensal junto com o que poderá usar, não apenas o menor preço anunciado.",
         factors: [
-          "Tipo de plano — básico, intermediário ou completo",
-          "Idade do pet — filhotes e idosos podem ter valores diferenciados",
-          "Raça — raças com predisposição a doenças específicas podem ter acréscimo",
-          "Porte do animal — pequeno, médio ou grande",
-          "Região — valores podem variar conforme a localidade",
-          "Coberturas adicionais — vacinas, fisioterapia, telemedicina",
+          "Opção escolhida e procedimentos incluídos",
+          "Dados do pet e regras de aceitação aplicáveis",
+          "Cidade e rede disponível para atendimento",
+          "Possíveis coparticipações por procedimento",
+          "Limites e frequência de utilização",
+          "Carências e condições vigentes na contratação",
         ],
-        note: "Planos básicos a partir de R$ 49/mês para cães de pequeno porte. Planos completos com cirurgias e internação de R$ 120 a R$ 350/mês. Compare com o custo de uma única emergência veterinária (R$ 3.000 a R$ 15.000) e veja que o plano se paga rapidamente.",
+        note: "Solicite os valores atuais à Patro. A equipe ajuda a entender a mensalidade e os possíveis custos de utilização antes de você decidir. Não há promessa de economia ou de cobertura integral de qualquer tratamento.",
       }}
       realScenarios={[
-        { title: "Cachorro engoliu objeto e precisou de cirurgia de emergência", description: "Um golden retriever de 2 anos engoliu um brinquedo que causou obstrução intestinal. A cirurgia de emergência, internação e medicação totalizaram R$ 8.500. Com o Plano Pet, o tutor pagou apenas a mensalidade — sem nenhum custo adicional." },
-        { title: "Gata diagnosticada com doença renal crônica", description: "Gata de 10 anos diagnosticada com doença renal crônica precisou de exames mensais, medicação contínua e fluidoterapia. O custo anual sem plano seria de R$ 12.000. Com o plano, tudo coberto pela mensalidade." },
-        { title: "Cachorro atropelado com fratura na pata", description: "Bulldog francês atropelado necessitou de cirurgia ortopédica (R$ 6.000), internação (R$ 2.000) e fisioterapia (R$ 3.000). Total de R$ 11.000 coberto integralmente pelo Plano Pet." },
+        { title: "Seu pet precisa de acompanhamento de rotina", description: "Ao comparar as opções, confira consultas, exames e cuidados preventivos. Observe a rede próxima e a frequência permitida para planejar os atendimentos." },
+        { title: "Você quer se preparar para procedimentos mais complexos", description: "Verifique a inclusão de cirurgias e internação, os limites, as autorizações e as carências. Uma opção básica pode não contemplar esses cuidados." },
+        { title: "Seu pet já está em tratamento", description: "Converse com a equipe sobre as regras para condições anteriores à contratação. Não presuma que um tratamento em andamento ficará coberto ao aderir ao plano. Em uma emergência, procure atendimento veterinário sem esperar a cotação." },
       ]}
       importantDetails={[
-        { title: "Por Que Plano Pet e Não Seguro Pet?", content: "O Plano Pet funciona como um plano de saúde — você paga mensalidade e usa a rede credenciada sem custo adicional. Já o seguro pet funciona por reembolso: você paga o veterinário e solicita reembolso depois. O Plano Pet é mais prático e elimina o desembolso do tutor no momento do atendimento." },
-        { title: "Carências — O Que São e Como Funcionam", content: "Carência é o período entre a contratação e o início da cobertura para cada tipo de procedimento. Consultas geralmente têm carência de 24 a 48 horas. Exames de 15 a 30 dias. Cirurgias eletivas de 60 a 180 dias. Emergências de 24 a 48 horas. Por isso, contrate o plano antes de precisar — não espere a emergência." },
-        { title: "Doenças Pré-Existentes", content: "Condições diagnosticadas antes da contratação podem ter carência especial ou cobertura parcial, dependendo do plano. Na Patro Seguros, orientamos sobre como declarar corretamente o histórico do pet para evitar problemas futuros." },
+        { title: "Plano Pet é igual a seguro pet?", content: "Não necessariamente. No plano, o uso costuma ocorrer na rede credenciada, seguindo as condições contratadas. Produtos de seguro ou assistência podem ter outras formas de atendimento ou reembolso. Compare o funcionamento real da proposta, não apenas o nome do produto." },
+        { title: "A mensalidade cobre todos os gastos?", content: "Não presuma que sim. Verifique possíveis coparticipações, procedimentos não incluídos e limites. Peça essas informações antes de contratar para entender o custo de usar o plano, além da mensalidade." },
+        { title: "Quando posso começar a usar?", content: "Cada procedimento pode ter uma carência. Confirme os prazos na proposta e a data de início da vigência. O envio do formulário é apenas uma solicitação de contato e não libera consultas ou procedimentos." },
       ]}
       tips={[
-        "Contrate o plano enquanto o pet é jovem e saudável — sem carências extras e com mensalidade menor",
-        "Declare o histórico de saúde do pet corretamente — omissões podem gerar recusa de cobertura",
-        "Use o plano para medicina preventiva (check-ups, vacinas) — prevenir é mais barato que tratar",
-        "Verifique se há clínicas credenciadas próximas à sua residência antes de contratar",
-        "Considere planos com telemedicina para orientações rápidas sem sair de casa",
+        "Confira as clínicas de interesse e os serviços disponíveis para a opção escolhida",
+        "Compare mensalidade e possíveis coparticipações em conjunto",
+        "Pergunte pelas carências dos procedimentos que pretende utilizar",
+        "Informe corretamente o histórico do pet na etapa indicada pela equipe",
+        "Guarde a proposta e consulte os limites e regras antes de agendar um procedimento",
       ]}
       whoNeeds={[
-        "Tutores de cães e gatos de todas as raças e idades",
-        "Tutores de pets idosos — quando os custos veterinários aumentam significativamente",
-        "Tutores de raças com predisposição a doenças (Bulldog, Pug, Golden, Persa, Siamês)",
-        "Famílias com múltiplos pets — planos familiares podem ter desconto",
-        "Tutores que querem acesso a medicina veterinária de qualidade sem sustos financeiros",
-        "Quem já passou por emergência veterinária cara e não quer repetir a experiência",
+        "Tutores de cães e gatos que querem planejar os cuidados veterinários",
+        "Quem procura orientação para comparar opções e coberturas",
+        "Famílias que querem verificar uma rede de atendimento perto de casa",
+        "Tutores de pets idosos que precisam conferir aceitação e regras específicas",
+        "Quem deseja avaliar cuidados de rotina e procedimentos mais complexos separadamente",
       ]}
       whyPatro={[
-        "Parceira Petlove — acesso às melhores condições e planos disponíveis",
-        "Orientação consultiva — ajudamos a escolher o plano ideal para o perfil do seu pet",
-        "Comparação de planos — apresentamos as opções e explicamos as diferenças",
-        "Suporte na utilização — orientamos sobre rede credenciada, carências e coberturas",
-        "Atendimento humanizado — sabemos que seu pet é família",
-        "A Patro Seguros cuida da proteção de toda a família — inclusive dos pets",
+        "Parceria com a Petlove e orientação sobre as opções disponíveis",
+        "Ajuda para comparar coberturas, carências e condições de utilização",
+        "Conferência da rede de interesse antes da escolha",
+        "Atendimento humano para esclarecer dúvidas antes de contratar",
+        "Orientação para considerar as necessidades do pet e o orçamento da família",
       ]}
       faqs={[
-        { question: "O que o Plano Pet da Petlove cobre?", answer: "Consultas, exames, cirurgias, internação, emergências 24h e, em alguns planos, vacinas e fisioterapia. A cobertura varia conforme o plano escolhido. A Patro Seguros orienta sobre qual plano é o mais adequado para o seu pet." },
-        { question: "Quanto custa o Plano Pet?", answer: "A partir de R$ 49/mês para cães de pequeno porte em planos básicos. Planos completos com cirurgias e internação ficam entre R$ 120 e R$ 350/mês. O valor varia conforme idade, raça e cobertura escolhida." },
-        { question: "Gatos também podem ter Plano Pet?", answer: "Sim! A Petlove oferece planos específicos para gatos, com coberturas adequadas às necessidades felinas, incluindo doenças comuns como doença renal, DTUIF e problemas respiratórios." },
-        { question: "Posso contratar para pet idoso?", answer: "Sim, mas os valores podem ser maiores e algumas coberturas podem ter carência estendida. Contrate o quanto antes — quanto mais jovem o pet na contratação, melhores as condições." },
-        { question: "Como funciona o atendimento na rede credenciada?", answer: "Você agenda a consulta ou procedimento em uma das mais de 6.000 clínicas credenciadas Petlove, apresenta a carteirinha digital e é atendido sem custo adicional. Sem reembolso, sem burocracia." },
-        { question: "A Patro Seguros é parceira da Petlove?", answer: "Sim! A Patro Seguros é parceira da Petlove e oferece atendimento consultivo para ajudar você a escolher o plano ideal para o seu pet, com as melhores condições disponíveis." },
+        { question: "Quanto custa o Plano Petlove para meu pet?", answer: "Solicite os valores atuais informando seu contato e, se possível, a espécie, a idade e a cidade de atendimento. A Patro ajuda a conferir as opções disponíveis e a comparar mensalidade, possíveis coparticipações e procedimentos incluídos. O pedido não representa contratação." },
+        { question: "Como saber se há uma clínica perto de mim?", answer: "Informe sua cidade e as clínicas ou hospitais de interesse à equipe. Confira a rede específica da opção antes de contratar: a presença de um estabelecimento na rede não significa que todos os serviços estejam disponíveis em todos os planos." },
+        { question: "Vou pagar algo além da mensalidade?", answer: "Pode haver coparticipação ou cobrança por itens e procedimentos não incluídos. Peça a relação de valores, limites e condições de utilização da opção escolhida. Não considere o atendimento automaticamente sem custo adicional." },
+        { question: "O plano cobre consultas, exames e cirurgias?", answer: "Esses cuidados podem estar disponíveis conforme a opção, mas não são iguais em todos os planos. Confira os procedimentos incluídos, a rede habilitada, as carências, as autorizações e os limites antes de contratar." },
+        { question: "Posso usar o plano assim que pedir a cotação?", answer: "Não. Solicitar uma cotação não contrata o plano nem inicia a cobertura. Após a contratação, é preciso observar a vigência e as carências de cada procedimento. Se seu pet está em emergência, procure atendimento veterinário imediatamente, sem aguardar a cotação." },
+        { question: "Posso contratar para um gato ou pet idoso?", answer: "Há opções voltadas a cães e gatos. Para pets idosos ou com condições anteriores, a equipe precisa conferir as regras de aceitação e utilização aplicáveis. Não há garantia de aceitação nem de cobertura de um tratamento já necessário." },
+        { question: "O que acontece depois de enviar meu contato?", answer: "A equipe da Patro conversa com você sobre o pet e a região de atendimento, verifica as opções e explica as condições. Você avalia a proposta antes de decidir. Também pode tirar suas dúvidas pelo WhatsApp disponível nesta página." },
       ]}
       relatedInsurances={[
         { title: "Planos de Saúde", link: "/planos-de-saude" },

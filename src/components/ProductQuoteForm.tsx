@@ -50,6 +50,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
     }
   }
   const simulation = product.includes("consorcio") || product.includes("previdencia");
+  const petPlan = product === "/plano-pet";
   const detailLines = extraFields.filter(field => details[field.id]?.trim()).map(field => `${field.label}: ${details[field.id].trim()}`);
   const message = [`Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name}.`, `Nome: ${contact.name.trim()}`, `Tipo de seguro: ${name}`, `Cidade: ${details.quote_city?.trim() || "Não informada"}`, `Mensagem: ${details.quote_message?.trim() || "Não informada"}`, ...detailLines, `Produto: ${product}`].join("\n");
   const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(message)}`;
@@ -107,7 +108,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
         </div>
       )}
       <div>
-        <h3 className="text-xl font-bold">{simulation ? "Solicite sua simulação" : "Peça uma análise para sua cotação"}</h3>
+        <h3 className="text-xl font-bold">{petPlan ? "Receba opções para seu pet" : simulation ? "Solicite sua simulação" : "Peça uma análise para sua cotação"}</h3>
         <p className="text-sm text-muted-foreground mt-2">Comece com nome e WhatsApp. Os detalhes são opcionais e ajudam a equipe a entender seu caso.</p>
       </div>
       <fieldset disabled={sending} className="space-y-4">
@@ -162,7 +163,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
       <span aria-live="polite" className="sr-only">{sending ? "Enviando solicitação…" : ""}</span>
       <Button type="submit" variant="cta" disabled={sending} className="w-full min-h-12 h-auto py-3 whitespace-normal">
         {sending && <svg viewBox="0 0 24 24" className="mr-2 h-4 w-4 shrink-0 animate-spin" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.25" /><path d="M12 3a9 9 0 0 1 9 9" fill="none" stroke="currentColor" strokeWidth="3" /></svg>}
-        {sending ? "Enviando solicitação…" : simulation ? "Solicitar simulação sem compromisso" : "Solicitar cotação sem compromisso"}
+        {sending ? "Enviando solicitação…" : petPlan ? "Quero comparar opções para meu pet" : simulation ? "Solicitar simulação sem compromisso" : "Solicitar cotação sem compromisso"}
       </Button>
       <p className="text-xs text-muted-foreground">Não envie CPF, documentos ou informações médicas aqui. A equipe solicitará o que for necessário na próxima etapa.</p>
     </form>

@@ -193,6 +193,8 @@ export interface InsurancePageProps {
   coverageExclusions?: string[];
   tips?: string[];
   quoteUrl?: string;
+  /** Âncora do formulário prioritário quando a página oferece captura antecipada. */
+  quoteAnchor?: string;
   quoteCtaText?: string;
   /**
    * Modo de atendimento/suporte (ex.: Central de Sinistros).
@@ -216,6 +218,8 @@ export interface InsurancePageProps {
   featuredArticle?: FeaturedArticle;
   showEbookConsorcio?: boolean;
   showAgrishowBanner?: boolean;
+  /** Conteúdo de decisão específico do produto, logo abaixo do hero. */
+  afterHeroContent?: ReactNode;
   /** Conteúdo extra renderizado após "Relacionados" e antes do Footer */
   extraSections?: ReactNode;
   /**
@@ -317,6 +321,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
    quoteUrl,
+   quoteAnchor = "#solicitar-cotacao",
    quoteCtaText,
    supportMode,
    supportCtaText,
@@ -329,6 +334,7 @@ const InsurancePageTemplate = ({
   featuredArticle,
   showEbookConsorcio,
   showAgrishowBanner,
+  afterHeroContent,
   extraSections,
   trilhaSeo,
   skipFAQSchema,
@@ -582,7 +588,7 @@ const InsurancePageTemplate = ({
                     </ExternalLink>
                   )
                 ) : (
-                  <a href="#solicitar-cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                  <a href={quoteAnchor} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                       {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
@@ -602,6 +608,8 @@ const InsurancePageTemplate = ({
             </div>
           </div>
         </section>
+
+        {afterHeroContent}
 
         {showAgrishowBanner && (
           <AgrishowPromoBanner source={title.toLowerCase().replace(/\s+/g, "-")} variant="compact" />
@@ -1017,7 +1025,7 @@ const InsurancePageTemplate = ({
                   </Button>
                 </ExternalLink>
               ) : captacao && (!quoteUrl || /^(?:https:\/\/(?:www\.)?patroseguros\.com\.br)?\/cotacao(?:[?#]|$)/.test(quoteUrl)) ? (
-                <a href="#solicitar-cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
+                <a href={quoteAnchor} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                     <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || (captacao.path.includes("consorcio") ? "Solicitar simulação" : `Pedir Cotação do ${captacao.label}`)}
                   </Button>
