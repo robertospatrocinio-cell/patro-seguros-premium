@@ -8,6 +8,8 @@ import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
 import { getArticleImage } from "@/lib/blogImages";
+import { getBlogCluster } from "@/data/blogClusters";
+import { buildBlogClusterCollectionSchema } from "@/lib/collectionPageSchemas";
 import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
 import { SEO_HUBS } from "@/data/seoHubs";
@@ -25,6 +27,9 @@ export interface Metadata {
   h1: string;
   ogUrl: string;
   ogType: "website" | "article";
+  /** Imagem de compartilhamento da página, também usada no HTML estático. */
+  ogImage?: string;
+  ogImageAlt?: string;
   /** Título expandido para OG/Twitter (aceitam ~90-110 chars). Usado quando `title` foi truncado para caber em ≤60 do <title>. */
   socialTitle?: string;
   schema?: any;
@@ -757,8 +762,8 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
   // 1. Home
   if (cleanPath === "/") {
     return {
-      title: "Corretora de Seguros em Guarulhos e Grande São Paulo | Patro",
-      description: "Corretora sediada em Guarulhos, com atendimento em toda a Grande São Paulo: auto, residencial, vida, saúde, frotas e empresarial. Compare 16+ seguradoras.",
+      title: "Patro Seguros | Corretora de Seguros em Guarulhos e Brasil",
+      description: `Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Atendimento humano e sem burocracia.`,
       canonical: DOMAIN,
       h1: "Corretora de Seguros em Guarulhos e Grande São Paulo",
       ogUrl: DOMAIN,
@@ -867,9 +872,9 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         h1: "Termos de Uso",
       },
       "/seguro-auto": {
-        title: "Seguro Auto Completo | Patro Seguros",
-        description: "Conheça coberturas, assistências e vantagens do seguro auto completo com a Patro Seguros.",
-        h1: "Seguro Auto Completo",
+        title: "Seguro Auto em Guarulhos | Cotação com 16 Seguradoras | Patro",
+        description: "Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros.",
+        h1: "Seguro Auto em Guarulhos | Patro Seguros — Compare 16 Seguradoras",
       },
       "/seguro-moto": {
         title: "Seguro de Moto | Coberturas e Assistência",
@@ -1045,6 +1050,29 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       ogType: "website",
       detailedDescription: serviceContent.content,
     };
+  }
+
+  // Hubs editoriais têm metadados próprios; não são artigos nem páginas locais genéricas.
+  if (cleanPath.startsWith("/blog/cluster/")) {
+    const cluster = getBlogCluster(cleanPath.slice("/blog/cluster/".length));
+    if (cluster) {
+      const articles = blogArticles
+        .filter((article) => article.category === cluster.categoryFilter)
+        .sort((a, b) => b.date.localeCompare(a.date));
+      const featured = articles[0];
+      return {
+        title: cluster.metaTitle,
+        description: cluster.metaDescription,
+        h1: cluster.h1,
+        canonical: `${DOMAIN}${cleanPath}`,
+        ogUrl: `${DOMAIN}${cleanPath}`,
+        ogType: "website",
+        ogImage: featured ? new URL(getArticleImage(featured.slug), `${DOMAIN}/`).href : undefined,
+        ogImageAlt: featured ? `${cluster.title} — ${featured.title}` : cluster.title,
+        schema: buildBlogClusterCollectionSchema(cluster, articles),
+        faqs: cluster.faqs,
+      };
+    }
   }
 
   // 6. Blog Posts — preserve the editorial title and excerpt, as on the React page.

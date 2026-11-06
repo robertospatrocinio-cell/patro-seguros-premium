@@ -376,11 +376,12 @@ async function run() {
     // Social crawlers usually do not execute PageMeta. Reuse the existing
     // neighborhood images here too, so static and browser previews agree.
     const articleImage = metadata.ogType === "article" ? metadata.schema?.image : undefined;
-    const imageSource = (Array.isArray(articleImage) ? articleImage[0] : articleImage)
+    const imageSource = metadata.ogImage
+      || (Array.isArray(articleImage) ? articleImage[0] : articleImage)
       || getGeneratedOgImage(route);
     if (typeof imageSource === "string" && imageSource) {
       const imageUrl = new URL(imageSource, "https://www.patroseguros.com.br").href;
-      const imageAlt = metadata.h1 || metadata.title;
+      const imageAlt = metadata.ogImageAlt || metadata.h1 || metadata.title;
       html = html.replace(/<meta property="og:image" content="[^"]*"/g, () => `<meta property="og:image" content="${escapeHtml(imageUrl)}"`);
       html = html.replace(/<meta name="twitter:image" content="[^"]*"/g, () => `<meta name="twitter:image" content="${escapeHtml(imageUrl)}"`);
       html = html.replace(/<meta property="og:image:alt" content="[^"]*"/g, () => `<meta property="og:image:alt" content="${escapeHtml(imageAlt)}"`);

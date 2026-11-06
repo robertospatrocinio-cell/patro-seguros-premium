@@ -170,7 +170,7 @@ export function buildBlogClusterCollectionSchema(
   const items = articles.slice(0, 20).map((a, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    url: `${CANONICAL_BASE_URL}/artigos/${a.slug}`,
+    url: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
     name: a.title,
   }));
   return {

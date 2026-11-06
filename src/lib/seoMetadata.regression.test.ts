@@ -5,6 +5,7 @@ vi.mock("@/lib/blogData", () => ({
   articles: [
     {
       slug: "guia-de-coberturas-para-empresas",
+      category: "Seguro Empresarial",
       title: "Seguro empresarial: como comparar coberturas, franquias e assistência para sua empresa",
       excerpt: 'Entenda a cobertura de "danos elétricos" e compare opções para proteger sua empresa sem confundir limites, franquias e exclusões.',
       date: "2026-01-10",
@@ -79,6 +80,53 @@ describe("Landing de seguro para lojas em shopping", () => {
     expect(metadata.canonical).toBe("https://www.patroseguros.com.br/seguro-lojas-shopping");
     expect(metadata.ogUrl).toBe(metadata.canonical);
     expect(metadata.description).not.toContain("2h");
+  });
+});
+
+describe("Consistência entre páginas públicas e HTML estático", () => {
+  it("mantém os metadados da home iguais aos do HTML inicial", async () => {
+    const { default: html } = await import("../../index.html?raw");
+    const metadata = getMetadataForRoute("/")!;
+    expect(html).toContain(`<title>${metadata.title}</title>`);
+    expect(html).toContain(`name="description" content="${metadata.description}"`);
+  });
+
+  it("usa o título, a descrição e o H1 reais da página de seguro auto", async () => {
+    const { default: source } = await import("@/pages/SeguroAuto.tsx?raw");
+    const metadata = getMetadataForRoute("/seguro-auto")!;
+    expect(source).toContain(`title="${metadata.title}"`);
+    expect(source).toContain(`description="${metadata.description}"`);
+    expect(source).toContain(metadata.h1);
+  });
+
+  it("individualiza os quatro hubs editoriais sem usar o título genérico do endereço", async () => {
+    const { BLOG_CLUSTERS } = await import("@/data/blogClusters");
+    const titles = new Set<string>();
+    const descriptions = new Set<string>();
+    for (const cluster of BLOG_CLUSTERS) {
+      const path = `/blog/cluster/${cluster.slug}`;
+      const metadata = getMetadataForRoute(path)!;
+      expect(metadata.title).toBe(cluster.metaTitle);
+      expect(metadata.description).toBe(cluster.metaDescription);
+      expect(metadata.h1).toBe(cluster.h1);
+      expect(metadata.ogType).toBe("website");
+      expect(metadata.ogUrl).toBe(metadata.canonical);
+      expect(metadata.schema.url).toBe(metadata.canonical);
+      expect(metadata.schema["@type"]).toBe("CollectionPage");
+      titles.add(metadata.title);
+      descriptions.add(metadata.description);
+    }
+    expect(titles.size).toBe(BLOG_CLUSTERS.length);
+    expect(descriptions.size).toBe(BLOG_CLUSTERS.length);
+  });
+
+  it("preserva a imagem externa e aponta a coleção para os artigos canônicos", () => {
+    const metadata = getMetadataForRoute("/blog/cluster/seguro-empresarial")!;
+    expect(metadata.ogImage).toBe("https://cdn.example.com/seguro-empresarial.webp");
+    expect(metadata.ogImageAlt).toContain("Seguro Empresarial em Guarulhos");
+    expect(metadata.schema.mainEntity.itemListElement[0].url).toBe(
+      "https://www.patroseguros.com.br/blog/guia-de-coberturas-para-empresas",
+    );
   });
 });
 

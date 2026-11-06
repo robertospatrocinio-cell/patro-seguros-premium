@@ -58,7 +58,7 @@ const BlogCluster = () => {
         description={config.metaDescription}
         canonicalPath={`/blog/cluster/${config.slug}`}
         ogType="website"
-        ogImage={featured ? `${CANONICAL_BASE_URL}${getArticleImage(featured.slug)}` : undefined}
+        ogImage={featured ? getArticleImage(featured.slug) : undefined}
         ogImageAlt={featured ? `${config.title} — ${featured.title}` : config.title}
       />
       <SpeakableSchema url={clusterUrl} />
