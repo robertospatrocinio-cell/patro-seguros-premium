@@ -122,13 +122,27 @@ serve(async (req) => {
       });
     }
 
+    // Attribution is descriptive only: never use these client values for authorization.
+    const campaign = (value: unknown) => typeof value === "string"
+      && /^[\p{L}\p{N}_. ()+\-]{1,100}$/u.test(value) && !/\d{8,}/.test(value) ? value : null;
+    const safePath = (value: unknown) => typeof value === "string"
+      && value.startsWith("/") && !value.startsWith("//") ? value.split(/[?#]/)[0].slice(0, 200) : null;
+    const attribution = {
+      utm_source: campaign(body.utm_source),
+      utm_medium: campaign(body.utm_medium),
+      utm_campaign: campaign(body.utm_campaign),
+      landing_page: safePath(body.landing_page),
+    };
     const { error } = await supabaseAdmin.from("leads").insert({
       full_name,
       email: email || null,
       phone: phone || null,
       insurance_type,
-      source_page,
-      raw_data,
+      source_page: safePath(source_page) ?? source_page?.split(/[?#]/)[0],
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      raw_data: { ...raw_data, attribution },
       ip_address: ip,
     });
 

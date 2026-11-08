@@ -1,4 +1,5 @@
 import { safeInvoke } from "@/lib/supabase-helpers";
+import { getLeadAttribution, safeAttributionPath } from "@/lib/leadAttribution";
 
 export interface SubmitLeadInput {
   full_name: string;
@@ -10,7 +11,13 @@ export interface SubmitLeadInput {
 }
 
 export async function submitLead(input: SubmitLeadInput) {
-  return safeInvoke("submit-lead", input);
+  const attribution = getLeadAttribution();
+  return safeInvoke("submit-lead", {
+    ...input,
+    source_page: safeAttributionPath(input.source_page) ?? (typeof window !== "undefined" ? window.location.pathname : undefined),
+    ...attribution,
+    raw_data: { ...input.raw_data, attribution },
+  });
 }
 
 export interface SavePartialQuoteInput {

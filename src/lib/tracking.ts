@@ -40,7 +40,15 @@ const ATTR_KEY = "patro_attribution";
   if (typeof window === "undefined") return {};
   try {
     const stored = sessionStorage.getItem(ATTR_KEY);
-    if (stored) return JSON.parse(stored);
+    if (stored) {
+      const parsed = JSON.parse(stored) as Attribution;
+      // Migrate the current session in memory without forwarding URL parameters.
+      parsed.landing_page = parsed.landing_page?.split(/[?#]/)[0];
+      try { parsed.referrer = parsed.referrer && parsed.referrer !== "direct" ? new URL(parsed.referrer).origin : "direct"; }
+      catch { parsed.referrer = "direct"; }
+      sessionStorage.setItem(ATTR_KEY, JSON.stringify(parsed));
+      return parsed;
+    }
   } catch { /* noop */ }
 
   const params = new URLSearchParams(window.location.search);
@@ -57,8 +65,9 @@ const ATTR_KEY = "patro_attribution";
   }
 
   const ref = document.referrer || "";
-  attr.referrer = ref ? ref.slice(0, 500) : "direct";
-  attr.landing_page = window.location.pathname + window.location.search;
+  try { attr.referrer = ref ? new URL(ref).origin : "direct"; }
+  catch { attr.referrer = "direct"; }
+  attr.landing_page = window.location.pathname;
 
   try { sessionStorage.setItem(ATTR_KEY, JSON.stringify(attr)); } catch { /* noop */ }
   return attr;

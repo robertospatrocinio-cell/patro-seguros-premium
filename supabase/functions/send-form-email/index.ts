@@ -220,18 +220,29 @@ serve(async (req) => {
       try {
         const safeStr = (v: unknown, max = 500) =>
           typeof v === "string" ? v.slice(0, max) : null;
+        const campaign = (value: unknown) => typeof value === "string"
+          && /^[\p{L}\p{N}_. ()+\-]{1,100}$/u.test(value) && !/\d{8,}/.test(value) ? value : null;
+        const safePath = (value: unknown) => typeof value === "string"
+          && value.startsWith("/") && !value.startsWith("//") ? value.split(/[?#]/)[0].slice(0, 200) : null;
+        const raw = lead.raw_data && typeof lead.raw_data === "object" ? lead.raw_data : {};
+        const attribution = {
+          utm_source: campaign(lead.utm_source),
+          utm_medium: campaign(lead.utm_medium),
+          utm_campaign: campaign(lead.utm_campaign),
+          landing_page: safePath(raw.attribution?.landing_page ?? lead.landing_page),
+        };
         const payload = {
           full_name: safeStr(lead.full_name, 200) ?? "Sem nome",
           email: safeStr(lead.email, 200) ?? "sem-email@patroseguros.com.br",
           phone: safeStr(lead.phone, 50) ?? "00000000000",
           insurance_type: safeStr(lead.insurance_type, 80),
-          source_page: safeStr(lead.source_page, 200),
+          source_page: safePath(lead.source_page) ?? safeStr(lead.source_page, 200)?.split(/[?#]/)[0],
           source_origin: safeStr(lead.source_origin, 80),
-          utm_source: safeStr(lead.utm_source, 200),
-          utm_medium: safeStr(lead.utm_medium, 200),
-          utm_campaign: safeStr(lead.utm_campaign, 200),
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
           ip_address: ip,
-          raw_data: lead.raw_data && typeof lead.raw_data === "object" ? lead.raw_data : null,
+          raw_data: { ...raw, attribution },
         };
         const { data: insertedLead, error: leadError } = await supabaseAdmin
           .from("leads")

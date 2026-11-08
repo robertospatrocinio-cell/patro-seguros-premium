@@ -1,9 +1,21 @@
   import { supabase } from "@/integrations/supabase/client";
   import { toast } from "sonner";
   import { captureException } from "./monitoring";
+  import { getLeadAttribution, sanitizeLeadAttribution, safeAttributionPath } from "./leadAttribution";
  
 export async function safeInvoke<T = unknown>(functionName: string, body: any) {
    try {
+     // Preserve the email/CRM contract: enrich only payloads already requesting a lead.
+     // Do not introduce a second insert for forms that submit to CRM separately.
+     if (functionName === "send-form-email" && body?.lead && typeof body.lead === "object") {
+       const attribution = { ...getLeadAttribution(), ...sanitizeLeadAttribution(body.lead) };
+       body = { ...body, lead: {
+         ...body.lead,
+         ...attribution,
+         source_page: safeAttributionPath(body.lead.source_page) ?? (typeof window !== "undefined" ? window.location.pathname : undefined),
+         raw_data: { ...body.lead.raw_data, attribution },
+       } };
+     }
      const { data, error } = await supabase.functions.invoke(functionName, { body });
      if (error) throw error;
     return { data: data as T, error: null };

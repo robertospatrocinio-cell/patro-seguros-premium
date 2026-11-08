@@ -30,6 +30,7 @@ const RelationshipModule = lazy(() => import("@/components/crm/RelationshipModul
 const ContactsModule = lazy(() => import("@/components/crm/ContactsModule"));
 const OpportunitiesModule = lazy(() => import("@/components/crm/OpportunitiesModule"));
 const PerformanceReports = lazy(() => import("@/components/crm/PerformanceReports"));
+const CommercialDashboard = lazy(() => import("@/components/crm/CommercialDashboard"));
 import { useLeads } from "@/hooks/queries/useLeads";
 const ClaimsModule = lazy(() => import("@/components/crm/ClaimsModule"));
 import { LeadsTable } from "@/components/crm/LeadsTable";
@@ -403,7 +404,8 @@ const CRMPage = () => {
                 <OpportunitiesModule initialTab={opportunitySubTab} />
               </TabsContent>
 
-              <TabsContent value="performance" className="mt-0">
+              <TabsContent value="performance" className="mt-0 space-y-8">
+                <CommercialDashboard />
                 <PerformanceReports />
               </TabsContent>
 
