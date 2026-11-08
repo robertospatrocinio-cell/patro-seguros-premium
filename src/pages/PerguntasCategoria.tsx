@@ -10,13 +10,35 @@ import { ArrowRight, HelpCircle, MessageCircle, BookOpen } from "lucide-react";
 import { faqCategories } from "@/data/perguntasHubData";
 import { perguntasCategoriaAprofundamento } from "@/data/perguntasCategoriaAprofundamento";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { perguntasPrioritarias } from "@/data/perguntasPrioritarias";
+import FaqEditorialContext from "@/components/FaqEditorialContext";
+import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
-const WA_BASE = "https://wa.me/5511913800021?text=";
+const WA_BASE = `${WHATSAPP_URL_BASE}?text=`;
 
 const PerguntasCategoriaPage = () => {
   const { categoria } = useParams<{ categoria: string }>();
   const cat = useMemo(() => faqCategories.find((c) => c.id === categoria), [categoria]);
-  const extra = categoria ? perguntasCategoriaAprofundamento[categoria] : undefined;
+  const reviewed = perguntasPrioritarias.find((category) => category.id === categoria);
+  // Nas categorias revisadas, não reintroduzir promessas dos complementos legados.
+  const extra = reviewed ? {
+    intro: reviewed.description,
+    quickGuide: [
+      { title: "Descreva o risco real", content: "Informe uso, atividade, pessoas e bens envolvidos. Omissões podem tornar a proposta inadequada à sua necessidade." },
+      { title: "Compare condições equivalentes", content: "Leia coberturas, exclusões, limites, franquias ou coparticipação e vigência. O menor preço isolado não define a proteção adequada." },
+      { title: "Confirme antes de contratar", content: "Peça as condições do produto e esclareça as restrições. Solicitar cotação não garante aceitação nem início da proteção." },
+    ],
+    perguntasExtras: [],
+    termosRelacionados: reviewed.id === "saude" ? [
+      { term: "Segmentação assistencial", hint: "Define os tipos de atendimento previstos no plano, conforme as regras aplicáveis." },
+      { term: "Coparticipação", hint: "Parcela do custo de utilização cobrada conforme os critérios do contrato." },
+    ] : [
+      { term: "Limite de indenização", hint: "Valor máximo de uma garantia, sujeito às condições e critérios de indenização." },
+      { term: "Risco excluído", hint: "Situação que o contrato não abrange; confira a redação de cada garantia." },
+    ],
+    ctaLine: "Compare as condições para sua necessidade",
+    whatsappMsg: `Olá, quero esclarecer uma dúvida sobre ${reviewed.title.toLowerCase()} e solicitar análise das opções.`,
+  } : categoria ? perguntasCategoriaAprofundamento[categoria] : undefined;
 
   if (!cat || !extra) return <Navigate to="/perguntas-frequentes-seguros" replace />;
 
@@ -46,8 +68,9 @@ const PerguntasCategoriaPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title={`${cat.title} — Perguntas Frequentes | Patro Seguros`}
-        description={`Dúvidas frequentes sobre ${cat.title.toLowerCase()}: ${cat.description}`}
+        title={reviewed ? `${cat.title}: dúvidas | Patro Seguros` : `${cat.title} — Perguntas Frequentes | Patro Seguros`}
+        description={reviewed ? cat.description : `Dúvidas frequentes sobre ${cat.title.toLowerCase()}: ${cat.description}`}
+        skipBreadcrumb
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
@@ -122,6 +145,12 @@ const PerguntasCategoriaPage = () => {
         </div>
       </section>
 
+      {reviewed && (
+        <section className="container mx-auto max-w-4xl px-4 pb-10">
+          <FaqEditorialContext categoryId={cat.id} />
+        </section>
+      )}
+
       {/* Termos relacionados */}
       <section className="py-10 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -168,7 +197,7 @@ const PerguntasCategoriaPage = () => {
       <section className="py-14 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">{extra.ctaLine}</h2>
-          <p className="mb-6 text-primary-foreground/85">Especialistas em {cat.title.toLowerCase()} — respostas rápidas pelo WhatsApp.</p>
+          <p className="mb-6 text-primary-foreground/85">Converse com a Patro sobre {cat.title.toLowerCase()} e confirme as condições disponíveis para seu caso.</p>
           <Button size="lg" variant="secondary" asChild>
             <ExternalLink href={WA_BASE + encodeURIComponent(extra.whatsappMsg)}>
               <MessageCircle className="h-5 w-5 mr-2" /> Falar com especialista

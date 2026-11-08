@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, ArrowRight, HelpCircle } from "lucide-react";
 import { faqCategories } from "@/data/perguntasHubData";
+import FaqEditorialContext from "@/components/FaqEditorialContext";
+import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
-const HERO_WA = "https://wa.me/5511913800021?text=" + encodeURIComponent("Olá, tenho uma dúvida sobre seguros, planos ou consórcios.");
+const HERO_WA = WHATSAPP_URL_BASE + "?text=" + encodeURIComponent("Olá, tenho uma dúvida sobre seguros, planos ou consórcios.");
 
 const CentralDePerguntas = () => {
-  // FAQPage enxuto: apenas 3 perguntas por categoria para não inflar a página
+  // Subconjunto das respostas visíveis; não implica elegibilidade a rich results.
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -39,7 +41,7 @@ const CentralDePerguntas = () => {
             Perguntas frequentes sobre seguros, planos e consórcios
           </h1>
           <p className="text-lg text-primary-foreground/85 max-w-2xl mx-auto mb-8">
-            Respostas objetivas para as dúvidas mais comuns. Se não encontrar o que procura, fale com um especialista da Patro.
+            Consulte coberturas possíveis, exclusões, critérios de preço e documentos para cotação. Para avaliar seu caso, converse com a Patro.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <a href={HERO_WA} target="_blank" rel="noopener noreferrer">
@@ -63,6 +65,7 @@ const CentralDePerguntas = () => {
 
       <section className="py-14">
         <div className="container mx-auto px-4 max-w-4xl space-y-12">
+          <FaqEditorialContext />
           {faqCategories.map((cat) => (
             <Card key={cat.id} id={cat.id} className="scroll-mt-28">
               <CardHeader>

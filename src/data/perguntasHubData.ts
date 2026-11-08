@@ -1,3 +1,5 @@
+import { perguntasPrioritarias } from "./perguntasPrioritarias";
+
 export interface FaqQA { q: string; a: string; }
 export interface FaqCategory {
   id: string;
@@ -8,7 +10,7 @@ export interface FaqCategory {
   perguntas: FaqQA[];
 }
 
-export const faqCategories: FaqCategory[] = [
+const legacyFaqCategories: FaqCategory[] = [
   {
     id: "auto",
     title: "Seguro Auto",
@@ -170,4 +172,14 @@ export const faqCategories: FaqCategory[] = [
       { q: "Assistência inclui reboque de elétrico?", a: "Sim, com procedimentos específicos para transporte seguro." },
     ],
   },
+];
+
+// Preserva IDs e categorias existentes; substitui apenas os conteúdos revisados.
+export const faqCategories: FaqCategory[] = [
+  ...legacyFaqCategories.map((category) =>
+    perguntasPrioritarias.find((reviewed) => reviewed.id === category.id) ?? category
+  ),
+  ...perguntasPrioritarias.filter((reviewed) =>
+    !legacyFaqCategories.some((category) => category.id === reviewed.id)
+  ),
 ];
