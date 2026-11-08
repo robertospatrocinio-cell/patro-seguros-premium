@@ -11,12 +11,12 @@ const PlanoPet = () => {
       headline="Plano Petlove: cuidado para seu cão ou gato, com orientação para escolher"
       subtitle="Compare as opções com a Patro Seguros. Confira mensalidade, rede veterinária perto de você, carências e possíveis coparticipações antes de decidir."
       quoteCtaText="Ver opções para meu pet"
-      quoteAnchor="#opcoes-plano-pet"
+      quoteAnchor="#pet-opcoes-heading"
       afterHeroContent={<PetPlanConversion />}
       galleryContent={<PetPlanMoments />}
       semGuarulhos
       jumpLinks={[
-        { label: "Ver opções para meu pet", href: "#opcoes-plano-pet" },
+        { label: "Ver opções para meu pet", href: "#pet-opcoes-heading" },
         { label: "O que pode cobrir", href: "#coberturas-heading" },
         { label: "Quanto custa", href: "#preco-heading" },
         { label: "Tire suas dúvidas", href: "#faq-heading" },
