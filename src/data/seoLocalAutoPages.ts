@@ -40,12 +40,12 @@ const partnersLine =
   "Trabalhamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Seguros, SulAmérica, Liberty, Mapfre e Azul Seguros — comparamos todas em uma única cotação.";
 
 const baseCoverages = [
-  { title: "Roubo e Furto", description: "Indenização integral conforme tabela FIPE em caso de roubo ou furto qualificado, válida em todo o território nacional." },
-  { title: "Colisão", description: "Reparo do veículo em oficina referenciada ou indenização integral em caso de perda total." },
-  { title: "Terceiros (RCF-V)", description: "Cobertura para danos materiais e corporais causados a terceiros, com limites a partir de R$ 100 mil." },
-  { title: "Assistência 24h", description: "Guincho ilimitado em Guarulhos e região, chaveiro, troca de pneu e socorro mecânico em qualquer horário." },
-  { title: "Carro Reserva", description: "Veículo substituto por 7, 15 ou 30 dias em caso de sinistro com indenização." },
-  { title: "Vidros, Faróis e Retrovisores", description: "Cobertura adicional para danos em vidros, faróis, lanternas e retrovisores sem franquia ou com franquia reduzida." },
+  { title: "Roubo e Furto", description: "Pode prever indenização em eventos cobertos, conforme critério de valor, limites e exclusões da apólice." },
+  { title: "Colisão", description: "Quando contratada, prevê reparo ou indenização conforme avaliação do dano, franquia e condições do seguro." },
+  { title: "Terceiros (RCF-V)", description: "Danos materiais e corporais a terceiros podem ser contratados com limites próprios. Confira as exclusões e os valores da proposta." },
+  { title: "Assistência", description: "Confira os serviços contratados, a área de atendimento, a quilometragem do guincho e o limite de utilizações." },
+  { title: "Carro Reserva", description: "Benefício sujeito à contratação, ao evento coberto, ao número de diárias e às regras da locadora e da seguradora." },
+  { title: "Vidros, Faróis e Retrovisores", description: "Cobertura adicional sujeita aos itens previstos, limites e franquias específicas de cada proposta." },
 ];
 
 const baseRelated = [
@@ -62,180 +62,76 @@ const baseRelated = [
 interface BairroSeed {
   slug: string;
   bairro: string;
-  bairroSlugBairros: string; // matches /seguros-guarulhos/:bairro
-  riskLevel: "baixo" | "médio" | "médio-alto" | "alto";
-  context: string; // 1-2 sentences about the neighborhood
-  reference: string; // local landmark
-  priceRange: string;
+  bairroSlugBairros: string; // ID existente em /seguros-guarulhos/:bairro
 }
 
-/**
- * Lista de bairros alvo para campanhas de Seguro Auto em Guarulhos.
- * Cada entrada gera uma página dedicada focada em SEO geolocalizado.
- */
+// Preserva URLs existentes sem reutilizar preços, riscos ou marcos sem fonte.
+// Não ampliar este catálogo antes da revisão individual de utilidade e demanda.
 const bairros: BairroSeed[] = [
-  { slug: "seguro-auto-vila-galvao", bairro: "Vila Galvão", bairroSlugBairros: "vila-augusta", riskLevel: "baixo", context: "região predominantemente residencial de classe média-alta na divisa com São Paulo, com baixos índices de roubo de veículo em comparação ao restante de Guarulhos.", reference: "próxima ao Parque Cecap e Avenida Brasil", priceRange: "R$ 2.300 a R$ 4.200/ano" },
-  { slug: "seguro-auto-bonsucesso-guarulhos", bairro: "Bonsucesso", bairroSlugBairros: "bonsucesso", riskLevel: "médio", context: "bairro extenso na zona leste de Guarulhos, com forte movimento comercial na Estrada Velha de São Miguel e índices moderados de sinistralidade.", reference: "região da Estrada Velha de São Miguel e Avenida Bonsucesso", priceRange: "R$ 2.700 a R$ 5.100/ano" },
-  { slug: "seguro-auto-cumbica", bairro: "Cumbica", bairroSlugBairros: "cumbica", riskLevel: "médio-alto", context: "região do Aeroporto Internacional de Guarulhos (GRU Airport), com alto fluxo de veículos, motoristas de aplicativo e índices de sinistro acima da média da cidade.", reference: "no entorno do GRU Airport e Rodovia Hélio Smidt", priceRange: "R$ 3.100 a R$ 6.200/ano" },
-  { slug: "seguro-auto-pimentas", bairro: "Pimentas", bairroSlugBairros: "cumbica", riskLevel: "alto", context: "bairro densamente povoado na zona leste, classificado por seguradoras como CEP de risco elevado para furto e roubo, exigindo rastreador na maioria das apólices.", reference: "região da Avenida Jurema e Estrada dos Pimentas", priceRange: "R$ 3.400 a R$ 6.800/ano" },
-  { slug: "seguro-auto-jardim-maia", bairro: "Jardim Maia", bairroSlugBairros: "jardim-maia", riskLevel: "baixo", context: "uma das regiões mais valorizadas e seguras de Guarulhos, com condomínios fechados e Shopping Maia como referência. Excelente perfil para descontos no seguro auto.", reference: "no entorno do Shopping Maia e Jardim Maia Residencial", priceRange: "R$ 2.100 a R$ 4.000/ano" },
-  { slug: "seguro-auto-jardim-sao-joao", bairro: "Jardim São João", bairroSlugBairros: "centro", riskLevel: "médio", context: "bairro residencial consolidado próximo ao centro, com bom equilíbrio entre preço e cobertura no mercado de seguro auto.", reference: "próximo à Avenida Tiradentes e Centro de Guarulhos", priceRange: "R$ 2.600 a R$ 4.900/ano" },
-  { slug: "seguro-auto-taboao-guarulhos", bairro: "Taboão", bairroSlugBairros: "centro", riskLevel: "médio", context: "região mista comercial e residencial no centro-norte de Guarulhos, com boa oferta de oficinas referenciadas das grandes seguradoras.", reference: "região da Avenida Salgado Filho e Taboão", priceRange: "R$ 2.700 a R$ 5.000/ano" },
-  { slug: "seguro-auto-centro-guarulhos", bairro: "Centro de Guarulhos", bairroSlugBairros: "centro", riskLevel: "médio-alto", context: "área de alto fluxo comercial com grande circulação de pedestres e veículos, índice mais elevado de pequenos sinistros e furtos de acessórios.", reference: "região da Praça Tereza Cristina e Avenida Paulo Faccini", priceRange: "R$ 2.900 a R$ 5.500/ano" },
-  { slug: "seguro-auto-vila-augusta", bairro: "Vila Augusta", bairroSlugBairros: "vila-augusta", riskLevel: "baixo", context: "bairro residencial valorizado próximo ao Parque Cecap, com perfil de baixa sinistralidade e prêmios mais competitivos.", reference: "próximo ao Parque Cecap e Vila Galvão", priceRange: "R$ 2.200 a R$ 4.100/ano" },
-  { 
-    slug: "seguro-auto-cidade-maia", 
-    bairro: "Cidade Maia", 
-    bairroSlugBairros: "jardim-maia", 
-    riskLevel: "baixo", 
-    context: "região nobre de Guarulhos, com alto padrão de condomínios e vigilância reforçada, o que reflete em prêmios de seguro auto até 20% menores que a média da cidade.", 
-    reference: "ao lado do Shopping Maia e Parque Shopping Maia", 
-    priceRange: "R$ 1.950 a R$ 3.800/ano" 
-  },
-  { 
-    slug: "seguro-auto-maia-guarulhos", 
-    bairro: "Maia", 
-    bairroSlugBairros: "jardim-maia", 
-    riskLevel: "baixo", 
-    context: "região nobre e altamente valorizada de Guarulhos, abrangendo o Parque Continental e áreas adjacentes, com condomínios de alto padrão e segurança monitorada.", 
-    reference: "no entorno da Avenida Paulo Faccini e Parque Bosque Maia", 
-    priceRange: "R$ 2.050 a R$ 3.950/ano" 
-  },
-  { 
-    slug: "seguro-auto-vila-augusta-guarulhos", 
-    bairro: "Vila Augusta", 
-    bairroSlugBairros: "vila-augusta", 
-    riskLevel: "baixo", 
-    context: "tradicional bairro residencial e comercial de Guarulhos, estrategicamente localizado próximo à Rodovia Presidente Dutra e ao Shopping Internacional.", 
-    reference: "próximo ao Shopping Internacional e Parque Fracalanza", 
-    priceRange: "R$ 2.150 a R$ 4.100/ano" 
-  },
-  { 
-    slug: "seguro-auto-bonsucesso-guarulhos-v2", 
-    bairro: "Bonsucesso", 
-    bairroSlugBairros: "bonsucesso", 
-    riskLevel: "médio", 
-    context: "um dos polos de crescimento de Guarulhos, com forte característica industrial e logística, além de áreas residenciais em expansão.", 
-    reference: "no entorno do Shopping Bonsucesso e UNIFESP", 
-    priceRange: "R$ 2.650 a R$ 5.200/ano" 
-  },
-  { 
-    slug: "seguro-auto-pimentas-guarulhos", 
-    bairro: "Pimentas", 
-    bairroSlugBairros: "cumbica", 
-    riskLevel: "alto", 
-    context: "o bairro mais populoso de Guarulhos, com intenso fluxo comercial e de transporte, exigindo atenção especial à segurança veicular e rastreamento.", 
-    reference: "região do Terminal Pimentas e Hospital Municipal", 
-    priceRange: "R$ 3.200 a R$ 6.400/ano" 
-  },
-  {
-    slug: "seguro-auto-paraventi-guarulhos",
-    bairro: "Paraventi",
-    bairroSlugBairros: "paraventi",
-    riskLevel: "médio",
-    context: "bairro residencial em consolidação na zona sul de Guarulhos, com boa malha viária ligando à Rodovia Presidente Dutra e índices de sinistralidade dentro da média da cidade.",
-    reference: "no entorno da Avenida Otávio Braga de Mesquita e Parque Cecap",
-    priceRange: "R$ 2.600 a R$ 4.900/ano",
-  },
-  {
-    slug: "seguro-auto-continental-guarulhos",
-    bairro: "Continental",
-    bairroSlugBairros: "continental",
-    riskLevel: "baixo",
-    context: "região predominantemente residencial e arborizada, com condomínios verticais de médio e alto padrão, perfil de baixa sinistralidade para seguradoras.",
-    reference: "próximo ao Parque Continental e Avenida Tiradentes",
-    priceRange: "R$ 2.200 a R$ 4.200/ano",
-  },
-  {
-    slug: "seguro-auto-picanco-guarulhos",
-    bairro: "Picanço",
-    bairroSlugBairros: "picanco",
-    riskLevel: "médio",
-    context: "bairro tradicional com forte presença residencial e comercial, próximo ao centro de Guarulhos e bem servido por linhas de ônibus.",
-    reference: "região da Avenida Emílio Ribas e Hospital Stella Maris",
-    priceRange: "R$ 2.700 a R$ 5.000/ano",
-  },
-  {
-    slug: "seguro-auto-macedo-guarulhos",
-    bairro: "Macedo",
-    bairroSlugBairros: "macedo",
-    riskLevel: "médio",
-    context: "bairro residencial entre o Centro e a Vila Galvão, com boa estrutura urbana e acesso rápido à Marginal Tietê pela Avenida Salgado Filho.",
-    reference: "no entorno da Avenida Salgado Filho e Rua das Andorinhas",
-    priceRange: "R$ 2.650 a R$ 4.900/ano",
-  },
-  {
-    slug: "seguro-auto-gopouva-guarulhos",
-    bairro: "Gopouva",
-    bairroSlugBairros: "gopouva",
-    riskLevel: "médio",
-    context: "bairro consolidado e bem localizado próximo ao Centro de Guarulhos, com mix de residências e comércio de vizinhança e índices de sinistralidade na média da cidade.",
-    reference: "região da Avenida Otávio Braga de Mesquita e Praça Gopouva",
-    priceRange: "R$ 2.650 a R$ 4.950/ano",
-  },
+  { slug: "seguro-auto-vila-galvao", bairro: "Vila Galvão", bairroSlugBairros: "vila-galvao" },
+  { slug: "seguro-auto-bonsucesso-guarulhos", bairro: "Bonsucesso", bairroSlugBairros: "bonsucesso" },
+  { slug: "seguro-auto-cumbica", bairro: "Cumbica", bairroSlugBairros: "cumbica" },
+  { slug: "seguro-auto-pimentas", bairro: "Pimentas", bairroSlugBairros: "pimentas" },
+  { slug: "seguro-auto-jardim-maia", bairro: "Jardim Maia", bairroSlugBairros: "jardim-maia" },
+  { slug: "seguro-auto-jardim-sao-joao", bairro: "Jardim São João", bairroSlugBairros: "jardim-sao-joao" },
+  { slug: "seguro-auto-taboao-guarulhos", bairro: "Taboão", bairroSlugBairros: "taboao" },
+  { slug: "seguro-auto-centro-guarulhos", bairro: "Centro de Guarulhos", bairroSlugBairros: "centro" },
+  { slug: "seguro-auto-vila-augusta", bairro: "Vila Augusta", bairroSlugBairros: "vila-augusta" },
+  { slug: "seguro-auto-cidade-maia", bairro: "Cidade Maia", bairroSlugBairros: "jardim-maia" },
+  { slug: "seguro-auto-maia-guarulhos", bairro: "Maia", bairroSlugBairros: "jardim-maia" },
+  { slug: "seguro-auto-vila-augusta-guarulhos", bairro: "Vila Augusta", bairroSlugBairros: "vila-augusta" },
+  { slug: "seguro-auto-bonsucesso-guarulhos-v2", bairro: "Bonsucesso", bairroSlugBairros: "bonsucesso" },
+  { slug: "seguro-auto-pimentas-guarulhos", bairro: "Pimentas", bairroSlugBairros: "pimentas" },
+  { slug: "seguro-auto-paraventi-guarulhos", bairro: "Paraventi", bairroSlugBairros: "paraventi" },
+  { slug: "seguro-auto-continental-guarulhos", bairro: "Continental", bairroSlugBairros: "continental" },
+  { slug: "seguro-auto-picanco-guarulhos", bairro: "Picanço", bairroSlugBairros: "picanco" },
+  { slug: "seguro-auto-macedo-guarulhos", bairro: "Macedo", bairroSlugBairros: "macedo" },
+  { slug: "seguro-auto-gopouva-guarulhos", bairro: "Gopouva", bairroSlugBairros: "gopouva" },
 ];
 
-const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
-  slug: b.slug,
-  title: `Seguro Auto ${b.bairro} (Guarulhos) — Cotação Local`,
-  subtitle: `Cotação de seguro auto para moradores do ${b.bairro}, em Guarulhos. Compare Porto Seguro, Allianz, HDI e mais 6 seguradoras com a Patro Seguros.`,
-  description: `Seguro auto no ${b.bairro}, Guarulhos, com atendimento presencial no Cidade Maia e cotação por WhatsApp. ${partnersLine} O CEP do ${b.bairro} entra como variável principal no cálculo do prêmio — moradores costumam pagar entre ${b.priceRange} para cobertura compreensiva.`,
-  detailedDescription: `### Perfil do Seguro Auto no ${b.bairro}\n\nO ${b.bairro} é uma ${b.context} Para o seguro auto, o CEP de pernoite é uma das variáveis mais importantes no cálculo do prêmio: seguradoras consultam estatísticas de roubo, furto e colisão por logradouro antes de fechar a apólice.\n\n### Atendimento Local Patro Seguros\n\nA Patro Seguros atua em Guarulhos, fundada em 2021 por uma equipe de sócios que soma mais de 20 anos de experiência no mercado segurador, e atende moradores do ${b.bairro} ${b.reference}. Em vez de você ter que procurar 16 seguradoras parceiras, fazemos uma única cotação e enviamos o comparativo entre as gigantes do mercado. Nossa sede fica no Cidade Maia, garantindo proximidade e confiança para quem mora ou trabalha no ${b.bairro}.\n\n### Estratégias para Reduzir seu Seguro\n\nNossa orientação é específica para o perfil de risco do bairro: classificação ${b.riskLevel} de sinistralidade, recomendações sobre rastreador, garagem coberta e franquia ideal. Além do seguro de carro, oferecemos proteção para frotas comerciais, motoristas de aplicativo e motos.\n\n### Diferenciais no ${b.bairro}\n\nSabemos que a segurança no entorno do ${b.reference} exige coberturas específicas para acessórios e retrovisores. Garantimos que sua apólice não tenha brechas e que, em caso de imprevisto, o suporte seja humanizado e ágil, com guincho ilimitado e carro reserva conforme sua necessidade.`,
-  metaDescription: `Seguro auto ${b.bairro}: cotação online, atendimento local e comparativo entre 16 seguradoras com a Patro Seguros. ${b.priceRange}.`,
-  icon: "🚗",
-  pricingIntro: `O seguro auto no ${b.bairro} custa em média ${b.priceRange} para cobertura compreensiva (roubo, furto, colisão e terceiros), considerando perfil de risco ${b.riskLevel} do bairro. Veículos populares com garagem coberta e rastreador ficam na faixa inferior; SUVs e veículos premium, na superior.`,
-  pricingFactors: [
-    `CEP de pernoite no ${b.bairro} — variável de maior peso no cálculo`,
-    "Modelo, ano e valor FIPE do veículo",
-    "Idade, sexo e tempo de habilitação do condutor principal",
-    "Uso do veículo: particular, profissional ou aplicativo",
-    "Garagem coberta em residência e no local de trabalho",
-    "Rastreador e dispositivos antifurto homologados",
-    "Histórico de sinistros e classe de bônus",
-  ],
-  pricingNote: `Dica Patro: moradores do ${b.bairro} com garagem coberta e rastreador instalado economizam, em média, 12% a 18% no prêmio anual.`,
-  faqs: generateLocalFAQs({
+const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => {
+  // IDs publicados: não confundir a área atendida com a localização da sede.
+  const bairroId = b.bairroSlugBairros;
+  const localGuidance = b.bairro === "Pimentas"
+    ? "Se você usa o carro para trabalhar ou transportar passageiros nos Pimentas, declare essa utilização na cotação. Informe o CEP exato onde o veículo passa a noite, mesmo que circule em outras regiões. O nome do bairro, sozinho, não determina preço nem exigência de rastreador."
+    : b.bairro === "Cumbica"
+    ? "Se o veículo faz transporte remunerado de passageiros ou integra uma frota em Cumbica, informe a atividade e os condutores. Seguro auto, seguro de frota e seguro de carga têm finalidades distintas; uma cobertura não substitui automaticamente a outra."
+    : "Informe o endereço de pernoite e a utilização efetiva do veículo, incluindo deslocamentos profissionais. A avaliação é individual; não adotamos uma classificação pública de risco ou uma tabela de preços por bairro.";
+  return {
     slug: b.slug,
+    title: `Seguro Auto ${b.bairro} (Guarulhos) — Cotação Local`,
+    subtitle: `Seguro auto para quem mora ou trabalha em ${b.bairro}, Guarulhos. Solicite uma comparação conforme seu perfil.`,
+    description: `A Patro Seguros atende moradores de ${b.bairro} por WhatsApp e em sua sede em Guarulhos. Antes de contratar, compare coberturas, franquias, assistências e valor total da proposta, não apenas a parcela.`,
+    detailedDescription: `### O que informar ao cotar em ${b.bairro}\n\n${localGuidance}\n\n### Atendimento sem filial no bairro\n\nO atendimento a ${b.bairro} é realizado pela Patro Seguros. Esta página representa uma área atendida, não uma unidade física no bairro. Consulte os contatos oficiais para combinar atendimento presencial na sede.\n\n### Como comparar as propostas\n\nVerifique o critério de indenização do veículo, as franquias de casco e vidros, os limites para danos a terceiros e os eventos excluídos. Confira também a quilometragem de guincho e as condições para carro reserva. Esses itens não são iguais em todos os produtos.\n\n### Antes do início da cobertura\n\nA cotação não confirma aceitação nem início de vigência. A seguradora pode solicitar documentos, vistoria ou dispositivo de segurança. Revise a proposta, a data de início e as condições contratuais antes de concluir a contratação.`,
+    metaDescription: `Seguro auto em ${b.bairro}, Guarulhos. Compare coberturas, franquias e assistências com a Patro. Solicite cotação conforme seu perfil.`,
+    icon: "🚗",
     neighborhood: b.bairro,
-    product: "auto",
-    riskLevel: b.riskLevel,
-    priceRange: b.priceRange,
-    reference: b.reference,
-  }),
-  whoNeeds: [
-    `Moradores do ${b.bairro} que querem comparar seguradoras em uma única cotação`,
-    `Quem mora ${b.reference} e busca corretora com atendimento presencial`,
-    "Motoristas que circulam diariamente entre Guarulhos e São Paulo capital",
-    "Famílias com mais de um veículo na garagem buscando desconto progressivo",
-    "Donos de SUVs, veículos premium ou seminovos com financiamento",
-    "Quem teve aumento abusivo na renovação e quer recotar",
-  ],
-  whyPatro: [
-    `Atendimento presencial no Cidade Maia, próximo ao ${b.bairro}`,
-    "Comparativo entre 16 seguradoras em uma única cotação",
-    "Carteira de seguro auto ativa em Guarulhos",
-    "Suporte em sinistro com argumentação técnica para evitar negativas",
-    "Renovação anual otimizada — recotamos automaticamente para garantir o melhor preço",
-    "Zero custo: o pagamento da corretora é feito pela seguradora, não por você",
-  ],
-  coverages: baseCoverages,
-  realScenarios: [
-    { title: `Economia de 22% para morador do ${b.bairro}`, description: `Cliente da Patro pagava R$ 4.800/ano em seguro auto contratado direto pelo site da seguradora. Após cotação no ${b.bairro} comparando 16 seguradoras, migrou para uma apólice equivalente em outra companhia por R$ 3.750/ano — economia de R$ 1.050 mantendo a mesma cobertura.` },
-    { title: `Sinistro de roubo resolvido em 16 dias`, description: `Veículo de cliente foi furtado próximo à região do ${b.bairro}. A Patro acompanhou o processo desde o boletim de ocorrência até a indenização integral pela seguradora — 16 dias entre o sinistro e o pagamento, com cliente já podendo comprar carro novo.` },
-    { title: `Renovação automática evitando aumento abusivo`, description: `Na renovação, a seguradora original tentou aplicar aumento de 38% para morador do ${b.bairro}. A Patro recotou automaticamente e encontrou apólice melhor em outra companhia, com aumento real de apenas 6% sobre o ano anterior.` },
-  ],
-  tips: [
-    `Sempre informe o CEP correto de pernoite no ${b.bairro} — endereço errado pode anular a apólice em caso de sinistro.`,
-    "Garagem coberta no trabalho também conta — informe à seguradora para reduzir o prêmio.",
-    "Compare anualmente: aumentos de renovação acima de 15% sem agravamento de risco geralmente podem ser revertidos com recotação.",
-    "Avalie franquia reduzida se você usa muito o veículo — o custo extra anual costuma compensar no primeiro sinistro.",
-    `Para moradores do ${b.bairro}, vale instalar rastreador mesmo quando não obrigatório — reduz prêmio entre 8% e 15%.`,
-  ],
-  relatedInsurances: [
-    ...baseRelated,
-    { title: "Bairros atendidos em Guarulhos", link: `/seguros-guarulhos/${b.bairroSlugBairros}` },
-  ],
-});
+    city: "Guarulhos",
+    pricingIntro: "Não há uma tabela de preço válida para todo o bairro. O valor depende dos dados do veículo, do condutor e das condições escolhidas na cotação.",
+    pricingFactors: ["CEP exato de pernoite", "Modelo, ano e valor do veículo", "Perfil dos condutores e histórico de seguro", "Uso particular, profissional ou por aplicativo", "Garagem e dispositivos de segurança", "Coberturas, limites e franquias solicitados"],
+    pricingNote: "Solicite uma proposta atualizada com valor total, parcelamento, franquias, vigência e condições de aceitação. Não há desconto ou economia garantidos.",
+    faqs: [
+      { question: `Quanto custa seguro auto em ${b.bairro}?`, answer: "O valor só pode ser informado após análise do perfil e emissão de uma cotação atualizada. Não publicamos média por bairro sem amostra, data e condições de referência verificáveis." },
+      { question: `É obrigatório instalar rastreador em ${b.bairro}?`, answer: "Não é possível afirmar isso apenas pelo bairro. A exigência depende do veículo, do CEP, do produto e da análise de cada seguradora. Confira se há instalação e mensalidade na proposta." },
+      { question: "Quais coberturas preciso comparar?", answer: "Compare roubo e furto, colisão e danos a terceiros, quando disponíveis. Vidros, carro reserva e assistências podem exigir contratação adicional e têm regras próprias." },
+      { question: "Posso usar o carro para aplicativo ou trabalho?", answer: "Declare a utilização real antes da contratação e confirme por escrito a aceitação dessa atividade. Uma proposta para uso particular pode não atender ao uso profissional." },
+      { question: `A Patro tem uma filial em ${b.bairro}?`, answer: "Esta página indica a região atendida, não uma filial. O atendimento é feito por WhatsApp ou na sede da Patro em Guarulhos, conforme os contatos oficiais." },
+      { question: "Quando o seguro passa a valer?", answer: "Confirme a aceitação, a vigência e as eventuais exigências na proposta e na apólice. Enviar o formulário ou receber uma cotação não confirma cobertura." },
+    ],
+    whoNeeds: [`Moradores e profissionais de ${b.bairro} que desejam cotar`, "Quem vai contratar seu primeiro seguro", "Quem precisa comparar a renovação", "Condutores que precisam declarar uso profissional"],
+    whyPatro: ["Orientação para comparar propostas", "Atendimento por WhatsApp e na sede em Guarulhos", "Apoio na leitura de coberturas e franquias", "Orientação para comunicar sinistros à seguradora"],
+    coverages: baseCoverages,
+    insurers: [],
+    testimonials: [],
+    realScenarios: [],
+    tips: ["Informe corretamente os condutores e o CEP de pernoite.", "Compare propostas com coberturas e limites equivalentes.", "Guarde a proposta aceita e leia as condições da apólice.", "Não presuma que assistência ou carro reserva sejam ilimitados."],
+    relatedInsurances: [
+      { title: "Seguro Auto em Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: `Outros seguros em ${b.bairro}`, link: `/seguros-guarulhos/${bairroId}` },
+      { title: "Solicitar cotação de seguro auto", link: "/cotacao?tipo=auto" },
+    ],
+  };
+};
 
 /* ---------- COMERCIAIS ---------- */
 

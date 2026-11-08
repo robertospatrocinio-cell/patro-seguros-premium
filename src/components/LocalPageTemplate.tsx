@@ -16,17 +16,11 @@ import { setWhatsAppOverride, clearWhatsAppOverride } from "@/lib/whatsappOverri
  * ------------------------------------------------------------------
  * Template OBRIGATÓRIO para todas as páginas locais e de bairro.
  *
- * Requisitos garantidos pelo TypeScript (compile-time):
- *   1. FAQ específico (mín. 5 perguntas locais)
- *   2. Seguradoras parceiras listadas
- *   3. Bairros atendidos (quando aplicável)
- *   4. Depoimentos locais (mín. 2)
- *   5. CTA WhatsApp visível e rastreável
- *   6. Schema local (LocalArea + InsuranceAgency + FAQ + AggregateRating)
- *   7. Conteúdo único: detailedDescription, pricingIntro e cenários reais
- *
- * NUNCA torne campos abaixo opcionais — eles existem para impedir
- * "doorway pages" e páginas finas que o Google penaliza.
+ * Exige FAQ, orientação de contratação e CTA rastreável.
+ * Seguradoras, depoimentos e casos podem estar vazios quando não houver
+ * comprovação editorial. Quantidade mínima não garante conteúdo original.
+ * A área atendida não representa uma filial. Páginas locais precisam de
+ * revisão individual; o template não impede páginas repetitivas sozinho.
  * ------------------------------------------------------------------
  */
 
@@ -98,18 +92,14 @@ export interface LocalPageProps {
   /** OBRIGATÓRIO: ≥ 5 FAQs específicos da região/produto */
   faqs: [LocalFAQ, LocalFAQ, LocalFAQ, LocalFAQ, LocalFAQ, ...LocalFAQ[]];
 
-  /** OBRIGATÓRIO: ≥ 4 seguradoras parceiras */
-  insurers: [LocalInsurer, LocalInsurer, LocalInsurer, LocalInsurer, ...LocalInsurer[]];
+  /** Publique somente seguradoras cuja oferta para o produto esteja confirmada. */
+  insurers: LocalInsurer[];
 
-  /** OBRIGATÓRIO: ≥ 2 depoimentos locais */
-  testimonials: [LocalTestimonial, LocalTestimonial, ...LocalTestimonial[]];
+  /** Publique somente depoimentos com origem e autorização documentadas. */
+  testimonials: LocalTestimonial[];
 
-  /** OBRIGATÓRIO: cenários reais (≥ 2) */
-  realScenarios: [
-    { title: string; description: string },
-    { title: string; description: string },
-    ...{ title: string; description: string }[]
-  ];
+  /** Casos reais comprovados; uma lista vazia é preferível a exemplos inventados. */
+  realScenarios: { title: string; description: string }[];
 
   /** Coberturas resumidas (≥ 4) */
   coverages: { title: string; description: string }[];
@@ -213,9 +203,6 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
     if (import.meta.env.DEV) {
       const errors: string[] = [];
       if (faqs.length < 5) errors.push(`LocalPageTemplate[${slug}]: faqs precisa ter ≥ 5 itens`);
-      if (insurers.length < 4) errors.push(`LocalPageTemplate[${slug}]: insurers precisa ter ≥ 4 itens`);
-      if (testimonials.length < 2) errors.push(`LocalPageTemplate[${slug}]: testimonials precisa ter ≥ 2 itens`);
-      if (realScenarios.length < 2) errors.push(`LocalPageTemplate[${slug}]: realScenarios precisa ter ≥ 2 itens`);
       if (!detailedDescription.includes("\n\n")) {
         errors.push(`LocalPageTemplate[${slug}]: detailedDescription deve ter ≥ 2 parágrafos`);
       }
@@ -284,20 +271,14 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         relatedInsurances={relatedInsurances}
         howto={howto}
         importantDetails={[
-          /* Seguradoras parceiras */
-          {
-            title: `Seguradoras parceiras em ${neighborhood ? `${neighborhood}, ${city}` : city}`,
-            content: insurers
-              .map((i) => `${i.name} — ${i.highlight}`)
-              .join("\n\n"),
-          },
-          /* Depoimentos locais */
-          {
+          ...(insurers.length ? [{
+            title: `Seguradoras consultadas para ${neighborhood || city}`,
+            content: insurers.map((i) => `${i.name} — ${i.highlight}`).join("\n\n"),
+          }] : []),
+          ...(testimonials.length ? [{
             title: `Depoimentos de clientes em ${city}`,
-            content: testimonials
-              .map((t) => `"${t.quote}"\n— ${t.author} (${t.neighborhood}) ★ ${t.rating}/5`)
-              .join("\n\n"),
-          },
+            content: testimonials.map((t) => `"${t.quote}"\n— ${t.author} (${t.neighborhood}) ★ ${t.rating}/5`).join("\n\n"),
+          }] : []),
           ...(nearbyAreas && nearbyAreas.length > 0
             ? [
                 {
@@ -324,7 +305,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
       <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-b bg-muted/20">
         <div className="text-center sm:text-left mb-4 sm:mb-0">
           <p className="font-bold text-primary text-lg">Precisa de cotação em {neighborhood || city}?</p>
-          <p className="text-sm text-muted-foreground">Fale com um consultor agora e receba em até 2 horas.</p>
+          <p className="text-sm text-muted-foreground">Solicite uma análise do seu perfil. Valores e aceitação dependem da seguradora.</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <Link 

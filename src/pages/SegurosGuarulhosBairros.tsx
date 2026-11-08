@@ -147,65 +147,32 @@ const SegurosGuarulhosBairros = () => {
     { label: `Seguros em ${selectedBairro.nome}` },
   ];
 
+  // Área atendida não é uma filial: coordenadas do bairro pertencem ao Place,
+  // nunca a uma nova InsuranceAgency com o endereço da sede.
   const localBusinessSchema = useMemo(() => ({
     "@context": "https://schema.org",
-    "@type": "InsuranceAgency",
-    "@id": `https://www.patroseguros.com.br/seguros-guarulhos/${selectedBairro.id}#insurance-agency`,
-    "name": "Patro Seguros",
-    "alternateName": `Patro Seguros ${selectedBairro.nome}`,
+    "@type": "Service",
+    "@id": `https://www.patroseguros.com.br/seguros-guarulhos/${selectedBairro.id}#service`,
+    "name": `Atendimento de seguros em ${selectedBairro.nome}`,
     "url": `https://www.patroseguros.com.br/seguros-guarulhos/${selectedBairro.id}`,
-    "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
-    "image": "https://www.patroseguros.com.br/images/logo-full.webp",
-    "parentOrganization": { "@id": "https://www.patroseguros.com.br/#insurance-agency" },
-    "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
-    "telephone": "+55-11-5199-7500",
-    "email": "contato@patroseguros.com.br",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia",
-      "addressLocality": "Guarulhos",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": selectedBairro.geo?.latitude ?? -23.4538,
-      "longitude": selectedBairro.geo?.longitude ?? -46.5333
-    },
+    "description": selectedBairro.descricao,
+    "provider": { "@id": "https://www.patroseguros.com.br/#insurance-agency" },
     "areaServed": {
       "@type": "Place",
-      "name": `${selectedBairro.nome}, Guarulhos, SP`
+      "name": `${selectedBairro.nome}, Guarulhos, SP`,
+      ...(selectedBairro.geo ? { geo: {
+        "@type": "GeoCoordinates",
+        latitude: selectedBairro.geo.latitude,
+        longitude: selectedBairro.geo.longitude,
+      }} : {}),
     },
-    "sameAs": [
-      "https://www.instagram.com/patroseguros",
-      "https://www.facebook.com/patroseguros"
-    ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:30",
-        "closes": "18:00"
-      }
-    ],
-    "priceRange": "$$",
-    ...(selectedBairro.testimonials && selectedBairro.testimonials.length > 0 ? {
-      "review": selectedBairro.testimonials.map(t => ({
-        "@type": "Review",
-        "author": { "@type": "Person", "name": t.author },
-        "datePublished": t.date,
-        "reviewRating": { "@type": "Rating", "ratingValue": t.rating, "bestRating": 5 },
-        "reviewBody": t.text,
-        "itemReviewed": { "@type": "Service", "name": `${t.product} em ${selectedBairro.nome}, Guarulhos` }
-      }))
-    } : {})
   }), [selectedBairro]);
 
   const servicosCards = [
-    { icon: Car, title: "Seguro Auto", desc: "Proteção completa com assistência 24h e cobertura contra roubo, furto e colisão.", href: "/seguro-auto" },
-    { icon: Home, title: "Seguro Residencial", desc: "Proteja seu lar contra incêndio, roubo, danos elétricos e mais.", href: "/seguro-residencial" },
-    { icon: Building2, title: "Seguro Empresarial", desc: "Proteja seu negócio com coberturas contra incêndio, roubo, RC e lucros cessantes.", href: "/seguro-empresarial" },
-    { icon: HeartPulse, title: "Plano de Saúde", desc: "Planos individuais, familiares e empresariais das melhores operadoras.", href: "/planos-de-saude" },
+    { icon: Car, title: "Seguro Auto", desc: "Compare eventos cobertos, franquias, limites para terceiros e regras da assistência.", href: "/seguro-auto" },
+    { icon: Home, title: "Seguro Residencial", desc: "Conheça opções para o imóvel e seus bens. Coberturas e limites dependem da contratação.", href: "/seguro-residencial" },
+    { icon: Building2, title: "Seguro Empresarial", desc: "Avalie as proteções disponíveis para a atividade, o patrimônio e a operação da empresa.", href: "/seguro-empresarial" },
+    { icon: HeartPulse, title: "Plano de Saúde", desc: "Confira elegibilidade, carências, coparticipação e rede do produto antes de contratar.", href: "/planos-de-saude" },
   ];
 
   return (
@@ -262,15 +229,15 @@ const SegurosGuarulhosBairros = () => {
               <div data-speakable="answer" className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
                 <p className="text-white text-sm md:text-base leading-relaxed">
                   <strong className="text-[#F2994A]">Resposta rápida:</strong>{" "}
-                  A Patro Seguros é a corretora local de referência para moradores e empresas do{" "}
-                  {selectedBairro.nome} (Guarulhos/SP), com foco em {selectedBairro.foco.toLowerCase()}.
-                  Comparamos cotações em 16+ seguradoras e respondemos em até 2h úteis via WhatsApp
-                  (11) 5199-7500.
+                  A Patro Seguros atende moradores e empresas de {selectedBairro.nome} (Guarulhos/SP),
+                  com orientação sobre {selectedBairro.foco.toLowerCase()}. Solicite uma cotação pelo
+                  WhatsApp e compare as condições disponíveis para seu perfil. Esta página descreve
+                  uma área atendida, não uma filial no bairro.
                 </p>
                 <p className="text-white/70 text-xs mt-2">
-                  Atualizado em {new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+                  A cotação não confirma aceitação nem início da cobertura.
                   {" · "}
-                  Fonte: Patro Corretora de Seguros — SUSEP 212113511
+                  Patro Corretora de Seguros — SUSEP 212113511
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -559,8 +526,8 @@ const SegurosGuarulhosBairros = () => {
               </div>
               <div className="flex flex-col items-center gap-3">
                 <Clock className="h-10 w-10 text-[#F2994A]" />
-                <h3 className="text-white font-bold text-lg">Resposta em até 2h</h3>
-                <p className="text-white/70 text-sm">Atendimento ágil via WhatsApp com cotação personalizada em até 2 horas</p>
+                <h3 className="text-white font-bold text-lg">Cotação personalizada</h3>
+                <p className="text-white/70 text-sm">Solicite atendimento pelo WhatsApp. O prazo depende das informações e da análise necessárias.</p>
               </div>
               <div className="flex flex-col items-center gap-3">
                 <Star className="h-10 w-10 text-[#F2994A]" />

@@ -13,7 +13,6 @@ import { seoLocalGuarulhosHub } from "@/data/seoLocalGuarulhosHub";
 import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
 
 
-import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 import LazySection from "@/components/LazySection";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -51,20 +50,10 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
 
   // Tipos requerem tuplas mínimas — fazemos cast seguro pois validamos em runtime/dev.
   const faqs = config.faqs as unknown as [LocalFAQ, LocalFAQ, LocalFAQ, LocalFAQ, LocalFAQ, ...LocalFAQ[]];
-  const insurers = (config.insurers ?? DEFAULT_INSURERS).slice(0, 9) as unknown as [
-    LocalInsurer, LocalInsurer, LocalInsurer, LocalInsurer, ...LocalInsurer[],
-  ];
-  const testimonials = (config.testimonials ?? DEFAULT_TESTIMONIALS).slice(0, 4) as unknown as [
-    LocalTestimonial, LocalTestimonial, ...LocalTestimonial[],
-  ];
-  const realScenarios = (config.realScenarios ?? [
-    { title: "Case de Sucesso", description: "Atendimento ágil com cotação em 2 horas." },
-    { title: "Suporte em Sinistro", description: "Acompanhamento completo até a indenização." }
-  ]) as unknown as [
-    { title: string; description: string },
-    { title: string; description: string },
-    ...{ title: string; description: string }[],
-  ];
+  // Ausência de conteúdo confirmado não autoriza inserir prova social genérica.
+  const insurers: LocalInsurer[] = (config.insurers ?? []).slice(0, 9);
+  const testimonials: LocalTestimonial[] = (config.testimonials ?? []).slice(0, 4);
+  const realScenarios = config.realScenarios ?? [];
 
   return (
     <>

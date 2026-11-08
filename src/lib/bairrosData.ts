@@ -565,41 +565,23 @@ export const bairros: BairroData[] = [
     id: "pimentas",
     nome: "Pimentas",
     foco: "Seguro Auto, Moto e Saúde Familiar",
-    subtitulo: "Proteção acessível para a maior região populacional de Guarulhos",
-    descricao: "Pimentas é uma das regiões mais populosas de Guarulhos, com forte demanda por seguro auto, seguro moto e planos de saúde familiares. O índice de roubo/furto na região exige seguros bem calibrados — com rastreador, garagem e franquia ajustada ao perfil. A Patro Seguros compara as 16+ seguradoras parceiras para encontrar o melhor preço para o morador de Pimentas, sem abrir mão de assistência 24h e atendimento humano em sinistro.",
+    subtitulo: "Seguro para o veículo, a casa e a família em Pimentas",
+    descricao: "A Patro Seguros atende moradores e negócios de Pimentas por WhatsApp e na sede em Guarulhos, sem filial no bairro. Para quem usa carro ou moto no trabalho, é importante declarar a atividade na cotação. Para proteger a casa ou escolher um plano de saúde, compare as condições do produto e confirme os serviços incluídos antes de contratar.",
     image: imgPimentas,
     geo: { latitude: -23.4631, longitude: -46.3814 },
-    testimonials: [
-      { author: "Luís F.", role: "Motorista de aplicativo — Pimentas", product: "Seguro Auto com EAR", rating: 5, date: "2026-06-05", text: "Era impossível achar seguro com cobertura para Uber em Pimentas. A Patro encontrou apólice 22% mais barata que a anterior, com assistência 24h e carro reserva. Atende rápido pelo WhatsApp." },
-      { author: "Renata C.", role: "Mãe de família — Pimentas", product: "Plano de Saúde Familiar", rating: 5, date: "2026-05-20", text: "Plano antigo subia 25% por ano. A Sandra comparou 4 operadoras e migrou a família para um plano coletivo com a mesma rede e R$ 380 a menos por mês." },
-    ],
+    // Depoimentos só devem voltar com origem e autorização documentadas.
+    testimonials: [],
     faqs: [
-      { question: "Quanto custa seguro auto em Pimentas em 2026?", answer: "Em Pimentas o prêmio anual para cobertura compreensiva costuma ficar entre R$ 3.200 e R$ 6.400/ano para veículos populares com perfil entre 30–50 anos. O CEP do bairro tem sinistralidade de roubo/furto até 40% acima da média de Guarulhos, então a maioria das seguradoras exige rastreador para FIPE acima de R$ 50 mil. A Patro compara 16+ seguradoras e calibra franquia e bônus para reduzir o impacto do CEP." },
-      { question: "Seguradoras aceitam motorista de aplicativo (Uber/99) em Pimentas?", answer: "Sim, mas com cláusula EAR (Exercício de Atividade Remunerada). Trabalhamos com Porto, Tokio Marine, HDI e Allianz que aceitam motoristas de app em Pimentas. O prêmio sobe em média 18–28% versus uso particular, mas evita recusa de sinistro. Sem EAR, a seguradora pode negar pagamento se o roubo acontecer durante corrida." },
-      { question: "Vale a pena seguro de moto em Pimentas?", answer: "Vale, principalmente para motoboys e moradores que usam Av. Pimentas e Estrada Pres. Juscelino. Pimentas concentra alto índice de furto de motos populares (CG, Fan, Factor). Cobertura básica (RCF + roubo/furto) sai a partir de R$ 78/mês para motos até 160cc com rastreador. Sem rastreador, várias seguradoras recusam o risco no CEP." },
-      { question: "Como funciona plano de saúde familiar para moradores de Pimentas?", answer: "A maioria das famílias de Pimentas opta por planos coletivos por adesão (via CNPJ ou entidade de classe), que custam 25–40% menos que individuais. Faixas comuns: R$ 199–320/vida para enfermaria e R$ 320–550/vida para apartamento, com rede credenciada incluindo Hospital Municipal de Pimentas, Stella Maris e rede ampliada em São Paulo. Reajustes coletivos costumam ficar 4–8 p.p. abaixo dos individuais." },
-      { question: "Tem hospital credenciado próximo a Pimentas?", answer: "Sim. Dependendo da operadora (Bradesco, SulAmérica, Amil, Hapvida, Notre Dame Intermédica), a rede em Pimentas e arredores inclui Hospital Stella Maris, Hospital Padre Bento, clínicas em Bonsucesso e pronto-atendimentos próximos à Av. Pimentas. Em uma cotação real comparamos qual operadora cobre melhor o seu bairro específico." },
-      { question: "Seguro residencial em Pimentas cobre roubo de eletrônicos?", answer: "Sim. A cobertura básica obrigatória é incêndio, mas a contratação típica em Pimentas inclui adicional de roubo/furto qualificado de bens, danos elétricos e RC familiar. Para uma casa avaliada em R$ 250 mil com R$ 30 mil em bens, o prêmio fica em torno de R$ 32–55/mês. Indicamos cobertura de roubo qualificada porque furto simples (sem arrombamento) não é coberto por padrão." },
+      { question: "Quanto custa seguro auto em Pimentas?", answer: "Solicite uma cotação atualizada. O valor depende do veículo, dos condutores, do CEP de pernoite, do uso e das coberturas. Não há uma média local validada nesta página." },
+      { question: "Como cotar para motorista de aplicativo em Pimentas?", answer: "Informe o transporte remunerado de passageiros e confirme a aceitação da atividade pela seguradora. A observação EAR na habilitação não substitui a declaração de uso na proposta do seguro." },
+      { question: "Como escolher seguro de moto para trabalhar?", answer: "Declare entregas ou outra atividade profissional. Compare os eventos cobertos, os limites para terceiros, a franquia e as regras da assistência. Rastreador e aceitação dependem da análise da seguradora." },
+      { question: "Como escolher plano de saúde para a família?", answer: "Confira a modalidade de contratação, a elegibilidade, as carências, a coparticipação e as regras de reajuste. Plano coletivo empresarial exige vínculo elegível; coletivo por adesão exige o vínculo previsto no contrato. Não há garantia de menor preço ou reajuste." },
+      { question: "Como confirmar atendimento de saúde perto de Pimentas?", answer: "Consulte o guia oficial da operadora para o produto exato e confirme com o prestador antes de contratar ou agendar. A existência de um hospital na região não significa que ele integre a rede do plano." },
+      { question: "Seguro residencial cobre eletrônicos?", answer: "Danos elétricos, roubo ou outras proteções para bens dependem das coberturas contratadas. Confira os eventos previstos, exclusões, limites e franquias; não presuma cobertura para todo tipo de furto." },
+      { question: "A Patro possui unidade em Pimentas?", answer: "Não há filial anunciada por esta página. O atendimento à região é realizado por WhatsApp ou na sede da Patro em Guarulhos. Consulte os contatos oficiais para combinar atendimento presencial." },
     ],
-    intel: {
-      demographics: "Maior região populacional de Guarulhos, com perfil de famílias trabalhadoras, motoristas de aplicativo, motoboys e forte demanda por seguros de baixo/médio ticket.",
-      landmarks: {
-        hospitals: ["Hospital Municipal de Pimentas", "UBS Pimentas"],
-        streets: ["Av. Pimentas", "Estr. Pres. Juscelino Kubitschek", "Av. Nações Unidas"],
-        schools: ["Universidade Federal de São Paulo — Campus Guarulhos (proximidade)"],
-        business: ["Comércio de rua e concentração de motoboys/entregadores"],
-      },
-      riskProfile: {
-        auto: "médio-alto",
-        residencial: "médio-alto",
-        empresarial: "médio",
-        notes: "CEP com sinistralidade de roubo/furto até 40% acima da média de Guarulhos. Rastreador obrigatório para FIPE > R$ 50 mil e para motos populares (CG, Fan, Factor).",
-      },
-      localCase: {
-        title: "Apólice viável para motorista de app em Pimentas com -22% de prêmio",
-        description: "Motorista de aplicativo no Pimentas com Onix 2021 estava sendo recusado em 2 seguradoras. A corretora estruturou apólice com cláusula EAR (Porto Conecta), rastreador embutido e franquia calibrada, resultando em R$ 3.180/ano — 22% abaixo da última cotação aceita.",
-      },
-    },
+    // Marcos geográficos, perfil populacional, riscos e casos comerciais
+    // aguardam fontes verificáveis; não presumir proximidade ou credenciamento.
   },
   {
     id: "taboao",
