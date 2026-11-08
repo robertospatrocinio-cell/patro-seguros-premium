@@ -30,6 +30,39 @@ describe("CHECKERS registry", () => {
   });
 });
 
+describe("GEO/AEO: validação sem alegações artificiais", () => {
+  it("aceita o título editorial completo no BlogPosting sem aviso de truncamento", () => {
+    const result = CHECKERS.BlogPosting({
+      headline: "Título editorial completo ".repeat(6),
+      author: { name: "Autor de teste" },
+      datePublished: "2026-01-01",
+      image: "https://www.patroseguros.com.br/images/og-cover.webp",
+      publisher: {
+        name: "Patro Seguros",
+        logo: "https://www.patroseguros.com.br/images/logo-full.webp",
+      },
+    });
+    expect(result.req).toEqual([]);
+    expect(result.rec).toEqual([]);
+  });
+
+  it("não exige faixa de preço presumida no InsuranceAgency", () => {
+    const result = CHECKERS.InsuranceAgency({
+      name: "Patro Seguros",
+      url: "https://www.patroseguros.com.br",
+      image: "https://www.patroseguros.com.br/images/og-cover.webp",
+      telephone: "+551151997500",
+      address: {
+        streetAddress: "Endereço de teste", addressLocality: "Guarulhos",
+        addressRegion: "SP", postalCode: "07115-000", addressCountry: "BR",
+      },
+      geo: { latitude: -23.446, longitude: -46.522 },
+    });
+    expect(result.req).toEqual([]);
+    expect(result.rec).toEqual([]);
+  });
+});
+
 // ---------- BreadcrumbList ---------------------------------------------------
 
 describe("checkBreadcrumbList", () => {

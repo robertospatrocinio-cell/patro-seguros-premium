@@ -112,7 +112,7 @@ export function checkArticle(n) {
   const req = [], rec = [];
   const headline = typeof n.headline === "string" ? n.headline.trim() : "";
   if (!headline) req.push("headline ausente");
-  else if (headline.length > 110) rec.push("headline > 110 chars (Google trunca)");
+  // Preservar o título editorial: 110 caracteres não é limite de Article.
   if (!n.datePublished) req.push("datePublished ausente");
   else if (!isIso8601Date(n.datePublished)) req.push(`datePublished "${n.datePublished}" fora do ISO 8601`);
   if (n.dateModified && !isIso8601Date(n.dateModified))
@@ -155,7 +155,8 @@ export function checkLocalBusiness(n) {
   } else {
     rec.push("geo (latitude/longitude) recomendado");
   }
-  if (!n.priceRange) rec.push("priceRange recomendado");
+  // Não exigir faixa de preço sem base verificável, especialmente na corretagem.
+  // A ausência desse campo opcional não deve bloquear o build em --strict-warn.
   if (n.aggregateRating) {
     const r = Number(n.aggregateRating.ratingValue);
     if (Number.isNaN(r) || r < 0 || r > 5) req.push("aggregateRating.ratingValue fora de 0..5");

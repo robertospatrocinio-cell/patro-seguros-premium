@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, NAP_STREET_ADDRESS } from "@/config/empresa";
 
 /**
  * InsuranceAgencySchema
@@ -28,10 +28,15 @@ const InsuranceAgencySchema = () => {
     "image": `${EMPRESA.dominioCanonico}/images/logo-full.webp`,
     "telephone": EMPRESA.telefoneE164,
     "email": EMPRESA.email,
-    "priceRange": "$$",
+    "taxID": EMPRESA.cnpj,
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "CNPJ", "value": EMPRESA.cnpj },
+      { "@type": "PropertyValue", "propertyID": "SUSEP", "value": EMPRESA.susep }
+    ],
+    "hasMap": EMPRESA.redesSociais.google,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero}`,
+      "streetAddress": NAP_STREET_ADDRESS,
       "addressLocality": EMPRESA.endereco.cidade,
       "addressRegion": EMPRESA.endereco.estadoSigla,
       "postalCode": EMPRESA.endereco.cep,

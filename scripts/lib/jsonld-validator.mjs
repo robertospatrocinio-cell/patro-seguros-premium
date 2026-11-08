@@ -219,10 +219,9 @@ export function validateArticle(node, errors, label) {
   if (!node.headline || !String(node.headline).trim()) {
     push(errors, `${label} ${type}: faltando headline`,
       { field: "headline", rule: "article.headline" });
-  } else if (String(node.headline).length > 110) {
-    push(errors, `${label} ${type}: headline > 110 chars (Google trunca)`,
-      { field: "headline", rule: "article.headline.maxLen" });
   }
+  // Não há limite obrigatório de 110 caracteres em Article no Google.
+  // O título deve representar o artigo visível, sem truncamento artificial.
   if (!authorName(node.author)) {
     push(errors, `${label} ${type}: faltando author (string ou {name})`,
       { field: "author", rule: "article.author" });

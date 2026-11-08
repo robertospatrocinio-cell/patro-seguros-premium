@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
 import { faqTechnicalSources, perguntasPrioritarias } from "@/data/perguntasPrioritarias";
 
 export default function FaqEditorialContext({ categoryId }: { categoryId?: string }) {
@@ -34,6 +34,12 @@ export default function FaqEditorialContext({ categoryId }: { categoryId?: strin
       <p>
         {EMPRESA.razaoSocial} · CNPJ {EMPRESA.cnpj} · Registro SUSEP cadastrado: {EMPRESA.susep}.
         {" "}<Link to="/verificar-susep" className="text-primary underline">Como conferir o registro</Link>.
+      </p>
+      <p className="mt-3">
+        Sede cadastrada: {NAP_LINHA_1} — {NAP_LINHA_2}. Atendimento: {EMPRESA.horario}.
+        {" "}<a href={`tel:${EMPRESA.telefoneE164}`} className="text-primary underline">{EMPRESA.telefone}</a>
+        {" · "}<a href={`mailto:${EMPRESA.email}`} className="text-primary underline">{EMPRESA.email}</a>.
+        Atendimento digital em outras regiões não significa existência de filiais.
       </p>
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
         <Link to="/sobre" className="text-primary underline">Sobre a Patro</Link>

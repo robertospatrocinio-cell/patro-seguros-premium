@@ -316,9 +316,9 @@ describe("validateArticle / BlogPosting", () => {
     expect(errors[0]).toMatch(/faltando headline/);
   });
 
-  it("flagra headline > 110 chars", () => {
-    const errors = []; validateArticle({ ...base, headline: "x".repeat(111) }, errors, "L");
-    expect(errors.some((e) => e.includes("> 110 chars"))).toBe(true);
+  it("aceita título editorial completo acima de 110 caracteres", () => {
+    const errors = []; validateArticle({ ...base, headline: "x".repeat(150) }, errors, "L");
+    expect(errors).toEqual([]);
   });
 
   it("flagra author ausente ou objeto sem name", () => {

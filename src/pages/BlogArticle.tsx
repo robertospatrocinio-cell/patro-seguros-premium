@@ -136,13 +136,9 @@ const BlogArticle = () => {
               dateModified={meta.updatedAt || meta.date}
               authorName={meta.author}
               authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
-              authorImage={authorInfo ? `${CANONICAL_BASE_URL}${authorInfo.image}` : undefined}
+              authorImage={authorInfo ? new URL(authorInfo.image, `${CANONICAL_BASE_URL}/`).href : undefined}
               authorSusep={authorInfo?.susep}
               authorKnowsAbout={authorInfo?.expertise}
-              authorSameAs={[
-                `${CANONICAL_BASE_URL}/sobre`,
-                "https://www.instagram.com/patroseguros",
-              ]}
               category={meta.category}
               tags={meta.tags}
               wordCount={article.content.split(/\s+/).length}

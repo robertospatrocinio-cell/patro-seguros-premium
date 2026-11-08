@@ -50,7 +50,7 @@ const ArticleSchema = ({
     "@type": "BlogPosting",
     "@id": `${url}#article`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    headline: headline.length > 110 ? headline.slice(0, 107).trim() + "..." : headline,
+    headline,
     description,
     image: [image],
     datePublished,
@@ -60,17 +60,10 @@ const ArticleSchema = ({
       "@id": `${authorUrl}#person`,
       name: authorName,
       url: authorUrl,
-      jobTitle: "Corretor(a) de Seguros — SUSEP",
+      // O vínculo aponta para a empresa; não atribui habilitação pessoal
+      // nem trata o diretório de registro como perfil da organização.
       worksFor: {
-        "@type": "Organization",
-        name: "Patro Seguros",
-        url: "https://www.patroseguros.com.br",
-        sameAs: [
-          "https://www.instagram.com/patroseguros",
-          "https://www.facebook.com/patroseguros",
-          "https://www.linkedin.com/company/patro-seguros",
-          "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp",
-        ],
+        "@id": "https://www.patroseguros.com.br/#organization",
       },
       ...(authorImage ? { image: authorImage } : {}),
       ...(authorSusep
