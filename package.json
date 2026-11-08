@@ -14,6 +14,8 @@
     "preview": "vite preview",
     "sync:htaccess": "node scripts/sync-htaccess-redirects.mjs",
     "check:links": "node scripts/check-internal-links.mjs",
+    "audit:technical": "node scripts/audit-technical-inventory.mjs",
+    "test:technical-inventory": "vitest run scripts/lib/technical-inventory.test.mjs",
     "generate:og-images": "node scripts/generate-og-images.mjs",
     "test": "vitest run",
     "test:e2e": "playwright test",
