@@ -1,113 +1,63 @@
-# NAP Master — Fonte Única de Verdade (Patro Seguros)
+# Dados de referência — Patro Seguros
 
-> Todo diretório, rede social, catálogo, imprensa e assinatura de e-mail
-> **DEVE** usar exatamente as strings abaixo, caractere por caractere.
-> Divergências (mesmo pequenas — "Av." vs "Avenida", "5199-7500" vs "51997500")
-> **quebram a citação** para o Google Knowledge Graph e reduzem a confiança
-> percebida por ChatGPT, Gemini e Perplexity.
->
-> Última revisão: 2026-07-03 · Responsável: sócios (Roberto/Sandra Patrocínio).
+## Autoridade e limites
 
----
+A fonte operacional do site é `src/config/empresa.ts` (`EMPRESA`). Este documento espelha os valores cadastrados; não comprova os dados no Google, em registros públicos ou em diretórios. A revisão da etapa 3 foi feita no repositório, sem acesso autorizado ao Perfil da Empresa. Não houve mudança de nome, endereço, telefone, horários ou outros dados oficiais.
 
-## Bloco NAP canônico (copiar-colar)
+Esta versão substitui instruções antigas deste documento sobre nome obrigatório, fundação em 2020, atendimento aos sábados e descrições com números comerciais. Eram divergentes da configuração atual ou não tinham comprovação apresentada nesta revisão. Não reutilizar essas instruções em novas submissões.
 
-```
-Patro Corretora de Seguros
-Av. Salgado Filho, 2120 — Ed. Via Alameda, Sala 219
-Cidade Maia — Guarulhos/SP — CEP 07115-000
-(11) 5199-7500
-contato@patroseguros.com.br
-https://www.patroseguros.com.br
-```
+## Referência atualmente cadastrada no site
 
-## Variantes autorizadas (uso restrito)
+| Campo | Valor em `EMPRESA` | Situação |
+| --- | --- | --- |
+| Nome fantasia | Patro Seguros | Preservado; confirmar nome público real antes de editar diretórios |
+| Razão social | Patro Corretora de Seguros LTDA | Identificação jurídica, não nome obrigatório do perfil |
+| Telefone e WhatsApp | (11) 5199-7500 | Preservado |
+| Telefone técnico | +551151997500 | Mesmo número em formato internacional |
+| E-mail | contato@patroseguros.com.br | Preservado |
+| Endereço, linha 1 | Av. Salgado Filho, 2120 — Sala 219 | `NAP_LINHA_1` |
+| Endereço, linha 2 | Edifício Via Alameda — Cidade Maia, Guarulhos/SP — CEP 07115-000 | `NAP_LINHA_2` |
+| Complemento cadastrado | Sala 219 — Edifício Via Alameda — Cidade Maia (Parque Renato Maia) | Confirmar nomenclatura com a Patro |
+| Horário | Segunda a Sexta, 8h30 às 18h | Sábados, feriados e exceções precisam de confirmação |
+| Site | https://www.patroseguros.com.br | Domínio canônico cadastrado |
+| CNPJ | 41.641.558/0001-33 | Não consultado em registro externo nesta etapa |
+| SUSEP | 212113511 | Não consultado em registro externo nesta etapa |
+| Fundação | 2021 | Configuração preservada; antigo documento dizia 2020 |
+| Google Maps | https://www.google.com/maps?cid=273879799324962533 | Destino cadastrado; titularidade e pin pendentes de conferência externa |
+| Coordenadas | -23.4460, -46.5220 | Preservadas, não validadas em campo |
 
-| Campo | Forma canônica | Variante permitida | Onde usar a variante |
-|---|---|---|---|
-| Nome | `Patro Corretora de Seguros` | `Patro Seguros` | Apenas quando o campo tem limite < 30 caracteres |
-| Telefone (exibição) | `(11) 5199-7500` | — | Sempre esta forma |
-| Telefone (E.164) | `+55 11 5199-7500` | `+551151997500` | WhatsApp API e schema.org `telephone` |
-| Endereço curto | `Av. Salgado Filho, 2120, Sala 219 — Guarulhos/SP` | — | Diretórios com limite de 60 caracteres |
-| Categoria primária | `Corretora de Seguros` | `Insurance Broker` | Diretórios internacionais |
+Não inventar filiais ou endereços de bairros atendidos. Confirmar se o local recebe clientes e se há necessidade de agendamento. Não inferir acessibilidade, estacionamento, plantão ou horário de seguradora como atributo da corretora.
 
-**Proibido em qualquer contexto:** "Patrocinio Seguros", "Patro Corretora Ltda", "Patro Corretora de Seguros LTDA", "Patro Seguros Guarulhos", telefones sem DDD, endereço sem "Sala 219", sigla "CDM" para Cidade Maia.
+## Formatos e nomes
 
----
+Consistência significa identificar a mesma empresa, local e contato. Abreviações como “Av.”/“Avenida” e formatação do telefone não são, isoladamente, prova de erro nem de perda de posicionamento. No código, preferir os valores e auxiliares de `EMPRESA` para evitar cópias desatualizadas.
 
-## Identificadores corporativos
+No Google, usar o nome pelo qual a empresa se apresenta no mundo real, comprovável em fachada e materiais oficiais; não acrescentar bairros, produtos ou palavras-chave. Não substituir automaticamente por razão social ou por “Patro Corretora de Seguros”. Nome de exibição e razão social têm funções diferentes.
 
-| Campo | Valor |
-|---|---|
-| CNPJ | 41.641.558/0001-33 |
-| Razão social | Patro Corretora de Seguros Ltda |
-| Registro SUSEP | 212113511 |
-| Fundação | 2020 |
-| Sócios | Roberto Patrocínio, Sandra Patrocínio |
-| CNAE principal | 6622-3/00 (Corretores e agentes de seguros) |
-| Google Maps CID | 273879799324962533 |
-| Google Maps URL | https://www.google.com/maps?cid=273879799324962533 |
+## Descrição proposta — aprovação comercial antes de uso externo
 
----
+> A Patro Seguros é uma corretora sediada em Guarulhos. A equipe orienta pessoas e empresas na solicitação e comparação de propostas de seguros. Entre em contato para consultar as modalidades disponíveis, os documentos necessários e as condições de contratação. Coberturas, limites, franquias e aceitação dependem do produto e da análise da seguradora. Confirme com a equipe a disponibilidade de atendimento presencial.
 
-## Coordenadas geográficas
+É uma proposta, não uma descrição publicada no Perfil da Empresa. Não inclui quantidade de clientes, nota, seguradoras, rede médica, descontos ou prazo garantido. Serviços específicos só devem ser acrescentados após validação da operação atual.
 
-| Campo | Valor |
-|---|---|
-| Latitude | -23.4460 |
-| Longitude | -46.5220 |
-| Plus Code | 6R6H+Q9 Guarulhos, SP |
+## Perfis cadastrados na configuração
 
-> Confirmar Plus Code no Google Maps antes de submeter a Bing/Apple/Waze.
+- Google Maps: https://www.google.com/maps?cid=273879799324962533
+- Instagram: https://www.instagram.com/patroseguros
+- Facebook: https://www.facebook.com/patroseguros
+- LinkedIn: https://www.linkedin.com/company/patro-seguros
+- YouTube: https://www.youtube.com/@patroseguros
 
-## Horário de atendimento
+A configuração não comprova titularidade ou atividade desses perfis. TikTok, X/Twitter e Reclame Aqui apareciam no documento anterior, mas não em `EMPRESA.redesSociais`: não tratá-los como confirmados sem validação. Não é determinação de remoção em qualquer plataforma.
 
-```
-Segunda a sexta: 09h00 – 18h00
-Sábado:          09h00 – 13h00 (somente WhatsApp)
-Domingo:         fechado
-Feriados:        conforme feriado nacional/municipal
-Sinistro:        24h/7 via seguradora parceira
-```
+## Aprovação e manutenção
 
-## Descrições padronizadas
+1. A direção confirma cada campo com documentos, funcionamento real e acesso ao perfil.
+2. Registra-se valor atual, valor proposto, evidência, responsável e aprovação.
+3. Só então se atualizam configuração, conteúdo estático, dados estruturados e diretórios autorizados.
+4. Conferem-se preview e produção, links de telefone/WhatsApp, pin do mapa e horários especiais.
+5. Repetir após mudanças operacionais e conferir contatos e horários periodicamente.
 
-### Curta (até 160 caracteres — Bing, Apple, Yelp)
-```
-Corretora de seguros em Guarulhos/SP. Auto, vida, saúde, empresarial, galpão e agro. 16+ seguradoras. SUSEP 212113511. WhatsApp (11) 5199-7500.
-```
+O verificador antigo `scripts/validate-nap-citations.mjs` tem nomes fixos, URLs presumidas e comparação textual limitada; não lê este documento em tempo de execução. Seus resultados não comprovam divergência factual, existência de ficha ou aprovação do nome do Google. Não usá-lo como autorização de alteração externa.
 
-### Média (até 300 caracteres — Reclame Aqui, Solutudo)
-```
-Patro Corretora de Seguros — Guarulhos/SP desde 2020. Atende 500+ famílias e empresas com seguro auto, residencial, vida, saúde, empresarial, galpão, transporte, RC profissional, agro e consórcio. Compara cotações entre 16+ seguradoras. Registro SUSEP 212113511.
-```
-
-### Longa (até 750 caracteres — LinkedIn, GBP, Foursquare)
-```
-Patro Corretora de Seguros é uma corretora fundada em 2020 em Guarulhos/SP por Roberto e Sandra Patrocínio, especializada em seguros para pessoa física, PMEs, responsabilidade civil e agronegócio. Atende presencialmente em Guarulhos e região metropolitana, e nacionalmente para Galpões/Riscos Patrimoniais e Agro via videochamada e visita técnica. Compara cotações entre 16+ seguradoras (Porto, Bradesco, SulAmérica, Tokio, HDI, Allianz, Zurich, Chubb, AIG, Mapfre, Liberty e outras) e 20+ operadoras de saúde. Registro SUSEP 212113511 · CNPJ 41.641.558/0001-33.
-```
-
----
-
-## sameAs canônico (perfis oficiais)
-
-```
-https://www.google.com/maps?cid=273879799324962533
-https://www.instagram.com/patroseguros
-https://www.facebook.com/patroseguros
-https://www.linkedin.com/company/patro-seguros
-https://www.youtube.com/@patroseguros
-https://www.tiktok.com/@patroseguros
-https://twitter.com/patroseguros
-https://www.reclameaqui.com.br/empresa/patro-corretora-de-seguros/
-https://wa.me/551151997500
-https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp
-```
-
----
-
-## Regra de ouro
-
-> Antes de publicar em **qualquer** novo diretório, abrir este arquivo e
-> copiar as strings. Nunca digitar do zero. Toda variação livre é uma
-> quebra de citação.
+Auditoria e processo operacional: `docs/aeo-fase-c-gbp-checklist.md`. Relatório de passagem: `docs/auditoria-local-parte-2-etapa-3.md`.

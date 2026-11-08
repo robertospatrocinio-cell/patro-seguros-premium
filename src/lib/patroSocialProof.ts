@@ -15,9 +15,10 @@ export const PATRO_SOCIAL_PROOF = {
   worstRating: "1",
   /** Rótulo padrão para blocos de avaliação (sem contagem). */
   reviewsCtaLabel: "Confira nossas avaliações no Google",
-  leaveReviewUrl: "https://g.page/r/CUx5x1P3uW1cEAg/review",
+  // Sem link direto de avaliação validado: usar o perfil cadastrado, não inferir um Place ID.
+  leaveReviewUrl: EMPRESA.redesSociais.google,
   googleProfileUrl: EMPRESA.redesSociais.google,
-  whatsappUrl: "https://wa.me/551151997500",
+  whatsappUrl: `https://wa.me/${EMPRESA.whatsapp.replace(/\D/g, "")}`, 
   reviewsPageUrl: "/avaliacoes",
   trustCopy: `Mais de ${EMPRESA.metricas.clientesAtendidos} clientes atendidos e sócios com mais de ${EMPRESA.metricas.experienciaAnos} anos de experiência. Nossa nota ${EMPRESA.metricas.googleRating} no Google reflete o compromisso com a agilidade no sinistro.`,
   stats: {

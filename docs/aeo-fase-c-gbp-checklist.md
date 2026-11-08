@@ -1,170 +1,86 @@
-# Fase C — Google Business Profile (GBP) — Checklist de Otimização
+# Perfil da Empresa no Google — auditoria e operação responsável
 
-> Objetivo: transformar o GBP da Patro Seguros na **fonte primária** que ChatGPT,
-> Gemini, Perplexity, Claude e Meta AI consultam quando alguém pergunta por
-> "corretora de seguros em Guarulhos". LLMs de busca ancoram respostas locais
-> no Google Maps / GBP em ~70% dos casos (dados internos SEMrush AI Overview).
+## Status e escopo
 
-## 0. Dados-mestre (NAP consistente em TODA a web)
+Checklist preparado a partir do código. **Perfil, diretórios e indicadores externos não consultados**: dependem de acesso autorizado da Patro. Nada foi alterado no Google. A referência do site está em `src/config/empresa.ts`, espelhada com ressalvas em `docs/aeo-nap-master.md`.
 
-Estes valores devem ser **idênticos** no GBP, site, Wikidata, Reclame Aqui,
-diretórios e assinaturas de e-mail. Qualquer divergência (ex: "Rua" vs "R.")
-quebra a confiança do grafo local.
+Esta versão substitui recomendações anteriores deste arquivo de metas de nota, palavras-chave obrigatórias em respostas, perguntas simuladas, alegações sem fonte sobre IA, quantidade mínima de fotos e promessa de resultado em 60 dias. Não executar essas instruções antigas. Atualização cadastral não garante ranking, citação por IA ou geração de cotações.
 
-| Campo             | Valor oficial                                                    |
-| ----------------- | ---------------------------------------------------------------- |
-| Nome              | Patro Corretora de Seguros                                       |
-| Nome comercial    | Patro Seguros                                                    |
-| Endereço          | (usar o oficial do site — Cidade Maia, Guarulhos/SP)             |
-| Telefone          | +55 11 5199-7500                                                 |
-| WhatsApp          | +55 11 5199-7500                                                 |
-| E-mail            | contato@patroseguros.com.br                                      |
-| Site              | https://www.patroseguros.com.br                                  |
-| CNPJ              | 41.641.558/0001-33                                               |
-| SUSEP             | 212113511                                                        |
-| Categoria primária| Corretora de seguros (Insurance broker)                          |
-| Google Maps CID   | 273879799324962533                                               |
+## 1. Registro da auditoria autorizada
 
-## 1. Ficha do perfil (fazer 1x)
+Para cada item registrar: valor observado, captura ou documento sem dados de clientes, data, responsável, divergência, proposta, aprovação e resultado após publicação. Não preencher “conforme” por inferência do site.
 
-- [ ] Categoria primária: **Corretora de seguros**
-- [ ] Categorias secundárias (adicionar TODAS que se aplicam, ordem = prioridade):
-  - Agência de seguros
-  - Companhia de seguros para automóveis
-  - Companhia de seguros de vida
-  - Companhia de seguros residenciais
-  - Companhia de seguros de saúde
-  - Companhia de seguros comerciais
-  - Consultor financeiro
-- [ ] Área de atendimento: **Guarulhos + Grande São Paulo** (para Agro:
-      "atendimento nacional" no campo descrição)
-- [ ] Horário: seg-sex 9h-18h (ajustar). Marcar feriados no calendário.
-- [ ] Descrição (750 chars, saturada de long-tails):
-  ```
-  Patro Corretora de Seguros — SUSEP 212113511 — corretora em Guarulhos/SP
-  especializada em seguro de galpões e riscos patrimoniais em Cumbica,
-  seguro auto, seguro frota e transporte de cargas (RCTR-C/RCF-DC),
-  seguro rural com subvenção PSR (atendimento nacional), plano de saúde
-  empresarial e PME, responsabilidade civil profissional e consórcio.
-  Comparamos cotações em 16+ seguradoras (Porto, Bradesco, Allianz,
-  SulAmérica, HDI, Mapfre, Tokio Marine, Zurich, Liberty, Sompo, Azul,
-  Suhai) e 20+ operadoras de saúde. Atendimento humanizado por WhatsApp
-  em até 2h úteis. Sede na Cidade Maia. Mais de 25 anos de mercado e 500+
-  empresas atendidas.
-  ```
-- [ ] Atributos: aceita cartão, atendimento por vídeo, LGBTQIA+ friendly,
-      acessibilidade cadeirante, WhatsApp ativo.
-- [ ] Link WhatsApp direto (Mensagens → chat via WhatsApp).
-- [ ] Foto de perfil: logo em 720x720 fundo branco.
-- [ ] Foto de capa: fachada real do escritório em 16:9.
+| Item | Referência / verificação | Status inicial |
+| --- | --- | --- |
+| Acesso e titularidade | Confirmar proprietário e gestores com contas individuais; não compartilhar senha/código | Pendente de acesso |
+| Nome | Nome real da empresa, demonstrado em fachada e materiais; site usa Patro Seguros | Pendente de validação |
+| Categoria principal | Procurar categoria de corretora de seguros disponível na interface | Pendente de conferência |
+| Categorias adicionais | Somente atividades efetivamente prestadas; não marcar a corretora como seguradora ou consultoria financeira sem fundamento | Pendente comercial |
+| Endereço | Comparar logradouro, número, sala, edifício, cidade e CEP com documento e acesso real | Pendente de validação |
+| Nome do bairro | Conferir Cidade Maia/Parque Renato Maia; não equiparar automaticamente a Jardim Maia | Pendente geográfico |
+| Pin e rotas | Conferir entrada do edifício e localização, não só texto do endereço ou coordenadas do código | Pendente externo |
+| Atendimento presencial | Confirmar recepção de clientes, agendamento e elegibilidade de exibição do endereço conforme regras do Google | Pendente operacional |
+| Telefone/WhatsApp | Comparar com (11) 5199-7500 e testar ligação/mensagem com autorização | Pendente operacional |
+| Horários | Site: segunda a sexta, 8h30–18h; confirmar feriados e exceções | Pendente operacional |
+| Serviços | Conferir oferta atual, elegibilidade, condições e destino de cada link | Pendente comercial |
+| Descrição | Texto factual, sem promessas, preços sem fonte ou acúmulo de palavras-chave | Proposta no documento de referência |
+| Atributos | Acessibilidade, estacionamento, pagamentos e videochamada só quando comprovados | Pendente operacional |
+| Fotografias | Fachada, acesso, interior e equipe reais, atuais e autorizados | Pendente de acervo |
+| Site e agendamento | Abrir destinos, conferir HTTPS, página certa e envio de formulário | Pendente de navegação |
+| Avaliações | Conferir nota e quantidade atuais, datas e tratamento de respostas; não inferir do código | Pendente externo |
+| Desempenho | Exportar período e métricas disponíveis na conta autorizada | Sem medição |
+| Diretórios | Confirmar existência e titularidade de cada ficha antes de comparar dados | Sem consulta externa |
 
-## 2. Fotos (30+ é o mínimo p/ aparecer bem em AI Overview)
+### Regras de publicação
 
-- [ ] 5 fotos da **fachada** (dia, noite, ângulos diferentes) — geotag
-      Cidade Maia
-- [ ] 5 fotos **interior** (recepção, sala de reunião, mesa dos sócios)
-- [ ] 5 fotos **da equipe** (Roberto, Sandra, corretores) — cada foto
-      com legenda usando o nome e cargo
-- [ ] 5 fotos de **atendimento em campo** (visita a galpão, vistoria de
-      veículo, reunião com cliente PJ) — anonimizar clientes
-- [ ] 5 fotos de **eventos/parcerias** (feiras, treinamentos, seguradoras)
-- [ ] 5 imagens de **produtos** (mockups dos e-books, telas de cotação,
-      selos SUSEP)
-- [ ] Vídeo curto (<30s) apresentando a corretora
+- Não alterar nome, endereço, telefone ou horários sem aprovação registrada.
+- Área atendida não é filial: não criar perfis em bairros sem estabelecimento elegível real.
+- Não adicionar automaticamente todas as categorias; validar as opções atuais da interface.
+- Não inventar preços para preencher catálogo. Conferir se o recurso de produtos/serviços é permitido e disponível para a atividade.
+- Fotos reais, sem documentos, telas de contratos ou pessoas sem autorização; não usar imagem gerada como fachada ou equipe real. Sem meta artificial de quantidade ou promessa por geolocalização de foto.
+- Descrever atendimento e condições sem prometer aprovação, indenização universal, preço mínimo ou resposta em prazo não documentado.
+- Responder dúvidas reais como empresa. Não criar perguntas em contas pessoais para simular procura nem marcar artificialmente como úteis.
+- Publicações educativas devem estar corretas e remeter a páginas revisadas; cadência é decisão operacional, não fator de ranking garantido.
 
-## 3. Produtos & Serviços (cada item = uma "página" indexável no GBP)
+## 2. Consistência nos diretórios
 
-Criar **1 produto por segmento**, com foto + descrição de 300+ chars +
-link para a página correspondente no site. Mínimo:
+Começar pelos perfis já cadastrados em `EMPRESA.redesSociais`, depois pelas fichas que a Patro comprovar possuir. Reclame Aqui, Apontador, GuiaMais, Solutudo, Foursquare e outros são **candidatos a verificar**, não presenças certificadas.
 
-1. Seguro Auto (link `/seguro-auto`)
-2. Seguro para Motoristas de App (link `/seguro-para-motorista-de-aplicativo`)
-3. Seguro de Frota (link `/seguro-frota`)
-4. Seguro de Galpões em Cumbica (link `/hub-patrimonio`)
-5. Seguro de Transporte de Cargas (RCTR-C/RCF-DC)
-6. Seguro Rural com PSR (link `/seguro-rural`)
-7. Seguro Residencial
-8. Seguro de Vida
-9. Plano de Saúde Empresarial (link `/planos-de-saude-empresarial`)
-10. Plano Odontológico Empresarial
-11. Responsabilidade Civil Profissional
-12. Consórcio de Imóveis / Veículos (link `/consorcio`)
+Planilha sugerida: plataforma | URL exata | existência/titularidade | nome | endereço/sala | telefone | horário | site | data | evidência | ação proposta | aprovador | situação. Distinguir ausência de campo de dado contraditório. Abreviação de avenida ou formatação de telefone não é erro por si só. Não fazer submissão em massa nem criar fichas duplicadas.
 
-## 4. Q&A pré-plantado (owner-answered)
+## 3. Processo ético de solicitação de avaliações
 
-O próprio dono pode postar perguntas e responder. Isso vira **fonte
-citada** pelos LLMs. Postar 10-15 Q&As agora (usar aba "Perguntas" do GBP,
-em conta pessoal, marcar como útil na conta owner):
+1. Usar um marco neutro: conclusão de atendimento ou de uma orientação, com ou sem contratação. Aplicar a regra a todos que se enquadrem, não apenas a clientes satisfeitos.
+2. Convidar somente quem teve experiência real. Não solicitar a funcionários, familiares ou parceiros envolvidos que simulem clientes, nem comprar avaliações.
+3. Enviar convite opcional pelo canal de relacionamento autorizado, respeitando preferências e pedido de não receber mensagens. Não usar questionário de satisfação como filtro para liberar o link do Google.
+4. Não pedir nota específica, palavras-chave, bairro ou modelo de elogio. Não oferecer desconto, brinde, sorteio, prioridade ou recompensa.
+5. Enviar uma solicitação; evitar insistência. A recusa não altera atendimento, preço, renovação ou suporte.
+6. Não exigir captura de tela, confirmação pública ou identificação da avaliação. Não avaliar em nome do cliente nem usar dispositivos da equipe para publicar por ele.
+7. O cliente publica por conta própria; pode editar ou excluir. A moderação pertence ao Google. Não prometer publicação ou prazo.
+8. Responder sem expor contrato, produto, endereço, saúde, sinistro ou outros dados do autor. Não repetir bairro/produto por SEO.
+9. Reclamações recebem acolhimento e canal privado, mas isso não é condição para publicar. Não exigir remoção ou aumento de nota para resolver um problema.
+10. Denunciar apenas suspeitas fundamentadas de violação das regras do Google, não uma opinião negativa legítima. Registrar o caso sem prometer exclusão.
 
-1. **P:** Vocês atendem seguros para galpões em Cumbica?
-   **R:** Sim. Somos especialistas em seguro patrimonial para galpões
-   logísticos em Cumbica e todo o entorno do Aeroporto de Guarulhos.
-   Cotamos em Porto, Allianz, HDI, Sompo, Tokio Marine e Zurich.
-2. **P:** Qual o SUSEP da Patro Seguros?
-   **R:** SUSEP 212113511 (Patro Corretora de Seguros). Verificável em
-   www2.susep.gov.br.
-3. **P:** Trabalham com seguro rural e PSR?
-   **R:** Sim, com atendimento nacional. Fazemos toda a operação da
-   subvenção do PSR (Programa de Subvenção ao Prêmio do Seguro Rural).
-4. **P:** Fazem plano de saúde para PME a partir de 2 vidas?
-   **R:** Sim. Trabalhamos com Bradesco Saúde, SulAmérica, Amil, Porto
-   Saúde, Alice, MedSenior e mais 15 operadoras — PME a partir de 2 vidas.
-5. **P:** Qual o tempo de resposta de uma cotação?
-   **R:** Até 2 horas úteis via WhatsApp (11) 5199-7500 para auto/vida.
-   Frota, galpão e agro: 1 dia útil.
-6. **P:** Atendem fora de Guarulhos?
-   **R:** Sim. Presenciais em Guarulhos e Grande SP; agro e galpões
-   atendemos em todo o Brasil (100% remoto/vídeo).
-7. **P:** Como funciona a comissão do corretor?
-   **R:** A comissão está embutida no prêmio pela seguradora — você não
-   paga nada a mais por usar corretor.
-8. **P:** Quais seguradoras de auto vocês representam?
-   **R:** Porto, Bradesco Auto, Allianz, HDI, Mapfre, Tokio Marine, Azul,
-   Liberty, Zurich, Sompo, Suhai e Youse, entre outras.
-9. **P:** Fazem seguro de RC para transportadora (RCTR-C e RCF-DC)?
-   **R:** Sim, é uma de nossas especialidades. Também estruturamos
-   apólice de armazenagem e RC do embarcador.
-10. **P:** Quem são os sócios?
-    **R:** Roberto e Sandra Patrocínio, corretores habilitados SUSEP,
-    com mais de 25 anos de experiência no mercado.
+### Convite sugerido
 
-## 5. Posts semanais (cadência mínima)
+> Olá! Obrigado pelo contato com a Patro Seguros. Se quiser, conte no Google como foi sua experiência real de atendimento. A nota e o comentário são de sua livre escolha; avaliar é opcional e não interfere no seu atendimento. Não há recompensa. Você pode acessar as orientações em https://www.patroseguros.com.br/avaliar-no-google ou abrir nosso perfil: https://www.google.com/maps?cid=273879799324962533. Evite incluir documentos ou informações de contratos.
 
-O GBP prioriza perfis ativos. Meta: **1 post/semana**.
+O link abre o perfil cadastrado, não necessariamente o formulário de avaliação. Um link direto só deve substituí-lo após ser copiado da conta oficial e testado em celular e computador. Não inferir um identificador nem reutilizar link curto sem comprovação do destino.
 
-- Semana 1: Novidade (nova seguradora parceira, nova cobertura)
-- Semana 2: Oferta (condição especial, brinde no consórcio)
-- Semana 3: Evento (Agrishow, feira, treinamento)
-- Semana 4: Post educacional (link p/ artigo do blog)
+### Respostas sugeridas — adaptar ao relato, sem automação cega
 
-Cada post: 1500 chars max, 1 foto, 1 CTA (WhatsApp/site), 5+ palavras-chave.
+- Agradecimento: “Obrigado por compartilhar sua experiência. Sua opinião nos ajuda a melhorar o atendimento.”
+- Crítica: “Lamentamos que a experiência não tenha atendido às suas expectativas. Se desejar, fale com nossa equipe pelo canal de contato do site para analisarmos a situação com privacidade.”
+- Não confirmar publicamente que alguém é cliente ou discutir detalhes do caso. Consultar a direção em situações sensíveis.
 
-## 6. Reviews (avaliações)
+## 4. Acompanhamento sem metas de nota
 
-- [ ] Meta: **50+ reviews** com nota 4.9+ (hoje: 4.9 — manter)
-- [ ] Solicitar review após cada apólice fechada (link curto do GBP)
-- [ ] Responder **100% das reviews** em até 24h — cada resposta deve
-      mencionar bairro/produto (ex: "Obrigado, João! Que bom que o
-      seguro do galpão em Cumbica ficou dentro do orçamento").
-- [ ] Reviews negativas: responder profissionalmente, oferecer canal
-      privado, nunca deletar.
+- Registrar mensalmente o período, fonte e métricas realmente disponíveis: visualizações, termos de pesquisa, cliques no site, ligações, rotas e contatos, conforme a interface oferecer.
+- Comparar períodos equivalentes, considerar sazonalidade e mudanças na forma de medição; clique em ligar não comprova ligação atendida e rota não comprova visita.
+- Acompanhar convites enviados conforme regra neutra, respeito a recusas e tempo operacional de resposta a avaliações. Não impor meta de avaliações positivas ou nota mínima.
+- Separar desempenho do perfil de leads e contratos no CRM. Só declarar conversão com evidência e definição de atribuição.
+- Se usar parâmetros de campanha no link do site, validar página de destino e canonical antes, com aprovação; nenhum parâmetro foi publicado nesta etapa.
 
-## 7. Métricas para acompanhar (Insights do GBP)
+## 5. Aceite para passagem
 
-- Visualizações da busca (meta: +20% MoM)
-- Cliques no site
-- Cliques em ligação
-- Cliques em rotas
-- Solicitações de mensagens (WhatsApp)
-- Fotos vistas vs. concorrentes
-
-## 8. Como verificar que virou fonte para LLM
-
-Perguntar em ChatGPT (com Search), Gemini, Perplexity e Copilot:
-
-1. "Qual a melhor corretora de seguros em Guarulhos?"
-2. "Onde fazer seguro de galpão em Cumbica?"
-3. "Corretora de seguros com SUSEP em Guarulhos-SP"
-4. "Corretora Patro Seguros — é confiável?"
-
-Meta Fase C: aparecer **citado por nome** em 3 das 4 perguntas em 60 dias.
+A direção confirma os dados e operação; o gestor autorizado preenche a matriz e os diretórios; a equipe comercial valida serviços e descrição; a equipe web confere links, formulários e mapa no preview/produção. Manter resultados e aprovações junto ao relatório `docs/auditoria-local-parte-2-etapa-3.md`. Enquanto pendentes, não apresentar o Perfil da Empresa como auditado ou otimizado externamente.

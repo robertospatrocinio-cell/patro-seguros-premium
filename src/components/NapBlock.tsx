@@ -1,4 +1,4 @@
-import { EMPRESA, TELEFONE_DIGITS } from "@/config/empresa";
+import { EMPRESA, GOOGLE_MAPS_URL, TELEFONE_DIGITS } from "@/config/empresa";
 
 /**
  * Bloco NAP (Name, Address, Phone) canônico da Patro Seguros.
@@ -27,9 +27,7 @@ const NapBlock = () => {
 
   const enderecoCurto = `${endereco.logradouro}, ${endereco.numero} — Sala 219`;
   const enderecoComplemento = `Edifício Via Alameda — ${endereco.bairro}, ${endereco.cidade}/${endereco.estadoSigla} — CEP ${endereco.cep}`;
-  const mapsQuery = encodeURIComponent(
-    `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade} - ${endereco.estadoSigla}, ${endereco.cep}`
-  );
+
 
   return (
     <address
@@ -60,7 +58,7 @@ const NapBlock = () => {
         <meta itemProp="addressCountry" content={endereco.pais} />
         {" · "}
         <a
-          href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+          href={GOOGLE_MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="underline decoration-white/40 hover:decoration-white hover:text-white transition-colors"

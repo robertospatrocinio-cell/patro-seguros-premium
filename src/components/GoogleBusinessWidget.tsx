@@ -63,15 +63,15 @@ const GoogleBusinessWidget = () => {
         </a>
       </div>
 
-      {/* Info */}
+      {/* Dados do site, não uma sincronização com o Perfil da Empresa. */}
       <div className="space-y-2 mb-6 pb-6 border-t pt-5">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <MapPin className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <span>Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda — Cidade Maia (Parque Renato Maia), Guarulhos/SP — CEP 07115-000</span>
+          <span>{EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} — {EMPRESA.endereco.complemento}, {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla} — CEP {EMPRESA.endereco.cep}</span>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="hover:text-primary transition-colors">{EMPRESA.telefone}</a>
+          <a href={`tel:${EMPRESA.telefoneE164}`} className="hover:text-primary transition-colors">{EMPRESA.telefone}</a>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Clock className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
@@ -79,7 +79,6 @@ const GoogleBusinessWidget = () => {
         </div>
       </div>
 
-      {/* Actions */}
       <div className="grid grid-cols-2 gap-2">
         <a
           href={PATRO_SOCIAL_PROOF.leaveReviewUrl}
@@ -87,12 +86,13 @@ const GoogleBusinessWidget = () => {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-xs font-semibold hover:bg-primary-hover transition-base"
         >
-          <MessageSquare className="h-3.5 w-3.5" /> Deixar Avaliação
+          <MessageSquare className="h-3.5 w-3.5" /> Abrir avaliações
         </a>
-        <ExternalLink href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" className="inline-flex items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-medium hover:bg-muted transition-base">
+        <ExternalLink href={EMPRESA.redesSociais.google} className="inline-flex items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-medium hover:bg-muted transition-base">
           <ExternalLinkIcon className="h-3.5 w-3.5" /> Ver no Maps
         </ExternalLink>
       </div>
+      <p className="mt-3 text-xs text-muted-foreground">Os botões abrem o perfil cadastrado. No Google, procure a seção de avaliações. Estes dados do site não são atualizados automaticamente pelo Google.</p>
     </div>
   );
 };

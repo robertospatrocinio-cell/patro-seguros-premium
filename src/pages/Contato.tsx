@@ -36,10 +36,10 @@ const contatoSchema = z.object({
 });
 
 const contatoFaqs = [
-  { question: "Preciso agendar para ser atendido?", answer: "Não é obrigatório, mas recomendamos agendar para garantir atendimento personalizado e sem espera. Entre em contato pelo WhatsApp para agendar." },
-  { question: "Atendem fora do horário comercial?", answer: "Para emergências e sinistros, temos plantão 24h. Para cotações e dúvidas gerais, atendemos de segunda a sexta das 8h30 às 18h." },
-  { question: "Posso ser atendido online?", answer: "Sim! Grande parte do nosso atendimento é feito por WhatsApp, e-mail e videochamada. Você não precisa vir até o escritório se não quiser." },
-  { question: "Quanto tempo demora para receber resposta?", answer: "Respondemos em até 2 horas úteis para todas as solicitações. Cotações completas são entregues no mesmo dia ou em até 24h para casos mais complexos." },
+  { question: "Preciso agendar para ser atendido?", answer: "Recomendamos confirmar a disponibilidade pelo WhatsApp antes de ir ao escritório. Assim, a equipe pode orientar sobre o atendimento presencial." },
+  { question: "Atendem fora do horário comercial?", answer: `O horário de atendimento da corretora é: ${EMPRESA.horario}. Para assistência emergencial, consulte o canal da seguradora indicado na sua apólice. A disponibilidade depende do serviço contratado; não é um plantão da Patro.` },
+  { question: "Posso ser atendido online?", answer: "Sim. Você pode falar com a equipe por WhatsApp ou e-mail e consultar a disponibilidade de videochamada, sem precisar ir ao escritório." },
+  { question: "Quanto tempo demora para receber resposta?", answer: "O retorno ocorre durante o horário de atendimento, conforme a demanda. O prazo de uma cotação depende da modalidade, dos dados necessários e da análise das seguradoras. Confirme a previsão com a equipe." },
 ];
 
 const servicoOptions = [
@@ -161,15 +161,12 @@ const Contato = () => {
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Contato", url: "/contato" }]} />
       <HowToSchema
         name="Como falar com a Patro Seguros em Guarulhos"
-        description="Passos para entrar em contato com um consultor da Patro Seguros e receber cotação em até 2 horas úteis."
-        totalTime="PT5M"
-        estimatedCost="0"
-        url="https://www.patroseguros.com.br/contato"
+        description="Canais e informações para solicitar atendimento à Patro Seguros."
+        url={`${EMPRESA.dominioCanonico}/contato`}
         steps={[
-          { name: "Escolha o canal preferido", text: "WhatsApp (11) 5199-7500 para atendimento imediato, telefone fixo (11) 5199-7500 em horário comercial ou e-mail contato@patroseguros.com.br." },
-          { name: "Informe o tipo de seguro", text: "Diga qual produto interessa (auto, vida, saúde, residencial, empresarial, agro, consórcio) ou descreva o que quer proteger." },
-          { name: "Envie seus dados básicos", text: "Nome, telefone, e-mail e cidade. Para cotações, adicione dados do bem/pessoa a ser segurado (placa, endereço, faturamento, idade)." },
-          { name: "Receba a proposta consultiva", text: "Em até 2 horas úteis um corretor da Patro retorna com propostas comparadas de 16 seguradoras parceiras e orienta a melhor escolha." },
+          { name: "Escolha o canal preferido", text: `Telefone e WhatsApp: ${EMPRESA.telefone}. E-mail: ${EMPRESA.email}. Atendimento: ${EMPRESA.horario}.` },
+          { name: "Informe sua necessidade", text: "Informe qual seguro procura ou o assunto do atendimento. A equipe orientará sobre as informações necessárias." },
+          { name: "Aguarde a orientação da equipe", text: "Confirme a previsão de retorno com a equipe. Uma proposta depende dos dados fornecidos e da análise da seguradora." },
         ]}
       />
       <Header />
@@ -180,7 +177,7 @@ const Contato = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-white mb-6">Corretora de Seguros em Guarulhos — Cidade Maia</h1>
               <p className="text-xl text-white/70">
-                Conte com uma consultoria próxima, técnica e sem pressa. Escolha o canal que preferir — respondemos em até 2 horas úteis.
+                Escolha o canal que preferir para falar com a equipe. O atendimento ocorre em horário comercial; confirme a previsão de retorno e, para visitas, a disponibilidade do escritório.
               </p>
             </div>
           </div>
@@ -194,7 +191,7 @@ const Contato = () => {
                 <CardContent className="pt-6">
                   <Phone className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Telefone</h3>
-                  <a href="tel:1151997500" className="text-primary hover:underline">(11) 5199-7500</a>
+                  <a href={`tel:${EMPRESA.telefoneE164}`} className="text-primary hover:underline">{EMPRESA.telefone}</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">
@@ -207,14 +204,14 @@ const Contato = () => {
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
                     onClick={() => trackWhatsAppClick("contato-card-info", { origin: "contato_card_info" })}
-                  >(11) 5199-7500</a>
+                  >{EMPRESA.telefone}</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
                   <Mail className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">E-mail</h3>
-                  <a href="mailto:contato@patroseguros.com.br" className="text-primary hover:underline text-sm">contato@patroseguros.com.br</a>
+                  <a href={`mailto:${EMPRESA.email}`} className="text-primary hover:underline text-sm">{EMPRESA.email}</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">

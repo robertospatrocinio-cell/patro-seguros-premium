@@ -2,7 +2,7 @@ import { MapPin, Navigation, MessageCircle, Calendar, Clock, Info } from "lucide
 import LazyMapEmbed from "@/components/LazyMapEmbed";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { EMPRESA, WHATSAPP_DIGITS } from "@/config/empresa";
+import { EMPRESA, GOOGLE_MAPS_URL, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -11,11 +11,13 @@ interface ContactMapSectionProps {
 }
 
 const ContactMapSection = ({ className }: ContactMapSectionProps) => {
-  const { endereco, telefone, horario, redesSociais } = EMPRESA;
-  const fullAddress = `${endereco.logradouro}, ${endereco.numero} – Ed. Via Alameda – Sala 219 – ${endereco.bairro}, ${endereco.cidade}/${endereco.estadoSigla}`;
-  
-  const googleMapsUrl = redesSociais.google || "https://www.google.com/maps?cid=273879799324962533";
-  const wazeUrl = "https://waze.com/ul?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos";
+  const { endereco, horario } = EMPRESA;
+  const fullAddress = `${NAP_LINHA_1} — ${NAP_LINHA_2}`;
+  const addressQuery = encodeURIComponent(fullAddress);
+  const googleMapsUrl = GOOGLE_MAPS_URL;
+  const wazeUrl = `https://waze.com/ul?q=${addressQuery}`;
+  // Busca pelo endereço cadastrado; não é uma incorporação autenticada do perfil.
+  const mapEmbedUrl = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
   
   const handleWazeClick = () => {
     window.gtag?.("event", "clique_waze", {
@@ -47,7 +49,7 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Estamos localizados no coração da <strong>Cidade Maia</strong>, em frente ao Shopping Maia, no moderno <strong>Edifício Via Alameda</strong>. Atendimento presencial com consultores especialistas em um ambiente profissional e seguro.
+                Consulte abaixo o endereço cadastrado da Patro Seguros em <strong>{endereco.cidade}</strong>. Antes de se deslocar, confirme com a equipe a disponibilidade de atendimento presencial e as orientações de acesso ao edifício.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-6 pt-2">
@@ -59,8 +61,7 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
                     <div>
                       <h3 className="font-bold text-sm uppercase tracking-wide text-primary mb-1">Endereço</h3>
                       <p className="text-sm text-muted-foreground leading-snug">
-                        {fullAddress} <br />
-                        CEP {endereco.cep}
+                        {fullAddress}
                       </p>
                     </div>
                   </div>
@@ -86,9 +87,9 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
                     <div>
                       <h3 className="font-bold text-sm uppercase tracking-wide text-primary mb-1">Informações</h3>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• Estacionamento no local</li>
-                        <li>• Atendimento presencial</li>
-                        <li>• Hora marcada recomendada</li>
+                        <li>• Confirme a disponibilidade antes da visita</li>
+                        <li>• Consulte condições de acesso e estacionamento</li>
+                        <li>• Atendimento no horário informado acima</li>
                       </ul>
                     </div>
                   </div>
@@ -147,8 +148,8 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
               <Card className="relative overflow-hidden border-none shadow-2xl rounded-2xl">
                 <CardContent className="p-0">
                   <LazyMapEmbed
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.5220!3d-23.4460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8bf9a8b8b8b8%3A0x3cd0b8b8b8b8b8b!2sPatro%20Seguros!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr"
-                    title="Mapa com a localização da Patro Seguros em Guarulhos"
+                    src={mapEmbedUrl}
+                    title="Busca no mapa pelo endereço cadastrado da Patro Seguros em Guarulhos"
                     height={480}
                     className="w-full"
                   />
