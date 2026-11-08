@@ -16,11 +16,11 @@ const SeguroVida = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Seguro de Vida em Guarulhos | Cotação em 2h | Patro Seguros"
+      title="Seguro de Vida em Guarulhos: Compare | Patro Seguros"
       headline="Seguro de vida em Guarulhos para proteger sua família"
       subtitle="Consultoria sensível e técnica para garantir estabilidade à sua família — em qualquer cenário"
       icon="❤️"
-      metaDescription="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves. Cotação em 2h com as melhores seguradoras na Patro Seguros."
+      metaDescription="Seguro de vida em Guarulhos: compare opções para morte, invalidez e doenças graves. Defina a proteção da sua família com a Patro. Solicite uma cotação."
       description="O Seguro de Vida é, antes de qualquer cobertura, um ato de planejamento. Ele garante que as pessoas que dependem de você manterão o padrão de vida — caso falte ou não consiga mais gerar renda — e dá a você o controle de definir, em vida, como esse cuidado será entregue."
       detailedDescription={`Muitos brasileiros associam o seguro de vida apenas à morte, mas as coberturas mais acionadas são as de invalidez e doenças graves — situações em que o segurado está vivo, mas impossibilitado de gerar renda. Um profissional de 40 anos que sofre um acidente grave e fica impossibilitado de trabalhar enfrenta décadas de despesas sem receita.
 

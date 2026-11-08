@@ -86,6 +86,29 @@ describe("PageMeta robots meta by hostname", () => {
     expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
   });
 
+  it.each([
+    "/seguro-auto", "/seguro-moto", "/seguro-vida",
+    "/seguro-residencial", "/seguro-empresarial", "/planos-de-saude",
+  ])("publica o snippet comercial de %s sem duplicar a marca", async (path) => {
+    const { getMetadataForRoute } = await import("@/lib/seoMetadata");
+    const metadata = getMetadataForRoute(path)!;
+    setHostname("www.patroseguros.com.br");
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <PageMeta title={metadata.title} description={metadata.description} skipBreadcrumb />
+      </MemoryRouter>,
+    );
+    expect(document.title).toBe(metadata.title);
+    expect(document.querySelector('meta[name="description"]')).toHaveAttribute("content", metadata.description);
+    expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute("content", metadata.title);
+    expect(document.querySelector('meta[property="og:description"]')).toHaveAttribute("content", metadata.description);
+    expect(document.querySelector('meta[name="twitter:title"]')).toHaveAttribute("content", metadata.title);
+    expect(document.querySelector('meta[name="twitter:description"]')).toHaveAttribute("content", metadata.description);
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute("href", metadata.canonical);
+    expect(document.querySelectorAll('meta[name="description"]')).toHaveLength(1);
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "index, follow");
+  });
+
   it("limpa a descrição social anterior e não duplica tags ao atualizar", () => {
     setHostname("www.patroseguros.com.br");
     const page = (customAlt?: string, noindex = false) => (

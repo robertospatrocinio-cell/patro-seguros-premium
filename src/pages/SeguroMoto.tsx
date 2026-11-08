@@ -13,11 +13,11 @@ const SeguroMoto = () => {
       />
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Moto em Guarulhos | Cotação em 2h | Patro Seguros"
+      title="Seguro de Moto em Guarulhos: Compare | Patro Seguros"
       headline="Seguro moto em Guarulhos com assistência 24 horas"
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
-      metaDescription="Seguro moto em Guarulhos: proteção contra roubo, furto e colisão. Assistência 24h especializada e cotação em até 2 horas na Patro Seguros."
+      metaDescription="Seguro de moto em Guarulhos: compare opções contra roubo, furto e colisão. Confira assistência e franquias antes de contratar. Peça sua cotação."
       description="Seguro Moto em Guarulhos: proteção essencial contra roubo e acidentes. Garanta assistência 24h especializada e cobertura completa para sua motocicleta."
       detailedDescription={`O seguro de moto tem particularidades importantes que o diferenciam do seguro auto. A taxa de sinistralidade (probabilidade de acionar o seguro) é significativamente maior para motos: elas são mais visadas para roubo e furto, e a exposição a acidentes é naturalmente maior.
 

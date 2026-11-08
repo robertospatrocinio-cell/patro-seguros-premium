@@ -88,8 +88,8 @@ const SeguroAuto = () => {
   return (
     <>
       <PageMeta
-        title="Seguro Auto em Guarulhos | Cotação com 16 Seguradoras | Patro"
-        description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
+        title="Seguro Auto em Guarulhos: Compare Cotações | Patro Seguros"
+        description="Compare coberturas, franquias e assistência para seu seguro auto em Guarulhos. Peça uma cotação à Patro e escolha com orientação de um corretor."
       
       skipBreadcrumb
     />

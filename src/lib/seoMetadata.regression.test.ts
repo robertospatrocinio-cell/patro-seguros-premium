@@ -83,6 +83,39 @@ describe("Landing de seguro para lojas em shopping", () => {
   });
 });
 
+describe("Snippets comerciais revisados para intenção de cotação", () => {
+  const pages = [
+    { path: "/seguro-auto", load: () => import("@/pages/SeguroAuto.tsx?raw") },
+    { path: "/seguro-moto", load: () => import("@/pages/SeguroMoto.tsx?raw") },
+    { path: "/seguro-vida", load: () => import("@/pages/SeguroVida.tsx?raw") },
+    { path: "/seguro-residencial", load: () => import("@/pages/SeguroResidencial.tsx?raw") },
+    { path: "/seguro-empresarial", load: () => import("@/pages/SeguroEmpresarial.tsx?raw") },
+    { path: "/planos-de-saude", load: () => import("@/pages/PlanosDeSaude.tsx?raw") },
+  ];
+
+  it.each(pages)("mantém texto completo e coerente em $path", async ({ path, load }) => {
+    const { default: source } = await load();
+    const metadata = getMetadataForRoute(path)!;
+    expect(source).toContain(`title="${metadata.title}"`);
+    expect(source).toContain(`="${metadata.description}"`);
+    expect(source).toContain(metadata.h1);
+    expect(metadata.title.length).toBeLessThanOrEqual(60);
+    expect(metadata.description.length).toBeLessThanOrEqual(155);
+    expect(metadata.description).toMatch(/\.$/);
+    expect(metadata.title).toContain("Guarulhos");
+    expect(metadata.title).toMatch(/\| Patro Seguros$/);
+    expect(`${metadata.title} ${metadata.description}`).not.toMatch(/\d+\s*%|\d+\s*h\b|\d+\s*horas|20\+|melhor preço/i);
+    expect(metadata.canonical).toBe(`https://www.patroseguros.com.br${path}`);
+    expect(getMetadataForRoute(`${path}/`)?.title).toBe(metadata.title);
+  });
+
+  it("diferencia os títulos e as descrições de todas as modalidades revisadas", () => {
+    const metadata = pages.map(({ path }) => getMetadataForRoute(path)!);
+    expect(new Set(metadata.map(({ title }) => title)).size).toBe(pages.length);
+    expect(new Set(metadata.map(({ description }) => description)).size).toBe(pages.length);
+  });
+});
+
 describe("Consistência entre páginas públicas e HTML estático", () => {
   it("mantém os metadados da home iguais aos do HTML inicial", async () => {
     const { default: html } = await import("../../index.html?raw");

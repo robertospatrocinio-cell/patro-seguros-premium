@@ -16,11 +16,11 @@ const SeguroEmpresarial = () => {
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       quoteUrl="https://www.patroseguros.com.br/cotacao?tipo=empresarial"
-      title="Seguro Empresarial em Guarulhos | Cotação em 2h | Patro Seguros"
+      title="Seguro Empresarial em Guarulhos: Cote | Patro Seguros"
       headline="Seguro empresarial em Guarulhos para PMEs e indústrias"
       subtitle="Consultoria empresarial dedicada a proteger patrimônio, faturamento e a continuidade do seu negócio"
       icon="🏢"
-      metaDescription="Seguro empresarial em Guarulhos: proteja seu negócio contra incêndio, roubo e lucros cessantes. Cotação em 2h com consultoria especializada na Patro Seguros."
+      metaDescription="Seguro empresarial em Guarulhos: compare opções para estoque, equipamentos e lucros cessantes. Solicite uma análise das coberturas com a Patro."
       description="O Seguro Empresarial vai muito além da apólice contra incêndio, roubo ou desastres: é a engenharia financeira que mantém a empresa de pé quando o pior acontece. Nossa consultoria em Guarulhos dimensiona cada cobertura ao perfil real do seu negócio — sem coberturas em excesso, sem brechas perigosas."
       detailedDescription={`Segundo dados da SUSEP, menos de 30% das empresas brasileiras possuem seguro adequado. Dessas que sofrem sinistros graves sem seguro, mais de 60% fecham as portas em até 2 anos. A razão é simples: além dos danos físicos (que já são enormes), a empresa perde faturamento durante a reconstrução — e os custos fixos continuam: aluguel, salários, financiamentos, impostos.
 
