@@ -16,7 +16,7 @@ const PlanoPet = () => {
       galleryContent={<PetPlanMoments />}
       semGuarulhos
       jumpLinks={[
-        { label: "Ver opções para meu pet", href: "#opcoes-plano-pet" },
+        { label: "Ver opções para meu pet", href: "#pet-opcoes-heading" },
         { label: "O que pode cobrir", href: "#coberturas-heading" },
         { label: "Quanto custa", href: "#preco-heading" },
         { label: "Tire suas dúvidas", href: "#faq-heading" },
