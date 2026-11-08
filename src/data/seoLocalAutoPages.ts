@@ -4,6 +4,7 @@ import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTempl
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 import { DEFAULT_INSURERS } from "@/data/localDefaults";
+import { buildCommercialLocalPage } from "./localCommercialContent";
 
 /**
  * Configuração de dados para uma página de SEO Local.
@@ -404,78 +405,12 @@ export const seoLocalPages: Record<string, SeoLocalPageConfig> = {
 
 /* ---------- SPRINT 1: páginas comerciais de alta intenção ---------- */
 
-const seguroEmpresarialCumbica: SeoLocalPageConfig = {
+const seguroEmpresarialCumbica: SeoLocalPageConfig = buildCommercialLocalPage("empresarial", {
   slug: "seguro-empresarial-cumbica",
-  title: "Seguro Empresarial Cumbica — Galpões e Riscos Patrimoniais",
-  subtitle: "Seguro empresarial em Cumbica, Guarulhos, para galpões logísticos, transportadoras e indústrias no entorno do GRU Airport. Cotação entre 16 seguradoras.",
-  description: `Seguro empresarial Cumbica para galpões, transportadoras e indústrias na região do Aeroporto de Guarulhos. A Patro Seguros é especialista em riscos patrimoniais em Cumbica desde 2021, com sócios com 20+ anos de experiência no segmento. ${partnersLine}`,
-  detailedDescription: `### Cumbica: O Coração Industrial de Guarulhos\n\nCumbica é o maior polo logístico e industrial de Guarulhos, no entorno do GRU Airport e da Rodovia Hélio Smidt. A região concentra centenas de galpões de e-commerce, transportadoras, terminais aeroportuários, hangares e indústrias — todos com perfil de risco patrimonial elevado por concentração de mercadoria e fluxo intenso de veículos pesados.\n\n### Coberturas Estratégicas para Galpões\n\nO seguro empresarial Cumbica precisa contemplar coberturas específicas que vão além do básico: incêndio, raio e explosão, danos elétricos, roubo e furto qualificado de mercadorias, responsabilidade civil operações, RC armazenagem, lucros cessantes durante reconstrução e cobertura para equipamentos eletrônicos. Para galpões com mercadoria de alto giro, o limite máximo de indenização (LMI) precisa ser dimensionado com cuidado.\n\n### Expertise Patro Seguros em Riscos Patrimoniais\n\nA Patro Seguros tem carteira ativa de apólices em Cumbica, atende presencialmente no Cidade Maia e cota com Porto Seguro Empresarial, Allianz Empresas, HDI Empresarial, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre e demais. Em até 4 horas úteis devolvemos o quadro comparativo com prêmio, franquia e LMI por cobertura.`,
-  metaDescription: "Seguro empresarial Cumbica para galpões, transportadoras e indústrias no entorno do GRU. Patro Seguros: 16 seguradoras, especialista em riscos patrimoniais.",
-  icon: "🏭",
-  pricingIntro: "O seguro empresarial Cumbica varia de R$ 4.800/ano para galpões de até 500m² com mercadoria leve até R$ 80.000+/ano para grandes complexos logísticos com LMI acima de R$ 10 milhões. O cálculo considera atividade, área construída, valor em risco e vizinhança imediata.",
-  pricingFactors: [
-    "Atividade declarada (logística, e-commerce, indústria, transportadora)",
-    "Área construída e tipo de construção (alvenaria, pré-moldado, metálico)",
-    "Valor em risco: imóvel + mercadoria + equipamentos + lucros cessantes",
-    "Sistema de proteção: hidrantes, sprinklers, brigada, CFTV monitorado 24h",
-    "Distância do corpo de bombeiros e do hidrante público mais próximo",
-    "Histórico de sinistros nos últimos 5 anos",
-    "Coberturas adicionais: RC operações, RC armazenagem, equipamentos móveis",
-  ],
-  pricingNote: "Dica Patro: galpões com sprinklers FM-Global e CFTV monitorado 24h conseguem desconto de 18% a 30% no prêmio em Cumbica.",
-  faqs: [
-    { question: "Quanto custa seguro empresarial em Cumbica para galpão de 1.000m²?", answer: "Para um galpão padrão de 1.000m² em Cumbica com mercadoria de e-commerce até R$ 2 milhões, o seguro empresarial fica entre R$ 9.800 e R$ 18.000/ano dependendo de proteção contra incêndio, CFTV e franquia. Cotamos com 16 seguradoras para encontrar o melhor preço." },
-    { question: "Por que Cumbica tem prêmio de seguro empresarial mais alto?", answer: "Porque Cumbica concentra o maior fluxo de carga de Guarulhos (entorno do GRU Airport), tem alta densidade de galpões e histórico de sinistros de roubo e incêndio acima da média. Seguradoras precificam o CEP de risco operacional além do imóvel em si." },
-    { question: "Quais coberturas são essenciais para galpão em Cumbica?", answer: "Incêndio, raio e explosão (cobertura básica), danos elétricos, roubo e furto qualificado de mercadorias, RC operações, RC armazenagem (se guarda mercadoria de terceiros), equipamentos eletrônicos e lucros cessantes. Para grandes operações, vale incluir transporte e responsabilidade civil empregador." },
-    { question: "Posso parcelar o seguro empresarial em Cumbica?", answer: "Sim. As condições de pagamento e parcelamento variam conforme seguradora, produto e perfil do risco. Para empresas com fluxo de caixa apertado, também é possível negociar pagamento mensal proporcional sem entrada inicial." },
-    { question: "Vale a pena ter rateio de cobertura no seguro de galpão?", answer: "Não. A cláusula de rateio reduz o prêmio em troca de aplicar percentual de subseguro proporcional na indenização — pode reduzir o pagamento em 30% ou mais. Para galpões com mercadoria, sempre contratar com cláusula de exoneração de rateio." },
-    { question: "A Patro atende sinistro de galpão em Cumbica no fim de semana?", answer: "Sim. Oferecemos plantão 24/7 em sinistros graves (incêndio, alagamento, roubo). Em sinistros operacionais menores, o atendimento é em até 4h úteis no primeiro dia útil. Acompanhamos vistoria, regulação e indenização integral." },
-  ],
-  whoNeeds: [
-    "Galpões logísticos e centros de distribuição em Cumbica e entorno do GRU Airport",
-    "Transportadoras e operadores logísticos com armazém em Guarulhos",
-    "E-commerces com fulfillment próprio ou terceirizado em Cumbica",
-    "Indústrias químicas, alimentícias e metalúrgicas na zona industrial",
-    "Hangares e empresas de manutenção aeronáutica próximas ao GRU",
-    "Corretores de carga e despachantes aduaneiros com escritório em Cumbica",
-  ],
-  whyPatro: [
-    "Mais de 60 apólices empresariais ativas em Cumbica e entorno do GRU",
-    "Comparativo entre 16 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
-    "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 3 mi de LMI",
-    "Atendimento presencial no Cidade Maia, a 15 minutos de Cumbica",
-    "Plantão 24/7 em sinistros graves de incêndio, alagamento e roubo",
-    "Especialistas em dimensionamento de LMI para evitar subseguro",
-  ],
-  coverages: [
-    { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória. Indenização integral do imóvel e mercadorias destruídos por fogo, raio direto, descarga elétrica e explosão." },
-    { title: "Roubo e Furto Qualificado", description: "Cobertura para mercadorias subtraídas mediante arrombamento ou ameaça. Essencial para galpões de e-commerce e logística em Cumbica." },
-    { title: "Danos Elétricos", description: "Reparo ou substituição de equipamentos danificados por curto-circuito, sobretensão ou queda de raio na rede." },
-    { title: "Lucros Cessantes", description: "Indenização do faturamento perdido durante o período de reconstrução do galpão após sinistro coberto." },
-    { title: "RC Operações e Armazenagem", description: "Responsabilidade civil por danos materiais e corporais a terceiros e mercadorias de terceiros sob custódia." },
-    { title: "Equipamentos Eletrônicos", description: "Cobertura específica para empilhadeiras elétricas, leitores de código de barras, computadores e servidores." },
-  ],
-  realScenarios: [
-    { title: "Galpão de e-commerce em Cumbica economizou R$ 28 mil/ano", description: "Operador logístico com 4.500m² em Cumbica pagava R$ 92 mil/ano em seguro empresarial pela renovação automática. Patro recotou com 16 seguradoras e fechou apólice equivalente em LMI e franquia por R$ 64 mil/ano — economia de R$ 28 mil mantendo todas as coberturas." },
-    { title: "Indenização de R$ 1,2 milhão em incêndio elétrico", description: "Indústria alimentícia em Cumbica teve incêndio causado por curto-circuito em painel elétrico. Patro acompanhou regulação e garantiu indenização integral de R$ 1,2 milhão (imóvel + mercadoria + lucros cessantes) em 47 dias — cliente retomou operação no mesmo galpão após reforma." },
-    { title: "Renegociação de subseguro evitou prejuízo", description: "Transportadora em Cumbica tinha LMI de R$ 800 mil em galpão com mercadoria média de R$ 2,5 milhões. Patro identificou subseguro grave e renegociou apólice com LMI proporcional ao risco real, evitando indenização de apenas 32% em caso de sinistro futuro." },
-  ],
-  tips: [
-    "Atualize o LMI sempre que a média de mercadoria em estoque crescer mais de 20% — subseguro é a principal causa de indenização abaixo do prejuízo.",
-    "Exija cláusula de exoneração de rateio em galpões com mercadoria — economia falsa que destrói o valor da indenização.",
-    "Instale CFTV monitorado 24h por empresa especializada — desconto de 12% a 18% no prêmio em Cumbica.",
-    "Mantenha brigada de incêndio treinada e laudo do AVCB atualizado — alguns sinistros são negados por falta de licença vigente.",
-    "Faça vistoria preventiva anual de instalação elétrica — curto-circuito é a principal causa de incêndio em galpões da região.",
-  ],
-  relatedInsurances: [
-    { title: "Seguro Galpões Industriais", link: "/seguro-galpoes-industriais" },
-    { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
-    { title: "Seguro Logística Guarulhos", link: "/seguro-logistica-guarulhos" },
-    { title: "Seguro Transportadora Guarulhos", link: "/seguro-transportadora-guarulhos" },
-    { title: "Seguro Frota Empresas Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
-    { title: "Hub de Seguros em Guarulhos", link: "/seguros-em-guarulhos" },
-  ],
-};
+  bairro: "Cumbica",
+  hubSlug: "cumbica",
+  focus: "Para galpões e armazenagem, informe a ocupação, a circulação de mercadorias e se há bens de terceiros sob sua responsabilidade.",
+});
 
 const seguroTransportadora: SeoLocalPageConfig = {
   slug: "seguro-transportadora-guarulhos",
@@ -1442,8 +1377,25 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
   ],
 };
 
+// A configuração efetivamente publicada não reutiliza preços, estatísticas,
+// descontos ou casos do texto legado sem documentação comercial.
 Object.assign(seoLocalPages, {
-  [seguroGalpaoGuarulhos.slug]: seguroGalpaoGuarulhos,
+  [seguroGalpaoGuarulhos.slug]: {
+    ...buildCommercialLocalPage("empresarial", {
+      slug: seguroGalpaoGuarulhos.slug,
+      bairro: "Guarulhos",
+      focus: "Para galpões, declare a ocupação, os bens de terceiros e os interesses do proprietário e do ocupante separadamente.",
+    }),
+    title: "Seguro de galpão em Guarulhos — Cotação",
+    metaDescription: "Seguro de galpão em Guarulhos: avalie bens, mercadorias de terceiros, limites e condições de contratação. Solicite uma proposta com a Patro.",
+    relatedInsurances: [
+      { title: "Seguro para galpões industriais", link: "/seguro-galpoes-industriais" },
+      { title: "Seguro empresarial em Cumbica", link: "/seguro-empresarial-cumbica" },
+      { title: "Seguro empresarial em Guarulhos", link: "/seguro-empresarial-guarulhos" },
+      { title: "Seguros nos bairros de Guarulhos", link: "/seguros-guarulhos" },
+      { title: "Solicitar cotação para galpão", link: "/cotacao?tipo=empresarial" },
+    ],
+  },
 });
 
 const seguroGalpaoCumbica: SeoLocalPageConfig = {
