@@ -51,7 +51,10 @@ const CookieBanner = () => {
           <div className="flex gap-2">
             <Button 
               variant="outline" 
-              onClick={() => setVisible(false)} 
+              onClick={() => {
+                localStorage.setItem(COOKIE_KEY, "false");
+                setVisible(false);
+              }} 
               size="sm" 
               className="rounded-lg text-[12px] h-8 px-4"
             >

@@ -9,6 +9,7 @@ import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { logForgottenQuote } from "@/lib/quoteHistory";
+import { trackCotacaoSubmit } from "@/lib/tracking";
 
 
 
@@ -170,6 +171,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending || sent) return;
     
     if (currentStep < totalSteps) {
       nextStep();
@@ -208,19 +210,6 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         .map(f => `${f.label}: ${form[f.id].trim()}`),
     ].filter(Boolean).join("\n");
 
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead", {
-        content_name: `formulario-${trackingLabel}`,
-        content_category: insuranceType,
-      });
-    }
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "generate_lead", {
-        event_category: "formulario",
-        event_label: trackingLabel,
-      });
-    }
-
     const subject = `Nova Cotação — ${insuranceType}`;
     const htmlBody = `
       <h2>Nova Cotação de ${escapeHtml(insuranceType)}</h2>
@@ -244,10 +233,8 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       return;
     }
 
-    const lastErrorId = (window as any).lastErrorId;
-    const finalParts = lastErrorId 
-      ? `${parts}\n\n_Ref. Erro anterior: ${lastErrorId}_`
-      : parts;
+    trackCotacaoSubmit(insuranceType, { origin: trackingLabel });
+    const finalParts = `Olá! Enviei uma solicitação de cotação de ${insuranceType} pelo site da Patro Seguros e gostaria de continuar o atendimento.`;
 
     setTimeout(() => {
       setSending(false);

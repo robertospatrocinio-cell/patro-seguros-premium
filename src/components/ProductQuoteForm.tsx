@@ -53,7 +53,9 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
   const petPlan = product === "/plano-pet";
   const detailLines = extraFields.filter(field => details[field.id]?.trim()).map(field => `${field.label}: ${details[field.id].trim()}`);
   const message = [`Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name}.`, `Nome: ${contact.name.trim()}`, `Tipo de seguro: ${name}`, `Cidade: ${details.quote_city?.trim() || "Não informada"}`, `Mensagem: ${details.quote_message?.trim() || "Não informada"}`, ...detailLines, `Produto: ${product}`].join("\n");
-  const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(message)}`;
+  // Os detalhes ficam no envio ao servidor, nunca na URL do WhatsApp.
+  const waMessage = `Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name} pela Patro Seguros.`;
+  const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(waMessage)}`;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

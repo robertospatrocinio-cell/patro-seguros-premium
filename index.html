@@ -388,8 +388,9 @@
         var INTERACTION_EVENTS = ['mousedown', 'touchstart', 'scroll', 'keydown'];
 
         function loadAnalytics(reason) {
-          if (analyticsLoaded) return;
+          if (analyticsLoaded || localStorage.getItem('patro-cookies-accepted') !== 'true') return;
           analyticsLoaded = true;
+          window.__analyticsLoaded = true;
 
           // GA4
           var g = document.createElement('script');

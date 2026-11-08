@@ -13,7 +13,13 @@ declare global {
   }
 }
 
-const ensureAnalytics = () => window.__loadAnalytics?.();
+const ensureAnalytics = () => {
+  // Carrega somente com a escolha explícita já usada pelo banner.
+  try {
+    if (localStorage.getItem("patro-cookies-accepted") !== "true") return;
+    window.activateAnalytics?.("consent_given");
+  } catch { /* armazenamento indisponível: não carregar terceiros */ }
+};
 
 // Unified with the Web Vitals collector so LCP/TBT samples and CTA clicks
 // share the same session_id and can be joined for correlation queries.
@@ -220,7 +226,8 @@ export const trackWhatsAppClick = (source?: string, meta?: ConversionMeta) => {
     insurance_type: meta?.insuranceType,
     origin: meta?.origin,
   });
-  window.gtag?.("event", "whatsapp_click", {
+  // Nome GA4 canônico; o banco mantém whatsapp_click por compatibilidade.
+  window.gtag?.("event", "click_whatsapp", {
     event_category: "lead",
     event_label: source,
     insurance_type: meta?.insuranceType,
@@ -231,6 +238,42 @@ export const trackWhatsAppClick = (source?: string, meta?: ConversionMeta) => {
   });
 };
 
+/** Public forms only. Never reads field values, phone numbers or URL queries. */
+export const initCommercialInteractions = (root: Document = document) => {
+  const started = new WeakSet<HTMLFormElement>();
+  const isPublicPage = () => !/^\/(admin|crm|login)(\/|$)/i.test(window.location.pathname);
+  const onInput = (event: Event) => {
+    if (!isPublicPage() || !(event.target instanceof HTMLElement)) return;
+    const form = event.target.closest("form");
+    if (!form || started.has(form)) return;
+    started.add(form);
+    ensureAnalytics();
+    window.gtag?.("event", "form_start", {
+      form_id: form.getAttribute("data-analytics-form") || form.getAttribute("aria-label") || "formulario-publico",
+      page_path: window.location.pathname,
+    });
+  };
+  const onClick = (event: MouseEvent) => {
+    if (!isPublicPage() || !(event.target instanceof Element)) return;
+    const link = event.target.closest<HTMLAnchorElement>('a[href^="tel:"]');
+    if (!link || event.defaultPrevented) return;
+    ensureAnalytics();
+    window.gtag?.("event", "click_phone", {
+      source: "telefone-site",
+      page_path: window.location.pathname,
+    });
+  };
+  root.addEventListener("input", onInput);
+  root.addEventListener("change", onInput);
+  root.addEventListener("click", onClick);
+  return () => {
+    root.removeEventListener("input", onInput);
+    root.removeEventListener("change", onInput);
+    root.removeEventListener("click", onClick);
+  };
+};
+
+// Chamar somente após a confirmação do destino; nunca no clique de envio.
 export const trackCotacaoSubmit = (tipoSeguro?: string, meta?: ConversionMeta) => {
   ensureAnalytics();
   const attr = captureAttribution();
@@ -238,6 +281,11 @@ export const trackCotacaoSubmit = (tipoSeguro?: string, meta?: ConversionMeta) =
     content_name: "Cotação",
     content_category: tipoSeguro || "geral",
     origin: meta?.origin,
+  });
+  window.gtag?.("event", "form_submit_success", {
+    form_id: meta?.origin || "cotacao",
+    insurance_type: tipoSeguro,
+    page_path: window.location.pathname,
   });
   window.gtag?.("event", "generate_lead", {
     event_category: "cotacao",
@@ -288,7 +336,8 @@ export const trackCotacaoClick = (source?: string, meta?: ConversionMeta) => {
     insurance_type: meta?.insuranceType,
     origin: meta?.origin,
   });
-  window.gtag?.("event", "cotacao_click", {
+  // Preserva cotacao_click no banco; no GA4 usa apenas o nome canônico.
+  window.gtag?.("event", "click_quote", {
     event_category: "lead",
     event_label: source,
     insurance_type: meta?.insuranceType,

@@ -115,6 +115,10 @@ const preservePrerenderedContent = (root: HTMLElement) => {
 };
 
 if (rootElement) {
+  // Um único observador delegado para formulários públicos e links de telefone.
+  import("./lib/tracking")
+    .then(({ initCommercialInteractions }) => initCommercialInteractions())
+    .catch(console.error);
   preservePrerenderedContent(rootElement);
   const root = createRoot(rootElement);
   root.render(<Main />);

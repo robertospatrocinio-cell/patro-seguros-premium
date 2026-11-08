@@ -316,6 +316,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending || sent) return;
     
     if (currentStep < totalSteps) {
       nextStep();
@@ -360,21 +361,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       `Olá! Acabei de enviar minha cotação pelo site e gostaria de agilizar o atendimento.`
     ].join("\n");
 
-    trackCotacaoSubmit(config.type);
-
-    const lastErrorId = (window as any).lastErrorId;
-    const finalParts = lastErrorId 
-      ? `${parts}\n\n_Ref. Erro anterior: ${lastErrorId}_`
-      : parts;
-
-    window.fbq?.("track", "Lead", {
-      content_name: `formulario-${config.type}`,
-      content_category: config.type,
-    });
-    window.gtag?.("event", "generate_lead", {
-      event_category: "formulario-especifico",
-      event_label: config.type,
-    });
+    // A URL de WhatsApp não deve transportar as respostas pessoais da cotação.
+    const finalParts = `Olá! Enviei uma solicitação de cotação de ${config.type} pelo site da Patro Seguros e gostaria de continuar o atendimento.`;
 
     const subject = `Nova Cotação — ${config.type}`;
     const htmlBody = `
@@ -425,6 +413,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
         return;
       }
 
+    // O destino de e-mail confirmou o recebimento; não contar tentativas como leads.
+    trackCotacaoSubmit(config.type, { origin: "insurance-quote-form" });
     setTimeout(() => {
       setSending(false);
       setSent(true);
