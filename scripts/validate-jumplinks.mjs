@@ -199,7 +199,16 @@ function validate() {
       if (fs.existsSync(p)) {
         const s = readFile(p);
         const labelled = collectAriaLabelledBy(s);
-        for (const id of collectTemplateIds(s)) if (labelled.has(id)) extraIds.add(id);
+        const headingIds = collectTemplateIds(s);
+        for (const id of headingIds) if (labelled.has(id)) extraIds.add(id);
+        // Também aceita o id de uma <section> nomeada por um heading do mesmo
+        // componente (aria-labelledby → h2 com id "-heading"): o link cai
+        // no início da seção, logo acima do título.
+        for (const tag of s.matchAll(/<section\b[^>]*>/g)) {
+          const sid = tag[0].match(/\bid="([a-z0-9-]+)"/);
+          const lby = tag[0].match(/aria-labelledby="([a-z0-9-]+-heading)"/);
+          if (sid && lby && headingIds.has(lby[1])) extraIds.add(sid[1]);
+        }
       }
     }
 
