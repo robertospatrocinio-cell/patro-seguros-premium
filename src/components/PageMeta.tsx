@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
+import { CANONICAL_BASE_URL, getCanonicalPathUrl, getCanonicalUrl } from "@/lib/canonical";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { getGeneratedOgImage } from "@/data/generatedOgImages";
 
@@ -37,6 +37,9 @@ const MAX_DESC_LENGTH = 165;
 
 const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
   const location = useLocation();
+  const canonicalUrl = canonicalPath !== undefined
+    ? getCanonicalPathUrl(canonicalPath)
+    : getCanonicalUrl(location.pathname);
 
   useEffect(() => {
     // Acrescenta contexto local somente quando ele ainda não está no título.
@@ -83,9 +86,6 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
 
     // Canonical URL — single source of truth. Paginated collections pass canonicalPath
     // (e.g. "/blog?page=2") so each page self-references and avoids duplicate content.
-    const canonicalUrl = canonicalPath
-      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath.toLowerCase().replace(/\/+$/, "") : `/${canonicalPath.toLowerCase().replace(/\/+$/, "")}`}`
-      : getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
       canonical = document.createElement('link');
@@ -169,13 +169,11 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
-  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath]);
+  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalUrl]);
 
-  // Debug point for validation tools
+  // Debug point for validation tools — same URL as canonical and social tags.
   if (typeof window !== "undefined") {
-    (window as any).__last_canonical = canonicalPath 
-      ? `${CANONICAL_BASE_URL}${canonicalPath.toLowerCase().replace(/\/+$/, "")}`
-      : getCanonicalUrl(location.pathname);
+    (window as any).__last_canonical = canonicalUrl;
   }
 
 

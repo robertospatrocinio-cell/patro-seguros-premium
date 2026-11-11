@@ -109,6 +109,23 @@ describe("PageMeta robots meta by hostname", () => {
     expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "index, follow");
   });
 
+  it.each([
+    ["/", "https://www.patroseguros.com.br"],
+    ["blog/?page=2#artigos", "https://www.patroseguros.com.br/blog?page=2"],
+    ["/BLOG/?tema=RCProfissional", "https://www.patroseguros.com.br/blog?tema=RCProfissional"],
+  ])("mantém canonical e URL social consistentes para %s", (canonicalPath, expected) => {
+    setHostname("www.patroseguros.com.br");
+    render(
+      <MemoryRouter initialEntries={["/blog"]}>
+        <PageMeta title="Blog Patro Seguros" description="Guias sobre seguros para famílias e empresas em Guarulhos." canonicalPath={canonicalPath} skipBreadcrumb />
+      </MemoryRouter>,
+    );
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute("href", expected);
+    expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute("content", expected);
+    expect((window as Window & { __last_canonical?: string }).__last_canonical).toBe(expected);
+    expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
+  });
+
   it("limpa a descrição social anterior e não duplica tags ao atualizar", () => {
     setHostname("www.patroseguros.com.br");
     const page = (customAlt?: string, noindex = false) => (

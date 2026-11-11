@@ -35,3 +35,14 @@ export const getCanonicalUrl = (pathname: string): string => {
 
   return `${CANONICAL_BASE_URL}${path}`;
 };
+
+/** Canonical explícito de coleção: preserva a consulta, nunca o fragmento. */
+export const getCanonicalPathUrl = (pathname: string): string => {
+  const pathWithoutHash = pathname.split("#")[0];
+  const queryIndex = pathWithoutHash.indexOf("?");
+  const path = queryIndex === -1 ? pathWithoutHash : pathWithoutHash.slice(0, queryIndex);
+  const search = queryIndex === -1 ? "" : pathWithoutHash.slice(queryIndex + 1);
+  const canonical = getCanonicalUrl(path);
+
+  return search ? `${canonical}?${search}` : canonical;
+};

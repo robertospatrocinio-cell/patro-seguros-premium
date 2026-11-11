@@ -7,7 +7,7 @@
  * object shape. Any regression that would break Google's `CollectionPage`
  * rich result is caught by the unit tests below.
  */
-import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { CANONICAL_BASE_URL, getCanonicalPathUrl } from "@/lib/canonical";
 import { PARTNER_INSURERS } from "@/data/partnerInsurers";
 import { SEGURADORAS_PARCEIRAS } from "@/data/seguradorasParceirasSeo";
 
@@ -126,6 +126,7 @@ export function buildSolucoesEmpresariaisCollectionSchema(
 export function buildBlogCollectionSchema(
   articlesSorted: CollectionPageArticleLike[],
   description: string,
+  canonicalPath = "/blog",
 ) {
   const items = articlesSorted.slice(0, 20).map((a, i) => ({
     "@type": "ListItem",
@@ -133,7 +134,7 @@ export function buildBlogCollectionSchema(
     url: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
     name: a.title,
   }));
-  const canonical = `${CANONICAL_BASE_URL}/blog`;
+  const canonical = getCanonicalPathUrl(canonicalPath);
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",

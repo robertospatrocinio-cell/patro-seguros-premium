@@ -195,13 +195,13 @@ const Blog = () => {
     }
   }, [filterKey]);
 
-  const isSearching = query.trim().length > 0 || !!selectedCategory;
+  const isSearching = query.trim().length > 0 || !!selectedCategory || !!selectedTag;
   const pageSuffix = currentPage > 1 ? ` — Página ${currentPage}` : "";
   const pageTitle = isSearching
-    ? `Busca${query.trim() ? `: "${query.trim()}"` : ""}${selectedCategory ? ` em ${selectedCategory}` : ""} | Blog Patro Seguros`
+    ? `Busca${query.trim() ? `: "${query.trim()}"` : ""}${selectedCategory ? ` em ${selectedCategory}` : ""}${selectedTag ? `: ${selectedTag}` : ""} | Blog Patro Seguros`
     : `Blog de Seguros em Guarulhos${pageSuffix} | Patro Seguros`;
   const pageDescription = isSearching
-    ? `${filtered.length} ${filtered.length === 1 ? "artigo encontrado" : "artigos encontrados"}${query.trim() ? ` para "${query.trim()}"` : ""}${selectedCategory ? ` na categoria ${selectedCategory}` : ""} no blog da Patro Seguros.`
+    ? `${filtered.length} ${filtered.length === 1 ? "artigo encontrado" : "artigos encontrados"}${query.trim() ? ` para "${query.trim()}"` : ""}${selectedCategory ? ` na categoria ${selectedCategory}` : ""}${selectedTag ? ` sobre ${selectedTag}` : ""} no blog da Patro Seguros.`
     : currentPage > 1
       ? `Página ${currentPage} do blog da Patro Seguros — mais guias sobre seguro auto, empresarial, saúde, vida, residência e consórcio em Guarulhos.`
       : "Guias da Patro sobre seguro auto, empresarial, saúde, vida, residência e consórcio em Guarulhos. Conteúdo local para escolher melhor.";
@@ -237,15 +237,19 @@ const Blog = () => {
   const featuredImg = getArticleImage(featured.slug);
   const featuredAlt = getArticleImageAlt(featured.slug, featured.title);
 
-  // ItemList JSON-LD com os 20 artigos mais recentes (evita payload gigante).
+  // Descreve somente os artigos visíveis: destaque e página atual, sem duplicatas.
+  const visibleArticles = useMemo(
+    () => [featured, ...currentArticles.filter((article) => article.slug !== featured.slug)],
+    [featured, currentArticles],
+  );
   const itemListSchema = useMemo(
-    () => buildBlogCollectionSchema(sortedAll, pageDescription),
-    [sortedAll, pageDescription],
+    () => buildBlogCollectionSchema(visibleArticles, pageDescription, canonicalPath),
+    [visibleArticles, pageDescription, canonicalPath],
   );
 
-  // Blog schema (com posts recentes como blogPost).
+  // A entidade Blog permanece estável; os posts refletem o conteúdo desta página.
   const blogSchema = useMemo(() => {
-    const posts = sortedAll.slice(0, 20).map((a) => ({
+    const posts = visibleArticles.map((a) => ({
       "@type": "BlogPosting",
       "@id": `${CANONICAL_BASE_URL}/blog/${a.slug}#article`,
       headline: a.title,
@@ -272,7 +276,7 @@ const Blog = () => {
       publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
       blogPost: posts,
     };
-  }, [sortedAll, pageDescription]);
+  }, [visibleArticles, pageDescription]);
 
   return (
     <Fragment>
