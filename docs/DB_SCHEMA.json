@@ -5161,14 +5161,14 @@
     },
     {
       "acao": "EXECUTE FUNCTION update_lead_status_from_kanban()",
-      "evento": "UPDATE",
+      "evento": "INSERT",
       "quando": "BEFORE",
       "tabela": "leads",
       "trigger": "tr_update_lead_status_kanban"
     },
     {
       "acao": "EXECUTE FUNCTION update_lead_status_from_kanban()",
-      "evento": "INSERT",
+      "evento": "UPDATE",
       "quando": "BEFORE",
       "tabela": "leads",
       "trigger": "tr_update_lead_status_kanban"
@@ -5230,7 +5230,7 @@
       "trigger": "set_tasks_updated_at"
     }
   ],
-  "gerado_em": "2026-11-08T11:04:42.297285+00:00",
+  "gerado_em": "2026-11-11T11:14:18.480808+00:00",
   "rls_ativo": {
     "leads": true,
     "tasks": true,
@@ -5296,7 +5296,7 @@
     "email_send_log": 0,
     "monitored_urls": 0,
     "partial_quotes": 0,
-    "seo_audit_runs": 4,
+    "seo_audit_runs": 7,
     "insurance_sales": 0,
     "sitemap_history": 0,
     "email_send_state": 0,
@@ -5309,8 +5309,8 @@
     "contact_insurances": 0,
     "lead_quote_history": 0,
     "relationship_rules": 0,
-    "seo_audit_findings": 6168,
-    "web_vitals_metrics": 99,
+    "seo_audit_findings": 118668,
+    "web_vitals_metrics": 2691,
     "breadcrumb_overrides": 0,
     "domain_health_checks": 0,
     "gsc_indexation_alerts": 0,
@@ -5604,5 +5604,5 @@
     }
   ],
   "triggers_auth_users": [],
-  "geckoai_sincronizado_em": "2026-11-08T11:04:48.597Z"
+  "geckoai_sincronizado_em": "2026-11-11T11:14:22.213Z"
 }
