@@ -90,105 +90,81 @@ export const FULL_SEO_CONTENT = {
   "/seguro-auto-guarulhos": {
     h1: "Seguro Auto em Guarulhos",
     body: `
-      <p><strong>Seguro auto em Guarulhos</strong> com a Patro Seguros: cotação online em 1 minuto com 12+ seguradoras (Porto, Bradesco, Allianz, HDI, Liberty/Yelum, Mapfre, Tokio Marine, Azul, Mitsui, Itaú, Sompo e Suhai). Comparamos preço, franquia, cobertura e assistência antes da contratação — sem pressão de venda.</p>
-      <p>Guarulhos é o segundo município mais populoso de São Paulo e concentra alto tráfego, o que impacta diretamente o preço do seguro auto. Bairros como Cidade Maia, Vila Galvão, Vila Augusta, Bonsucesso, Cumbica, Pimentas, Centro, Taboão, Jardim São João e Gopouva têm perfis de risco distintos. Trabalhar com uma corretora local significa perfil tarifado corretamente e economia de 15% a 30% sobre a renovação direta.</p>
+      <p><strong>Seguro auto em Guarulhos</strong> deve ser cotado conforme o veículo, os condutores, o endereço de pernoite e a utilização. A Patro Seguros orienta a comparação das propostas disponíveis para seu perfil. Solicite uma cotação personalizada pelos contatos oficiais ou pelo formulário, sem presumir um preço, um desconto ou a aceitação do risco antes da análise.</p>
+      <p>Quem circula pela Dutra, Fernão Dias e outros trajetos da região deve informar o uso real do carro. O endereço onde ele passa a noite pode ser diferente do local de trabalho ou da área de circulação. O nome do bairro não determina sozinho o preço, uma classificação de risco ou a necessidade de rastreador. As páginas de bairros indicam áreas atendidas, não filiais da Patro.</p>
 
-      <h2>Coberturas do seguro auto</h2>
-      <p>Estruturamos apólices com todas as coberturas essenciais e opcionais do mercado:</p>
-      <ul>
-        <li><strong>Colisão, incêndio, roubo e furto</strong> (cobertura compreensiva);</li>
-        <li><strong>RCF-V</strong> — Responsabilidade Civil Facultativa Veicular por danos materiais e corporais a terceiros;</li>
-        <li><strong>APP</strong> — Acidentes Pessoais por Passageiro (morte e invalidez);</li>
-        <li><strong>Vidros, faróis, retrovisores e lanternas</strong>;</li>
-        <li><strong>Carro reserva</strong> em caso de sinistro (7, 15 ou 30 dias);</li>
-        <li><strong>Assistência 24h</strong> em todo o Brasil (guincho, chaveiro, socorro mecânico, pane seca);</li>
-        <li><strong>Blindagem e kit gás</strong> mediante inclusão na apólice.</li>
-      </ul>
+      <h2>O que informar na cotação</h2>
+      <p>Tenha disponíveis o modelo, o ano, a versão e as características do veículo, além dos dados dos condutores solicitados pela seguradora. Informe utilização particular, profissional, por aplicativo ou para entregas, conforme o caso. Declare também blindagem, kit gás, acessórios e outras modificações. Esses dados ajudam a avaliar o produto adequado, mas não garantem aceitação.</p>
+      <p>Se houver seguro vigente, apresente a apólice para verificar coberturas, vigência e regras de aproveitamento do bônus. Garagem e dispositivos de segurança podem ser considerados pela seguradora, sem assegurar redução de preço. Não cancele a proteção atual antes de confirmar a continuidade e as condições da nova contratação.</p>
 
-      ${TABELA_COBERTURAS([
-        { cob: "Compreensiva", desc: "Cobre colisão, roubo, furto, incêndio e alagamento" },
-        { cob: "RCF-V", desc: "Indeniza danos materiais e corporais a terceiros" },
-        { cob: "APP", desc: "Morte e invalidez de motorista e passageiros" },
-        { cob: "Vidros", desc: "Reparo/troca de para-brisa, vidros laterais, faróis" },
-        { cob: "Carro reserva", desc: "Veículo substituto durante o reparo" },
-        { cob: "Assistência 24h", desc: "Guincho, chaveiro, socorro mecânico, pane seca" },
-      ])}
+      <h2>Compare eventos cobertos e franquias</h2>
+      <p>Colisão, roubo, furto e incêndio dependem dos eventos previstos no produto. Confira as definições e exclusões da apólice, sem concluir a abrangência apenas pelo nome comercial do pacote. Para reparos parciais, observe a franquia de casco. Vidros e outros serviços podem ter participações próprias. O valor pago em um sinistro depende dos danos e dos critérios contratados.</p>
+      <p>O critério de indenização pode utilizar uma tabela de referência e um percentual contratado ou um valor determinado, conforme o produto. O uso da tabela FIPE não é universal nem significa pagamento automático. Confira a tabela, a data de referência, os limites e as regras para indenização integral na proposta que você recebeu.</p>
 
-      <h2>Como cotamos seu seguro auto</h2>
-      <ol>
-        <li>Você envia dados básicos (CEP, modelo/ano do veículo, perfil do condutor principal, uso, garagem);</li>
-        <li>Rodamos a cotação nas 12+ seguradoras parceiras;</li>
-        <li>Enviamos comparativo em até 2 horas com preço, franquia e cobertura lado a lado;</li>
-        <li>Você escolhe a apólice — pagamento conforme condições da seguradora no cartão ou boleto mensal.</li>
-      </ol>
+      <h2>Terceiros, passageiros e adicionais</h2>
+      <p>A responsabilidade civil facultativa para danos a terceiros exige contratação e limites adequados. Danos materiais e corporais podem ter valores próprios, e danos morais podem depender de cobertura adicional. A cobertura do veículo não deve ser confundida com a proteção a terceiros ou com Acidentes Pessoais de Passageiros. Verifique quem está abrangido e quais eventos foram contratados.</p>
+      <p>Motoristas de aplicativo precisam confirmar expressamente a aceitação dessa utilização. Além das condições do seguro, confira as exigências legais aplicáveis à atividade. Uma apólice destinada ao uso particular não deve ser presumida suficiente para transporte remunerado. O mesmo cuidado vale para entregas e outras atividades profissionais.</p>
 
-      <h2>Por que cotar com corretora em Guarulhos</h2>
-      <p>Uma corretora local conhece as particularidades tarifárias de cada CEP de Guarulhos e o apetite técnico de cada seguradora para cada perfil. Direcionamos sua cotação para quem realmente aceita bem o risco, evitando recusas e sub-cotações. Também representamos você em caso de sinistro — desde o aviso até a liberação da indenização — sem que você precise brigar com call center.</p>
+      <h2>Assistência e carro reserva</h2>
+      <p>Quando contratada, a assistência pode oferecer serviços emergenciais, conforme regras próprias. Antes de escolher, confira quilometragem de guincho, área de atendimento, horários, quantidade de utilizações e despesas não incluídas. Não presuma guincho ilimitado nem os mesmos serviços em todos os planos. Os canais indicados na apólice orientam o acionamento.</p>
+      <p>Carro reserva depende da contratação, do evento coberto e do número de diárias previsto. Também podem existir exigências da locadora e restrições para determinadas utilizações. Um reparo na oficina não libera automaticamente um veículo substituto. Vidros, faróis e acessórios precisam ser avaliados quanto aos itens aceitos, franquias e prestadores disponíveis.</p>
 
-      ${DEPOIMENTOS([
-        { texto: "Renovei com a Patro e economizei R$ 1.100 no prêmio do meu Corolla.", autor: "Bruno L.", perfil: "auto, Bonsucesso" },
-        { texto: "Atendimento excelente no sinistro. Meu carro foi liberado em 15 dias.", autor: "Fernanda P.", perfil: "auto, Cumbica" },
-      ])}
+      <h2>Da proposta ao início da vigência</h2>
+      <p>A quantidade de propostas e o prazo de retorno dependem das informações enviadas, dos sistemas e da análise de cada seguradora. Consulte a previsão no atendimento. Compare preço total, parcelamento, franquias, limites e exclusões em condições equivalentes; a parcela mais baixa não demonstra, sozinha, que uma opção atende melhor às suas necessidades.</p>
+      <p>A seguradora pode solicitar documentos, vistoria ou dispositivo de segurança. Confira a aceitação e as exigências pendentes, além da data de início da vigência. Enviar um formulário, receber uma simulação ou assinar uma solicitação não deve ser tratado como confirmação automática de cobertura. Guarde os documentos da contratação e leia a apólice.</p>
 
+      <h2>Orientação em caso de sinistro</h2>
+      <p>A Patro orienta a comunicação e a documentação do evento pelos canais apropriados. A seguradora avalia a cobertura, os danos e eventual indenização segundo o contrato. Não há promessa da corretora de aprovação, pagamento ou resolução em prazo fixo. Antes de autorizar reparos ou assumir despesas, consulte as orientações aplicáveis à sua apólice.</p>
       ${FAQ([
-        { q: "Preciso de vistoria prévia?", a: "Sim, na maioria das seguradoras. A vistoria pode ser presencial ou digital (por app) e é feita em até 48h após a contratação. A Patro agenda para você." },
-        { q: "Posso incluir mais de um condutor?", a: "Sim. Todo motorista frequente do veículo (inclusive filhos jovens) deve ser declarado — isso protege sua indenização em caso de sinistro." },
-        { q: "O seguro cobre roubo em Guarulhos?", a: "Sim, todas as coberturas compreensivas incluem roubo e furto. O prêmio varia conforme o CEP: bairros com maior incidência (Pimentas, partes de Cumbica) pagam mais que bairros de baixo índice." },
-        { q: "Vocês trabalham com seguro popular?", a: "Sim. Suhai, Azul Seguros, HDI Bem-Te-Vi e Mitsui Auto Rota atendem perfis de preço mais acessível, geralmente para veículos populares com mais de 5 anos." },
-        { q: "Vale a pena contratar carro reserva?", a: "Depende do uso. Quem depende do carro para trabalhar (Uber, motorista de aplicativo, representante comercial) deve contratar. Uso familiar com segundo carro em casa pode dispensar." },
+        { q: "Quanto custa seguro auto em Guarulhos?", a: "O preço depende do veículo, dos condutores, do CEP de pernoite, do uso e das coberturas. Solicite uma proposta atualizada; não há economia garantida." },
+        { q: "Qual seguradora devo escolher?", a: "Compare preço total, franquias, limites e assistências das propostas disponíveis. Não existe uma opção ideal para todos os perfis." },
+        { q: "Como solicitar cotação?", a: "Utilize o formulário ou os contatos oficiais. O prazo e a quantidade de propostas dependem dos dados e da análise das seguradoras." },
+        { q: "O seguro atende motorista de aplicativo?", a: "Declare a utilização e confirme sua aceitação expressa. Confira coberturas para veículo, terceiros e passageiros e exigências legais da atividade." },
+        { q: "Como funciona o sinistro?", a: "A Patro orienta a comunicação e a documentação. A seguradora analisa cobertura e eventual indenização conforme o contrato, sem promessa de resolução em prazo fixo pela corretora." },
+        { q: "O seguro cobre enchente?", a: "Confira se alagamento ou inundação estão expressamente previstos no produto, além de limites e exclusões. O nome comercial do pacote não substitui a apólice." },
       ])}
-
-      <p>Veja também <a href="/seguro-moto-guarulhos">seguro moto</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-residencial-guarulhos">seguro residencial</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
+      <p>Veja também <a href="/seguro-moto-guarulhos">seguro moto</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-residencial-guarulhos">seguro residencial</a>. Para avaliar seu veículo com os dados atuais, <a href="/cotacao">solicite uma cotação personalizada</a>.</p>
     `,
   },
 
   "/seguro-residencial-guarulhos": {
     h1: "Seguro Residencial em Guarulhos",
     body: `
-      <p><strong>Seguro residencial em Guarulhos</strong> a partir de R$ 25/mês com cobertura completa para casas, apartamentos e imóveis em condomínio fechado. A Patro Seguros cota com Porto, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty/Yelum, Mapfre e Itaú, entregando a melhor relação custo-benefício em até 2 horas.</p>
-      <p>O seguro residencial é o produto com melhor custo-benefício do mercado segurador brasileiro: cobertura ampla, prêmios acessíveis e serviços de assistência 24h inclusos. Em Guarulhos, atendemos bairros como Cidade Maia, Vila Galvão, Vila Augusta, Bonsucesso, Macedo, Jardim Maia, Gopouva, Taboão e Centro — cada CEP tem tarifação distinta.</p>
+      <p><strong>Seguro residencial em Guarulhos</strong> precisa considerar as características da casa ou do apartamento e os bens que você deseja proteger. A Patro Seguros orienta a comparação das propostas disponíveis. O preço depende da construção, ocupação, localização, valores declarados e condições escolhidas. Solicite uma cotação personalizada; não há valor mínimo ou desconto aplicável a todos os imóveis.</p>
+      <p>Informe o endereço completo e a utilização real do local. Imóveis próprios, alugados, de temporada ou com atividade profissional podem ter critérios diferentes. O nome do bairro, sozinho, não permite determinar o preço nem os riscos de uma residência. As páginas locais representam áreas atendidas pela Patro, e não unidades físicas em cada bairro. Combine o atendimento pelos contatos oficiais.</p>
 
-      <h2>Coberturas do seguro residencial</h2>
-      <ul>
-        <li><strong>Incêndio, raio e explosão</strong> — cobertura básica obrigatória;</li>
-        <li><strong>Roubo e furto qualificado</strong> de bens (móveis, eletrodomésticos, eletrônicos);</li>
-        <li><strong>Danos elétricos</strong> a equipamentos por raio ou variação de tensão;</li>
-        <li><strong>Vendaval, granizo, alagamento e desmoronamento</strong>;</li>
-        <li><strong>RC familiar</strong> (Responsabilidade Civil) por danos a vizinhos;</li>
-        <li><strong>Despesas extras</strong> (aluguel temporário) em caso de sinistro grave;</li>
-        <li><strong>Vazamento de tubulação</strong> e quebra de vidros;</li>
-        <li><strong>Bicicletas, joias e equipamentos portáteis</strong> mediante inclusão;</li>
-        <li><strong>Assistência 24h</strong> — chaveiro, eletricista, encanador, vidraceiro, cobertura provisória de telhado.</li>
-      </ul>
+      <h2>Edificação e conteúdo são objetos distintos</h2>
+      <p>Verifique quais partes da edificação e quais bens estarão protegidos. Os valores destinados à estrutura e ao conteúdo devem ser analisados separadamente. Móveis, eletrodomésticos e eletrônicos precisam observar os limites da proposta, inclusive por item. O valor de mercado do imóvel não deve ser confundido automaticamente com o valor usado para sua reconstrução na contratação.</p>
+      <p>Faça um inventário dos bens e guarde fotos, notas e comprovantes disponíveis. Esses registros auxiliam a documentação de um eventual sinistro, mas não garantem pagamento. Joias, obras de arte, bicicletas e equipamentos profissionais podem ter restrições, exigir declaração e contratação próprias ou não ser aceitos no produto. Confirme os itens cobertos antes de concluir o seguro.</p>
 
-      ${TABELA_COBERTURAS([
-        { cob: "Básica", desc: "Incêndio, raio, explosão, queda de aeronave, fumaça" },
-        { cob: "Roubo/furto", desc: "Subtração de bens móveis com sinal de arrombamento" },
-        { cob: "Danos elétricos", desc: "TV, geladeira, ar-condicionado, computadores" },
-        { cob: "Vendaval", desc: "Ventos fortes, granizo, alagamento por chuva" },
-        { cob: "RC familiar", desc: "Vazamento no vizinho, criança quebrando algo alheio, cão que morde" },
-        { cob: "Assistência 24h", desc: "Chaveiro, eletricista, encanador, vidraceiro" },
-      ])}
+      <h2>Confira eventos, limites e franquias</h2>
+      <p>Incêndio, raio e explosão devem ser avaliados conforme as definições contratuais. Danos elétricos podem depender de cobertura específica, das causas previstas e de franquia própria. A existência de um aparelho danificado não demonstra, por si só, um evento coberto. Defeito, desgaste e falta de manutenção não devem ser confundidos com riscos garantidos pela apólice.</p>
+      <p>Para roubo e furto, confira as definições dos eventos, as exigências de segurança, os bens aceitos e os limites. Não presuma que deixar uma porta aberta ou que a ausência dos vestígios exigidos pelo contrato será aceita em uma reclamação. Furto simples pode estar excluído. A análise depende das condições e da documentação do evento.</p>
+      <p>Vendaval, granizo, alagamento e inundação não são termos intercambiáveis. Verifique se cada evento desejado foi expressamente contratado, quais são as exclusões e como se aplica a franquia. A contratação de vendaval não deve ser apresentada como inclusão automática de alagamento. Informe as características e o histórico do imóvel solicitados na proposta.</p>
 
-      <h2>Casa própria, alugada ou financiada — qual seguro?</h2>
-      <p>Todo imóvel financiado pela Caixa/Minha Casa Minha Vida já tem seguro habitacional obrigatório embutido na parcela — mas ele cobre apenas o casco (paredes/estrutura). Para proteger o conteúdo (móveis, eletrônicos, roupas) e ter RC familiar, o seguro residencial voluntário é indispensável e custa a partir de R$ 25/mês. Para imóveis alugados, o seguro protege o inquilino contra sinistros pelos quais é responsável (fiança locatícia).</p>
+      <h2>Responsabilidade civil e assistência residencial</h2>
+      <p>A responsabilidade civil familiar depende de contratação e dos danos e pessoas abrangidos pelo produto. Verifique limites, exclusões e eventuais previsões para animais. A cobertura não deve ser tratada como proteção para qualquer conflito com vizinhos. Atividades profissionais podem exigir outra modalidade, diferente da responsabilidade civil familiar.</p>
+      <p>Chaveiro, encanador e eletricista podem estar disponíveis na assistência contratada, com horários, regiões e limites próprios. Confira quantidades de utilização, valores por serviço, materiais e despesas não incluídas. A assistência não é automaticamente ilimitada nem substitui manutenção preventiva. Consulte as condições antes de contratar um prestador por conta própria, inclusive as regras para eventual reembolso.</p>
 
-      <h2>Por que contratar com corretora em Guarulhos</h2>
-      <p>Uma corretora local conhece o perfil de risco de cada bairro e o apetite de cada seguradora. Direcionamos sua cotação para quem tem melhor preço em cada CEP. Também representamos você no sinistro — sem call center, sem espera de horas.</p>
+      <h2>Imóveis em condomínio, financiados ou alugados</h2>
+      <p>O seguro do condomínio e o residencial individual podem se complementar. A apólice condominial não se limita necessariamente às áreas comuns, mas não substitui automaticamente a proteção dos seus bens ou da responsabilidade civil familiar. Compare os dois documentos para identificar limites, sobreposições e lacunas. Não conclua a abrangência sem ler as condições contratadas.</p>
+      <p>Se o imóvel é financiado, confira também as garantias previstas no contrato e no seguro habitacional. Se é alugado, leia as obrigações do locador e do inquilino. Seguro residencial, seguro habitacional e seguro fiança têm finalidades diferentes: proteger bens não equivale a garantir obrigações de aluguel. A necessidade de cada modalidade deve ser avaliada no caso concreto.</p>
 
-      ${DEPOIMENTOS([
-        { texto: "Contratei o residencial pela Patro. Preço melhor que a renovação direta e assistência já usei duas vezes.", autor: "Márcia R.", perfil: "residencial, Vila Galvão" },
-        { texto: "Sinistro de raio queimou minha TV e geladeira. Foi indenizado em 8 dias.", autor: "José A.", perfil: "residencial, Cidade Maia" },
-      ])}
+      <h2>Home office, reformas e alterações de uso</h2>
+      <p>Informe a atividade profissional exercida no imóvel e os equipamentos utilizados. Não presuma cobertura para instrumentos de trabalho ou responsabilidade civil profissional em um produto residencial. Mudanças de ocupação, períodos de desocupação, reformas e aquisição de novos bens podem exigir avaliação e ajuste da apólice. Consulte a seguradora antes de considerar as novas condições protegidas.</p>
 
+      <h2>Compare a proposta antes de contratar</h2>
+      <p>Analise preço total, parcelamento, valores segurados, limites por cobertura, franquias e exclusões em condições equivalentes. Portaria, câmeras ou contratação junto com outro seguro não garantem desconto. O prazo de retorno depende dos dados enviados e da análise das seguradoras. Consulte a previsão no atendimento e não decida apenas pelo valor da parcela.</p>
+      <p>Confirme a aceitação, eventuais exigências e a data de início da vigência. O envio do formulário não ativa cobertura. Em caso de sinistro, a Patro orienta a comunicação e a documentação; a seguradora analisa a cobertura e eventual indenização conforme o contrato, sem promessa de resolução em prazo fixo pela corretora.</p>
       ${FAQ([
-        { q: "Quanto custa um seguro residencial em Guarulhos?", a: "Apartamentos com valor de conteúdo de R$ 30 mil pagam a partir de R$ 25/mês. Casas com maior valor de reconstrução e conteúdo tendem a R$ 40 a R$ 80/mês, dependendo do CEP e das coberturas." },
-        { q: "Preciso declarar o valor exato dos meus bens?", a: "Sim. O valor declarado (capital segurado do conteúdo) é o limite máximo de indenização. Declarar valores muito baixos pode gerar rateio; declarar valores muito altos apenas encarece o prêmio sem benefício." },
-        { q: "Seguro residencial cobre alagamento?", a: "Sim, se contratada a cobertura de vendaval/alagamento — não é básica em todas as seguradoras. Guarulhos tem áreas historicamente sujeitas a enchente; recomendamos sempre incluir." },
-        { q: "Seguro do condomínio já cobre meu apartamento?", a: "Não. O seguro obrigatório do condomínio (Lei 4.591/64) cobre apenas áreas comuns e estrutura. O conteúdo do seu apartamento, RC familiar e danos elétricos só são cobertos pelo seguro residencial voluntário." },
+        { q: "Quanto custa seguro residencial em Guarulhos?", a: "O preço depende do imóvel, da ocupação, dos bens e das coberturas. Solicite uma proposta atualizada com valor total, limites e franquias." },
+        { q: "Seguro residencial cobre danos elétricos?", a: "Pode haver cobertura específica, quando contratada. Confira causas cobertas, equipamentos aceitos, franquias e exclusões. Desgaste e manutenção não são automaticamente cobertos." },
+        { q: "Preciso de seguro residencial se moro em condomínio?", a: "Compare a apólice condominial com as necessidades individuais. Ela não se limita necessariamente às áreas comuns, mas não substitui automaticamente a proteção dos bens e da responsabilidade civil familiar." },
+        { q: "O seguro cobre furto se eu deixar a porta aberta?", a: "Não presuma cobertura. Confira definições, exigências de segurança e vestígios exigidos no contrato. Furto simples pode estar excluído." },
+        { q: "Seguro residencial cobre home office?", a: "Informe a atividade e os equipamentos profissionais. A aceitação depende do produto; responsabilidade civil profissional não deve ser presumida incluída na familiar." },
+        { q: "Vendaval inclui alagamento?", a: "Não presuma inclusão automática. Confira a contratação expressa, as definições e as exclusões de vendaval, alagamento e inundação." },
       ])}
-
-      <p>Veja também <a href="/seguro-condominio-guarulhos">seguro condomínio</a>, <a href="/seguro-empresarial-guarulhos">seguro empresarial</a> e <a href="/seguro-vida-saude-guarulhos">seguro de vida</a>.</p>
+      <p>Veja também <a href="/seguro-condominio-guarulhos">seguro condomínio</a>, <a href="/seguro-empresarial-guarulhos">seguro empresarial</a> e <a href="/seguro-vida-saude-guarulhos">seguro de vida</a>. <a href="/cotacao?tipo=residencial">Solicite uma cotação residencial personalizada</a>.</p>
     `,
   },
 

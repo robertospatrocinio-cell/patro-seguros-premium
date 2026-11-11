@@ -4,150 +4,94 @@ import NeighborhoodHub, { type NeighborhoodLink } from "@/components/Neighborhoo
 import ModelHub, { type ModelLink } from "@/components/ModelHub";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
-import heroMobileImg from "@/assets/hero-seguro-auto.webp"; // Using desktop image as fallback since home-sm is missing
-import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const NEIGHBORHOODS: NeighborhoodLink[] = [
-  { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.000/ano" },
-  { name: "Vila Galvão", link: "/seguro-auto-vila-galvao", riskLevel: "baixo", priceRange: "R$ 2.300 a R$ 4.200/ano" },
-  { name: "Vila Augusta", link: "/seguro-auto-vila-augusta", riskLevel: "baixo", priceRange: "R$ 2.200 a R$ 4.100/ano" },
-  { name: "Jardim São João", link: "/seguro-auto-jardim-sao-joao", riskLevel: "médio", priceRange: "R$ 2.600 a R$ 4.900/ano" },
-  { name: "Taboão", link: "/seguro-auto-taboao-guarulhos", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.000/ano" },
-  { name: "Bonsucesso", link: "/seguro-auto-bonsucesso-guarulhos", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.100/ano" },
-  { name: "Centro de Guarulhos", link: "/seguro-auto-centro-guarulhos", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.500/ano" },
-  { name: "Cumbica", link: "/seguro-auto-cumbica", riskLevel: "médio-alto", priceRange: "R$ 3.100 a R$ 6.200/ano" },
-  { name: "Pimentas", link: "/seguro-auto-pimentas", riskLevel: "alto", priceRange: "R$ 3.400 a R$ 6.800/ano" },
+  { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos" },
+  { name: "Vila Galvão", link: "/seguro-auto-vila-galvao" },
+  { name: "Vila Augusta", link: "/seguro-auto-vila-augusta" },
+  { name: "Jardim São João", link: "/seguro-auto-jardim-sao-joao" },
+  { name: "Taboão", link: "/seguro-auto-taboao-guarulhos" },
+  { name: "Bonsucesso", link: "/seguro-auto-bonsucesso-guarulhos" },
+  { name: "Centro de Guarulhos", link: "/seguro-auto-centro-guarulhos" },
+  { name: "Cumbica", link: "/seguro-auto-cumbica" },
+  { name: "Pimentas", link: "/seguro-auto-pimentas" },
 ];
-
 const MODELS: ModelLink[] = [
-  { name: "Toyota Corolla", link: "/seguro-corolla-guarulhos", category: "Sedã médio", priceRange: "R$ 2.800 a R$ 4.800/ano" },
-  { name: "Honda Civic", link: "/seguro-civic-guarulhos", category: "Sedã médio", priceRange: "R$ 3.000 a R$ 5.200/ano" },
-  { name: "Toyota Hilux", link: "/seguro-hilux-guarulhos", category: "Picape grande", priceRange: "R$ 3.500 a R$ 6.500/ano" },
-  { name: "Hyundai HB20", link: "/seguro-hb20-guarulhos", category: "Hatch popular", priceRange: "R$ 1.900 a R$ 3.600/ano" },
-  { name: "Chevrolet Onix", link: "/seguro-onix-guarulhos", category: "Hatch popular", priceRange: "R$ 1.900 a R$ 3.700/ano" },
-  { name: "Fiat Mobi", link: "/seguro-mobi-guarulhos", category: "Hatch entrada", priceRange: "R$ 1.700 a R$ 3.200/ano" },
-  { name: "Fiat Strada", link: "/seguro-strada-guarulhos", category: "Picape leve", priceRange: "R$ 2.300 a R$ 4.300/ano" },
-  { name: "VW T-Cross", link: "/seguro-tcross-guarulhos", category: "SUV compacto", priceRange: "R$ 2.700 a R$ 4.900/ano" },
-  { name: "Jeep Compass", link: "/seguro-compass-guarulhos", category: "SUV médio", priceRange: "R$ 3.000 a R$ 5.400/ano" },
-  { name: "Jeep Renegade", link: "/seguro-renegade-guarulhos", category: "SUV compacto", priceRange: "R$ 2.700 a R$ 4.900/ano" },
+  { name: "Toyota Corolla", link: "/seguro-corolla-guarulhos", category: "Sedã médio" },
+  { name: "Honda Civic", link: "/seguro-civic-guarulhos", category: "Sedã médio" },
+  { name: "Toyota Hilux", link: "/seguro-hilux-guarulhos", category: "Picape grande" },
+  { name: "Hyundai HB20", link: "/seguro-hb20-guarulhos", category: "Hatch" },
+  { name: "Chevrolet Onix", link: "/seguro-onix-guarulhos", category: "Hatch" },
+  { name: "Fiat Mobi", link: "/seguro-mobi-guarulhos", category: "Hatch" },
+  { name: "Fiat Strada", link: "/seguro-strada-guarulhos", category: "Picape leve" },
+  { name: "VW T-Cross", link: "/seguro-tcross-guarulhos", category: "SUV compacto" },
+  { name: "Jeep Compass", link: "/seguro-compass-guarulhos", category: "SUV médio" },
+  { name: "Jeep Renegade", link: "/seguro-renegade-guarulhos", category: "SUV compacto" },
 ];
 
 const SeoSeguroAutoGuarulhos = () => (
   <>
     <PrerenderText slug="seguro-auto-guarulhos" />
     <InsurancePageTemplate
-    heroImage={heroImg}
-    mobileHeroImage={heroMobileImg}
-    title="Seguro Auto em Guarulhos | Cotação em 2h | Patro Seguros"
-    subtitle="Seguro Auto em Guarulhos — Cotação Online Grátis"
-    description="Seguro auto em Guarulhos: compare as 16 melhores seguradoras e economize. Resposta em até 2h e atendimento especializado na Patro Seguros."
-    detailedDescription={`Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos. A cidade é cortada por rodovias de alto fluxo como a Presidente Dutra (BR-116), Fernão Dias (BR-381) e Ayrton Senna, o que eleva significativamente o risco de acidentes e sinistros.
+      heroImage={heroImg}
+      mobileHeroImage={heroImg}
+      title="Seguro Auto em Guarulhos: Compare Propostas | Patro Seguros"
+      subtitle="Seguro Auto em Guarulhos — Cotação Personalizada"
+      description="Compare seguro auto conforme seu veículo, uso e perfil. A Patro orienta a análise de coberturas, franquias, assistências e condições de aceitação."
+      detailedDescription={`Para cotar seguro auto em Guarulhos, informe o CEP exato de pernoite, os condutores e o uso real do veículo. Circular pela Dutra, Fernão Dias ou em outros municípios não substitui essas informações. O bairro, sozinho, não define o preço nem uma exigência de rastreador.
 
-Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está entre as 10 cidades com maior índice de roubo e furto de veículos do Brasil. Bairros como Cumbica, Bonsucesso e Pimentas apresentam taxas de sinistralidade até 40% superiores à média estadual, enquanto regiões como Cidade Maia e Vila Augusta possuem índices mais favoráveis.
+A comparação deve considerar propostas equivalentes. Verifique os eventos cobertos no casco, o critério de indenização, a franquia para reparos e os limites de responsabilidade civil para terceiros. Vidros, acessórios, carro reserva e assistência podem exigir contratação própria.
 
-A Patro Seguros conhece profundamente a realidade local. Nossa equipe de consultores analisa o perfil de cada cliente — idade, CEP, modelo do veículo, quilometragem e uso — para encontrar a seguradora que oferece a melhor relação custo-benefício. Em muitos casos, conseguimos economias de 15% a 35% em relação à cotação direta.
+Quem transporta passageiros por aplicativo, faz entregas ou usa o veículo profissionalmente precisa declarar a atividade e confirmar sua aceitação por escrito. Uma proposta para uso particular não deve ser presumida adequada a essas atividades.
 
-Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFood), que representam uma parcela significativa da frota de Guarulhos. Para esse público, oferecemos coberturas específicas que incluem proteção durante o uso profissional do veículo, algo que muitas apólices convencionais não cobrem.`}
-    icon="🚗"
-    metaDescription="Seguro auto Guarulhos: cotação Porto Seguro Guarulhos, Tokio, Allianz, HDI. Encontre o melhor seguro carro Guarulhos com a Patro Seguros. Cotação grátis."
-    coverages={[
-      { title: "Cobertura Compreensiva", description: "Proteção contra roubo, furto, colisão, incêndio e fenômenos naturais. Ideal para veículos novos e seminovos que circulam por Guarulhos." },
-      { title: "Responsabilidade Civil", description: "Cobertura para danos materiais e corporais causados a terceiros em acidentes. Essencial nas rodovias Dutra e Fernão Dias." },
-      { title: "Assistência 24h em Guarulhos", description: "Guincho, chaveiro, troca de pneu e socorro mecânico com prestadores locais em Guarulhos e região." },
-      { title: "Carro Reserva", description: "Veículo substituto por até 30 dias enquanto o seu está no conserto. Disponível em Guarulhos e Grande SP." },
-      { title: "Proteção para Vidros e Faróis", description: "Cobertura para para-brisa, vidros laterais, retrovisores e faróis — sem impacto na bonificação." },
-      { title: "Cobertura para Acessórios", description: "Proteção para equipamentos de som, rodas esportivas, insulfilm e outros acessórios instalados." },
-    ]}
-    howItWorks={[
-      { step: "1", title: "Solicite sua cotação", description: "Preencha o formulário abaixo ou envie os dados do veículo e CNH pelo WhatsApp. Processo simples e rápido." },
-      { step: "2", title: "Comparação entre seguradoras", description: "Nossa equipe consulta Porto Seguro, Tokio Marine, Allianz, HDI e mais para encontrar as melhores condições para seu perfil em Guarulhos." },
-      { step: "3", title: "Receba as propostas", description: "Em até 2 horas, você recebe um comparativo detalhado com preços, coberturas e condições de cada seguradora." },
-      { step: "4", title: "Escolha e contrate", description: "Selecione a melhor opção. Cuidamos de toda a documentação e ativação da apólice sem burocracia." },
-      { step: "5", title: "Suporte contínuo", description: "Em caso de sinistro, a Patro acompanha todo o processo: abertura, vistoria, oficina e indenização em Guarulhos." },
-    ]}
-    pricingInfo={{
-      intro: "O preço do seguro auto em Guarulhos varia significativamente conforme o perfil do motorista, modelo do veículo e localização. Em média, motoristas de Guarulhos pagam entre R$ 1.800 e R$ 4.500/ano para cobertura compreensiva. A Patro já conseguiu economias de até 35% para clientes da região comparando múltiplas seguradoras.",
-      factors: [
-        "CEP de pernoite — bairros como Cidade Maia têm taxas mais baixas que Cumbica",
-        "Modelo, ano e valor FIPE do veículo",
-        "Idade e tempo de habilitação do condutor principal",
-        "Histórico de sinistros e classe de bônus",
-        "Quilometragem média mensal e uso (particular ou aplicativo)",
-        "Dispositivos de segurança: rastreador, câmera, garagem fechada",
-      ],
-      note: "Dica Patro: Motoristas acima de 30 anos, sem sinistros nos últimos 3 anos e com garagem fechada podem economizar até 40% no seguro auto em Guarulhos.",
-    }}
-    realScenarios={[
-      { title: "Case: Motorista do Cidade Maia economizou R$ 1.200", description: "Um cliente de 35 anos, com Honda Civic 2022, pagava R$ 4.200/ano na renovação direta com a seguradora. A Patro comparou 6 seguradoras e encontrou cobertura equivalente por R$ 3.000 na Tokio Marine, uma economia de 28%. O cliente ainda ganhou carro reserva por 30 dias, que não tinha na apólice anterior." },
-      { title: "Case: Roubo na Dutra com resolução em 15 dias", description: "Um cliente teve seu Toyota Corolla roubado na rodovia Presidente Dutra, próximo ao trevo de Guarulhos. A Patro abriu o sinistro no mesmo dia, acompanhou toda a documentação junto à Porto Seguro e o cliente recebeu a indenização integral (100% FIPE) em apenas 15 dias — metade do prazo médio do mercado." },
-      { title: "Case: Motorista de App com cobertura adequada", description: "Um motorista de Uber em Guarulhos descobriu que seu seguro convencional não cobria sinistros durante corridas. A Patro encontrou uma apólice na Allianz com cobertura para uso profissional, por apenas R$ 800 a mais por ano — evitando um prejuízo potencial de dezenas de milhares de reais." },
-    ]}
-    coverageExclusions={[
-      "Condução sob efeito de álcool ou drogas",
-      "Corridas, competições ou provas de velocidade",
-      "Motorista sem habilitação válida",
-      "Desgaste natural de peças mecânicas",
-      "Uso do veículo para fins não declarados na apólice",
-    ]}
-    tips={[
-      "Compare sempre: nunca renove automaticamente. A Patro compara todas as seguradoras gratuitamente.",
-      "Instale rastreador: redução média de 10-15% no prêmio em Guarulhos.",
-      "Garagem fechada: estacionar em local coberto pode reduzir o valor em até 20%.",
-      "Classe de bônus: cada ano sem sinistro garante desconto progressivo de até 35%.",
-      "Franquia elevada: se você é motorista experiente, optar por franquia maior reduz o prêmio mensal.",
-    ]}
-    whoNeeds={[
-      "Moradores de Guarulhos e região metropolitana de São Paulo",
-      "Motoristas que circulam diariamente pela Dutra e Fernão Dias",
-      "Proprietários de veículos novos, seminovos e financiados",
-      "Motoristas de aplicativo (Uber, 99, iFood) em Guarulhos",
-      "Empresários com veículos de uso misto (pessoal e profissional)",
-      "Famílias com mais de um veículo buscando desconto por agrupamento",
-    ]}
-    whyPatro={[
-      "Corretora local em Guarulhos com atendimento presencial no Cidade Maia",
-      `Mais de 2.500 clientes atendidos desde 2021 — nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`,
-      "Comparação entre 16+ seguradoras: Porto, Tokio, Allianz, HDI, Mapfre e mais",
-      "Cotação em até 2 horas — as mais rápidas da região",
-      "Suporte completo em sinistros: abertura, vistoria, oficina e indenização",
-      "Especialistas em seguros para motoristas de aplicativo em Guarulhos",
-    ]}
-    faqs={[
-      { question: "Quanto custa seguro auto em Guarulhos em 2026?", answer: "O valor médio do seguro auto Guarulhos varia entre R$ 1.800 e R$ 4.500/ano para cobertura compreensiva, dependendo do veículo, perfil do motorista e CEP. Bairros como Cidade Maia e Vila Augusta tendem a ter preços mais baixos que Cumbica e Pimentas. Solicite cotação gratuita para seu perfil específico." },
-      { question: "Qual o melhor seguro carro Guarulhos?", answer: "Depende do perfil. Porto Seguro lidera em assistência 24h e rede de oficinas em Guarulhos. Tokio Marine oferece excelente custo-benefício. Allianz tem boas condições para veículos importados. HDI é competitiva para motoristas jovens. A Patro compara todas para encontrar a melhor seguradora de carro em Guarulhos para você." },
-      { question: "Como fazer cotação Porto Seguro Guarulhos?", answer: "A Patro Seguros é corretora Porto Seguro Guarulhos credenciada e faz a cotação Porto Seguro Guarulhos gratuitamente. Envie modelo, ano, CEP e perfil pelo WhatsApp (11) 5199-7500 e receba a proposta em até 2 horas, com comparativo entre Porto Seguro e outras seguradoras." },
-      { question: "Seguro auto cobre motorista de aplicativo em Guarulhos?", answer: "Nem sempre. O seguro convencional pode negar sinistros durante corridas. A Patro trabalha com seguradoras que oferecem cobertura específica para Uber, 99 e iFood, protegendo você durante o uso profissional." },
-      { question: "Como funciona o sinistro de seguro auto em Guarulhos?", answer: "A Patro acompanha todo o processo: abertura do sinistro, agendamento de vistoria, escolha da oficina (referenciada ou livre) e acompanhamento até a liberação do veículo ou pagamento da indenização. Nosso prazo médio é 40% menor que a média do mercado." },
-      { question: "Seguro auto em Guarulhos cobre enchente?", answer: "Sim, a cobertura compreensiva inclui alagamento e enchente, eventos comuns em regiões baixas de Guarulhos durante o verão. Verifique se sua apólice inclui essa proteção, especialmente se você mora próximo a áreas de risco." },
-    ]}
-    relatedInsurances={[
-      { title: "Seguro Moto Guarulhos", link: "/seguro-moto-guarulhos" },
-      { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
-      { title: "Seguro Frota Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
-      { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
-      { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
-      { title: "Corretora Seguros Guarulhos", link: "/" },
-      { title: "Seguro Auto por Modelo (Corolla, HB20, Onix...)", link: "/seguro-auto-por-modelo-guarulhos" },
-    ]}
-    extraSections={
-      <>
-        <NeighborhoodHub
-          source="seguro-auto-guarulhos:hub-bairros"
-          neighborhoods={NEIGHBORHOODS}
-        />
-        <ModelHub
-          source="seguro-auto-guarulhos:hub-modelos"
-          models={MODELS}
-        />
-      </>
-    }
+A Patro atende clientes de Guarulhos por seus contatos oficiais e na sede, mediante combinação. As páginas de bairros representam áreas atendidas, não filiais. Solicitar uma cotação não confirma cobertura: confira aceitação, eventuais exigências e início da vigência antes de utilizar o seguro.`}
+      icon="🚗"
+      metaDescription="Seguro auto em Guarulhos: compare coberturas, franquias e assistências conforme seu perfil. Solicite cotação personalizada à Patro Seguros."
+      coverages={[
+        { title: "Casco do Veículo", description: "Colisão, roubo, furto e outros eventos dependem do produto contratado. Confira critérios de indenização, limites, franquias e exclusões." },
+        { title: "Responsabilidade Civil", description: "Danos materiais e corporais a terceiros dependem de contratação e limites próprios. Danos morais podem exigir cobertura adicional." },
+        { title: "Assistência", description: "Confira os serviços, horários, área de atendimento, quilometragem de guincho e limite de utilizações. Não presuma assistência ilimitada." },
+        { title: "Carro Reserva", description: "Sujeito à contratação, ao evento coberto, às diárias previstas e às exigências da locadora e da seguradora." },
+        { title: "Vidros e Faróis", description: "Verifique as peças incluídas, os prestadores disponíveis e as franquias específicas. As regras de bônus dependem do contrato." },
+        { title: "Acessórios e Modificações", description: "Informe blindagem, kit gás e acessórios. A inclusão depende de aceitação expressa e dos itens e valores declarados na apólice." },
+      ]}
+      howItWorks={[
+        { step: "1", title: "Informe seu perfil", description: "Envie os dados do veículo, condutores, CEP de pernoite e utilização pelos canais oficiais." },
+        { step: "2", title: "Compare as condições", description: "Analisamos as propostas disponíveis para seu perfil, incluindo preço total, franquias e limites." },
+        { step: "3", title: "Confira as propostas", description: "O prazo e a quantidade de opções dependem dos sistemas e da análise de cada seguradora. Consulte a previsão no atendimento." },
+        { step: "4", title: "Revise antes de contratar", description: "Confirme aceitação, documentação, eventual vistoria ou rastreador e data de início da vigência." },
+        { step: "5", title: "Conte com orientação", description: "A Patro orienta a comunicação de sinistros e a documentação. A seguradora analisa a cobertura e a indenização conforme o contrato." },
+      ]}
+      pricingInfo={{
+        intro: "Não há uma tabela única de seguro auto para Guarulhos. O preço é calculado para o veículo, os condutores, a utilização e as condições solicitadas. Peça uma proposta atualizada para conhecer o valor aplicável ao seu caso.",
+        factors: ["CEP exato de pernoite", "Modelo, ano, versão e valor do veículo", "Condutores e tempo de habilitação", "Histórico de seguro e classe de bônus", "Uso particular, profissional ou por aplicativo", "Coberturas, limites, franquias e dispositivos exigidos"],
+        note: "Compare propostas com condições equivalentes. Garagem, rastreador e bônus podem ser considerados pela seguradora, mas não garantem desconto, aceitação ou menor preço.",
+      }}
+      realScenarios={[]}
+      coverageExclusions={["Confira as exclusões e os riscos não contratados nas condições da apólice.", "Desgaste e manutenção não devem ser confundidos com danos cobertos.", "Uso profissional e alterações no veículo devem ser declarados e aceitos."]}
+      tips={["Declare corretamente condutores, utilização e CEP de pernoite.", "Confira o custo total e as franquias, não apenas a parcela.", "Verifique limites de guincho e condições de carro reserva.", "Confirme as regras de bônus na renovação e ao mudar de seguradora.", "Não cancele a apólice vigente sem confirmar a continuidade da proteção."]}
+      whoNeeds={["Moradores de Guarulhos e região", "Quem vai contratar ou renovar o seguro", "Condutores que circulam pelas rodovias da região", "Motoristas que precisam declarar uso profissional", "Proprietários de veículos novos, usados ou financiados"]}
+      whyPatro={["Atendimento pelos contatos oficiais e na sede em Guarulhos", "Orientação para comparar propostas disponíveis", "Apoio na leitura de franquias, limites e exclusões", "Orientação na comunicação de sinistros"]}
+      faqs={[
+        { question: "Quanto custa seguro auto em Guarulhos?", answer: "O valor depende do veículo, do perfil dos condutores, do CEP de pernoite, do uso e das coberturas. Não publicamos média por bairro sem amostra e condições verificáveis. Solicite cotação atualizada." },
+        { question: "Qual seguradora devo escolher?", answer: "Compare as propostas disponíveis para seu perfil. Preço, franquias, limites, assistências e atendimento precisam ser avaliados em conjunto; não existe uma opção ideal para todos." },
+        { question: "Como solicitar cotação?", answer: "Utilize o formulário ou os contatos oficiais da Patro. A disponibilidade de propostas e o prazo dependem dos dados enviados e da análise das seguradoras." },
+        { question: "O seguro atende motorista de aplicativo?", answer: "A utilização precisa ser declarada e aceita expressamente. Verifique as coberturas contratadas para veículo, terceiros e passageiros, além das exigências legais da atividade." },
+        { question: "Como funciona o sinistro?", answer: "Comunique o evento pelos canais indicados e reúna a documentação solicitada. A Patro orienta o acompanhamento; a análise e o pagamento dependem da seguradora e do contrato, sem prazo de resolução garantido pela corretora." },
+        { question: "O seguro cobre enchente?", answer: "Confira se alagamento ou inundação estão entre os eventos cobertos no seu produto, além de limites e exclusões. O nome comercial do pacote não substitui a leitura da apólice." },
+      ]}
+      relatedInsurances={[
+        { title: "Seguro Moto Guarulhos", link: "/seguro-moto-guarulhos" },
+        { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
+        { title: "Seguro Frota Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
+        { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
+        { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
+        { title: "Corretora Seguros Guarulhos", link: "/" },
+        { title: "Seguro Auto por Modelo", link: "/seguro-auto-por-modelo-guarulhos" },
+      ]}
+      extraSections={<><NeighborhoodHub source="seguro-auto-guarulhos:hub-bairros" neighborhoods={NEIGHBORHOODS} subtitle="Consulte as orientações para cotar no seu bairro. O atendimento é feito pela Patro em Guarulhos; não há tabela de preço ou classificação de risco definida apenas pelo bairro." /><ModelHub source="seguro-auto-guarulhos:hub-modelos" models={MODELS} subtitle="Consulte orientações por modelo e solicite uma proposta para o ano, versão, utilização e condutores do seu veículo." /></>}
     />
-    <StickyQuoteBar
-      source="seguro-auto-guarulhos"
-      quoteHref="/cotacao?tipo=auto"
-      whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e gostaria de falar com um especialista sobre meu seguro."
-      ctaLabel="Cotação rápida"
-    />
+    <StickyQuoteBar source="seguro-auto-guarulhos" quoteHref="/cotacao?tipo=auto" whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e gostaria de falar com um especialista sobre meu seguro." ctaLabel="Solicitar cotação" />
   </>
 );
 
