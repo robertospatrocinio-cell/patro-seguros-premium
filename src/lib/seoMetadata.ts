@@ -6,7 +6,8 @@ import { seoLocalGuarulhosHub } from "@/data/seoLocalGuarulhosHub";
 import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
 
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
-import { articles as blogArticles } from "@/lib/blogData";
+import { articles as blogArticles, getCategoryBySlug } from "@/lib/blogData";
+import { getAuthorBySlug } from "@/lib/blogAuthors";
 import { getArticleImage } from "@/lib/blogImages";
 import { getBlogCluster } from "@/data/blogClusters";
 import { buildBlogClusterCollectionSchema } from "@/lib/collectionPageSchemas";
@@ -763,7 +764,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
   if (cleanPath === "/") {
     return {
       title: "Patro Seguros | Corretora de Seguros em Guarulhos e Brasil",
-      description: `Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Atendimento humano e sem burocracia.`,
+      description: "Compare seguros e planos de saúde em Guarulhos com a Patro Seguros. Receba orientação sobre coberturas, franquias e contratação. Peça sua cotação.",
       canonical: DOMAIN,
       h1: "Corretora de Seguros em Guarulhos e Grande São Paulo",
       ogUrl: DOMAIN,
@@ -1075,6 +1076,33 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
     }
   }
 
+  // Coleções e perfis têm conteúdo próprio, não o título genérico do slug.
+  if (cleanPath.startsWith("/blog/categoria/")) {
+    const category = getCategoryBySlug(cleanPath.slice("/blog/categoria/".length));
+    if (category) return {
+      title: `${category} — Artigos | Blog Patro Seguros`,
+      description: `Artigos da categoria ${category} no blog da Patro Seguros: guias, dicas e análises sobre ${category.toLowerCase()} para você e sua empresa.`,
+      h1: category,
+      canonical: `${DOMAIN}${cleanPath}`,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+    };
+  }
+
+  if (cleanPath.startsWith("/blog/autor/")) {
+    const author = getAuthorBySlug(cleanPath.slice("/blog/autor/".length));
+    if (author) return {
+      title: `${author.name} | Blog Patro Seguros`,
+      description: author.shortBio,
+      h1: author.name,
+      canonical: `${DOMAIN}${cleanPath}`,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+      ogImage: new URL(author.image, `${DOMAIN}/`).href,
+      ogImageAlt: `Foto de ${author.name}, ${author.role}`,
+    };
+  }
+
   // 6. Blog Posts — preserve the editorial title and excerpt, as on the React page.
   // Length is a review hint, not a reason to remove the distinguishing words.
   if (cleanPath.startsWith("/blog/")) {
@@ -1088,6 +1116,8 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         title: fullTitle,
         description: post.excerpt,
         socialTitle: fullTitle,
+        ogImage: new URL(getArticleImage(blogSlug), `${DOMAIN}/`).href,
+        ogImageAlt: post.title,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
         ogUrl: `${DOMAIN}${cleanPath}`,

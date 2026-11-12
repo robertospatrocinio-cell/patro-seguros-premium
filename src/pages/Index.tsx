@@ -202,7 +202,7 @@ const Index = () => {
     <>
       <PageMeta
         title="Patro Seguros | Corretora de Seguros em Guarulhos e Brasil"
-        description={`Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Atendimento humano e sem burocracia.`}
+        description="Compare seguros e planos de saúde em Guarulhos com a Patro Seguros. Receba orientação sobre coberturas, franquias e contratação. Peça sua cotação."
         absoluteTitle={true}
       />
 

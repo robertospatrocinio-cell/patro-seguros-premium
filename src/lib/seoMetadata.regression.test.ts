@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { getMetadataForRoute } from "./seoMetadata";
 
 vi.mock("@/lib/blogData", () => ({
+  getCategoryBySlug: (slug: string) => slug === "seguro-empresarial" ? "Seguro Empresarial" : undefined,
   articles: [
     {
       slug: "guia-de-coberturas-para-empresas",
@@ -63,6 +64,45 @@ describe("Metadados estáticos dos artigos", () => {
       { slug: "guia-de-coberturas-para-empresas", title: "Seguro empresarial" },
     ], "Guias sobre seguros");
     expect(schema.mainEntity.itemListElement[0].url).toBe(`https://www.patroseguros.com.br${path}`);
+  });
+});
+
+describe("SEO de categorias, autores e compartilhamento", () => {
+  it("usa o nome da categoria no HTML estático em vez do caminho da rota", () => {
+    const metadata = getMetadataForRoute("/blog/categoria/seguro-empresarial")!;
+    expect(metadata.title).toBe("Seguro Empresarial — Artigos | Blog Patro Seguros");
+    expect(metadata.h1).toBe("Seguro Empresarial");
+    expect(metadata.description).toContain("Artigos da categoria Seguro Empresarial");
+    expect(metadata.title).not.toContain("Categoria/");
+    expect(metadata.ogUrl).toBe(metadata.canonical);
+  });
+
+  it("individualiza os dois autores e resolve suas imagens como URLs absolutas", async () => {
+    const { blogAuthors } = await import("@/lib/blogAuthors");
+    const titles = new Set<string>();
+    for (const author of blogAuthors) {
+      const metadata = getMetadataForRoute(`/blog/autor/${author.slug}`)!;
+      expect(metadata.title).toBe(`${author.name} | Blog Patro Seguros`);
+      expect(metadata.description).toBe(author.shortBio);
+      expect(metadata.h1).toBe(author.name);
+      expect(metadata.ogImage).toBe(new URL(author.image, "https://www.patroseguros.com.br/").href);
+      expect(metadata.ogImageAlt).toContain(author.name);
+      expect(metadata.ogUrl).toBe(metadata.canonical);
+      titles.add(metadata.title);
+    }
+    expect(titles.size).toBe(blogAuthors.length);
+  });
+
+  it("usa a mesma imagem no compartilhamento e nos dados do artigo", () => {
+    const metadata = getMetadataForRoute("/blog/guia-de-coberturas-para-empresas")!;
+    expect(metadata.ogImage).toBe(metadata.schema.image[0]);
+    expect(metadata.ogImageAlt).toBe(metadata.h1);
+  });
+
+  it("não inventa uma atualização diária no perfil do autor", async () => {
+    const { default: source } = await import("@/pages/BlogAuthor.tsx?raw");
+    expect(source).not.toContain("dateModified: new Date()");
+    expect(source).toContain("image: ogImage");
   });
 });
 

@@ -56,10 +56,10 @@ const BlogAuthor = () => {
     };
   }, [canonical]);
 
-  const title = `${author.name} — ${author.role.split("—")[0].trim()} | Patro Seguros`;
+  const title = `${author.name} | Blog Patro Seguros`;
   const description = author.shortBio;
-  // Absolute URL for social crawlers (WhatsApp, Facebook, LinkedIn, Twitter).
-  const ogImage = `${CANONICAL_BASE_URL}${author.image}`;
+  // Aceita tanto caminhos locais quanto imagens já hospedadas em outro domínio.
+  const ogImage = new URL(author.image, `${CANONICAL_BASE_URL}/`).href;
   const ogImageAlt = `Foto de ${author.name}, ${author.role}`;
 
   const personSchema = {
@@ -70,7 +70,7 @@ const BlogAuthor = () => {
     givenName: author.name.split(" ")[0],
     familyName: author.name.split(" ").slice(1).join(" ") || undefined,
     url: canonical,
-    image: `https://www.patroseguros.com.br${author.image}`,
+    image: ogImage,
     jobTitle: author.role,
     description: author.shortBio,
     knowsAbout: author.expertise,
@@ -117,7 +117,6 @@ const BlogAuthor = () => {
     name: `${author.name} — ${author.role}`,
     description: author.shortBio,
     inLanguage: "pt-BR",
-    dateModified: new Date().toISOString().slice(0, 10),
     mainEntity: { "@id": `${canonical}#person` },
     about: { "@id": `${canonical}#person` },
     hasPart: authorArticles.slice(0, 20).map(a => ({
