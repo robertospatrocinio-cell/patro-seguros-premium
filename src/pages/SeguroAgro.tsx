@@ -40,7 +40,7 @@ const WA_URL = buildWhatsAppLink({
 type Item = { name: string; slug: string; desc: string };
 
 const LAVOURA: Item[] = [
-  { name: "Seguro Agrícola (Lavoura)", slug: "seguro-agricola", desc: "Cobertura para o ciclo da cultura contra granizo, geada, seca, vendaval e chuva excessiva — conforme aceitação da seguradora." },
+  { name: "Seguro Agrícola e Rural (Lavoura)", slug: "seguro-rural", desc: "Conheça as modalidades de seguro rural e consulte a proteção da lavoura contra riscos climáticos, conforme cultura, região e aceitação da seguradora." },
   { name: "Seguro de Geada", slug: "seguro-geada", desc: "Proteção específica contra perdas por geada em café, fruticultura e culturas sensíveis." },
   { name: "Seguro de Café", slug: "seguro-cafe", desc: "Cobertura para lavoura cafeeira (geada, granizo, vendaval) e estoque em armazém." },
 ];
@@ -193,7 +193,7 @@ const SeguroAgro = () => {
         ]}
       />
       <Header />
-      <main className="bg-background">
+      <main id="main-content" tabIndex={-1} className="bg-background outline-none">
         <div className="container mx-auto px-4 pt-6">
           <Breadcrumb items={[{ label: "Seguro Agro", href: "/seguro-agro" }]} />
         </div>

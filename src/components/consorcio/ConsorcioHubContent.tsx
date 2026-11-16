@@ -13,7 +13,7 @@ import { EMPRESA } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioSchema } from "@/data/consorcioHub";
 
-type Props = { children: ReactNode; onRequest: (credit: number, summary: string) => void };
+type Props = { children: ReactNode; onRequest: (credit: number, summary: string, modality: string) => void };
 const section = "container mx-auto px-4 py-14 md:py-20";
 const heading = "text-3xl md:text-4xl font-heading font-semibold tracking-tight";
 

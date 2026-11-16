@@ -37,7 +37,11 @@ export default function Consorcio() {
   const [form, setForm] = useState(emptyForm);
   const [scenarioSummary, setScenarioSummary] = useState("");
   const submittingRef = useRef(false);
-  const update = (key: keyof typeof emptyForm, value: string) => setForm(old => ({ ...old, [key]: value }));
+  const update = (key: keyof typeof emptyForm, value: string) => {
+    setForm(old => ({ ...old, [key]: value }));
+    // Uma alteração manual do objetivo invalida o cenário importado do simulador.
+    if (key === "tipo" || key === "credito") setScenarioSummary("");
+  };
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (submittingRef.current || loading) return;
@@ -97,9 +101,9 @@ export default function Consorcio() {
     }
   };
 
-  return <ConsorcioHubContent onRequest={(credit, summary) => {
+  return <ConsorcioHubContent onRequest={(credit, summary, modality) => {
     setScenarioSummary(summary);
-    update("credito", formatConsorcioCurrency(credit));
+    setForm(old => ({ ...old, credito: formatConsorcioCurrency(credit), tipo: modality === "Pesados & Agro" ? "Pesados e agro" : modality }));
     document.getElementById("simulacao")?.scrollIntoView({ behavior: "smooth", block: "start" });
     trackCotacaoClick("consorcio_anchor");
   }}>

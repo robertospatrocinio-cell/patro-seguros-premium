@@ -75,6 +75,11 @@ const ASSET_FIELDS_BY_TYPE: Record<string, AssetField[]> = {
     { key: "profissao", label: "Profissão / atividade", placeholder: "Médico, engenheiro..." },
     { key: "faturamento", label: "Faturamento anual aprox.", placeholder: "R$ 500 mil" },
   ],
+  agro: [
+    { key: "equipamentoAgro", label: "Máquina, cultura ou atividade", placeholder: "Ex: trator, drone agrícola, lavoura de café" },
+    { key: "municipioAgro", label: "Município / UF da operação", placeholder: "Ex: Sorriso / MT" },
+    { key: "detalhesAgro", label: "Dados do bem e da operação", placeholder: "Marca, modelo, ano, valor, uso, transporte e existência de financiamento", type: "textarea" },
+  ],
   outros: [
     { key: "detalhes", label: "Conte o que precisa proteger", placeholder: "Descreva o seu caso", type: "textarea" },
   ],
@@ -141,7 +146,9 @@ const Cotacao = () => {
     "planos-de-saude": "saude",
     "seguro-empresarial": "empresarial",
     "seguro-frota": "frota",
-    "agronegocio": "outros",
+    "agro": "agro",
+    "agronegocio": "agro",
+    "seguro-agro": "agro",
     "seguro-transporte": "frota",
     "seguro-fianca": "residencial",
     "rc": "rc"
@@ -539,6 +546,7 @@ const Cotacao = () => {
                                       { value: "frota", label: "Frota", icon: "🚛" },
                                       { value: "fianca", label: "Aluguel", icon: "🔑" },
                                       { value: "viagem", label: "Viagem", icon: "✈️" },
+                                      { value: "agro", label: "Agro", icon: "🌾" },
                                       { value: "outros", label: "Outros", icon: "✨" },
                                     ].map((opt) => (
                                       <button
@@ -575,9 +583,10 @@ const Cotacao = () => {
                           <p className="text-sm text-slate-500 mb-4">Tudo opcional — quanto mais detalhes, mais precisa fica sua cotação.</p>
                           {(ASSET_FIELDS_BY_TYPE[form.watch("insuranceType")] || ASSET_FIELDS_BY_TYPE.outros).map((f) => (
                             <div key={f.key} className="space-y-2">
-                              <label className="text-slate-700 font-semibold text-sm">{f.label}</label>
+                              <label htmlFor={`cotacao-asset-${f.key}`} className="text-slate-700 font-semibold text-sm">{f.label}</label>
                               {f.type === "textarea" ? (
                                 <Textarea
+                                  id={`cotacao-asset-${f.key}`}
                                   placeholder={f.placeholder}
                                   className="min-h-[100px] bg-slate-50"
                                   value={assetData[f.key] || ""}
@@ -585,6 +594,7 @@ const Cotacao = () => {
                                 />
                               ) : (
                                 <Input
+                                  id={`cotacao-asset-${f.key}`}
                                   placeholder={f.placeholder}
                                   className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all"
                                   value={assetData[f.key] || ""}

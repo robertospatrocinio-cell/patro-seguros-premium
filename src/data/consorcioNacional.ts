@@ -24,7 +24,7 @@ export function getConsorcioNationalStaticContent(page: ConsorcioIntentPage) {
       + `<h2>Continue seu planejamento</h2><p>Compare no <a href="/consorcio#comparar">simulador de consórcio</a> ou conheça o <a href="/consorcio-guarulhos">atendimento em Guarulhos</a>.</p>`
       + CONSORCIO_NATIONAL_PAGES.filter(item => item.path !== page.path).map(item => `<p><a href="${item.path}">${escapeHtml(item.navLabel)}</a></p>`).join("")
       + `<h2>Proteja o patrimônio adquirido</h2><p>O seguro é uma contratação separada, conforme o bem e as exigências da administradora.</p>`
-      + (page.path === "/consorcio-pesados-maquinas" ? `<p><a href="/seguro-agronegocio">Seguro Agronegócio</a> e <a href="/seguro-maquinas-equipamentos">Seguro de Máquinas e Equipamentos</a>.</p>` : page.path === "/consorcio-veiculos" ? `<p><a href="/seguro-auto">Seguro Auto</a> e <a href="/seguro-moto">Seguro Moto</a>.</p>` : `<p><a href="/seguro-residencial">Seguro Residencial</a> e <a href="/seguro-empresarial">Seguro Empresarial</a>.</p>`)
+      + (page.path === "/consorcio-pesados-maquinas" ? `<p><a href="/seguro-agro">Seguro Agronegócio</a> e <a href="/seguro-maquinas">Seguro de Máquinas e Equipamentos</a>.</p>` : page.path === "/consorcio-veiculos" ? `<p><a href="/seguro-auto">Seguro Auto</a> e <a href="/seguro-moto">Seguro Moto</a>.</p>` : `<p><a href="/seguro-residencial">Seguro Residencial</a> e <a href="/seguro-empresarial">Seguro Empresarial</a>.</p>`)
       + `<h2>Receba uma análise para o seu objetivo</h2><p>Informe sua cidade, o crédito desejado e os recursos para lance. <a href="/consorcio#simulacao">Solicitar análise personalizada</a>.</p>`,
   };
 }

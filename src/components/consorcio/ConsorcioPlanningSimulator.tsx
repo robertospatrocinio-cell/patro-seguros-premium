@@ -6,7 +6,7 @@ import { WHATSAPP_URL_BASE } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { calculateConsorcioScenario, formatConsorcioCurrency as money, type ConsorcioScenario } from "@/lib/consorcioSimulation";
 
-type Props = { onRequest: (credit: number, summary: string) => void };
+type Props = { onRequest: (credit: number, summary: string, modality: string) => void };
 const modalities = [
   { label: "Imóveis", credit: "300000", months: "180" },
   { label: "Veículos", credit: "80000", months: "80" },
@@ -64,7 +64,7 @@ export default function ConsorcioPlanningSimulator({ onRequest }: Props) {
             </> : <p role="alert" className="rounded-lg bg-white/10 p-4">Confira os valores: carta entre R$ 20 mil e R$ 2 milhões, prazo inteiro de 36 a 240 meses, custos não negativos e entrada até o valor da carta. Percentuais totais até 100% e juros mensais até 10%.</p>}
           </div>
           <p className="mt-5 text-xs text-white/80">Não inclui reajustes ou custo da espera pelo bem. Não é proposta comercial nem promessa de contemplação.</p>
-          {result && <div className="mt-6 space-y-3"><Button asChild className="w-full min-h-12 h-auto whitespace-normal bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d] font-semibold py-3"><a href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio_simulador_nacional")}><MessageCircle className="h-5 w-5 shrink-0 mr-2" aria-hidden="true" />Receber tabela de grupos e média de lances no WhatsApp</a></Button><Button type="button" onClick={() => onRequest(input.credit, summary)} variant="outline" className="w-full min-h-12 h-auto whitespace-normal border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white">Prefiro receber contato da Patro<ArrowRight className="ml-2 h-4 w-4 shrink-0" aria-hidden="true" /></Button></div>}
+          {result && <div className="mt-6 space-y-3"><Button asChild className="w-full min-h-12 h-auto whitespace-normal bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d] font-semibold py-3"><a href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio_simulador_nacional")}><MessageCircle className="h-5 w-5 shrink-0 mr-2" aria-hidden="true" />Receber tabela de grupos e média de lances no WhatsApp</a></Button><Button type="button" onClick={() => onRequest(input.credit, summary, modality)} variant="outline" className="w-full min-h-12 h-auto whitespace-normal border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white">Prefiro receber contato da Patro<ArrowRight className="ml-2 h-4 w-4 shrink-0" aria-hidden="true" /></Button></div>}
         </div>
       </div>
       <details className="mt-6 rounded-xl border border-slate-200 bg-white p-5"><summary className="cursor-pointer py-2 font-semibold">Como calculamos e o que não está incluído</summary><p className="mt-3 text-sm text-slate-600 leading-relaxed">Consórcio: carta + administração + reserva + outros custos, divididos pelo prazo. Financiamento: parcelas constantes pela Tabela Price sobre o valor após a entrada; entrada e custos extras somam-se ao total, não à parcela. A comparação nominal não é CET nem valor presente e não inclui inflação, reajustes, lance, rentabilidade, aluguel durante a espera ou devolução eventual da reserva. Planos reais podem usar outras distribuições de parcelas ou SAC. A contemplação depende de sorteio ou lance e dos recursos e regras do grupo, sem data garantida.</p></details>

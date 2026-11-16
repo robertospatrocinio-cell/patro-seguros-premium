@@ -67,7 +67,7 @@ export default function ConsorcioNationalPage({ page }: { page: ConsorcioIntentP
         <h3 className="mb-3 mt-8 text-xl font-semibold">Proteja o patrimônio adquirido</h3>
         <p className="text-muted-foreground">O seguro é uma contratação separada, conforme o bem e as exigências da administradora.</p>
         <div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
-          {(page.path === "/consorcio-pesados-maquinas" ? [{ href: "/seguro-agronegocio", label: "Seguro Agronegócio" }, { href: "/seguro-maquinas-equipamentos", label: "Seguro de Máquinas e Equipamentos" }] : page.path === "/consorcio-veiculos" ? [{ href: "/seguro-auto", label: "Seguro Auto" }, { href: "/seguro-moto", label: "Seguro Moto" }] : [{ href: "/seguro-residencial", label: "Seguro Residencial" }, { href: "/seguro-empresarial", label: "Seguro Empresarial" }]).map(link => <Link key={link.href} to={link.href} className="inline-flex min-h-11 items-center font-semibold text-primary underline">{link.label}</Link>)}
+          {(page.path === "/consorcio-pesados-maquinas" ? [{ href: "/seguro-agro", label: "Seguro Agronegócio" }, { href: "/seguro-maquinas", label: "Seguro de Máquinas e Equipamentos" }] : page.path === "/consorcio-veiculos" ? [{ href: "/seguro-auto", label: "Seguro Auto" }, { href: "/seguro-moto", label: "Seguro Moto" }] : [{ href: "/seguro-residencial", label: "Seguro Residencial" }, { href: "/seguro-empresarial", label: "Seguro Empresarial" }]).map(link => <Link key={link.href} to={link.href} className="inline-flex min-h-11 items-center font-semibold text-primary underline">{link.label}</Link>)}
         </div>
       </div></section>
       <section className="container mx-auto max-w-4xl px-4 py-14">
