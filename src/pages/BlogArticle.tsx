@@ -64,10 +64,13 @@ const BlogArticle = () => {
 
   const articleImageUrl = slug ? new URL(getArticleImage(slug), CANONICAL_BASE_URL).href : undefined;
 
-  const insuranceType = meta?.category || "Seguro";
+  const isTractorPricingArticle = slug === "quanto-custa-seguro-trator-agricola-2026";
+  const insuranceType = isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
+  const quoteHref = isTractorPricingArticle
+    ? "/seguro-trator-agricola#solicitar-cotacao"
+    : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
 
   return (
     <>
@@ -207,8 +210,8 @@ const BlogArticle = () => {
             {/* CTA persistente — TOPO do post */}
             <div className="mb-10 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/5 flex flex-col sm:flex-row items-center gap-4">
               <div className="flex-1 text-center sm:text-left">
-                <p className="text-sm font-semibold text-primary mb-1">Cotação rápida em Guarulhos</p>
-                <p className="text-xs text-muted-foreground text-balance">Compare {insuranceType} em 16 seguradoras. Retorno em até 2h úteis.</p>
+                <p className="text-sm font-semibold text-primary mb-1">{isTractorPricingArticle ? "Cotação de trator com atendimento nacional" : "Cotação rápida em Guarulhos"}</p>
+                <p className="text-xs text-muted-foreground text-balance">{isTractorPricingArticle ? "Informe sua máquina e a operação para comparar as condições disponíveis." : <>Compare {insuranceType} em 16 seguradoras. Retorno em até 2h úteis.</>}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
                 <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("blog-article-top")}
@@ -319,23 +322,38 @@ const BlogArticle = () => {
                     </div>
                   );
                 }
-                // Parse markdown-style [text](url) links
-                const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
-                return (
-                  <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">
-                    {parts.map((part, j) => {
-                      const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-                      if (linkMatch) {
-                        const [, text, url] = linkMatch;
-                        if (url.startsWith("/")) {
-                          return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{text}</Link>;
-                        }
-                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</a>;
+                // Renderiza títulos, listas, destaques e links como HTML semântico.
+                // O conteúdo continua sendo texto React, nunca HTML arbitrário.
+                const renderInline = (text: string) => text
+                  .split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g)
+                  .map((part, j) => {
+                    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                    if (linkMatch) {
+                      const [, label, url] = linkMatch;
+                      if (url.startsWith("/") && !url.startsWith("//")) {
+                        return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{label}</Link>;
                       }
-                      return <Fragment key={j}>{part}</Fragment>;
-                    })}
-                  </p>
-                );
+                      if (/^https?:\/\//i.test(url)) {
+                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{label}</a>;
+                      }
+                      return <Fragment key={j}>{label}</Fragment>;
+                    }
+                    if (part.startsWith("**") && part.endsWith("**")) {
+                      return <strong key={j}>{part.slice(2, -2)}</strong>;
+                    }
+                    return <Fragment key={j}>{part}</Fragment>;
+                  });
+                const heading = p.trim().match(/^(#{2,3})\s+([^\n]+)$/);
+                if (heading) {
+                  return heading[1].length === 2
+                    ? <h2 key={i} className="mt-10 mb-4">{renderInline(heading[2])}</h2>
+                    : <h3 key={i} className="mt-6 mb-3">{renderInline(heading[2])}</h3>;
+                }
+                const lines = p.trim().split("\n");
+                if (lines.every(line => line.startsWith("- "))) {
+                  return <ul key={i} className="list-disc pl-6 mb-6 space-y-2 text-muted-foreground">{lines.map((line, j) => <li key={j}>{renderInline(line.slice(2))}</li>)}</ul>;
+                }
+                return <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">{renderInline(p)}</p>;
                   })();
                   if (i === midIdx) {
                     return (
@@ -345,6 +363,8 @@ const BlogArticle = () => {
                           quoteHref={quoteHref}
                           whatsappUrl={whatsappUrl}
                           source={`blog-article-mid-${slug || "unknown"}`}
+                          headline={isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
+                          subline={isTractorPricingArticle ? "Confira coberturas, franquias, implementos e transporte conforme a sua operação. Atendimento comercial nacional." : undefined}
                           variant="soft"
                         />
                       </Fragment>
@@ -359,10 +379,12 @@ const BlogArticle = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-primary/30 transition-colors" />
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-1 text-center md:text-left text-balance">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-4">Oportunidade em Guarulhos</span>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Precisa proteger seu patrimônio hoje?</h3>
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-4">{isTractorPricingArticle ? "Atendimento nacional ao produtor" : "Oportunidade em Guarulhos"}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{isTractorPricingArticle ? "Quanto custa proteger o seu trator?" : "Precisa proteger seu patrimônio hoje?"}</h3>
                     <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-                      Nossa equipe na <strong className="text-white">Patro Seguros (Cidade Maia)</strong> compara 16+ seguradoras para você em tempo recorde. Receba seu orçamento em até 2 horas.
+                      {isTractorPricingArticle
+                        ? "Envie marca, modelo, ano e uso da máquina. A Patro analisa as condições disponíveis, incluindo implementos e exigências do financiamento."
+                        : <>Nossa equipe na <strong className="text-white">Patro Seguros (Cidade Maia)</strong> compara 16+ seguradoras para você em tempo recorde. Receba seu orçamento em até 2 horas.</>}
                     </p>
                   </div>
                   <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
@@ -734,18 +756,22 @@ const BlogArticle = () => {
             )}
 
              {/* Inline Form CTA */}
-             <Suspense fallback={null}>
-              <BlogFormCTA 
-                title="Compare preços em 16+ seguradoras agora"
-                description="Receba seu comparativo personalizado em até 2 horas úteis. Nossos especialistas em Guarulhos ajudam você a economizar sem perder cobertura."
-              />
-             </Suspense>
+             {!isTractorPricingArticle && (
+               <Suspense fallback={null}>
+                <BlogFormCTA
+                  title="Compare preços em 16+ seguradoras agora"
+                  description="Receba seu comparativo personalizado em até 2 horas úteis. Nossos especialistas em Guarulhos ajudam você a economizar sem perder cobertura."
+                />
+               </Suspense>
+             )}
  
              {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
               <h3 className="text-2xl md:text-3xl font-bold mb-3">Pronto para uma cotação personalizada?</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-                Comparamos 16+ seguradoras parceiras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center.
+                {isTractorPricingArticle
+                  ? "Solicite a análise do seu trator, dos implementos e da operação. O preço e as coberturas dependem da avaliação da seguradora."
+                  : "Comparamos 16+ seguradoras parceiras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center."}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("blog-article-bottom")}
@@ -765,10 +791,10 @@ const BlogArticle = () => {
               </div>
                <p className="text-xs text-primary-foreground/60 mt-4">Seg. a sex., 8h30 às 18h. Sem compromisso de contratação.</p>
                <div className="mt-8 pt-6 border-t border-white/10">
-                 <p className="text-sm text-white/70 mb-4">A Patro Seguros é a autoridade máxima em seguros na região. Conheça nosso:</p>
-                 <Link to="/seguros-em-guarulhos">
+                 <p className="text-sm text-white/70 mb-4">{isTractorPricingArticle ? "Confira como funciona a proteção da máquina e do financiamento:" : "A Patro Seguros é a autoridade máxima em seguros na região. Conheça nosso:"}</p>
+                 <Link to={isTractorPricingArticle ? "/seguro-trator-agricola" : "/seguros-em-guarulhos"}>
                    <Button variant="secondary" className="w-full sm:w-auto rounded-xl">
-                     Guia Completo de Seguros em Guarulhos
+                     {isTractorPricingArticle ? "Conhecer o seguro de trator agrícola" : "Guia Completo de Seguros em Guarulhos"}
                      <ArrowRight className="ml-2 h-4 w-4" />
                    </Button>
                  </Link>

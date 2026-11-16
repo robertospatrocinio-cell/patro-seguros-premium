@@ -2,6 +2,17 @@ import { BlogArticleMeta } from "@/lib/blogData";
 
 export const agroArticles: BlogArticleMeta[] = [
   {
+    slug: "quanto-custa-seguro-trator-agricola-2026",
+    title: "Quanto custa o seguro de trator agrícola em 2026?",
+    excerpt: "Veja o que influencia o preço do seguro de trator agrícola em 2026, como comparar coberturas e franquias e quais dados enviar para cotar com a Patro.",
+    category: "Agronegócio",
+    tags: ["seguro de trator agrícola", "preço do seguro de trator", "máquinas agrícolas", "penhor rural"],
+    author: "Roberto Patro",
+    date: "2026-11-16",
+    updatedAt: "2026-11-16",
+    readTime: 10,
+  },
+  {
     slug: "seguro-penhor-rural-maquinas-financiadas",
     title: "Seguro Penhor Rural para Máquinas Financiadas: Guia e Dúvidas",
     excerpt: "Entenda o seguro penhor rural para tratores e colheitadeiras financiados: coberturas, vidros, transporte, exigências do banco, documentos e indenização.",

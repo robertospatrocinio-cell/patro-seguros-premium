@@ -1,4 +1,115 @@
 export const agroArticlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "quanto-custa-seguro-trator-agricola-2026": {
+    title: "Quanto custa o seguro de trator agrícola em 2026?",
+    content: `O preço do seguro de trator agrícola em 2026 depende do valor da máquina, do modelo, do ano, da operação e das coberturas. **Não existe uma tarifa única para todos os tratores.** O valor para contratar só pode ser confirmado após a análise da seguradora.
+
+Para comparar propostas, peça o prêmio total da vigência, as franquias e os limites de cada cobertura. Na Patro Seguros, a análise do [seguro de trator agrícola](/seguro-trator-agricola) considera também implementos, transporte e as exigências do financiamento, quando houver. O atendimento comercial é nacional.
+
+## O que determina o preço do seguro de trator agrícola?
+
+Dois tratores com o mesmo valor de compra podem receber propostas diferentes. Um equipamento usado apenas na propriedade tem uma rotina distinta de outro que presta serviços e viaja entre municípios. A cotação precisa representar esse trabalho.
+
+### Modelo, ano e valor da máquina
+
+Informe marca, modelo, ano de fabricação, número de série ou chassi e valor atualizado. Conservação, histórico de manutenção e disponibilidade de peças também podem entrar na análise. Um trator usado não deve ser considerado automaticamente mais barato de segurar porque custa menos para comprar.
+
+A nota fiscal ajuda a identificar o bem, mas não substitui a conferência do critério de avaliação previsto na apólice. Pergunte como a seguradora apura o valor em um sinistro e se há regras de depreciação ou rateio. Declarar um valor insuficiente pode comprometer a indenização.
+
+### Atividade, região e deslocamentos
+
+Descreva culturas, relevo, municípios de operação, local de guarda e uso próprio ou prestação de serviços. Informe também os deslocamentos entre propriedades. Atendimento nacional da corretora não significa cobertura automática em qualquer local ou atividade.
+
+Transporte em caminhão ou prancha, carga e descarga e circulação por meios próprios são situações diferentes. Uma proposta que contempla apenas o trabalho na lavoura não deve ser comparada como equivalente a outra que inclua o transporte nas condições aceitas.
+
+### Implementos e tecnologia embarcada
+
+Plantadeira, grade, carreta, GPS e piloto automático precisam ser informados com seus respectivos valores. Confira quais itens constam na proposta e como ficam protegidos quando estão desacoplados. O seguro do trator não inclui automaticamente tudo o que estiver conectado a ele.
+
+Se a operação depende desses bens, consulte também a análise de [seguro de equipamentos e implementos agrícolas](/seguro-equipamentos-agricolas). Retirar um acessório da cotação apenas para reduzir o preço pode deixar parte relevante do patrimônio sem proteção.
+
+## Prêmio, franquia e limite: três valores diferentes
+
+**Prêmio** é o preço do seguro. Peça o total para a vigência, com os tributos e as condições de pagamento, e não apenas o valor da primeira parcela. Confira se há diferença entre pagamento à vista e parcelado.
+
+**Franquia ou participação do segurado** é a parcela do prejuízo que pode ficar sob sua responsabilidade em um evento coberto. Ela pode variar por cobertura e combinar percentual com valor mínimo. Uma proposta de menor prêmio pode exigir maior desembolso em um sinistro.
+
+**Limite de indenização** é o teto previsto para determinada cobertura. Ele não representa um pagamento garantido. O valor devido depende do dano coberto, do critério de avaliação, das participações e das demais condições contratuais.
+
+### Exemplo de planejamento do orçamento
+
+Imagine, somente para fazer a conta, uma proposta hipotética de R$ 6.000 para doze meses. A reserva mensal equivalente seria R$ 500. **Esses números são fictícios: não representam cotação, média de mercado ou preço praticado pela Patro.** A divisão também não significa que a seguradora ofereça doze parcelas desse valor.
+
+Além dessa reserva, avalie a franquia indicada na proposta. O custo de contratar o seguro e a participação em um eventual sinistro pertencem a momentos diferentes do orçamento. Confira ambos antes de escolher.
+
+## Quais coberturas comparar antes de decidir pelo menor preço?
+
+Peça uma comparação com os mesmos bens, valores, usos e período de vigência. Consulte a disponibilidade dos itens abaixo, sempre observando as condições de cada produto.
+
+- Incêndio, raio e explosão: confira os eventos previstos e as exclusões aplicáveis.
+- Colisão e tombamento: verifique a proteção durante a operação declarada e aceita.
+- Roubo e furto qualificado: confira as definições contratuais e as exigências de guarda; não presuma inclusão de furto simples.
+- Danos elétricos: identifique os componentes aceitos e os limites para eletrônica embarcada.
+- Vidros da cabine: consulte quebra de para-brisa, vidros laterais e traseiro, com seus limites e franquias.
+- Transporte: informe rotas, transportador e necessidade de carga e descarga.
+- Responsabilidade civil: danos a terceiros exigem análise específica de atividades, limites e exclusões.
+
+Desgaste, manutenção e defeito de fabricação não devem ser confundidos com acidente coberto. Quebra mecânica, perda de safra, paralisação e aluguel de máquina substituta também não têm inclusão automática. Se a continuidade da operação é sua principal preocupação, apresente esse cenário na cotação.
+
+[Solicitar análise das coberturas para meu trator](/seguro-trator-agricola#solicitar-cotacao)
+
+## O seguro de trator financiado tem preço diferente?
+
+O financiamento, isoladamente, não permite prever o preço. A análise considera o equipamento e sua operação, além das exigências do credor. Quando o bem está vinculado em garantia a crédito rural, pode ser necessário avaliar o [seguro penhor rural](/seguro-penhor-rural).
+
+Envie o contrato e peça ao banco ou à cooperativa os requisitos por escrito. Confira modalidade aceita, identificação do credor, valores, vigência e cláusulas exigidas. Compare propostas que atendam a esses requisitos; uma opção mais barata, mas incompatível com o contrato, não resolve a necessidade do financiamento.
+
+Valor do trator, saldo devedor e indenização são quantias distintas. O seguro não garante quitação integral da dívida em qualquer sinistro e não cobre simples falta de recursos para pagar parcelas. Veja também o [guia de penhor rural para máquinas financiadas](/blog/seguro-penhor-rural-maquinas-financiadas).
+
+## Como buscar um custo adequado sem omitir riscos?
+
+Comece por uma descrição precisa da operação. Reúna documentos, identifique os acessórios e atualize os valores dos bens. Isso ajuda a comparar propostas sobre a mesma base e evita decidir por um preço que corresponde a uma proteção diferente da necessária.
+
+Peça alternativas de franquia quando disponíveis e avalie quanto conseguiria desembolsar em um sinistro. Antes de retirar transporte, vidros ou algum implemento, considere a exposição real. Manutenção e medidas de segurança são importantes, mas não garantem desconto nem aceitação.
+
+Para quem possui várias máquinas, vale solicitar a análise do conjunto no [seguro de máquinas agrícolas](/seguro-maquinas-agricolas). A contratação conjunta não implica economia automática: compare condições por equipamento e os limites aplicáveis.
+
+## Quais documentos separar para cotar em 2026?
+
+- Dados do produtor ou da empresa e contato para retorno.
+- Marca, modelo, ano, número de série ou chassi e valor do trator.
+- Nota fiscal ou documento de propriedade disponível.
+- Relação dos implementos e acessórios, com identificação e valores.
+- Culturas, municípios, estados e descrição do trabalho realizado.
+- Informações de guarda, deslocamento e transporte em prancha.
+- Apólice anterior e histórico de sinistros, quando houver.
+- Contrato e exigências do financiamento, se a máquina for financiada.
+
+A seguradora pode solicitar fotos, vistoria e documentos complementares. Se o trator será entregue pela concessionária, informe a data prevista e o trajeto para análise. **Pedir cotação ou enviar documentos não inicia a cobertura.** Confira a aceitação e o início da vigência antes de considerar a máquina protegida.
+
+## Como a Patro ajuda a comparar o seguro do seu trator
+
+A Patro Seguros analisa os dados do trator, dos implementos e da rotina de trabalho para comparar as condições disponíveis. Também confere os documentos do financiamento e orienta sobre o encaminhamento de sinistros. A aceitação do risco e a decisão sobre indenização cabem à seguradora.
+
+Com sede em Guarulhos/SP e atendimento comercial nacional por canais digitais, a Patro atende produtores, prestadores de serviços, cooperativas e concessionárias. A parceria com a rede de concessionárias dos principais fabricantes ajuda a organizar dados técnicos, sem representar aprovação automática ou vínculo direto com cada fabricante.
+
+[Solicitar cotação do seguro de trator agrícola](/seguro-trator-agricola#solicitar-cotacao)
+
+## Referências e cuidados ao usar este guia
+
+Para informações institucionais sobre seguros, consulte a [Superintendência de Seguros Privados (SUSEP)](https://www.gov.br/susep/pt-br). Para orientações institucionais sobre crédito rural, consulte o [Banco Central do Brasil](https://www.bcb.gov.br). Esses órgãos não fornecem uma tabela de preços para a cotação individual apresentada neste artigo.
+
+Este guia é informativo e não apresenta pesquisa de preços de 2026. O exemplo de orçamento é apenas didático. Coberturas, exclusões, franquias, aceitação e indenização dependem da proposta, das condições contratuais e da análise de cada caso.`,
+    faqs: [
+      { q: "Quanto custa o seguro de trator agrícola em 2026?", a: "Não existe preço único. O valor depende do trator, da operação, dos acessórios, das coberturas e das franquias. Envie os dados da máquina para receber uma proposta com o custo total da vigência e as condições de pagamento." },
+      { q: "Existe uma porcentagem fixa sobre o valor do trator?", a: "Não há um percentual universal aplicável a todos os tratores e seguradoras. Usar uma taxa genérica como orçamento pode ignorar diferenças de uso, transporte, franquia e cobertura. O preço precisa ser confirmado na proposta." },
+      { q: "Seguro de trator usado custa menos que o de um novo?", a: "Não necessariamente. Além do valor do bem, a análise pode considerar idade, conservação, modelo, peças e operação. A aceitação de uma máquina usada pode depender de documentos adicionais ou vistoria." },
+      { q: "O seguro cobre implementos, GPS e piloto automático?", a: "Não automaticamente. Informe cada item e seu valor e confira sua inclusão na proposta e na apólice, inclusive as condições durante uso, guarda, transporte e quando estiver desacoplado." },
+      { q: "O seguro do trator cobre quebra mecânica?", a: "Não se deve presumir essa cobertura. Desgaste, manutenção e defeitos de fabricação não equivalem a acidente coberto. Consulte os eventos previstos e as exclusões do produto antes de contratar." },
+      { q: "Como comparar duas cotações de seguro de trator?", a: "Use os mesmos bens, valores, atividades e vigência. Compare prêmio total, franquias, limites, exclusões, transporte, acessórios e exigências do credor. Uma parcela menor pode corresponder a uma proteção diferente." },
+      { q: "Posso cotar com a Patro mesmo fora de São Paulo?", a: "Sim. O atendimento comercial da Patro é nacional por canais digitais. A análise considera os locais e a operação da máquina. Vistorias e procedimentos de sinistro seguem as regras da seguradora." },
+      { q: "O trator fica segurado assim que peço a cotação?", a: "Não. Solicitar cotação ou enviar documentos não inicia a cobertura. É necessário conferir a aceitação do risco e a data de início da vigência nas condições contratadas." }
+    ]
+  },
   "seguro-penhor-rural-maquinas-financiadas": {
     title: "Seguro Penhor Rural para Máquinas Financiadas: Guia e Dúvidas",
     content: `Ao financiar um trator ou uma colheitadeira, o produtor precisa conferir como proteger a máquina e atender às exigências do banco ou da cooperativa. O **seguro penhor rural** pode ser a modalidade aplicável quando o equipamento está vinculado em garantia a uma operação de crédito rural. A escolha depende do contrato, do bem e das condições aceitas pela seguradora.

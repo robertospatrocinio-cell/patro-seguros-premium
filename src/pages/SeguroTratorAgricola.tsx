@@ -58,6 +58,7 @@ Nossa parceria com a rede de concessionárias dos principais fabricantes facilit
       { question: "Qual o prazo para cotar ou indenizar?", answer: "A cotação depende dos documentos e da análise do risco. A regulação de sinistro depende do evento, da documentação e das regras aplicáveis; não prometemos emissão ou pagamento em prazo fixo." },
     ]}
     relatedInsurances={[
+      { title: "Quanto custa o seguro de trator agrícola em 2026?", link: "/blog/quanto-custa-seguro-trator-agricola-2026" },
       { title: "Guia: Penhor Rural para Máquinas Financiadas", link: "/blog/seguro-penhor-rural-maquinas-financiadas" },
       { title: "Seguro Penhor Rural", link: "/seguro-penhor-rural" },
       { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
