@@ -43,7 +43,7 @@ describe("Hub nacional de consórcio", () => {
 
   it("descreve um serviço nacional sem inventar oferta ou avaliação agregada", () => {
     expect(consorcioServiceSchema["@type"]).toBe("Service");
-    expect(consorcioServiceSchema.areaServed.identifier).toBe("BR");
+    expect(consorcioServiceSchema.areaServed.alternateName).toBe("BR");
     expect(consorcioServiceSchema).not.toHaveProperty("offers");
     expect(consorcioServiceSchema).not.toHaveProperty("aggregateRating");
     expect(new URL(consorcioWhatsapp).hostname).toBe("wa.me");

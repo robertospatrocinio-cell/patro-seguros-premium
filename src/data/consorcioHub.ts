@@ -65,5 +65,5 @@ export const consorcioServiceSchema = {
   "@id": `${EMPRESA.dominioCanonico}/consorcio#service`, url: `${EMPRESA.dominioCanonico}/consorcio`,
   name: "Consultoria de consórcio em todo o Brasil", description: consorcioHub.intro, serviceType: "Consórcio",
   provider: { "@type": "InsuranceAgency", "@id": `${EMPRESA.dominioCanonico}/#insurance-agency` },
-  areaServed: { "@type": "Country", name: "Brasil", identifier: "BR" },
+  areaServed: { "@type": "Country", name: "Brasil", alternateName: "BR", sameAs: "https://www.wikidata.org/wiki/Q155" },
 };
