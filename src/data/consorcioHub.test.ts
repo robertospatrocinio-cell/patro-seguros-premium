@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { consorcioHub, consorcioFaqs, consorcioModalities, consorcioComparison, consorcioServiceSchema, consorcioWhatsapp } from "./consorcioHub";
+import { consorcioHub, consorcioFaqs, consorcioModalities, consorcioComparison, consorcioFinancialProductSchema, consorcioFaqSchema, consorcioSchema, consorcioWhatsapp } from "./consorcioHub";
+import { EMPRESA } from "../config/empresa";
 import { getConsorcioStaticContent } from "./consorcioHubSeo";
 import { calculateConsorcioScenario } from "../lib/consorcioSimulation";
 
@@ -41,12 +42,34 @@ describe("Hub nacional de consórcio", () => {
     expect(body).not.toContain('style="display:none"');
   });
 
-  it("descreve um serviço nacional sem inventar oferta ou avaliação agregada", () => {
-    expect(consorcioServiceSchema["@type"]).toBe("Service");
-    expect(consorcioServiceSchema.areaServed.alternateName).toBe("BR");
-    expect(consorcioServiceSchema).not.toHaveProperty("offers");
-    expect(consorcioServiceSchema).not.toHaveProperty("aggregateRating");
+  it("descreve o produto financeiro nacional com custos e dados oficiais", () => {
+    expect(consorcioFinancialProductSchema["@type"]).toBe("FinancialProduct");
+    expect(consorcioFinancialProductSchema["@id"]).toBe(`${EMPRESA.dominioCanonico}/consorcio#product`);
+    expect(consorcioFinancialProductSchema.areaServed.alternateName).toBe("BR");
+    expect(consorcioFinancialProductSchema.interestRate).toBe(0);
+    expect(consorcioFinancialProductSchema.feesAndCommissionsSpecification).toBe(consorcioHub.warning);
+    expect(consorcioFinancialProductSchema.provider).toMatchObject({
+      "@id": `${EMPRESA.dominioCanonico}/#insurance-agency`,
+      name: EMPRESA.razaoSocial,
+      telephone: EMPRESA.telefoneE164,
+      taxID: EMPRESA.cnpj,
+    });
+    expect(consorcioFinancialProductSchema).not.toHaveProperty("offers");
+    expect(consorcioFinancialProductSchema).not.toHaveProperty("aggregateRating");
     expect(new URL(consorcioWhatsapp).hostname).toBe("wa.me");
+  });
+
+  it("reúne produto e uma única FAQ idêntica às seis respostas visíveis", () => {
+    expect(consorcioSchema["@context"]).toBe("https://schema.org");
+    expect(consorcioSchema["@graph"]).toEqual([consorcioFinancialProductSchema, consorcioFaqSchema]);
+    expect(consorcioFaqSchema["@type"]).toBe("FAQPage");
+    expect(consorcioFaqSchema["@id"]).toBe(`${EMPRESA.dominioCanonico}/consorcio#faq`);
+    expect(consorcioFaqSchema.mainEntity).toHaveLength(6);
+    consorcioFaqSchema.mainEntity.forEach((question, index) => {
+      expect(question["@type"]).toBe("Question");
+      expect(question.name).toBe(consorcioFaqs[index].q);
+      expect(question.acceptedAnswer).toEqual({ "@type": "Answer", text: consorcioFaqs[index].a });
+    });
   });
 
   it("compara custos nominais sem forçar economia positiva", () => {

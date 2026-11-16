@@ -60,10 +60,39 @@ export const consorcioFaqs = [
 ];
 
 export const consorcioWhatsapp = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá! Quero comparar planos de consórcio e consultar os grupos e o histórico de lances disponíveis para meu objetivo.")}`;
-export const consorcioServiceSchema = {
-  "@context": "https://schema.org", "@type": "Service",
-  "@id": `${EMPRESA.dominioCanonico}/consorcio#service`, url: `${EMPRESA.dominioCanonico}/consorcio`,
-  name: "Consultoria de consórcio em todo o Brasil", description: consorcioHub.intro, serviceType: "Consórcio",
-  provider: { "@type": "InsuranceAgency", "@id": `${EMPRESA.dominioCanonico}/#insurance-agency` },
+export const consorcioFinancialProductSchema = {
+  "@type": "FinancialProduct",
+  "@id": `${EMPRESA.dominioCanonico}/consorcio#product`,
+  name: "Consórcio Planejado de Imóveis, Veículos, Pesados e Serviços",
+  description: "Consultoria e planos de consórcio sem juros de financiamento para aquisição de imóveis, carros, caminhões, máquinas agrícolas e serviços em todo o Brasil, por meio de administradoras autorizadas pelo Banco Central. Há taxas e outros custos conforme o contrato.",
+  url: `${EMPRESA.dominioCanonico}/consorcio`,
+  category: "Consórcio",
+  interestRate: 0,
+  feesAndCommissionsSpecification: consorcioHub.warning,
   areaServed: { "@type": "Country", name: "Brasil", alternateName: "BR", sameAs: "https://www.wikidata.org/wiki/Q155" },
+  provider: {
+    "@type": "InsuranceAgency",
+    "@id": `${EMPRESA.dominioCanonico}/#insurance-agency`,
+    name: EMPRESA.razaoSocial,
+    alternateName: EMPRESA.nomeFantasia,
+    url: EMPRESA.dominioCanonico,
+    telephone: EMPRESA.telefoneE164,
+    taxID: EMPRESA.cnpj,
+  },
+};
+
+// As perguntas usam a mesma fonte do conteúdo visível e da versão estática.
+export const consorcioFaqSchema = {
+  "@type": "FAQPage",
+  "@id": `${EMPRESA.dominioCanonico}/consorcio#faq`,
+  mainEntity: consorcioFaqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
+export const consorcioSchema = {
+  "@context": "https://schema.org",
+  "@graph": [consorcioFinancialProductSchema, consorcioFaqSchema],
 };

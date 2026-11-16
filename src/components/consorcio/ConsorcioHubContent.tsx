@@ -5,14 +5,13 @@ import { CheckCircle2, MessageCircle, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import ConsorcioSimulator from "./ConsorcioPlanningSimulator";
 import { Button } from "@/components/ui/button";
 import { EMPRESA } from "@/config/empresa";
 import { trackWhatsAppClick } from "@/lib/tracking";
-import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioServiceSchema } from "@/data/consorcioHub";
+import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioSchema } from "@/data/consorcioHub";
 
 type Props = { children: ReactNode; onRequest: (credit: number, summary: string) => void };
 const section = "container mx-auto px-4 py-14 md:py-20";
@@ -26,8 +25,7 @@ export default function ConsorcioHubContent({ children, onRequest }: Props) {
   }, []);
   return <div className="min-h-screen flex flex-col bg-white text-slate-900">
     <PageMeta title={copy.title} description={copy.description} canonicalPath="/consorcio" absoluteTitle skipBreadcrumb />
-    <Helmet><script type="application/ld+json">{JSON.stringify(consorcioServiceSchema)}</script></Helmet>
-    <FAQSchema faqs={consorcioFaqs.map(({ q, a }) => ({ question: q, answer: a }))} />
+    <Helmet><script type="application/ld+json">{JSON.stringify(consorcioSchema)}</script></Helmet>
     <BreadcrumbSchema items={[{ name: "Início", url: `${EMPRESA.dominioCanonico}/` }, { name: "Consórcio", url: `${EMPRESA.dominioCanonico}/consorcio` }]} />
     <Header />
     <main id="main-content">
