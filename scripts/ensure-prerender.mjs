@@ -27,6 +27,7 @@ const REQUIRED_ROUTES = [
   "/plano-de-saude-guarulhos",
   "/seguro-empresarial-guarulhos",
   "/consorcio-guarulhos",
+  "/consorcio",
 ];
 
 // Rotas legadas que existem apenas como redirect no React Router não geram
@@ -95,7 +96,14 @@ function missingArtifacts() {
     }
 
     const homeTypes = getJsonLdTypes(file);
-    const requiredTypes = route === "/" ? REQUIRED_HOME_TYPES : ["InsuranceAgency"];
+    const requiredTypes = route === "/" ? REQUIRED_HOME_TYPES
+      : route === "/consorcio" ? ["InsuranceAgency", "Service", "FAQPage"] : ["InsuranceAgency"];
+    if (route === "/consorcio") {
+      const html = fs.readFileSync(file, "utf-8");
+      if (!html.includes('id="consorcio-static-content"') || !html.includes('id="comparativo"') || !html.includes('id="duvidas"')) {
+        missing.push(`${route}: conteúdo nacional visível sem JavaScript ausente`);
+      }
+    }
     for (const type of requiredTypes) {
       if (!homeTypes.has(type)) {
         missing.push(`${route}: schema ${type} ausente`);

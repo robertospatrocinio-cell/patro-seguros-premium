@@ -98,6 +98,10 @@ function buildSeoBlock(route, metadata) {
   if (!content) return null;
 
   const h1 = content.h1 || metadata.title;
+  // O hub nacional é visível sem JS e preservado pelo shell de src/main.tsx.
+  if (route === "/consorcio") {
+    return `<main id="consorcio-static-content" style="max-width:76rem;margin:0 auto;padding:2rem 1rem;line-height:1.7;overflow-wrap:anywhere"><h1>${escapeHtml(h1)}</h1>${content.body}</main>`;
+  }
   // Nas páginas agrícolas, mantém a leitura também antes de o JavaScript iniciar.
   const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone"
     ? "" : ' style="display:none"';
@@ -128,6 +132,10 @@ async function run() {
   const { segmentos } = await loadDataModule("src/data/segmentosEmpresariais.ts");
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
+  const { getConsorcioStaticContent } = await loadDataModule("src/data/consorcioHubSeo.ts");
+  const { consorcioFaqs, consorcioServiceSchema } = await loadDataModule("src/data/consorcioHub.ts");
+  FULL_SEO_CONTENT["/consorcio"] = getConsorcioStaticContent();
+  PAGE_FAQS["/consorcio"] = consorcioFaqs;
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
   const REGIONAL = await loadDataModule("src/data/segurosSaoPauloRegional.ts");
   const { dronePublicPaths, getDroneStaticContent } = await loadDataModule("src/data/droneAgricolaSeo.ts");
@@ -386,6 +394,11 @@ async function run() {
       html = html.replace(/<meta name="twitter:image" content="[^"]*"/g, () => `<meta name="twitter:image" content="${escapeHtml(imageUrl)}"`);
       html = html.replace(/<meta property="og:image:alt" content="[^"]*"/g, () => `<meta property="og:image:alt" content="${escapeHtml(imageAlt)}"`);
       html = html.replace(/<meta name="twitter:image:alt" content="[^"]*"/g, () => `<meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}"`);
+    }
+
+    if (route === "/consorcio") {
+      const serviceScript = `<script type="application/ld+json" data-consorcio-service="1">${JSON.stringify(consorcioServiceSchema).replace(/</g, "\\u003c")}</script>`;
+      html = html.replace("</head>", `${serviceScript}\n</head>`);
     }
 
     if (metadata.schema) {

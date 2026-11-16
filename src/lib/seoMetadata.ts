@@ -918,9 +918,9 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         h1: "Seguro Para Motorista de App",
       },
       "/consorcio": {
-        title: "Consórcio em Guarulhos: Simule e Compare | Patro Seguros",
-        description: "Simule consórcio e compare com financiamento. Planeje imóveis, veículos e patrimônio em Guarulhos e Grande São Paulo com orientação da Patro Seguros.",
-        h1: "Consórcio em Guarulhos: simule e planeje seu patrimônio",
+        title: "Consórcio de Imóveis, Veículos e Pesados Sem Juros | Patro",
+        description: "Simule seu consórcio de imóveis, carros, caminhões e máquinas agrícolas em todo o Brasil. Compare administradoras, estratégias de lance e economize juros.",
+        h1: "Consórcio Planejado: Conquiste Imóveis, Veículos e Máquinas Sem Juros",
       },
       "/todos-os-seguros": {
         title: "Todos os Seguros | Catálogo por Perfil | Patro Seguros",
