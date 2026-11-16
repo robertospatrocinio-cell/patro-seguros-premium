@@ -15,6 +15,7 @@ import { fase5LocalArticles } from "@/data/blogFase5LocalData";
 export interface BlogArticleMeta {
   slug: string;
   title: string;
+  seoTitle?: string;
   excerpt: string;
   category: string;
   tags: string[];
@@ -26,6 +27,17 @@ export interface BlogArticleMeta {
 }
 
 export const articles: BlogArticleMeta[] = [
+  {
+    slug: "consorcio-maquinas-agricolas-vale-a-pena-finame-credito-rural",
+    title: "Consórcio de Máquinas Agrícolas vale a pena? Compare com Finame e Crédito Rural",
+    seoTitle: "Consórcio de Máquinas Agrícolas Vale a Pena? Compare Finame e CDC",
+    excerpt: "Descubra se o consórcio de máquinas agrícolas vale a pena frente ao Finame e crédito rural. Compare custos, entrada, prazos e compra à vista de tratores.",
+    category: "Consórcio",
+    tags: ["consórcio de máquinas agrícolas vale a pena", "consórcio de tratores e colheitadeiras", "consórcio vs finame", "financiar máquina agrícola ou consórcio", "consórcio agro sem juros"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
   {
     slug: "como-escolher-corretora-de-seguros",
     title: "Como escolher uma corretora de seguros confiável?",

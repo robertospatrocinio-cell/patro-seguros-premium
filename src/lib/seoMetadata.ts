@@ -1127,7 +1127,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
     if (post) {
       // Preserva as palavras que distinguem cada artigo, assim como a página React.
       // Comprimento é um alerta editorial, não motivo para cortar automaticamente.
-      const fullTitle = `${post.title} | Patro Seguros`;
+      const fullTitle = post.seoTitle || `${post.title} | Patro Seguros`;
       return {
         title: fullTitle,
         description: post.excerpt,
