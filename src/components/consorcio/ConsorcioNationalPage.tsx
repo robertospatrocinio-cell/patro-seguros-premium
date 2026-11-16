@@ -14,13 +14,15 @@ import type { ConsorcioIntentPage } from "@/data/consorcioVertical";
 import { consorcioHub } from "@/data/consorcioHub";
 import { Helmet } from "react-helmet-async";
 import { consorcioPesadosPath, consorcioPesadosSchema } from "@/data/consorcioPesados";
+import { consorcioImoveisPath, consorcioImoveisSchema } from "@/data/consorcioImoveis";
 
 export default function ConsorcioNationalPage({ page }: { page: ConsorcioIntentPage }) {
   const whatsapp = buildWhatsAppUrl({ origem: page.whatsappOrigem, audience: "consorcio", extraLines: [page.whatsappMessage] });
+  const financialSchema = page.path === consorcioPesadosPath ? consorcioPesadosSchema : page.path === consorcioImoveisPath ? consorcioImoveisSchema : null;
   return <>
     <PageMeta title={page.title} description={page.metaDescription} />
-    {page.path === consorcioPesadosPath ? (
-      <Helmet><script type="application/ld+json">{JSON.stringify(consorcioPesadosSchema)}</script></Helmet>
+    {financialSchema ? (
+      <Helmet><script type="application/ld+json">{JSON.stringify(financialSchema)}</script></Helmet>
     ) : <>
       <FAQSchema faqs={page.faqs} />
       <ServiceSchema name={page.h1} description={page.metaDescription} serviceType="Consórcio" scope="national" />

@@ -3,6 +3,7 @@ import { consorcioModalities } from "./consorcioHub";
 import { consorcioServicos } from "./consorcioServicos";
 import { getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
 import { consorcioPesadosFaqs } from "./consorcioPesados";
+import { consorcioImoveisFaqs } from "./consorcioImoveis";
 
 export const CONSORCIO_NATIONAL_PATHS = ["/consorcio-imoveis", "/consorcio-pesados-maquinas", "/consorcio-veiculos", "/consorcio-servicos"];
 
@@ -36,11 +37,7 @@ const details = [
       { heading: "FGTS: confira a elegibilidade antes de contar com o saldo", body: "O FGTS pode compor lance, complementar a compra ou amortizar o saldo nas operações imobiliárias elegíveis. A possibilidade depende do trabalhador, do imóvel e das regras vigentes. Não presuma que terrenos isolados, imóveis comerciais ou destinados a investimento admitem FGTS. Confirme a operação com a administradora antes da adesão." },
       { heading: "Compare com financiamento e preserve sua reserva", body: "Compare taxa de administração total, fundo de reserva, seguros, índice de reajuste e prazo com o CET de uma proposta de financiamento. O consórcio não oferece uso imediato do imóvel. Inclua o aluguel durante a espera e os reajustes no orçamento; não dependa de futura locação ou valorização para pagar as parcelas." },
     ],
-    faqs: [
-      { question: "Posso comprar imóvel usado ou construir?", answer: "Pode ser possível, desde que a finalidade, o imóvel e a documentação sejam aceitos pela administradora. Construções podem exigir projeto, cronograma e liberações por etapas. Consulte as condições do grupo antes de contratar." },
-      { question: "Consórcio de imóveis tem parcelas fixas?", answer: "Não necessariamente. Crédito e parcelas seguem o índice e a periodicidade previstos no contrato, como INCC ou outro índice acordado. Verifique as regras também após a contemplação e o uso do crédito." },
-      { question: "O FGTS garante contemplação?", answer: "Não. Quando elegível, o saldo pode compor um lance, mas a contemplação depende das regras e dos recursos do grupo e dos lances concorrentes. Não existe data garantida." },
-    ],
+    faqs: consorcioImoveisFaqs,
   },
   {
     title: "Consórcio de Pesados e Máquinas Agrícolas | Patro",

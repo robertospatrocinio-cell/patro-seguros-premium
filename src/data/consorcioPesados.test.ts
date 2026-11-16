@@ -48,9 +48,9 @@ describe("Dados estruturados do consórcio de pesados e máquinas", () => {
     });
   });
 
-  it("preserva as perguntas das demais modalidades", () => {
+  it("mantém as perguntas de imóveis separadas das de pesados", () => {
     const realEstate = CONSORCIO_NATIONAL_PAGES.find(item => item.path === "/consorcio-imoveis")!;
-    expect(realEstate.faqs).toHaveLength(3);
+    expect(realEstate.faqs).toHaveLength(5);
     expect(realEstate.faqs).not.toBe(consorcioPesadosFaqs);
   });
 });
