@@ -1,5 +1,6 @@
-/* Direção premium: azul profundo, dourado fosco e títulos editoriais.
-   O layout fica sob .patro-home; as cores compartilhadas vivem em index.css. */
+/* Home consultiva: azul institucional, dourado nos pontos de decisão,
+   títulos de leitura direta e uma assinatura editorial para Patro Private.
+   Toda regra permanece sob .patro-home: nenhuma outra rota é redesenhada. */
 .patro-home {
   --home-navy: #1b304b;
   --home-ink: #13263e;
@@ -7,9 +8,17 @@
   --home-paper: #ffffff;
   --home-mist: #f3f5f7;
   --home-rule: #dce2e8;
+  --home-muted: #526175;
   color: var(--home-ink);
   background: var(--home-paper);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+.patro-home :is(h1, h2, h3, h4) { font-family: inherit; }
+.patro-home :is(input, textarea)::placeholder { color: var(--home-muted); opacity: 1; }
+.patro-home :is(input, textarea, [role="combobox"]) { min-width: 0; }
+.patro-home :is(h2[id], #cotacao-express) { scroll-margin-top: 8rem; }
 
 .patro-home .container {
   max-width: 1184px;
@@ -21,11 +30,18 @@
 }
 
 .patro-home h2 {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+.patro-home :is(.home-private, .home-final-cta) h2 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.875rem, 1.25rem + 1.6vw, 2.75rem);
-  line-height: 1.16;
-  letter-spacing: -0.025em;
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 3rem);
   font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 .patro-home h3 {
@@ -40,53 +56,46 @@
   outline-offset: 4px;
 }
 
-/* A foto existente mantém a prioridade de carregamento, sem novas fontes ou imagens. */
+/* A abertura concentra o contraste; a foto continua com as fontes e prioridade originais. */
 .patro-home .home-hero {
   background: var(--home-ink);
-  border-bottom: 1px solid var(--home-gold);
+  border-bottom: 3px solid var(--home-gold);
 }
 .patro-home .home-hero-layout {
   min-height: 0;
-  padding-block: clamp(3.75rem, 7vw, 6.5rem);
+  padding-block: clamp(3rem, 5vw, 4.75rem);
 }
 .patro-home .home-hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  letter-spacing: 0.015em;
+  display: block;
+  max-width: 48ch;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0;
   text-transform: none;
   color: #dfcba7;
-  margin-bottom: 1.75rem;
-}
-.patro-home .home-hero-label::before {
-  content: "";
-  width: 2rem;
-  height: 1px;
-  flex-shrink: 0;
-  background: var(--home-gold);
+  margin-bottom: 1.5rem;
 }
 .patro-home .home-hero h1 {
   max-width: 20ch;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.5rem, 1.6rem + 2.7vw, 4rem);
-  line-height: 1.09;
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(2.25rem, 1.4rem + 2.5vw, 3.65rem);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.045em;
 }
 .patro-home .home-hero-copy > p {
   max-width: 48ch;
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #e2e8f0;
 }
 .patro-home .home-hero-actions { flex-wrap: wrap; gap: 0.75rem; }
 .patro-home .home-hero-actions > a {
   min-height: 3.5rem;
   height: auto;
-  padding: 0.875rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9375rem;
   border-radius: 0.5rem;
   white-space: normal;
   text-align: center;
@@ -99,7 +108,7 @@
   box-shadow: none;
   transform: none;
 }
-.patro-home .home-hero-actions > a:first-child:hover { background: #dfbf6d; }
+.patro-home .home-hero-actions > a:first-child:hover { background: #dfcba7; }
 .patro-home .home-hero-actions > a:last-child {
   background: transparent;
   border-color: #8b99ad;
@@ -110,26 +119,21 @@
   border-color: #42536a;
 }
 .patro-home .home-hero-trust > div { color: #dce4ee; }
+.patro-home .home-hero-trust svg { color: #dfcba7; }
+.patro-home .home-hero-media picture { display: block; height: 100%; }
 .patro-home .home-hero-media > div:first-child { background: none; }
-.patro-home .home-hero-media > div:nth-child(2) { background: rgb(20 36 61 / 90%); }
+.patro-home .home-hero-media > div:nth-child(2) { background: rgb(19 38 62 / 93%); }
 
 @media (min-width: 1024px) {
   .patro-home .home-hero-media {
     width: 43%;
-    top: 3.5rem;
-    right: max(2rem, calc((100vw - 1440px) / 2));
-    height: calc(100% - 7rem);
-    border-radius: 0.25rem;
-    border: 1px solid rgb(199 176 135 / 35%);
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-left: 1px solid rgb(199 176 135 / 35%);
   }
-  .patro-home .home-hero-media::after {
-    content: "";
-    position: absolute;
-    inset: 0.75rem;
-    border: 1px solid rgb(255 255 255 / 25%);
-    pointer-events: none;
-  }
-  .patro-home .home-hero-content { width: 54%; padding-right: 1.5rem; }
+  .patro-home .home-hero-media img { object-position: 65% 25%; }
+  .patro-home .home-hero-content { width: 57%; padding-right: 2.5rem; }
   .patro-home .home-hero-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -176,8 +180,12 @@
   transition: color 200ms ease;
 }
 .patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee :is(a, span.mx-8):is(:hover, :focus-visible) {
-  color: var(--home-gold);
+  color: var(--home-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  transform: none;
 }
+.patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee a { min-height: 2.75rem; }
 
 /* O formulário deixa de encobrir o link da faixa de seguradoras. */
 .patro-home #cotacao-express {
@@ -185,7 +193,7 @@
   margin-bottom: 3rem;
   max-width: 1184px;
   padding-inline: clamp(1.25rem, 4vw, 2rem);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 8rem;
 }
 .patro-home #cotacao-express > div {
   border: 1px solid var(--home-rule);
@@ -218,7 +226,89 @@
   font-size: 0.875rem;
   letter-spacing: 0;
 }
-.patro-home #cotacao-express form { align-items: end; }
+.patro-home #cotacao-express form { align-items: end; gap: 1rem; }
+.patro-home #cotacao-express > div > .flex { gap: 2rem; }
+.patro-home #cotacao-express form > :nth-child(n + 5) { grid-column: 1 / -1; }
+.patro-home #cotacao-express :is(input, textarea, [role="combobox"]) {
+  background: #fff;
+  border-color: #aab6c4;
+}
+.patro-home #cotacao-express :is(input, textarea, [role="combobox"]):focus {
+  border-color: var(--home-navy);
+}
+.patro-home #cotacao-express form > .flex-col > .flex-wrap {
+  align-items: flex-start;
+  row-gap: 0.75rem;
+}
+.patro-home #cotacao-express .line-clamp-1 {
+  max-width: 100%;
+  display: block;
+  font-style: normal;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .patro-home #cotacao-express form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .patro-home #cotacao-express > div > .flex > .shrink-0 {
+    max-width: 15rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Perfis de proteção: o azul identifica a opção selecionada. */
+.patro-home section[aria-labelledby="guia-solucoes-heading"] {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  background: var(--home-mist);
+  border-color: var(--home-rule);
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] .text-center:first-child {
+  text-align: left;
+  max-width: 44rem;
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] .section-label::before { content: none; }
+.patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tablist"] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tab"] {
+  min-height: 4rem;
+  padding: 1rem;
+  justify-content: flex-start;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  border: 1px solid #aab6c4;
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tab"][aria-selected="true"] {
+  background: var(--home-navy);
+  border-color: var(--home-navy);
+  color: white;
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tab"][aria-selected="false"] {
+  background: white;
+  color: var(--home-ink);
+}
+.patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tab"] svg { flex-shrink: 0; }
+.patro-home #guia-solucoes-panel :is(a, button) {
+  background: white;
+  border-color: var(--home-rule);
+  font-size: 0.9375rem;
+  padding: 1rem;
+  line-height: 1.5;
+}
+.patro-home #guia-solucoes-panel :is(a, button):hover { border-color: #8393a6; background: #e9eef3; }
+@media (min-width: 1024px) {
+  .patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tablist"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 479px) {
+  .patro-home section[aria-labelledby="guia-solucoes-heading"] [role="tablist"] { grid-template-columns: 1fr; }
+}
 
 /* Diferenciais como uma faixa de serviço, produtos como opções navegáveis. */
 .patro-home section[aria-label="Diferenciais da Patro Seguros"] {
@@ -260,29 +350,38 @@
 .patro-home section[aria-labelledby="home-solucoes"] .grid > div {
   background: var(--home-paper);
   border: 1px solid var(--home-rule);
-  border-radius: 0.75rem;
+  border-radius: 0.625rem;
   padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: none;
-  transition: background-color 180ms ease, border-color 180ms ease;
+  transition: border-color 180ms ease;
 }
 .patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) {
-  background: var(--home-navy);
-  border-color: var(--home-navy);
+  border-color: #8393a6;
 }
-.patro-home section[aria-labelledby="home-solucoes"] .grid p { font-size: 1rem; }
-.patro-home section[aria-labelledby="home-solucoes"] .grid a { padding-block: 0.375rem; }
-.patro-home section[aria-labelledby="home-solucoes"] .grid .text-xs { font-size: 0.875rem; color: #526175; }
-.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) :is(h3, a) {
-  color: #ffffff;
+.patro-home section[aria-labelledby="home-solucoes"] .grid h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--home-ink);
 }
-.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) p {
-  color: #e2e8f0;
+.patro-home section[aria-labelledby="home-solucoes"] .grid p { font-size: 1rem; line-height: 1.7; }
+.patro-home section[aria-labelledby="home-solucoes"] .grid a {
+  padding-block: 0.625rem;
+  min-height: 2.75rem;
 }
-.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) > .rounded-xl {
-  background: rgb(255 255 255 / 10%);
+.patro-home section[aria-labelledby="home-solucoes"] .grid .flex-col.gap-2 {
+  gap: 0;
+  border-top: 1px solid var(--home-rule);
+  padding-top: 0.5rem;
 }
-.patro-home section[aria-labelledby="home-solucoes"] .grid > div:is(:hover, :focus-within) > .rounded-xl svg {
-  color: #dfcba7;
+.patro-home section[aria-labelledby="home-solucoes"] .grid .text-xs {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--home-muted);
+  font-weight: 500;
+}
+.patro-home section[aria-labelledby="home-solucoes"] .grid > div > .rounded-xl {
+  background: var(--home-mist);
+  border-radius: 50%;
 }
 @media (prefers-reduced-motion: reduce) {
   .patro-home section[aria-labelledby="home-solucoes"] .grid > div { transition: none; }
@@ -316,6 +415,25 @@
 }
 .patro-home section[aria-labelledby="home-depoimentos"] .text-yellow-400 { color: #986d14; }
 .patro-home section[aria-labelledby="home-depoimentos"] .text-slate-500 { color: #526175; }
+.patro-home section[aria-labelledby="home-depoimentos"] > .container > .max-w-2xl {
+  text-align: left;
+  margin-inline: 0;
+  margin-bottom: 2.5rem;
+}
+.patro-home section[aria-labelledby="home-depoimentos"] > .container > .max-w-2xl > .flex { justify-content: flex-start; }
+.patro-home section[aria-labelledby="home-depoimentos"] .rounded-full.border {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+.patro-home section[aria-labelledby="home-depoimentos"] .rounded-full.border svg { flex-shrink: 0; }
+.patro-home section[aria-labelledby="home-depoimentos"] .grid > div > .flex:last-child {
+  border-top: 1px solid var(--home-rule);
+  padding-top: 1rem;
+}
 
 /* Empresas e sede: contraste real, sem brilho ou molduras sobrepostas. */
 .patro-home .home-business { background: var(--home-ink); }
@@ -353,6 +471,24 @@
 .patro-home section[aria-labelledby="home-bairros"] .flex-wrap > a:hover { background: var(--home-navy); color: white; }
 .patro-home section[aria-labelledby="home-bairros"] .grid > a { padding-block: 0.5rem; gap: 0.5rem; }
 .patro-home section[aria-labelledby="home-bairros"] .grid svg { flex-shrink: 0; }
+.patro-home section[aria-labelledby="home-bairros"] { padding-block: clamp(3.5rem, 6vw, 5.5rem); }
+.patro-home section[aria-labelledby="home-bairros"] > .container { text-align: left; }
+.patro-home #home-bairros { justify-content: flex-start; }
+.patro-home section[aria-labelledby="home-bairros"] .max-w-2xl { margin-inline: 0; }
+.patro-home section[aria-labelledby="home-bairros"] .flex-wrap { justify-content: flex-start; max-width: 52rem; }
+.patro-home section[aria-labelledby="home-bairros"] .grid {
+  max-width: none;
+  margin-inline: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--home-rule);
+  column-gap: 2rem;
+}
+.patro-home section[aria-labelledby="home-bairros"] .grid > a {
+  min-height: 2.75rem;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+.patro-home section[aria-labelledby="home-bairros"] .grid svg { margin-top: 0.25rem; }
 
 /* Perguntas em uma lista contínua, com área confortável para abrir as respostas. */
 .patro-home section[aria-labelledby="home-faq"] { background: white; border-color: var(--home-rule); }
@@ -395,6 +531,8 @@
 .patro-home .home-final-cta a:first-child > button { background: var(--home-gold); color: var(--home-ink); }
 .patro-home .home-final-cta a:first-child > button:hover { background: #dfbf6d; }
 .patro-home .home-final-cta a:last-child > button:hover { color: white; }
+.patro-home .home-final-cta .flex > :is(a, button) { min-width: 0; }
+.patro-home .home-final-cta button svg { flex-shrink: 0; }
 
 /* A consultoria patrimonial ganha uma área própria, sem repetir os cards de produtos. */
 .patro-home .home-private {
@@ -470,6 +608,89 @@
   }
 }
 
+/* Processo e conteúdo: a mesma escala de leitura, sem empilhar molduras. */
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] > .text-center {
+  text-align: left;
+  margin-inline: 0;
+}
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] .uppercase {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.875rem;
+}
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] ol { gap: 1.5rem; }
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] li {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--home-rule);
+  border-radius: 0;
+  padding: 1.5rem 0 0;
+}
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] li h3 { font-size: 1.0625rem; }
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] li p { font-size: 0.9375rem; line-height: 1.75; }
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] a {
+  min-height: 3.25rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.patro-home section[aria-labelledby="como-patro-ajuda-heading"] a[href^="https://wa.me/"] {
+  background: #177b42;
+  color: white;
+}
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .section-label,
+.patro-home section[aria-labelledby="blog-heading"] .section-label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.875rem;
+}
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .section-label::before,
+.patro-home section[aria-labelledby="blog-heading"] .section-label::before { content: none; }
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .grid > div {
+  border: 1px solid var(--home-rule);
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] [itemprop="reviewBody"] {
+  font-style: normal;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--home-ink);
+}
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .text-yellow-400 { color: #986d14; }
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .text-\[10px\],
+.patro-home section[aria-label="Depoimentos de clientes em Guarulhos"] .text-\[11px\] { font-size: 0.75rem; }
+.patro-home section[aria-labelledby="blog-heading"] { padding-block: clamp(3.5rem, 6vw, 5.5rem); }
+.patro-home section[aria-labelledby="blog-heading"] > .container > .max-w-2xl {
+  text-align: left;
+  margin-inline: 0;
+  margin-bottom: 2.5rem;
+}
+.patro-home section[aria-labelledby="blog-heading"] .grid { max-width: none; gap: 1.5rem; }
+.patro-home section[aria-labelledby="blog-heading"] .grid > a > div {
+  border-color: var(--home-rule);
+  border-radius: 0.625rem;
+  box-shadow: none;
+}
+.patro-home section[aria-labelledby="blog-heading"] .grid > a:is(:hover, :focus-visible) > div { border-color: #8393a6; }
+.patro-home section[aria-labelledby="blog-heading"] h3 { font-size: 1.125rem; line-height: 1.4; }
+.patro-home section[aria-labelledby="blog-heading"] p { font-size: 1rem; line-height: 1.7; }
+.patro-home section[aria-labelledby="blog-heading"] .grid p { font-size: 0.9375rem; }
+.patro-home section[aria-labelledby="blog-heading"] .text-\[10px\] { font-size: 0.75rem; }
+.patro-home section[aria-labelledby="blog-heading"] .uppercase {
+  text-transform: none;
+  letter-spacing: 0;
+  background: var(--home-mist);
+}
+.patro-home section[aria-labelledby="blog-heading"] .flex.items-center { flex-wrap: wrap; row-gap: 0.5rem; }
+.patro-home section[aria-labelledby="blog-heading"] .group:hover img { transform: none; }
+.patro-home section[aria-labelledby="blog-heading"] button { min-height: 2.75rem; font-size: 0.9375rem; }
+
 /* No celular, a faixa é navegada por toque, sem animação contínua. */
 @media (max-width: 767px) {
   .patro-home section[aria-label="Seguradoras parceiras"] > .animate-marquee {
@@ -486,6 +707,22 @@
   .patro-home section[aria-label="Seguradoras parceiras"] .animate-marquee > [aria-hidden="true"] {
     display: none;
   }
+}
+
+/* No celular e tablet, texto e foto têm áreas próprias, sem sobreposição. */
+@media (max-width: 1023px) {
+  .patro-home .home-hero { display: flex; flex-direction: column; }
+  .patro-home .home-hero > .container { order: 0; }
+  .patro-home .home-hero-media {
+    position: relative;
+    order: 1;
+    height: clamp(13rem, 40vw, 23rem);
+    border-top: 1px solid #42536a;
+  }
+  .patro-home .home-hero-media > div:nth-child(2) { background: none; }
+  .patro-home .home-hero-media img { object-position: 65% 30%; }
+  .patro-home .home-hero h1 { max-width: 23ch; }
+  .patro-home .home-hero-copy > p { max-width: 60ch; }
 }
 
 @media (max-width: 639px) {
