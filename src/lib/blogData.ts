@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento",
+    title: "Consórcio para Carro Elétrico ou Híbrido: vale mais a pena que o financiamento das montadoras?",
+    seoTitle: "Consórcio para Carro Elétrico ou Híbrido: Vale Mais a Pena?",
+    excerpt: "Descubra se o consórcio para carro elétrico ou híbrido (BYD, GWM, Volvo, Toyota) vale mais a pena que o financiamento das montadoras. Compare custos e parcelas!",
+    category: "Consórcio",
+    tags: ["consórcio carro elétrico ou híbrido", "consórcio BYD e GWM", "financiar carro elétrico ou consórcio", "consórcio veículo híbrido sem juros", "troca de chaves consórcio carro elétrico"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "carta-de-credito-contemplada-riscos-como-fugir-de-golpes",
     title: "Carta de Crédito Contemplada: quais os riscos de comprar de terceiros e como fugir de golpes",
     seoTitle: "Carta de Crédito Contemplada: Riscos e Como Fugir de Golpes",

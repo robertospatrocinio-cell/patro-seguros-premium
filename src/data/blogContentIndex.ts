@@ -31,6 +31,7 @@ import { consorcioAgroArticle, consorcioAgroContent } from "@/data/blogConsorcio
 import { consorcioCaminhoesArticle, consorcioCaminhoesContent } from "@/data/blogConsorcioCaminhoes";
 import { consorcioImoveisInvestimentoArticle, consorcioImoveisInvestimentoContent } from "@/data/blogConsorcioImoveisInvestimento";
 import { cartaContempladaArticle, cartaContempladaContent } from "@/data/blogCartaContemplada";
+import { consorcioEletricosArticle, consorcioEletricosContent } from "@/data/blogConsorcioEletricos";
 
 export type BlogArticleContent = {
   title: string;
@@ -66,6 +67,7 @@ export const blogContentIndex: Record<string, BlogArticleContent> = {
   [consorcioCaminhoesArticle.slug]: consorcioCaminhoesContent,
   [consorcioImoveisInvestimentoArticle.slug]: consorcioImoveisInvestimentoContent,
   [cartaContempladaArticle.slug]: cartaContempladaContent,
+  [consorcioEletricosArticle.slug]: consorcioEletricosContent,
 };
 
 export const blogContentSlugs: string[] = Object.keys(blogContentIndex);
