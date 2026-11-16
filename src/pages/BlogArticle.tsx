@@ -70,11 +70,14 @@ const BlogArticle = () => {
   const isConsorcioPesadosArticle = isConsorcioAgroArticle || isConsorcioCaminhoesArticle;
   const isCartaContempladaArticle = slug === "carta-de-credito-contemplada-riscos-como-fugir-de-golpes";
   const isConsorcioEletricosArticle = slug === "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento";
-  const isConsorcioArticle = isConsorcioPesadosArticle || isCartaContempladaArticle || isConsorcioEletricosArticle;
-  const insuranceType = isConsorcioEletricosArticle ? "Consórcio de carros elétricos e híbridos" : isConsorcioCaminhoesArticle ? "Consórcio de caminhões" : isConsorcioAgroArticle ? "Consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
+  const isConsorcioEnergiaSolarArticle = slug === "consorcio-de-energia-solar-instalar-placas-sem-juros";
+  const isConsorcioArticle = isConsorcioPesadosArticle || isCartaContempladaArticle || isConsorcioEletricosArticle || isConsorcioEnergiaSolarArticle;
+  const insuranceType = isConsorcioEnergiaSolarArticle ? "Consórcio de energia solar" : isConsorcioEletricosArticle ? "Consórcio de carros elétricos e híbridos" : isConsorcioCaminhoesArticle ? "Consórcio de caminhões" : isConsorcioAgroArticle ? "Consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = isConsorcioEletricosArticle
+  const quoteHref = isConsorcioEnergiaSolarArticle
+    ? "/consorcio-servicos"
+    : isConsorcioEletricosArticle
     ? "/consorcio#comparar"
     : isCartaContempladaArticle
     ? "/consorcio#comparar"
@@ -85,7 +88,9 @@ const BlogArticle = () => {
         : isTractorPricingArticle
           ? "/seguro-trator-agricola#solicitar-cotacao"
           : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
-  const comparisonCaption = isConsorcioEletricosArticle
+  const comparisonCaption = isConsorcioEnergiaSolarArticle
+    ? "Consórcio de energia solar e CDC solar: exemplo didático de custos"
+    : isConsorcioEletricosArticle
     ? "Consórcio de carro elétrico ou híbrido e financiamento CDC: exemplo didático de custos"
     : isCartaContempladaArticle
     ? "Carta contemplada de terceiros e grupo com planejamento de lance: custos e riscos"
@@ -231,7 +236,7 @@ const BlogArticle = () => {
             {/* CTA persistente — TOPO do post */}
             <div className="mb-10 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/5 flex flex-col sm:flex-row items-center gap-4">
               <div className="flex-1 text-center sm:text-left">
-                <p className="text-sm font-semibold text-primary mb-1">{isConsorcioEletricosArticle ? "Planeje a troca para um carro elétrico ou híbrido" : isCartaContempladaArticle ? "Compare alternativas antes de comprometer suas economias" : isConsorcioCaminhoesArticle ? "Planeje a renovação da sua frota" : isConsorcioAgroArticle ? "Planeje a próxima máquina da sua fazenda" : isTractorPricingArticle ? "Cotação de trator com atendimento nacional" : "Cotação rápida em Guarulhos"}</p>
+                <p className="text-sm font-semibold text-primary mb-1">{isConsorcioEnergiaSolarArticle ? "Planeje seu projeto de energia solar" : isConsorcioEletricosArticle ? "Planeje a troca para um carro elétrico ou híbrido" : isCartaContempladaArticle ? "Compare alternativas antes de comprometer suas economias" : isConsorcioCaminhoesArticle ? "Planeje a renovação da sua frota" : isConsorcioAgroArticle ? "Planeje a próxima máquina da sua fazenda" : isTractorPricingArticle ? "Cotação de trator com atendimento nacional" : "Cotação rápida em Guarulhos"}</p>
                 <p className="text-xs text-muted-foreground text-balance">{isConsorcioArticle ? "Compare custos, crédito líquido e regras de contemplação. Atendimento nacional, sem promessa de prazo." : isTractorPricingArticle ? "Informe sua máquina e a operação para comparar as condições disponíveis." : <>Compare {insuranceType} em 16 seguradoras. Retorno em até 2h úteis.</>}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
@@ -396,7 +401,7 @@ const BlogArticle = () => {
                           quoteHref={quoteHref}
                           whatsappUrl={whatsappUrl}
                           source={`blog-article-mid-${slug || "unknown"}`}
-                          headline={isConsorcioEletricosArticle ? "Compare consórcio e financiamento para seu próximo carro" : isCartaContempladaArticle ? "Planeje sua compra com informação e cautela" : isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
+                          headline={isConsorcioEnergiaSolarArticle ? "Compare planos para seu projeto de energia solar" : isConsorcioEletricosArticle ? "Compare consórcio e financiamento para seu próximo carro" : isCartaContempladaArticle ? "Planeje sua compra com informação e cautela" : isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
                           subline={isConsorcioArticle ? "Compare custos, regras de lance e crédito líquido disponível para comprar. Sem garantia de contemplação." : isTractorPricingArticle ? "Confira coberturas, franquias, implementos e transporte conforme a sua operação. Atendimento comercial nacional." : undefined}
                           variant="soft"
                         />
@@ -800,9 +805,11 @@ const BlogArticle = () => {
  
              {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isConsorcioEletricosArticle ? "Planeje sua mudança para a mobilidade elétrica" : isCartaContempladaArticle ? "Planeje sua conquista com mais segurança" : isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isConsorcioEnergiaSolarArticle ? "Planeje a instalação da sua energia solar" : isConsorcioEletricosArticle ? "Planeje sua mudança para a mobilidade elétrica" : isCartaContempladaArticle ? "Planeje sua conquista com mais segurança" : isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-                {isConsorcioEletricosArticle
+                {isConsorcioEnergiaSolarArticle
+                  ? "Informe o orçamento do projeto, a conta de luz e quanto pode pagar por mês. Compare custos, reajustes e regras, sem promessa de contemplação."
+                  : isConsorcioEletricosArticle
                   ? "Informe o modelo, o crédito desejado e quando pretende trocar de carro. Compare custos, reajustes e regras, sem promessa de contemplação."
                   : isCartaContempladaArticle
                   ? "Compare crédito líquido, custos e regras das administradoras. Atendimento nacional, sem promessa de contemplação ou liberação imediata."

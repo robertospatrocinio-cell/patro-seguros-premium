@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "consorcio-de-energia-solar-instalar-placas-sem-juros",
+    title: "Consórcio de Energia Solar: como instalar placas fotovoltaicas sem pagar juros de financiamento",
+    seoTitle: "Consórcio de Energia Solar: Como Instalar Placas Sem Juros",
+    excerpt: "Saiba como instalar energia solar sem pagar juros de financiamento bancário. Compare consórcio vs. CDC solar, veja prazos e reduza sua conta de luz em até 90%.",
+    category: "Consórcio",
+    tags: ["consórcio de energia solar", "consórcio para placas fotovoltaicas", "financiar energia solar ou consórcio", "consórcio de serviços energia solar", "instalar energia solar sem juros"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento",
     title: "Consórcio para Carro Elétrico ou Híbrido: vale mais a pena que o financiamento das montadoras?",
     seoTitle: "Consórcio para Carro Elétrico ou Híbrido: Vale Mais a Pena?",
