@@ -28,6 +28,7 @@ import { estudoOriginalContent } from "@/data/blogEstudoOriginalContent";
 import { ezzeArticlesContent } from "@/data/blogEzzeContent";
 import { corretoraArticlesContent } from "@/data/blogCorretoraContent";
 import { consorcioAgroArticle, consorcioAgroContent } from "@/data/blogConsorcioAgro";
+import { consorcioCaminhoesArticle, consorcioCaminhoesContent } from "@/data/blogConsorcioCaminhoes";
 
 export type BlogArticleContent = {
   title: string;
@@ -60,6 +61,7 @@ export const blogContentIndex: Record<string, BlogArticleContent> = {
   ...(ezzeArticlesContent as Record<string, BlogArticleContent>),
   ...(corretoraArticlesContent as Record<string, BlogArticleContent>),
   [consorcioAgroArticle.slug]: consorcioAgroContent,
+  [consorcioCaminhoesArticle.slug]: consorcioCaminhoesContent,
 };
 
 export const blogContentSlugs: string[] = Object.keys(blogContentIndex);

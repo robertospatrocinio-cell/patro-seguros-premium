@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "consorcio-de-caminhoes-como-renovar-frota-sem-juros",
+    title: "Consórcio de Caminhões: como renovar sua frota sem pagar juros bancários",
+    seoTitle: "Consórcio de Caminhões: Como Renovar Sua Frota Sem Juros",
+    excerpt: "Saiba como renovar caminhões e implementos rodoviários sem juros bancários. Compare consórcio vs. CDC, use seu caminhão usado como lance e simule planos.",
+    category: "Consórcio",
+    tags: ["consórcio de caminhões", "renovar frota de caminhões sem juros", "consórcio pesados e implementos", "consórcio de caminhão usado", "financiamento de caminhão ou consórcio"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "consorcio-maquinas-agricolas-vale-a-pena-finame-credito-rural",
     title: "Consórcio de Máquinas Agrícolas vale a pena? Compare com Finame e Crédito Rural",
     seoTitle: "Consórcio de Máquinas Agrícolas Vale a Pena? Compare Finame e CDC",
