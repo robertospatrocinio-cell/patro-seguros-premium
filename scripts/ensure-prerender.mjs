@@ -101,7 +101,7 @@ function missingArtifacts() {
 
     const homeTypes = getJsonLdTypes(file);
     const requiredTypes = route === "/" ? REQUIRED_HOME_TYPES
-      : route === "/consorcio" ? ["InsuranceAgency", "Service", "FAQPage"]
+      : route === "/consorcio" ? ["InsuranceAgency", "FinancialProduct", "FAQPage"]
       : route === "/consorcio-servicos" ? ["InsuranceAgency", "FinancialProduct", "FAQPage"] : ["InsuranceAgency"];
     if (route === "/consorcio-servicos") {
       const html = fs.readFileSync(file, "utf-8");

@@ -119,7 +119,11 @@ async function run() {
     process.exit(1);
   }
 
-  const indexContent = fs.readFileSync(INDEX_HTML, "utf-8");
+  // Keep a pristine copy of Vite's index.html: "/" overwrites it below, and a
+  // re-run (ensure-prerender retry) must not inherit the home page content.
+  const TEMPLATE_HTML = path.join(DIST, ".index.template.html");
+  if (!fs.existsSync(TEMPLATE_HTML)) fs.copyFileSync(INDEX_HTML, TEMPLATE_HTML);
+  const indexContent = fs.readFileSync(TEMPLATE_HTML, "utf-8");
 
   const { getMetadataForRoute } = await loadDataModule("src/lib/seoMetadata.ts");
   const { getGeneratedOgImage } = await loadDataModule("src/data/generatedOgImages.ts");
@@ -133,7 +137,7 @@ async function run() {
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
   const { getConsorcioStaticContent } = await loadDataModule("src/data/consorcioHubSeo.ts");
-  const { consorcioFaqs, consorcioServiceSchema } = await loadDataModule("src/data/consorcioHub.ts");
+  const { consorcioFaqs, consorcioSchema } = await loadDataModule("src/data/consorcioHub.ts");
   FULL_SEO_CONTENT["/consorcio"] = getConsorcioStaticContent();
   PAGE_FAQS["/consorcio"] = consorcioFaqs;
   const { CONSORCIO_NATIONAL_PAGES, getConsorcioNationalStaticContent } = await loadDataModule("src/data/consorcioNacional.ts");
@@ -402,7 +406,7 @@ async function run() {
     }
 
     if (route === "/consorcio") {
-      const serviceScript = `<script type="application/ld+json" data-consorcio-service="1">${JSON.stringify(consorcioServiceSchema).replace(/</g, "\\u003c")}</script>`;
+      const serviceScript = `<script type="application/ld+json" data-consorcio-service="1">${JSON.stringify(consorcioSchema).replace(/</g, "\\u003c")}</script>`;
       html = html.replace("</head>", `${serviceScript}\n</head>`);
     }
 
