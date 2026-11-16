@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "consorcio-linha-amarela-escavadeiras-retroescavadeiras",
+    title: "Consórcio Linha Amarela: como comprar escavadeiras e retroescavadeiras sem descapitalizar",
+    seoTitle: "Consórcio Linha Amarela: Comprar Escavadeiras Sem Descapitalizar",
+    excerpt: "Saiba como comprar escavadeiras, retroescavadeiras e pás carregadeiras sem juros e sem travar seu limite bancário. Compare consórcio vs. CDC/Finame e simule!",
+    category: "Consórcio",
+    tags: ["consórcio linha amarela", "consórcio de escavadeiras", "consórcio de retroescavadeira", "consórcio máquinas pesadas construção", "comprar pá carregadeira sem juros"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "consorcio-de-energia-solar-instalar-placas-sem-juros",
     title: "Consórcio de Energia Solar: como instalar placas fotovoltaicas sem pagar juros de financiamento",
     seoTitle: "Consórcio de Energia Solar: Como Instalar Placas Sem Juros",
