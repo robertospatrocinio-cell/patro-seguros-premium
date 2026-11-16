@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "carta-de-credito-contemplada-riscos-como-fugir-de-golpes",
+    title: "Carta de Crédito Contemplada: quais os riscos de comprar de terceiros e como fugir de golpes",
+    seoTitle: "Carta de Crédito Contemplada: Riscos e Como Fugir de Golpes",
+    excerpt: "Vai comprar carta de crédito contemplada de terceiros? Conheça os 5 principais golpes do mercado, saiba como validar no Banco Central e veja alternativas seguras.",
+    category: "Consórcio",
+    tags: ["carta de crédito contemplada riscos", "comprar carta contemplada é seguro", "golpe da carta de crédito contemplada", "como verificar carta contemplada", "consórcio contemplado vale a pena"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "investir-em-imoveis-com-consorcio-aluguel-paga-parcela",
     title: "Investir em imóveis com consórcio: como usar a renda do aluguel para pagar a parcela",
     seoTitle: "Investir em Imóveis com Consórcio: O Aluguel Paga a Parcela?",

@@ -68,16 +68,25 @@ const BlogArticle = () => {
   const isConsorcioAgroArticle = slug === "consorcio-maquinas-agricolas-vale-a-pena-finame-credito-rural";
   const isConsorcioCaminhoesArticle = slug === "consorcio-de-caminhoes-como-renovar-frota-sem-juros";
   const isConsorcioPesadosArticle = isConsorcioAgroArticle || isConsorcioCaminhoesArticle;
+  const isCartaContempladaArticle = slug === "carta-de-credito-contemplada-riscos-como-fugir-de-golpes";
+  const isConsorcioArticle = isConsorcioPesadosArticle || isCartaContempladaArticle;
   const insuranceType = isConsorcioCaminhoesArticle ? "Consórcio de caminhões" : isConsorcioAgroArticle ? "Consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = isConsorcioPesadosArticle
-    ? "/consorcio-pesados-maquinas"
-    : slug === "investir-em-imoveis-com-consorcio-aluguel-paga-parcela"
-      ? "/consorcio-imoveis"
-      : isTractorPricingArticle
-        ? "/seguro-trator-agricola#solicitar-cotacao"
-        : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
+  const quoteHref = isCartaContempladaArticle
+    ? "/consorcio#comparar"
+    : isConsorcioPesadosArticle
+      ? "/consorcio-pesados-maquinas"
+      : slug === "investir-em-imoveis-com-consorcio-aluguel-paga-parcela"
+        ? "/consorcio-imoveis"
+        : isTractorPricingArticle
+          ? "/seguro-trator-agricola#solicitar-cotacao"
+          : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
+  const comparisonCaption = isCartaContempladaArticle
+    ? "Carta contemplada de terceiros e grupo com planejamento de lance: custos e riscos"
+    : isConsorcioCaminhoesArticle
+      ? "Consórcio de caminhões e CDC: critérios para comparar propostas"
+      : "Consórcio, Finame e CDC: critérios para comparar propostas";
 
   return (
     <>
@@ -217,8 +226,8 @@ const BlogArticle = () => {
             {/* CTA persistente — TOPO do post */}
             <div className="mb-10 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/5 flex flex-col sm:flex-row items-center gap-4">
               <div className="flex-1 text-center sm:text-left">
-                <p className="text-sm font-semibold text-primary mb-1">{isConsorcioCaminhoesArticle ? "Planeje a renovação da sua frota" : isConsorcioAgroArticle ? "Planeje a próxima máquina da sua fazenda" : isTractorPricingArticle ? "Cotação de trator com atendimento nacional" : "Cotação rápida em Guarulhos"}</p>
-                <p className="text-xs text-muted-foreground text-balance">{isConsorcioPesadosArticle ? "Compare custos, crédito líquido e regras de contemplação. Atendimento nacional, sem promessa de prazo." : isTractorPricingArticle ? "Informe sua máquina e a operação para comparar as condições disponíveis." : <>Compare {insuranceType} em 16 seguradoras. Retorno em até 2h úteis.</>}</p>
+                <p className="text-sm font-semibold text-primary mb-1">{isCartaContempladaArticle ? "Compare alternativas antes de comprometer suas economias" : isConsorcioCaminhoesArticle ? "Planeje a renovação da sua frota" : isConsorcioAgroArticle ? "Planeje a próxima máquina da sua fazenda" : isTractorPricingArticle ? "Cotação de trator com atendimento nacional" : "Cotação rápida em Guarulhos"}</p>
+                <p className="text-xs text-muted-foreground text-balance">{isConsorcioArticle ? "Compare custos, crédito líquido e regras de contemplação. Atendimento nacional, sem promessa de prazo." : isTractorPricingArticle ? "Informe sua máquina e a operação para comparar as condições disponíveis." : <>Compare {insuranceType} em 16 seguradoras. Retorno em até 2h úteis.</>}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
                 <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("blog-article-top")}
@@ -230,10 +239,10 @@ const BlogArticle = () => {
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-top")}
-                  aria-label={isConsorcioPesadosArticle ? `Simular ${insuranceType} — abrir página de simulação` : `Pedir cotação de ${insuranceType} — abrir formulário`}
+                  aria-label={isConsorcioArticle ? `Simular ${insuranceType} — abrir página de simulação` : `Pedir cotação de ${insuranceType} — abrir formulário`}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs font-bold hover:opacity-90 transition-opacity whitespace-nowrap"
                 >
-                  {isConsorcioPesadosArticle ? "Simular Consórcio" : "Pedir Cotação"} <ArrowRight className="h-4 w-4" />
+                  {isConsorcioArticle ? "Simular Consórcio" : "Pedir Cotação"} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -357,12 +366,12 @@ const BlogArticle = () => {
                     : <h3 key={i} className="mt-6 mb-3">{renderInline(heading[2])}</h3>;
                 }
                 const lines = p.trim().split("\n");
-                if (isConsorcioPesadosArticle && lines.length > 2 && lines.every(line => line.startsWith("|"))) {
+                if (isConsorcioArticle && lines.length > 2 && lines.every(line => line.startsWith("|"))) {
                   const cells = (line: string) => line.split("|").slice(1, -1).map(cell => cell.trim());
                   return (
-                    <div key={i} className="my-8 overflow-x-auto rounded-lg border border-border" role="region" aria-label={isConsorcioCaminhoesArticle ? "Comparativo entre consórcio de caminhões e CDC" : "Comparativo entre consórcio, Finame e CDC"} tabIndex={0}>
+                    <div key={i} className="my-8 overflow-x-auto rounded-lg border border-border" role="region" aria-label={comparisonCaption} tabIndex={0}>
                       <table className="w-full min-w-[680px] text-sm text-left">
-                        <caption className="p-4 text-left font-semibold">{isConsorcioCaminhoesArticle ? "Consórcio de caminhões e CDC: critérios para comparar propostas" : "Consórcio, Finame e CDC: critérios para comparar propostas"}</caption>
+                        <caption className="p-4 text-left font-semibold">{comparisonCaption}</caption>
                         <thead className="bg-muted"><tr>{cells(lines[0]).map((cell, j) => <th key={j} scope="col" className="p-3 align-top">{renderInline(cell)}</th>)}</tr></thead>
                         <tbody>{lines.slice(2).map((line, row) => <tr key={row} className="border-t border-border">{cells(line).map((cell, col) => col === 0 ? <th key={col} scope="row" className="p-3 align-top font-semibold">{renderInline(cell)}</th> : <td key={col} className="p-3 align-top text-muted-foreground">{renderInline(cell)}</td>)}</tr>)}</tbody>
                       </table>
@@ -382,8 +391,8 @@ const BlogArticle = () => {
                           quoteHref={quoteHref}
                           whatsappUrl={whatsappUrl}
                           source={`blog-article-mid-${slug || "unknown"}`}
-                          headline={isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
-                          subline={isConsorcioPesadosArticle ? "Compare custos, regras de lance e crédito líquido disponível para comprar. Sem garantia de contemplação." : isTractorPricingArticle ? "Confira coberturas, franquias, implementos e transporte conforme a sua operação. Atendimento comercial nacional." : undefined}
+                          headline={isCartaContempladaArticle ? "Planeje sua compra com informação e cautela" : isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
+                          subline={isConsorcioArticle ? "Compare custos, regras de lance e crédito líquido disponível para comprar. Sem garantia de contemplação." : isTractorPricingArticle ? "Confira coberturas, franquias, implementos e transporte conforme a sua operação. Atendimento comercial nacional." : undefined}
                           variant="soft"
                         />
                       </Fragment>
@@ -394,7 +403,7 @@ const BlogArticle = () => {
               })()}
 
               {/* Novo bloco de CTA no meio do conteúdo (dinâmico) */}
-              {!isConsorcioPesadosArticle && <div className="my-12 p-8 rounded-2xl bg-slate-900 text-white shadow-2xl relative overflow-hidden group">
+              {!isConsorcioArticle && <div className="my-12 p-8 rounded-2xl bg-slate-900 text-white shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-primary/30 transition-colors" />
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-1 text-center md:text-left text-balance">
@@ -775,7 +784,7 @@ const BlogArticle = () => {
             )}
 
              {/* Inline Form CTA */}
-             {!isTractorPricingArticle && !isConsorcioPesadosArticle && (
+             {!isTractorPricingArticle && !isConsorcioArticle && (
                <Suspense fallback={null}>
                 <BlogFormCTA
                   title="Compare preços em 16+ seguradoras agora"
@@ -786,9 +795,11 @@ const BlogArticle = () => {
  
              {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isCartaContempladaArticle ? "Planeje sua conquista com mais segurança" : isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-                {isConsorcioCaminhoesArticle
+                {isCartaContempladaArticle
+                  ? "Compare crédito líquido, custos e regras das administradoras. Atendimento nacional, sem promessa de contemplação ou liberação imediata."
+                  : isConsorcioCaminhoesArticle
                   ? "Informe o caminhão ou implemento, o investimento previsto e quando pretende renovar. Compare custos e regras, sem garantia de contemplação."
                   : isConsorcioAgroArticle
                   ? "Informe a máquina, o investimento previsto e o prazo desejado para comparar condições. Contemplação e liberação seguem as regras da administradora."
@@ -806,18 +817,18 @@ const BlogArticle = () => {
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}
-                  aria-label={isConsorcioPesadosArticle ? `Simular ${insuranceType} — abrir página de simulação` : `Pedir cotação de ${insuranceType} — abrir formulário`}
+                  aria-label={isConsorcioArticle ? `Simular ${insuranceType} — abrir página de simulação` : `Pedir cotação de ${insuranceType} — abrir formulário`}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
                 >
-                  {isConsorcioPesadosArticle ? "Simular Consórcio" : "Pedir Cotação"} <ArrowRight className="h-5 w-5" />
+                  {isConsorcioArticle ? "Simular Consórcio" : "Pedir Cotação"} <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
                <p className="text-xs text-primary-foreground/60 mt-4">Seg. a sex., 8h30 às 18h. Sem compromisso de contratação.</p>
                <div className="mt-8 pt-6 border-t border-white/10">
-                 <p className="text-sm text-white/70 mb-4">{isConsorcioPesadosArticle ? "Conheça as modalidades para seu planejamento:" : isTractorPricingArticle ? "Confira como funciona a proteção da máquina e do financiamento:" : "A Patro Seguros é a autoridade máxima em seguros na região. Conheça nosso:"}</p>
-                 <Link to={isConsorcioPesadosArticle ? "/consorcio" : isTractorPricingArticle ? "/seguro-trator-agricola" : "/seguros-em-guarulhos"}>
+                 <p className="text-sm text-white/70 mb-4">{isConsorcioArticle ? "Conheça as modalidades para seu planejamento:" : isTractorPricingArticle ? "Confira como funciona a proteção da máquina e do financiamento:" : "A Patro Seguros é a autoridade máxima em seguros na região. Conheça nosso:"}</p>
+                 <Link to={isConsorcioArticle ? "/consorcio" : isTractorPricingArticle ? "/seguro-trator-agricola" : "/seguros-em-guarulhos"}>
                    <Button variant="secondary" className="w-full sm:w-auto rounded-xl">
-                     {isConsorcioPesadosArticle ? "Conhecer as modalidades de consórcio" : isTractorPricingArticle ? "Conhecer o seguro de trator agrícola" : "Guia Completo de Seguros em Guarulhos"}
+                     {isConsorcioArticle ? "Conhecer as modalidades de consórcio" : isTractorPricingArticle ? "Conhecer o seguro de trator agrícola" : "Guia Completo de Seguros em Guarulhos"}
                      <ArrowRight className="ml-2 h-4 w-4" />
                    </Button>
                  </Link>
@@ -866,7 +877,7 @@ const BlogArticle = () => {
        <StickyQuoteBar 
          source={`blog:${slug}`} 
          quoteHref={quoteHref}
-         ctaLabel={isConsorcioPesadosArticle ? "Simular Consórcio" : "Pedir Cotação"}
+         ctaLabel={isConsorcioArticle ? "Simular Consórcio" : "Pedir Cotação"}
          whatsappMessage={whatsappMessage}
        />
 
