@@ -1,4 +1,5 @@
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
+import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
@@ -707,6 +708,20 @@ function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
 
 function getMetadataForRouteInternal(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
+  const consortium = CONSORCIO_NATIONAL_PAGES.find(page => page.path === cleanPath);
+  if (consortium) {
+    const url = `${DOMAIN}${cleanPath}`;
+    return {
+      title: consortium.title, description: consortium.metaDescription,
+      h1: consortium.h1, canonical: url, ogUrl: url, ogType: "website",
+      schema: {
+        "@context": "https://schema.org", "@type": "Service", "@id": `${url}#service`,
+        url, name: consortium.h1, description: consortium.metaDescription, serviceType: "Consórcio",
+        provider: { "@type": "InsuranceAgency", "@id": `${DOMAIN}/#insurance-agency` },
+        areaServed: [{ "@type": "Country", name: "Brasil" }],
+      },
+    };
+  }
   const droneMetadata = getDroneSeo(cleanPath);
   if (droneMetadata) return droneMetadata;
   let slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;

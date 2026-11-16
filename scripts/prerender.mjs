@@ -99,7 +99,7 @@ function buildSeoBlock(route, metadata) {
 
   const h1 = content.h1 || metadata.title;
   // O hub nacional é visível sem JS e preservado pelo shell de src/main.tsx.
-  if (route === "/consorcio") {
+  if (["/consorcio", "/consorcio-imoveis", "/consorcio-veiculos", "/consorcio-pesados-maquinas", "/consorcio-servicos"].includes(route)) {
     return `<main id="consorcio-static-content" style="max-width:76rem;margin:0 auto;padding:2rem 1rem;line-height:1.7;overflow-wrap:anywhere"><h1>${escapeHtml(h1)}</h1>${content.body}</main>`;
   }
   // Nas páginas agrícolas, mantém a leitura também antes de o JavaScript iniciar.
@@ -136,6 +136,11 @@ async function run() {
   const { consorcioFaqs, consorcioServiceSchema } = await loadDataModule("src/data/consorcioHub.ts");
   FULL_SEO_CONTENT["/consorcio"] = getConsorcioStaticContent();
   PAGE_FAQS["/consorcio"] = consorcioFaqs;
+  const { CONSORCIO_NATIONAL_PAGES, getConsorcioNationalStaticContent } = await loadDataModule("src/data/consorcioNacional.ts");
+  for (const page of CONSORCIO_NATIONAL_PAGES) {
+    FULL_SEO_CONTENT[page.path] = getConsorcioNationalStaticContent(page);
+    PAGE_FAQS[page.path] = page.faqs.map(faq => ({ q: faq.question, a: faq.answer }));
+  }
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
   const REGIONAL = await loadDataModule("src/data/segurosSaoPauloRegional.ts");
   const { dronePublicPaths, getDroneStaticContent } = await loadDataModule("src/data/droneAgricolaSeo.ts");

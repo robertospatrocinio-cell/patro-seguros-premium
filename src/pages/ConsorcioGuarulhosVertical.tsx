@@ -1,37 +1,18 @@
-import React from "react";
-import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { useLocation, Navigate } from "react-router-dom";
+import ConsorcioIntentPageTemplate from "@/components/consorcio/ConsorcioIntentPageTemplate";
+import ConsorcioNationalPage from "@/components/consorcio/ConsorcioNationalPage";
 import { CONSORCIO_INTENT_PAGES } from "@/data/consorcioVertical";
-import { useParams, Navigate } from "react-router-dom";
+import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
 
 const ConsorcioGuarulhosVertical = () => {
-  const { slug } = useParams();
-  const page = CONSORCIO_INTENT_PAGES.find(p => p.slug === slug);
-
-  if (!page) {
-    return <Navigate to="/consorcio" replace />;
-  }
-
-  return (
-    <InsurancePageTemplate
-      title={page.title}
-      headline={page.h1}
-      subtitle={page.subtitle}
-      description={page.intro}
-      metaDescription={page.metaDescription}
-      icon="Award"
-      coverages={page.bullets.map(b => ({ title: b, description: "" }))}
-      whoNeeds={page.audience}
-      whyPatro={[
-        "Consultoria imparcial entre diversas administradoras",
-        "Estratégias de lance baseadas em dados reais",
-        "Atendimento local em Guarulhos/SP",
-        "Acompanhamento desde a adesão até a contemplação"
-      ]}
-      faqs={page.faqs}
-      detailedDescription={page.sections.map(s => `### ${s.heading}\n\n${s.body}`).join("\n\n")}
-      localSeo={{ city: "Guarulhos", neighborhood: "Cidade Maia" }}
-    />
-  );
+  // As rotas são explícitas: não existe um parâmetro :slug nelas.
+  const { pathname } = useLocation();
+  const path = pathname.replace(/\/$/, "");
+  const national = CONSORCIO_NATIONAL_PAGES.find(page => page.path === path);
+  if (national) return <ConsorcioNationalPage page={national} />;
+  const local = CONSORCIO_INTENT_PAGES.find(page => page.path === path);
+  if (!local) return <Navigate to="/consorcio" replace />;
+  return <ConsorcioIntentPageTemplate page={local} />;
 };
 
 export default ConsorcioGuarulhosVertical;

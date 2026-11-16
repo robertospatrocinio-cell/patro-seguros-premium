@@ -223,8 +223,8 @@ const tertiaryProducts: SitemapEntry[] = [
   "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
   "/seguro-rc-engenheiros", "/seguro-rc-veterinarios", "/seguro-rc-executivos",
   "/seguro-rc-obras", "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
-  "/plano-pet", "/servicos", "/todos-os-seguros", "/consorcio-carro", "/consorcio-imoveis",
-  "/consorcio-veiculos-pesados",
+  "/plano-pet", "/servicos", "/todos-os-seguros", "/consorcio-veiculos", "/consorcio-imoveis",
+  "/consorcio-pesados-maquinas", "/consorcio-servicos",
 ].map(loc => ({ loc, priority: "0.6", changefreq: "monthly" }));
 
 const nichos: SitemapEntry[] = [

@@ -916,9 +916,12 @@ const App = () => {
                   <Route path="/consorcio-caminhoes-guarulhos" element={<ConsorcioGuarulhosVertical />} />
                   <Route path="/consorcio-empresarial-guarulhos" element={<ConsorcioGuarulhosVertical />} />
                   
-                  <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
-                  <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
-                  <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
+                  <Route path="/consorcio-carro" element={<Navigate to="/consorcio-veiculos" replace />} />
+                  <Route path="/consorcio-veiculos-pesados" element={<Navigate to="/consorcio-pesados-maquinas" replace />} />
+                  <Route path="/consorcio-imoveis" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-veiculos" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-pesados-maquinas" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-servicos" element={<ConsorcioGuarulhosVertical />} />
                   <Route path="/ebook-consorcio" element={<EbookConsorcio />} />
                   {/* RC */}
                   <Route path="/seguro-rc-medicos" element={<SeguroRCMedicos />} />

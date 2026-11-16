@@ -96,6 +96,8 @@ Na Patro Seguros, somos especialistas em máquinas e equipamentos, com parcerias
         { question: "Preciso fazer manutenção preventiva?", answer: "Sim! A falta de manutenção pode ser motivo de perda de cobertura." },
       ]}
       relatedInsurances={[
+        { title: "Consórcio de Pesados e Máquinas Agrícolas", link: "/consorcio-pesados-maquinas" },
+        { title: "Planejamento de Consórcio", link: "/consorcio" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro Rural", link: "/seguro-rural" },
         { title: "Seguro Engenharia", link: "/seguro-engenharia" },

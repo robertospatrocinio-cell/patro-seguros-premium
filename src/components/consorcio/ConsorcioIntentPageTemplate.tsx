@@ -98,6 +98,15 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
         <section className="py-14">
           <div className="container mx-auto px-4 max-w-4xl">
             <p className="text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              Nosso atendimento em Guarulhos faz parte da consultoria nacional da Patro. No <Link to="/consorcio" className="font-semibold text-primary underline">hub principal de consórcio</Link>, compare modalidades, custos e estratégias de lance no simulador de planejamento.
+            </p>
+            <nav aria-label="Modalidades nacionais de consórcio" className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+              <Link to="/consorcio-imoveis" className="inline-flex min-h-11 items-center text-primary underline">Imóveis e FGTS</Link>
+              <Link to="/consorcio-veiculos" className="inline-flex min-h-11 items-center text-primary underline">Veículos, elétricos e motos</Link>
+              <Link to="/consorcio-pesados-maquinas" className="inline-flex min-h-11 items-center text-primary underline">Pesados e máquinas agrícolas</Link>
+              <Link to="/consorcio-servicos" className="inline-flex min-h-11 items-center text-primary underline">Serviços e projetos</Link>
+            </nav>
           </div>
         </section>
 

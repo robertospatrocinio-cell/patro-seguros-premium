@@ -35,6 +35,10 @@ export interface GoneRule {
  * 301 exatos — conteúdo com substituto semanticamente equivalente.
  */
 export const EXACT_REDIRECTS: RedirectRule[] = [
+  { from: "/consorcio-carro", to: "/consorcio-veiculos", reason: "Consolida carros, motos e elétricos na modalidade nacional de veículos." },
+  { from: "/consorcio-veiculos-pesados", to: "/consorcio-pesados-maquinas", reason: "Consolida pesados, implementos e máquinas agrícolas na modalidade nacional." },
+  { from: "/seguro-agronegocio", to: "/seguro-agro", reason: "Preserva o endereço canônico existente do seguro de agronegócio." },
+  { from: "/seguro-maquinas-equipamentos", to: "/seguro-maquinas", reason: "Preserva o endereço canônico existente do seguro de máquinas e equipamentos." },
   {
     from: "/seguro-drone",
     to: "/seguro-drone-agricola",

@@ -28,6 +28,10 @@ const REQUIRED_ROUTES = [
   "/seguro-empresarial-guarulhos",
   "/consorcio-guarulhos",
   "/consorcio",
+  "/consorcio-imoveis",
+  "/consorcio-veiculos",
+  "/consorcio-pesados-maquinas",
+  "/consorcio-servicos",
 ];
 
 // Rotas legadas que existem apenas como redirect no React Router não geram
