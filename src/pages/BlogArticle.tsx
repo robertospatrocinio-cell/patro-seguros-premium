@@ -73,11 +73,14 @@ const BlogArticle = () => {
   const isConsorcioEletricosArticle = slug === "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento";
   const isConsorcioEnergiaSolarArticle = slug === "consorcio-de-energia-solar-instalar-placas-sem-juros";
   const isConsorcioQuitacaoImobiliariaArticle = slug === "usar-consorcio-para-quitar-financiamento-imobiliario-interveniencia-quitante";
-  const isConsorcioArticle = isConsorcioPesadosArticle || isCartaContempladaArticle || isConsorcioEletricosArticle || isConsorcioEnergiaSolarArticle || isConsorcioQuitacaoImobiliariaArticle;
-  const insuranceType = isConsorcioQuitacaoImobiliariaArticle ? "Consórcio para quitação de financiamento imobiliário" : isConsorcioLinhaAmarelaArticle ? "Consórcio linha amarela" : isConsorcioEnergiaSolarArticle ? "Consórcio de energia solar" : isConsorcioEletricosArticle ? "Consórcio de carros elétricos e híbridos" : isConsorcioCaminhoesArticle ? "Consórcio de caminhões" : isConsorcioAgroArticle ? "Consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
+  const isConsorcioTaxaArticle = slug === "taxa-de-administracao-no-consorcio-como-calcular-custo-real";
+  const isConsorcioArticle = isConsorcioPesadosArticle || isCartaContempladaArticle || isConsorcioEletricosArticle || isConsorcioEnergiaSolarArticle || isConsorcioQuitacaoImobiliariaArticle || isConsorcioTaxaArticle;
+  const insuranceType = isConsorcioTaxaArticle ? "Consórcio Planejado" : isConsorcioQuitacaoImobiliariaArticle ? "Consórcio para quitação de financiamento imobiliário" : isConsorcioLinhaAmarelaArticle ? "Consórcio linha amarela" : isConsorcioEnergiaSolarArticle ? "Consórcio de energia solar" : isConsorcioEletricosArticle ? "Consórcio de carros elétricos e híbridos" : isConsorcioCaminhoesArticle ? "Consórcio de caminhões" : isConsorcioAgroArticle ? "Consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Seguro de trator agrícola" : meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = isConsorcioQuitacaoImobiliariaArticle
+  const quoteHref = isConsorcioTaxaArticle
+    ? "/consorcio#comparar"
+    : isConsorcioQuitacaoImobiliariaArticle
     ? "/consorcio-imoveis"
     : isConsorcioEnergiaSolarArticle
     ? "/consorcio-servicos"
@@ -92,7 +95,9 @@ const BlogArticle = () => {
         : isTractorPricingArticle
           ? "/seguro-trator-agricola#solicitar-cotacao"
           : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
-  const comparisonCaption = isConsorcioQuitacaoImobiliariaArticle
+  const comparisonCaption = isConsorcioTaxaArticle
+    ? "Taxa de administração e juros: comparação didática sem reajustes ou outros custos"
+    : isConsorcioQuitacaoImobiliariaArticle
     ? "Quitar financiamento com consórcio: exemplo didático e custos a comparar"
     : isConsorcioLinhaAmarelaArticle
     ? "Consórcio linha amarela, CDC e Finame: critérios para comparar propostas"
@@ -399,7 +404,7 @@ const BlogArticle = () => {
                 if (lines.every(line => line.startsWith("- "))) {
                   return <ul key={i} className="list-disc pl-6 mb-6 space-y-2 text-muted-foreground">{lines.map((line, j) => <li key={j}>{renderInline(line.slice(2))}</li>)}</ul>;
                 }
-                if (isConsorcioQuitacaoImobiliariaArticle && lines.every(line => /^\d+\.\s/.test(line))) {
+                if ((isConsorcioQuitacaoImobiliariaArticle || isConsorcioTaxaArticle) && lines.every(line => /^\d+\.\s/.test(line))) {
                   return <ol key={i} className="list-decimal pl-6 mb-6 space-y-2 text-muted-foreground">{lines.map((line, j) => <li key={j}>{renderInline(line.replace(/^\d+\.\s+/, ""))}</li>)}</ol>;
                 }
                 return <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">{renderInline(p)}</p>;
@@ -412,7 +417,7 @@ const BlogArticle = () => {
                           quoteHref={quoteHref}
                           whatsappUrl={whatsappUrl}
                           source={`blog-article-mid-${slug || "unknown"}`}
-                          headline={isConsorcioQuitacaoImobiliariaArticle ? "Compare a quitação do seu financiamento com consórcio" : isConsorcioLinhaAmarelaArticle ? "Compare planos para escavadeiras e retroescavadeiras" : isConsorcioEnergiaSolarArticle ? "Compare planos para seu projeto de energia solar" : isConsorcioEletricosArticle ? "Compare consórcio e financiamento para seu próximo carro" : isCartaContempladaArticle ? "Planeje sua compra com informação e cautela" : isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
+                          headline={isConsorcioTaxaArticle ? "Compare o custo total do seu consórcio" : isConsorcioQuitacaoImobiliariaArticle ? "Compare a quitação do seu financiamento com consórcio" : isConsorcioLinhaAmarelaArticle ? "Compare planos para escavadeiras e retroescavadeiras" : isConsorcioEnergiaSolarArticle ? "Compare planos para seu projeto de energia solar" : isConsorcioEletricosArticle ? "Compare consórcio e financiamento para seu próximo carro" : isCartaContempladaArticle ? "Planeje sua compra com informação e cautela" : isConsorcioCaminhoesArticle ? "Planeje seu consórcio de caminhões e implementos" : isConsorcioAgroArticle ? "Planeje seu consórcio de máquinas agrícolas" : isTractorPricingArticle ? "Compare as condições para o seu trator" : undefined}
                           subline={isConsorcioQuitacaoImobiliariaArticle ? "Avalie saldo devedor, crédito líquido e todos os custos. Sem garantia de economia ou contemplação." : isConsorcioArticle ? "Compare custos, regras de lance e crédito líquido disponível para comprar. Sem garantia de contemplação." : isTractorPricingArticle ? "Confira coberturas, franquias, implementos e transporte conforme a sua operação. Atendimento comercial nacional." : undefined}
                           variant="soft"
                         />
@@ -816,9 +821,11 @@ const BlogArticle = () => {
  
              {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isConsorcioLinhaAmarelaArticle ? "Planeje a expansão do seu parque de máquinas" : isConsorcioEnergiaSolarArticle ? "Planeje a instalação da sua energia solar" : isConsorcioEletricosArticle ? "Planeje sua mudança para a mobilidade elétrica" : isCartaContempladaArticle ? "Planeje sua conquista com mais segurança" : isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">{isConsorcioTaxaArticle ? "Compare taxas e custos antes de contratar" : isConsorcioLinhaAmarelaArticle ? "Planeje a expansão do seu parque de máquinas" : isConsorcioEnergiaSolarArticle ? "Planeje a instalação da sua energia solar" : isConsorcioEletricosArticle ? "Planeje sua mudança para a mobilidade elétrica" : isCartaContempladaArticle ? "Planeje sua conquista com mais segurança" : isConsorcioCaminhoesArticle ? "Planeje a renovação dos seus caminhões" : isConsorcioAgroArticle ? "Planeje a renovação das máquinas da sua fazenda" : "Pronto para uma cotação personalizada?"}</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-                {isConsorcioLinhaAmarelaArticle
+                {isConsorcioTaxaArticle
+                  ? "Confira administração, reserva, seguros, reajustes e o fluxo de pagamentos. Atendimento nacional, sem promessa de economia ou contemplação."
+                  : isConsorcioLinhaAmarelaArticle
                   ? "Informe a máquina, o investimento previsto e o prazo da obra. Compare custos, crédito líquido e regras, sem garantia de contemplação."
                   : isConsorcioEnergiaSolarArticle
                   ? "Informe o orçamento do projeto, a conta de luz e quanto pode pagar por mês. Compare custos, reajustes e regras, sem promessa de contemplação."

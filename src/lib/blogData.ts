@@ -12,6 +12,7 @@ import { autoArticles } from "@/data/blogAutoData";
 import { calendar90dArticles } from "@/data/blogCalendar90dData";
 import { fase5LocalArticles } from "@/data/blogFase5LocalData";
 import { consorcioQuitacaoImobiliariaArticle } from "@/data/blogConsorcioQuitacaoImobiliaria";
+import { consorcioTaxaAdministracaoArticle } from "@/data/blogConsorcioTaxaAdministracao";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -28,6 +29,7 @@ export interface BlogArticleMeta {
 }
 
 export const articles: BlogArticleMeta[] = [
+  consorcioTaxaAdministracaoArticle,
   consorcioQuitacaoImobiliariaArticle,
   {
     slug: "consorcio-linha-amarela-escavadeiras-retroescavadeiras",
