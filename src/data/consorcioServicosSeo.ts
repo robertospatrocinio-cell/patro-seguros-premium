@@ -12,16 +12,39 @@ export const consorcioServicosModalities = [
   { href: "/consorcio-veiculos", label: "Consórcio de Veículos" },
   { href: "/consorcio-pesados-maquinas", label: "Consórcio de Pesados e Máquinas" },
 ];
-export const consorcioServicosSchema = {
-  "@context": "https://schema.org",
+const url = `${EMPRESA.dominioCanonico}${copy.path}`;
+export const consorcioServicosFinancialProductSchema = {
   "@type": "FinancialProduct",
-  "@id": `${EMPRESA.dominioCanonico}${copy.path}#financial-product`,
+  "@id": `${url}#financial-product`,
   name: "Consórcio de Serviços",
   description: copy.description,
-  url: `${EMPRESA.dominioCanonico}${copy.path}`,
-  areaServed: "BR",
+  url,
+  category: "Consórcio de Serviços",
+  areaServed: { "@type": "Country", name: "Brasil", alternateName: "BR" },
   provider: { "@type": "InsuranceAgency", "@id": `${EMPRESA.dominioCanonico}/#insurance-agency` },
+  interestRate: 0,
+  amount: {
+    "@type": "MonetaryAmount",
+    currency: "BRL",
+    minValue: 10000,
+    maxValue: 60000,
+  },
   feesAndCommissionsSpecification: copy.warning,
+};
+
+// As mesmas perguntas alimentam a página, a versão estática e o JSON-LD.
+export const consorcioServicosFaqSchema = {
+  "@type": "FAQPage",
+  "@id": `${url}#faq`,
+  mainEntity: copy.faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+export const consorcioServicosSchema = {
+  "@context": "https://schema.org",
+  "@graph": [consorcioServicosFinancialProductSchema, consorcioServicosFaqSchema],
 };
 
 const esc = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

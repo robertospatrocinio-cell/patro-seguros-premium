@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { consorcioServicos as copy, consorcioServicosFields } from "./consorcioServicos";
-import { consorcioServicosSchema, getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
+import { consorcioServicosSchema, consorcioServicosFinancialProductSchema, consorcioServicosFaqSchema, getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
 import { CONSORCIO_NATIONAL_PAGES, getConsorcioNationalStaticContent } from "./consorcioNacional";
 import ProductQuoteForm from "@/components/ProductQuoteForm";
 import { safeInvoke } from "@/lib/supabase-helpers";
@@ -41,11 +41,29 @@ describe("Página nacional de consórcio de serviços", () => {
   });
 
   it("descreve produto financeiro nacional sem inventar taxas ou ofertas", () => {
-    expect(consorcioServicosSchema["@type"]).toBe("FinancialProduct");
-    expect(consorcioServicosSchema.areaServed).toBe("BR");
-    expect(consorcioServicosSchema).not.toHaveProperty("offers");
-    expect(consorcioServicosSchema).not.toHaveProperty("aggregateRating");
-    expect(consorcioServicosSchema.feesAndCommissionsSpecification).toBe(copy.warning);
+    const product = consorcioServicosFinancialProductSchema;
+    expect(product["@type"]).toBe("FinancialProduct");
+    expect(product["@id"]).toBe(`${product.url}#financial-product`);
+    expect(product.url).toMatch(/\/consorcio-servicos$/);
+    expect(product.areaServed).toEqual({ "@type": "Country", name: "Brasil", alternateName: "BR" });
+    expect(product.interestRate).toBe(0);
+    expect(product.amount).toEqual({ "@type": "MonetaryAmount", currency: "BRL", minValue: 10000, maxValue: 60000 });
+    expect(product).not.toHaveProperty("offers");
+    expect(product).not.toHaveProperty("aggregateRating");
+    expect(product.feesAndCommissionsSpecification).toBe(copy.warning);
+    expect(copy.subtitle).toContain("R$ 10 mil a R$ 60 mil");
+    expect(copy.subtitle).toContain("sujeitos à disponibilidade do grupo");
+  });
+
+  it("reúne produto e uma única FAQ com as cinco respostas visíveis", () => {
+    expect(consorcioServicosSchema["@context"]).toBe("https://schema.org");
+    expect(consorcioServicosSchema["@graph"]).toEqual([consorcioServicosFinancialProductSchema, consorcioServicosFaqSchema]);
+    expect(consorcioServicosSchema["@graph"].filter(node => node["@type"] === "FAQPage")).toHaveLength(1);
+    expect(consorcioServicosFaqSchema["@id"]).toBe(`${consorcioServicosFinancialProductSchema.url}#faq`);
+    expect(consorcioServicosFaqSchema.mainEntity).toEqual(copy.faqs.map(({ question, answer }) => ({
+      "@type": "Question", name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })));
   });
 
   it("envia a qualificação pelo fluxo existente com consentimento e origem correta", async () => {

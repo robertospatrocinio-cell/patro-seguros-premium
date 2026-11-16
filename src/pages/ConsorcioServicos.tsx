@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import FAQSchema from "@/components/FAQSchema";
 import ExternalLink from "@/components/ExternalLink";
 import ProductQuoteForm from "@/components/ProductQuoteForm";
 import { buttonVariants } from "@/components/ui/button";
@@ -21,7 +20,6 @@ export default function ConsorcioServicos() {
   return <>
     <PageMeta title={copy.title} description={copy.description} absoluteTitle canonicalPath={copy.path} skipBreadcrumb />
     <BreadcrumbSchema items={[{ name: "Consórcios", url: "/consorcio" }, { name: "Consórcio de Serviços", url: copy.path }]} />
-    <FAQSchema faqs={copy.faqs} />
     <Helmet><script type="application/ld+json">{JSON.stringify(consorcioServicosSchema)}</script></Helmet>
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
