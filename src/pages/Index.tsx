@@ -102,7 +102,7 @@ const produtosPrincipais = [
   {
     title: "Seguro Auto",
     desc: "Colisão, roubo, terceiros e assistência 24h para o seu carro.",
-    href: "/seguro-auto",
+    href: "/seguro-auto-guarulhos",
     cotacao: "/cotacao?tipo=auto",
     Icon: Car,
   },
@@ -123,7 +123,7 @@ const produtosPrincipais = [
   {
     title: "Plano de Saúde",
     desc: "Individual, familiar, por adesão ou empresarial, com comparação de rede.",
-    href: "/planos-de-saude",
+    href: "/plano-de-saude-guarulhos",
     cotacao: "/cotacao?tipo=saude",
     Icon: Stethoscope,
   },
@@ -162,7 +162,7 @@ const linksEstrategicos = [
   { label: "Seguro Auto em Guarulhos", href: "/seguro-auto-guarulhos" },
   { label: "Seguro Residencial em Guarulhos", href: "/seguro-residencial-guarulhos" },
   { label: "Seguro de Vida em Guarulhos", href: "/seguro-vida-guarulhos" },
-  { label: "Plano de Saúde em Guarulhos", href: "/plano-saude-guarulhos" },
+  { label: "Plano de Saúde em Guarulhos", href: "/plano-de-saude-guarulhos" },
   { label: "Seguro Empresarial em Guarulhos", href: "/seguro-empresarial-guarulhos" },
   { label: "Seguro Frota em Guarulhos", href: "/seguro-frota-guarulhos" },
   { label: "Seguros por bairro em Guarulhos", href: "/seguros-guarulhos" },
@@ -201,8 +201,8 @@ const Index = () => {
   return (
     <>
       <PageMeta
-        title="Patro Seguros | Corretora de Seguros em Guarulhos e Brasil"
-        description="Compare seguros e planos de saúde em Guarulhos com a Patro Seguros. Receba orientação sobre coberturas, franquias e contratação. Peça sua cotação."
+        title="Corretora de Seguros em Guarulhos | Patro Seguros"
+        description="Procura uma corretora em Guarulhos? Compare seguro auto, empresarial e planos de saúde com atendimento na Cidade Maia. Solicite sua cotação com a Patro."
         absoluteTitle={true}
       />
 
@@ -232,7 +232,15 @@ const Index = () => {
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
                 A Patro Seguros é sua corretora de seguros em Guarulhos, especializada em comparar seguradoras e
-                orientar clientes na escolha de seguros para auto, saúde, vida, residência, empresas e frotas.
+                orientar clientes na escolha de{" "}
+                <Link to="/seguro-auto-guarulhos" className="text-primary font-semibold hover:underline">
+                  seguro auto em Guarulhos
+                </Link>
+                ,{" "}
+                <Link to="/plano-de-saude-guarulhos" className="text-primary font-semibold hover:underline">
+                  planos de saúde em Guarulhos
+                </Link>
+                , além de seguros de vida, residenciais, empresariais e de frotas.
               </p>
               <p>
                 Com atendimento consultivo no Cidade Maia, a Patro ajuda pessoas, famílias e empresas a encontrarem
@@ -404,7 +412,7 @@ const Index = () => {
                   <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">{p.desc}</p>
                   <div className="flex flex-col gap-2">
                     <Link to={p.href} className="text-primary font-bold text-sm hover:underline inline-flex items-center">
-                      Conhecer solução
+                      Conhecer {p.title}
                       <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                     </Link>
                     <Link

@@ -763,8 +763,8 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
   // 1. Home
   if (cleanPath === "/") {
     return {
-      title: "Patro Seguros | Corretora de Seguros em Guarulhos e Brasil",
-      description: "Compare seguros e planos de saúde em Guarulhos com a Patro Seguros. Receba orientação sobre coberturas, franquias e contratação. Peça sua cotação.",
+      title: "Corretora de Seguros em Guarulhos | Patro Seguros",
+      description: "Procura uma corretora em Guarulhos? Compare seguro auto, empresarial e planos de saúde com atendimento na Cidade Maia. Solicite sua cotação com a Patro.",
       canonical: DOMAIN,
       h1: "Corretora de Seguros em Guarulhos e Grande São Paulo",
       ogUrl: DOMAIN,
