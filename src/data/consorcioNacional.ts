@@ -2,6 +2,7 @@ import type { ConsorcioIntentPage } from "./consorcioVertical";
 import { consorcioModalities } from "./consorcioHub";
 import { consorcioServicos } from "./consorcioServicos";
 import { getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
+import { consorcioPesadosFaqs } from "./consorcioPesados";
 
 export const CONSORCIO_NATIONAL_PATHS = ["/consorcio-imoveis", "/consorcio-pesados-maquinas", "/consorcio-veiculos", "/consorcio-servicos"];
 
@@ -51,11 +52,7 @@ const details = [
       { heading: "Consórcio, Finame ou crédito rural?", body: "Compare o custo completo e as condições efetivamente disponíveis. Linhas subsidiadas, carência, garantias e urgência podem tornar o financiamento mais adequado. No consórcio, considere administração, reserva, seguros e reajustes. O lance embutido reduz a carta líquida e pode exigir recursos complementares para comprar o equipamento." },
       { heading: "Proteção após a aquisição", body: "Depois da contemplação, organize nota fiscal, avaliação e garantias para liberação do crédito. Confirme se a administradora exige seguro e cláusula beneficiária. Seguro de máquinas e proteção do agronegócio são contratações distintas do consórcio, sujeitas à aceitação e às condições de cada seguradora." },
     ],
-    faqs: [
-      { question: "Posso adquirir trator ou colheitadeira usados?", answer: "Depende dos bens aceitos pelo grupo, do limite de idade, da avaliação e da documentação. Informe os dados da máquina antes de aderir; a aprovação do crédito não substitui a aprovação do bem." },
-      { question: "A contemplação pode ser programada para a safra?", answer: "Não há garantia de mês ou data. O planejamento deve prever a possibilidade de não receber a máquina antes da safra. Sorteios e lances seguem o regulamento e a disponibilidade do grupo." },
-      { question: "Consórcio sempre custa menos que Finame?", answer: "Não. Compare propostas reais, incluindo linhas subsidiadas quando disponíveis, reajustes, garantias, custos totais e o impacto de esperar pelo equipamento. A escolha depende da operação." },
-    ],
+    faqs: consorcioPesadosFaqs,
   },
   {
     title: "Consórcio de Veículos, Carros e Motos | Patro Seguros",

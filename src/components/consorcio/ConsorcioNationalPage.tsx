@@ -12,13 +12,19 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
 import type { ConsorcioIntentPage } from "@/data/consorcioVertical";
 import { consorcioHub } from "@/data/consorcioHub";
+import { Helmet } from "react-helmet-async";
+import { consorcioPesadosPath, consorcioPesadosSchema } from "@/data/consorcioPesados";
 
 export default function ConsorcioNationalPage({ page }: { page: ConsorcioIntentPage }) {
   const whatsapp = buildWhatsAppUrl({ origem: page.whatsappOrigem, audience: "consorcio", extraLines: [page.whatsappMessage] });
   return <>
     <PageMeta title={page.title} description={page.metaDescription} />
-    <FAQSchema faqs={page.faqs} />
-    <ServiceSchema name={page.h1} description={page.metaDescription} serviceType="Consórcio" scope="national" />
+    {page.path === consorcioPesadosPath ? (
+      <Helmet><script type="application/ld+json">{JSON.stringify(consorcioPesadosSchema)}</script></Helmet>
+    ) : <>
+      <FAQSchema faqs={page.faqs} />
+      <ServiceSchema name={page.h1} description={page.metaDescription} serviceType="Consórcio" scope="national" />
+    </>}
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <div className="container mx-auto px-4 py-6"><Breadcrumb items={[{ label: "Consórcio", href: "/consorcio" }, { label: page.navLabel }]} /></div>
