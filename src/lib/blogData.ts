@@ -11,6 +11,7 @@ import { agroArticles } from "@/data/blogAgroData";
 import { autoArticles } from "@/data/blogAutoData";
 import { calendar90dArticles } from "@/data/blogCalendar90dData";
 import { fase5LocalArticles } from "@/data/blogFase5LocalData";
+import { consorcioQuitacaoImobiliariaArticle } from "@/data/blogConsorcioQuitacaoImobiliaria";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -27,6 +28,7 @@ export interface BlogArticleMeta {
 }
 
 export const articles: BlogArticleMeta[] = [
+  consorcioQuitacaoImobiliariaArticle,
   {
     slug: "consorcio-linha-amarela-escavadeiras-retroescavadeiras",
     title: "Consórcio Linha Amarela: como comprar escavadeiras e retroescavadeiras sem descapitalizar",
