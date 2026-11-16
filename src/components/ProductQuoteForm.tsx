@@ -9,9 +9,12 @@ import { safeInvoke } from "@/lib/supabase-helpers";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
-type Props = { productName?: string; productPath?: string; fields?: CaptacaoField[]; compactContact?: boolean };
+type Props = {
+  productName?: string; productPath?: string; fields?: CaptacaoField[]; compactContact?: boolean;
+  heading?: string; description?: string; submitLabel?: string; nameLabel?: string; expandDetails?: boolean;
+};
 
-export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false }: Props) {
+export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false, heading, description, submitLabel, nameLabel, expandDetails = false }: Props) {
   const [selected, setSelected] = useState("/seguro-maquinas-agricolas");
   const profile = getCaptacaoProduto(productPath ?? selected);
   const name = productName ?? profile?.label ?? "Seguro";
@@ -110,13 +113,13 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
         </div>
       )}
       <div>
-        <h3 className="text-xl font-bold">{petPlan ? "Receba opções para seu pet" : simulation ? "Solicite sua simulação" : "Peça uma análise para sua cotação"}</h3>
-        <p className="text-sm text-muted-foreground mt-2">Comece com nome e WhatsApp. Os detalhes são opcionais e ajudam a equipe a entender seu caso.</p>
+        <h3 className="text-xl font-bold">{heading ?? (petPlan ? "Receba opções para seu pet" : simulation ? "Solicite sua simulação" : "Peça uma análise para sua cotação")}</h3>
+        <p className="text-sm text-muted-foreground mt-2">{description ?? "Comece com nome e WhatsApp. Os detalhes são opcionais e ajudam a equipe a entender seu caso."}</p>
       </div>
       <fieldset disabled={sending} className="space-y-4">
         <legend className="sr-only">Dados para contato</legend>
         <div className="space-y-2">
-          <Label htmlFor={`${prefix}-nome`}>Nome *</Label>
+          <Label htmlFor={`${prefix}-nome`}>{nameLabel ?? "Nome"} *</Label>
           <Input id={`${prefix}-nome`} name="name" autoComplete="name" required minLength={2} maxLength={100} value={contact.name} onChange={e => setContact({ ...contact, name: e.target.value })} aria-invalid={fieldError?.field === "name"} aria-describedby={fieldError?.field === "name" ? `${prefix}-name-error` : undefined} />
           {fieldError?.field === "name" && <p id={`${prefix}-name-error`} className="text-sm text-destructive">{fieldError.message}</p>}
         </div>
@@ -140,8 +143,8 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
         />
         </>}
       </fieldset>
-      <details className="border-y py-4">
-        <summary className="cursor-pointer min-h-11 text-sm font-semibold">Adicionar detalhes de {name} (opcional)</summary>
+      <details open={expandDetails || undefined} className="border-y py-4">
+        <summary className="cursor-pointer min-h-11 text-sm font-semibold">{expandDetails ? "Detalhes do seu projeto (opcional)" : `Adicionar detalhes de ${name} (opcional)`}</summary>
         <fieldset disabled={sending} className="space-y-4 mt-3">
           <legend className="sr-only">Detalhes do produto</legend>
           {extraFields.map(field => <div key={field.id} className="space-y-2">
@@ -165,7 +168,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
       <span aria-live="polite" className="sr-only">{sending ? "Enviando solicitação…" : ""}</span>
       <Button type="submit" variant="cta" disabled={sending} className="w-full min-h-12 h-auto py-3 whitespace-normal">
         {sending && <svg viewBox="0 0 24 24" className="mr-2 h-4 w-4 shrink-0 animate-spin" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.25" /><path d="M12 3a9 9 0 0 1 9 9" fill="none" stroke="currentColor" strokeWidth="3" /></svg>}
-        {sending ? "Enviando solicitação…" : petPlan ? "Quero comparar opções para meu pet" : simulation ? "Solicitar simulação sem compromisso" : "Solicitar cotação sem compromisso"}
+        {sending ? "Enviando solicitação…" : submitLabel ?? (petPlan ? "Quero comparar opções para meu pet" : simulation ? "Solicitar simulação sem compromisso" : "Solicitar cotação sem compromisso")}
       </Button>
       <p className="text-xs text-muted-foreground">Não envie CPF, documentos ou informações médicas aqui. A equipe solicitará o que for necessário na próxima etapa.</p>
     </form>

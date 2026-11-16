@@ -101,7 +101,14 @@ function missingArtifacts() {
 
     const homeTypes = getJsonLdTypes(file);
     const requiredTypes = route === "/" ? REQUIRED_HOME_TYPES
-      : route === "/consorcio" ? ["InsuranceAgency", "Service", "FAQPage"] : ["InsuranceAgency"];
+      : route === "/consorcio" ? ["InsuranceAgency", "Service", "FAQPage"]
+      : route === "/consorcio-servicos" ? ["InsuranceAgency", "FinancialProduct", "FAQPage"] : ["InsuranceAgency"];
+    if (route === "/consorcio-servicos") {
+      const html = fs.readFileSync(file, "utf-8");
+      if (!html.includes('id="consorcio-static-content"') || !html.includes('id="simulacao"') || !html.includes("Comparação ilustrativa para projeto de R$ 30.000 em 36 meses")) {
+        missing.push(`${route}: conteúdo nacional de serviços incompleto antes do JavaScript`);
+      }
+    }
     if (route === "/consorcio") {
       const html = fs.readFileSync(file, "utf-8");
       if (!html.includes('id="consorcio-static-content"') || !html.includes('id="comparativo"') || !html.includes('id="duvidas"')) {

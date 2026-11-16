@@ -1,10 +1,13 @@
 import type { ConsorcioIntentPage } from "./consorcioVertical";
 import { consorcioModalities } from "./consorcioHub";
+import { consorcioServicos } from "./consorcioServicos";
+import { getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
 
 export const CONSORCIO_NATIONAL_PATHS = ["/consorcio-imoveis", "/consorcio-pesados-maquinas", "/consorcio-veiculos", "/consorcio-servicos"];
 
 const escapeHtml = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export function getConsorcioNationalStaticContent(page: ConsorcioIntentPage) {
+  if (page.path === consorcioServicos.path) return getConsorcioServicosStaticContent();
   const p = (text: string) => `<p>${escapeHtml(text)}</p>`;
   const list = (items: string[]) => `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
   return {
@@ -70,19 +73,11 @@ const details = [
     ],
   },
   {
-    title: "Consórcio de Serviços e Projetos | Patro Seguros",
-    description: "Planeje reformas, cursos, intercâmbio e outros serviços. Consulte categorias aceitas, custos e liberação do crédito com atendimento nacional da Patro.",
+    title: consorcioServicos.title,
+    description: consorcioServicos.description,
     audience: ["Famílias com projetos sem data rígida", "Quem planeja formação ou intercâmbio", "Empresas que pretendem contratar serviços elegíveis"],
-    sections: [
-      { heading: "Quais projetos podem ser contemplados?", body: "Reformas, cursos, intercâmbio, festas e determinados procedimentos de saúde podem ser admitidos, conforme o contrato. Projetos de energia solar exigem atenção à separação entre equipamentos e instalação e ao enquadramento aceito. Apresente o orçamento detalhado antes de escolher o grupo; nem todo projeto pertence à categoria de serviços." },
-      { heading: "Prestador, orçamento e pagamento", body: "A escolha do prestador precisa respeitar os critérios documentais da administradora. Após a contemplação, podem ser exigidos orçamento, contrato, documentos fiscais e garantias. A liberação não é automática nem equivale a dinheiro livre para qualquer uso; confirme como e quando o prestador será pago antes de assumir compromissos." },
-      { heading: "Evite compromissos com data fixa", body: "Não contrate um evento, viagem ou procedimento contando com contemplação em determinado mês. A adesão não garante prazo de liberação e não substitui avaliação médica ou profissional. Compare o custo total do plano, seus reajustes e a alternativa de poupar recursos quando houver flexibilidade." },
-    ],
-    faqs: [
-      { question: "Posso escolher qualquer prestador?", answer: "A escolha deve atender às exigências de documentação e pagamento da administradora. Confirme os critérios antes de assinar com o prestador ou pagar sinal." },
-      { question: "Consórcio de serviços tem análise de crédito?", answer: "Sim. A administradora pode avaliar cadastro e capacidade de pagamento na adesão e na contemplação e exigir garantias para liberar o crédito. Não há aprovação garantida." },
-      { question: "Posso pagar um serviço já contratado?", answer: "Não presuma que haverá reembolso ou pagamento retroativo. Apresente o contrato e consulte as regras da administradora antes de assumir a despesa; finalidade, momento e documentação precisam ser aceitos." },
-    ],
+    sections: consorcioServicos.projects.map(project => ({ heading: project.title, body: project.text })),
+    faqs: consorcioServicos.faqs,
   },
 ];
 
@@ -92,7 +87,8 @@ export const CONSORCIO_NATIONAL_PAGES: ConsorcioIntentPage[] = details.map((deta
   return {
     slug: path.slice(1), path, navLabel: modality.title,
     title: detail.title, metaDescription: detail.description,
-    h1: modality.title, subtitle: "Planejamento sem juros de financiamento, com atendimento digital em todo o Brasil.",
+    h1: path === consorcioServicos.path ? consorcioServicos.h1 : modality.title,
+    subtitle: path === consorcioServicos.path ? consorcioServicos.subtitle : "Planejamento sem juros de financiamento, com atendimento digital em todo o Brasil.",
     intro: modality.use, audience: detail.audience,
     bullets: [modality.range + " — referências sujeitas à disponibilidade do grupo.", modality.benefit, "Há taxa de administração e podem existir reserva, seguros e reajustes. Sem garantia de contemplação em data específica."],
     sections: detail.sections, faqs: detail.faqs,

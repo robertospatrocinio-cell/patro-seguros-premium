@@ -1,0 +1,66 @@
+export const consorcioServicos = {
+  path: "/consorcio-servicos",
+  title: "Consórcio de Serviços: Energia Solar, Reformas e Cirurgias",
+  description: "Planeje energia solar, reformas, cirurgias, festas ou viagens sem juros de empréstimo. Cartas de R$ 10 mil a R$ 60 mil, conforme o grupo. Simule!",
+  h1: "Consórcio de Serviços: Energia Solar, Reformas, Cirurgias e Projetos Pessoais Sem Juros",
+  badge: "Atendimento digital em todo o Brasil • Consulte administradoras autorizadas pelo Banco Central",
+  subtitle: "Planeje projetos para sua casa, sua empresa ou sua qualidade de vida sem juros de empréstimo pessoal. Consulte cartas de R$ 10 mil a R$ 60 mil e prazos de 24 a 48 meses, sujeitos à disponibilidade do grupo. Após a contemplação e a aprovação do crédito, negocie o pagamento à vista com o prestador.",
+  highlights: [
+    "Sem juros de financiamento — compare a taxa de administração e os demais custos do plano.",
+    "Crédito e prazo alinhados ao projeto — consulte parcelas e regras de reajuste antes de aderir.",
+    "Escolha do profissional ou empresa, conforme a categoria e a documentação aceitas pela administradora.",
+  ],
+  warning: "Sem juros não significa sem custos: há taxa de administração e podem existir fundo de reserva, seguros e reajustes. A contemplação ocorre por sorteio ou lance, conforme as regras e os recursos do grupo, sem data garantida. A liberação do crédito depende de análise e documentação.",
+  pain: {
+    heading: "Não transforme o sonho da reforma, da energia solar ou da cirurgia em uma bola de neve de juros",
+    paragraphs: [
+      "Instalar energia solar, reformar o apartamento, planejar um procedimento ou organizar um casamento exige orçamento. Antes de recorrer ao empréstimo pessoal ou ao cartão, compare o custo efetivo total (CET), o prazo e o impacto das parcelas na sua renda.",
+      "O consórcio de serviços é uma alternativa para quem pode esperar: você participa de um grupo e, após a contemplação e a aprovação da operação, utiliza o crédito para pagar o prestador. O pagamento à vista pode ajudar na negociação, mas descontos dependem do fornecedor e não são garantidos.",
+      "Se o projeto tem data inadiável ou envolve tratamento de saúde urgente, não dependa de uma contemplação futura. Avalie outras formas de pagamento e preserve sua reserva de emergência.",
+    ],
+  },
+  projectsHeading: "Um crédito versátil para projetos pessoais, familiares e empresariais",
+  projectsIntro: "A finalidade precisa ser aceita pelo grupo. Após a contemplação e a aprovação da documentação, o pagamento normalmente é feito diretamente ao prestador, com nota fiscal ou outro documento admitido pela administradora. Confirme se RPA e pagamentos a vários fornecedores são aceitos.",
+  projects: [
+    { title: "Energia Solar (Sistemas Fotovoltaicos)", text: "Planeje a instalação na residência, no comércio ou na propriedade rural. Apresente um orçamento que separe equipamentos e serviços: a compra de painéis pode exigir outra categoria de crédito. A economia de energia depende do projeto e das tarifas; não conte com ela como garantia de pagamento das parcelas." },
+    { title: "Reformas, Arquitetura e Marcenaria Planejada", text: "Consulte o enquadramento de pintura, elétrica, hidráulica, paisagismo e projetos de interiores. Materiais e móveis planejados podem ter regras diferentes da mão de obra. Detalhe os custos e confirme o que pode ser pago antes de contratar a reforma residencial ou comercial." },
+    { title: "Saúde, Cirurgia Plástica e Odontologia", text: "Planeje procedimentos eletivos, cirurgias reparadoras ou tratamentos odontológicos elegíveis com profissionais habilitados. A escolha da clínica e a liberação do crédito seguem as regras do grupo. O consórcio não é plano de saúde e não substitui avaliação médica nem atende urgências com prazo garantido." },
+    { title: "Festas, Casamentos e Formaturas", text: "Organize buffet, decoração, fotografia, espaço e assessoria, verificando a aceitação de cada fornecedor. Negocie as condições à vista somente depois de confirmar a liberação do crédito. Evite pagar sinais contando com contemplação em um mês específico." },
+    { title: "Viagens, Intercâmbio e Especializações", text: "Programe viagem em família, intercâmbio de idiomas, pós-graduação ou MBA conforme as finalidades aceitas. Confirme documentação, prestadores e regras para despesas no exterior. A flexibilidade de data é importante: passagens e matrículas não devem depender de contemplação presumida." },
+    { title: "Serviços Empresariais: Consultoria, TI e Marketing", text: "Empresas podem consultar cartas para projetos de consultoria, desenvolvimento de software, identidade visual, eventos ou adequação de espaços. A contratação por CNPJ, os serviços elegíveis e as garantias dependem da análise e das condições da administradora." },
+  ],
+  comparisonHeading: "Consórcio de Serviços vs. Empréstimo Pessoal / Cartão: compare os custos",
+  comparisonIntro: "Exemplo exclusivamente ilustrativo: projeto de R$ 30.000 em 36 meses. No consórcio, consideramos taxa de administração total de 15% a 20%, sem reserva, seguros ou reajustes. No empréstimo, usamos parcelas fixas pela Tabela Price e taxas hipotéticas de 3% a 6,5% ao mês, sem IOF ou outras tarifas. Não são ofertas nem médias de mercado.",
+  comparisonRows: [
+    ["Juros e encargos", "Sem juros de financiamento; administração e possíveis custos adicionais.", "Juros e demais encargos. Compare o CET da proposta real, inclusive no cartão."],
+    ["Total no exemplo de 36 meses", "R$ 34.500 a R$ 36.000, antes dos custos excluídos e dos reajustes.", "Aproximadamente R$ 49.500 a R$ 78.300, antes de IOF e outras tarifas."],
+    ["Negociação com o prestador", "Pagamento após contemplação, análise e aprovação. Desconto à vista depende de negociação.", "Um empréstimo liberado também permite pagar à vista; o cartão segue as condições do prestador."],
+    ["Acesso ao serviço", "Sem data garantida para contemplação ou liberação.", "Pode ser mais rápido após aprovação; não é garantido."],
+    ["Limite e orçamento", "Em regra, não utiliza o limite do cartão, mas compromete a renda com parcelas.", "O cartão utiliza seu limite; o empréstimo compromete renda e capacidade de crédito."],
+    ["Análise e documentos", "Pode haver análise de cadastro, renda e garantias na adesão e na liberação.", "Análise de crédito e condições definidas pela instituição financeira."],
+    ["Prazo e reajustes", "Consulte grupos de 24 a 48 meses e o índice previsto em contrato.", "Prazo, juros e forma de pagamento conforme a proposta e o CET."],
+  ],
+  comparisonNote: "O resultado depende das condições efetivas. Não há garantia de economia percentual, parcela fixa ou desconto do fornecedor. Considere também o custo de esperar e compare com a alternativa de poupar para pagar à vista.",
+  stepsHeading: "Do planejamento à realização do seu projeto em 4 passos simples",
+  steps: [
+    { title: "Escolha o valor e o prazo", text: "Informe seu projeto e consulte cartas de R$ 10 mil a R$ 60 mil, com prazos de 24 a 48 meses conforme a oferta do grupo. Confira administração, reserva, seguros e reajustes, sem comprometer despesas essenciais." },
+    { title: "Participe das assembleias", text: "A contemplação pode ocorrer por sorteio ou lance. Lance livre e embutido dependem do regulamento; o embutido reduz o crédito disponível para o serviço. Ter recursos para lance não garante contemplação nem data de liberação." },
+    { title: "Apresente o prestador e o orçamento", text: "Após a contemplação, apresente o orçamento detalhado, o contrato e os documentos fiscais exigidos. Consulte a aceitação de cada fornecedor e os requisitos de cadastro e garantias antes de assumir compromissos." },
+    { title: "Acompanhe o pagamento", text: "A administradora autorizada pelo Banco Central analisa a operação e realiza o pagamento conforme o contrato. Confirme etapas, prazos e condições com ela e com o prestador; a contemplação não significa liberação automática." },
+  ],
+  faqs: [
+    { question: "O dinheiro da carta contemplada cai na minha conta corrente ou vai para o prestador?", answer: "Na utilização do crédito para contratar um serviço, o pagamento normalmente é feito diretamente ao prestador após a aprovação dos documentos pela administradora. Podem ser exigidos orçamento, contrato e nota fiscal ou documento equivalente aceito. O recebimento em dinheiro tem requisitos legais e contratuais específicos e não é automático na contemplação; consulte a administradora antes de contar com essa possibilidade." },
+    { question: "Posso dividir o valor da carta entre mais de um prestador de serviço?", answer: "Pode ser possível, conforme o contrato e a aprovação da administradora. Em uma festa ou reforma, por exemplo, cada fornecedor deve atender às exigências documentais e de pagamento. Confirme a aceitação do conjunto de serviços, os documentos de cada prestador e eventuais liberações por etapas antes de contratar." },
+    { question: "E se o serviço contratado custar menos do que o valor da minha carta de crédito?", answer: "A destinação da diferença segue a regulamentação e o contrato. Ela pode ser usada para quitar ou amortizar obrigações com o grupo, conforme as condições aplicáveis. Não presuma devolução imediata em dinheiro ou redução automática de prazo ou parcela; peça à administradora as alternativas disponíveis para o seu caso." },
+    { question: "Como funciona o reajuste das parcelas no consórcio de serviços?", answer: "O crédito e as parcelas são atualizados pelo critério e pela periodicidade previstos no contrato. Alguns grupos usam IPCA, mas esse índice não é universal. Confira como o reajuste afeta o saldo devedor antes e depois da contemplação e reserve margem no orçamento para as atualizações." },
+    { question: "Posso contratar o consórcio de serviços morando em qualquer estado do Brasil?", answer: "Sim. A Patro Seguros oferece atendimento digital em todo o Brasil para simulação e orientação. A adesão, a assinatura, o acompanhamento das assembleias e a contratação de prestadores da sua cidade dependem dos canais, da disponibilidade e das regras da administradora escolhida." },
+  ],
+  closingHeading: "Tire seus projetos do papel sem pagar juros de empréstimo bancário",
+  closingText: "Converse com a Patro Seguros sobre o valor do projeto, seu prazo e os recursos para lance. Compare grupos, parcelas e custos completos, sem promessa de contemplação ou de aprovação do crédito.",
+};
+
+export const consorcioServicosFields = [
+  { id: "project_type", label: "Tipo de projeto", type: "select" as const, options: ["Energia Solar / Fotovoltaica", "Reforma Residencial ou Comercial", "Cirurgia Plástica / Odontológica / Saúde", "Festas / Casamento / Formatura", "Viagem / Intercâmbio / Educação", "Serviços Empresariais / Consultoria / TI"] },
+  { id: "credit_range", label: "Valor estimado da carta", type: "select" as const, options: ["R$ 10 mil a R$ 20 mil", "R$ 20 mil a R$ 35 mil", "R$ 35 mil a R$ 50 mil", "Acima de R$ 50 mil"] },
+  { id: "project_timing", label: "Previsão para realizar o projeto", type: "select" as const, options: ["Nos próximos 3 a 6 meses — tenho recurso para lance", "Entre 6 e 18 meses — planejamento gradual", "Ainda estou avaliando"] },
+].map(field => ({ ...field, placeholder: "Selecione se souber" }));

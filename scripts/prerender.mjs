@@ -428,6 +428,12 @@ async function run() {
           : humanize(s);
       crumbs.push({ name, url: `${BASE}${acc}` });
     }
+    if (route === "/consorcio-servicos") {
+      crumbs.splice(1, crumbs.length - 1,
+        { name: "Consórcios", url: `${BASE}/consorcio` },
+        { name: "Consórcio de Serviços", url: `${BASE}/consorcio-servicos` },
+      );
+    }
     if (!html.includes('data-breadcrumb="1"') && crumbs.length >= 2) {
       const bc = {
         "@context": "https://schema.org",

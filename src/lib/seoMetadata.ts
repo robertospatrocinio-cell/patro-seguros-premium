@@ -1,5 +1,6 @@
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
 import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
+import { consorcioServicosSchema } from "@/data/consorcioServicosSeo";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
@@ -714,7 +715,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
     return {
       title: consortium.title, description: consortium.metaDescription,
       h1: consortium.h1, canonical: url, ogUrl: url, ogType: "website",
-      schema: {
+      schema: cleanPath === "/consorcio-servicos" ? consorcioServicosSchema : {
         "@context": "https://schema.org", "@type": "Service", "@id": `${url}#service`,
         url, name: consortium.h1, description: consortium.metaDescription, serviceType: "Consórcio",
         provider: { "@type": "InsuranceAgency", "@id": `${DOMAIN}/#insurance-agency` },
