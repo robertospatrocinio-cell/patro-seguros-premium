@@ -57,8 +57,8 @@ const rootElement = document.getElementById("root");
  * createRoot().render(), o React limpa esse conteúdo e, enquanto o chunk da
  * rota (lazy) não resolve, a página fica visualmente vazia (só o skip link).
  * Para evitar esse "flash" sem conteúdo, movemos o HTML pré-renderizado para
- * um shell irmão que só é removido quando o app realmente pintou um <main>
- * dentro de #root (nunca apenas por children.length > 0).
+ * um shell irmão que só é removido quando a rota monta um <main> sem
+ * aria-busy="true" dentro de #root, preservando a página durante o skeleton.
  */
 const preservePrerenderedContent = (root: HTMLElement) => {
   if (root.getAttribute("data-prerender-seo") !== "1" || root.childElementCount === 0) return;
@@ -80,7 +80,13 @@ const preservePrerenderedContent = (root: HTMLElement) => {
   shell.setAttribute("data-prerender-shell", "1");
   while (root.firstChild) shell.appendChild(root.firstChild);
   root.parentNode?.insertBefore(shell, root);
+  const initialRootStyle = root.style.cssText;
+  // O shell já ocupa o espaço da página. Mantemos a nova raiz mensurável,
+  // mas fora do fluxo para não somar duas alturas enquanto a rota carrega.
   root.style.visibility = "hidden";
+  root.style.position = "absolute";
+  root.style.top = "0";
+  root.style.width = "100%";
 
   let done = false;
   let frame = 0;
@@ -92,12 +98,13 @@ const preservePrerenderedContent = (root: HTMLElement) => {
     observer.disconnect();
     cancelAnimationFrame(frame);
     window.clearTimeout(safetyTimer);
-    root.style.visibility = "";
+    root.style.cssText = initialRootStyle;
     shell.remove();
   };
 
   const check = () => {
-    if (done || revealScheduled || !root.querySelector("main")) return;
+    // Não trocar a página já visível pelo esqueleto temporário da rota.
+    if (done || revealScheduled || !root.querySelector('main:not([aria-busy="true"])')) return;
     revealScheduled = true;
     observer.disconnect();
     // Mantém a troca após a pintura, sem consultar o DOM a cada frame

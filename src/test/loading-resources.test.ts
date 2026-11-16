@@ -50,6 +50,40 @@ describe("Recursos prioritários da página inicial", () => {
     expect(heroSource).not.toContain('loading="lazy"');
   });
 
+  it("não faz os logos disputarem prioridade alta com a imagem principal", () => {
+    const headerSource = readFileSync(resolve(process.cwd(), "src/components/Header.tsx"), "utf8");
+    expect(html).not.toMatch(/<link\b[^>]*rel="preload"[^>]*logo-full/);
+    const loaderLogo = html.match(/<img\b[^>]*class="loader-logo"[^>]*>/)?.[0];
+    expect(loaderLogo).toBeDefined();
+    expect(loaderLogo).not.toContain('fetchpriority="high"');
+    const headerLogo = headerSource.match(/<img\s+src=\{logoFull\}[\s\S]*?\/>/)?.[0];
+    expect(headerLogo).toBeDefined();
+    expect(headerLogo).toContain('loading="eager"');
+    expect(headerLogo).toContain('decoding="async"');
+    expect(headerLogo).not.toContain('fetchpriority: "high"');
+    // A proporção declarada deve coincidir com a do mesmo logo no HTML.
+    expect(headerLogo).toContain("width={251}");
+    expect(headerLogo).toContain("height={140}");
+    expect(loaderLogo).toContain('width="251" height="140"');
+  });
+
+  it("não exige decodificação síncrona da foto para pintar o texto do topo", () => {
+    expect(heroSource).toContain('decoding="async"');
+    expect(heroSource).not.toContain('decoding="sync"');
+  });
+
+  it("não duplica a altura da página durante a troca do conteúdo pré-renderizado", () => {
+    const mainSource = readFileSync(resolve(process.cwd(), "src/main.tsx"), "utf8");
+    expect(mainSource).toContain('root.style.visibility = "hidden"');
+    expect(mainSource).toContain('root.style.position = "absolute"');
+    expect(mainSource).toContain('root.style.width = "100%"');
+    expect(mainSource).toContain('root.style.cssText = initialRootStyle');
+    expect(mainSource).not.toContain('root.style.display = "none"');
+    expect(mainSource).toContain('root.querySelector(\'main:not([aria-busy="true"])\')');
+    expect(mainSource).toContain("shell.remove()");
+    expect(mainSource).toContain("window.setTimeout(reveal, 6000)");
+  });
+
   it("mantém o texto visível enquanto a fonte local carrega", () => {
     const fontFaces = html.match(/@font-face\s*\{[^}]+\}/g) ?? [];
     expect(fontFaces.length).toBeGreaterThan(0);

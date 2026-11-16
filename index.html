@@ -83,9 +83,7 @@
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.webmanifest">
-    <!-- Preload LCP candidates — só a imagem exata que cada breakpoint irá pintar -->
-    <!-- Logo do header (above-the-fold em todos os viewports) -->
-    <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
+    <!-- Prioridade alta reservada ao hero; o logo já é descoberto no HTML. -->
     <!-- Apenas a home usa este hero. Antecipar um único formato evita baixar
          AVIF e WebP juntos; sem AVIF, o picture descobre o fallback WebP.
          O sizes acompanha exatamente o HeroPatro, inclusive no desktop. -->
@@ -496,7 +494,7 @@
     alt="" /></noscript>
     <div id="root"></div>
     <div id="initial-loader" aria-hidden="true">
-      <img class="loader-logo" src="/images/logo-full.webp" width="251" height="140" alt="" decoding="async" fetchpriority="high" />
+      <img class="loader-logo" src="/images/logo-full.webp" width="251" height="140" alt="" decoding="async" />
       <div class="loader-spinner"></div>
       <div class="loader-text">Carregando…</div>
     </div>
