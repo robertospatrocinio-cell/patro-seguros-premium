@@ -28,6 +28,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "investir-em-imoveis-com-consorcio-aluguel-paga-parcela",
+    title: "Investir em imóveis com consórcio: como usar a renda do aluguel para pagar a parcela",
+    seoTitle: "Investir em Imóveis com Consórcio: O Aluguel Paga a Parcela?",
+    excerpt: "Aprenda como investir em imóveis com consórcio e usar a renda do aluguel para pagar as parcelas sem juros. Veja a matemática da alavancagem patrimonial!",
+    category: "Consórcio",
+    tags: ["investir em imóveis com consórcio", "alavancagem patrimonial com consórcio", "comprar imóvel para alugar com consórcio", "renda passiva consórcio imobiliário", "consórcio de imóveis investimento"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "consorcio-de-caminhoes-como-renovar-frota-sem-juros",
     title: "Consórcio de Caminhões: como renovar sua frota sem pagar juros bancários",
     seoTitle: "Consórcio de Caminhões: Como Renovar Sua Frota Sem Juros",

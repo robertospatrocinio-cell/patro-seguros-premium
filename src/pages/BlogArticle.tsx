@@ -73,9 +73,11 @@ const BlogArticle = () => {
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
   const quoteHref = isConsorcioPesadosArticle
     ? "/consorcio-pesados-maquinas"
-    : isTractorPricingArticle
-      ? "/seguro-trator-agricola#solicitar-cotacao"
-      : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
+    : slug === "investir-em-imoveis-com-consorcio-aluguel-paga-parcela"
+      ? "/consorcio-imoveis"
+      : isTractorPricingArticle
+        ? "/seguro-trator-agricola#solicitar-cotacao"
+        : `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
 
   return (
     <>
