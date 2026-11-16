@@ -249,6 +249,10 @@
     # NÃO EDITAR À MÃO — gerado de src/lib/redirects.ts
 
     # 301 — conteúdo com substituto semanticamente equivalente (1 salto)
+    RewriteRule ^consorcio-carro/?$ /consorcio-veiculos [R=301,L,NC]
+    RewriteRule ^consorcio-veiculos-pesados/?$ /consorcio-pesados-maquinas [R=301,L,NC]
+    RewriteRule ^seguro-agronegocio/?$ /seguro-agro [R=301,L,NC]
+    RewriteRule ^seguro-maquinas-equipamentos/?$ /seguro-maquinas [R=301,L,NC]
     RewriteRule ^seguro-drone/?$ /seguro-drone-agricola [R=301,L,NC]
     RewriteRule ^seguro-app-motoristas-passageiros/?$ /seguro-acidentes-pessoais-passageiros [R=301,L,NC]
     RewriteRule ^seguros-cidade-maia-guarulhos/?$ /seguros-shopping-maia-cidade-maia-guarulhos [R=301,L,NC]
