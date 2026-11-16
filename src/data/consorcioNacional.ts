@@ -4,6 +4,7 @@ import { consorcioServicos } from "./consorcioServicos";
 import { getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
 import { consorcioPesadosFaqs } from "./consorcioPesados";
 import { consorcioImoveisFaqs } from "./consorcioImoveis";
+import { consorcioVeiculosFaqs } from "./consorcioVeiculos";
 
 export const CONSORCIO_NATIONAL_PATHS = ["/consorcio-imoveis", "/consorcio-pesados-maquinas", "/consorcio-veiculos", "/consorcio-servicos"];
 
@@ -60,11 +61,7 @@ const details = [
       { heading: "Lance com o usado e crédito líquido", body: "Recursos da venda de seu veículo podem compor um lance próprio. Operações de troca de chaves dependem de oferta e condições específicas; o veículo não é aceito automaticamente como pagamento. No lance embutido, parte da carta é usada no lance e deixa de estar disponível para a compra. Planeje o valor líquido, não apenas a carta anunciada." },
       { heading: "Quando a compra planejada faz sentido", body: "O consórcio pode atender quem tem flexibilidade de prazo. Se o veículo for necessário imediatamente para trabalhar, compare financiamento e outras alternativas. Além das parcelas e reajustes, reserve recursos para transferência, tributos, manutenção e seguro. Histórico de lances não garante o resultado de assembleias futuras." },
     ],
-    faqs: [
-      { question: "Posso escolher a marca do veículo?", answer: "Em geral há liberdade de escolha dentro da categoria e das condições aceitas no contrato. A administradora verifica o veículo e sua documentação antes de pagar o vendedor." },
-      { question: "Lance embutido é dinheiro extra?", answer: "Não. Ele utiliza parte do próprio crédito, reduzindo o valor disponível para comprar o veículo se o lance vencer e for homologado. Limites e possibilidade de combinar recursos próprios dependem do grupo." },
-      { question: "Posso usar FGTS no consórcio de carro?", answer: "Não. O uso do FGTS está sujeito às operações habitacionais elegíveis, não à compra de carros ou motos. Para veículos, avalie recursos próprios e os tipos de lance admitidos pelo grupo." },
-    ],
+    faqs: consorcioVeiculosFaqs,
   },
   {
     title: consorcioServicos.title,

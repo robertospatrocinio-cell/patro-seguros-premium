@@ -15,10 +15,11 @@ import { consorcioHub } from "@/data/consorcioHub";
 import { Helmet } from "react-helmet-async";
 import { consorcioPesadosPath, consorcioPesadosSchema } from "@/data/consorcioPesados";
 import { consorcioImoveisPath, consorcioImoveisSchema } from "@/data/consorcioImoveis";
+import { consorcioVeiculosPath, consorcioVeiculosSchema } from "@/data/consorcioVeiculos";
 
 export default function ConsorcioNationalPage({ page }: { page: ConsorcioIntentPage }) {
   const whatsapp = buildWhatsAppUrl({ origem: page.whatsappOrigem, audience: "consorcio", extraLines: [page.whatsappMessage] });
-  const financialSchema = page.path === consorcioPesadosPath ? consorcioPesadosSchema : page.path === consorcioImoveisPath ? consorcioImoveisSchema : null;
+  const financialSchema = page.path === consorcioPesadosPath ? consorcioPesadosSchema : page.path === consorcioImoveisPath ? consorcioImoveisSchema : page.path === consorcioVeiculosPath ? consorcioVeiculosSchema : null;
   return <>
     <PageMeta title={page.title} description={page.metaDescription} />
     {financialSchema ? (
