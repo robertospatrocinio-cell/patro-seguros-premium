@@ -17,9 +17,8 @@ const ALLOWED_ORIGINS = [
 const ALLOWED_ORIGIN_SUFFIXES = [".lovable.app", ".lovableproject.com"];
 
 function isAllowedOrigin(origin: string | null): boolean {
-  // Reject requests without an Origin header — only browsers from allowed
-  // sites should be calling this relay. Server-side / cURL callers must
-  // be blocked to prevent inbox flooding.
+  // Browser-origin allowlist is defense in depth only: non-browser clients
+  // can forge Origin. Rate limits still apply to every admitted request.
   if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   try {
@@ -46,6 +45,12 @@ serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { ...corsHeaders, "Content-Type": "application/json", Allow: "POST, OPTIONS" },
+    });
+  }
 
   try {
     const origin = req.headers.get("origin");
@@ -56,8 +61,8 @@ serve(async (req) => {
       });
     }
 
-    // Require a valid Supabase-issued JWT (anon or user). This blocks
-    // arbitrary server-side / cURL callers that spoof an allowed Origin.
+    // Admit public form submissions or a validated user session. Origin
+    // and the public key are not identity proof or protection against bots.
     const authHeader = req.headers.get("Authorization") || req.headers.get("authorization");
     if (!authHeader?.startsWith("Bearer ")) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
@@ -83,8 +88,8 @@ serve(async (req) => {
         Deno.env.get("SUPABASE_URL") ?? "",
         Deno.env.get("SUPABASE_ANON_KEY") ?? ""
       );
-      const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
-      authorized = !claimsError && !!claimsData?.claims;
+      const { data: userData, error: userError } = await supabaseAuthClient.auth.getUser(jwt);
+      authorized = !userError && !!userData.user;
     }
 
     if (!authorized) {

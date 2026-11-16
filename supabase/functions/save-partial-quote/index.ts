@@ -27,9 +27,41 @@ function isAllowedOrigin(origin: string | null): boolean {
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+// A draft ID is not proof of ownership. Issue a server-signed capability
+// only when creating the draft; never return it for an existing ID.
+async function draftSignature(id: string): Promise<ArrayBuffer> {
+  const secret = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!secret) throw new Error("Draft signing unavailable");
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"],
+  );
+  return crypto.subtle.sign("HMAC", key, encoder.encode(`partial-quote-update:v1:${id}`));
+}
+
+async function issueDraftToken(id: string): Promise<string> {
+  return Array.from(new Uint8Array(await draftSignature(id)))
+    .map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+async function ownsDraft(id: string, token: unknown): Promise<boolean> {
+  if (typeof token !== "string" || !/^[0-9a-f]{64}$/.test(token)) return false;
+  const expected = new Uint8Array(await draftSignature(id));
+  const supplied = new Uint8Array(token.match(/../g)!.map((hex) => parseInt(hex, 16)));
+  let difference = 0;
+  for (let i = 0; i < expected.length; i++) difference |= expected[i] ^ supplied[i];
+  return difference === 0;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
+  }
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { ...corsHeaders, "Content-Type": "application/json", Allow: "POST, OPTIONS" },
+    });
   }
 
   try {
@@ -49,12 +81,22 @@ serve(async (req) => {
       });
     }
     const jwt = authHeader.replace("Bearer ", "").trim();
-    const supabaseAuthClient = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? ""
-    );
-    const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
-    if (claimsError || !claimsData?.claims) {
+    // Public forms must remain available without login. A public key only
+    // admits submission; it never grants ownership of an existing draft.
+    const publicKeys = [
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      ...(Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") ?? "").split(","),
+    ].map((key) => key.trim()).filter(Boolean);
+    let authorized = publicKeys.includes(jwt);
+    if (!authorized) {
+      const supabaseAuthClient = createClient(
+        Deno.env.get("SUPABASE_URL") ?? "",
+        Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      );
+      const { data: userData, error: userError } = await supabaseAuthClient.auth.getUser(jwt);
+      authorized = !userError && !!userData.user;
+    }
+    if (!authorized) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -86,6 +128,12 @@ serve(async (req) => {
 
     const body = await req.json();
     const id = typeof body.id === "string" && UUID_RE.test(body.id) ? body.id : null;
+    if (id && !(await ownsDraft(id, body.update_token))) {
+      return new Response(JSON.stringify({ error: "Draft authorization required" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // Whitelist + size-bound fields
     const name = typeof body.name === "string" ? body.name.slice(0, 200) : null;
@@ -152,7 +200,8 @@ serve(async (req) => {
       });
     }
 
-    return new Response(JSON.stringify({ success: true, id: inserted.id }), {
+    const updateToken = await issueDraftToken(inserted.id);
+    return new Response(JSON.stringify({ success: true, id: inserted.id, update_token: updateToken }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

@@ -84,3 +84,37 @@ Esta seção registra a rodada atual; as correções e confirmações acima são
 Adicionado `src/test/purge-request.test.ts` com casos de URLs externas, formatos inválidos, limites e limpeza total explícita. Não foi possível executar testes, build, chamadas HTTP ou navegador neste ambiente; nenhum resultado de aprovação é presumido.
 
 Após publicar, testar: visitante e conta comum devem receber recusa ao limpar cache; administrador deve consultar registros e limpar uma URL; a credencial de automação deve continuar funcionando; JWT inventado com `role: service_role` deve ser recusado na fila de emails. Testar também falha do Cloudflare e sessão expirada, sem exibir falso sucesso. Esta revisão não é um teste de invasão nem uma certificação de ausência de vulnerabilidades.
+
+## Etapa 4 — rascunhos e autenticação dos formulários públicos
+
+### Correções no código
+
+- **Rascunhos de cotação:** `save-partial-quote` aceitava atualizar qualquer rascunho a partir de seu UUID, usando acesso privilegiado sem prova de propriedade. Agora a criação devolve uma autorização HMAC-SHA256 vinculada exclusivamente ao ID criado; atualizações sem essa autorização recebem 403 antes da escrita. O segredo permanece apenas no servidor, com separação de finalidade na mensagem assinada. A autorização não permite ler rascunhos nem acessar outras tabelas.
+- **Continuidade sem login:** `src/lib/leadsApi.ts` guarda a autorização no navegador que criou o rascunho e a envia nas próximas atualizações. Isso atende os consumidores existentes: página Cotação, formulário de Seguro de Vida, InsuranceQuoteForm e QuickQuoteForm. Rascunhos antigos não são apagados nem alterados sem prova; o próximo salvamento inicia uma cópia protegida e guarda a correspondência para os salvamentos seguintes.
+- **Formulários públicos e email:** substituído `getClaims` por `getUser` para validar sessões no SDK antigo fixado em `save-partial-quote` e `send-form-email`. As chaves públicas continuam aceitas para o envio sem login; elas não autorizam a atualização de rascunhos. Ambos os endpoints passam a aceitar somente POST, além do preflight OPTIONS. Origin não é apresentado como comprovação de identidade.
+- Nenhuma regra de tabela foi restringida, e nenhum dado, tabela ou arquivo foi apagado. Não foram alterados os textos ou o visual das páginas.
+
+### Checklist do banco ativo nesta rodada
+
+| Verificação | Resultado observado |
+| --- | --- |
+| Tabelas sem proteção por linha | As 44 tabelas de `public` têm a proteção ligada. Nenhuma tabela sem proteção foi retornada no levantamento de `public` e `storage`. |
+| Acesso entre usuários | CRM permanece compartilhado somente por administradores, conforme as regras existentes. Notificações limitam leitura e alteração ao titular. Regras de UPDATE/ALL examinadas têm condições de origem e destino; não foram substituídas por mero login. |
+| Autorizações editáveis pelo usuário | As regras consultadas não usam `user_metadata`; a busca nos fontes examinados também não encontrou uso desse campo para autorizar. |
+| Chaves no navegador | Cliente e `.env` examinados usam chave pública/anon, não chave de servidor. A chave de Maps é pública por finalidade e depende das restrições do provedor. Nenhum valor foi reproduzido neste documento. |
+| Views | Nenhuma view ou materialized view foi encontrada em `public` e `storage`. |
+| Funções privilegiadas | Os dois relatórios SQL de Web Vitals verificam administrador antes da consulta; funções internas examinadas não concedem execução a visitantes. `has_role` foi preservada por ser necessária às regras. A brecha de escrita privilegiada em rascunhos foi corrigida no código do endpoint. |
+| Arquivos enviados | O único bucket encontrado, `crm_documents`, segue privado; a regra exige administrador em leitura e escrita, inclusive substituição. |
+
+### Tentativa de mudança no banco — pendência não resolvida
+
+Foi autorizada e executada uma tentativa de revogar a execução pública das funções de rede `http*`. **A consulta posterior mostrou que ela não alterou as permissões efetivas:** 13 assinaturas que fazem requisições ou configuram o cliente HTTP continuam executáveis por `anon` e `authenticated`.
+
+A consulta de proprietário e permissões confirmou que essas funções pertencem a `supabase_admin`; a conexão disponível usa `postgres`, e as permissões seguem concedidas pelo proprietário da plataforma. A extensão `http` também pertence à plataforma e está marcada como não relocável. Não se tentou mover, substituir ou apagar essa extensão. O suporte do Lovable Cloud precisa retirar as permissões efetivas de PUBLIC, anon e authenticated dessas funções, preservando as chamadas internas. As rotinas internas encontradas usam `net.http_*`, e não essas RPCs públicas; o frontend examinado não as chama.
+
+### Publicação, testes e próximos pedidos
+
+1. Publicar **juntas** no Lovable as funções `save-partial-quote` e `send-form-email` e sincronizar a alteração de `leadsApi.ts`. Sem a nova versão do endpoint, a proteção de propriedade ainda não está ativa. A autorização do rascunho é sensível como uma senha de edição: não deve ir para logs, URLs ou serviços de análise.
+2. Adicionado `src/lib/__tests__/draft-access.test.ts` com casos de criação/atualização, recuperação após recarregar, migração de rascunhos antigos, propagação de erros e verificações estáticas do endpoint. **Não foi possível executar testes, build ou requisições HTTP neste ambiente.** A verificação SQL foi executada e seu resultado negativo está registrado acima, sem presumir correção.
+3. Após publicar: preencher Cotação e Seguro de Vida sem login, avançar etapas e recarregar; confirmar continuidade. Enviar uma atualização sem autorização ou com a autorização de outro rascunho deve resultar em 403; com a autorização correta deve funcionar. Conferir também envio de email por visitante e usuário conectado. Rascunhos antigos podem gerar uma nova cópia, sem perda do registro antigo.
+4. Permanecem para um próximo pedido os fluxos de **Indique e Ganhe**, **lembretes de cotação** e proteção adicional contra robôs descritos na etapa anterior. Não foram alterados por esta correção. Solicitar ao suporte a restrição das RPCs HTTP e revisar no provedor os limites da chave Maps; configurações de cadastro, confirmação de email e sessões também dependem do responsável no Lovable.
