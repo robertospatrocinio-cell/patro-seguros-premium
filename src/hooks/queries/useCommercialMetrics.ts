@@ -29,7 +29,7 @@ export function useCommercialMetrics(days: number) {
     queryFn: async (): Promise<CommercialData> => {
       const { start, end } = commercialWindow(days);
       const [leadRows, clicks, stages, policies] = await Promise.all([
-        collectCommercialPages(from => supabase.from("leads")
+        collectCommercialPages(from => (supabase.from("leads") as any)
           // Do not download names, contact details or the full quote payload.
           .select("id,created_at,insurance_type,source_page,source_origin,utm_source,utm_medium,utm_campaign,lead_status,kanban_stage_id,attribution:raw_data->attribution,landing_page:raw_data->>landing_page")
           .gte("created_at", start).lt("created_at", end).order("id").range(from, from + 499)),
@@ -44,7 +44,7 @@ export function useCommercialMetrics(days: number) {
       ]);
       return {
         start, end, clicks, stages, policies,
-        leads: leadRows.map(({ attribution, landing_page, ...lead }) => ({
+        leads: (leadRows as any[]).map(({ attribution, landing_page, ...lead }) => ({
           ...lead, raw_data: { attribution, landing_page },
         })),
       };
