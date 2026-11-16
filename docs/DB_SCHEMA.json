@@ -5230,7 +5230,7 @@
       "trigger": "set_tasks_updated_at"
     }
   ],
-  "gerado_em": "2026-11-16T11:18:53.274367+00:00",
+  "gerado_em": "2026-11-16T12:05:03.50317+00:00",
   "rls_ativo": {
     "leads": true,
     "tasks": true,
@@ -5310,7 +5310,7 @@
     "lead_quote_history": 0,
     "relationship_rules": 0,
     "seo_audit_findings": 126448,
-    "web_vitals_metrics": 3038,
+    "web_vitals_metrics": 3040,
     "breadcrumb_overrides": 0,
     "domain_health_checks": 0,
     "gsc_indexation_alerts": 0,
@@ -5604,5 +5604,5 @@
     }
   ],
   "triggers_auth_users": [],
-  "geckoai_sincronizado_em": "2026-11-16T11:18:56.920Z"
+  "geckoai_sincronizado_em": "2026-11-16T12:05:07.367Z"
 }
