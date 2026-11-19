@@ -1,19 +1,19 @@
-import { normalizeBlogDates, safeBlogDate } from "@/lib/blogDates";
-import { guarulhosArticles } from "@/data/blogGuarulhosData";
-import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
-import { vistoriaArticles } from "@/data/blogVistoriaData";
-import { odontologiaArticles } from "@/data/blogOdontologiaData";
-import { consultorioArticles } from "@/data/blogConsultorioData";
-import { flatArticles } from "@/data/blogFlatData";
-import { salaComercialArticles } from "@/data/blogSalaComercialData";
-import { blogVeterinariaData } from "@/data/blogVeterinariaData";
-import { patroPrivateArticles } from "@/data/blogPatroPrivateData";
-import { agroArticles } from "@/data/blogAgroData";
-import { autoArticles } from "@/data/blogAutoData";
-import { calendar90dArticles } from "@/data/blogCalendar90dData";
-import { fase5LocalArticles } from "@/data/blogFase5LocalData";
-import { consorcioQuitacaoImobiliariaArticle } from "@/data/blogConsorcioQuitacaoImobiliaria";
-import { consorcioTaxaAdministracaoArticle } from "@/data/blogConsorcioTaxaAdministracao";
+import { normalizeBlogDates, safeBlogDate } from "./blogDates";
+import { guarulhosArticles } from "../data/blogGuarulhosData";
+import { guarulhosLojistasArticles } from "../data/blogGuarulhosLojistasData";
+import { vistoriaArticles } from "../data/blogVistoriaData";
+import { odontologiaArticles } from "../data/blogOdontologiaData";
+import { consultorioArticles } from "../data/blogConsultorioData";
+import { flatArticles } from "../data/blogFlatData";
+import { salaComercialArticles } from "../data/blogSalaComercialData";
+import { blogVeterinariaData } from "../data/blogVeterinariaData";
+import { patroPrivateArticles } from "../data/blogPatroPrivateData";
+import { agroArticles } from "../data/blogAgroData";
+import { autoArticles } from "../data/blogAutoData";
+import { calendar90dArticles } from "../data/blogCalendar90dData";
+import { fase5LocalArticles } from "../data/blogFase5LocalData";
+import { consorcioQuitacaoImobiliariaArticle } from "../data/blogConsorcioQuitacaoImobiliaria";
+import { consorcioTaxaAdministracaoArticle } from "../data/blogConsorcioTaxaAdministracao";
 
 export interface BlogArticleMeta {
   slug: string;

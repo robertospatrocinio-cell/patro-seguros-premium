@@ -29,7 +29,7 @@ describe("Modalidades de consórcio: conteúdo e atendimento", () => {
         expect(screen.getByRole("heading", { name: label })).toBeInTheDocument();
       }
       const copy = getModalityExperience(page);
-      const request = screen.getAllByRole("link", { name: copy.cta, exact: true })[0];
+      const request = screen.getAllByRole("link", { name: copy.cta })[0];
       const url = new URL(request.getAttribute("href")!);
       expect(url.hostname).toBe("wa.me");
       expect(url.pathname).toBe(`/${WHATSAPP_NUMBER}`);
@@ -56,14 +56,14 @@ describe("Modalidades de consórcio: conteúdo e atendimento", () => {
         expect(container.querySelector(anchor.getAttribute("href")!)).not.toBeNull();
       }
       const copy = getModalityExperience(page);
-      const request = screen.getAllByRole("link", { name: copy.cta, exact: true })[0];
+      const request = screen.getAllByRole("link", { name: copy.cta })[0];
       const message = new URL(request.getAttribute("href")!).searchParams.get("text");
       expect(message).toContain(copy.message);
       if (local) expect(message).toContain("Guarulhos e região");
       vi.mocked(trackWhatsAppClick).mockClear();
       fireEvent.click(request);
       expect(trackWhatsAppClick).toHaveBeenCalledWith(`${page.whatsappOrigem}_simulacao`);
-      expect(screen.getAllByRole("link", { name: "Solicitar contato pelo formulário", exact: true }).length).toBeGreaterThan(0);
+      expect(screen.getAllByRole("link", { name: "Solicitar contato pelo formulário" }).length).toBeGreaterThan(0);
       if (local) {
         const nav = screen.getByRole("navigation", { name: "Atendimento local de consórcio" });
         for (const other of CONSORCIO_INTENT_PAGES.filter(item => item.path !== page.path)) {
@@ -95,7 +95,7 @@ describe("Modalidades de consórcio: conteúdo e atendimento", () => {
   it("trata empresa como pessoa jurídica sem nova URL", () => {
     const page = CONSORCIO_INTENT_PAGES.find(item => item.path.includes("empresarial"))!;
     render(<MemoryRouter><ConsorcioModalityContent page={page} local /></MemoryRouter>);
-    expect(screen.getAllByRole("link", { name: "Conversar sobre consórcio para minha empresa", exact: true })).toHaveLength(2);
+    expect(screen.getAllByRole("link", { name: "Conversar sobre consórcio para minha empresa" })).toHaveLength(2);
     expect(screen.getAllByText(/CNPJ, contrato social e alterações/).length).toBeGreaterThan(0);
     expect(getModalityExperience(page).bids).toContain("não assegura data de contemplação");
     expect(getModalityExperience(CONSORCIO_INTENT_PAGES[0]).cta).toBe("Solicitar simulação de consórcio");
