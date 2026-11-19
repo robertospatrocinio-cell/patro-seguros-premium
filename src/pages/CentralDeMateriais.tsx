@@ -14,14 +14,19 @@ const CentralDeMateriais = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Materiais Gratuitos da Patro Seguros",
+    "@id": `${CANONICAL_BASE_URL}/materiais-gratuitos-seguros#colecao`,
+    name: "Materiais gratuitos da Patro Seguros",
+    description: "Checklists práticos para preparar renovações, contratações e revisões — pessoais e empresariais.",
+    inLanguage: "pt-BR",
     url: `${CANONICAL_BASE_URL}/materiais-gratuitos-seguros`,
     mainEntity: {
       "@type": "ItemList",
+      numberOfItems: materiais.length,
       itemListElement: materiais.map((m, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: m.title,
+        description: m.description,
         url: `${CANONICAL_BASE_URL}${m.href}`,
       })),
     },
@@ -54,27 +59,38 @@ const CentralDeMateriais = () => {
         </div>
       </section>
 
-      <section className="py-14">
+      <section className="py-14" aria-labelledby="materiais-disponiveis">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <h2 id="materiais-disponiveis" className="text-2xl md:text-3xl font-bold mb-3">Escolha seu checklist gratuito</h2>
+          <p className="text-muted-foreground mb-8 max-w-3xl">
+            Consulte os {materiais.length} checklists sem cadastro: abra o tema desejado para marcar os itens e imprimir ou salvar em PDF. Se preferir orientação da equipe, solicite pelo WhatsApp.
+          </p>
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 list-none">
             {materiais.map((m) => (
-              <Card key={m.slug} className="hover:shadow-md transition-shadow flex flex-col">
-                <CardHeader>
-                  <Badge variant="outline" className="text-xs w-fit mb-2">{m.category}</Badge>
-                  <CardTitle className="text-lg leading-snug">{m.title}</CardTitle>
-                  <CardDescription className="leading-relaxed">{m.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto flex flex-col gap-2">
-                  <ExternalLink href={m.whatsapp} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-                    Solicitar checklist <ArrowRight className="h-4 w-4" />
-                  </ExternalLink>
-                  <Link to={m.relatedHref} className="text-xs text-muted-foreground hover:text-primary">
-                    {m.relatedLabel}
-                  </Link>
-                </CardContent>
-              </Card>
+              <li key={m.slug}>
+                <Card className="hover:shadow-md transition-shadow flex flex-col h-full">
+                  <CardHeader>
+                    <Badge variant="outline" className="text-xs w-fit mb-2">{m.category}</Badge>
+                    <CardTitle className="text-lg leading-snug">
+                      <Link to={m.href} className="rounded-sm hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">{m.title}</Link>
+                    </CardTitle>
+                    <CardDescription className="leading-relaxed">{m.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="mt-auto flex flex-col gap-2">
+                    <Link to={m.href} aria-label={`Abrir ${m.title}`} className="inline-flex min-h-11 items-center gap-1 rounded-sm text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                      Abrir checklist <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                    </Link>
+                    <ExternalLink href={m.whatsapp} aria-label={`Solicitar pelo WhatsApp: ${m.title}`} className="inline-flex min-h-11 items-center gap-1 rounded-sm text-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                      Solicitar pelo WhatsApp <MessageCircle aria-hidden="true" className="h-4 w-4" />
+                    </ExternalLink>
+                    <Link to={m.relatedHref} className="inline-flex min-h-11 items-center rounded-sm text-sm text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                      {m.relatedLabel}
+                    </Link>
+                  </CardContent>
+                </Card>
+              </li>
             ))}
-          </div>
+          </ol>
 
           <p className="mt-10 text-xs text-muted-foreground text-center max-w-2xl mx-auto">
             Ao solicitar um material, você concorda em ser contatado pela Patro Seguros exclusivamente para envio do conteúdo e orientação sobre produtos, conforme nossa política de privacidade e LGPD. As coberturas descritas nos materiais são exemplificativas e variam conforme apólice, seguradora e aceitação.

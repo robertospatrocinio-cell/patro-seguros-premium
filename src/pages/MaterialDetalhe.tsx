@@ -5,7 +5,6 @@ import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,6 +16,7 @@ import { toast } from "sonner";
 import { materiais } from "@/data/materiaisData";
 import { materiaisConteudo } from "@/data/materiaisConteudoData";
 import InteractiveChecklist from "@/components/InteractiveChecklist";
+import DiscoverableFaq from "@/components/DiscoverableFaq";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoSubmit } from "@/lib/tracking";
@@ -54,19 +54,22 @@ const MaterialDetalhePage = () => {
   const schemaLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
+    "@id": `${url}#checklist`,
     name: material.title,
     description: material.description,
     inLanguage: "pt-BR",
-    totalTime: "PT10M",
     url,
     step: conteudo.checklist.map((s, i) => ({
       "@type": "HowToSection",
       position: i + 1,
       name: s.title,
+      url: `${url}#${material.slug}-secao-${i + 1}`,
       itemListElement: s.items.map((it, j) => ({
         "@type": "HowToStep",
         position: j + 1,
         name: it,
+        text: it,
+        url: `${url}#${material.slug}-item-${i + 1}-${j + 1}`,
       })),
     })),
   };
@@ -74,8 +77,13 @@ const MaterialDetalhePage = () => {
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: conteudo.faqs.map((f) => ({
+    "@id": `${url}#perguntas`,
+    url: `${url}#perguntas`,
+    inLanguage: "pt-BR",
+    mainEntity: conteudo.faqs.map((f, i) => ({
       "@type": "Question",
+      "@id": `${url}#${material.slug}-pergunta-${i + 1}`,
+      url: `${url}#${material.slug}-pergunta-${i + 1}`,
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
@@ -112,8 +120,9 @@ const MaterialDetalhePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title={`${material.title} | Material Gratuito Patro Seguros`}
+        title={material.title}
         description={material.description}
+        skipBreadcrumb
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
@@ -139,6 +148,14 @@ const MaterialDetalhePage = () => {
             <Badge variant="secondary" className="mb-4">{material.category} · Material Gratuito</Badge>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">{material.title}</h1>
             <p className="text-lg text-muted-foreground mb-6">{conteudo.intro}</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Consulte os {totalChecklistItems} itens abaixo sem cadastro. Você pode marcar seu progresso e imprimir ou salvar em PDF pelo navegador.
+            </p>
+            <nav aria-label="Nesta página" className="flex flex-wrap gap-3 mb-6">
+              <a href="#checklist" className="inline-flex min-h-11 items-center rounded-sm font-semibold text-primary underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Ir para o checklist</a>
+              <a href="#dicas" className="inline-flex min-h-11 items-center rounded-sm text-primary underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Dicas de uso</a>
+              <a href="#perguntas" className="inline-flex min-h-11 items-center rounded-sm text-primary underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Perguntas frequentes</a>
+            </nav>
             <ul className="space-y-2 mb-6">
               {conteudo.benefits.map((b) => (
                 <li key={b} className="flex items-start gap-2">
@@ -235,9 +252,9 @@ const MaterialDetalhePage = () => {
       </section>
 
       {/* Checklist */}
-      <section className="py-12 bg-muted/30">
+      <section id="checklist" aria-labelledby="checklist-titulo" className="scroll-mt-28 py-12 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">O que você recebe neste checklist</h2>
+          <h2 id="checklist-titulo" className="text-2xl md:text-3xl font-bold mb-6">O que você recebe neste checklist</h2>
           <p className="text-sm text-muted-foreground mb-4">
             Marque cada item conforme avança. O progresso fica salvo neste navegador. Use "Imprimir / PDF" para levar o checklist com você.
           </p>
@@ -246,7 +263,7 @@ const MaterialDetalhePage = () => {
       </section>
 
       {/* Dicas */}
-      <section className="py-12">
+      <section id="dicas" className="scroll-mt-28 py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
             <Lightbulb className="h-6 w-6 text-primary" /> Dicas da Patro Seguros
@@ -262,17 +279,10 @@ const MaterialDetalhePage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 bg-muted/30">
+      <section id="perguntas" className="scroll-mt-28 py-12 bg-muted/30">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Perguntas frequentes</h2>
-          <Accordion type="single" collapsible className="w-full">
-            {conteudo.faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-                <AccordionContent>{f.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <DiscoverableFaq items={conteudo.faqs} idPrefix={`${material.slug}-pergunta`} />
         </div>
       </section>
 

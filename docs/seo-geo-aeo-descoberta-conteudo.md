@@ -35,3 +35,26 @@ Os testes foram escritos, mas não executados neste ambiente. Não foi possível
 ## Limites
 
 As mudanças facilitam leitura, navegação e interpretação do conteúdo. Não garantem indexação, posição no Google, resultados destacados de FAQ ou citação por assistentes de IA. Não alteram as regras de acesso dos robôs, os mapas do site, os títulos, as descrições, os endereços canônicos ou as informações comerciais existentes.
+
+## Continuação em etapas — etapa 1: materiais gratuitos
+
+Escopo: Central de Materiais (`/materiais-gratuitos-seguros`) e os dez checklists em `/materiais/:slug`.
+
+- A central agora oferece links internos para abrir cada checklist, além do contato por WhatsApp. Antes, a coleção estruturada apontava para páginas sem links diretos nos cards.
+- O índice tem um título de seção, uma lista de materiais e nomes de links que identificam o checklist de destino. A coleção informa idioma, descrição e quantidade de itens usando a mesma fonte dos cards.
+- As páginas de checklist explicam o acesso sem cadastro e oferecem atalhos para o checklist, as dicas e as perguntas. O formulário de contato permanece opcional, sem alterar seu envio.
+- As respostas usam o componente nativo de perguntas já adotado nas centrais: permanecem no HTML com links individuais e abertura por âncora.
+- As seções e os itens do checklist têm identificadores estáveis, também referenciados nos passos estruturados. As perguntas estruturadas apontam para as respostas correspondentes.
+- Foi removida a estimativa fixa de dez minutos dos dados estruturados, pois não havia estimativa equivalente no conteúdo visível.
+- Os títulos das páginas de material usam o nome do checklist, deixando a identificação da marca para o componente existente. A emissão automática de breadcrumbs foi desativada somente nessas páginas, que já possuem seu próprio BreadcrumbList.
+
+### Verificações desta etapa
+
+`src/pages/Materiais.discovery.test.tsx` cobre os links e a coleção da central, os dez checklists, a presença das respostas no HTML, a correspondência dos passos e os destinos dos atalhos. Os testes não foram executados neste ambiente; ainda é necessário validar o build, o HTML publicado e a navegação no celular e no teclado após a sincronização.
+
+### Próximas etapas planejadas (não implementadas nesta revisão)
+
+2. Contexto editorial e conexões entre artigos, autores, guias e perguntas.
+3. Consistência de rastreamento, endereços canônicos e mapas do site nas áreas revisadas.
+
+Esta etapa não modifica robots.txt, sitemaps, políticas de acesso ou dados comerciais. Os resultados de busca e as citações por IA continuam dependendo de sistemas externos.

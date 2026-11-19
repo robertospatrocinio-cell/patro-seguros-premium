@@ -71,7 +71,7 @@ const InteractiveChecklist = ({ slug, title, sections }: Props) => {
       <h2 className="sr-only print-only-block">{title}</h2>
 
       {sections.map((section, si) => (
-        <Card key={section.title}>
+        <Card key={section.title} id={`${slug}-secao-${si + 1}`} className="scroll-mt-28">
           <CardHeader>
             <CardTitle className="text-lg">{section.title}</CardTitle>
           </CardHeader>
@@ -81,7 +81,7 @@ const InteractiveChecklist = ({ slug, title, sections }: Props) => {
                 const key = `${si}-${ii}`;
                 const isDone = !!checked[key];
                 return (
-                  <li key={key} className="flex items-start gap-3 text-sm">
+                  <li key={key} id={`${slug}-item-${si + 1}-${ii + 1}`} className="flex scroll-mt-28 items-start gap-3 text-sm">
                     <Checkbox
                       id={`${slug}-${key}`}
                       checked={isDone}
