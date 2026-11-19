@@ -1,9 +1,9 @@
 /** HOME — PATRO SEGUROS
- *  Organização comercial da home (ordem fixa):
- *  Header → Hero → Proposta de valor → CTA principal → Indicadores de confiança
- *  → Cotação Express → Diferenciais → Principais soluções → Como funciona
- *  → Depoimentos → Autoridade local e sede → Bairros atendidos → Conteúdos
- *  → FAQ comercial → CTA final → Rodapé.
+ *  Jornada da página inicial:
+ *  Header → Hero → Principais soluções → Orientação → Credenciais e seguradoras
+ *  → Cotação Express → Guia de soluções → Diferenciais → Patro Private
+ *  → Como funciona → Avaliações → Autoridade local e sede → Bairros
+ *  → Conteúdos → FAQ comercial → CTA final → Rodapé.
  *
  *  Regras mantidas nesta página:
  *  - apenas 6 produtos principais (os demais permanecem em páginas próprias);
@@ -208,40 +208,68 @@ const Index = () => {
       />
       <Header />
       <main id="main-content" className="patro-home">
-        {/* 2. HERO */}
+        {/* Abertura → escolha de proteção → orientação → cotação. */}
         <HeroPatro />
+
+        <section className="home-solutions" aria-labelledby="home-solucoes">
+          <div className="container mx-auto">
+            <div className="home-section-heading">
+              <div>
+                <h2 id="home-solucoes">O que você quer proteger?</h2>
+                <p>Escolha uma solução para conhecer as coberturas e os próximos passos.</p>
+              </div>
+              <Link to="/servicos" className="home-all-solutions">
+                Ver todas as soluções <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+            <div className="home-solutions-grid">
+              {produtosPrincipais.map((p) => (
+                <article key={p.href} className="home-solution">
+                  <p.Icon className="home-solution-icon" aria-hidden="true" />
+                  <h3><Link to={p.href}>{p.title}</Link></h3>
+                  <p>{p.desc}</p>
+                  <div className="home-solution-actions">
+                    <Link to={p.href} aria-label={`Conhecer ${p.title.toLowerCase()}`}>
+                      Ver coberturas <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                    <Link
+                      to={p.cotacao}
+                      onClick={() => trackCotacaoClick(`home-card-${p.title}`)}
+                      aria-label={`Solicitar cotação de ${p.title.toLowerCase()}`}
+                    >
+                      Cotar
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* 3. PROPOSTA DE VALOR + 4. CTA PRINCIPAL */}
         <section className="py-14 md:py-20 bg-white border-t border-slate-100" aria-labelledby="home-seo-intro">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 id="home-seo-intro" className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-              Seguros em Guarulhos e Região — Consultoria Técnica
+              Você não precisa entender tudo de seguros. Nós ajudamos.
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
-                A Patro Seguros é sua corretora de seguros em Guarulhos, especializada em comparar seguradoras e
-                orientar clientes na escolha de{" "}
+                Do{" "}
                 <Link to="/seguro-auto-guarulhos" className="text-primary font-semibold hover:underline">
-                  seguro auto em Guarulhos
-                </Link>
-                ,{" "}
-                <Link to="/plano-de-saude-guarulhos" className="text-primary font-semibold hover:underline">
-                  planos de saúde em Guarulhos
-                </Link>
-                , além de seguros de vida, residenciais, empresariais e de frotas.
-              </p>
-              <p>
-                Com atendimento consultivo no Cidade Maia, a Patro ajuda pessoas, famílias e empresas a encontrarem
-                proteção adequada ao seu perfil — analisando coberturas, preços, perfil de risco e suporte em caso de
-                sinistro.
-              </p>
-              <p>
-                Nosso trabalho é simplificar a contratação do seguro, explicar as diferenças entre as seguradoras e
-                acompanhar o cliente antes, durante e depois da contratação.{" "}
-                <Link to="/seguros-guarulhos" className="text-primary font-semibold hover:underline">
-                  Conheça nossa atuação em Guarulhos
+                  seguro auto
                 </Link>{" "}
-                ou explore as principais soluções abaixo.
+                ao{" "}
+                <Link to="/plano-de-saude-guarulhos" className="text-primary font-semibold hover:underline">
+                  plano de saúde
+                </Link>
+                , a Patro compara propostas e explica o que muda em cada uma: coberturas, limites, assistência e preço.
+                Você decide com informação, não só com um valor na tela.
+              </p>
+              <p>
+                Nossa equipe, na Cidade Maia, acompanha você também depois da contratação, nas renovações e no sinistro.{" "}
+                <Link to="/seguros-guarulhos" className="text-primary font-semibold hover:underline">
+                  Conheça nossa atuação em Guarulhos e região.
+                </Link>
               </p>
             </div>
 
@@ -270,25 +298,23 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="py-12 border-y bg-muted/20 overflow-hidden" aria-label="Seguradoras parceiras">
-          <div className="container mx-auto px-4 mb-8 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-              Comparamos com as melhores
-            </p>
-          </div>
-          <div className="flex animate-marquee whitespace-nowrap">
-            <ul className="flex shrink-0 list-none" aria-label="Seguradoras parceiras da Patro Seguros">
+        <section className="home-insurers" aria-label="Seguradoras parceiras">
+          <div className="container mx-auto">
+            <div className="home-insurers-heading">
+              <p>Uma corretora. Diferentes seguradoras para comparar.</p>
+              <Link to="/seguradoras-parceiras">Conhecer as parceiras <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+            </div>
+            <ul className="home-insurers-list" aria-label="Seguradoras parceiras da Patro Seguros">
               {parceirosHome.map(({ key, name }) => {
                 const url = INSURER_WEBSITES[key];
                 return (
-                  <li key={key} className="mx-8 text-lg font-bold text-muted-foreground">
+                  <li key={key}>
                     {url ? (
                       <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         aria-label={`Visitar o site oficial de ${name}`}
-                        className="inline-block uppercase transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary"
                         onClick={() => {
                           try {
                             window.gtag?.("event", "clique_seguradora_parceira", {
@@ -302,25 +328,11 @@ const Index = () => {
                       >
                         {name}
                       </a>
-                    ) : <span className="uppercase">{name}</span>}
-                    {" "}
+                    ) : <span>{name}</span>}
                   </li>
                 );
               })}
             </ul>
-            {/* Cópia apenas visual; os nomes também possuem separação textual. */}
-            <div aria-hidden="true" className="flex shrink-0 whitespace-nowrap">
-              {parceirosHome.map(({ key, name }) => (
-                <span key={`loop-${key}`} className="mx-8 text-lg font-bold uppercase text-muted-foreground">
-                  {name}{" "}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="container mx-auto px-4 mt-8 text-center">
-            <Link to="/seguradoras-parceiras" className="text-sm text-primary font-bold hover:underline">
-              Ver todas as seguradoras
-            </Link>
           </div>
         </section>
 
@@ -368,57 +380,6 @@ const Index = () => {
                   <p className="text-slate-500 leading-relaxed text-sm">{s.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 8. PRINCIPAIS SOLUÇÕES — apenas 6 produtos + link para a página pilar */}
-        <section className="py-20 bg-white" aria-labelledby="home-solucoes">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-14">
-              <h2 id="home-solucoes" className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-                Principais soluções
-              </h2>
-              <p className="text-slate-600">
-                Os seguros mais procurados por pessoas e empresas em Guarulhos e região.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {produtosPrincipais.map((p) => (
-                <div
-                  key={p.href}
-                  className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                    <p.Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{p.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">{p.desc}</p>
-                  <div className="flex flex-col gap-2">
-                    <Link to={p.href} className="text-primary font-bold text-sm hover:underline inline-flex items-center">
-                      Conhecer {p.title}
-                      <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                    </Link>
-                    <Link
-                      to={p.cotacao}
-                      onClick={() => trackCotacaoClick(`home-card-${p.title}`)}
-                      className="text-xs text-slate-500 font-semibold hover:text-primary hover:underline"
-                    >
-                      Solicitar cotação de {p.title.toLowerCase()}
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <Link to="/servicos">
-                <Button size="lg" variant="outline" className="rounded-xl font-bold">
-                  Ver todas as soluções
-                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </Button>
-              </Link>
             </div>
           </div>
         </section>

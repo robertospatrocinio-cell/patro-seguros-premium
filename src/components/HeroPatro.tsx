@@ -1,130 +1,86 @@
 import { memo } from "react";
-import { Star, ShieldCheck, CheckCircle2, Globe, Clock } from "lucide-react";
+import { ArrowRight, Clock, MessageCircle, ShieldCheck, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
 import { EMPRESA } from "@/config/empresa";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
-const WHATSAPP_URL = `https://wa.me/${EMPRESA.whatsapp.replace(/\D/g, "")}?text=Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação.`;
+const WHATSAPP_URL = `https://wa.me/${EMPRESA.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação.")}`;
 
 const HeroPatro = memo(() => {
   const handleCotacaoClick = () => trackCotacaoClick("hero");
   const handleWhatsAppClick = () => trackWhatsAppClick("hero");
 
   return (
-    <section className="home-hero relative overflow-hidden bg-slate-900 pt-0">
-      {/* A foto mantém as mesmas fontes responsivas e prioridade de carregamento. */}
-      <div className="home-hero-media absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent z-10 hidden lg:block" />
-        <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
-        <picture>
-          <source
-            type="image/avif"
-            srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-            sizes="(min-width: 1024px) 43vw, 100vw"
-          />
-          <source
-            type="image/webp"
-            srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-            sizes="(min-width: 1024px) 43vw, 100vw"
-          />
-          <img
-            src="/images/hero-home-1280.webp"
-            alt="Consultor da Patro Seguros realizando cotação de seguro empresarial em Guarulhos"
-            width={1280}
-            height={720}
-
-            loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover lg:object-[65%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
-            {...({ fetchpriority: "high" } as any)}
-          />
-        </picture>
-      </div>
-
-      <div className="container relative z-20 mx-auto px-4">
-        <div className="home-hero-layout flex flex-col lg:flex-row items-center min-h-[600px] lg:min-h-[720px] py-20 lg:py-0">
-          {/* Content Area */}
-          <div className="home-hero-content w-full lg:w-[58%] text-left">
-            <div className="home-hero-copy max-w-[680px]">
-              {/* Área de atendimento */}
-              <span className="home-hero-label inline-block text-[11px] md:text-[13px] font-bold tracking-widest text-primary-light mb-4 uppercase">
-                Sede em Guarulhos • Atendimento na Grande São Paulo
-              </span>
-              
-              {/* H1 Title */}
-              <h1 className="text-white text-[32px] md:text-[54px] lg:text-[60px] font-extrabold mb-6 leading-[1.1] tracking-tight">
-                Corretora de Seguros em Guarulhos e Grande São Paulo
-              </h1>
-
-              {/* Prova social imediatamente abaixo do H1 (CRO) */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-                <div className="flex flex-wrap items-center gap-2">
-                  <div className="flex shrink-0 text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
-                    ))}
-                  </div>
-                  <a
-                    href={PATRO_SOCIAL_PROOF.googleProfileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/90 text-sm hover:underline"
-                  >
-                    <span className="font-bold">{PATRO_SOCIAL_PROOF.googleRating}</span> no Google · avaliações verificadas
-                  </a>
-                </div>
-                <span className="inline-flex items-center gap-2 text-white/80 text-sm">
-                  <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />
-                  SUSEP {EMPRESA.susep}
-                </span>
-              </div>
-
-              {/* Subtitle */}
-              <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
-                Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano desde a cotação até em caso de sinistro.
+    <section className="home-hero" aria-labelledby="home-heading">
+      <div className="container mx-auto">
+        <div className="home-hero-layout">
+          <div className="home-hero-content">
+            <div className="home-hero-copy">
+              <p className="home-hero-label">Patro Seguros · Guarulhos e Grande São Paulo</p>
+              <h1 id="home-heading">Corretora de seguros em Guarulhos. Proteção com orientação.</h1>
+              <p className="home-hero-description">
+                Compare coberturas e preços com quem explica as diferenças.
+                Atendimento humano para você, sua família e sua empresa — da cotação ao sinistro.
               </p>
-
-
-              {/* CTAs */}
-              <div className="home-hero-actions flex flex-col sm:flex-row gap-4 mb-10">
-                <Button asChild size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-[#14243d] border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
+              <div className="home-hero-actions">
+                <Button asChild size="lg">
                   <Link to="/cotacao" onClick={handleCotacaoClick}>
                     Solicitar cotação
-                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/5 hover:bg-white/10 text-white hover:text-white border-white/20 hover:border-white/40 font-medium transition-all">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-                    <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                    Falar no WhatsApp
-                  </a>
-                </Button>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  Conversar no WhatsApp
+                </a>
               </div>
-
-              {/* Trust Indicators */}
-              <div className="home-hero-trust grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
-                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
-                  <Clock className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>Mais de {EMPRESA.metricas.experienciaAnos} anos de experiência</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
-                  <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>16 seguradoras</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>Corretora registrada na SUSEP</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
-                  <Globe className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>Atendimento em todo o Brasil</span>
-                </div>
-              </div>
+              <a
+                href={PATRO_SOCIAL_PROOF.googleProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="home-hero-review"
+              >
+                <Star className="h-4 w-4 fill-current" aria-hidden="true" />
+                <span><strong>{PATRO_SOCIAL_PROOF.googleRating.toLocaleString("pt-BR")}</strong> no Google</span>
+                <span className="home-hero-review-detail">Ver avaliações</span>
+              </a>
             </div>
           </div>
+          <div className="home-hero-media">
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
+                sizes="(min-width: 1024px) 43vw, 100vw"
+              />
+              <source
+                type="image/webp"
+                srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
+                sizes="(min-width: 1024px) 43vw, 100vw"
+              />
+              <img
+                src="/images/hero-home-1280.webp"
+                alt="Consultor da Patro Seguros realizando cotação de seguro empresarial em Guarulhos"
+                width={1280}
+                height={720}
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+                {...({ fetchpriority: "high" } as any)}
+              />
+            </picture>
+            <div className="home-hero-caption">
+              <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              <span>Mais do que contratar.<br /><strong>Ter com quem contar.</strong></span>
+            </div>
+          </div>
+        </div>
+        <div className="home-hero-trust" aria-label="Credenciais da Patro Seguros">
+          <p><Clock className="h-4 w-4" aria-hidden="true" /><span>Sócios com {EMPRESA.metricas.experienciaAnos} anos de experiência</span></p>
+          <p><ShieldCheck className="h-4 w-4" aria-hidden="true" /><span>SUSEP {EMPRESA.susep}</span></p>
+          <Link to="/central-de-sinistro">Já é cliente? Acesse o suporte <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
       </div>
     </section>

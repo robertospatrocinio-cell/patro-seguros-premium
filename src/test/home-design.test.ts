@@ -63,6 +63,36 @@ describe("Design restrito à página inicial", () => {
     expect(home).toContain("prefillInsuranceType={quickLeadInsuranceType}");
   });
 
+  it("mostra as seis soluções antes do formulário de cotação", () => {
+    const solutions = home.indexOf('aria-labelledby="home-solucoes"');
+    expect(solutions).toBeGreaterThan(home.indexOf("<HeroPatro"));
+    expect(solutions).toBeLessThan(home.indexOf("<QuickLeadForm"));
+    expect(home.match(/id="home-solucoes"/g)).toHaveLength(1);
+    expect(home.match(/produtosPrincipais\.map/g)).toHaveLength(1);
+    expect(home).toContain('className="home-solutions-grid"');
+    expect(home).toContain("to={p.cotacao}");
+    expect(hasDeclaration(".patro-home .home-solutions-grid", "grid-template-columns", "repeat(3, minmax(0, 1fr))")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-solutions-grid", "grid-template-columns", "repeat(2, minmax(0, 1fr))")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-solutions-grid", "grid-template-columns", "1fr")).toBe(true);
+  });
+
+  it("exibe as seguradoras em uma lista estática e sem cópias decorativas", () => {
+    expect(home).toContain('className="home-insurers-list"');
+    expect(home.match(/parceirosHome\.map/g)).toHaveLength(1);
+    expect(home).not.toContain("animate-marquee");
+    expect(home).toContain('"clique_seguradora_parceira"');
+  });
+
+  it("mantém a abertura clara com ações e credenciais separadas da fotografia", () => {
+    expect(hasDeclaration(".patro-home .home-hero", "background", "#fff")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-hero-actions > a:first-child", "background", "var(--home-navy)")).toBe(true);
+    expect(hero).toContain('aria-labelledby="home-heading"');
+    expect(hero).toContain('id="home-heading"');
+    expect(hero).toContain('to="/central-de-sinistro"');
+    expect(hero).toContain('trackCotacaoClick("hero")');
+    expect(hero).toContain('trackWhatsAppClick("hero")');
+  });
+
   it("mantém foco visível e respeita redução de movimento", () => {
     expect(css).toContain(":focus-visible");
     expect(css).toContain("(prefers-reduced-motion: reduce)");
