@@ -8,6 +8,8 @@
  * Spec: https://developers.google.com/search/docs/appearance/structured-data/article
  */
 
+import { normalizeBlogDates } from "@/lib/blogDates";
+
 interface ArticleSchemaProps {
   url: string;
   headline: string;
@@ -53,8 +55,10 @@ const ArticleSchema = ({
     headline,
     description,
     image: [image],
-    datePublished,
-    dateModified: dateModified || datePublished,
+    ...(() => {
+      const dates = normalizeBlogDates({ date: datePublished, updatedAt: dateModified });
+      return dates.date ? { datePublished: dates.date, dateModified: dates.updatedAt || dates.date } : {};
+    })(),
     author: {
       "@type": "Person",
       "@id": `${authorUrl}#person`,

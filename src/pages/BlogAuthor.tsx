@@ -118,7 +118,7 @@ const BlogAuthor = () => {
       "@id": `${CANONICAL_BASE_URL}/blog/${a.slug}#article`,
       headline: a.title,
       url: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
-      datePublished: a.date,
+      ...(a.date ? { datePublished: a.date, dateModified: a.updatedAt || a.date } : {}),
     })),
   };
 

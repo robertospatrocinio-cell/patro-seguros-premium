@@ -24,6 +24,13 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { loadDataModule } from "./load-data-module.mjs";
+
+// Não restaura datas antigas do XML sobre as datas editoriais corrigidas.
+const { articles } = await loadDataModule("src/lib/blogData.ts");
+const BLOG_LASTMOD = new Map(articles.map(post => [
+  `/blog/${post.slug}`, post.updatedAt || post.date,
+]));
 
 // Diretório-alvo: por padrão public/, mas aceita --dir dist para rodar
 // no postbuild (o vite plugin regenera clusters em dist/ a cada build).
@@ -193,7 +200,9 @@ for (const block of urlBlocks) {
   // lastmod: preserva a data já publicada para a URL; só cai no valor gerado
   // quando a URL é nova (não existia em nenhum sitemap publicado).
   const generatedLastmod = (block.match(/<lastmod>([^<]+)<\/lastmod>/) || [, ""])[1].trim();
-  const lastmod = PUBLISHED_LASTMOD.get(canonical) || generatedLastmod;
+  const lastmod = BLOG_LASTMOD.has(pathname)
+    ? BLOG_LASTMOD.get(pathname)
+    : PUBLISHED_LASTMOD.get(canonical) || generatedLastmod;
   const changefreq = (block.match(/<changefreq>([^<]+)<\/changefreq>/) || [, ""])[1].trim();
   const priority = (block.match(/<priority>([^<]+)<\/priority>/) || [, ""])[1].trim();
 

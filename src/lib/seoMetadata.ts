@@ -1144,8 +1144,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
           "headline": post.title,
           "description": post.excerpt,
           "image": [new URL(getArticleImage(blogSlug), DOMAIN).href],
-          "datePublished": `${post.date}T09:00:00-03:00`,
-          "dateModified": `${post.updatedAt || post.date}T09:00:00-03:00`,
+          ...(post.date ? { "datePublished": post.date, "dateModified": post.updatedAt || post.date } : {}),
           "author": { "@type": "Person", "name": post.author },
           "publisher": {
             "@type": "Organization",
@@ -1195,8 +1194,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
           "headline": humanTitle,
           "description": post.excerpt,
           "image": [new URL(getArticleImage(articleSlug), `${DOMAIN}/`).href],
-          "datePublished": `${post.date}T09:00:00-03:00`,
-          "dateModified": `${post.updatedAt || post.date}T09:00:00-03:00`,
+          ...(post.date ? { "datePublished": post.date, "dateModified": post.updatedAt || post.date } : {}),
           "author": { "@type": "Person", "name": post.author },
           "publisher": {
             "@type": "Organization",

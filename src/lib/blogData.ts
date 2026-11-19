@@ -1,3 +1,4 @@
+import { normalizeBlogDates, safeBlogDate } from "@/lib/blogDates";
 import { guarulhosArticles } from "@/data/blogGuarulhosData";
 import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
 import { vistoriaArticles } from "@/data/blogVistoriaData";
@@ -28,7 +29,7 @@ export interface BlogArticleMeta {
   readTime: number; // minutes
 }
 
-export const articles: BlogArticleMeta[] = [
+const editorialArticles: BlogArticleMeta[] = [
   consorcioTaxaAdministracaoArticle,
   consorcioQuitacaoImobiliariaArticle,
   {
@@ -181,8 +182,8 @@ export const articles: BlogArticleMeta[] = [
     category: "Estudos Patro",
     tags: ["estudo original", "sinistros", "prevenção", "guarulhos", "dados", "cumbica", "cidade maia"],
     author: "Roberto Patro",
-    date: "2026-11-20",
-    updatedAt: "2026-11-20",
+    date: "2026-11-14",
+    updatedAt: "2026-11-14",
     readTime: 11,
   },
   {
@@ -435,6 +436,9 @@ export const articles: BlogArticleMeta[] = [
   { slug: "multas-guarulhos", title: "Multas em Guarulhos 2026", excerpt: "Ruas de Guarulhos com mais multas em 2026, valores atualizados e como consultar infrações no Detran-SP.", category: "Dicas", tags: ["multas", "guarulhos", "detran", "trânsito", "dicas", "seguro auto"], author: "Roberto Patro", date: "2026-05-20", readTime: 11 },
 ];
 
+// A mesma trava protege todos os cards, páginas e consumidores de metadados.
+export const articles: BlogArticleMeta[] = editorialArticles.map(article => normalizeBlogDates(article));
+
 // All unique tags sorted
 export const allTags = [...new Set(articles.flatMap(a => a.tags))].sort();
 
@@ -484,6 +488,9 @@ export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] =
 
 // Format date to Brazilian locale
 export const formatDate = (dateStr: string): string => {
-  const date = new Date(dateStr + "T12:00:00");
-  return date.toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
+  const safeDate = safeBlogDate(dateStr);
+  if (!safeDate) return "";
+  return new Date(`${safeDate}T00:00:00Z`).toLocaleDateString("pt-BR", {
+    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  });
 };

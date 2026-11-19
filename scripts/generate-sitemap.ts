@@ -15,6 +15,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { getArticleMeta } from "../src/lib/blogData";
+import { blogLastmod } from "../src/lib/blogDates";
 import {
   B2B_HUB_PATH,
   GARANTIA_LOCAL_PATH,
@@ -377,7 +379,10 @@ const restoredRoutes: SitemapEntry[] = [
    //  1. valor explícito definido na entry (ex.: posts do blog com data real)
    //  2. lastmod anterior preservado do sitemap anterior
    //  3. Se não houver data confiável, omite para evitar "data falsa"
-   const lastmod = e.lastmod || PRIOR_LASTMOD.get(normalizedPath) || PRIOR_LASTMOD.get(e.loc);
+   const post = normalizedPath.startsWith("/blog/") ? getArticleMeta(normalizedPath.slice(6)) : undefined;
+   const lastmod = post
+     ? blogLastmod(post)
+     : e.lastmod || PRIOR_LASTMOD.get(normalizedPath) || PRIOR_LASTMOD.get(e.loc);
    const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
 
    return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>${lastmodTag}\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;

@@ -114,7 +114,8 @@ const BlogArticle = () => {
   return (
     <>
       <PageMeta
-        title={meta?.seoTitle || `${article.title} | Patro Seguros`}
+        title={meta?.seoTitle || `${meta?.title || article.title} | Patro Seguros`}
+        absoluteTitle
         description={meta?.excerpt || `${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros em Guarulhos.`}
         noindex={article === defaultArticle}
         ogType={article === defaultArticle ? "website" : "article"}
@@ -171,7 +172,7 @@ const BlogArticle = () => {
           <>
             <ArticleSchema
               url={articleUrl}
-              headline={article.title}
+              headline={meta.title}
               description={meta.excerpt}
               image={imageUrl}
               datePublished={meta.date}
@@ -222,7 +223,26 @@ const BlogArticle = () => {
             <Link to="/blog" className="inline-flex items-center text-sm text-white/60 hover:text-white mb-6">
               <ArrowLeft className="mr-1 h-4 w-4" /> Voltar ao Blog
             </Link>
-            <h1 className="text-white mb-4">{article.title}</h1>
+            <h1 className="text-white mb-4">{meta?.title || article.title}</h1>
+            {meta && (() => {
+              const topic = `${meta.category} ${meta.slug}`.toLowerCase();
+              const [href, label] = /cons[oó]rcio|consorcio/.test(topic)
+                ? ["/consorcio", "consórcio: modalidades e planejamento"]
+                : /sa[uú]de/.test(topic)
+                ? ["/plano-de-saude-guarulhos", "planos de saúde: opções e critérios de contratação"]
+                : /agro|rural|trator/.test(topic)
+                ? ["/seguro-agro", "seguros para o agronegócio"]
+                : /flat|residencial|im[oó]ve/.test(topic)
+                ? ["/seguro-residencial", "seguro residencial: coberturas e contratação"]
+                : /auto|moto|ve[ií]cul|fipe|cnh|tr[aâ]nsito/.test(topic)
+                ? ["/seguro-auto", "seguro auto: coberturas e cotação"]
+                : /vida/.test(topic)
+                ? ["/seguro-vida", "seguro de vida: proteção e contratação"]
+                : /empres|comercia|consult[oó]rio|cl[ií]nica|escrit[oó]rio|cyber/.test(topic)
+                ? ["/seguro-empresarial", "seguro empresarial: proteção para sua atividade"]
+                : ["/servicos", "serviços de seguros e orientação da Patro"];
+              return <p className="mb-4 text-sm text-white/80">Para aplicar as orientações deste artigo, conheça <Link to={href} className="underline underline-offset-4 hover:text-white">{label}</Link>.</p>;
+            })()}
             {meta && (
               <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
                 <Link
@@ -231,7 +251,9 @@ const BlogArticle = () => {
                 >
                   <User className="h-3.5 w-3.5" />{meta.author}
                 </Link>
-                <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{formatDate(meta.date)}</span>
+                {meta.date && (
+                  <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /><time dateTime={meta.date}>{formatDate(meta.date)}</time></span>
+                )}
                 <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{meta.readTime} min de leitura</span>
                 <span className="bg-white/10 px-2 py-0.5 rounded text-xs">{meta.category}</span>
                 {meta.updatedAt && meta.updatedAt !== meta.date && (

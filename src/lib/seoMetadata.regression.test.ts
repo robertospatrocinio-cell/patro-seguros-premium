@@ -45,8 +45,8 @@ describe("Metadados estáticos dos artigos", () => {
   it("preserva imagens externas e a data real da atualização", () => {
     const metadata = getMetadataForRoute(path);
     expect(metadata?.schema.image).toEqual(["https://cdn.example.com/seguro-empresarial.webp"]);
-    expect(metadata?.schema.datePublished).toBe("2026-01-10T09:00:00-03:00");
-    expect(metadata?.schema.dateModified).toBe("2026-02-12T09:00:00-03:00");
+    expect(metadata?.schema.datePublished).toBe("2026-01-10");
+    expect(metadata?.schema.dateModified).toBe("2026-02-12");
   });
 
   it("usa a URL oficial, a imagem externa e a atualização também no endereço antigo", () => {
@@ -54,7 +54,8 @@ describe("Metadados estáticos dos artigos", () => {
     expect(metadata?.canonical).toBe(`https://www.patroseguros.com.br${path}`);
     expect(metadata?.ogUrl).toBe(metadata?.canonical);
     expect(metadata?.schema.image).toEqual(["https://cdn.example.com/seguro-empresarial.webp"]);
-    expect(metadata?.schema.dateModified).toBe("2026-02-12T09:00:00-03:00");
+    expect(metadata?.schema.datePublished).toBe("2026-01-10");
+    expect(metadata?.schema.dateModified).toBe("2026-02-12");
     expect(metadata?.schema.headline).toBe(metadata?.h1);
   });
 
