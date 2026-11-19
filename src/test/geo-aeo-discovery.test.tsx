@@ -71,15 +71,36 @@ describe("GEO/AEO: identidade e descoberta no código-fonte", () => {
     }
   });
 
+  it("confere cada link do llms.txt contra rotas reais ou arquivos públicos", () => {
+    const router = read("src/App.tsx");
+    const routes = new Set(Array.from(router.matchAll(/<Route\b[^>]*\bpath="([^"]+)"/g), (match) => match[1]));
+    const links = Array.from(read("public/llms.txt").matchAll(/\]\((https:\/\/www\.patroseguros\.com\.br[^)]*)\)/g), (match) => new URL(match[1]));
+    expect(links.length).toBeGreaterThan(5);
+    for (const { pathname } of links) {
+      if (pathname.endsWith(".txt")) {
+        expect(read(`public${pathname}`).trim()).not.toBe("");
+      } else if (pathname.startsWith("/perguntas-frequentes-seguros/")) {
+        expect(routes.has("/perguntas-frequentes-seguros/:categoria")).toBe(true);
+        expect(perguntasPrioritarias.map((category) => category.id)).toContain(pathname.split("/")[2]);
+      } else {
+        expect(routes.has(pathname), `Rota inexistente no llms.txt: ${pathname}`).toBe(true);
+      }
+    }
+  });
+
   it("preserva a descoberta pública e as restrições administrativas do grupo compartilhado", () => {
     const robots = read("public/robots.txt");
     const shared = robots.split("# Scrapers")[0];
-    expect(shared).toContain("User-agent: OAI-SearchBot");
-    expect(shared).toContain("User-agent: Googlebot");
-    expect(shared).toContain("Allow: /");
+    for (const agent of ["*", "Googlebot", "GPTBot", "OAI-SearchBot", "PerplexityBot", "ClaudeBot", "Google-Extended"]) {
+      expect(shared.split("\n")).toContain(`User-agent: ${agent}`);
+    }
+    expect(shared.split("\n")).toContain("Allow: /");
     expect(shared).toContain("Disallow: /admin/");
     expect(shared).not.toMatch(/^Disallow: \/\s*$/m);
+    expect(robots.split("\n")).toContain(`Sitemap: ${EMPRESA.dominioCanonico}/sitemap.xml`);
     expect(robots).toContain(`Sitemap: ${EMPRESA.dominioCanonico}/sitemap-index.xml`);
+    expect(read("public/sitemap.xml")).toContain("<sitemapindex");
+    expect(read("public/_headers")).toContain("/llms.txt\n  Content-Type: text/plain; charset=utf-8");
   });
 });
 

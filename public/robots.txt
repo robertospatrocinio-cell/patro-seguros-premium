@@ -41,6 +41,7 @@ Allow: /blog/
 Allow: /seguros-guarulhos/
 Allow: /planos-de-saude/
 
+Sitemap: https://www.patroseguros.com.br/sitemap.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 
 # Scrapers sem valor de descoberta/citação
