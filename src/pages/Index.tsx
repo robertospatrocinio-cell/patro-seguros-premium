@@ -13,7 +13,7 @@
  *  - CTAs de cotação por produto via /cotacao?tipo=...
  */
 import { lazy, Suspense, useState } from "react";
-import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/company";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -51,27 +51,17 @@ import { INSURER_WEBSITES } from "@/data/insurerWebsites";
 import SolutionGuide from "@/components/SolutionGuide";
 import ClaimsSupportTimeline from "@/components/ClaimsSupportTimeline";
 
-// Below-the-fold heavy components — code-split to lighten initial JS
+// Só as ferramentas interativas são adiadas; conteúdo editorial é síncrono.
 const loadQuickLeadForm = () => import("@/components/QuickLeadForm");
 const loadLocalSavingsCalculator = () => import("@/components/LocalSavingsCalculator");
-const loadHomeBlogSection = () => import("@/components/HomeBlogSection");
-const loadPortoPartnershipSection = () => import("@/components/PortoPartnershipSection");
-const loadGoogleBusinessWidget = () => import("@/components/GoogleBusinessWidget");
-const loadProvaSocialPatro = () => import("@/components/ProvaSocialPatro");
-const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
-const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
-// O hero é conteúdo crítico: acompanha a rota, sem uma segunda espera de rede.
-import HeroPatro from "@/components/HeroPatro";
-import "@/styles/home.css";
-
 const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
 const LocalSavingsCalculator = lazy(loadLocalSavingsCalculator);
-const HomeBlogSection = lazy(loadHomeBlogSection);
-const PortoPartnershipSection = lazy(loadPortoPartnershipSection);
-const GoogleBusinessWidget = lazy(loadGoogleBusinessWidget);
-const ProvaSocialPatro = lazy(loadProvaSocialPatro);
-const AutoridadePatro = lazy(loadAutoridadePatro);
-const ComoPatroAjuda = lazy(loadComoPatroAjuda);
+import HomeBlogSection from "@/components/HomeBlogSection";
+import PortoPartnershipSection from "@/components/PortoPartnershipSection";
+import AutoridadePatro from "@/components/AutoridadePatro";
+import ComoPatroAjuda from "@/components/ComoPatroAjuda";
+import HeroPatro from "@/components/HeroPatro";
+import "@/styles/home.css";
 
 const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.`;
 
@@ -81,18 +71,18 @@ const handleFinalWhatsAppClick = () => trackWhatsAppClick("home-cta-final");
 
 /** Seguradoras exibidas na home (lista única). O portfólio completo vive em /seguradoras-parceiras. */
 const parceirosHome = [
-  "ALLIANZ",
-  "AZUL",
-  "BRADESCO",
-  "HDI",
-  "ITAÚ",
-  "LIBERTY",
-  "MAPFRE",
-  "PORTO",
-  "SOMPO",
-  "SUHAI",
-  "TOKIO MARINE",
-  "ZURICH",
+  { key: "ALLIANZ", name: "Allianz" },
+  { key: "AZUL", name: "Azul Seguros" },
+  { key: "BRADESCO", name: "Bradesco Seguros" },
+  { key: "HDI", name: "HDI Seguros" },
+  { key: "ITAÚ", name: "Itaú Seguros" },
+  { key: "LIBERTY", name: "Liberty Seguros" },
+  { key: "MAPFRE", name: "Mapfre" },
+  { key: "PORTO", name: "Porto Seguro" },
+  { key: "SOMPO", name: "Sompo Seguros" },
+  { key: "SUHAI", name: "Suhai Seguradora" },
+  { key: "TOKIO MARINE", name: "Tokio Marine" },
+  { key: "ZURICH", name: "Zurich Seguros" },
 ];
 
 /** Seis produtos principais da home. Demais produtos permanecem em páginas próprias. */
@@ -287,48 +277,45 @@ const Index = () => {
             </p>
           </div>
           <div className="flex animate-marquee whitespace-nowrap">
-            {parceirosHome.map((name) => {
-              const url = INSURER_WEBSITES[name];
-              const baseClass =
-                "mx-8 text-lg font-bold text-muted-foreground transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary";
-              return url ? (
-                <a
-                  key={name}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  aria-label={`Visitar o site oficial da seguradora ${name}`}
-                  onClick={() => {
-                    try {
-                      window.gtag?.("event", "clique_seguradora_parceira", {
-                        event_category: "parceiros",
-                        seguradora: name,
-                        url_destino: url,
-                        origem: "marquee_home",
-                      });
-                    } catch {
-                      /* noop */
-                    }
-                  }}
-                  className={baseClass}
-                >
+            <ul className="flex shrink-0 list-none" aria-label="Seguradoras parceiras da Patro Seguros">
+              {parceirosHome.map(({ key, name }) => {
+                const url = INSURER_WEBSITES[key];
+                return (
+                  <li key={key} className="mx-8 text-lg font-bold text-muted-foreground">
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        aria-label={`Visitar o site oficial de ${name}`}
+                        className="inline-block uppercase transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary"
+                        onClick={() => {
+                          try {
+                            window.gtag?.("event", "clique_seguradora_parceira", {
+                              event_category: "parceiros",
+                              seguradora: key,
+                              url_destino: url,
+                              origem: "marquee_home",
+                            });
+                          } catch { /* noop */ }
+                        }}
+                      >
+                        {name}
+                      </a>
+                    ) : <span className="uppercase">{name}</span>}
+                    {" "}
+                  </li>
+                );
+              })}
+            </ul>
+            {/* Cópia apenas visual; os nomes também possuem separação textual. */}
+            <div aria-hidden="true" className="flex shrink-0 whitespace-nowrap">
+              {parceirosHome.map(({ key, name }) => (
+                <span key={`loop-${key}`} className="mx-8 text-lg font-bold uppercase text-muted-foreground">
                   {name}{" "}
-                </a>
-              ) : (
-                <span key={name} className="mx-8 text-lg font-bold text-muted-foreground">
-                  {name}{" "}
-                </span>
-              );
-            })}
-            {/* Repetição puramente visual para o loop do carrossel: oculta para
-                leitores de tela e crawlers, sem duplicar links ou texto útil. */}
-            <span aria-hidden="true" className="flex whitespace-nowrap">
-              {parceirosHome.map((name) => (
-                <span key={`loop-${name}`} className="mx-8 text-lg font-bold text-muted-foreground">
-                  {name}
                 </span>
               ))}
-            </span>
+            </div>
           </div>
           <div className="container mx-auto px-4 mt-8 text-center">
             <Link to="/seguradoras-parceiras" className="text-sm text-primary font-bold hover:underline">
@@ -478,98 +465,47 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 9. COMO FUNCIONA A COTAÇÃO */}
-        <LazySection
-          minHeight="480px"
-          rootMargin="400px"
-          className="py-14 bg-white"
-          prefetch={[loadComoPatroAjuda]}
-        >
-          <section aria-label="Como funciona a cotação">
-            <div className="container mx-auto px-4 max-w-5xl">
-              <Suspense fallback={<div style={{ minHeight: "calc(480px - 7rem)" }} aria-hidden="true" />}>
-                <ComoPatroAjuda
-                  trackingContext="home:como-ajuda"
-                  quoteHref="/cotacao"
-                  pageUrl={CANONICAL_BASE_URL}
-                />
-              </Suspense>
-            </div>
-          </section>
-        </LazySection>
+        {/* Conteúdo editorial disponível na primeira renderização. */}
+        <section className="py-14 bg-white" aria-label="Como funciona a cotação">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <ComoPatroAjuda trackingContext="home:como-ajuda" quoteHref="/cotacao" pageUrl={CANONICAL_BASE_URL} />
+          </div>
+        </section>
 
-        {/* 10. DEPOIMENTOS */}
+        {/* Uma única seção de avaliações, sem relatos reproduzidos ou inventados. */}
         <section className="py-20 bg-white" aria-labelledby="home-depoimentos">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-16">
+            <div className="max-w-2xl mx-auto text-center mb-8">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/10">
-                Excelência Comprovada
+                Avaliações no Google
               </span>
-              <h2
-                id="home-depoimentos"
-                className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4"
-              >
+              <h2 id="home-depoimentos" className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
                 O que nossos clientes dizem
               </h2>
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-2xl font-bold text-slate-900">{PATRO_SOCIAL_PROOF.googleRating}/5.0</span>
-                <div className="flex text-yellow-400">
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-500 font-medium">{PATRO_SOCIAL_PROOF.reviewsCtaLabel}</p>
-              <a
-                href={PATRO_SOCIAL_PROOF.googleProfileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/10"
-              >
-                <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                Avaliações verificadas diretamente no Google Maps
+              <p className="text-2xl font-bold text-slate-900 mb-4">
+                Nota {EMPRESA.metricas.googleRating.toLocaleString("pt-BR")} no Google com {EMPRESA.metricas.googleReviews} avaliações verificadas
+              </p>
+              <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-3 text-sm font-semibold text-primary hover:bg-primary/10">
+                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+                Consultar avaliações no Google
               </a>
             </div>
-
             <p className="max-w-2xl mx-auto text-center text-slate-600 leading-relaxed">
               Consulte os relatos completos, as datas e as notas diretamente no perfil público da Patro no Google.
               Não reproduzimos depoimentos sem uma fonte verificável.
             </p>
+            <div className="mt-8 mx-auto max-w-4xl border-t border-slate-200 pt-8">
+              <GooglePreferredSource context="home:prova-social" />
+            </div>
           </div>
         </section>
 
-        <LazySection minHeight="380px" rootMargin="400px" className="py-14 bg-white" prefetch={[loadProvaSocialPatro]}>
-          <section aria-label="Prova social consolidada">
-            <div className="container mx-auto px-4 max-w-4xl">
-              <Suspense fallback={<div className="min-h-[380px]" aria-hidden="true" />}>
-                <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
-              </Suspense>
-              <div className="mt-8 border-t border-slate-200 pt-8">
-                <GooglePreferredSource context="home:prova-social" />
-              </div>
-            </div>
-          </section>
-        </LazySection>
-
-        {/* 11. AUTORIDADE LOCAL E SEDE */}
-        <LazySection
-          minHeight="420px"
-          rootMargin="400px"
-          className="py-14 bg-slate-50"
-          prefetch={[loadAutoridadePatro]}
-        >
-          <section aria-label="Autoridade e credenciais">
-            <div className="container mx-auto px-4 max-w-4xl">
-              <Suspense fallback={<div className="min-h-[420px]" aria-hidden="true" />}>
-                <AutoridadePatro />
-              </Suspense>
-            </div>
-          </section>
-        </LazySection>
+        <section className="py-14 bg-slate-50" aria-label="Autoridade e credenciais">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <AutoridadePatro />
+          </div>
+        </section>
 
         <section className="home-business py-20 bg-slate-900 text-white">
           <div className="container mx-auto px-4 text-center lg:text-left">
@@ -601,11 +537,14 @@ const Index = () => {
                     <div className="h-1 w-12 bg-primary rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-widest">Nossa Sede em Guarulhos</span>
                   </div>
-                  <LazySection minHeight="300px" rootMargin="300px" prefetch={[loadGoogleBusinessWidget]}>
-                    <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
-                      <GoogleBusinessWidget />
-                    </Suspense>
-                  </LazySection>
+                  <div className="space-y-4">
+                    <p>{EMPRESA.enderecoCompleto}</p>
+                    <p className="text-sm text-white/70">{EMPRESA.horario}</p>
+                    <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 text-sm font-semibold hover:bg-white/10">
+                      <MapPin className="h-4 w-4" aria-hidden="true" /> Abrir no Google Maps
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -662,21 +601,8 @@ const Index = () => {
             <LocalSavingsCalculator />
           </Suspense>
         </LazySection>
-        <LazySection
-          minHeight="var(--blog-placeholder-height)"
-          rootMargin="300px"
-          className="[--blog-placeholder-height:1500px] md:[--blog-placeholder-height:750px]"
-          prefetch={[loadHomeBlogSection]}
-        >
-          <Suspense fallback={<div className="min-h-[var(--blog-placeholder-height)]" aria-hidden="true" />}>
-            <HomeBlogSection />
-          </Suspense>
-        </LazySection>
-        <LazySection minHeight="500px" rootMargin="300px" prefetch={[loadPortoPartnershipSection]}>
-          <Suspense fallback={<div className="min-h-[500px]" aria-hidden="true" />}>
-            <PortoPartnershipSection />
-          </Suspense>
-        </LazySection>
+        <HomeBlogSection />
+        <PortoPartnershipSection />
 
         {/* 13. FAQ COMERCIAL — única FAQ da home */}
         <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200" aria-labelledby="home-faq">

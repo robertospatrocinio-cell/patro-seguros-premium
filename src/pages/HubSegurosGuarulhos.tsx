@@ -141,8 +141,8 @@ const HubSegurosGuarulhos = () => {
   return (
     <>
       <PageMeta
-         title="Seguros em Guarulhos | Patro Seguros"
-         description="Seguros em Guarulhos para moradores e empresas. Encontre orientações por modalidade e região e solicite uma proposta com a Patro."
+         title="Corretora de Seguros em Guarulhos | Patro Seguros"
+         description="Seguros auto, saúde, empresarial e agro em Guarulhos. Compare coberturas com a Patro Seguros e solicite uma proposta para você ou sua empresa."
          canonicalPath="/seguros-guarulhos"
       />
       <FAQSchema faqs={FAQS} />
@@ -163,9 +163,9 @@ const HubSegurosGuarulhos = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-28 max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-xs mb-6">
-                <MapPin className="h-3.5 w-3.5" /> Cidade Maia, Guarulhos/SP
+                <MapPin className="h-3.5 w-3.5" /> Atendimento em toda Guarulhos/SP
               </div>
-                <h1 className="text-white text-balance mb-5">Seguros em Guarulhos com Atendimento Consultivo | Patro Seguros</h1>
+                <h1 className="text-white text-balance mb-5">Corretora de Seguros em Guarulhos</h1>
                <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
                  Encontre a modalidade de seguro e as informações para cotar em Guarulhos. Consulte orientações para sua moradia, atividade profissional ou operação empresarial e compare as condições da proposta.
                </p>

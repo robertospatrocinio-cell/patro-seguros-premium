@@ -8,8 +8,8 @@ import PremiumTrustBlock from "./PremiumTrustBlock";
 import type { PremiumPageContent } from "@/data/premiumPagesContent";
 import { getMetadataForRoute } from "@/lib/seoMetadata";
 
-const Header = lazy(() => import("@/components/Header"));
-const Footer = lazy(() => import("@/components/Footer"));
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 const PatroPrivateForm = lazy(() => import("./PatroPrivateForm"));
 
 interface Props {
