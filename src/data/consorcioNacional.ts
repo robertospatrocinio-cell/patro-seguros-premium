@@ -79,7 +79,7 @@ export const CONSORCIO_NATIONAL_PAGES: ConsorcioIntentPage[] = details.map((deta
     slug: path.slice(1), path, navLabel: modality.title,
     title: detail.title, metaDescription: detail.description,
     h1: path === consorcioServicos.path ? consorcioServicos.h1 : modality.title,
-    subtitle: path === consorcioServicos.path ? consorcioServicos.subtitle : "Planejamento sem juros de financiamento, com atendimento digital em todo o Brasil.",
+    subtitle: path === consorcioServicos.path ? consorcioServicos.subtitle : index === 0 ? "Planeje casa, apartamento, terreno ou imóvel comercial. Entenda o uso da carta, a elegibilidade ao FGTS e as despesas que acompanham a aquisição." : index === 1 ? "Organize a renovação do caminhão, da frota ou das máquinas agrícolas. Compare o tempo de espera com o calendário e o caixa da sua operação." : "Programe a compra ou a troca de carro, moto ou utilitário. Confira a aceitação do veículo, as regras de lance e o crédito líquido para a aquisição.",
     intro: modality.use, audience: detail.audience,
     bullets: [modality.range + " — referências sujeitas à disponibilidade do grupo.", modality.benefit, "Há taxa de administração e podem existir reserva, seguros e reajustes. Sem garantia de contemplação em data específica."],
     sections: detail.sections, faqs: detail.faqs,

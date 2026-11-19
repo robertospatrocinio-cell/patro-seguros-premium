@@ -1,7 +1,7 @@
 import { EMPRESA, WHATSAPP_URL_BASE } from "../config/empresa";
 import { consorcioServicos as copy } from "./consorcioServicos";
 
-export const consorcioServicosWhatsapp = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá! Quero uma simulação de consórcio de serviços. Gostaria de comparar cartas, prazos, custos e condições para meu projeto.")}`;
+export const consorcioServicosWhatsapp = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá! Acessei a página de consórcio de serviços e gostaria de consultar a disponibilidade e receber uma simulação para meu projeto.")}`;
 export const consorcioServicosLinks = [
   { href: "/seguro-residencial", label: "Vai reformar sua casa? Conheça também o Seguro Residencial" },
   { href: "/seguro-viagem", label: "Vai viajar para o exterior? Veja opções de Seguro Viagem" },

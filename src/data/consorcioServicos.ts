@@ -2,7 +2,7 @@ export const consorcioServicos = {
   path: "/consorcio-servicos",
   title: "Consórcio de Serviços: Energia Solar, Reformas e Cirurgias",
   description: "Planeje energia solar, reformas, cirurgias, festas ou viagens sem juros de empréstimo. Cartas de R$ 10 mil a R$ 60 mil, conforme o grupo. Simule!",
-  h1: "Consórcio de Serviços: Energia Solar, Reformas, Cirurgias e Projetos Pessoais Sem Juros",
+  h1: "Consórcio de serviços para projetos que podem esperar.",
   badge: "Atendimento digital em todo o Brasil • Consulte administradoras autorizadas pelo Banco Central",
   subtitle: "Planeje projetos para sua casa, sua empresa ou sua qualidade de vida sem juros de empréstimo pessoal. Consulte cartas de R$ 10 mil a R$ 60 mil e prazos de 24 a 48 meses, sujeitos à disponibilidade do grupo. Após a contemplação e a aprovação do crédito, negocie o pagamento à vista com o prestador.",
   highlights: [

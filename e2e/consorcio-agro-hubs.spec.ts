@@ -22,6 +22,39 @@ for (const width of [390, 1280]) {
       }
     });
 
+    test("modalidades: estrutura, WhatsApp contextual e largura da página", async ({ page }) => {
+      const cases = [
+        { path: "/consorcio-imoveis", cta: "Simular consórcio imobiliário", message: "consórcio de imóveis" },
+        { path: "/consorcio-veiculos", cta: "Simular consórcio de veículo", message: "consórcio de veículos" },
+        { path: "/consorcio-pesados-maquinas", cta: "Planejar aquisição de caminhão ou frota", message: "caminhões e pesados" },
+        { path: "/consorcio-empresarial-guarulhos", cta: "Conversar sobre consórcio para minha empresa", message: "consórcio para empresas" },
+        { path: "/consorcio-servicos", cta: "Consultar consórcio de serviços", message: "consórcio de serviços" },
+      ];
+      for (const scenario of cases) {
+        await page.goto(scenario.path);
+        const main = page.locator("main");
+        await expect(main.getByRole("heading", { level: 1 })).toHaveCount(1);
+        await expect(main.getByRole("heading", { name: "O que pode ser planejado", exact: true })).toBeVisible();
+        await expect(main.getByRole("heading", { name: "Para quem pode fazer sentido", exact: true })).toBeVisible();
+        await expect(main.getByRole("link", { name: scenario.cta, exact: true }).first()).toBeVisible();
+        const whatsapp = main.locator('a[href*="wa.me"], a[href*="api.whatsapp.com"]').first();
+        const url = new URL((await whatsapp.getAttribute("href"))!);
+        expect(url.searchParams.get("text")).toContain(scenario.message);
+        await expect(whatsapp).toHaveAttribute("rel", /noopener/);
+        const faq = main.locator("#duvidas details").first();
+        await faq.locator("summary").click();
+        await expect(faq.locator("p")).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1), scenario.path).toBe(false);
+      }
+      await page.goto("/consorcio-pesados-maquinas#maquinas-agricolas");
+      await expect(page.locator("#maquinas-agricolas")).toBeVisible();
+      const agriculture = page.getByRole("link", { name: "Simular consórcio de máquina agrícola", exact: true });
+      expect(new URL((await agriculture.getAttribute("href"))!).searchParams.get("text")).toContain("máquina agrícola");
+      await page.goto("/consorcio-veiculos");
+      const motorcycle = page.getByRole("link", { name: "Simular consórcio de moto", exact: true });
+      expect(new URL((await motorcycle.getAttribute("href"))!).searchParams.get("text")).toContain("simulação para uma moto");
+    });
+
     test("consórcio: apresentação, chamadas, dúvidas e privacidade", async ({ page }) => {
       await page.goto("/consorcio");
       await expect(page.getByRole("heading", { level: 1 })).toHaveText("Seus planos merecem uma boa estratégia.");
