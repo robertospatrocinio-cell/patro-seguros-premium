@@ -57,7 +57,7 @@ for (const width of [390, 1280]) {
 
     test("consórcio: apresentação, chamadas, dúvidas e privacidade", async ({ page }) => {
       await page.goto("/consorcio");
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText("Seus planos merecem uma boa estratégia.");
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText("Consórcio: seus planos merecem uma boa estratégia.");
       const hero = page.locator("section").filter({ has: page.locator("#consorcio-title") });
       await expect(hero).toContainText("A contemplação não tem data garantida.");
       const request = hero.getByRole("link", { name: "Solicitar simulação", exact: true });

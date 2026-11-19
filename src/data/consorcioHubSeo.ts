@@ -1,5 +1,5 @@
 import { EMPRESA } from "../config/empresa";
-import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp } from "./consorcioHub";
+import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioOfficialSources } from "./consorcioHub";
 import { calculateConsorcioScenario, formatConsorcioCurrency as money } from "../lib/consorcioSimulation";
 
 const esc = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
@@ -43,6 +43,9 @@ export function getConsorcioStaticContent() {
       `<p>Atendimento digital nacional e sede em Guarulhos. Conheça o <a href="/consorcio-guarulhos">atendimento de consórcio em Guarulhos</a>.</p></section>`,
       `<section id="duvidas"><h2>${esc(copy.faqTitle)}</h2>`,
       ...consorcioFaqs.map(faq => `<h3>${esc(faq.q)}</h3>${p(faq.a)}`),
+      `<h3>Confira as regras nas fontes oficiais</h3>`,
+      p("A Patro orienta sua consulta; a administradora conduz o grupo e decide sobre a liberação do crédito. O Banco Central fiscaliza as administradoras, mas não garante a operação nem a contemplação. Confirme as regras vigentes antes de contratar."),
+      `<ul>${consorcioOfficialSources.map(source => `<li><a href="${esc(source.url)}">${esc(source.label)}</a></li>`).join("")}</ul>`,
       `</section><section><h2>${esc(copy.ctaTitle)}</h2>${p(copy.ctaText)}`,
       `<p><a href="#comparar">Simular meu consórcio agora</a> — <a href="${esc(consorcioWhatsapp)}">Falar com especialista no WhatsApp</a></p></section>`,
       `<section id="simulacao"><h2>Receba uma análise personalizada</h2><p>Informe seu objetivo e sua cidade para receber orientação da Patro. <a href="${esc(consorcioWhatsapp)}">Solicitar análise do meu consórcio pelo WhatsApp</a>.</p></section>`,

@@ -971,9 +971,9 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         h1: "Seguro Para Motorista de App",
       },
       "/consorcio": {
-        title: "Consórcio de Imóveis, Veículos e Pesados Sem Juros | Patro",
-        description: "Simule seu consórcio de imóveis, carros, caminhões e máquinas agrícolas em todo o Brasil. Compare administradoras, estratégias de lance e economize juros.",
-        h1: "Seus planos merecem uma boa estratégia.",
+        title: "Consórcio: Imóveis, Veículos, Pesados e Serviços | Patro",
+        description: "Entenda custos, lances e regras do consórcio de imóveis, veículos, pesados e serviços. Explore o simulador educativo e solicite orientação à Patro.",
+        h1: "Consórcio: seus planos merecem uma boa estratégia.",
       },
       "/todos-os-seguros": {
         title: "Todos os Seguros | Catálogo por Perfil | Patro Seguros",

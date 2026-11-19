@@ -11,7 +11,7 @@ import ConsorcioSimulator from "./ConsorcioPlanningSimulator";
 import { Button } from "@/components/ui/button";
 import { EMPRESA } from "@/config/empresa";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
-import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioSchema } from "@/data/consorcioHub";
+import { consorcioHub as copy, consorcioModalities, consorcioComparison, consorcioConsulting, consorcioFaqs, consorcioWhatsapp, consorcioSchema, consorcioOfficialSources } from "@/data/consorcioHub";
 
 type Props = { children: ReactNode; onRequest: (credit: number, summary: string, modality: string) => void };
 const section = "mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 md:py-24";
@@ -105,6 +105,7 @@ export default function ConsorcioHubContent({ children, onRequest }: Props) {
       <section id="duvidas" aria-labelledby="duvidas-title" className="scroll-mt-24 bg-slate-50">
         <div className={section}>
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16"><div><h2 id="duvidas-title" className={heading}>Decida com informação.</h2><p className="mt-4 leading-relaxed text-slate-600">Respostas para as dúvidas mais frequentes. Para condições de um grupo específico, converse com a Patro.</p><Link to="/blog" className={`${textLink} mt-5`}>Explorar conteúdos no blog<ArrowRight aria-hidden="true" className="h-4 w-4" /></Link></div><div className="divide-y divide-slate-200 border-y border-slate-200">{consorcioFaqs.map((faq, index) => <details key={faq.q} id={`duvida-${index + 1}`} className="scroll-mt-24 py-2"><summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-4 font-medium text-[#092b4c]">{faq.q}<Plus aria-hidden="true" className="h-4 w-4 shrink-0" /></summary><p className="pb-5 text-sm leading-relaxed text-slate-600">{faq.a}</p></details>)}</div></div>
+          <aside aria-label="Fontes oficiais sobre consórcio" className="mt-10 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-lg font-semibold text-[#092b4c]">Confira as regras nas fontes oficiais</h3><p className="mt-3 text-sm leading-relaxed text-slate-600">A Patro orienta sua consulta; a administradora conduz o grupo e decide sobre a liberação do crédito. O Banco Central fiscaliza as administradoras, mas não garante a operação nem a contemplação. Confirme as regras vigentes antes de contratar.</p><ul className="mt-4 space-y-2">{consorcioOfficialSources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className={textLink}>{source.label}<span className="sr-only"> (abre em nova aba)</span></a></li>)}</ul></aside>
           <div className="mt-12"><EbookConsorcioBanner /></div>
         </div>
       </section>

@@ -1,9 +1,9 @@
 import { EMPRESA, WHATSAPP_URL_BASE } from "../config/empresa";
 
 export const consorcioHub = {
-  title: "Consórcio de Imóveis, Veículos e Pesados Sem Juros | Patro",
-  description: "Simule seu consórcio de imóveis, carros, caminhões e máquinas agrícolas em todo o Brasil. Compare administradoras, estratégias de lance e economize juros.",
-  h1: "Seus planos merecem uma boa estratégia.",
+  title: "Consórcio: Imóveis, Veículos, Pesados e Serviços | Patro",
+  description: "Entenda custos, lances e regras do consórcio de imóveis, veículos, pesados e serviços. Explore o simulador educativo e solicite orientação à Patro.",
+  h1: "Consórcio: seus planos merecem uma boa estratégia.",
   badge: "CONSÓRCIO PATRO",
   intro: "Imóveis, veículos, máquinas e projetos: descubra alternativas de compra planejada com orientação para escolher um plano adequado ao seu objetivo.",
   highlights: [
@@ -50,7 +50,20 @@ export const consorcioConsulting = [
   { title: "Pós-contemplação e seguro integrado", text: "Apoiamos a organização dos documentos para liberação da carta. Também orientamos sobre Seguro Auto, Residencial ou de Máquinas e a cláusula beneficiária, quando exigida pela administradora, respeitando a análise e as condições de cada seguro." },
 ];
 
+export const consorcioOfficialSources = [
+  { label: "Banco Central: entenda o consórcio", url: "https://www.bcb.gov.br/estabilidadefinanceira/consorcio" },
+  { label: "Banco Central: consulte a instituição antes de contratar", url: "https://www.bcb.gov.br/meubc/encontreinstituicao" },
+  { label: "CAIXA: regras para uso do FGTS na moradia", url: "https://www.caixa.gov.br/voce/habitacao/uso-fgts/Paginas/default.aspx" },
+];
+
 export const consorcioFaqs = [
+  { q: "O que é consórcio?", a: "Consórcio é uma forma de compra planejada em grupo, administrada por uma empresa autorizada pelo Banco Central. Os participantes pagam parcelas para formar um fundo comum, que permite atribuir créditos por sorteio ou lance conforme os recursos e as regras do grupo. Não é investimento com rendimento garantido nem crédito de liberação imediata." },
+  { q: "Como funciona a contemplação?", a: "Contemplação é a atribuição do crédito por sorteio ou lance nas assembleias, conforme o contrato e os recursos disponíveis do grupo. Um lance pode não ser vencedor; não existe data garantida. Ser contemplado não significa liberação automática: a administradora ainda verifica cadastro, documentos e garantias antes de pagar o vendedor ou prestador." },
+  { q: "Consórcio tem juros? Quais custos podem existir?", a: "Não há juros de financiamento, mas consórcio tem custos. A parcela pode incluir fundo comum, taxa de administração, fundo de reserva e seguros previstos no contrato. Carta e parcelas podem sofrer reajustes; também podem existir despesas de avaliação, registro, garantias e encargos por atraso. Compare o valor total e a distribuição das cobranças, não apenas a parcela inicial." },
+  { q: "Quando é possível utilizar o FGTS no consórcio?", a: "O FGTS pode ser utilizado em operações de consórcio imobiliário elegíveis, como lance, complemento da compra, amortização ou liquidação, conforme as regras vigentes para cada finalidade. Não é permitido para qualquer imóvel ou participante. Em geral, exige pelo menos três anos de trabalho sob o regime do FGTS, além de condições sobre propriedade de outros imóveis, financiamento ativo, localização, valor e destinação residencial para moradia própria. A administradora e o agente operador devem confirmar o enquadramento antes de você contar com esse recurso. Não se aplica a veículos, máquinas ou serviços." },
+  { q: "O que acontece depois da contemplação?", a: "Depois da contemplação, a administradora analisa o cadastro, a capacidade de pagamento, os documentos e as garantias para liberar o crédito. Você escolhe o bem ou serviço dentro da categoria contratada e apresenta a documentação exigida; o pagamento ao vendedor ou prestador segue a aprovação e os procedimentos da administradora. As parcelas restantes e os reajustes previstos continuam devidos. A Patro orienta o atendimento, mas não aprova nem libera o crédito." },
+  { q: "Quando vale comparar consórcio com financiamento?", a: "Compare antes de contratar, especialmente se você precisa do bem em uma data definida ou pretende ofertar um lance elevado. Consórcio exige capacidade de esperar sem data garantida; financiamento depende da aprovação e pode permitir acesso ao bem antes. Considere propostas reais, CET do financiamento, taxas e reajustes do consórcio, entrada, reserva financeira e custo da espera. A comparação nominal do simulador não considera todos esses fatores e não garante economia." },
+  { q: "Qual é o papel da Patro e do Banco Central no consórcio?", a: "A Patro oferece atendimento consultivo para entender seu objetivo, explicar condições e encaminhar a consulta de planos. A administradora é responsável pelo grupo, pelas assembleias, pelas análises e pela liberação do crédito. O Banco Central autoriza e fiscaliza administradoras; não garante a operação, a contemplação nem o pagamento ao participante. O registro SUSEP da Patro se refere à corretagem de seguros e não substitui a autorização da administradora." },
   { q: "Como funciona o lance embutido no consórcio?", a: "O lance embutido permite utilizar parte da própria carta de crédito como lance, se o grupo admitir. O limite, por exemplo 25% ou 30%, depende do contrato. Se o lance for vencedor e homologado, esse valor é descontado do crédito disponível para comprar o bem. Portanto, planeje a compra com base na carta líquida; o recurso não é um valor adicional e não garante contemplação." },
   { q: "O valor da carta de crédito e das parcelas sofre reajuste?", a: "Sim, conforme o índice, a periodicidade e as regras do contrato. Podem ser utilizados INCC em imóveis, IPCA ou o preço de um bem de referência em veículos e pesados, sem que exista um índice único para todos os grupos. O reajuste busca preservar o poder de compra do grupo e pode aumentar as parcelas. Confira também as regras após a contemplação e a utilização do crédito." },
   { q: "Posso usar o consórcio para quitar um financiamento bancário que já estou pagando?", a: "É possível usar o crédito contemplado para a quitação total de financiamento de sua titularidade, da mesma categoria do consórcio, observadas a anuência da administradora, as condições contratuais e a documentação exigida. Não é uma troca automática de dívida. Compare custos, saldo devedor, eventuais recursos complementares e o tempo de espera pela contemplação." },
