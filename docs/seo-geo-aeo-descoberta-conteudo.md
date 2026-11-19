@@ -52,9 +52,25 @@ Escopo: Central de Materiais (`/materiais-gratuitos-seguros`) e os dez checklist
 
 `src/pages/Materiais.discovery.test.tsx` cobre os links e a coleção da central, os dez checklists, a presença das respostas no HTML, a correspondência dos passos e os destinos dos atalhos. Os testes não foram executados neste ambiente; ainda é necessário validar o build, o HTML publicado e a navegação no celular e no teclado após a sincronização.
 
-### Próximas etapas planejadas (não implementadas nesta revisão)
+## Continuação em etapas — etapa 2: contexto editorial e conexões
 
-2. Contexto editorial e conexões entre artigos, autores, guias e perguntas.
+Escopo: artigos do blog, perfis de autores, guias aprofundados e perguntas por categoria.
+
+- Artigos passam a ter a seção “Quem escreveu este artigo”, com trajetória resumida, papel profissional já cadastrado, link para o perfil e caminho para esclarecimentos ou correções. Não foram criadas credenciais nem atribuída revisão a autores diferentes dos cadastrados.
+- A navegação “Continue a leitura” conecta artigos, guias e perguntas pelo assunto específico. Consórcio tem precedência sobre veículos ou imóveis; quando não há correspondência, os links levam às centrais em vez de indicar um guia sem relação.
+- Guias e perguntas oferecem até dois artigos temáticos com autoria e tempo de leitura. Consultórios, salas comerciais e veículos elétricos também têm correspondência com suas categorias de perguntas. A navegação não aponta para a própria página; nos artigos, preserva a seleção de relacionados já existente sem adicionar uma segunda lista de posts.
+- Nos guias, a equipe e a revisora já indicadas agora têm links para a página institucional e o perfil existente. As mesmas identidades aparecem nos dados estruturados.
+- As respostas dos guias usam o componente nativo já adotado nas centrais, permanecendo no HTML com links individuais.
+- Os perfis dos autores conectam a trajetória e os artigos às centrais de guias e perguntas, à equipe e ao contato para correções.
+- As tags dos artigos abrem a busca do blog pelo assunto, em vez de levar todas à listagem sem filtro. A categoria na trilha do artigo aponta para a página editorial de categoria.
+- A seleção de artigos relacionados deixa de completar a lista com itens sem pontuação de relação; um endereço desconhecido não recebe recomendações arbitrárias.
+
+### Verificações desta etapa
+
+`src/components/EditorialNextSteps.test.tsx` cobre a existência dos destinos temáticos, precedência de assuntos, links presentes no HTML, ausência de autorreferência, caminhos alternativos e integração com guias e perguntas. Os testes foram adicionados, mas não executados neste ambiente. Após sincronizar, conferir o build, abrir um artigo e seu perfil de autor, navegar até um guia e uma categoria de perguntas, e testar os links com teclado e no celular.
+
+### Próxima etapa planejada (não implementada nesta revisão)
+
 3. Consistência de rastreamento, endereços canônicos e mapas do site nas áreas revisadas.
 
 Esta etapa não modifica robots.txt, sitemaps, políticas de acesso ou dados comerciais. Os resultados de busca e as citações por IA continuam dependendo de sistemas externos.

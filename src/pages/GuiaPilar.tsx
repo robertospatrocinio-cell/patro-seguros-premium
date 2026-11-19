@@ -3,7 +3,9 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import DiscoverableFaq from "@/components/DiscoverableFaq";
+import EditorialNextSteps from "@/components/EditorialNextSteps";
+import { getEditorialTopic } from "@/lib/editorialConnections";
 import { ArrowRight, BookOpen, Clock, MessageCircle, CheckCircle2, ChevronRight } from "lucide-react";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { GUIAS_PILARES_BY_SLUG, GUIA_AUTHOR, type GuiaPilar } from "@/data/guiasPilaresData";
@@ -59,12 +61,12 @@ const buildSchemas = (guia: GuiaPilar) => {
     dateModified: guia.updatedAt,
     mainEntityOfPage: url,
     url,
-    author: { "@type": "Organization", name: GUIA_AUTHOR.name },
-    reviewedBy: { "@type": "Person", name: GUIA_AUTHOR.reviewer },
+    author: { "@type": "Organization", "@id": `${CANONICAL_BASE_URL}/#organization`, name: GUIA_AUTHOR.name, url: `${CANONICAL_BASE_URL}/sobre` },
+    reviewedBy: { "@type": "Person", "@id": `${CANONICAL_BASE_URL}/blog/autor/sandra-patro#person`, name: GUIA_AUTHOR.reviewer, url: `${CANONICAL_BASE_URL}/blog/autor/sandra-patro` },
     publisher: {
       "@type": "Organization",
       name: "Patro Seguros",
-      logo: { "@type": "ImageObject", url: `${CANONICAL_BASE_URL}/images/logo.webp` },
+      logo: { "@type": "ImageObject", url: `${CANONICAL_BASE_URL}/images/logo-full.webp` },
     },
     articleSection: guia.category,
     articleBody,
@@ -73,9 +75,13 @@ const buildSchemas = (guia: GuiaPilar) => {
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: guia.faqs.map((f) => ({
+    "@id": `${url}#faq`,
+    url,
+    inLanguage: "pt-BR",
+    mainEntity: guia.faqs.map((f, index) => ({
       "@type": "Question",
       name: f.q,
+      url: `${url}#resposta-guia-${index + 1}`,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
@@ -142,7 +148,10 @@ const GuiaPilarPage = () => {
             <span>·</span>
             <span>Atualizado em {new Date(guia.updatedAt).toLocaleDateString("pt-BR")}</span>
             <span>·</span>
-            <span>Por {GUIA_AUTHOR.name} · Revisão {GUIA_AUTHOR.reviewer}</span>
+            <span>
+              Por <Link to="/sobre" className="underline underline-offset-4 rounded-sm focus-visible:ring-2 focus-visible:ring-ring">{GUIA_AUTHOR.name}</Link>
+              {" · Revisão "}<Link to="/blog/autor/sandra-patro" className="underline underline-offset-4 rounded-sm focus-visible:ring-2 focus-visible:ring-ring">{GUIA_AUTHOR.reviewer}</Link>
+            </span>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
@@ -216,14 +225,7 @@ const GuiaPilarPage = () => {
           {/* FAQ */}
           <section id="faq" className="scroll-mt-28" aria-labelledby="faq-heading">
             <h2 id="faq-heading" className="text-2xl md:text-3xl font-bold mb-6">Perguntas frequentes</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {guia.faqs.map((f, i) => (
-                <AccordionItem key={i} value={`faq-${i}`}>
-                  <AccordionTrigger className="text-left text-base md:text-lg font-semibold">{f.q}</AccordionTrigger>
-                  <AccordionContent className="text-base leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <DiscoverableFaq items={guia.faqs} idPrefix="resposta-guia" />
           </section>
 
           {/* Termos do glossário relacionados (Fase 6.1) */}
@@ -265,6 +267,10 @@ const GuiaPilarPage = () => {
           })()}
         </div>
       </article>
+
+      <div className="container mx-auto max-w-4xl px-4">
+        <EditorialNextSteps topic={getEditorialTopic(guia.slug, guia.category)} currentPath={`/guias/${guia.slug}`} />
+      </div>
 
       {/* Related */}
       <section className="bg-muted/40 border-t py-14">

@@ -1,19 +1,19 @@
-import { normalizeBlogDates, safeBlogDate } from "./blogDates";
-import { guarulhosArticles } from "../data/blogGuarulhosData";
-import { guarulhosLojistasArticles } from "../data/blogGuarulhosLojistasData";
-import { vistoriaArticles } from "../data/blogVistoriaData";
-import { odontologiaArticles } from "../data/blogOdontologiaData";
-import { consultorioArticles } from "../data/blogConsultorioData";
-import { flatArticles } from "../data/blogFlatData";
-import { salaComercialArticles } from "../data/blogSalaComercialData";
-import { blogVeterinariaData } from "../data/blogVeterinariaData";
-import { patroPrivateArticles } from "../data/blogPatroPrivateData";
-import { agroArticles } from "../data/blogAgroData";
-import { autoArticles } from "../data/blogAutoData";
-import { calendar90dArticles } from "../data/blogCalendar90dData";
-import { fase5LocalArticles } from "../data/blogFase5LocalData";
-import { consorcioQuitacaoImobiliariaArticle } from "../data/blogConsorcioQuitacaoImobiliaria";
-import { consorcioTaxaAdministracaoArticle } from "../data/blogConsorcioTaxaAdministracao";
+import { normalizeBlogDates, safeBlogDate } from "@/lib/blogDates";
+import { guarulhosArticles } from "@/data/blogGuarulhosData";
+import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
+import { vistoriaArticles } from "@/data/blogVistoriaData";
+import { odontologiaArticles } from "@/data/blogOdontologiaData";
+import { consultorioArticles } from "@/data/blogConsultorioData";
+import { flatArticles } from "@/data/blogFlatData";
+import { salaComercialArticles } from "@/data/blogSalaComercialData";
+import { blogVeterinariaData } from "@/data/blogVeterinariaData";
+import { patroPrivateArticles } from "@/data/blogPatroPrivateData";
+import { agroArticles } from "@/data/blogAgroData";
+import { autoArticles } from "@/data/blogAutoData";
+import { calendar90dArticles } from "@/data/blogCalendar90dData";
+import { fase5LocalArticles } from "@/data/blogFase5LocalData";
+import { consorcioQuitacaoImobiliariaArticle } from "@/data/blogConsorcioQuitacaoImobiliaria";
+import { consorcioTaxaAdministracaoArticle } from "@/data/blogConsorcioTaxaAdministracao";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -471,7 +471,7 @@ export const getArticleMeta = (slug: string): BlogArticleMeta | undefined =>
 // Get related articles (same category or shared tags, excluding current)
 export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] => {
   const current = getArticleMeta(slug);
-  if (!current) return articles.slice(0, limit);
+  if (!current) return [];
 
   const scored = articles
     .filter(a => a.slug !== slug)
@@ -481,7 +481,8 @@ export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] =
       score += a.tags.filter(t => current.tags.includes(t)).length;
       return { ...a, score };
     })
-    .sort((a, b) => b.score - a.score);
+    .filter(a => a.score > 0)
+    .sort((a, b) => b.score - a.score || b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 
   return scored.slice(0, limit);
 };

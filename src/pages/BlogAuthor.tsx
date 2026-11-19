@@ -25,9 +25,7 @@ const BlogAuthor = () => {
     [author]
   );
 
-  if (!author) return <Navigate to="/blog" replace />;
-
-  const canonical = getCanonicalUrl(`/blog/autor/${author.slug}`);
+  const canonical = author ? getCanonicalUrl(`/blog/autor/${author.slug}`) : "";
 
   // hreflang: site é pt-BR único. Sinaliza idioma/região e x-default
   // apontando para a própria URL canônica do autor.
@@ -55,6 +53,8 @@ const BlogAuthor = () => {
       created.forEach(l => l.remove());
     };
   }, [canonical]);
+
+  if (!author) return <Navigate to="/blog" replace />;
 
   const title = `${author.name} | Blog Patro Seguros`;
   const description = author.shortBio;
@@ -203,6 +203,23 @@ const BlogAuthor = () => {
             </aside>
           </div>
         </section>
+
+        <div className="container mx-auto max-w-5xl px-4">
+          <nav aria-label="Contexto editorial do autor" className="border-b py-8">
+            <h2 className="mb-3 text-xl font-bold">Conheça o trabalho por trás dos artigos</h2>
+            <p className="mb-4 text-muted-foreground">Confira a trajetória acima e escolha um artigo abaixo. Para uma visão geral ou uma dúvida pontual, consulte os guias e as perguntas por assunto.</p>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              {[
+                { href: "/sobre", label: "Sobre a equipe Patro Seguros" },
+                { href: "/guias-seguros", label: "Guias completos por assunto" },
+                { href: "/perguntas-frequentes-seguros", label: "Perguntas frequentes por assunto" },
+                { href: "/contato", label: "Pedir esclarecimento ou sugerir uma correção" },
+              ].map((item) => (
+                <li key={item.href}><Link to={item.href} className="inline-flex min-h-11 items-center rounded-sm text-primary underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-ring">{item.label}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
 
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-5xl">

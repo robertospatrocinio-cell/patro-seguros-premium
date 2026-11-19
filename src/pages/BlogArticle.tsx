@@ -26,6 +26,8 @@ import { blogFaqBackfill } from "@/data/blogFaqBackfill";
 import { getBlogContent } from "@/data/blogContentIndex";
 import { useABTest } from "@/hooks/useABTest";
 import ArticleInlineCTA from "@/components/ArticleInlineCTA";
+import EditorialNextSteps from "@/components/EditorialNextSteps";
+import { getEditorialTopic } from "@/lib/editorialConnections";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
@@ -203,7 +205,7 @@ const BlogArticle = () => {
           <Breadcrumb
             items={[
               { label: "Blog", href: "/blog" },
-              { label: meta.category, href: `/blog?categoria=${slugifyCategory(meta.category)}` },
+              { label: meta.category, href: `/blog/categoria/${slugifyCategory(meta.category)}` },
               { label: article.title },
             ]}
           />
@@ -820,15 +822,42 @@ const BlogArticle = () => {
 
 
 
-            {/* Tags */}
+            {meta && (
+              <>
+                <aside id="sobre-autor" aria-labelledby="sobre-autor-heading" className="mt-10 scroll-mt-28 rounded-xl border bg-muted/30 p-6">
+                  <h2 id="sobre-autor-heading" className="mb-3 text-xl font-bold">Quem escreveu este artigo</h2>
+                  <p className="font-semibold">
+                    {authorInfo ? (
+                      <Link to={`/blog/autor/${authorInfo.slug}`} rel="author" className="text-primary underline underline-offset-4">{meta.author}</Link>
+                    ) : meta.author}
+                  </p>
+                  {authorInfo && (
+                    <>
+                      <p className="mt-1 text-sm text-muted-foreground">{authorInfo.role}</p>
+                      <p className="mt-3 text-muted-foreground leading-relaxed">{authorInfo.shortBio}</p>
+                      <Link to={`/blog/autor/${authorInfo.slug}`} className="mt-3 inline-flex min-h-11 items-center rounded-sm text-primary underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-ring">
+                        Conhecer a trajetória e os artigos de {authorInfo.name}
+                      </Link>
+                    </>
+                  )}
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Conteúdo informativo; coberturas, custos e regras dependem do produto e das condições vigentes.
+                    {" "}<Link to="/contato" className="text-primary underline underline-offset-4">Pedir esclarecimento ou sugerir uma correção</Link>.
+                  </p>
+                </aside>
+                <EditorialNextSteps topic={getEditorialTopic(meta.slug, meta.category)} currentPath={`/blog/${meta.slug}`} showArticles={false} />
+              </>
+            )}
+
+            {/* Tags com busca direta pelo assunto */}
             {meta && meta.tags.length > 0 && (
-              <div className="mt-8 flex flex-wrap gap-2">
+              <nav aria-label="Assuntos deste artigo" className="mt-8 flex flex-wrap gap-2">
                 {meta.tags.map(tag => (
-                  <Link key={tag} to="/blog" className="bg-muted px-3 py-1 rounded-full text-xs text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors">
+                  <Link key={tag} to={`/blog?q=${encodeURIComponent(tag)}`} className="inline-flex min-h-11 items-center rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground hover:bg-primary/10 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring">
                     #{tag}
                   </Link>
                 ))}
-              </div>
+              </nav>
             )}
 
              {/* Inline Form CTA */}

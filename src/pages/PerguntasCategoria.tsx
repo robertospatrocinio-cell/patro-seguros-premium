@@ -12,6 +12,8 @@ import { perguntasCategoriaAprofundamento } from "@/data/perguntasCategoriaAprof
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { perguntasPrioritarias } from "@/data/perguntasPrioritarias";
 import FaqEditorialContext from "@/components/FaqEditorialContext";
+import EditorialNextSteps from "@/components/EditorialNextSteps";
+import { getTopicForFaq } from "@/lib/editorialConnections";
 import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
 const WA_BASE = `${WHATSAPP_URL_BASE}?text=`;
@@ -173,6 +175,10 @@ const PerguntasCategoriaPage = () => {
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto max-w-4xl px-4">
+        <EditorialNextSteps topic={getTopicForFaq(cat.id)} currentPath={`/perguntas-frequentes-seguros/${cat.id}`} />
+      </div>
 
       {/* Outras categorias */}
       <section className="py-12">
