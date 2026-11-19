@@ -104,10 +104,11 @@ export default function Consorcio() {
   return <ConsorcioHubContent onRequest={(credit, summary, modality) => {
     setScenarioSummary(summary);
     setForm(old => ({ ...old, credito: formatConsorcioCurrency(credit), tipo: modality === "Pesados & Agro" ? "Pesados e agro" : modality }));
-    document.getElementById("simulacao")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("simulacao")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    document.getElementById("consorcio-name")?.focus({ preventScroll: true });
     trackCotacaoClick("consorcio_anchor");
   }}>
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-slate-200 p-5 md:p-7 bg-white text-slate-900" aria-label="Solicitar análise de consórcio">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-slate-200 p-5 md:p-8 bg-white text-slate-900" aria-label="Solicitar análise de consórcio" aria-busy={loading}>
       <div><label htmlFor="consorcio-name" className="block mb-2 text-sm font-medium">Nome completo</label><Input id="consorcio-name" autoComplete="name" value={form.name} onChange={e => update("name", e.target.value)} required maxLength={120} className="h-12 bg-white text-slate-900" /></div>
       <div className="grid sm:grid-cols-2 gap-4">
         <div><label htmlFor="consorcio-phone" className="block mb-2 text-sm font-medium">WhatsApp com DDD</label><Input id="consorcio-phone" type="tel" autoComplete="tel" placeholder="(11) 99999-9999" value={form.whatsapp} onChange={e => update("whatsapp", e.target.value)} required maxLength={20} className="h-12 bg-white text-slate-900" /></div>

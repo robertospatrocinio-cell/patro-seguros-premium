@@ -3,9 +3,9 @@ import { EMPRESA, WHATSAPP_URL_BASE } from "../config/empresa";
 export const consorcioHub = {
   title: "Consórcio de Imóveis, Veículos e Pesados Sem Juros | Patro",
   description: "Simule seu consórcio de imóveis, carros, caminhões e máquinas agrícolas em todo o Brasil. Compare administradoras, estratégias de lance e economize juros.",
-  h1: "Consórcio Planejado: Conquiste Imóveis, Veículos e Máquinas Sem Juros",
-  badge: "Atendimento digital em todo o Brasil • Administradoras autorizadas pelo Banco Central",
-  intro: "Planeje seu patrimônio pessoal, empresarial ou rural sem os juros de um financiamento bancário. Na Patro Seguros, avaliamos seu objetivo, orçamento e o histórico de assembleias disponível para comparar grupos e orientar sua estratégia de contemplação por sorteio, lance livre ou lance embutido.",
+  h1: "Seus planos merecem uma boa estratégia.",
+  badge: "CONSÓRCIO PATRO",
+  intro: "Imóveis, veículos, máquinas e projetos: descubra alternativas de compra planejada com orientação para escolher um plano adequado ao seu objetivo.",
   highlights: [
     "Sem juros de financiamento — há taxa de administração e outros custos previstos em contrato.",
     "Poder de compra à vista após a liberação da carta para negociar com o vendedor.",
@@ -21,8 +21,8 @@ export const consorcioHub = {
   safety: "Consulte opções como Porto Seguro Consórcio e outras administradoras disponíveis para o seu objetivo. Antes de contratar, confira a razão social e a autorização da administradora no Banco Central, custos, reajustes, regras de lance e cancelamento. A ABAC é uma associação do setor: a filiação deve ser confirmada para cada instituição e não substitui a autorização do Banco Central.",
   safetyNote: "O registro SUSEP identifica a atuação da Patro como corretora de seguros; a fiscalização das administradoras de consórcio cabe ao Banco Central. A simulação é educativa e não consulta tabelas comerciais ou assembleias em tempo real.",
   faqTitle: "Perguntas frequentes sobre consórcio",
-  ctaTitle: "Comece seu planejamento patrimonial sem juros de financiamento",
-  ctaText: "Receba gratuitamente um comparativo de planos e solicite o histórico disponível de lances dos grupos para o valor que você procura.",
+  ctaTitle: "Vamos planejar sua próxima conquista?",
+  ctaText: "Conte com orientação para comparar possibilidades e escolher com clareza, sem pressa para decidir.",
   warning: "Consórcio é compra planejada, não investimento com rendimento garantido. Não há data garantida de contemplação. Taxa de administração, fundo de reserva, seguros e reajustes podem compor o custo. A liberação do crédito depende de análise cadastral, garantias e regras da administradora. Não conte com aluguel futuro ou valorização do bem para pagar as parcelas.",
 };
 

@@ -22,6 +22,31 @@ for (const width of [390, 1280]) {
       }
     });
 
+    test("consórcio: apresentação, chamadas, dúvidas e privacidade", async ({ page }) => {
+      await page.goto("/consorcio");
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText("Seus planos merecem uma boa estratégia.");
+      const hero = page.locator("section").filter({ has: page.locator("#consorcio-title") });
+      await expect(hero).toContainText("A contemplação não tem data garantida.");
+      const request = hero.getByRole("link", { name: "Solicitar simulação", exact: true });
+      await expect(request).toHaveAttribute("href", "#simulacao");
+      await request.click();
+      await expect(page.locator("#consorcio-name")).toBeInViewport();
+      await expect(page.locator("#simulacao").getByRole("link", { name: "Política de Privacidade" })).toHaveAttribute("href", "/politica-privacidade");
+      await expect(page.locator('#simulacao input[name="cpf"], #simulacao input[type="file"]')).toHaveCount(0);
+      const whatsapp = hero.getByRole("link", { name: "Conversar com a Patro" });
+      const url = new URL((await whatsapp.getAttribute("href"))!);
+      expect(url.hostname).toBe("wa.me");
+      expect(url.searchParams.get("text")).toContain("consórcio");
+      await expect(whatsapp).toHaveAttribute("rel", /noopener/);
+      const faq = page.locator("#duvidas details").filter({ hasText: "Existe garantia de contemplação" });
+      await faq.locator("summary").click();
+      await expect(faq.locator("p")).toBeVisible();
+      await expect(faq).toContainText("Nenhum consultor pode garantir uma data");
+      for (const hash of ["#modalidades", "#comparar", "#como-funciona", "#comparativo", "#duvidas"]) {
+        await expect(page.locator(hash)).toHaveCount(1);
+      }
+    });
+
     test("simulador: valores válidos, entrada inválida e envio do cenário ao formulário", async ({ page }) => {
       await page.goto("/consorcio#comparar");
       const simulator = page.locator("#comparar");

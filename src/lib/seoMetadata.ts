@@ -973,7 +973,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       "/consorcio": {
         title: "Consórcio de Imóveis, Veículos e Pesados Sem Juros | Patro",
         description: "Simule seu consórcio de imóveis, carros, caminhões e máquinas agrícolas em todo o Brasil. Compare administradoras, estratégias de lance e economize juros.",
-        h1: "Consórcio Planejado: Conquiste Imóveis, Veículos e Máquinas Sem Juros",
+        h1: "Seus planos merecem uma boa estratégia.",
       },
       "/todos-os-seguros": {
         title: "Todos os Seguros | Catálogo por Perfil | Patro Seguros",
