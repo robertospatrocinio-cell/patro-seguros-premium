@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect, Fragment } from "react";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useMemo, Fragment } from "react";
+import { Link, useParams, useSearchParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -8,7 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
-import { getArticleImage } from "@/lib/blogImages";
+import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
+import { buildBlogCollectionSchema } from "@/lib/collectionPageSchemas";
 import {
   getCategoryBySlug,
   getArticlesByCategory,
@@ -27,26 +28,45 @@ const BlogCategory = () => {
     () => (categoryName ? getArticlesByCategory(categoryName) : []),
     [categoryName]
   );
-  const [currentPage, setCurrentPage] = useState(1);
-  useEffect(() => setCurrentPage(1), [categoria]);
-
-  if (!categoryName) return <Navigate to="/blog" replace />;
-
+  const [searchParams] = useSearchParams();
   const totalPages = Math.max(1, Math.ceil(articles.length / POSTS_PER_PAGE));
+  const requestedPage = Number(searchParams.get("page") ?? "1");
+  const currentPage = Number.isSafeInteger(requestedPage) && requestedPage > 0
+    ? Math.min(requestedPage, totalPages)
+    : 1;
   const pageArticles = useMemo(() => {
     const start = (currentPage - 1) * POSTS_PER_PAGE;
     return articles.slice(start, start + POSTS_PER_PAGE);
   }, [articles, currentPage]);
 
-  const canonical = getCanonicalUrl(`/blog/categoria/${categoria}`);
-  const title = `${categoryName} — Artigos | Blog Patro Seguros`;
-  const description = `Artigos da categoria ${categoryName} no blog da Patro Seguros: guias, dicas e análises sobre ${categoryName.toLowerCase()} para você e sua empresa.`;
+  if (!categoryName) return <Navigate to="/blog" replace />;
+
+  const categoryPath = `/blog/categoria/${categoria}`;
+  const buildPageHref = (page: number) => page <= 1 ? categoryPath : `${categoryPath}?page=${page}`;
+  const canonical = getCanonicalUrl(categoryPath);
+  const title = `${categoryName}${currentPage > 1 ? ` — Página ${currentPage}` : " — Artigos"} | Blog Patro Seguros`;
+  const description = currentPage > 1
+    ? `Página ${currentPage} de artigos sobre ${categoryName.toLowerCase()} no blog da Patro Seguros. Confira mais guias, dicas e análises para você e sua empresa.`
+    : `Artigos da categoria ${categoryName} no blog da Patro Seguros: guias, dicas e análises sobre ${categoryName.toLowerCase()} para você e sua empresa.`;
 
   return (
     <Fragment>
-      <PageMeta title={title} description={description} 
-      skipBreadcrumb
-    />
+      <PageMeta
+        title={title}
+        description={description}
+        canonicalPath={buildPageHref(currentPage)}
+        skipBreadcrumb
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            ...buildBlogCollectionSchema(pageArticles, description, buildPageHref(currentPage)),
+            name: title,
+            about: { "@type": "Thing", name: categoryName },
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
@@ -104,7 +124,7 @@ const BlogCategory = () => {
                     <div className="aspect-video w-full overflow-hidden">
                       <OptimizedImage
                         src={getArticleImage(article.slug)}
-                        alt={article.title}
+                        alt={getArticleImageAlt(article.slug, article.title)}
                         className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
@@ -134,25 +154,23 @@ const BlogCategory = () => {
 
             {totalPages > 1 && (
               <div className="mt-12 flex justify-center items-center gap-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                >
-                  Anterior
-                </Button>
+                {currentPage > 1 ? (
+                  <Button variant="outline" size="sm" asChild>
+                    <Link to={buildPageHref(currentPage - 1)} rel="prev">Anterior</Link>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="sm" disabled>Anterior</Button>
+                )}
                 <span className="text-sm text-muted-foreground">
                   Página {currentPage} de {totalPages}
                 </span>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                >
-                  Próxima
-                </Button>
+                {currentPage < totalPages ? (
+                  <Button variant="outline" size="sm" asChild>
+                    <Link to={buildPageHref(currentPage + 1)} rel="next">Próxima</Link>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="sm" disabled>Próxima</Button>
+                )}
               </div>
             )}
           </div>

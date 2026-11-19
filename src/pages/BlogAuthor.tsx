@@ -7,7 +7,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Calendar, Clock, ArrowLeft, Award } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
-import { getArticleImage } from "@/lib/blogImages";
+import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import { articles, formatDate } from "@/lib/blogData";
 import { getAuthorBySlug } from "@/lib/blogAuthors";
 import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -95,12 +95,6 @@ const BlogAuthor = () => {
           },
         }
       : {}),
-    sameAs: [
-      "https://www.patroseguros.com.br/sobre",
-      "https://www.instagram.com/patroseguros",
-      "https://www.facebook.com/patroseguros",
-      "https://www.linkedin.com/company/patro-seguros",
-    ],
     worksFor: {
       "@type": "Organization",
       "@id": "https://www.patroseguros.com.br/#organization",
@@ -229,7 +223,7 @@ const BlogAuthor = () => {
                       <div className="aspect-video w-full overflow-hidden">
                         <OptimizedImage
                           src={getArticleImage(article.slug)}
-                          alt={article.title}
+                          alt={getArticleImageAlt(article.slug, article.title)}
                           className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
