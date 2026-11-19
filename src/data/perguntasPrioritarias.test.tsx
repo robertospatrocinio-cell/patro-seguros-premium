@@ -61,26 +61,43 @@ describe("Respostas prioritárias GEO/AEO", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(category.title);
     const markup = schemas(container);
     const faq = markup.find((schema) => schema["@type"] === "FAQPage");
-    expect(faq.mainEntity).toEqual(category.perguntas.map((qa) => ({
+    expect(faq.mainEntity).toEqual(category.perguntas.map((qa, index) => ({
       "@type": "Question", name: qa.q,
+      url: `${EMPRESA.dominioCanonico}/perguntas-frequentes-seguros/${category.id}#resposta-${category.id}-${index + 1}`,
       acceptedAnswer: { "@type": "Answer", text: qa.a },
     })));
     expect(markup.filter((schema) => schema["@type"] === "BreadcrumbList")).toHaveLength(1);
     for (const qa of category.perguntas) {
-      expect(screen.getByRole("button", { name: qa.q })).toBeInTheDocument();
+      const summary = screen.getByText(qa.q, { selector: "h3" }).closest("summary");
+      expect(summary).toBeInTheDocument();
+      expect(summary?.closest("details")).toHaveTextContent(qa.a);
     }
     expect(screen.getByText(/Registro SUSEP cadastrado:/)).toHaveTextContent(EMPRESA.susep);
     expect(screen.getByRole("link", { name: /Tirar dúvida no WhatsApp/ })).toHaveAttribute("href", expect.stringContaining(WHATSAPP_URL_BASE));
     expect(container.textContent).not.toMatch(/R\$ 200|reduzir o prêmio em até|declarar apenas condutor principal|respostas rápidas pelo WhatsApp/);
   });
 
-  it("mantém as perguntas marcadas na central também disponíveis ao visitante", () => {
+  it("organiza a central por categorias sem duplicar FAQPage e mantém todas as respostas no HTML", () => {
     const { container } = render(<MemoryRouter><CentralDePerguntas /></MemoryRouter>);
-    const faq = schemas(container).find((schema) => schema["@type"] === "FAQPage");
-    for (const entry of faq.mainEntity) {
-      expect(screen.getByRole("button", { name: entry.name })).toBeInTheDocument();
-      const visibleData = faqCategories.flatMap((c) => c.perguntas).find((qa) => qa.q === entry.name);
-      expect(entry.acceptedAnswer.text).toBe(visibleData?.a);
+    const markup = schemas(container);
+    expect(markup.filter((schema) => schema["@type"] === "FAQPage")).toHaveLength(0);
+    const collection = markup.find((schema) => schema["@type"] === "CollectionPage");
+    expect(collection.inLanguage).toBe("pt-BR");
+    expect(collection.mainEntity.numberOfItems).toBe(faqCategories.length);
+    expect(collection.mainEntity.itemListElement).toEqual(faqCategories.map((category, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: category.title,
+      url: `${EMPRESA.dominioCanonico}/perguntas-frequentes-seguros/${category.id}`,
+    })));
+    for (const category of faqCategories) {
+      expect(screen.getByRole("heading", { level: 2, name: category.title })).toBeInTheDocument();
+      category.perguntas.forEach((qa, index) => {
+        const answer = container.querySelector(`[id="resposta-${category.id}-${index + 1}"]`);
+        expect(answer?.tagName).toBe("DETAILS");
+        expect(answer?.querySelector("summary")).toHaveTextContent(qa.q);
+        expect(answer?.querySelector("p")).toHaveTextContent(qa.a);
+      });
     }
   });
 });

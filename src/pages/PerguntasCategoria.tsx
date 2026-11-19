@@ -5,7 +5,7 @@ import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import DiscoverableFaq from "@/components/DiscoverableFaq";
 import { ArrowRight, HelpCircle, MessageCircle, BookOpen } from "lucide-react";
 import { faqCategories } from "@/data/perguntasHubData";
 import { perguntasCategoriaAprofundamento } from "@/data/perguntasCategoriaAprofundamento";
@@ -48,9 +48,15 @@ const PerguntasCategoriaPage = () => {
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: todasPerguntas.map((qa) => ({
+    "@id": `${url}#faq`,
+    url,
+    name: `${cat.title}: perguntas frequentes`,
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
+    mainEntity: todasPerguntas.map((qa, index) => ({
       "@type": "Question",
       name: qa.q,
+      url: `${url}#resposta-${cat.id}-${index + 1}`,
       acceptedAnswer: { "@type": "Answer", text: qa.a },
     })),
   };
@@ -134,14 +140,7 @@ const PerguntasCategoriaPage = () => {
       <section className="py-14">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Perguntas frequentes</h2>
-          <Accordion type="single" collapsible className="w-full">
-            {todasPerguntas.map((qa, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left">{qa.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">{qa.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <DiscoverableFaq items={todasPerguntas} idPrefix={`resposta-${cat.id}`} />
         </div>
       </section>
 

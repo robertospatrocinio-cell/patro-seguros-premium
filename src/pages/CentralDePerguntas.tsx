@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import PageMeta from "@/components/PageMeta";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import DiscoverableFaq from "@/components/DiscoverableFaq";
+import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { MessageCircle, ArrowRight, HelpCircle } from "lucide-react";
 import { faqCategories } from "@/data/perguntasHubData";
 import FaqEditorialContext from "@/components/FaqEditorialContext";
@@ -11,17 +12,26 @@ import { WHATSAPP_URL_BASE } from "@/config/empresa";
 const HERO_WA = WHATSAPP_URL_BASE + "?text=" + encodeURIComponent("Olá, tenho uma dúvida sobre seguros, planos ou consórcios.");
 
 const CentralDePerguntas = () => {
-  // Subconjunto das respostas visíveis; não implica elegibilidade a rich results.
-  const faqSchema = {
+  // O índice descreve as categorias; FAQPage fica nas páginas de cada tema.
+  const url = `${CANONICAL_BASE_URL}/perguntas-frequentes-seguros`;
+  const collectionSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqCategories.flatMap((cat) =>
-      cat.perguntas.slice(0, 3).map((qa) => ({
-        "@type": "Question",
-        name: qa.q,
-        acceptedAnswer: { "@type": "Answer", text: qa.a },
-      }))
-    ),
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    url,
+    name: "Perguntas frequentes sobre seguros, planos e consórcios",
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: faqCategories.length,
+      itemListElement: faqCategories.map((cat, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: cat.title,
+        url: `${url}/${cat.id}`,
+      })),
+    },
   };
 
   return (
@@ -30,7 +40,7 @@ const CentralDePerguntas = () => {
         title="Perguntas Frequentes sobre Seguros"
         description="Central de dúvidas da Patro Seguros: auto, empresarial, saúde, consórcio, vida, garantia, crédito, cyber, consultórios e mais."
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
 
       <section className="bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl text-center">
@@ -55,7 +65,7 @@ const CentralDePerguntas = () => {
         <div className="container mx-auto px-4 py-6 max-w-6xl">
           <nav aria-label="Categorias" className="flex flex-wrap gap-2">
             {faqCategories.map((c) => (
-              <a key={c.id} href={`#${c.id}`} className="text-sm px-3 py-1.5 rounded-full border bg-card hover:bg-primary hover:text-primary-foreground transition-colors">
+              <a key={c.id} href={`#${c.id}`} className="inline-flex min-h-11 items-center text-sm px-3 py-2 rounded-full border bg-card hover:bg-primary hover:text-primary-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 {c.title}
               </a>
             ))}
@@ -69,18 +79,11 @@ const CentralDePerguntas = () => {
           {faqCategories.map((cat) => (
             <Card key={cat.id} id={cat.id} className="scroll-mt-28">
               <CardHeader>
-                <CardTitle className="text-2xl">{cat.title}</CardTitle>
+                <h2 className="text-2xl font-semibold leading-none tracking-tight">{cat.title}</h2>
                 <p className="text-muted-foreground">{cat.description}</p>
               </CardHeader>
               <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                  {cat.perguntas.map((qa, i) => (
-                    <AccordionItem key={i} value={`${cat.id}-${i}`}>
-                      <AccordionTrigger className="text-left">{qa.q}</AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed">{qa.a}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+                <DiscoverableFaq items={cat.perguntas} idPrefix={`resposta-${cat.id}`} />
                 <div className="mt-6 pt-6 border-t flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
                   <Link to={`/perguntas-frequentes-seguros/${cat.id}`} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
                     Ver todas as perguntas de {cat.title} <ArrowRight className="h-4 w-4" />

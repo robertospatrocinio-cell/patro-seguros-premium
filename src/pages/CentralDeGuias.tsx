@@ -14,19 +14,21 @@ const CentralDeGuias = () => {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": `${CANONICAL_BASE_URL}/guias-seguros#collection`,
     name: "Central de Guias Patro Seguros",
     url: `${CANONICAL_BASE_URL}/guias-seguros`,
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
     description: "Hub editorial da Patro Seguros com guias, FAQ, glossário e materiais sobre seguros, planos de saúde e consórcios.",
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: guiasBlocks.flatMap((block, bi) =>
-        block.cards.map((card, ci) => ({
-          "@type": "ListItem",
-          position: bi * 100 + ci + 1,
-          name: card.title,
-          url: `${CANONICAL_BASE_URL}${card.href}`,
-        }))
-      ),
+      numberOfItems: guiasBlocks.flatMap((block) => block.cards).length,
+      itemListElement: guiasBlocks.flatMap((block) => block.cards).map((card, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: card.title,
+        url: `${CANONICAL_BASE_URL}${card.href}`,
+      })),
     },
   };
 
@@ -103,9 +105,10 @@ const CentralDeGuias = () => {
                     <CardContent className="mt-auto">
                       <Link
                         to={card.href}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                        aria-label={`${card.cta ?? "Ler guia"}: ${card.title}`}
+                        className="inline-flex min-h-11 items-center gap-1 rounded-sm text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       >
-                        {card.cta ?? "Ler guia"} <ArrowRight className="h-4 w-4" />
+                        {card.cta ?? "Ler guia"} <ArrowRight aria-hidden="true" className="h-4 w-4" />
                       </Link>
                     </CardContent>
                   </Card>
