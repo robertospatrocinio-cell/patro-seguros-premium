@@ -731,7 +731,7 @@ const InsurancePageTemplate = ({
             <div className="container mx-auto px-4 max-w-4xl">
               <div className="text-center mb-16">
                 <span className="section-label">Passo a Passo</span>
-                <h2 id="como-funciona-heading" className="mt-4">Como Funciona o {title}</h2>
+                <h2 id="como-funciona-heading" className="mt-4">{supportMode ? "Como funciona a Central de Sinistros" : `Como Funciona o ${title}`}</h2>
               </div>
               <ol className="space-y-4 list-none">
                 {howItWorks.map((step, i) => (
@@ -754,8 +754,8 @@ const InsurancePageTemplate = ({
         <section className={`py-24 ${howItWorks ? '' : 'gradient-surface'}`} aria-labelledby="coberturas-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <span className="section-label">Coberturas</span>
-              <h2 id="coberturas-heading" className="mt-4">O que o {title} cobre</h2>
+              <span className="section-label">{supportMode ? "Orientação e assistência" : "Coberturas"}</span>
+              <h2 id="coberturas-heading" className="mt-4">{supportMode ? "Como a Central de Sinistros pode ajudar" : `O que o ${title} cobre`}</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto list-none">
               {coverages.map((c, i) => (

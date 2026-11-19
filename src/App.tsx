@@ -903,7 +903,7 @@ const App = () => {
                   <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
                   {/* Hubs Guarulhos e páginas locais referenciadas em links internos */}
                   <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
-                  <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
+                  <Route path="/seguros-guarulhos" element={<HubSegurosGuarulhos />} />
                   <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
                   <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
                   <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />

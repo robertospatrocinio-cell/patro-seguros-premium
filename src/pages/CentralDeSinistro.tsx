@@ -8,7 +8,7 @@ const CentralDeSinistro = () => (
     <PrerenderText slug="central-de-sinistro" />
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Central de Sinistros | Ajuda e Assistência 24h | Patro"
+      title="Central de Sinistros"
       headline="O que fazer em caso de sinistro: atendimento e orientação"
       subtitle="Atendimento humano para colisão, roubo, furto e assistência 24h. Você não precisa passar por isso sozinho."
       description="Nossa central de sinistros existe para orientar você nos momentos mais difíceis. Explicamos como proceder, quais documentos reunir e como acionar a seguradora com calma e segurança. Aqui não se vende seguro: oferecemos suporte real para que você tome as decisões certas."
