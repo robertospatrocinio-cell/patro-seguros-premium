@@ -15,13 +15,17 @@ import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, Chevron
  import { escapeHtml } from "@/lib/utils";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
-import { bairros, type BairroData } from "@/lib/bairrosData";
+import { bairros as legacyBairros, type BairroData } from "@/lib/bairrosData";
+import { reviewNeighborhood, getLocalPreparation } from "@/data/localNeighborhoodReview";
+import { EMPRESA, WHATSAPP_DIGITS, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
+
+const bairros = legacyBairros.map(reviewNeighborhood);
 import { getNeighborBairros } from "@/lib/bairroNeighbors";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import BairroStickyCTABar from "@/components/BairroStickyCTABar";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
-const WHATSAPP_NUMBER = "5511951997500";
+const WHATSAPP_NUMBER = WHATSAPP_DIGITS;
 
 const SegurosGuarulhosBairros = () => {
   const { bairro: bairroSlug } = useParams<{ bairro: string }>();
@@ -178,8 +182,8 @@ const SegurosGuarulhosBairros = () => {
   return (
     <>
       <PageMeta
-        title={`Especialista em Seguros no ${selectedBairro.nome} | Patro Seguros`}
-        description={`Corretora de seguros em ${selectedBairro.nome}, Guarulhos. ${selectedBairro.foco}: seguro auto, residencial, empresarial, saúde e mais. Cotação rápida pelo WhatsApp.`}
+        title={`Seguros em ${selectedBairro.nome} | Patro Seguros`}
+        description={`Seguros em ${selectedBairro.nome}, Guarulhos. Confira os dados para cotar, compare condições e solicite uma proposta para sua moradia ou empresa.`}
       />
 
       <FAQSchema faqs={mergedFaqs} />
@@ -293,6 +297,10 @@ const SegurosGuarulhosBairros = () => {
               <p className="text-lg text-gray-700 leading-relaxed">
                 {selectedBairro.descricao}
               </p>
+              <h3 className="text-xl font-semibold text-[#003366] mt-8 mb-4">O que conferir antes da cotação</h3>
+              <ul className="list-disc pl-5 space-y-3 text-gray-700">
+                {getLocalPreparation(selectedBairro.id).map((item) => <li key={item}>{item}</li>)}
+              </ul>
             </div>
           </div>
         </section>
@@ -733,18 +741,19 @@ const SegurosGuarulhosBairros = () => {
                 <h4 className="text-white font-bold mb-3">Endereço</h4>
                 <p className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#F2994A]" />
-                  Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, Guarulhos/SP
+                  <span>{NAP_LINHA_1}<br />{NAP_LINHA_2}</span>
                 </p>
+                <p className="mt-3">{EMPRESA.horario}</p>
               </div>
               <div>
                 <h4 className="text-white font-bold mb-3">Contato</h4>
                 <p className="flex items-center gap-2 mb-1">
                   <Phone className="h-4 w-4 text-[#F2994A]" />
-                  (11) 5199-7500
+                  <a href={`tel:${EMPRESA.telefoneE164}`}>{EMPRESA.telefone}</a>
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-[#F2994A]" />
-                  contato@patroseguros.com.br
+                  <a href={`mailto:${EMPRESA.email}`}>{EMPRESA.email}</a>
                 </p>
               </div>
               <div>

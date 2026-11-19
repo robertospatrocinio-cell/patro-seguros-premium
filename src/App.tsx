@@ -901,8 +901,7 @@ const App = () => {
                   <Route path="/politica-de-privacidade" element={<Navigate to="/politica-privacidade" replace />} />
                   <Route path="/termos-de-uso" element={<TermosDeUso />} />
                   <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
-                  {/* Hubs Guarulhos e páginas locais referenciadas em links internos */}
-                  <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
+                  {/* Hub municipal único; o alias é redirecionado abaixo. */}
                   <Route path="/seguros-guarulhos" element={<HubSegurosGuarulhos />} />
                   <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
                   <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
@@ -1065,11 +1064,9 @@ const App = () => {
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
                   {/* Redirecionamentos de URLs antigas que retornavam 404 (removidas do sitemap) */}
                    <Route path="/seguro-empresa-guarulhos" element={<Navigate to="/seguro-empresarial" replace />} />
-                   <Route path="/seguros-guarulhos" element={<SegurosEmGuarulhosHub />} />
                    <Route path="/seguros-em-guarulhos" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
-                   <Route path="/seguros-guarulhos/:slug" element={<SeoLocalPage />} />
                    <Route path={CIDADES_REGIAO_HUB_PATH} element={<CidadesRegiaoHub />} />
                    <Route path="/corretora-de-seguros/:cidade" element={<CidadeRegiaoPage />} />
 

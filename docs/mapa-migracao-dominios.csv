@@ -1,0 +1,10 @@
+origem,destino_proposto,cotacao_destino,evidencia_origem,status
+https://seguroemguarulhos.com.br/,https://www.patroseguros.com.br/seguro-auto,https://www.patroseguros.com.br/cotacao-seguro-auto,raiz citada no pedido,aguarda inventario e Search Console
+https://seguroapartamentoguarulhos.com.br/,https://www.patroseguros.com.br/seguro-residencial,https://www.patroseguros.com.br/cotacao?tipo=residencial,raiz citada no pedido,aguarda inventario e Search Console
+https://seguroempresarialguarulhos.com.br/,https://www.patroseguros.com.br/seguro-empresarial,https://www.patroseguros.com.br/cotacao?tipo=empresarial,dominio citado no pedido,aguarda inventario e Search Console
+https://seguroempresarialguarulhos.com.br/seguro-galpao-guarulhos,https://www.patroseguros.com.br/seguro-galpao,https://www.patroseguros.com.br/cotacao?tipo=empresarial,URL citada no pedido sem verificacao HTTP nesta etapa,aguarda validacao da equivalencia e captacao
+https://seguroempresarialguarulhos.com.br/seguro-empresarial,https://www.patroseguros.com.br/seguro-empresarial,https://www.patroseguros.com.br/cotacao?tipo=empresarial,caminho candidato nao confirmado no satelite,nao ativar antes de confirmar existencia
+https://seguroempresarialguarulhos.com.br/seguro-galpao,https://www.patroseguros.com.br/seguro-galpao,https://www.patroseguros.com.br/cotacao?tipo=empresarial,caminho candidato nao confirmado no satelite,nao ativar antes de confirmar existencia
+https://seguroempresarialguarulhos.com.br/seguro-prestador-servico,https://www.patroseguros.com.br/seguro-rc-prestacao-servicos,https://www.patroseguros.com.br/cotacao?tipo=rc,caminho citado como exemplo no pedido,confirmar se a intencao e RC ou patrimonio antes de ativar
+https://www.patroseguros.com/,https://www.patroseguros.com.br/,https://www.patroseguros.com.br/cotacao,dominio citado no perfil de WhatsApp pelo pedido,confirmar controle do dominio e destino do perfil
+https://patroseguros.com/,https://www.patroseguros.com.br/,https://www.patroseguros.com.br/cotacao,variante sem www a conferir,confirmar controle do dominio

@@ -13,8 +13,10 @@ import { getCanonicalUrl } from "@/lib/canonical";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
+import { LOCAL_PRIORITY_AREAS } from "@/data/localNeighborhoodReview";
+import { WHATSAPP_URL_BASE } from "@/config/empresa";
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
+const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, gostaria de uma cotação para Guarulhos.")}`;
 
 interface SectionLink { label: string; href: string; description?: string }
 interface Section { id: string; title: string; intro: string; icon: React.ReactNode; links: SectionLink[] }
@@ -134,13 +136,14 @@ const FAQS = [
 ];
 
 const HubSegurosGuarulhos = () => {
-  const canonicalUrl = getCanonicalUrl("/seguros-em-guarulhos");
+  const canonicalUrl = getCanonicalUrl("/seguros-guarulhos");
 
   return (
     <>
       <PageMeta
-         title="Guia Completo de Seguros em Guarulhos 2026 | Patro Seguros"
-         description="A autoridade máxima em seguros em Guarulhos. Guia completo sobre seguro auto, residencial, vida, empresarial e agrícola. Compare 16+ seguradoras locais."
+         title="Seguros em Guarulhos | Patro Seguros"
+         description="Seguros em Guarulhos para moradores e empresas. Encontre orientações por modalidade e região e solicite uma proposta com a Patro."
+         canonicalPath="/seguros-guarulhos"
       />
       <FAQSchema faqs={FAQS} />
       <LocalBusinessSchema />
@@ -164,7 +167,7 @@ const HubSegurosGuarulhos = () => {
               </div>
                 <h1 className="text-white text-balance mb-5">Seguros em Guarulhos com Atendimento Consultivo | Patro Seguros</h1>
                <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
-                 Da proteção do seu carro na Dutra à blindagem estratégica de galpões em Cumbica. Entenda por que a Patro é a autoridade máxima em seguros na região.
+                 Encontre a modalidade de seguro e as informações para cotar em Guarulhos. Consulte orientações para sua moradia, atividade profissional ou operação empresarial e compare as condições da proposta.
                </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-guarulhos:hero", { origin: "hub-guarulhos" })}>
@@ -235,12 +238,20 @@ const HubSegurosGuarulhos = () => {
             <MapPin className="h-7 w-7 text-primary mx-auto mb-3" />
             <h2 id="bairros-heading" className="mb-3">Atendimento em todos os bairros de Guarulhos</h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Jardim Maia, Vila Augusta, Cumbica, Centro, Picanço, Macedo, Gopouva, Bonsucesso, Paraventi, Continental e mais.
+              Comece pelas orientações de contratação para cinco regiões. A Patro atende também os demais bairros; estas páginas indicam áreas atendidas, não filiais.
             </p>
-            <Link to="/seguros-guarulhos">
-              <Button variant="outline" className="rounded-xl">
-                Ver páginas por bairro <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+            <ul className="grid sm:grid-cols-2 gap-3 text-left list-none">
+              {LOCAL_PRIORITY_AREAS.map((area) => (
+                <li key={area.id}>
+                  <Link to={`/seguros-guarulhos/${area.id}`} className="block premium-card p-5 h-full hover:border-primary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                    <h3 className="text-lg font-semibold">{area.name}</h3>
+                    <p className="text-sm text-muted-foreground mt-2">{area.focus}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link to="/cotacao" className="inline-flex items-center min-h-12 mt-6 text-primary underline underline-offset-4">
+              Solicitar cotação para outro bairro <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
         </section>
