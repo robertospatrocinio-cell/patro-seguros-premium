@@ -44,6 +44,20 @@ describe("GEO/AEO: identidade e descoberta no código-fonte", () => {
     expect(index).toContain("Não é requisito oficial");
   });
 
+  it("mantém a apresentação institucional e os principais serviços no índice complementar", () => {
+    const index = read("public/llms.txt");
+    for (const value of [EMPRESA.nomeFantasia, EMPRESA.razaoSocial, EMPRESA.cnpj, EMPRESA.susep, EMPRESA.email]) {
+      expect(index).toContain(value);
+    }
+    for (const path of ["/servicos", "/seguros-guarulhos", "/seguro-auto", "/plano-de-saude-guarulhos", "/seguro-empresarial", "/seguro-residencial", "/seguro-agro", "/central-de-sinistro"]) {
+      expect(index).toContain(`](${EMPRESA.dominioCanonico}${path})`);
+    }
+    expect(index).not.toContain(`](${EMPRESA.dominioCanonico}/agronegocio)`);
+    expect(index).not.toContain(`](${EMPRESA.dominioCanonico}/plano-de-saude)`);
+    expect(index).toContain("não há consulta automática ao Google");
+    expect(index).toContain("não é prazo de assistência emergencial");
+  });
+
   it("não reintroduz faixas de preço ou horários divergentes nos arquivos de IA", () => {
     for (const path of ["public/llms.txt", "public/llms-full.txt"]) {
       const text = read(path);

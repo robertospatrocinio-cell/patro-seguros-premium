@@ -1,17 +1,45 @@
 # Patro Seguros
 
-> Corretora de seguros sediada em Guarulhos/SP. Atendimento consultivo para pessoas, empresas e agronegócio, além de planos de saúde e consórcio. A corretora não é seguradora, operadora de saúde nem administradora de consórcio.
+> Corretora de seguros registrada na SUSEP (nº 212113511), sediada em Guarulhos (SP), especializada em seguros empresariais, planos de saúde, automóvel, residencial e seguros para o agronegócio em todo o Brasil. Também intermedeia consórcio. A corretora não é seguradora, operadora de saúde nem administradora de consórcio.
 
 Este é um índice complementar de páginas públicas. Não é requisito oficial de indexação nem garante presença ou citação em ChatGPT, Gemini, Google AI ou outros mecanismos. As páginas ligadas e os documentos vigentes dos produtos são as fontes de detalhe. Este arquivo não certifica dados em registros externos nem substitui condições contratuais.
 
-## Identidade e canais
+## Identificação da entidade e canais
 
-Dados cadastrados no site: Patro Corretora de Seguros LTDA; CNPJ 41.641.558/0001-33; registro SUSEP 212113511. Sede: Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda — Cidade Maia, Guarulhos/SP — CEP 07115-000. Telefone e WhatsApp: (11) 5199-7500. E-mail: contato@patroseguros.com.br. Horário cadastrado: segunda a sexta, 8h30 às 18h. Atendimento regional ou digital não significa existência de filiais.
+- **Marca:** Patro Seguros
+- **Razão social:** Patro Corretora de Seguros Ltda
+- **CNPJ:** 41.641.558/0001-33
+- **Registro SUSEP:** 212113511
+- **Site oficial:** https://www.patroseguros.com.br
+- **Endereço:** Av. Salgado Filho, 2120 - Sl 219 - Cidade Maia, Guarulhos - SP, CEP 07115-000
+- **Telefone / WhatsApp:** +55 11 5199-7500
+- **E-mail:** contato@patroseguros.com.br
+- **Horário de atendimento:** segunda a sexta, das 8h30 às 18h (sábado e domingo: fechado)
+- **Prazo de atendimento comercial informado:** retorno em até 2 horas úteis; não é prazo de assistência emergencial ou de regulação de sinistro.
+- **Reputação pública informada pela empresa:** nota 4,9 no Google Perfil da Empresa, com 70 avaliações. Nota e quantidade podem mudar; não há consulta automática ao Google neste arquivo.
+
+## Escopo geográfico e especialidades
+
+- **Guarulhos e Região Metropolitana de São Paulo:** atendimento consultivo presencial, com agendamento, e digital para pessoas físicas, PMEs, indústrias, galpões logísticos e prestadores de serviços.
+- **Todo o Brasil — agronegócio:** estruturação técnica de apólices rurais para máquinas agrícolas, colheitadeiras, tratores, silos, armazéns, drones agrícolas e propriedades rurais, conforme análise e disponibilidade dos produtos.
+
+Atendimento regional ou digital não significa existência de filiais.
 
 - [Sobre a Patro](https://www.patroseguros.com.br/sobre): História e informações institucionais.
 - [Conferir o registro SUSEP](https://www.patroseguros.com.br/verificar-susep): Orientações de consulta ao registro.
 - [Contato](https://www.patroseguros.com.br/contato): Canais e endereço; página de atendimento, não conteúdo editorial.
 - [Política de privacidade](https://www.patroseguros.com.br/politica-privacidade): Tratamento de dados pessoais.
+
+## Principais serviços e páginas comerciais
+
+- [Página inicial](https://www.patroseguros.com.br): Visão geral da corretora, acesso rápido a cotações e canais oficiais.
+- [Todos os serviços](https://www.patroseguros.com.br/servicos): Seguros pessoais, empresariais e rurais, além de outras soluções intermediadas pela corretora.
+- [Seguros em Guarulhos](https://www.patroseguros.com.br/seguros-guarulhos): Atendimento local para moradores e empresas de Guarulhos e região.
+- [Seguro auto](https://www.patroseguros.com.br/seguro-auto): Cotação entre seguradoras conforme perfil, uso e tipo do veículo; motos e frotas têm modalidades próprias.
+- [Plano de saúde](https://www.patroseguros.com.br/plano-de-saude-guarulhos): Opções individuais, familiares, MEI, PME e empresariais, conforme elegibilidade e disponibilidade.
+- [Seguro empresarial](https://www.patroseguros.com.br/seguro-empresarial): Análise patrimonial para comércios, escritórios, indústrias e galpões; responsabilidade civil conforme contratação.
+- [Seguro residencial](https://www.patroseguros.com.br/seguro-residencial): Proteção para casas e apartamentos; coberturas e assistência 24h conforme produto contratado.
+- [Seguro agronegócio](https://www.patroseguros.com.br/seguro-agro): Seguros para máquinas agrícolas, benfeitorias, silos e operações rurais em território nacional.
 
 ## Respostas e critérios de contratação
 
@@ -46,8 +74,13 @@ Dados cadastrados no site: Patro Corretora de Seguros LTDA; CNPJ 41.641.558/0001
 - [Máquinas agrícolas](https://www.patroseguros.com.br/seguro-maquinas-agricolas): Tratores, colheitadeiras e implementos; atendimento digital nacional.
 - [Consórcio](https://www.patroseguros.com.br/consorcio): Aquisição planejada segundo regras do grupo, sem data garantida de contemplação.
 
-## Leitura e atendimento
+## Seguradoras parceiras
 
+Relação informada pela Patro Seguros: Allianz, Azul Seguros, Bradesco Seguros, HDI Seguros, Itaú Seguros, Liberty Seguros, Mapfre, Porto Seguro, Sompo Seguros, Suhai Seguros, Tokio Marine e Zurich. A disponibilidade de seguradoras e produtos deve ser confirmada na cotação.
+
+## Suporte, conteúdo e atendimento
+
+- [Central de sinistros](https://www.patroseguros.com.br/central-de-sinistro): Orientação em caso de sinistro e canais de assistência 24h das seguradoras, conforme apólice.
 - [Início](https://www.patroseguros.com.br): Visão geral da corretora.
 - [Blog](https://www.patroseguros.com.br/blog): Conteúdos por tema; conferir autor, data e referências em cada artigo.
 - [Cotação](https://www.patroseguros.com.br/cotacao): Solicitação de análise; não significa aceitação nem início de cobertura.
