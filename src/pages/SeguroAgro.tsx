@@ -16,6 +16,7 @@ import {
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ExternalLink from "@/components/ExternalLink";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -64,7 +65,7 @@ const MAQUINAS: Item[] = [
 
 const PROPRIEDADE: Item[] = [
   { name: "Seguro de Propriedade Rural", slug: "seguro-propriedade-rural", desc: "Sede, benfeitorias, máquinas paradas, estoque e RC contra incêndio, raio e vendaval." },
-  { name: "Seguro de Silo Agrícola", slug: "seguro-silo-agricola", desc: "Silos metálicos e armazéns graneleiros — cobertura para estrutura, conteúdo e perda de qualidade do grão." },
+  { name: "Seguro de Silo Agrícola", slug: "seguro-silo-agricola", desc: "Análise separada de estrutura e conteúdo. Eventos cobertos, deterioração e perda de qualidade dependem de previsão expressa na apólice." },
   { name: "Seguro Rural", slug: "seguro-rural", desc: "Conheça as modalidades de proteção da atividade rural e suas diferenças." },
 ];
 
@@ -248,6 +249,38 @@ const SeguroAgro = () => {
           </div>
         </section>
 
+        <nav aria-label="Guia de seguros para o agronegócio" className="border-b border-border">
+          <div className="container mx-auto px-4 max-w-6xl flex flex-wrap gap-x-6 gap-y-1 py-3 text-sm text-primary">
+            <a href="#comparar-agro" className="inline-flex min-h-11 items-center underline underline-offset-4">Qual seguro avaliar</a>
+            <a href="#produtos-agro" className="inline-flex min-h-11 items-center underline underline-offset-4">Máquinas, drones e silos</a>
+            <a href="#cotacao-agro" className="inline-flex min-h-11 items-center underline underline-offset-4">Dados para cotar em qualquer estado</a>
+            <a href="#fontes-agro" className="inline-flex min-h-11 items-center underline underline-offset-4">Fontes oficiais</a>
+          </div>
+        </nav>
+
+        <section id="comparar-agro" className="py-14 scroll-mt-28 border-b border-border" aria-labelledby="comparar-agro-heading">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h2 id="comparar-agro-heading" className="text-2xl md:text-3xl font-bold mb-4">Da máquina ao silo: o que precisa de análise separada?</h2>
+            <p className="text-muted-foreground max-w-3xl mb-6">A localização do risco é o município e a UF da operação, não a cidade da corretora. Informe também deslocamentos, prestação de serviços e financiamento. Uma única apólice não deve ser presumida suficiente para todos os bens e responsabilidades.</p>
+            <p id="agro-table-help" className="text-sm text-muted-foreground mb-3">No celular, deslize a tabela para ver todos os critérios.</p>
+            <div role="region" aria-label="Comparação de necessidades de seguro no agronegócio" aria-describedby="agro-table-help" tabIndex={0} className="overflow-x-auto rounded-lg border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+              <table className="w-full min-w-[680px] text-left text-sm bg-card">
+                <caption className="sr-only">Necessidades de proteção rural, informações para análise e limites a conferir</caption>
+                <thead className="bg-primary text-primary-foreground"><tr><th scope="col" className="p-4">Sua necessidade</th><th scope="col" className="p-4">O que declarar e conferir</th><th scope="col" className="p-4">Atenção antes de contratar</th></tr></thead>
+                <tbody>
+                  {[
+                    { name: "Trator ou colheitadeira", path: "/seguro-maquinas-agricolas", inputs: "Marca, modelo, série, ano, valor, implementos, uso próprio ou para terceiros e deslocamentos.", limit: "Confira eventos cobertos, franquias, área de operação e condições para transporte. Desgaste e manutenção não equivalem a acidente coberto." },
+                    { name: "Máquina vinculada ao crédito rural", path: "/seguro-penhor-rural", inputs: "Bem em garantia, contrato de crédito, exigências do credor, beneficiário e vigência.", limit: "Penhor rural não é seguro de inadimplência. O enquadramento e a proteção do bem precisam atender ao contrato e à aceitação da seguradora." },
+                    { name: "Drone agrícola", path: "/seguro-drone-agricola", inputs: "Modelo, série, valor, acessórios, finalidade, local de operação e documentação do operador e da aeronave.", limit: "Separe casco e responsabilidade aeronáutica/RETA, quando aplicável. Deriva, pulverização e danos ambientais exigem avaliação e previsão expressa." },
+                    { name: "Silo e grãos armazenados", path: "/seguro-silo-agricola", inputs: "Estrutura, localização, capacidade, ocupação, mercadoria, valores e sistemas de prevenção.", limit: "Estrutura e conteúdo são interesses distintos. Confira incêndio, explosão, vendaval e exclusões; deterioração ou perda de qualidade não são automáticas." },
+                    { name: "Lavoura", path: "/seguro-rural", inputs: "Cultura, área, município/UF, calendário e informações técnicas exigidas pela seguradora.", limit: "Confira riscos climáticos, produtividade, franquia ou participação e exigências técnicas. Subvenção e aceitação não são garantidas." },
+                  ].map((row) => <tr key={row.path} className="border-t border-border"><th scope="row" className="p-4 align-top"><Link to={row.path} className="font-semibold text-primary underline underline-offset-4">{row.name}</Link></th><td className="p-4 align-top">{row.inputs}</td><td className="p-4 align-top text-muted-foreground">{row.limit}</td></tr>)}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         <section className="py-12 border-b border-border">
           <div className="container mx-auto px-4 max-w-6xl grid md:grid-cols-[1.4fr_1fr] gap-8 items-center">
             <div>
@@ -262,7 +295,7 @@ const SeguroAgro = () => {
           </div>
         </section>
 
-        <section className="py-14">
+        <section id="produtos-agro" className="py-14 scroll-mt-28">
           <div className="container mx-auto px-4 max-w-6xl space-y-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">Encontre o seguro para sua operação agrícola</h2>
@@ -276,7 +309,7 @@ const SeguroAgro = () => {
           </div>
         </section>
 
-        <section className="py-12 bg-primary/5 border-y border-border">
+        <section id="cotacao-agro" className="py-12 bg-primary/5 border-y border-border scroll-mt-28">
           <div className="container mx-auto px-4 max-w-6xl grid gap-10 md:grid-cols-2">
             <div>
               <h2 className="text-2xl font-bold">Atendimento onde o agro produz</h2>
@@ -295,6 +328,18 @@ const SeguroAgro = () => {
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-agro:mid")} className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground"><MessageCircle className="h-5 w-5" aria-hidden="true" /> Cotar com especialista agro</a>
               <p className="mt-3 text-sm text-muted-foreground">Prazo e condições dependem da documentação e da análise da seguradora.</p>
             </div>
+          </div>
+        </section>
+
+        <section id="fontes-agro" aria-labelledby="fontes-agro-heading" className="py-12 border-b border-border scroll-mt-28">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h2 id="fontes-agro-heading" className="text-2xl font-bold mb-4">Fontes oficiais para conferir sua operação</h2>
+            <ul className="space-y-4 text-sm text-muted-foreground max-w-3xl">
+              <li><ExternalLink href="https://www.gov.br/susep/pt-br/assuntos/seguros/seguro-rural" className="text-primary underline underline-offset-4">SUSEP: seguro rural</ExternalLink> — confira as modalidades; não confunda proteção da lavoura, do equipamento e de bens em garantia.</li>
+              <li><ExternalLink href="https://www.gov.br/agricultura/pt-br/assuntos/riscos-seguro/seguro-rural" className="text-primary underline underline-offset-4">Ministério da Agricultura: seguro rural e subvenção</ExternalLink> — consulte regras, seguradoras habilitadas e disponibilidade do programa. Não há benefício automático para todo seguro agro.</li>
+              <li><ExternalLink href="https://www.gov.br/anac/pt-br/assuntos/drones" className="text-primary underline underline-offset-4">ANAC: drones</ExternalLink> — confira requisitos da aeronave e da operação. Regras de espaço aéreo, telecomunicações e aplicação agrícola também precisam ser observadas conforme a atividade.</li>
+            </ul>
+            <p className="mt-5 text-sm text-muted-foreground max-w-3xl">Essas referências não confirmam preço, enquadramento, regularidade da operação ou cobertura em tempo real. Para contratar, exija proposta válida, identificação dos bens, condições oficiais, franquias, limites, exclusões e área de operação. Confirme a aceitação e o início da vigência com a seguradora.</p>
           </div>
         </section>
 

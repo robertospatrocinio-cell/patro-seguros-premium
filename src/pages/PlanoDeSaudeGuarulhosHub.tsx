@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import ExternalLink from "@/components/ExternalLink";
+import HealthPlanDecisionGuide from "@/components/HealthPlanDecisionGuide";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -37,12 +38,12 @@ const HUB_DESCRIPTION =
   "Compare planos de saúde em Guarulhos com a Patro Seguros. Cotação para individual, familiar, MEI, PME e empresarial com operadoras parceiras.";
 
 const CONTRACT_TYPES = [
-  { label: "Individual", description: "Pessoa física com contrato em nome próprio." },
-  { label: "Familiar", description: "Titular, cônjuge, filhos e dependentes." },
-  { label: "Coletivo por adesão", description: "Contrato via entidade de classe compatível." },
-  { label: "MEI", description: "Microempreendedor Individual com CNPJ ativo." },
-  { label: "PME", description: "Empresas de 2 a 99 vidas." },
-  { label: "Empresarial", description: "Corporativo acima de 100 vidas." },
+  { label: "Individual", description: "Pessoa física, conforme produtos disponíveis para contratação." },
+  { label: "Familiar", description: "Titular e dependentes elegíveis, conforme as regras do contrato." },
+  { label: "Coletivo por adesão", description: "Exige vínculo elegível com a entidade contratante e condições próprias." },
+  { label: "MEI", description: "Sujeito à comprovação de atividade, vínculos e mínimo de vidas do produto." },
+  { label: "PME", description: "Contrato coletivo empresarial; mínimo e faixa de vidas variam por produto." },
+  { label: "Empresarial", description: "Plano coletivo com análise da empresa e do grupo de beneficiários." },
 ];
 
 const WHAT_TO_COMPARE = [
@@ -57,28 +58,6 @@ const WHAT_TO_COMPARE = [
   "Regras de reajuste anual",
   "Idade dos beneficiários",
   "Regras específicas da operadora",
-];
-
-const NETWORK_HIGHLIGHTS = [
-  "Hospital Carlos Chagas",
-  "Hospital Stella Maris",
-  "Hospital e Maternidade Guarulhos",
-  "Hospital São Luiz (região)",
-  "Laboratórios e clínicas em Cidade Maia, Centro e Vila Galvão",
-];
-
-const BAIRROS = [
-  "Cidade Maia",
-  "Centro",
-  "Vila Galvão",
-  "Cumbica",
-  "Pimentas",
-  "Bonsucesso",
-  "Macedo",
-  "Gopoúva",
-  "Jardim Maia",
-  "Vila Augusta",
-  "Taboão",
 ];
 
 const PlanoDeSaudeGuarulhosHub = () => {
@@ -150,7 +129,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
         <section className="gradient-hero py-16 md:py-20">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-white/90 mb-4">
-              Corretora em Guarulhos • 20+ operadoras
+              Compare rede, contrato e custo total
             </span>
             <h1 className="text-white mb-4">Plano de Saúde em Guarulhos</h1>
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
@@ -173,7 +152,16 @@ const PlanoDeSaudeGuarulhosHub = () => {
           </div>
         </section>
 
-        <section id="planos" className="py-16">
+        <nav aria-label="Guia de contratação de saúde" className="border-b border-border bg-background">
+          <div className="container mx-auto px-4 max-w-6xl flex flex-wrap gap-x-6 gap-y-1 py-3 text-sm text-primary">
+            <a href="#planos" className="inline-flex min-h-11 items-center underline underline-offset-4">Tipos de plano</a>
+            <a href="#precos-saude" className="inline-flex min-h-11 items-center underline underline-offset-4">Cotação por perfil</a>
+            <a href="#rede-saude" className="inline-flex min-h-11 items-center underline underline-offset-4">Conferir hospitais e laboratórios</a>
+            <a href="#fontes-saude" className="inline-flex min-h-11 items-center underline underline-offset-4">Fontes oficiais</a>
+          </div>
+        </nav>
+
+        <section id="planos" className="py-16 scroll-mt-28">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Qual plano de saúde você procura?</h2>
@@ -277,17 +265,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-muted">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Rede credenciada em Guarulhos</h2>
-            <p className="text-muted-foreground mb-6">
-              A Patro avalia caso a caso a rede disponível para o CEP do beneficiário, considerando hospitais como {NETWORK_HIGHLIGHTS.join(", ")}, além de laboratórios e clínicas espalhados pelos principais bairros: {BAIRROS.join(", ")}.
-            </p>
-            <div className="p-4 bg-white border-l-4 border-primary rounded text-sm text-muted-foreground">
-              A disponibilidade de hospitais, laboratórios e clínicas varia conforme a operadora, categoria do plano, rede contratada e regras vigentes. A Patro verifica a rede antes da contratação.
-            </div>
-          </div>
-        </section>
+        <HealthPlanDecisionGuide />
 
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-5xl">
@@ -353,7 +331,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
                 Lei dos Planos de Saúde (Lei nº 9.656/98) — direitos e deveres do beneficiário.
               </li>
               <li>
-                Conteúdo consultivo e comercial, revisado pela equipe Patro Seguros. Não constitui aconselhamento médico.
+                Conteúdo de orientação comercial, sem confirmação em tempo real de preços ou rede credenciada. Consulte as condições oficiais do produto. Não constitui aconselhamento médico.
               </li>
             </ul>
           </div>

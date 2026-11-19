@@ -5,6 +5,7 @@ import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AutoQuoteDecisionGuide from "@/components/AutoQuoteDecisionGuide";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -165,6 +166,15 @@ const SeguroAuto = () => {
             </div>
           </div>
         </section>
+
+        <nav aria-label="Guia de seguro auto" className="border-b border-border">
+          <div className="container mx-auto px-4 max-w-6xl flex flex-wrap gap-x-6 gap-y-1 py-3 text-sm text-primary">
+            <a href="#comparar-propostas-auto" className="inline-flex min-h-11 items-center underline underline-offset-4">Comparar preço e coberturas</a>
+            <a href="#coberturas" className="inline-flex min-h-11 items-center underline underline-offset-4">Conhecer as coberturas</a>
+            <Link to="/consulta-tabela-fipe" className="inline-flex min-h-11 items-center underline underline-offset-4">Consultar a FIPE</Link>
+          </div>
+        </nav>
+        <AutoQuoteDecisionGuide />
 
         {/* ===== 2. AGITAÇÃO / PROBLEMA ===== */}
         <LazySection minHeight="400px">

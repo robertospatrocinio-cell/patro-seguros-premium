@@ -400,6 +400,10 @@ const Header = memo(() => {
               {/* Agronegócio */}
               <DesktopNavDisclosure label="Agronegócio" panelClassName="left-1/2 -translate-x-1/2 w-[400px]">
                 <div className="bg-card rounded-xl shadow-xl border p-5">
+                  <SmartLink to="/seguro-agro" className="block rounded-lg bg-muted px-3 py-3 mb-3 text-sm font-semibold text-primary hover:underline">
+                    Seguros para o agronegócio no Brasil
+                    <span className="block mt-1 text-xs font-normal text-muted-foreground">Máquinas, drones, silos e operação rural</span>
+                  </SmartLink>
                   <div className="space-y-0.5 text-[13px]">
                     <SmartLink to="/seguro-rural" className="block py-1 hover:text-primary">Seguro Rural</SmartLink>
                     <SmartLink to="/seguro-maquinas-agricolas" className="block py-1 hover:text-primary">Máquinas Agrícolas</SmartLink>

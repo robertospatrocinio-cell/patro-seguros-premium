@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import AutoQuoteDecisionGuide from "@/components/AutoQuoteDecisionGuide";
 import PrerenderText from "@/components/PrerenderText";
 import NeighborhoodHub, { type NeighborhoodLink } from "@/components/NeighborhoodHub";
 import ModelHub, { type ModelLink } from "@/components/ModelHub";
@@ -89,7 +90,7 @@ A Patro atende clientes de Guarulhos por seus contatos oficiais e na sede, media
         { title: "Corretora Seguros Guarulhos", link: "/" },
         { title: "Seguro Auto por Modelo", link: "/seguro-auto-por-modelo-guarulhos" },
       ]}
-      extraSections={<><NeighborhoodHub source="seguro-auto-guarulhos:hub-bairros" neighborhoods={NEIGHBORHOODS} subtitle="Consulte as orientações para cotar no seu bairro. O atendimento é feito pela Patro em Guarulhos; não há tabela de preço ou classificação de risco definida apenas pelo bairro." /><ModelHub source="seguro-auto-guarulhos:hub-modelos" models={MODELS} subtitle="Consulte orientações por modelo e solicite uma proposta para o ano, versão, utilização e condutores do seu veículo." /></>}
+      extraSections={<><AutoQuoteDecisionGuide /><NeighborhoodHub source="seguro-auto-guarulhos:hub-bairros" neighborhoods={NEIGHBORHOODS} subtitle="Consulte as orientações para cotar no seu bairro. O atendimento é feito pela Patro em Guarulhos; não há tabela de preço ou classificação de risco definida apenas pelo bairro." /><ModelHub source="seguro-auto-guarulhos:hub-modelos" models={MODELS} subtitle="Consulte orientações por modelo e solicite uma proposta para o ano, versão, utilização e condutores do seu veículo." /></>}
     />
     <StickyQuoteBar source="seguro-auto-guarulhos" quoteHref="/cotacao?tipo=auto" whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e gostaria de falar com um especialista sobre meu seguro." ctaLabel="Solicitar cotação" />
   </>
