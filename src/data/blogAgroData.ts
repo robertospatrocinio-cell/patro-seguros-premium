@@ -1,4 +1,4 @@
-import { BlogArticleMeta } from "@/lib/blogData";
+import { BlogArticleMeta } from "../lib/blogData";
 
 export const agroArticles: BlogArticleMeta[] = [
   {

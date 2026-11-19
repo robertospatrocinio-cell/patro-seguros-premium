@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioImoveisInvestimentoArticle, consorcioImoveisInvestimentoContent } from "@/data/blogConsorcioImoveisInvestimento";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioImoveisInvestimentoArticle, consorcioImoveisInvestimentoContent } from "./blogConsorcioImoveisInvestimento";
 
 const slug = "investir-em-imoveis-com-consorcio-aluguel-paga-parcela";
 const path = `/blog/${slug}`;

@@ -1,4 +1,4 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
+import type { BlogArticleMeta } from "../lib/blogData";
 
 export const consultorioArticles: BlogArticleMeta[] = [
   { slug: "seguro-consultorio-guarulhos-guia-completo", title: "Seguro para consultório em Guarulhos: guia completo", excerpt: "Coberturas patrimoniais, RC Profissional, cyber/LGPD e equipamentos — o que médicos, dentistas e vets precisam avaliar em Guarulhos.", category: "Consultórios e Clínicas", tags: ["consultório", "clínica", "guarulhos", "seguro empresarial"], author: "Roberto Patro", date: "2026-10-12", readTime: 11 },

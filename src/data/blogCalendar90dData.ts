@@ -1,4 +1,4 @@
-import { BlogArticleMeta } from "@/lib/blogData";
+import { BlogArticleMeta } from "../lib/blogData";
 
 export const calendar90dArticles: BlogArticleMeta[] = [
   { slug: "documentos-cotar-seguro-auto-guarulhos", title: "Quais documentos são necessários para cotar seguro auto em Guarulhos?", excerpt: "Lista completa de documentos do veículo, do condutor principal e dos condutores eventuais para uma cotação correta em Guarulhos.", category: "Seguro Auto", tags: ["seguro auto", "documentos", "guarulhos", "cotação"], author: "Sandra Patro", date: "2026-06-12", readTime: 7 },

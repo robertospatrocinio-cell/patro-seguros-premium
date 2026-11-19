@@ -1,4 +1,4 @@
-import { BlogArticleMeta } from "@/lib/blogData";
+import { BlogArticleMeta } from "../lib/blogData";
 
 /**
  * Fase 5 — Cluster local de Guarulhos (10 artigos).

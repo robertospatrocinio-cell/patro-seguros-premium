@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioQuitacaoImobiliariaArticle, consorcioQuitacaoImobiliariaContent } from "@/data/blogConsorcioQuitacaoImobiliaria";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioQuitacaoImobiliariaArticle, consorcioQuitacaoImobiliariaContent } from "./blogConsorcioQuitacaoImobiliaria";
 
 const slug = "usar-consorcio-para-quitar-financiamento-imobiliario-interveniencia-quitante";
 const path = `/blog/${slug}`;

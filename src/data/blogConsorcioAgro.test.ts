@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { consorcioAgroArticle, consorcioAgroContent } from "@/data/blogConsorcioAgro";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { consorcioAgroArticle, consorcioAgroContent } from "./blogConsorcioAgro";
 
 const slug = "consorcio-maquinas-agricolas-vale-a-pena-finame-credito-rural";
 

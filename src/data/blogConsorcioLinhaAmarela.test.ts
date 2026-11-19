@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioLinhaAmarelaArticle, consorcioLinhaAmarelaContent } from "@/data/blogConsorcioLinhaAmarela";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioLinhaAmarelaArticle, consorcioLinhaAmarelaContent } from "./blogConsorcioLinhaAmarela";
 
 const slug = "consorcio-linha-amarela-escavadeiras-retroescavadeiras";
 const path = `/blog/${slug}`;

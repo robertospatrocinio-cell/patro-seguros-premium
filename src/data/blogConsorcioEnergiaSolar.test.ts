@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioEnergiaSolarArticle, consorcioEnergiaSolarContent } from "@/data/blogConsorcioEnergiaSolar";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioEnergiaSolarArticle, consorcioEnergiaSolarContent } from "./blogConsorcioEnergiaSolar";
 
 const slug = "consorcio-de-energia-solar-instalar-placas-sem-juros";
 const path = `/blog/${slug}`;

@@ -1,4 +1,4 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
+import type { BlogArticleMeta } from "../lib/blogData";
 
 export const flatArticles: BlogArticleMeta[] = [
   { slug: "seguro-para-flat-o-que-cobre", title: "Seguro para flat: o que cobre?", excerpt: "Coberturas principais, diferenças para apartamento comum e como montar a proteção ideal para flats residenciais, mobiliados ou de locação.", category: "Flats e Imóveis Compactos", tags: ["flat", "seguro residencial", "mobiliado"], author: "Roberto Patro", date: "2026-10-25", readTime: 10 },

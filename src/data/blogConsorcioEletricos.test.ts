@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioEletricosArticle, consorcioEletricosContent } from "@/data/blogConsorcioEletricos";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioEletricosArticle, consorcioEletricosContent } from "./blogConsorcioEletricos";
 
 const slug = "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento";
 const path = `/blog/${slug}`;

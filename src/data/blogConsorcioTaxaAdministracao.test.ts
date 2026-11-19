@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { articles, getArticleMeta } from "@/lib/blogData";
-import { getBlogContent } from "@/data/blogContentIndex";
-import { getMetadataForRoute } from "@/lib/seoMetadata";
-import { consorcioTaxaAdministracaoArticle, consorcioTaxaAdministracaoContent } from "@/data/blogConsorcioTaxaAdministracao";
+import { articles, getArticleMeta } from "../lib/blogData";
+import { getBlogContent } from "./blogContentIndex";
+import { getMetadataForRoute } from "../lib/seoMetadata";
+import { consorcioTaxaAdministracaoArticle, consorcioTaxaAdministracaoContent } from "./blogConsorcioTaxaAdministracao";
 
 const slug = "taxa-de-administracao-no-consorcio-como-calcular-custo-real";
 const path = `/blog/${slug}`;

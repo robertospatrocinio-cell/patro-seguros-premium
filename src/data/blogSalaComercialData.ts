@@ -1,4 +1,4 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
+import type { BlogArticleMeta } from "../lib/blogData";
 
 export const salaComercialArticles: BlogArticleMeta[] = [
   { slug: "seguro-sala-comercial-guarulhos-o-que-cobre", title: "Seguro para sala comercial em Guarulhos: o que cobre?", excerpt: "Coberturas principais do seguro para salas comerciais, consultórios e escritórios em Guarulhos — patrimônio, RC, equipamentos e assistência.", category: "Salas Comerciais", tags: ["sala comercial", "guarulhos", "empresarial"], author: "Roberto Patro", date: "2026-11-04", readTime: 10 },

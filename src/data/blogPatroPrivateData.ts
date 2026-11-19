@@ -1,4 +1,4 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
+import type { BlogArticleMeta } from "../lib/blogData";
 
 // Artigos editoriais da vertical Patro Private — linguagem consultiva,
 // foco em proteção patrimonial, famílias de alto patrimônio e empresários.

@@ -1,5 +1,5 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
-import type { BlogArticleContent } from "@/data/blogContentIndex";
+import type { BlogArticleMeta } from "../lib/blogData";
+import type { BlogArticleContent } from "./blogContentIndex";
 
 export const consorcioQuitacaoImobiliariaArticle: BlogArticleMeta = {
   slug: "usar-consorcio-para-quitar-financiamento-imobiliario-interveniencia-quitante",

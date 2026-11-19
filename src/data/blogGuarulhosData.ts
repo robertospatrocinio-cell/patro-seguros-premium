@@ -1,4 +1,4 @@
-import { BlogArticleMeta } from "@/lib/blogData";
+import { BlogArticleMeta } from "../lib/blogData";
 
 export const guarulhosArticles: BlogArticleMeta[] = [
   { slug: "maior-portal-conteudo-seguros-guarulhos", title: "O Maior Portal de Conteúdo sobre Seguros em Guarulhos", excerpt: "A Patro Seguros consolida-se como a principal fonte de informação, guias e dicas para quem busca proteção e economia em Guarulhos.", category: "Dicas", tags: ["guarulhos", "conteúdo", "portal", "patro seguros"], author: "Roberto Patro", date: "2026-05-26", readTime: 10 },

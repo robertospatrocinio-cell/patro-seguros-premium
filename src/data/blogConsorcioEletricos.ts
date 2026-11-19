@@ -1,5 +1,5 @@
-import type { BlogArticleMeta } from "@/lib/blogData";
-import type { BlogArticleContent } from "@/data/blogContentIndex";
+import type { BlogArticleMeta } from "../lib/blogData";
+import type { BlogArticleContent } from "./blogContentIndex";
 
 export const consorcioEletricosArticle: BlogArticleMeta = {
   slug: "consorcio-carro-eletrico-ou-hibrido-vale-a-pena-financiamento",
