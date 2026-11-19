@@ -11,12 +11,10 @@ import { toast } from "sonner";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { scheduleIdle } from "@/lib/prefetch";
-import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/company";
 
-
-
-const logoFull = "/images/logo-full.webp";
-const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
+const logoFull = EMPRESA.logoPath;
+const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
 const WHATSAPP_SINISTRO_URL = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
 
 const MobileSection = ({ id, label, isOpen, onToggle, children }: { id: string; label: string; isOpen: boolean; onToggle: (id: string) => void; children: React.ReactNode }) => (

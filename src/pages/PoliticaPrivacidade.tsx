@@ -22,6 +22,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { COMPANY, WHATSAPP_URL_BASE } from "@/config/company";
 
 const SECTIONS = [
   { id: "dados-coletados", n: "01", title: "Dados que coletamos", Icon: Database },
@@ -90,8 +91,8 @@ const PoliticaPrivacidade = () => {
                 Política de <span className="text-primary italic">Privacidade</span>
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                A <strong className="text-slate-900">Patro Corretora de Seguros</strong> (CNPJ 41.641.558/0001-33),
-                com sede na Av. Salgado Filho, 2120 — Sala 219, Guarulhos/SP, está comprometida com a
+                A <strong className="text-slate-900">{COMPANY.razaoSocial}</strong> (CNPJ {COMPANY.cnpj}),
+                com sede na {COMPANY.enderecoCompleto}, está comprometida com a
                 proteção dos dados pessoais de clientes, parceiros e visitantes do site, em conformidade
                 com a Lei Geral de Proteção de Dados Pessoais.
               </p>

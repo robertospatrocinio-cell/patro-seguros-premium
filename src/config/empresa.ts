@@ -1,101 +1,14 @@
-/**
- * Fonte única da verdade dos dados institucionais da Patro Seguros.
- * NENHUM outro arquivo do projeto deve conter telefone, endereço, CNPJ ou
- * razão social escritos manualmente — importe daqui.
- *
- * Ao atualizar qualquer valor, o site inteiro é propagado automaticamente
- * (Footer, LP, WhatsApp, JSON-LD, formulários, e-mails).
- */
-export const EMPRESA = {
-  nomeFantasia: "Patro Seguros",
-  razaoSocial: "Patro Corretora de Seguros LTDA",
-  cnpj: "41.641.558/0001-33",
-  susep: "212113511",
-  fundacao: "2021",
-  telefone: "(11) 5199-7500",
-  telefoneE164: "+551151997500",
-  whatsapp: "+551151997500",
-  email: "contato@patroseguros.com.br",
-  endereco: {
-    logradouro: "Av. Salgado Filho",
-    numero: "2120",
-    complemento: "Sala 219 — Edifício Via Alameda — Cidade Maia (Parque Renato Maia)",
-    bairro: "Cidade Maia",
-    cidade: "Guarulhos",
-    estado: "São Paulo",
-    estadoSigla: "SP",
-    cep: "07115-000",
-    pais: "Brasil",
-  },
-  geo: {
-    // Coordenadas do Edifício Via Alameda, Cidade Maia, Guarulhos/SP.
-    latitude: -23.4460,
-    longitude: -46.5220,
-  },
-  dominioCanonico: "https://www.patroseguros.com.br",
-  horario: "Segunda a Sexta, 8h30 às 18h",
-  posicionamento:
-    "A Patro Seguros é uma corretora sediada em Guarulhos, fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado de seguros, com registro SUSEP 212113511. A empresa atende pessoas e empresas em Guarulhos, na Grande São Paulo e em outras regiões do Brasil. Comparamos cotações em 16+ seguradoras para buscar a combinação mais adequada entre cobertura, assistência e preço.",
-  redesSociais: {
-    google: "https://www.google.com/maps?cid=273879799324962533",
-    instagram: "https://www.instagram.com/patroseguros",
-    facebook: "https://www.facebook.com/patroseguros",
-    linkedin: "https://www.linkedin.com/company/patro-seguros",
-    youtube: "https://www.youtube.com/@patroseguros",
-  },
-  /**
-   * Perfis pessoais oficiais dos sócios (usados como `sameAs` em schema Person).
-   * Conteúdo biográfico só pode ser publicado após validação humana.
-   */
-  socios: {
-    roberto: {
-      nome: "Roberto Patrocínio",
-      linkedin: "https://www.linkedin.com/in/roberto-patrocinio",
-    },
-    sandra: {
-      nome: "Sandra Patrocínio",
-      linkedin: "https://www.linkedin.com/in/sandra-patrocinio",
-    },
-  },
-  /**
-   * Somente indicadores confirmados pela direção da Patro Seguros.
-   * REGRA: nenhum número pode ser publicado sem confirmação documentada.
-   * - `googleReviews` foi REMOVIDO: não há integração automática com o Google,
-   *   portanto a quantidade de avaliações não é exibida em nenhum lugar
-   *   (nem no conteúdo, nem no JSON-LD).
-   * - `sinistrosPagos` foi REMOVIDO por falta de fonte interna comprovada.
-   */
-  metricas: {
-    googleRating: 4.9,
-    clientesAtendidos: "2.500+",
-    experienciaAnos: "20+",
-    seguradorasParceiras: "16+",
-    operadorasSaude: "20+",
-  },
-} as const;
-
-/** Somente dígitos do WhatsApp (formato wa.me). Ex.: "551151997500". */
-export const WHATSAPP_DIGITS = EMPRESA.whatsapp.replace(/\D/g, "");
-
-/** URL base canônica do WhatsApp (wa.me). Ex.: "https://wa.me/551151997500". */
-export const WHATSAPP_URL_BASE = `https://wa.me/${WHATSAPP_DIGITS}`;
-
-/** Somente dígitos do telefone (para href="tel:"). Ex.: "1151997500". */
-export const TELEFONE_DIGITS = EMPRESA.telefone.replace(/\D/g, "");
-
-/** Endereço em uma linha (footer, JSON-LD). */
-/** Linha 1 do NAP canônico. Idêntica em rodapé, /sobre, /contato e JSON-LD. */
-export const NAP_LINHA_1 = `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} — Sala 219`;
-
-/** Linha 2 do NAP canônico. */
-export const NAP_LINHA_2 = `Edifício Via Alameda — ${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla} — CEP ${EMPRESA.endereco.cep}`;
-
-/** streetAddress usado em TODO JSON-LD/Microdata do site. */
-export const NAP_STREET_ADDRESS = `${NAP_LINHA_1} — Edifício Via Alameda`;
-
-/** Ficha oficial no Google Business Profile / Google Maps. */
-export const GOOGLE_MAPS_URL = EMPRESA.redesSociais.google;
-
-export const ENDERECO_LINHA = `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} — ${EMPRESA.endereco.complemento} — ${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla}`;
-
-export default EMPRESA;
+/** Compatibilidade com os imports existentes; todos os dados vivem em company.ts. */
+export {
+  COMPANY,
+  EMPRESA,
+  WHATSAPP_DIGITS,
+  WHATSAPP_URL_BASE,
+  TELEFONE_DIGITS,
+  NAP_LINHA_1,
+  NAP_LINHA_2,
+  NAP_STREET_ADDRESS,
+  ENDERECO_LINHA,
+  GOOGLE_MAPS_URL,
+} from "./company";
+export { default } from "./company";

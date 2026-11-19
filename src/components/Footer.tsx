@@ -8,9 +8,9 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
-import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS, ENDERECO_LINHA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/empresa";
+import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS, ENDERECO_LINHA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/company";
 
-const logoFull = "/images/logo-full.webp";
+const logoFull = EMPRESA.logoPath;
 
 const Footer = memo(() => {
   return (

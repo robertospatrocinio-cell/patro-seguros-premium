@@ -25,7 +25,7 @@ import { buildWhatsAppUrl, buildMailtoUrl, openWhatsAppOrFallback } from "@/lib/
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { toast as sonnerToast } from "sonner";
 import ExternalLink from "@/components/ExternalLink";
-import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/empresa";
+import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/company";
 
 const contatoSchema = z.object({
   nome: nameSchema,
