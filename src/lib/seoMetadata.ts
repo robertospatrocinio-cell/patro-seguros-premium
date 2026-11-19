@@ -1,5 +1,6 @@
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
 import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
+import { CONSORCIO_INTENT_PAGES } from "@/data/consorcioVertical";
 import { consorcioServicosSchema } from "@/data/consorcioServicosSeo";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
@@ -746,7 +747,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       ogType: "website",
     };
   }
-  const consortium = CONSORCIO_NATIONAL_PAGES.find(page => page.path === cleanPath);
+  const consortium = [...CONSORCIO_NATIONAL_PAGES, ...CONSORCIO_INTENT_PAGES].find(page => page.path === cleanPath);
   if (consortium) {
     const url = `${DOMAIN}${cleanPath}`;
     return {

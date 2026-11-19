@@ -1,5 +1,6 @@
 import { EMPRESA, WHATSAPP_URL_BASE } from "../config/empresa";
 import { consorcioServicos as copy } from "./consorcioServicos";
+import { consorcioInstitutionalGuidance as guidance } from "./consorcioVertical";
 
 export const consorcioServicosWhatsapp = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá! Acessei a página de consórcio de serviços e gostaria de consultar a disponibilidade e receber uma simulação para meu projeto.")}`;
 export const consorcioServicosLinks = [
@@ -74,6 +75,9 @@ export function getConsorcioServicosStaticContent() {
       ...consorcioServicosLinks.map(link),
       h2("Perguntas Frequentes sobre Consórcio de Serviços"),
       ...copy.faqs.map(faq => `<h3>${esc(faq.question)}</h3>${p(faq.answer)}`),
+      h2(guidance.heading), p(guidance.role), p(guidance.after),
+      h2("Fontes oficiais para conferir as regras"), ...guidance.sources.map(link),
+      p("O FGTS só pode ser considerado em operações imobiliárias elegíveis, não nas demais modalidades."),
       h2(copy.closingHeading), p(copy.closingText),
       link({ href: consorcioServicosWhatsapp, label: `Falar no WhatsApp ${EMPRESA.telefone}` }),
       h2("Conheça as outras modalidades de consórcio"), ...consorcioServicosModalities.map(link),

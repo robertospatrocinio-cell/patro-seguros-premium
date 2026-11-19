@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { trackWhatsAppClick } from "@/lib/tracking";
+import { consorcioInstitutionalGuidance } from "@/data/consorcioVertical";
 import { MemoryRouter } from "react-router-dom";
 import ConsorcioModalityContent from "./ConsorcioModalityContent";
 import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
@@ -37,6 +39,37 @@ describe("Modalidades de consórcio: conteúdo e atendimento", () => {
       expect(screen.getByRole("link", { name: "Prefiro solicitar contato pelo formulário" })).toHaveAttribute("href", "/consorcio#simulacao");
       expect(screen.getByRole("link", { name: "Comparar no simulador educativo" })).toHaveAttribute("href", "/consorcio#comparar");
       for (const item of copy.articles) expect(screen.getByRole("link", { name: item.label })).toHaveAttribute("href", item.href);
+    });
+  }
+
+  for (const page of [...national, ...CONSORCIO_INTENT_PAGES]) {
+    it(`${page.path}: mantém responsabilidades, fontes oficiais e jornada local`, () => {
+      const local = CONSORCIO_INTENT_PAGES.some(item => item.path === page.path);
+      const { container } = render(<MemoryRouter><ConsorcioModalityContent page={page} local={local} /></MemoryRouter>);
+      expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+      expect(screen.getByText(consorcioInstitutionalGuidance.role)).toBeInTheDocument();
+      expect(screen.getByText(consorcioInstitutionalGuidance.after)).toBeInTheDocument();
+      for (const source of consorcioInstitutionalGuidance.sources) {
+        expect(screen.getByRole("link", { name: source.label })).toHaveAttribute("href", source.href);
+      }
+      for (const anchor of container.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+        expect(container.querySelector(anchor.getAttribute("href")!)).not.toBeNull();
+      }
+      const copy = getModalityExperience(page);
+      const request = screen.getAllByRole("link", { name: copy.cta, exact: true })[0];
+      const message = new URL(request.getAttribute("href")!).searchParams.get("text");
+      expect(message).toContain(copy.message);
+      if (local) expect(message).toContain("Guarulhos e região");
+      vi.mocked(trackWhatsAppClick).mockClear();
+      fireEvent.click(request);
+      expect(trackWhatsAppClick).toHaveBeenCalledWith(`${page.whatsappOrigem}_simulacao`);
+      expect(screen.getAllByRole("link", { name: "Solicitar contato pelo formulário", exact: true }).length).toBeGreaterThan(0);
+      if (local) {
+        const nav = screen.getByRole("navigation", { name: "Atendimento local de consórcio" });
+        for (const other of CONSORCIO_INTENT_PAGES.filter(item => item.path !== page.path)) {
+          expect(nav.querySelector(`a[href="${other.path}"]`)).not.toBeNull();
+        }
+      }
     });
   }
 

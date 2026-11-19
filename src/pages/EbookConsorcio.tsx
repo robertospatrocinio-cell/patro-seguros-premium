@@ -325,10 +325,13 @@ const EbookConsorcio = () => {
         <section className="py-16 md:py-20 bg-gradient-to-br from-primary to-[hsl(210,100%,18%)] text-white">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Pronto para conquistar seus sonhos sem juros?
+              Pronto para entender as condições do consórcio?
             </h2>
             <p className="text-lg text-white/85 mb-8">
-              Baixe gratuitamente agora o e-book exclusivo da Patro Seguros e comece seu planejamento hoje mesmo.
+              Baixe gratuitamente o e-book da Patro Seguros para apoiar seu planejamento. O material é educativo e não substitui a análise do contrato.
+            </p>
+            <p className="text-sm leading-relaxed text-white/90 mb-8">
+              Consórcio não cobra juros de financiamento, mas tem taxa de administração e pode incluir fundo de reserva, seguros e reajustes contratuais. Sorteio e lance não garantem data de contemplação; a liberação depende de análise, documentos e garantias. Compare o custo completo e o tempo de espera, sem presumir economia ou retorno financeiro.
             </p>
             <a href="#topo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
               <Button variant="cta" size="lg" className="rounded-xl text-base px-10">

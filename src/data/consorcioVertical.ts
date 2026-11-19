@@ -10,12 +10,22 @@ export const CONSORCIO_HUB_PATH = "/consorcio";
 export const CONSORCIO_LOCAL_PATH = "/consorcio-guarulhos";
 export const CONSORCIO_TRANSPARENCY_NOTICE = "As administradoras de consórcio são fiscalizadas pelo Banco Central. Confira a autorização da instituição antes de contratar. A contemplação ocorre por sorteio ou lance, conforme o regulamento e os recursos do grupo, sem data garantida. Adesão e contemplação não asseguram liberação: há análise de cadastro, garantias e documentação.";
 export const CONSORCIO_PRUDENT_LANGUAGE = "Consulte a disponibilidade para seu objetivo. Crédito, prazo, taxa de administração, fundo de reserva, seguros, reajustes, bens aceitos e regras de lance dependem do grupo e do contrato. O seguro do bem adquirido é uma contratação separada.";
+export const consorcioInstitutionalGuidance = {
+  heading: "Quem orienta e quem administra o consórcio",
+  role: "A Patro Seguros orienta a consulta de disponibilidade e condições; não administra o grupo nem decide a contemplação. A administradora autorizada é responsável pelo grupo, pelas assembleias e pela análise para liberação do crédito. O Banco Central autoriza e fiscaliza administradoras, mas não garante a operação, o pagamento ou a contemplação.",
+  after: "Depois da contemplação, ainda é necessário cumprir a análise de cadastro, a apresentação de documentos e as garantias exigidas. As parcelas e os reajustes previstos no contrato continuam até a quitação das obrigações. Se precisar do bem ou serviço em uma data certa, compare alternativas que não dependam de contemplação.",
+  sources: [
+    { href: "https://www.bcb.gov.br/estabilidadefinanceira/consorcio", label: "Banco Central: entenda o sistema de consórcios" },
+    { href: "https://www.bcb.gov.br/meubc/encontreinstituicao", label: "Banco Central: consulte a autorização da administradora" },
+    { href: "https://www.caixa.gov.br/voce/habitacao/financiamento/fgts/Paginas/default.aspx", label: "CAIXA: condições para uso habitacional do FGTS" },
+  ],
+};
 
 export const CONSORCIO_INTENT_PAGES: ConsorcioIntentPage[] = [
   {
     slug: "consorcio-guarulhos", path: "/consorcio-guarulhos", navLabel: "Consórcio Guarulhos",
     title: "Consórcio em Guarulhos | Imóveis, Carros e Caminhões | Patro",
-    metaDescription: "Consórcio em Guarulhos sem juros. Compare as melhores administradoras para comprar seu imóvel, carro ou frota com parcelas que cabem no seu bolso.",
+    metaDescription: "Planeje imóvel, veículo, equipamento ou serviço em Guarulhos. Compare custos, reajustes e regras de contemplação com orientação da Patro Seguros.",
     h1: "Consórcio em Guarulhos",
     subtitle: "Planeje a aquisição do imóvel, do veículo ou de ativos para sua operação com orientação em Guarulhos e região.",
     intro: "A Patro orienta a consulta de grupos para imóveis, veículos, pesados e serviços. A escolha começa pela finalidade, pelo orçamento e pelo tempo que você pode esperar, com as mesmas análises e exigências da administradora.",
@@ -28,7 +38,7 @@ export const CONSORCIO_INTENT_PAGES: ConsorcioIntentPage[] = [
   {
     slug: "consorcio-imoveis-guarulhos", path: "/consorcio-imoveis-guarulhos", navLabel: "Consórcio Imobiliário",
     title: "Consórcio de Imóveis em Guarulhos | Casa e Apto | Patro",
-    metaDescription: "Consórcio imobiliário em Guarulhos: compre sua casa, apartamento ou terreno sem juros. Use seu FGTS para lance. Cotação online.",
+    metaDescription: "Consórcio de imóveis em Guarulhos: planeje a compra e compare custos, reajustes e lances. Uso do FGTS depende do participante, do imóvel e da operação.",
     h1: "Consórcio de Imóveis em Guarulhos",
     subtitle: "Planeje casa, apartamento, terreno ou imóvel comercial com atenção à documentação e ao custo de esperar.",
     intro: "Consulte imóveis novos ou usados em Guarulhos, inclusive nas regiões de Maia, Vila Augusta e Centro. Construção e reforma dependem de previsão contratual e podem exigir projeto, orçamento e aprovações. A carta só pode ser usada nas finalidades admitidas.",
@@ -45,7 +55,7 @@ export const CONSORCIO_INTENT_PAGES: ConsorcioIntentPage[] = [
   {
     slug: "consorcio-veiculos-guarulhos", path: "/consorcio-veiculos-guarulhos", navLabel: "Consórcio de Veículos",
     title: "Consórcio de Veículos em Guarulhos | Carros e Motos | Patro",
-    metaDescription: "Consórcio de carros e motos em Guarulhos. Troque de veículo sem juros com planos de 36 a 100 meses. Simule agora.",
+    metaDescription: "Planeje carro, moto ou utilitário em Guarulhos. Entenda custos, reajustes, lance embutido e análise do veículo com orientação da Patro Seguros.",
     h1: "Consórcio de Veículos em Guarulhos",
     subtitle: "Programe a compra de carro, moto ou utilitário, considerando o veículo aceito e a carta líquida.",
     intro: "Consulte carros novos, seminovos ou usados e motos na categoria adequada. Híbridos e elétricos dependem das regras do grupo. Antes de contratar, confirme idade máxima, procedência, avaliação e condições do veículo desejado.",
@@ -62,7 +72,7 @@ export const CONSORCIO_INTENT_PAGES: ConsorcioIntentPage[] = [
   {
     slug: "consorcio-caminhoes-guarulhos", path: "/consorcio-caminhoes-guarulhos", navLabel: "Consórcio de Caminhões",
     title: "Consórcio de Caminhões em Guarulhos | Frotas e Pesados",
-    metaDescription: "Consórcio de caminhões e pesados em Guarulhos. Ideal para renovação de frota e autônomos. Planos sem juros e taxas competitivas.",
+    metaDescription: "Planeje caminhão, frota ou implemento em Guarulhos. Compare custos, reajustes, regras do grupo e impacto no caixa sem data garantida para a aquisição.",
     h1: "Consórcio de Caminhões em Guarulhos",
     subtitle: "Planeje a renovação do caminhão ou da frota sem vincular a operação a uma data presumida de contemplação.",
     intro: "Transportadores de Guarulhos e da região de Cumbica podem consultar caminhões, carretas e implementos admitidos no grupo. Avalie ano, aplicação, valor estimado e o calendário de substituição de cada ativo.",
@@ -79,7 +89,7 @@ export const CONSORCIO_INTENT_PAGES: ConsorcioIntentPage[] = [
   {
     slug: "consorcio-empresarial-guarulhos", path: "/consorcio-empresarial-guarulhos", navLabel: "Consórcio Empresarial",
     title: "Consórcio Empresarial em Guarulhos | Máquinas e Imóveis | Patro",
-    metaDescription: "Consórcio para empresas em Guarulhos. Compre sede própria, máquinas ou veículos para sua empresa sem juros. Alavanque seu negócio.",
+    metaDescription: "Consórcio empresarial em Guarulhos: planeje máquinas, veículos ou imóvel comercial. Compare custos, reajustes, garantias e impacto no caixa da empresa.",
     h1: "Consórcio Empresarial em Guarulhos",
     subtitle: "Planeje veículos, máquinas ou imóvel comercial conforme a necessidade e a capacidade de pagamento da empresa.",
     intro: "PMEs, indústrias de Cumbica e comércios locais podem consultar a aquisição de ativos pela categoria correspondente. Frotas, máquinas, equipamentos e imóveis comerciais têm condições próprias; confirme a adesão por CNPJ e os bens aceitos.",

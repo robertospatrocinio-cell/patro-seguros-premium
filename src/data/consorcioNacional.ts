@@ -1,4 +1,5 @@
-import type { ConsorcioIntentPage } from "./consorcioVertical";
+import { consorcioInstitutionalGuidance, type ConsorcioIntentPage } from "./consorcioVertical";
+import { getModalityExperience } from "./consorcioModalityExperience";
 import { consorcioModalities } from "./consorcioHub";
 import { consorcioServicos } from "./consorcioServicos";
 import { getConsorcioServicosStaticContent } from "./consorcioServicosSeo";
@@ -13,12 +14,21 @@ export function getConsorcioNationalStaticContent(page: ConsorcioIntentPage) {
   if (page.path === consorcioServicos.path) return getConsorcioServicosStaticContent();
   const p = (text: string) => `<p>${escapeHtml(text)}</p>`;
   const list = (items: string[]) => `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  const experience = getModalityExperience(page);
+  const guidance = consorcioInstitutionalGuidance;
   return {
     h1: page.h1,
     body: `<nav aria-label="Breadcrumb"><a href="/">Início</a> / <a href="/consorcio">Consórcio</a> / ${escapeHtml(page.navLabel)}</nav>`
       + p("Atendimento digital em todo o Brasil") + p(page.subtitle)
       + `<h2>O que você pode planejar</h2>${p(page.intro)}<h3>Para quem faz sentido</h3>${list(page.audience)}<h3>Crédito, prazo e condições</h3>${list(page.bullets)}`
       + page.sections.map(section => `<h2>${escapeHtml(section.heading)}</h2>${p(section.body)}`).join("")
+      + `<h2>Como funciona para o seu objetivo</h2>`
+      + experience.steps.map(step => `<h3>${escapeHtml(step.title)}</h3>${p(step.text)}`).join("")
+      + `<h2>Custos e condições importantes</h2>${p(experience.costs)}<h3>Documentação e liberação</h3>${p(experience.documents)}<h3>Lances e contemplação</h3>${p(experience.bids)}`
+      + `<h2>${escapeHtml(guidance.heading)}</h2>${p(guidance.role)}${p(guidance.after)}`
+      + guidance.sources.map(source => `<p><a href="${escapeHtml(source.href)}">${escapeHtml(source.label)}</a></p>`).join("")
+      + `<h2>Leituras para decidir</h2>` + experience.articles.map(item => `<p><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></p>`).join("")
+      + `<p><a href="/ebook-consorcio">E-book de consórcio</a></p>`
       + `<h2>Perguntas frequentes sobre ${escapeHtml(page.navLabel.toLowerCase())}</h2>`
       + page.faqs.map(faq => `<h3>${escapeHtml(faq.question)}</h3>${p(faq.answer)}`).join("")
       + `<h2>Continue seu planejamento</h2><p>Compare no <a href="/consorcio#comparar">simulador de consórcio</a> ou conheça o <a href="/consorcio-guarulhos">atendimento em Guarulhos</a>.</p>`
