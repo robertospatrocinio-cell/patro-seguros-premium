@@ -279,74 +279,13 @@ function sitemapPlugin(): Plugin {
       }
       console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
 
-      // ---- robots.txt otimizado (gerado automaticamente a cada build) ------
-      // Mantém Sitemap-index + referência explícita ao sitemap-guarulhos.xml
-      // (foco SEO local) e bloqueia rotas internas/admin.
-      const SITE = "https://www.patroseguros.com.br";
-      const robotsTxt = [
-        "# Gerado automaticamente pelo sitemapPlugin — não editar manualmente.",
-        "User-agent: *",
-        "Allow: /",
-        "Disallow: /admin/",
-        "Disallow: /api/",
-        "Disallow: /~api/",
-        "Disallow: /~flock.js",
-        "Disallow: /crm",
-        "Disallow: /ebook-consorcio/",
-        "Disallow: /avaliar-no-google/",
-        "Disallow: /performance-diagnostico",
-        "Disallow: /conversion-dashboard",
-        "Disallow: /seo-technical-report",
-        "Disallow: /pagespeed-history",
-        "",
-        "# Allow public high-value paths",
-        "Allow: /lp/",
-        "Allow: /blog/",
-        "Allow: /seguros-guarulhos/",
-        "Allow: /planos-de-saude/",
-        "",
-        "# Sitemaps",
-        `Sitemap: ${SITE}/sitemap-index.xml`,
-        "",
-        "# Optimization for Search Bots",
-        "User-agent: Googlebot",
-        "Allow: /",
-        "Crawl-delay: 0.1",
-        "",
-        "User-agent: Bingbot",
-        "Allow: /",
-        "Crawl-delay: 0.5",
-        "",
-        "# AI answer engines (AEO/GEO) — liberados para descoberta e citação",
-        ...[
-          "OAI-SearchBot",
-          "ChatGPT-User",
-          "GPTBot",
-          "Google-Extended",
-          "PerplexityBot",
-          "Perplexity-User",
-          "ClaudeBot",
-          "Claude-SearchBot",
-          "Claude-User",
-          "anthropic-ai",
-          "Applebot",
-          "Applebot-Extended",
-          "Amazonbot",
-          "DuckAssistBot",
-          "MistralAI-User",
-          "cohere-ai",
-          "YouBot",
-          "SemrushBot",
-        ].flatMap((bot) => [`User-agent: ${bot}`, "Allow: /", ""]),
-        "# Scrapers sem valor de descoberta/citação",
-        ...["CCBot", "Bytespider", "MJ12bot", "DotBot"].flatMap((bot) => [
-          `User-agent: ${bot}`,
-          "Disallow: /",
-          "",
-        ]),
-      ].join("\n");
-      fs.writeFileSync(path.join(outDir, "robots.txt"), robotsTxt, "utf-8");
-      console.log("✅ robots.txt gerado (com Sitemap-index + sitemap-guarulhos.xml).");
+      // Fonte única: preserva os grupos e restrições de public/robots.txt.
+      // Grupos específicos com apenas Allow: / ignorariam os bloqueios de *.
+      fs.copyFileSync(
+        path.resolve(__dirname, "public/robots.txt"),
+        path.join(outDir, "robots.txt"),
+      );
+      console.log("✅ robots.txt copiado da fonte pública (com índice canônico).");
 
 
        // Final validation step for XML and UTF-8 encoding

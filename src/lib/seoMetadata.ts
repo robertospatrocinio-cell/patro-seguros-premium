@@ -10,6 +10,11 @@ import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles, getCategoryBySlug } from "@/lib/blogData";
 import { getAuthorBySlug } from "@/lib/blogAuthors";
+import { getCanonicalUrl } from "@/lib/canonical";
+import { materiais } from "@/data/materiaisData";
+import { GUIAS_PILARES } from "@/data/guiasPilaresData";
+import { faqCategories } from "@/data/perguntasHubData";
+import { perguntasPrioritarias } from "@/data/perguntasPrioritarias";
 import { getArticleImage } from "@/lib/blogImages";
 import { getBlogCluster } from "@/data/blogClusters";
 import { buildBlogClusterCollectionSchema } from "@/lib/collectionPageSchemas";
@@ -708,7 +713,39 @@ function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
 
 
 function getMetadataForRouteInternal(pathname: string): Metadata | null {
-  const cleanPath = pathname.replace(/\/$/, "") || "/";
+  // Mesmo endereço no HTML estático, no canonical do React e no Open Graph.
+  const canonical = getCanonicalUrl(pathname);
+  const cleanPath = new URL(canonical).pathname;
+  const material = materiais.find((item) => item.href === cleanPath);
+  if (material) return {
+    title: material.title,
+    description: material.description,
+    h1: material.title,
+    canonical,
+    ogUrl: canonical,
+    ogType: "website",
+  };
+  const guia = GUIAS_PILARES.find((item) => `/guias/${item.slug}` === cleanPath);
+  if (guia) return {
+    title: guia.metaTitle,
+    description: guia.metaDescription,
+    h1: guia.h1,
+    canonical,
+    ogUrl: canonical,
+    ogType: "article",
+  };
+  const categoria = faqCategories.find((item) => `/perguntas-frequentes-seguros/${item.id}` === cleanPath);
+  if (categoria) {
+    const reviewed = perguntasPrioritarias.some((item) => item.id === categoria.id);
+    return {
+      title: reviewed ? `${categoria.title}: dúvidas | Patro Seguros` : `${categoria.title} — Perguntas Frequentes | Patro Seguros`,
+      description: reviewed ? categoria.description : `Dúvidas frequentes sobre ${categoria.title.toLowerCase()}: ${categoria.description}`,
+      h1: `${categoria.title}: perguntas frequentes`,
+      canonical,
+      ogUrl: canonical,
+      ogType: "website",
+    };
+  }
   const consortium = CONSORCIO_NATIONAL_PAGES.find(page => page.path === cleanPath);
   if (consortium) {
     const url = `${DOMAIN}${cleanPath}`;
@@ -1239,7 +1276,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const meta = getMetadataForRouteInternal(pathname);
   if (!meta) return null;
-  const isBlogArticle = meta.ogType === "article" && pathname.startsWith("/blog/");
+  const isBlogArticle = meta.ogType === "article" && new URL(meta.canonical).pathname.startsWith("/blog/");
   const title = isBlogArticle ? meta.title : clampTitle(meta.title);
   const description = isBlogArticle ? meta.description : clampDescription(meta.description);
   if ((title !== meta.title || description !== meta.description) && import.meta.env?.DEV) {

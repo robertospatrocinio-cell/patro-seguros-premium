@@ -170,8 +170,9 @@ for (const block of urlBlocks) {
     continue;
   }
 
-  // Nenhuma URL com parâmetros entra em sitemap.
-  if (u.search) {
+  // Filtros, paginação e links de respostas/itens não são documentos próprios.
+  // Não os converte silenciosamente em entradas da página principal.
+  if (u.search || u.hash) {
     skippedParams++;
     continue;
   }

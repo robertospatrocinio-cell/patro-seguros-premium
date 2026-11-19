@@ -34,7 +34,7 @@ Os testes foram escritos, mas não executados neste ambiente. Não foi possível
 
 ## Limites
 
-As mudanças facilitam leitura, navegação e interpretação do conteúdo. Não garantem indexação, posição no Google, resultados destacados de FAQ ou citação por assistentes de IA. Não alteram as regras de acesso dos robôs, os mapas do site, os títulos, as descrições, os endereços canônicos ou as informações comerciais existentes.
+As mudanças facilitam leitura, navegação e interpretação do conteúdo. Não garantem indexação, posição no Google, resultados destacados de FAQ ou citação por assistentes de IA. A revisão inicial não alterou regras de rastreamento, mapas do site ou metadados; os ajustes técnicos posteriores estão descritos na etapa 3 abaixo. As informações comerciais existentes foram preservadas.
 
 ## Continuação em etapas — etapa 1: materiais gratuitos
 
@@ -69,8 +69,33 @@ Escopo: artigos do blog, perfis de autores, guias aprofundados e perguntas por c
 
 `src/components/EditorialNextSteps.test.tsx` cobre a existência dos destinos temáticos, precedência de assuntos, links presentes no HTML, ausência de autorreferência, caminhos alternativos e integração com guias e perguntas. Os testes foram adicionados, mas não executados neste ambiente. Após sincronizar, conferir o build, abrir um artigo e seu perfil de autor, navegar até um guia e uma categoria de perguntas, e testar os links com teclado e no celular.
 
-### Próxima etapa planejada (não implementada nesta revisão)
+A etapa 2 não modificou robots.txt, sitemaps, políticas de acesso ou dados comerciais. Os resultados de busca e as citações por IA continuam dependendo de sistemas externos.
 
-3. Consistência de rastreamento, endereços canônicos e mapas do site nas áreas revisadas.
+## Continuação em etapas — etapa 3: rastreamento e consistência técnica
 
-Esta etapa não modifica robots.txt, sitemaps, políticas de acesso ou dados comerciais. Os resultados de busca e as citações por IA continuam dependendo de sistemas externos.
+Escopo: materiais gratuitos, guias, perguntas por categoria, perfis de autores e sua participação nos mapas do site. Revisão feita no código, sem auditoria HTTP do domínio publicado.
+
+### Correções e verificações
+
+- A resolução de metadados do HTML estático passa a normalizar os endereços com o mesmo utilitário usado pelo componente PageMeta: domínio institucional com HTTPS e www, sem barra final, parâmetros ou fragmentos. Links de respostas e itens continuam funcionando no navegador, mas não viram páginas canônicas independentes.
+- Materiais, guias e categorias de perguntas passam a ter metadados específicos derivados dos mesmos cadastros usados pelas páginas, antes da resolução genérica pelo endereço. Os guias são identificados como artigos. Permanecem os limites de tamanho já aplicados pelo projeto ao HTML estático; não se afirma paridade literal de todos os títulos entre pré-renderização e React.
+- Os geradores de sitemap passam a excluir entradas com fragmentos, além de parâmetros. Isso evita promover links de respostas, itens de checklist, busca ou filtros a documentos independentes.
+- O gerador principal já inclui as centrais, materiais, guias e categorias a partir dos respectivos cadastros; recebe os perfis de autores por argumento. Foram preservadas as exclusões existentes de redirecionamentos e formulários não indexáveis.
+- O robots.txt público permite as áreas editoriais no grupo compartilhado pelos mecanismos de descoberta e aponta para o índice institucional de sitemaps. O build agora copia essa mesma fonte: antes, ele criava outra versão com grupos específicos que ignoravam as restrições do grupo geral. A cópia preserva os bloqueios administrativos e de scrapers definidos no arquivo público, sem criar novas liberações.
+- O componente PageMeta mantém o bloqueio de indexação em hosts de preview. Essa proteção foi preservada: avaliar indexação no domínio público, não na prévia do Lovable.
+
+### Cobertura adicionada
+
+`src/lib/editorialCrawlConsistency.test.ts` verifica normalização de canonical e Open Graph, inclusive em endereços com maiúsculas ou host de preview; preservação de títulos e resumos dos artigos; metadados de materiais e guias; presença única dos documentos editoriais no sitemap gerado; exclusão de entradas de busca e âncoras; e uso da fonte pública de robots.txt pelo build. A conferência de presença usa o mapa intermediário do gerador; a reorganização final dos mapas acontece no pós-build e ainda precisa ser conferida no resultado publicado. Os testes foram escritos, mas não executados neste ambiente; o build também não foi executado.
+
+### Validação pendente após publicar
+
+1. Confirmar que o build concluiu e que o sitemap-index.xml publicado aponta para arquivos acessíveis, sem referências ao host de preview.
+2. Conferir uma central, um material, um guia, uma categoria de perguntas, um artigo e um perfil de autor: resposta HTTP 200, canonical único no domínio oficial, Open Graph coerente e ausência de noindex no HTML público. Verificar tanto o código-fonte recebido quanto a página após executar JavaScript.
+3. Confirmar nos sitemaps publicados que esses documentos aparecem uma vez no conjunto dos mapas de páginas, sem parâmetros, fragmentos ou URLs que redirecionam. No resultado final do build, sitemap.xml é um espelho do índice sitemap-index.xml, não uma segunda lista de páginas; o mapa de imagens pode referenciar as mesmas páginas para descrever suas imagens.
+4. Testar endereços antigos, versões com barra final e domínios alternativos para confirmar redirecionamentos e seu destino real. A revisão de código não comprova o comportamento do servidor ou de caches externos.
+5. Abrir links individuais de respostas e itens: devem levar à seção correta, mantendo o canonical da página principal. Busca e filtros do blog não devem entrar nos sitemaps.
+6. No Google Search Console, enviar ou conferir o índice de sitemaps e inspecionar amostras das áreas revisadas; comparar o canonical declarado com o escolhido pelo Google e verificar o HTML rastreado.
+7. Validar os dados estruturados no HTML publicado e acompanhar erros de rastreamento e indexação. A aprovação de um teste não garante resultados destacados, posicionamento ou citação por IA.
+
+Não foram alterados dados comerciais, permissões de banco, regras de acesso privado nem configurações externas. Não houve envio automático ao Google ou comprovação de indexação.

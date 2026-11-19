@@ -726,6 +726,8 @@ export function generateSitemap(blogSlugs: string[]): string {
   // Keep them accessible, but do not ask search engines to index them.
   const NOINDEX_PATHS = new Set(["/contato", "/cotacao"]);
   const allEntries = [...dedup.values()].filter((e) => {
+    // Busca, filtros e âncoras de respostas/itens não são documentos próprios.
+    if (/[?#]/.test(e.loc)) return false;
     const pathname = e.loc.toLowerCase().replace(/\/+$/, "");
     return !REDIRECTED_PATHS.has(pathname) && !NOINDEX_PATHS.has(pathname);
   });
