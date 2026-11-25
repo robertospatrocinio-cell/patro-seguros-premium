@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment, useCallback } from "react";
+import { useState, useEffect, Fragment, useCallback, memo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { debounce } from "@/lib/debounce";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { savePartialQuote } from "@/lib/leadsApi";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch, type Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cotacaoSchema as formSchema } from "@/lib/leadValidation";
 import type { z } from "zod";
@@ -87,6 +87,56 @@ const ASSET_FIELDS_BY_TYPE: Record<string, AssetField[]> = {
 const ASSET_FIELD_LABELS: Record<string, string> = Object.values(ASSET_FIELDS_BY_TYPE)
   .flat()
   .reduce((acc, f) => ({ ...acc, [f.key]: f.label }), {});
+
+const QuotePreview = memo(function QuotePreview({ control }: { control: Control<z.infer<typeof formSchema>> }) {
+  // A digitação atualiza só este resumo, sem redesenhar a página inteira.
+  const [insuranceType, name, phone] = useWatch({
+    control,
+    name: ["insuranceType", "name", "phone"],
+    exact: true,
+  });
+
+  return (
+    <div className="p-6 rounded-3xl bg-white border border-primary/20 shadow-xl shadow-primary/5 overflow-hidden relative group">
+      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+        <ShieldCheck className="w-24 h-24 text-primary" />
+      </div>
+
+      <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <Info className="w-4 h-4 text-primary" /> Resumo da sua Proteção
+      </h3>
+
+      <div className="space-y-4 relative z-10">
+        <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+          <span className="text-sm text-slate-500 flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Produto:</span>
+          <span className="text-sm font-bold text-primary bg-primary/5 px-3 py-1 rounded-full capitalize">
+            {insuranceType || "Selecionando..."}
+          </span>
+        </div>
+
+        {name && (
+          <div className="flex justify-between items-center pb-3 border-b border-slate-100 animate-in fade-in slide-in-from-left-2">
+            <span className="text-sm text-slate-500 flex items-center gap-2"><UserIcon className="w-4 h-4" /> Titular:</span>
+            <span className="text-sm font-semibold text-slate-700">{name}</span>
+          </div>
+        )}
+
+        {phone && (
+          <div className="flex justify-between items-center pb-3 border-b border-slate-100 animate-in fade-in slide-in-from-left-2">
+            <span className="text-sm text-slate-500 flex items-center gap-2"><Phone className="w-4 h-4" /> Contato:</span>
+            <span className="text-sm font-semibold text-slate-700">{phone}</span>
+          </div>
+        )}
+
+        <div className="pt-2">
+          <p className="text-[11px] text-slate-400 italic">
+            * As propostas reais dependem da análise das seguradoras parceiras em Guarulhos.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+});
 
 const Cotacao = () => {
   const navigate = useNavigate();
@@ -433,45 +483,7 @@ const Cotacao = () => {
               
               {/* Left Column: Social Proof & Dynamic Preview */}
               <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24">
-                {/* Dynamic Preview Card */}
-                <div className="p-6 rounded-3xl bg-white border border-primary/20 shadow-xl shadow-primary/5 overflow-hidden relative group">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <ShieldCheck className="w-24 h-24 text-primary" />
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <Info className="w-4 h-4 text-primary" /> Resumo da sua Proteção
-                  </h3>
-                  
-                  <div className="space-y-4 relative z-10">
-                    <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                      <span className="text-sm text-slate-500 flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Produto:</span>
-                      <span className="text-sm font-bold text-primary bg-primary/5 px-3 py-1 rounded-full capitalize">
-                        {form.watch("insuranceType") || "Selecionando..."}
-                      </span>
-                    </div>
-                    
-                    {form.watch("name") && (
-                      <div className="flex justify-between items-center pb-3 border-b border-slate-100 animate-in fade-in slide-in-from-left-2">
-                        <span className="text-sm text-slate-500 flex items-center gap-2"><UserIcon className="w-4 h-4" /> Titular:</span>
-                        <span className="text-sm font-semibold text-slate-700">{form.watch("name")}</span>
-                      </div>
-                    )}
-                    
-                    {form.watch("phone") && (
-                      <div className="flex justify-between items-center pb-3 border-b border-slate-100 animate-in fade-in slide-in-from-left-2">
-                        <span className="text-sm text-slate-500 flex items-center gap-2"><Phone className="w-4 h-4" /> Contato:</span>
-                        <span className="text-sm font-semibold text-slate-700">{form.watch("phone")}</span>
-                      </div>
-                    )}
-
-                    <div className="pt-2">
-                      <p className="text-[11px] text-slate-400 italic">
-                        * As propostas reais dependem da análise das seguradoras parceiras em Guarulhos.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <QuotePreview control={form.control} />
 
                 <div className="space-y-6">
                   <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">Por que escolher a Patro?</h2>

@@ -52,14 +52,15 @@ const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeNa
 import NichoLojistasGuarulhos from "./pages/NichoLojistasGuarulhos";
 import SeoVistoriaVeicularGuarulhos from "./pages/SeoVistoriaVeicularGuarulhos";
 import SeguroVistoriadoraVeicular from "./pages/SeguroVistoriadoraVeicular";
-import CentralDeGuias from "./pages/CentralDeGuias";
-import CentralDePerguntas from "./pages/CentralDePerguntas";
-import CentralDeMateriais from "./pages/CentralDeMateriais";
-import MaterialDetalhe from "./pages/MaterialDetalhe";
-import PerguntasCategoria from "./pages/PerguntasCategoria";
-import GuiaPilar from "./pages/GuiaPilar";
-import ComparativosSegurosHub from "./pages/ComparativosSegurosHub";
-import ComparativoCategoria from "./pages/ComparativoCategoria";
+// As centrais e seus detalhes têm conteúdo próprio, desnecessário fora dessas rotas.
+const CentralDeGuias = lazyWithRetry(() => import("./pages/CentralDeGuias"), "CentralDeGuias");
+const CentralDePerguntas = lazyWithRetry(() => import("./pages/CentralDePerguntas"), "CentralDePerguntas");
+const CentralDeMateriais = lazyWithRetry(() => import("./pages/CentralDeMateriais"), "CentralDeMateriais");
+const MaterialDetalhe = lazyWithRetry(() => import("./pages/MaterialDetalhe"), "MaterialDetalhe");
+const PerguntasCategoria = lazyWithRetry(() => import("./pages/PerguntasCategoria"), "PerguntasCategoria");
+const GuiaPilar = lazyWithRetry(() => import("./pages/GuiaPilar"), "GuiaPilar");
+const ComparativosSegurosHub = lazyWithRetry(() => import("./pages/ComparativosSegurosHub"), "ComparativosSegurosHub");
+const ComparativoCategoria = lazyWithRetry(() => import("./pages/ComparativoCategoria"), "ComparativoCategoria");
 import SeoECVGuarulhos from "./pages/SeoECVGuarulhos";
 import SeoInspecaoVeicularGuarulhos from "./pages/SeoInspecaoVeicularGuarulhos";
 import SeoVistoriaCautelarGuarulhos from "./pages/SeoVistoriaCautelarGuarulhos";

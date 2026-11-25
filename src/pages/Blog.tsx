@@ -162,20 +162,19 @@ const Blog = () => {
     [],
   );
 
+  const normalizedQuery = query.trim().toLowerCase();
   const filtered = useMemo(() => {
-    let list = sortedAll;
-    if (selectedCategory) list = list.filter(a => a.category === selectedCategory);
-    if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
-    const q = query.trim().toLowerCase();
-    if (q) {
-      list = list.filter(a =>
-        a.title.toLowerCase().includes(q) ||
-        a.excerpt.toLowerCase().includes(q) ||
-        a.tags.some(t => t.toLowerCase().includes(q)),
-      );
-    }
-    return list;
-  }, [sortedAll, selectedCategory, selectedTag, query]);
+    if (!selectedCategory && !selectedTag && !normalizedQuery) return sortedAll;
+
+    return sortedAll.filter((article) => {
+      if (selectedCategory && article.category !== selectedCategory) return false;
+      if (selectedTag && !article.tags.includes(selectedTag)) return false;
+      return !normalizedQuery ||
+        article.title.toLowerCase().includes(normalizedQuery) ||
+        article.excerpt.toLowerCase().includes(normalizedQuery) ||
+        article.tags.some((tag) => tag.toLowerCase().includes(normalizedQuery));
+    });
+  }, [sortedAll, selectedCategory, selectedTag, normalizedQuery]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const currentArticles = useMemo(() => {
