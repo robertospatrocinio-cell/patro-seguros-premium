@@ -10,6 +10,8 @@ import PageMeta from "@/components/PageMeta";
 import ProductQuoteForm from "@/components/ProductQuoteForm";
 import { Button } from "@/components/ui/button";
 import { hubFaq, hubMessage, hubMeta, hubOrigin, hubPath, hubReadings, hubSchema, segments, solutions } from "@/data/aeroportosHub";
+import { isDronePreviewHost } from "@/data/droneAgricolaPreview";
+import { GARANTIA_AEROPORTUARIA_PATH } from "@/data/garantiaAeroportuaria";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { clearWhatsAppOverride, setWhatsAppOverride } from "@/lib/whatsappOverride";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -68,7 +70,9 @@ export default function SegurosAeroportuarios() {
         </div>
         <ProductQuoteForm productName="Seguros aeroportuários" productPath={hubPath} sourceOrigin={hubOrigin} whatsappMessage={hubMessage} fields={[]} reviewedAnswers={brief} heading="Peça contato da equipe" submitLabel={brief ? "Enviar informações para análise da Patro Seguros" : undefined} description={brief ? "Suas respostas já estão incluídas. Informe seu contato e autorize o envio para a equipe." : "Use o campo de mensagem para descrever o serviço, sem incluir informações sigilosas."} />
       </div></section>
-      <section className={section}><h2 className={heading}>Leituras para quem administra o contrato</h2><div className="mt-5 max-w-3xl">{hubReadings.map(a => <article key={a.path} className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Blog Patro Seguros · {a.topic}</p><h3 className="text-xl"><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed">{a.summary}</p></article>)}</div></section>
+      <section className={section}><h2 className={heading}>Leituras para quem administra o contrato</h2><div className="mt-5 max-w-3xl space-y-5">{hubReadings.map(a => <article key={a.path} className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Blog Patro Seguros · {a.topic}</p><h3 className="text-xl"><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed">{a.summary}</p></article>)}
+        {typeof window !== "undefined" && isDronePreviewHost(window.location.hostname) && <article className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Prévia editorial · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={GARANTIA_AEROPORTUARIA_PATH}>Seguro Garantia para contratos aeroportuários</Link></h3><p className="text-sm leading-relaxed">Entenda quando a garantia pode ser exigida e como comparar a apólice com caução e fiança bancária.</p></article>}
+      </div></section>
       <section id="perguntas" className="border-t"><div className={`${section} grid items-start gap-8 lg:grid-cols-[1fr_1.5fr]`}><div><h2 className={heading}>Perguntas sobre seguros para contratos aeroportuários</h2><p className="mt-4 max-w-prose text-sm leading-relaxed">Para conferir a habilitação da corretora, veja <Link className="text-primary underline" to="/verificar-susep">como consultar o registro na SUSEP</Link>. Para normas da aviação civil, consulte o <a className="text-primary underline" href="https://www.gov.br/anac/pt-br">portal oficial da ANAC</a>. Confirme as condições do seu contrato diretamente com a contratante.</p></div><div className="divide-y border-y">{hubFaq.map(([q, a]) => <details key={q}><summary className="cursor-pointer py-4 font-semibold">{q}</summary><p className="max-w-prose pb-5 leading-relaxed text-muted-foreground">{a}</p></details>)}</div></div></section>
     </main><Footer />
   </>;

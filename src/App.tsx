@@ -133,7 +133,9 @@ import { LEGACY_BAIRRO_REDIRECTS } from "@/lib/legacyBairroRedirects";
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 const DroneAgricolaPreview = lazy(() => import("@/pages/DroneAgricolaPreview"));
+const GarantiaAeroportuariaPreview = lazy(() => import("@/pages/GarantiaAeroportuariaPreview"));
 import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost } from "@/data/droneAgricolaPreview";
+import { GARANTIA_AEROPORTUARIA_PATH } from "@/data/garantiaAeroportuaria";
 
 
 import InsuranceEditorial from "./pages/InsuranceEditorial";
@@ -676,6 +678,12 @@ const App = () => {
                   <Route path="/blog/autor/:slug" element={<BlogAuthor />} />
                   <Route path="/artigos" element={<Navigate to="/blog" replace />} />
                   <Route path="/artigos/:slug" element={<ArtigosToBlogRedirect />} />
+                  {/* A revisão técnica é obrigatória antes de integrar este rascunho ao blog público. */}
+                  <Route path={GARANTIA_AEROPORTUARIA_PATH} element={
+                    typeof window !== "undefined" && isDronePreviewHost(window.location.hostname)
+                      ? <GarantiaAeroportuariaPreview />
+                      : <NotFound />
+                  } />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
                   {/* Expansão regional — hub Grande São Paulo + bairros piloto da capital */}
