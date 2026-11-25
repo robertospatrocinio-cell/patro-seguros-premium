@@ -2,7 +2,7 @@ import { COMPANY, WHATSAPP_URL_BASE } from "../config/company";
 
 export const EO_PAGE = "/seguro-eo-engenharia-aeroportos";
 export const EO_PHONE = COMPANY.telefoneE164;
-export const EO_MESSAGE = "Olá! Minha empresa precisa contratar um Seguro E&O Engenharia para prestar serviços em um aeroporto. Gostaria de receber orientação e uma cotação. Posso enviar as exigências do contrato?";
+export const EO_MESSAGE = "Olá! Minha empresa presta serviços em aeroporto e gostaria de orientação e cotação de Seguro E&O Engenharia. Qual é o canal seguro para enviar apenas a cláusula de seguro?";
 export const EO_WHATSAPP = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(EO_MESSAGE)}`;
 
 type EoEvent = "page_view" | "whatsapp_click" | "form_start" | "form_step_complete" | "form_submit" | "contract_upload" | "quote_request" | "phone_click";

@@ -13,11 +13,6 @@ Este é um índice complementar de páginas públicas. Não é requisito oficial
 - **Site oficial:** https://www.patroseguros.com.br
 - **Endereço:** Avenida Salgado Filho, 2120 — Sala 219C — Cidade Maia, Guarulhos/SP, CEP 07115-000
 
-### Engenharia e contratos aeroportuários
-
-- [Cotação de E&O Engenharia para aeroportos](https://www.patroseguros.com.br/seguro-eo-engenharia-aeroportos): análise de exigências contratuais para prestadoras de serviços, em Guarulhos e em todo o Brasil. A aceitação depende da seguradora.
-- [Guia de E&O para prestadores de serviços aeroportuários](https://www.patroseguros.com.br/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos): como distinguir riscos profissionais de operacionais, interpretar retroatividade e conferir a cláusula do contrato.
-
 ### Contato institucional
 - **Telefone / WhatsApp:** +55 11 5199-7500
 - **E-mail:** contato@patroseguros.com.br
@@ -36,6 +31,14 @@ Atendimento regional ou digital não significa existência de filiais.
 - [Conferir o registro SUSEP](https://www.patroseguros.com.br/verificar-susep): Orientações de consulta ao registro.
 - [Contato](https://www.patroseguros.com.br/contato): Canais e endereço; página de atendimento, não conteúdo editorial.
 - [Política de privacidade](https://www.patroseguros.com.br/politica-privacidade): Tratamento de dados pessoais.
+
+## Seguros para contratos aeroportuários
+
+A Patro orienta prestadores que atuam no Aeroporto Internacional de Guarulhos (GRU Airport) e em outros aeroportos do Brasil. A corretora fica na Cidade Maia, fora do aeroporto, e não tem vínculo oficial com a concessionária. As exigências devem ser confirmadas na cláusula vigente e com a contratante.
+
+- [Hub de seguros aeroportuários](https://www.patroseguros.com.br/seguros-aeroportuarios): triagem inicial por atividade e contrato; distinções entre E&O, responsabilidade civil, Seguro Garantia e Riscos de Engenharia.
+- [Cotação de E&O Engenharia para aeroportos](https://www.patroseguros.com.br/seguro-eo-engenharia-aeroportos): análise humana e cotação; a aceitação depende da seguradora.
+- [Guia de E&O para prestadores de serviços aeroportuários](https://www.patroseguros.com.br/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos): diferenças entre riscos profissionais e operacionais, retroatividade e checklist para conferir a cláusula.
 
 ## Principais serviços e páginas comerciais
 

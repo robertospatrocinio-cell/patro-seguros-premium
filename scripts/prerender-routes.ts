@@ -72,6 +72,7 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-maquinas-agricolas",
   "/seguro-condominio",
   "/seguro-engenharia",
+  "/seguros-aeroportuarios",
   "/seguro-eo-engenharia-aeroportos",
   "/seguro-cyber",
   "/seguro-reta-drone",

@@ -50,8 +50,8 @@ export const hubFaq = [
 ];
 export const hubSchema = {
   "@context": "https://schema.org", "@graph": [
-    { "@type": "WebPage", "@id": url, url, name: hubMeta.h1, description: hubMeta.description, inLanguage: "pt-BR", mainEntity: { "@id": `${url}#servico` } },
-    { "@type": "Service", "@id": `${url}#servico`, url, name: "Consultoria de seguros para prestadores de serviços em aeroportos", provider: { "@id": ORGANIZATION_SCHEMA["@id"] }, areaServed: { "@type": "Country", name: "Brasil" } },
-    { "@type": "FAQPage", "@id": `${url}#perguntas`, mainEntity: hubFaq.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
+    { "@type": "WebPage", "@id": url, url, name: hubMeta.h1, description: hubMeta.description, inLanguage: "pt-BR", mainEntity: { "@id": `${url}#servico` }, hasPart: { "@id": `${url}#perguntas` } },
+    { "@type": "Service", "@id": `${url}#servico`, url, name: "Consultoria de seguros para prestadores de serviços em aeroportos", serviceType: "Corretagem de seguros empresariais", provider: { "@id": ORGANIZATION_SCHEMA["@id"] }, areaServed: { "@type": "Country", name: "Brasil" } },
+    { "@type": "FAQPage", "@id": `${url}#perguntas`, url: `${url}#perguntas`, isPartOf: { "@id": url }, inLanguage: "pt-BR", mainEntity: hubFaq.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
   ],
 };

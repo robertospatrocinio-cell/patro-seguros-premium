@@ -1,5 +1,45 @@
 import { expect, test } from "@playwright/test";
 
+const publicAirportPages = [
+  { path: "/seguros-aeroportuarios", type: "Service" },
+  { path: "/seguro-eo-engenharia-aeroportos", type: "Service" },
+  { path: "/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos", type: "BlogPosting" },
+];
+
+test("páginas públicas aeroportuárias mantêm canonical, intenção e dados estruturados distintos", async ({ page }) => {
+  const titles = new Set<string>();
+  const descriptions = new Set<string>();
+  const headings = new Set<string>();
+  const domain = "https://www.patroseguros.com.br";
+  for (const { path, type } of publicAirportPages) {
+    const response = await page.goto(`${path}?utm_source=teste`);
+    expect(response?.status()).toBe(200);
+    const heading = page.locator("main h1");
+    await expect(heading).toHaveCount(1);
+    const canonical = page.locator('link[rel="canonical"]');
+    await expect(canonical).toHaveCount(1);
+    await expect(canonical).toHaveAttribute("href", domain + path);
+    const directives = await page.locator('meta[name="robots"], meta[name="googlebot"]').evaluateAll(nodes => nodes.map(node => node.getAttribute("content") ?? ""));
+    expect(directives.join(",")).not.toMatch(/\b(?:noindex|none)\b/i);
+    expect(response?.headers()["x-robots-tag"] ?? "").not.toMatch(/\b(?:noindex|none)\b/i);
+    const description = page.locator('meta[name="description"]');
+    await expect(description).toHaveAttribute("content", /\S/);
+    titles.add(await page.title());
+    descriptions.add((await description.getAttribute("content")) ?? "");
+    headings.add((await heading.innerText()).trim());
+    const schemaTypes = async () => page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.flatMap(node => {
+      const json = JSON.parse(node.textContent || "{}");
+      return (json["@graph"] ?? [json]).flatMap((entry: { "@type"?: string | string[] }) => entry["@type"] ?? []);
+    }));
+    await expect.poll(schemaTypes).toEqual(expect.arrayContaining([type, "BreadcrumbList"]));
+    if (path === publicAirportPages[0].path) {
+      expect(await schemaTypes()).toContain("FAQPage");
+      await expect(page.locator("#perguntas summary")).toHaveCount(16);
+    }
+  }
+  for (const entries of [titles, descriptions, headings]) expect(entries.size).toBe(publicAirportPages.length);
+});
+
 for (const width of [390, 1280]) {
   test(`hub aeroportuário: descoberta e contato em ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

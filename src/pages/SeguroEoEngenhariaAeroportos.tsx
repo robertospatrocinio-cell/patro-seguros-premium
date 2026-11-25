@@ -57,8 +57,8 @@ function NecessidadeContratual() {
       <aside className="rounded-lg bg-[#112c49] p-6 text-white sm:p-8">
         <FileText aria-hidden="true" className="mb-4 h-6 w-6 text-blue-200" />
         <p className="text-xl font-medium leading-snug text-white">Recebeu uma cláusula de seguro no seu contrato? Envie para a Patro analisar.</p>
-        <p className="mt-3 text-sm leading-relaxed text-slate-200">Na conversa pelo WhatsApp, envie apenas o trecho que trata do seguro, sem dados pessoais ou informações sigilosas.</p>
-        <EoWhatsApp className="mt-3 inline-flex min-h-11 items-center rounded-sm font-semibold text-white underline underline-offset-4 hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Enviar cláusula pelo WhatsApp</EoWhatsApp>
+        <p className="mt-3 text-sm leading-relaxed text-slate-200">Use o formulário para enviar apenas o trecho sobre seguros, sem assinaturas, dados pessoais de terceiros ou informações sigilosas. Reserve o WhatsApp para dúvidas sem anexos.</p>
+        <a href="#analise-contratual" className="mt-3 inline-flex min-h-11 items-center rounded-sm font-semibold text-white underline underline-offset-4 hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Abrir formulário com anexo privado</a>
       </aside>
     </div>
   </section>;
