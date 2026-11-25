@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { eoAeroportoArticle as meta, formatDate } from "../lib/blogData";
 import { eoIntro, eoSections, eoArticleFaqs, eoChecks, eoComparison, eoTimeline } from "../data/blogEoAeroporto";
 import { COMPANY } from "../config/company";
-import { trackWhatsAppClick, trackCotacaoClick } from "../lib/tracking";
+import { EO_ARTICLE, trackEo } from "../lib/eoEngenhariaContact";
 import "../styles/eo-article.css";
 
 const service = "/seguro-eo-engenharia-aeroportos";
@@ -14,7 +14,7 @@ const sources = [
 ];
 
 function Cta({children}: {children: string}) {
-  return <Link to={service} onClick={() => trackCotacaoClick("blog-eo-aeroporto")} className="my-6 block rounded-r-lg border-l-4 border-primary bg-muted px-5 py-4 font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">{children}</Link>;
+  return <Link to={service} onClick={() => trackEo("article_service_click", undefined, EO_ARTICLE)} className="my-6 block rounded-r-lg border-l-4 border-primary bg-muted px-5 py-4 font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">{children}</Link>;
 }
 function Comparison() {
   return <div role="region" aria-label="Comparativo de seguros, com rolagem horizontal" tabIndex={0} className="my-6 overflow-x-auto rounded-lg border"><table className="w-full min-w-[38rem] text-left text-sm leading-relaxed"><caption className="bg-muted p-4 text-left font-semibold">Seis seguros, seis perguntas diferentes sobre o risco</caption><thead><tr>{["Modalidade", "O que se analisa", "Exemplo hipotético"].map(x => <th key={x} scope="col" className="p-3">{x}</th>)}</tr></thead><tbody>{eoComparison.map(([name, risk, example]) => <tr key={name} className="border-t"><th scope="row" className="p-3 align-top">{name}</th><td className="p-3 align-top">{risk}</td><td className="p-3 align-top">{example}</td></tr>)}</tbody></table></div>;
@@ -35,6 +35,6 @@ export default function EoAirportArticle() {
     {eoSections.map(s => <section key={s.id} id={s.id} className="scroll-mt-24 pb-2 pt-7"><h2 className="mb-4 text-2xl font-semibold tracking-tight">{s.title}</h2>{s.paragraphs.map((p,i) => <p key={p} data-speakable={s.id === "definicao" && !i ? "answer" : undefined} className={p.startsWith("Exemplo fictício") ? "my-5 border-l-4 border-primary bg-muted p-4 leading-7" : "mb-4 leading-7"}>{p}</p>)}{s.id === "comparativo" && <Comparison/>}{s.id === "retroatividade" && <><Timeline/><Cta>Solicite uma cotação personalizada para sua empresa.</Cta></>}{s.id === "checklist" && <Checklist/>}</section>)}
     <section id="fontes" className="scroll-mt-24 pt-8"><h2 className="text-2xl font-semibold">Fontes e documentos para conferência</h2><ul>{sources.map(([label,url,note]) => <li key={url} className="mt-4 leading-7"><a href={url} className="font-semibold text-primary underline">{label}</a><p>{note}</p></li>)}</ul><p className="mt-5 text-sm text-muted-foreground">Conteúdo editorial institucional. Não há revisão técnica individual assinada nesta edição.</p></section>
     <section id="duvidas" data-speakable="faq" className="scroll-mt-24 pt-9"><h2 className="mb-3 text-2xl font-semibold">Perguntas frequentes sobre E&O em aeroportos</h2>{eoArticleFaqs.map(f => <div key={f.q} className="border-b py-4"><h3 className="font-semibold">{f.q}</h3><p className="mt-2 leading-7">{f.a}</p></div>)}</section><Cta>Conheça nosso Seguro E&O Engenharia para Aeroportos.</Cta>
-    <address className="mt-5 border-t pt-4 text-sm not-italic leading-7"><strong>{COMPANY.nomeFantasia}</strong> · {COMPANY.enderecoCompleto}<br/>Telefone: <a className="font-semibold text-primary underline" href={`tel:${COMPANY.telefoneE164}`}>{COMPANY.telefone}</a> · <a className="font-semibold text-primary underline" href="https://wa.me/551151997500" onClick={() => trackWhatsAppClick("blog-eo-aeroporto")}>WhatsApp da Patro: +55 11 5199-7500</a></address></div>
+    <address className="mt-5 border-t pt-4 text-sm not-italic leading-7"><strong>{COMPANY.nomeFantasia}</strong> · {COMPANY.enderecoCompleto}<br/>Telefone: <a className="font-semibold text-primary underline" href={`tel:${COMPANY.telefoneE164}`}>{COMPANY.telefone}</a> · <a className="font-semibold text-primary underline" href="https://wa.me/551151997500" onClick={() => trackEo("whatsapp_click", undefined, EO_ARTICLE)}>WhatsApp da Patro: +55 11 5199-7500</a></address></div>
   </article>;
 }

@@ -30,6 +30,8 @@ for (const [width, height] of [[360, 800], [768, 1024], [1440, 900]]) {
     await form.getByLabel("E-mail").fill("qa@example.invalid");
     await form.getByRole("button", {name:"Continuar"}).click();
     await expect(form.getByRole("alert")).toContainText("DDD");
+    await expect(form.getByLabel("WhatsApp com DDD")).toBeFocused();
+    await expect(form.getByLabel("WhatsApp com DDD")).toHaveAttribute("aria-describedby", "eo-form-error");
     await form.getByLabel("WhatsApp com DDD").fill("11000000000");
     await form.getByRole("button", {name:"Continuar"}).click();
     await form.getByRole("button", {name:"Continuar"}).click();
@@ -40,7 +42,15 @@ for (const [width, height] of [[360, 800], [768, 1024], [1440, 900]]) {
     await send.click();
     await expect(form.getByRole('alert')).toContainText('PDF válido');
     await form.getByRole('button',{name:'Remover anexo selecionado'}).click();
-    if (width === 360) await file.setInputFiles({ name:'teste.pdf', mimeType:'application/pdf', buffer:Buffer.from('%PDF-1.4\n% fixture\n%%EOF') });
+    const pdf = { name:'teste.pdf', mimeType:'application/pdf', buffer:Buffer.from('%PDF-1.4\n% fixture\n%%EOF') };
+    await file.setInputFiles(pdf);
+    await form.getByRole('button', {name:'Voltar'}).click();
+    await form.getByRole('button', {name:'Continuar'}).click();
+    await expect(file).toHaveValue('');
+    await expect(form.getByRole('checkbox')).not.toBeChecked();
+    await expect(form.getByRole('button',{name:'Remover anexo selecionado'})).toHaveCount(0);
+    await form.getByRole('checkbox').check();
+    if (width === 360) await file.setInputFiles(pdf);
     let requests=0;
     await page.route('**/functions/v1/submit-lead', async route=>{
       requests++;

@@ -15,6 +15,15 @@ describe('Mensuração de E&O', () => {
     expect(window.gtag).toHaveBeenLastCalledWith('event','eo_engenharia_form_step_complete',{page_location:window.location.origin+EO_PAGE,form_step:2});
     expect(window.gtag).toHaveBeenCalledTimes(8); expect(window.dataLayer).toEqual([]);
   });
+  it('não contabiliza a navegação do guia como solicitação nem envia parâmetros da URL', () => {
+    const article = '/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos';
+    trackEo('article_service_click', undefined, article);
+    expect(window.gtag).not.toHaveBeenCalled();
+    localStorage.setItem('patro-cookies-accepted', 'true');
+    trackEo('article_service_click', undefined, article);
+    expect(window.gtag).toHaveBeenCalledTimes(1);
+    expect(window.gtag).toHaveBeenCalledWith('event', 'eo_engenharia_article_service_click', {page_location:window.location.origin+article});
+  });
   it('usa a camada de dados quando não há gtag', () => { delete window.gtag; localStorage.setItem('patro-cookies-accepted','true'); trackEo('quote_request'); expect(window.dataLayer).toEqual([{event:'eo_engenharia_quote_request',page_location:window.location.origin+EO_PAGE}]); });
   it('o link abre o canal empresarial sem dados do solicitante', () => { const url=new URL(EO_WHATSAPP); expect(url.pathname).toBe('/551151997500'); expect([...url.searchParams.keys()]).toEqual(['text']); expect(url.searchParams.get('text')).toContain('Posso enviar as exigências do contrato?'); });
 });

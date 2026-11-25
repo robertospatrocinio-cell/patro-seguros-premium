@@ -254,7 +254,8 @@ export const initCommercialInteractions = (root: Document = document) => {
   const onInput = (event: Event) => {
     if (!isPublicPage() || !(event.target instanceof HTMLElement)) return;
     const form = event.target.closest("form");
-    if (!form || started.has(form)) return;
+    // E&O has its own consent-gated step events; do not count a second start.
+    if (!form || form.hasAttribute("data-eo-intake") || started.has(form)) return;
     started.add(form);
     ensureAnalytics();
     window.gtag?.("event", "form_start", {
