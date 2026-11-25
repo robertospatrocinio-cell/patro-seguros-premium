@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import { COMPANY } from "@/config/company";
 import { eoMeta, eoLocal, eoSchema } from "@/data/eoDiscovery";
+import { hubPath } from "@/data/aeroportosHub";
+import { airportEditorial } from "@/data/airportEditorial";
 import { EoClosing, EoProcesso, EoWhatsApp } from "@/components/EoCommercial";
 import EoIntakeForm from "@/components/EoIntakeForm";
 import { trackEo } from "@/lib/eoEngenhariaContact";
@@ -50,7 +52,7 @@ function NecessidadeContratual() {
         <h2 id="titulo-contrato" className="text-balance text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">Sua empresa recebeu uma exigência de seguro da administradora do aeroporto?</h2>
         <p className="mt-5 leading-relaxed text-slate-700">Empresas contratadas para executar projetos, instalações, consultorias e serviços técnicos em aeroportos podem precisar apresentar seguros específicos de responsabilidade civil.</p>
         <p className="mt-4 leading-relaxed text-slate-700">{eoLocal}</p>
-        <p className="mt-4 leading-relaxed text-slate-700">Para comparar as modalidades em um mesmo contrato, veja o <Link to="/seguros-aeroportuarios" className="text-primary underline">hub de seguros para prestadores de serviços em aeroportos</Link>. Se a cláusula tratar de um erro de projeto, consulte a <Link to="/seguro-rc-engenheiros" className="text-primary underline">responsabilidade civil de engenheiros</Link>. Se tratar de danos à obra, compare com o <Link to="/seguro-engenharia" className="text-primary underline">seguro de riscos de engenharia</Link>. Já o <Link to="/seguro-empresarial-guarulhos" className="text-primary underline">seguro empresarial em Guarulhos</Link> atende a outra necessidade: a proteção do patrimônio da empresa.</p>
+        <p className="mt-4 leading-relaxed text-slate-700">Se a cláusula tratar de um erro de projeto, consulte a <Link to="/seguro-rc-engenheiros" className="text-primary underline">responsabilidade civil de engenheiros</Link>. Se tratar de danos à obra, compare com o <Link to="/seguro-engenharia" className="text-primary underline">seguro de riscos de engenharia</Link>. Já o <Link to="/seguro-empresarial-guarulhos" className="text-primary underline">seguro empresarial em Guarulhos</Link> atende a outra necessidade: a proteção do patrimônio da empresa.</p>
       </div>
       <aside className="rounded-lg bg-[#112c49] p-6 text-white sm:p-8">
         <FileText aria-hidden="true" className="mb-4 h-6 w-6 text-blue-200" />
@@ -70,12 +72,20 @@ export default function SeguroEoEngenhariaAeroportos() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eoSchema) }} />
     <Header />
     <main id="main-content" tabIndex={-1}>
-      <Breadcrumb items={[{ label: "Seguros Empresariais", href: "/seguros-empresariais" }, { label: "E&O Engenharia para Aeroportos" }]} />
+      <Breadcrumb items={[{ label: "Seguros Empresariais", href: "/seguros-empresariais" }, { label: "Seguros aeroportuários", href: hubPath }, { label: "E&O Engenharia para Aeroportos" }]} />
       <Hero />
       <NecessidadeContratual />
       <EoIntakeForm />
       <EoEngenhariaGuia />
-      <aside className="mx-auto max-w-7xl px-5 py-6 sm:px-8"><p className="text-sm font-semibold text-muted-foreground">Leitura para gestores de contratos</p><Link className="mt-1 inline-block py-2 font-semibold text-primary underline underline-offset-4" to="/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos">Como interpretar a cláusula de E&O Engenharia: guia com exemplos e checklist imprimível</Link></aside>
+      <section aria-labelledby="eo-proximas-leituras" className="border-y border-border bg-muted/40">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 md:grid-cols-2 md:gap-12">
+          <div><h2 id="eo-proximas-leituras" className="text-2xl font-semibold tracking-tight">O que mais o contrato exige?</h2><p className="mt-3 max-w-prose text-sm leading-relaxed text-muted-foreground">Se a cláusula também mencionar danos a terceiros, garantia de execução ou riscos da obra, avalie esses itens separadamente do E&amp;O.</p></div>
+          <ul className="divide-y divide-border">
+            <li><Link className="flex min-h-11 items-center py-2 font-semibold text-primary underline underline-offset-4" to={`${hubPath}#modalidades-aeroportuarias`}>Comparar modalidades para contratos aeroportuários</Link></li>
+            <li><Link className="flex min-h-11 items-center py-2 font-semibold text-primary underline underline-offset-4" to={airportEditorial.eoGuide.path}>Interpretar a cláusula de E&amp;O Engenharia com exemplos e checklist</Link></li>
+          </ul>
+        </div>
+      </section>
       <EoProcesso />
       <EoClosing />
       <nav aria-label="Canais institucionais da Patro Seguros" className="border-t border-border bg-slate-50">

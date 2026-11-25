@@ -19,6 +19,23 @@ for (const width of [390, 1280]) {
   });
 }
 
+test("a vertical é navegável do hub empresarial até E&O e seu guia público", async ({ page }) => {
+  await page.goto("/seguros-empresariais");
+  const entry = page.getByRole("main").getByRole("link", { name: /Seguros para Aeroportos/ });
+  await expect(entry).toHaveAttribute("href", "/seguros-aeroportuarios");
+  await entry.click();
+  const topics = page.getByRole("navigation", { name: "Encontre o próximo passo para o seu contrato" });
+  await expect(topics.getByRole("link")).toHaveCount(4);
+  await topics.getByRole("link", { name: "Modalidades de seguro" }).click();
+  await expect(page).toHaveURL(/#modalidades-aeroportuarias$/);
+  await page.getByRole("link", { name: "Consultar Seguro E&O Engenharia", exact: true }).click();
+  const crumbs = page.getByRole("navigation", { name: "Breadcrumb", exact: true });
+  await expect(crumbs.getByRole("link", { name: "Seguros aeroportuários" })).toHaveAttribute("href", "/seguros-aeroportuarios");
+  await page.getByRole("link", { name: /Interpretar a cláusula de E&O Engenharia/ }).click();
+  await expect(page.locator("#eo-artigo h1")).toBeVisible();
+  await expect(page.locator("#eo-artigo").getByRole("link", { name: "Compare os seguros para prestadores em aeroportos" })).toHaveAttribute("href", "/seguros-aeroportuarios#modalidades-aeroportuarias");
+});
+
 test("triagem: revisar sem enviar e encaminhar o resumo com consentimento e origem", async ({ page }) => {
   const sends: { lead: { source_origin: string; raw_data: { triagem: Record<string, string>; consent: boolean } }; textBody: string }[] = [];
   await page.route("**/functions/v1/send-form-email", async route => {

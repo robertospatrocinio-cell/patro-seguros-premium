@@ -9,11 +9,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PageMeta from "@/components/PageMeta";
 import ProductQuoteForm from "@/components/ProductQuoteForm";
 import { Button } from "@/components/ui/button";
-import { hubFaq, hubMessage, hubMeta, hubOrigin, hubPath, hubReadings, hubSchema, segments, solutions } from "@/data/aeroportosHub";
+import { hubFaq, hubMessage, hubMeta, hubOrigin, hubPath, hubSchema, segments, solutions } from "@/data/aeroportosHub";
 import { isDronePreviewHost } from "@/data/droneAgricolaPreview";
-import { GARANTIA_AEROPORTUARIA_PATH } from "@/data/garantiaAeroportuaria";
-import { APOLICE_CONTRATOS_PATH } from "@/data/apoliceContratosRoute";
-import { GUIA_AEROPORTUARIO_PATH, guiaAeroportuarioTitle } from "@/data/guiaAeroportuarioRoute";
+import { airportEditorial } from "@/data/airportEditorial";
+import { eoPath } from "@/data/eoDiscovery";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { clearWhatsAppOverride, setWhatsAppOverride } from "@/lib/whatsappOverride";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -24,6 +23,12 @@ const section = `${container} py-12 sm:py-16`;
 const heading = "max-w-3xl text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-3xl";
 const link = "inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4";
 const track = () => trackWhatsAppClick(hubOrigin, { origin: hubOrigin, insuranceType: "Seguros aeroportuários" });
+const airportSections = [
+  ["orientacao-aeroportuaria", "Contratação e orientação", "Use a triagem para preparar seu pedido à Patro."],
+  ["exigencias-contratuais", "Exigências contratuais", "Identifique se a exigência vem de norma, contrato ou credenciamento."],
+  ["modalidades-aeroportuarias", "Modalidades de seguro", "Compare E&O, responsabilidade civil, garantia e riscos de engenharia."],
+  ["atividades-aeroportuarias", "Atividades e segmentos", "Veja como o risco muda entre projeto, obra, manutenção e terceirização."],
+] as const;
 const sources = [
   ["Lei", "Uma obrigação legal depende da atividade e de previsão em lei. Peça a referência aplicável ao seu caso."],
   ["Regulamento", "Normas do órgão competente podem estabelecer condições para uma atividade regulada. Confira a quem a regra se dirige."],
@@ -52,14 +57,20 @@ export default function SegurosAeroportuarios() {
         </div>
       </section>
       <div className="border-b bg-muted/40"><ul className={`${container} grid gap-4 py-6 sm:grid-cols-2 lg:grid-cols-5`}>{["Atendimento consultivo", "Análise das exigências apresentadas", "Busca de alternativas no mercado segurador", "Atendimento em todo o Brasil", "Corretora localizada em Guarulhos"].map(t => <li key={t} className="flex gap-2 text-sm font-medium"><Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{t}</li>)}</ul></div>
-      <section className={`${section} grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-16`}>
+      <nav aria-labelledby="rota-aeroportuaria" className={`${container} border-b border-border py-8 sm:py-10`}>
+        <h2 id="rota-aeroportuaria" className={heading}>Encontre o próximo passo para o seu contrato</h2>
+        <ul className="mt-5 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
+          {airportSections.map(([id, title, description]) => <li key={id} className="border-t border-border pt-2"><a href={`#${id}`} className={link}>{title}</a><p className="pb-3 text-sm leading-relaxed text-muted-foreground">{description}</p></li>)}
+        </ul>
+      </nav>
+      <section id="exigencias-contratuais" className={`${section} grid scroll-mt-24 gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-16`}>
         <div><h2 className={heading}>De onde vem a exigência de seguro?</h2><p className="mt-4 max-w-prose leading-relaxed">Antes de pedir uma cotação, identifique quem fez a exigência e qual risco ela pretende tratar. Um erro no projeto de climatização, um dano ao terminal durante a instalação e um acidente com um passageiro são situações diferentes.</p><p className="mt-4 max-w-prose leading-relaxed">O local, o acesso à área operacional e o trabalho de subcontratados mudam a exposição. O nome da modalidade, sozinho, não confirma que o serviço estará coberto.</p></div>
         <dl className="divide-y border-y">{sources.map(([term, desc]) => <div key={term} className="grid gap-1 py-4 sm:grid-cols-[8rem_1fr]"><dt className="font-semibold">{term}</dt><dd className="text-sm leading-relaxed text-muted-foreground">{desc}</dd></div>)}</dl>
       </section>
-      <section className="border-y bg-muted/40"><div className={section}><h2 className={heading}>Modalidades que podem entrar na análise do contrato</h2><p className="mt-4 max-w-prose leading-relaxed">Não é uma lista de compras. A Patro consulta a disponibilidade para a atividade e o aeroporto informados. Uma modalidade comercializada para empresas em geral pode não aceitar o risco aeroportuário.</p>
+      <section id="modalidades-aeroportuarias" className="scroll-mt-24 border-y bg-muted/40"><div className={section}><h2 className={heading}>Modalidades que podem entrar na análise do contrato</h2><p className="mt-4 max-w-prose leading-relaxed">Não é uma lista de compras. A Patro consulta a disponibilidade para a atividade e o aeroporto informados. Uma modalidade comercializada para empresas em geral pode não aceitar o risco aeroportuário.</p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{solutions.map(s => <article key={s.name} className="flex flex-col rounded-xl border border-border bg-card p-6 text-card-foreground"><p className="text-sm text-muted-foreground">{s.scope}</p><h3 className="mt-1 text-xl font-semibold">{s.name}</h3><p className="mb-3 mt-3 flex-1 text-sm leading-relaxed">{s.note}</p>{s.href ? <Link to={s.href} className={link}>Consultar {s.name}</Link> : <a className={link} href="#cotacao-aeroportuaria">Consultar disponibilidade de RC Aeroportuário</a>}</article>)}</div>
       </div></section>
-      <section className={section}><h2 className={heading}>Quem presta o serviço e quem assume o risco?</h2><p className="mt-4 max-w-prose">Cada atividade deve ser analisada individualmente. Duas empresas no mesmo terminal podem precisar de soluções diferentes: uma assina o projeto; outra executa e mantém a instalação.</p><div className="mt-8 grid gap-6 md:grid-cols-3">{segments.map(([title, text]) => <div key={title} className="border-l-2 border-primary pl-5"><h3 className="text-lg font-semibold">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{text}</p></div>)}</div></section>
+      <section id="atividades-aeroportuarias" className={`${section} scroll-mt-24`}><h2 className={heading}>Quem presta o serviço e quem assume o risco?</h2><p className="mt-4 max-w-prose">Cada atividade deve ser analisada individualmente. Duas empresas no mesmo terminal podem precisar de soluções diferentes: uma assina o projeto; outra executa e mantém a instalação.</p><div className="mt-8 grid gap-6 md:grid-cols-3">{segments.map(([title, text]) => <div key={title} className="border-l-2 border-primary pl-5"><h3 className="text-lg font-semibold">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{text}</p></div>)}</div></section>
       <section className="bg-[#112c49] text-white"><div className={`${section} grid gap-8 lg:grid-cols-2`}><div><MapPin aria-hidden="true" className="mb-4 text-blue-200"/><h2 className={`${heading} text-white`}>Seguros para empresas que prestam serviços no Aeroporto de Guarulhos</h2></div><div><p className="leading-relaxed text-slate-100">Vai atuar no Aeroporto Internacional de Guarulhos (GRU Airport)? Peça à sua contratante a cláusula vigente e a descrição da área de trabalho. Um serviço no escritório administrativo não tem a mesma exposição de uma intervenção próxima a aeronaves.</p><p className="mt-4 leading-relaxed text-slate-100">A Patro fica na Cidade Maia, em Guarulhos, fora do aeroporto, e atende remotamente em todo o Brasil. A orientação é independente: não há vínculo oficial com a concessionária nem garantia de credenciamento.</p><Link to="/corretora-de-seguros-em-guarulhos" className="mt-4 inline-flex min-h-11 items-center font-semibold text-white underline underline-offset-4">Conheça a corretora em Guarulhos</Link></div></div></section>
       <section id="enviar-exigencias" className={`${section} scroll-mt-24`}><h2 className={heading}>Da cláusula à emissão</h2><ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{process.map((step, i) => <li key={step} className="border-t-2 border-primary pt-3"><span aria-hidden="true" className="block text-sm text-muted-foreground">Etapa {i + 1}</span><span className="mt-1 block font-semibold">{step}</span></li>)}</ol><p className="mt-5 text-sm text-muted-foreground">A contratação depende da análise e aceitação da seguradora. Cotação não é emissão nem início de cobertura.</p>
         <aside className="mt-7 flex flex-col gap-4 rounded-xl border bg-muted/40 p-6 md:flex-row md:items-center md:justify-between"><div className="max-w-prose"><h3 className="flex items-center gap-2 text-lg font-semibold"><FileText aria-hidden="true" className="h-5 w-5 shrink-0"/>Já recebeu a cláusula?</h3><p className="mt-2 text-sm leading-relaxed">Abra a conversa com a Patro e envie apenas o trecho sobre seguros. Oculte valores comerciais desnecessários, assinaturas e dados pessoais. Nenhum arquivo é enviado ao abrir o WhatsApp.</p></div><a href={wa} onClick={track} className={link}>Enviar cláusula pelo WhatsApp</a></aside>
@@ -69,16 +80,22 @@ export default function SegurosAeroportuarios() {
         <div><h2 className={heading}>Solicite uma cotação para o seu serviço</h2>
           {brief ? <><h3 className="mt-5 font-semibold">Respostas que acompanharão o pedido</h3><dl className="mt-2 max-w-prose divide-y border-y">{Object.entries(brief).map(([label, answer]) => <div key={label} className="py-2 text-sm"><dt className="text-muted-foreground">{label}</dt><dd className="break-words font-medium">{answer}</dd></div>)}</dl></> : <><p className="mt-4 max-w-prose">Informe onde a equipe vai atuar, o que será executado e a data solicitada pela contratante. Se ainda não recebeu o edital, diga o que já sabe sobre o trabalho.</p><a className={link} href="#orientacao-aeroportuaria">Prefiro começar pelas seis perguntas</a></>}
           <p><a className={link} href={wa} onClick={track}>WhatsApp da Patro: {COMPANY.whatsappFormatado}</a></p>
+          <p className="mt-3 max-w-prose text-sm text-muted-foreground">A cláusula pede responsabilidade civil por falha de projeto ou serviço técnico? <Link className="font-semibold text-primary underline underline-offset-4" to={eoPath}>Peça uma análise de E&amp;O Engenharia para Aeroportos</Link>.</p>
         </div>
         <ProductQuoteForm productName="Seguros aeroportuários" productPath={hubPath} sourceOrigin={hubOrigin} whatsappMessage={hubMessage} fields={[]} reviewedAnswers={brief} heading="Peça contato da equipe" submitLabel={brief ? "Enviar informações para análise da Patro Seguros" : undefined} description={brief ? "Suas respostas já estão incluídas. Informe seu contato e autorize o envio para a equipe." : "Use o campo de mensagem para descrever o serviço, sem incluir informações sigilosas."} />
       </div></section>
-      <section className={section}><h2 className={heading}>Leituras para quem administra o contrato</h2><div className="mt-5 max-w-3xl space-y-5">{hubReadings.map(a => <article key={a.path} className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Blog Patro Seguros · {a.topic}</p><h3 className="text-xl"><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed">{a.summary}</p></article>)}
-        {typeof window !== "undefined" && isDronePreviewHost(window.location.hostname) && <>
-          <article className="border-l-2 border-primary bg-muted/40 py-3 pl-5 pr-4"><p className="text-sm text-muted-foreground">Guia pilar em prévia · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={GUIA_AEROPORTUARIO_PATH}>{guiaAeroportuarioTitle}</Link></h3><p className="text-sm leading-relaxed">Compare modalidades por atividade e leve o checklist de conferência para a próxima reunião de contrato.</p></article>
-          <article className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Prévia editorial · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={GARANTIA_AEROPORTUARIA_PATH}>Seguro Garantia para contratos aeroportuários</Link></h3><p className="text-sm leading-relaxed">Entenda quando a garantia pode ser exigida e como comparar a apólice com caução e fiança bancária.</p></article>
-          <article className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Prévia editorial · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={APOLICE_CONTRATOS_PATH}>Como evitar apólices inadequadas em contratos empresariais</Link></h3><p className="text-sm leading-relaxed">Confira 15 erros que podem afetar o aceite e use a matriz e o checklist para comparar a cláusula com a apólice.</p></article>
-        </>}
-      </div></section>
+      <section id="leituras-aeroportuarias" aria-labelledby="leituras-contratos" className={`${section} scroll-mt-24`}>
+        <h2 id="leituras-contratos" className={heading}>Leituras para quem administra o contrato</h2>
+        <div className="mt-5 max-w-3xl space-y-5">
+          {Object.values(airportEditorial).filter(a => a.status === "public").map(a => <article key={a.path} className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Blog Patro Seguros · Responsabilidade profissional</p><h3 className="text-xl"><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed">{a.summary}</p></article>)}
+          {typeof window !== "undefined" && isDronePreviewHost(window.location.hostname) && <div className="border-y border-border bg-muted/40 px-5 py-4">
+            <p className="font-semibold">Prévias editoriais · Aguardando revisão técnica</p>
+            <ul className="mt-2 divide-y divide-border">
+              {[airportEditorial.pillar, airportEditorial.guarantee, airportEditorial.contractReview].filter(a => a.status === "preview").map(a => <li key={a.path} className="py-2"><h3><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed text-muted-foreground">{a.summary}</p></li>)}
+            </ul>
+          </div>}
+        </div>
+      </section>
       <section id="perguntas" className="border-t"><div className={`${section} grid items-start gap-8 lg:grid-cols-[1fr_1.5fr]`}><div><h2 className={heading}>Perguntas sobre seguros para contratos aeroportuários</h2><p className="mt-4 max-w-prose text-sm leading-relaxed">Para conferir a habilitação da corretora, veja <Link className="text-primary underline" to="/verificar-susep">como consultar o registro na SUSEP</Link>. Para normas da aviação civil, consulte o <a className="text-primary underline" href="https://www.gov.br/anac/pt-br">portal oficial da ANAC</a>. Confirme as condições do seu contrato diretamente com a contratante.</p></div><div className="divide-y border-y">{hubFaq.map(([q, a]) => <details key={q}><summary className="cursor-pointer py-4 font-semibold">{q}</summary><p className="max-w-prose pb-5 leading-relaxed text-muted-foreground">{a}</p></details>)}</div></div></section>
     </main><Footer />
   </>;

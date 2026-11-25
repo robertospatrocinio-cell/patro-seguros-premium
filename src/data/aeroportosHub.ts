@@ -1,5 +1,5 @@
 import { COMPANY, ORGANIZATION_SCHEMA } from "../config/company";
-import { eoArticlePath, eoPath, eoMeta } from "./eoDiscovery";
+import { eoPath, eoMeta } from "./eoDiscovery";
 
 export const hubPath = "/seguros-aeroportuarios";
 export const hubOrigin = "Hub Aeroportuário";
@@ -30,9 +30,6 @@ export const segments = [
   ["Obras e sistemas", "Obras e construção, instalações industriais, climatização, automação, telecomunicações e sistemas de combate a incêndio."],
   ["Operação e facilities", "Manutenção predial, limpeza e conservação, segurança patrimonial, logística, transporte, facilities e terceirização de serviços."],
 ];
-// Acrescentar apenas artigos publicados no catálogo do blog, nunca URLs reservadas para pautas.
-export const hubReadings = [{ topic: "Engenharia e cláusulas contratuais", title: "Seguro E&O Engenharia para prestadores de serviços em aeroportos", path: eoArticlePath, summary: "Casos hipotéticos, diferenças entre modalidades e um checklist para ler a cláusula de responsabilidade profissional." }];
-
 export const hubFaq = [
   ["Qual seguro preciso para trabalhar em um aeroporto?", "Depende do trabalho, da área de atuação e das condições aplicáveis. Para uma instalação, por exemplo, examine separadamente o projeto, os danos à montagem e possíveis danos a terceiros."],
   ["Todos os fornecedores do GRU Airport precisam das mesmas apólices?", "Não há uma lista única que esta página possa confirmar para todos os fornecedores. Consulte a versão vigente do seu contrato, os anexos e as instruções de credenciamento fornecidas pela contratante."],

@@ -84,6 +84,15 @@ const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
       }
       raw[raw.length - 1] = { ...last, url: currentPath };
     }
+  } else if (currentPath === "/seguros-aeroportuarios" || currentPath === "/seguro-eo-engenharia-aeroportos") {
+    raw = [
+      { name: "Início", url: "/" },
+      { name: "Seguros Empresariais", url: "/seguros-empresariais" },
+      { name: "Seguros aeroportuários", url: "/seguros-aeroportuarios" },
+    ];
+    if (currentPath === "/seguro-eo-engenharia-aeroportos") {
+      raw.push({ name: "E&O Engenharia para Aeroportos", url: currentPath });
+    }
   } else {
     // Fallback: deriva breadcrumb do próprio pathname.
     const parts = currentPath.split("/").filter(Boolean);

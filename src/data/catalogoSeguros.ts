@@ -77,6 +77,7 @@ export const catalogoSeguros: CatalogoPerfil[] = [
       { label: "Restaurantes", to: "/seguro-restaurante", short: "Proteção para a operação de restaurantes." },
       { label: "Seguro Imobiliário", to: "/seguro-imobiliario", short: "Soluções para imóveis e locações." },
       { label: "Seguro de Engenharia", to: "/seguro-engenharia", short: "Riscos de obras e montagens." },
+      { label: "Seguros para Aeroportos", to: "/seguros-aeroportuarios", short: "Cláusulas e riscos de empresas prestadoras em aeroportos." },
       { label: "Seguro Garantia", to: "/seguro-garantia", short: "Obrigações de contratos e licitações." },
       { label: "Garantia Judicial", to: "/seguro-garantia-judicial-guarulhos", short: "Garantias em processos judiciais." },
       { label: "Crédito Empresarial", to: "/seguro-credito-empresarial-guarulhos", short: "Proteção contra inadimplência de clientes." },
