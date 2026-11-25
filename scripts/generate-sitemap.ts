@@ -106,6 +106,7 @@ const PRIOR_LASTMOD = loadPriorLastmodMap();
 // 0.3 = legal pages
 
 const highIntentTransactional: SitemapEntry[] = [
+   { loc: "/seguro-eo-engenharia-aeroportos", priority: "0.8", changefreq: "monthly" },
    { loc: "/", priority: "1.0", changefreq: "always" },
    { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
    { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "daily" },

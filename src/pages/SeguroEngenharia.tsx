@@ -153,6 +153,7 @@ A Patro Seguros ajuda a reunir os dados técnicos do projeto, comparar alternati
       relatedInsurances={[
         { title: "RC Obras e Montagem", link: "/seguro-rc-obras" },
         { title: "Seguro RC Engenheiros", link: "/seguro-rc-engenheiros" },
+        { title: "E&O para projetos e consultoria em aeroportos", link: "/seguro-eo-engenharia-aeroportos" },
         { title: "Seguro de Máquinas", link: "/seguro-maquinas" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
       ]}

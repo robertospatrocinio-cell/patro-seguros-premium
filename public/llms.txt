@@ -11,7 +11,14 @@ Este é um índice complementar de páginas públicas. Não é requisito oficial
 - **CNPJ:** 41.641.558/0001-33
 - **Registro SUSEP:** 212113511
 - **Site oficial:** https://www.patroseguros.com.br
-- **Endereço:** Av. Salgado Filho, 2120 - Sl 219 - Cidade Maia, Guarulhos - SP, CEP 07115-000
+- **Endereço:** Avenida Salgado Filho, 2120 — Sala 219C — Cidade Maia, Guarulhos/SP, CEP 07115-000
+
+### Engenharia e contratos aeroportuários
+
+- [Cotação de E&O Engenharia para aeroportos](https://www.patroseguros.com.br/seguro-eo-engenharia-aeroportos): análise de exigências contratuais para prestadoras de serviços, em Guarulhos e em todo o Brasil. A aceitação depende da seguradora.
+- [Guia de E&O para prestadores de serviços aeroportuários](https://www.patroseguros.com.br/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos): como distinguir riscos profissionais de operacionais, interpretar retroatividade e conferir a cláusula do contrato.
+
+### Contato institucional
 - **Telefone / WhatsApp:** +55 11 5199-7500
 - **E-mail:** contato@patroseguros.com.br
 - **Horário de atendimento:** segunda a sexta, das 8h30 às 18h (sábado e domingo: fechado)

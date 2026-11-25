@@ -87,7 +87,7 @@ Nossa atuação inclui análise de risco no local, orientação sobre coberturas
       { question: "Seguro empresarial cobre LGPD e vazamento de dados?", answer: "Sim, com a contratação de cobertura Cyber Risk. Inclui defesa jurídica, notificações obrigatórias, multas administrativas (quando seguráveis) e custos de recuperação de sistemas em ataques de ransomware." },
     ]}
     relatedInsurances={[
-      { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
+      { title: "E&O para empresas de engenharia que atendem aeroportos", link: "/seguro-eo-engenharia-aeroportos" },
       { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
       { title: "Seguro Frota Empresas Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
       { title: "Seguro Condomínio Guarulhos", link: "/seguro-condominio-guarulhos" },

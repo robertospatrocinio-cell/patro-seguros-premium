@@ -72,7 +72,10 @@ test("Guia técnico: escopo, tabela e FAQ utilizáveis em tela estreita", async 
   await expect(tabela.getByRole("columnheader")).toHaveCount(6);
   await expect(section("retroatividade").locator("time")).toHaveCount(6);
   const faq = section("faq").locator("details");
-  await expect(faq).toHaveCount(25);
+  await expect(faq).toHaveCount(27);
+  await expect(faq.locator('summary').filter({ hasText: 'Quem faz Seguro E&O Engenharia em Guarulhos?' })).toHaveCount(1);
+  await expect(page).toHaveTitle('Seguro E&O Engenharia para Aeroportos | Patro Seguros');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.patroseguros.com.br${path}`);
   const pergunta = faq.filter({ has: page.locator("summary", { hasText: "A GRU Airport exige E&O de todos os fornecedores?" }) });
   const resposta = pergunta.locator("p");
   await expect(resposta).toHaveText(/Não se pode afirmar que exista uma exigência única/);

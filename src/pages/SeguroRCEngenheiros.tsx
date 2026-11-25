@@ -83,6 +83,7 @@ A Patro Seguros é especialista em RC Profissional e trabalha com seguradoras qu
       relatedInsurances={[
         { title: "RC Profissional (E&O)", link: "/seguro-rc-profissional" },
         { title: "Seguro de Engenharia", link: "/seguro-engenharia" },
+        { title: "E&O para contratos de engenharia em aeroportos", link: "/seguro-eo-engenharia-aeroportos" },
         { title: "Seguro Garantia", link: "/seguro-garantia" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
       ]}

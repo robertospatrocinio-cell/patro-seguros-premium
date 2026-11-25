@@ -1,3 +1,5 @@
+import { eoMeta, eoPath, eoSchema, eoArticlePath } from "../data/eoDiscovery";
+import { ORGANIZATION_SCHEMA } from "../config/company";
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
 import { CONSORCIO_NATIONAL_PAGES } from "@/data/consorcioNacional";
 import { CONSORCIO_INTENT_PAGES } from "@/data/consorcioVertical";
@@ -931,11 +933,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         description: "Termos e condições de uso do site da Patro Seguros.",
         h1: "Termos de Uso",
       },
-      "/seguro-eo-engenharia-aeroportos": {
-        title: "Seguro E&O Engenharia para Aeroportos | Patro Seguros",
-        description: "Recebeu uma exigência de RC Profissional em um contrato aeroportuário? A Patro analisa a cláusula e busca opções para sua empresa em Guarulhos e no Brasil.",
-        h1: "Seguro E&O Engenharia para Empresas que Prestam Serviços em Aeroportos",
-      },
+      [eoPath]: eoMeta,
       "/seguro-auto": {
         title: "Seguro Auto em Guarulhos: Compare Cotações | Patro Seguros",
         description: "Compare coberturas, franquias e assistência para seu seguro auto em Guarulhos. Peça uma cotação à Patro e escolha com orientação de um corretor.",
@@ -1018,6 +1016,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       },
     };
 
+    if (cleanPath === eoPath) return { ...eoMeta, schema: eoSchema };
     const staticPage = staticPages[cleanPath];
     if (staticPage) {
       return {
@@ -1204,6 +1203,11 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
             "name": "Patro Seguros",
             "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-full.webp` }
           },
+          ...(cleanPath === eoArticlePath ? {
+            "@id": `${DOMAIN}${cleanPath}#article`,
+            author: { "@id": ORGANIZATION_SCHEMA["@id"], name: post.author },
+            publisher: { "@id": ORGANIZATION_SCHEMA["@id"], name: ORGANIZATION_SCHEMA.name },
+          } : {}),
           "mainEntityOfPage": { "@type": "WebPage", "@id": `${DOMAIN}${cleanPath}` }
         }
       };

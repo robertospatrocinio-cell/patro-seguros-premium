@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { eoAeroportoArticle as meta, formatDate } from "../lib/blogData";
 import { eoIntro, eoSections, eoArticleFaqs, eoChecks, eoComparison, eoTimeline } from "../data/blogEoAeroporto";
+import { COMPANY } from "../config/company";
 import { trackWhatsAppClick, trackCotacaoClick } from "../lib/tracking";
 import "../styles/eo-article.css";
 
@@ -34,6 +35,6 @@ export default function EoAirportArticle() {
     {eoSections.map(s => <section key={s.id} id={s.id} className="scroll-mt-24 pb-2 pt-7"><h2 className="mb-4 text-2xl font-semibold tracking-tight">{s.title}</h2>{s.paragraphs.map((p,i) => <p key={p} data-speakable={s.id === "definicao" && !i ? "answer" : undefined} className={p.startsWith("Exemplo fictício") ? "my-5 border-l-4 border-primary bg-muted p-4 leading-7" : "mb-4 leading-7"}>{p}</p>)}{s.id === "comparativo" && <Comparison/>}{s.id === "retroatividade" && <><Timeline/><Cta>Solicite uma cotação personalizada para sua empresa.</Cta></>}{s.id === "checklist" && <Checklist/>}</section>)}
     <section id="fontes" className="scroll-mt-24 pt-8"><h2 className="text-2xl font-semibold">Fontes e documentos para conferência</h2><ul>{sources.map(([label,url,note]) => <li key={url} className="mt-4 leading-7"><a href={url} className="font-semibold text-primary underline">{label}</a><p>{note}</p></li>)}</ul><p className="mt-5 text-sm text-muted-foreground">Conteúdo editorial institucional. Não há revisão técnica individual assinada nesta edição.</p></section>
     <section id="duvidas" data-speakable="faq" className="scroll-mt-24 pt-9"><h2 className="mb-3 text-2xl font-semibold">Perguntas frequentes sobre E&O em aeroportos</h2>{eoArticleFaqs.map(f => <div key={f.q} className="border-b py-4"><h3 className="font-semibold">{f.q}</h3><p className="mt-2 leading-7">{f.a}</p></div>)}</section><Cta>Conheça nosso Seguro E&O Engenharia para Aeroportos.</Cta>
-    <a className="text-sm font-semibold text-primary underline" href="https://wa.me/551151997500" onClick={() => trackWhatsAppClick("blog-eo-aeroporto")}>WhatsApp da Patro: +55 11 5199-7500</a></div>
+    <address className="mt-5 border-t pt-4 text-sm not-italic leading-7"><strong>{COMPANY.nomeFantasia}</strong> · {COMPANY.enderecoCompleto}<br/>Telefone: <a className="font-semibold text-primary underline" href={`tel:${COMPANY.telefoneE164}`}>{COMPANY.telefone}</a> · <a className="font-semibold text-primary underline" href="https://wa.me/551151997500" onClick={() => trackWhatsAppClick("blog-eo-aeroporto")}>WhatsApp da Patro: +55 11 5199-7500</a></address></div>
   </article>;
 }

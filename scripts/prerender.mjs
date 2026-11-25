@@ -93,7 +93,14 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-function buildSeoBlock(route, metadata) {
+function buildSeoBlock(route, metadata, eoCrumbs) {
+  if (eoCrumbs) {
+    const content = SEO_CONTENT[route];
+    const trail = eoCrumbs.map((c, i) => i === eoCrumbs.length - 1
+      ? `<li aria-current="page">${escapeHtml(c.name)}</li>`
+      : `<li><a href="${escapeHtml(c.url)}">${escapeHtml(c.name)}</a></li>`).join("");
+    return `<main id="eo-static-content" class="mx-auto max-w-4xl px-5 py-8 leading-relaxed"><nav aria-label="Caminho de navegação"><ol>${trail}</ol></nav><h1>${escapeHtml(content.h1)}</h1>${content.body}</main>`;
+  }
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
   if (!content) return null;
 
@@ -103,7 +110,7 @@ function buildSeoBlock(route, metadata) {
     return `<main id="consorcio-static-content" style="max-width:76rem;margin:0 auto;padding:2rem 1rem;line-height:1.7;overflow-wrap:anywhere"><h1>${escapeHtml(h1)}</h1>${content.body}</main>`;
   }
   // Nas páginas agrícolas, mantém a leitura também antes de o JavaScript iniciar.
-  const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone" || route === "/seguro-eo-engenharia-aeroportos"
+  const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone" || route === "/seguro-eo-engenharia-aeroportos" || route === "/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos"
     ? "" : ' style="display:none"';
   return `
     <div id="crawler-content"${visibility}>
@@ -145,7 +152,13 @@ async function run() {
   FULL_SEO_CONTENT["/consorcio"] = getConsorcioStaticContent();
   PAGE_FAQS["/consorcio"] = consorcioFaqs;
   // Mesmo FAQ da rota React, disponível também no HTML sem Chromium/JavaScript.
-  const eoPath = "/seguro-eo-engenharia-aeroportos";
+  const { eoPath, eoArticlePath, eoLocal } = await loadDataModule("src/data/eoDiscovery.ts");
+  const { COMPANY, ORGANIZATION_SCHEMA } = await loadDataModule("src/config/company.ts");
+  const { eoArticleText, eoArticleFaqs } = await loadDataModule("src/data/blogEoAeroporto.ts");
+  const eoContact = `<p>${escapeHtml(eoLocal)}</p><address>${escapeHtml(COMPANY.enderecoCompleto)} · Telefone e WhatsApp: ${escapeHtml(COMPANY.telefone)}</address>`;
+  const eoArticleBody = eoArticleText.split("\n\n").map(text => text.startsWith("## ") ? `<h2>${escapeHtml(text.slice(3))}</h2>` : `<p>${escapeHtml(text)}</p>`).join("");
+  SEO_CONTENT[eoArticlePath] = { h1: getMetadataForRoute(eoArticlePath).h1, body: `${eoArticleBody}<h2>Perguntas frequentes</h2>${eoArticleFaqs.map(f => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p>`).join("")}<p><a href="${eoPath}">Solicitar análise da cláusula de E&amp;O</a></p>` };
+  const eoAgencyScript = `<script type="application/ld+json" data-institutional="1">${JSON.stringify(ORGANIZATION_SCHEMA)}</script>`;
   const { eoEngenhariaFaq } = await loadDataModule("src/data/eoEngenhariaFaq.ts");
   const { definicaoEo } = await loadDataModule("src/data/eoEngenhariaAeroportos.ts");
   PAGE_FAQS[eoPath] = eoEngenhariaFaq;
@@ -381,6 +394,12 @@ async function run() {
     if (!metadata) continue;
 
     let html = indexContent;
+    if (route === eoPath || route === eoArticlePath) {
+      if (!hasInsuranceAgency(html)) html = html.replace("</head>", `${eoAgencyScript}\n</head>`);
+      const content = SEO_CONTENT[route];
+      content.body += eoContact;
+      if (route === eoPath) content.body += `<p>Compare o <a href="/seguro-rc-profissional">RC Profissional</a> e o <a href="/seguro-rc-engenheiros">RC para engenheiros</a> com o <a href="/seguro-engenharia">seguro de riscos de engenharia</a> e o <a href="/seguro-empresarial-guarulhos">seguro empresarial em Guarulhos</a>.</p><p><a href="${eoArticlePath}">Guia para interpretar as exigências do contrato</a></p>`;
+    }
 
     // Escape attributes and use replacer functions: quotes, & and $& in
     // editorial text must remain text, not break the head or replacement.
@@ -444,6 +463,19 @@ async function run() {
           ? metadata.h1
           : humanize(s);
       crumbs.push({ name, url: `${BASE}${acc}` });
+    }
+    if (route === eoPath) {
+      crumbs.splice(1, crumbs.length - 1,
+        { name: "Seguros Empresariais", url: `${BASE}/seguros-empresariais` },
+        { name: "E&O Engenharia para Aeroportos", url: `${BASE}${eoPath}` },
+      );
+    }
+    if (route === eoArticlePath) {
+      const post = articles.find(a => `/blog/${a.slug}` === eoArticlePath);
+      crumbs.splice(2, crumbs.length - 2,
+        { name: post.category, url: `${BASE}/blog/categoria/${slugifyCategory(post.category)}` },
+        { name: post.title, url: `${BASE}${eoArticlePath}` },
+      );
     }
     if (route === "/consorcio-servicos") {
       crumbs.splice(1, crumbs.length - 1,
@@ -542,7 +574,7 @@ async function run() {
 
 
 
-    const seoBlock = buildSeoBlock(route, metadata);
+    const seoBlock = buildSeoBlock(route, metadata, route === eoPath || route === eoArticlePath ? crumbs : undefined);
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);

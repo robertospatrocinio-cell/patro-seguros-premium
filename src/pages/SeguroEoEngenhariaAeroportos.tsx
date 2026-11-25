@@ -8,12 +8,13 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import { COMPANY } from "@/config/company";
+import { eoMeta, eoLocal, eoSchema } from "@/data/eoDiscovery";
 import { EoClosing, EoProcesso, EoWhatsApp } from "@/components/EoCommercial";
 import EoIntakeForm from "@/components/EoIntakeForm";
 import { trackEo } from "@/lib/eoEngenhariaContact";
 
 const image = "/images/engenharia-aeroportuaria-projetos.jpg";
-const alt = "Profissionais de engenharia com capacetes e coletes revisam uma planta junto à janela de um terminal aeroportuário.";
+const alt = eoMeta.ogImageAlt;
 const trust = ["Atendimento especializado", "Análise consultiva das exigências contratuais", "Busca de alternativas no mercado segurador", "Atendimento em Guarulhos e em todo o Brasil", "Suporte durante a contratação e vigência"];
 
 function Hero() {
@@ -48,7 +49,8 @@ function NecessidadeContratual() {
       <div className="max-w-prose">
         <h2 id="titulo-contrato" className="text-balance text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">Sua empresa recebeu uma exigência de seguro da administradora do aeroporto?</h2>
         <p className="mt-5 leading-relaxed text-slate-700">Empresas contratadas para executar projetos, instalações, consultorias e serviços técnicos em aeroportos podem precisar apresentar seguros específicos de responsabilidade civil.</p>
-        <p className="mt-4 leading-relaxed text-slate-700">A Patro Seguros auxilia na identificação dos requisitos apresentados e na busca de soluções compatíveis com as atividades profissionais da empresa.</p>
+        <p className="mt-4 leading-relaxed text-slate-700">{eoLocal}</p>
+        <p className="mt-4 leading-relaxed text-slate-700">Se a cláusula tratar de um erro de projeto, consulte a <Link to="/seguro-rc-engenheiros" className="text-primary underline">responsabilidade civil de engenheiros</Link>. Se tratar de danos à obra, compare com o <Link to="/seguro-engenharia" className="text-primary underline">seguro de riscos de engenharia</Link>. Já o <Link to="/seguro-empresarial-guarulhos" className="text-primary underline">seguro empresarial em Guarulhos</Link> atende a outra necessidade: a proteção do patrimônio da empresa.</p>
       </div>
       <aside className="rounded-lg bg-[#112c49] p-6 text-white sm:p-8">
         <FileText aria-hidden="true" className="mb-4 h-6 w-6 text-blue-200" />
@@ -64,7 +66,8 @@ export default function SeguroEoEngenhariaAeroportos() {
   const viewed = useRef(false);
   useEffect(() => { if (!viewed.current) { viewed.current = true; trackEo("page_view"); } }, []);
   return <>
-    <PageMeta title="Seguro E&O Engenharia para Aeroportos" description="Recebeu uma exigência de RC Profissional em um contrato aeroportuário? A Patro analisa a cláusula e busca opções para sua empresa em Guarulhos e no Brasil." ogImage={`${COMPANY.dominioCanonico}${image}`} ogImageAlt={alt} />
+    <PageMeta absoluteTitle title={eoMeta.title} description={eoMeta.description} ogImage={eoMeta.ogImage} ogImageAlt={alt} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eoSchema) }} />
     <Header />
     <main id="main-content" tabIndex={-1}>
       <Breadcrumb items={[{ label: "Seguros Empresariais", href: "/seguros-empresariais" }, { label: "E&O Engenharia para Aeroportos" }]} />
