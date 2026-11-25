@@ -39,6 +39,7 @@
      links: [
        { label: "Seguro Cyber", href: "/seguro-cyber", desc: "Proteção contra ataques hacker e vazamento de dados" },
        { label: "Seguro Engenharia", href: "/seguro-engenharia", desc: "Segurança para obras, reformas e montagem" },
+       { label: "E&O Engenharia para Aeroportos", href: "/seguro-eo-engenharia-aeroportos", desc: "Análise da cláusula de RC profissional exigida da prestadora de serviços" },
        { label: "Seguro Garantia", href: "/seguro-garantia", desc: "Alternativa ao caução e depósitos judiciais" },
        { label: "Seguro Ambiental", href: "/seguro-ambiental", desc: "Responsabilidade civil por contaminação e vazamentos" },
      ]

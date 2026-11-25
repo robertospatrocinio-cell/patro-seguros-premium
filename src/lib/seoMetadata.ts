@@ -931,6 +931,11 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         description: "Termos e condições de uso do site da Patro Seguros.",
         h1: "Termos de Uso",
       },
+      "/seguro-eo-engenharia-aeroportos": {
+        title: "Seguro E&O Engenharia para Aeroportos | Patro Seguros",
+        description: "Recebeu uma exigência de RC Profissional em um contrato aeroportuário? A Patro analisa a cláusula e busca opções para sua empresa em Guarulhos e no Brasil.",
+        h1: "Seguro E&O Engenharia para Empresas que Prestam Serviços em Aeroportos",
+      },
       "/seguro-auto": {
         title: "Seguro Auto em Guarulhos: Compare Cotações | Patro Seguros",
         description: "Compare coberturas, franquias e assistência para seu seguro auto em Guarulhos. Peça uma cotação à Patro e escolha com orientação de um corretor.",

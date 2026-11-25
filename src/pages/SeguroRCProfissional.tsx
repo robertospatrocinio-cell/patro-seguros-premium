@@ -93,6 +93,7 @@ A realidade brasileira mostra crescimento constante no número de processos cont
         { question: "Cobre processos em conselhos profissionais?", answer: "Sim! A maioria das apólices cobre defesa em processos éticos nos conselhos (CRM, OAB, CREA, CRC, etc)." },
       ]}
       relatedInsurances={[
+        { title: "E&O Engenharia para Aeroportos", link: "/seguro-eo-engenharia-aeroportos" },
         { title: "Seguro Responsabilidade Civil", link: "/seguro-rc" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },

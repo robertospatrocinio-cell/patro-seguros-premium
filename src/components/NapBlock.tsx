@@ -25,7 +25,7 @@ const NapBlock = () => {
     endereco,
   } = EMPRESA;
 
-  const enderecoCurto = `${endereco.logradouro}, ${endereco.numero} — Sala 219`;
+  const enderecoCurto = `${endereco.logradouro}, ${endereco.numero} — ${endereco.complemento}`;
   const enderecoComplemento = `Edifício Via Alameda — ${endereco.bairro}, ${endereco.cidade}/${endereco.estadoSigla} — CEP ${endereco.cep}`;
 
 
@@ -68,7 +68,8 @@ const NapBlock = () => {
         </a>
       </p>
       <p>
-        Telefone e WhatsApp:{" "}
+        WhatsApp: <a className="underline" href={`https://wa.me/${EMPRESA.whatsapp.slice(1)}`}>{EMPRESA.whatsappFormatado}</a>
+        {" · Telefone: "}
         <a
           href={`tel:${telefoneE164}`}
           itemProp="telephone"
