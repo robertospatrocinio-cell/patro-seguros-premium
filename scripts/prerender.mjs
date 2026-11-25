@@ -121,7 +121,8 @@ async function run() {
 
   // Keep a pristine copy of Vite's index.html: "/" overwrites it below, and a
   // re-run (ensure-prerender retry) must not inherit the home page content.
-  const TEMPLATE_HTML = path.join(DIST, ".index.template.html");
+  // This is build input, not a public HTML route; SEO walkers must not scan it.
+  const TEMPLATE_HTML = path.join(DIST, ".index.template");
   if (!fs.existsSync(TEMPLATE_HTML)) fs.copyFileSync(INDEX_HTML, TEMPLATE_HTML);
   const indexContent = fs.readFileSync(TEMPLATE_HTML, "utf-8");
 

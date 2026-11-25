@@ -30,7 +30,8 @@ const EXPECTED_HOST = process.env.EXPECTED_HOST || "www.patroseguros.com.br";
 const BASE = `https://${EXPECTED_HOST}`;
 const BRAND_HOST_RE = /patroseguros\.com\.br/i;
 
-const SKIP = new Set(["404.html"]);
+// Also ignore templates left by older prerender runs in reused build output.
+const SKIP = new Set(["404.html", ".index.template.html"]);
 const SKIP_PREFIXES = ["assets/", "admin/"];
 
 function walk(dir, acc = []) {
