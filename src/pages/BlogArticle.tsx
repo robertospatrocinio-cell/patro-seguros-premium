@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { Fragment, lazy, Suspense, useMemo } from "react";
 import Header from "@/components/Header";
+import EoAirportArticle from "@/components/EoAirportArticle";
+import { eoAeroportoArticle } from "@/lib/blogData";
 import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -64,7 +66,8 @@ const BlogArticle = () => {
   ].filter(f => f.q && f.a);
 
 
-  const articleImageUrl = slug ? new URL(getArticleImage(slug), CANONICAL_BASE_URL).href : undefined;
+  const isEoArticle = slug === eoAeroportoArticle.slug;
+  const articleImageUrl = slug ? new URL(isEoArticle ? "/images/engenharia-aeroportuaria-projetos.jpg" : getArticleImage(slug), CANONICAL_BASE_URL).href : undefined;
 
   const isTractorPricingArticle = slug === "quanto-custa-seguro-trator-agricola-2026";
   const isConsorcioAgroArticle = slug === "consorcio-maquinas-agricolas-vale-a-pena-finame-credito-rural";
@@ -136,7 +139,7 @@ const BlogArticle = () => {
         // Canonical URL uses the www. host to match the <link rel="canonical">
         // emitted by PageMeta, keeping JSON-LD `url`/`@id` consistent across signals.
         const articleUrl = getCanonicalUrl(`/blog/${slug}`);
-        const imageUrl = new URL(getArticleImage(slug), CANONICAL_BASE_URL).href;
+        const imageUrl = articleImageUrl!;
         const howToSchema = extraFaqBlock?.timeline ? {
           "@context": "https://schema.org",
           "@type": "HowTo",
@@ -210,7 +213,7 @@ const BlogArticle = () => {
             ]}
           />
         )}
-        <section className="gradient-hero py-16 relative overflow-hidden">
+        {isEoArticle ? <EoAirportArticle /> : <><section className="gradient-hero py-16 relative overflow-hidden">
           {slug && (
             <OptimizedImage
               src={getArticleImage(slug)}
@@ -949,7 +952,7 @@ const BlogArticle = () => {
               </div>
             )}
           </div>
-        </section>
+        </section></>}
       </main>
       {/* Fonte preferencial no Google — discreto, antes do rodapé */}
       <div className="border-t bg-muted/20 py-8">
@@ -959,12 +962,12 @@ const BlogArticle = () => {
       </div>
       <ContextualSeoHub />
       <Suspense fallback={null}>
-       <StickyQuoteBar 
+       {!isEoArticle && <StickyQuoteBar 
          source={`blog:${slug}`} 
          quoteHref={quoteHref}
          ctaLabel={isConsorcioArticle ? "Simular Consórcio" : "Pedir Cotação"}
          whatsappMessage={whatsappMessage}
-       />
+       />}
 
       </Suspense>
       <Footer />

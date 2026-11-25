@@ -1,6 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
+import { receiveEo } from "../_shared/eo-intake.ts";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -56,8 +58,13 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     );
-    const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
-    if (claimsError || !claimsData?.claims) {
+    const eoForm = req.method === "POST" && (req.headers.get("content-type") ?? "").toLowerCase().startsWith("multipart/form-data;");
+    // The form is public. Admit the configured public gateway credential or an authenticated user;
+    // neither is administrative authorization. This path only creates an intake.
+    const publicKeys = [Deno.env.get("SUPABASE_ANON_KEY"), Deno.env.get("SUPABASE_PUBLISHABLE_KEY"), ...(Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") ?? "").split(",")].filter(Boolean);
+    const authorized = eoForm ? publicKeys.includes(jwt) || !!(await supabaseAuthClient.auth.getUser(jwt)).data.user
+      : !!(await supabaseAuthClient.auth.getClaims(jwt)).data?.claims;
+    if (!authorized) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -87,6 +94,7 @@ serve(async (req) => {
       });
     }
 
+    if (eoForm) return await receiveEo(req, supabaseAdmin, ip, corsHeaders);
     const body = await req.json();
     const full_name = typeof body.full_name === "string" ? body.full_name.trim().slice(0, 200) : "";
     const email = typeof body.email === "string" ? body.email.trim().slice(0, 200) : "";

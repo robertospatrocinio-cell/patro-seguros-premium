@@ -6,6 +6,8 @@
  * síncrona é essencial para o SSG (puppeteer) capturar o conteúdo
  * renderizado sem depender de race de `useEffect + import()`.
  */
+import { eoAeroportoArticle } from "../lib/blogData";
+import { eoArticleFaqs, eoArticleText } from "./blogEoAeroporto";
 import { articlesContent } from "@/data/blogArticlesContent";
 import { autoArticlesContent } from "@/data/blogAutoContent";
 import { agroArticlesContent } from "@/data/blogAgroContent";
@@ -67,6 +69,7 @@ export const blogContentIndex: Record<string, BlogArticleContent> = {
   ...(estudoOriginalContent as Record<string, BlogArticleContent>),
   ...(ezzeArticlesContent as Record<string, BlogArticleContent>),
   ...(corretoraArticlesContent as Record<string, BlogArticleContent>),
+  [eoAeroportoArticle.slug]: { title: eoAeroportoArticle.title, content: eoArticleText, faqs: eoArticleFaqs },
   [consorcioAgroArticle.slug]: consorcioAgroContent,
   [consorcioCaminhoesArticle.slug]: consorcioCaminhoesContent,
   [consorcioImoveisInvestimentoArticle.slug]: consorcioImoveisInvestimentoContent,

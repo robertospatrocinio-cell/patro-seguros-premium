@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, ExternalLink } from "lucide-react";
 import { Lead } from "@/hooks/queries/useLeads";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import EoLeadDetails from "./EoLeadDetails";
 
 interface LeadsTableProps {
   leads: Lead[];
@@ -88,7 +89,7 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>{getInsuranceBadge(lead.insurance_type)}</TableCell>
+                <TableCell>{getInsuranceBadge(lead.insurance_type)}{lead.insurance_type === "E&O Engenharia" && <EoLeadDetails lead={lead}/>}</TableCell>
                 <TableCell><Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">Novo</Badge></TableCell>
                 <TableCell>
                   {lead.responsible_name ? (

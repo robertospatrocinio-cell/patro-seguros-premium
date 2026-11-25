@@ -6,13 +6,14 @@ import Breadcrumb from "@/components/Breadcrumb";
 import EoEngenhariaGuia from "@/components/EoEngenhariaGuia";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
-import { COMPANY, WHATSAPP_URL_BASE } from "@/config/company";
-import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import { useEffect, useRef } from "react";
+import { COMPANY } from "@/config/company";
+import { EoClosing, EoProcesso, EoWhatsApp } from "@/components/EoCommercial";
+import EoIntakeForm from "@/components/EoIntakeForm";
+import { trackEo } from "@/lib/eoEngenhariaContact";
 
 const image = "/images/engenharia-aeroportuaria-projetos.jpg";
 const alt = "Profissionais de engenharia com capacetes e coletes revisam uma planta junto à janela de um terminal aeroportuário.";
-const source = "eo-engenharia-aeroportos";
-const contractUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, Patro Seguros. Recebi uma exigência de RC Profissional E&O Engenharia para um serviço em aeroporto. Posso enviar o trecho do contrato para análise?")}`;
 const trust = ["Atendimento especializado", "Análise consultiva das exigências contratuais", "Busca de alternativas no mercado segurador", "Atendimento em Guarulhos e em todo o Brasil", "Suporte durante a contratação e vigência"];
 
 function Hero() {
@@ -24,8 +25,8 @@ function Hero() {
         <p className="mt-6 max-w-prose text-lg leading-relaxed text-slate-800">Sua empresa precisa apresentar um Seguro de Responsabilidade Civil Profissional para prestar serviços no Aeroporto de Guarulhos ou em outros aeroportos do Brasil?</p>
         <p className="mt-4 max-w-prose text-base leading-relaxed text-slate-700">A Patro Seguros ajuda sua empresa a compreender as exigências contratuais e buscar uma solução de seguro compatível, simplificando o processo de contratação.</p>
         <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
-          <Button asChild size="lg" className="h-auto min-h-12 whitespace-normal px-5 text-center"><Link to="/cotacao?tipo=rc" onClick={() => trackCotacaoClick(`${source}:hero`, { insuranceType: "rc", origin: source })}>Solicitar cotação de E&amp;O Engenharia</Link></Button>
-          <Button asChild size="lg" variant="outline" className="h-auto min-h-12 whitespace-normal border-slate-400 bg-white px-5 text-center text-slate-900 hover:bg-slate-100 hover:text-slate-900"><a href={contractUrl} onClick={() => trackWhatsAppClick(`${source}:hero-contrato`)}>Enviar exigências do meu contrato</a></Button>
+          <Button asChild size="lg" className="h-auto min-h-12 whitespace-normal px-5 text-center"><a href="#analise-contratual">Enviar exigências do meu contrato</a></Button>
+          <EoWhatsApp className="inline-flex min-h-12 items-center justify-center rounded-md border border-slate-400 bg-white px-5 text-sm font-semibold text-slate-900 hover:bg-slate-100" />
         </div>
       </div>
       <figure className="relative flex min-w-0 flex-col bg-[#112c49] text-white">
@@ -53,13 +54,15 @@ function NecessidadeContratual() {
         <FileText aria-hidden="true" className="mb-4 h-6 w-6 text-blue-200" />
         <p className="text-xl font-medium leading-snug text-white">Recebeu uma cláusula de seguro no seu contrato? Envie para a Patro analisar.</p>
         <p className="mt-3 text-sm leading-relaxed text-slate-200">Na conversa pelo WhatsApp, envie apenas o trecho que trata do seguro, sem dados pessoais ou informações sigilosas.</p>
-        <a className="mt-3 inline-flex min-h-11 items-center rounded-sm font-semibold text-white underline underline-offset-4 hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" href={contractUrl} onClick={() => trackWhatsAppClick(`${source}:clausula`)}>Enviar cláusula pelo WhatsApp</a>
+        <EoWhatsApp className="mt-3 inline-flex min-h-11 items-center rounded-sm font-semibold text-white underline underline-offset-4 hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Enviar cláusula pelo WhatsApp</EoWhatsApp>
       </aside>
     </div>
   </section>;
 }
 
 export default function SeguroEoEngenhariaAeroportos() {
+  const viewed = useRef(false);
+  useEffect(() => { if (!viewed.current) { viewed.current = true; trackEo("page_view"); } }, []);
   return <>
     <PageMeta title="Seguro E&O Engenharia para Aeroportos" description="Recebeu uma exigência de RC Profissional em um contrato aeroportuário? A Patro analisa a cláusula e busca opções para sua empresa em Guarulhos e no Brasil." ogImage={`${COMPANY.dominioCanonico}${image}`} ogImageAlt={alt} />
     <Header />
@@ -67,7 +70,11 @@ export default function SeguroEoEngenhariaAeroportos() {
       <Breadcrumb items={[{ label: "Seguros Empresariais", href: "/seguros-empresariais" }, { label: "E&O Engenharia para Aeroportos" }]} />
       <Hero />
       <NecessidadeContratual />
+      <EoIntakeForm />
       <EoEngenhariaGuia />
+      <aside className="mx-auto max-w-7xl px-5 py-6 sm:px-8"><p className="text-sm font-semibold text-muted-foreground">Leitura para gestores de contratos</p><Link className="mt-1 inline-block py-2 font-semibold text-primary underline underline-offset-4" to="/blog/seguro-eo-engenharia-prestadores-servicos-aeroportos">Como interpretar a cláusula de E&O Engenharia: guia com exemplos e checklist imprimível</Link></aside>
+      <EoProcesso />
+      <EoClosing />
       <nav aria-label="Canais institucionais da Patro Seguros" className="border-t border-border bg-slate-50">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 px-5 py-3 text-sm text-slate-800 sm:px-8">
           <span className="font-semibold">{COMPANY.nomeFantasia}</span>

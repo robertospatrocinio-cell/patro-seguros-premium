@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Layers, Ruler, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import DiscoverableFaq from "@/components/DiscoverableFaq";
+import { EoWhatsApp } from "@/components/EoCommercial";
 import { COMPANY } from "@/config/company";
 import { coberturas, definicaoEo, requisitos, segmentos } from "@/data/eoEngenhariaAeroportos";
 import { cronologia, exemplos, modalidades, preco, restricoes } from "@/data/eoEngenhariaAnalise";
@@ -19,6 +20,7 @@ function Secao({ id, titulo, children, alternada = false }: { id: keyof typeof t
     <div className={`${largura} py-12 lg:py-16`}>
       <h2 id={`${id}-heading`} tabIndex={-1} className="mb-6 max-w-4xl text-balance text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">{titulo}</h2>
       {children}
+      {(id === "coberturas" || id === "comparativo" || id === "faq") && <div className="mt-4 border-t border-slate-200 pt-3"><EoWhatsApp>{id === "coberturas" ? "Consultar as coberturas pelo WhatsApp" : id === "comparativo" ? "Comparar as exigências do meu contrato pelo WhatsApp" : "Esclarecer minha dúvida pelo WhatsApp"}</EoWhatsApp></div>}
     </div>
   </section>;
 }

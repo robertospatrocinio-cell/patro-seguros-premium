@@ -1,5 +1,6 @@
 import { useState, useEffect, useSyncExternalStore, useRef } from "react";
 import ExternalLink from "@/components/ExternalLink";
+import { EO_PAGE, EO_WHATSAPP, trackEo } from "@/lib/eoEngenhariaContact";
 import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, FileText, ShieldCheck, ArrowRight, Plus, X } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -111,6 +112,9 @@ const WhatsAppButton = () => {
       ? `Falar no WhatsApp sobre ${override.trackingLabel.replace(/^local-page:/, "").replace(/:floating$/, "")}`
       : "Falar no WhatsApp");
 
+  if (location.pathname.replace(/\/$/, "") === EO_PAGE) {
+    return visible && (!isMobileViewport || !isUserScrolling) ? <a href={EO_WHATSAPP} aria-label="Falar sobre E&O Engenharia pelo WhatsApp" onClick={() => trackEo("whatsapp_click")} className="fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-50 inline-flex h-11 items-center gap-2 rounded-full bg-[#112c49] px-4 text-sm font-semibold text-white shadow-lg"><MessageCircle aria-hidden="true" size={18}/>WhatsApp</a> : null;
+  }
   return (
     <>
       <div

@@ -59,7 +59,12 @@ const ArticleSchema = ({
       const dates = normalizeBlogDates({ date: datePublished, updatedAt: dateModified });
       return dates.date ? { datePublished: dates.date, dateModified: dates.updatedAt || dates.date } : {};
     })(),
-    author: {
+    author: authorName === "Patro Seguros" ? {
+      "@type": "Organization",
+      "@id": "https://www.patroseguros.com.br/#organization",
+      name: authorName,
+      url: "https://www.patroseguros.com.br/sobre",
+    } : {
       "@type": "Person",
       "@id": `${authorUrl}#person`,
       name: authorName,

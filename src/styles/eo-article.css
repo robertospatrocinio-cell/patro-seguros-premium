@@ -1,0 +1,9 @@
+/* Imprime a ficha marcada no próprio documento, sem nova janela ou cadastro. */
+@media print {
+  body:has(#eo-folha) :where(div, main, article, section, aside, header, footer, nav, figure, p, h1, h2, a, ol, ul, button, svg):not(:has(#eo-folha), #eo-folha, #eo-folha *) { display: none !important; }
+  body:has(#eo-folha) :has(#eo-folha) { display: block !important; position: static !important; margin: 0 !important; padding: 0 !important; max-width: none !important; min-height: 0 !important; }
+  #eo-folha { margin: 1cm; padding: 0; border: 0; color: black; break-inside: avoid; }
+  #eo-folha label { min-height: 0; padding: 6pt 0; }
+  #eo-folha input { appearance: auto; }
+  #eo-folha button { display: none !important; }
+}

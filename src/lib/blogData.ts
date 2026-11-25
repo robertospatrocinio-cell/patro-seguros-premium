@@ -29,7 +29,21 @@ export interface BlogArticleMeta {
   readTime: number; // minutes
 }
 
+export const eoAeroportoArticle: BlogArticleMeta = {
+  slug: "seguro-eo-engenharia-prestadores-servicos-aeroportos",
+  title: "Sua empresa vai prestar serviços em um aeroporto? Entenda o Seguro E&O Engenharia e as exigências contratuais",
+  seoTitle: "Seguro E&O Engenharia para Aeroportos: Guia para Empresas",
+  excerpt: "Vai prestar serviços no Aeroporto de Guarulhos? Entenda o Seguro E&O Engenharia, suas coberturas e como atender às exigências do contrato.",
+  category: "Responsabilidade Civil",
+  tags: ["E&O Engenharia", "RC profissional", "Aeroporto de Guarulhos", "Contratos"],
+  author: "Patro Seguros",
+  date: "2026-11-25",
+  updatedAt: "2026-11-25",
+  readTime: 13,
+};
+
 const editorialArticles: BlogArticleMeta[] = [
+  eoAeroportoArticle,
   consorcioTaxaAdministracaoArticle,
   consorcioQuitacaoImobiliariaArticle,
   {
