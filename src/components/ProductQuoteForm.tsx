@@ -12,9 +12,10 @@ import { WHATSAPP_URL_BASE } from "@/config/empresa";
 type Props = {
   productName?: string; productPath?: string; fields?: CaptacaoField[]; compactContact?: boolean;
   heading?: string; description?: string; submitLabel?: string; nameLabel?: string; expandDetails?: boolean;
+  sourceOrigin?: string; whatsappMessage?: string;
 };
 
-export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false, heading, description, submitLabel, nameLabel, expandDetails = false }: Props) {
+export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false, heading, description, submitLabel, nameLabel, expandDetails = false, sourceOrigin = "captacao-produto", whatsappMessage }: Props) {
   const [selected, setSelected] = useState("/seguro-maquinas-agricolas");
   const profile = getCaptacaoProduto(productPath ?? selected);
   const name = productName ?? profile?.label ?? "Seguro";
@@ -57,7 +58,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
   const detailLines = extraFields.filter(field => details[field.id]?.trim()).map(field => `${field.label}: ${details[field.id].trim()}`);
   const message = [`Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name}.`, `Nome: ${contact.name.trim()}`, `Tipo de seguro: ${name}`, `Cidade: ${details.quote_city?.trim() || "Não informada"}`, `Mensagem: ${details.quote_message?.trim() || "Não informada"}`, ...detailLines, `Produto: ${product}`].join("\n");
   // Os detalhes ficam no envio ao servidor, nunca na URL do WhatsApp.
-  const waMessage = `Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name} pela Patro Seguros.`;
+  const waMessage = whatsappMessage ?? `Olá! Gostaria de ${simulation ? "uma simulação" : "uma cotação"} de ${name} pela Patro Seguros.`;
   const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(waMessage)}`;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -78,11 +79,11 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
       const { data, error: failure } = await safeInvoke<{ success?: boolean }>("send-form-email", {
         subject: `Solicitação de ${name}`,
         textBody: [message, `WhatsApp: ${contact.phone}`, `E-mail: ${contact.email || "Não informado"}`, `Origem: ${source}`, ...["utm_source", "utm_medium", "utm_campaign"].map(key => `${key}: ${params.get(key) || "Não informado"}`), raw.consent_text].join("\n"),
-        lead: { full_name: contact.name.trim(), phone: contact.phone.trim(), email: contact.email.trim() || null, insurance_type: name, source_page: source, source_origin: "captacao-produto", utm_source: params.get("utm_source"), utm_medium: params.get("utm_medium"), utm_campaign: params.get("utm_campaign"), raw_data: raw },
+        lead: { full_name: contact.name.trim(), phone: contact.phone.trim(), email: contact.email.trim() || null, insurance_type: name, source_page: source, source_origin: sourceOrigin, utm_source: params.get("utm_source"), utm_medium: params.get("utm_medium"), utm_campaign: params.get("utm_campaign"), raw_data: raw },
       });
       if (failure || !data?.success) throw new Error("Não confirmado");
       setSent(true);
-      trackCotacaoSubmit(name, { origin: "captacao-produto", insuranceType: name });
+      trackCotacaoSubmit(name, { origin: sourceOrigin, insuranceType: name });
     } catch {
       setError("Não foi possível confirmar o envio. Seus dados continuam aqui: tente novamente ou envie a solicitação pelo WhatsApp abaixo.");
     } finally {
@@ -91,7 +92,7 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
     }
   }
 
-  const whatsapp = <a href={waUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4" onClick={() => trackWhatsAppClick("captacao-produto", { origin: "captacao-produto", insuranceType: name })}>Continuar pelo WhatsApp</a>;
+  const whatsapp = <a href={waUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4" onClick={() => trackWhatsAppClick(sourceOrigin, { origin: sourceOrigin, insuranceType: name })}>Continuar pelo WhatsApp</a>;
   if (sent) return (
     <div className="rounded-2xl border bg-card p-6 md:p-8" role="status">
       <h3 className="text-xl font-bold mb-3">Solicitação enviada</h3>

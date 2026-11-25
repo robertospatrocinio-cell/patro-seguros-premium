@@ -319,6 +319,7 @@ import SeguroRCAdvogados from "./pages/SeguroRCAdvogados";
 import SeguroRCDentistas from "./pages/SeguroRCDentistas";
 import SeguroRCEngenheiros from "./pages/SeguroRCEngenheiros";
 const SeguroEoEngenhariaAeroportos = lazy(() => import("./pages/SeguroEoEngenhariaAeroportos"));
+const SegurosAeroportuarios = lazy(() => import("./pages/SegurosAeroportuarios"));
 import SeguroRCExecutivos from "./pages/SeguroRCExecutivos";
 import SeguroRCObras from "./pages/SeguroRCObras";
 import SeguroRCPrestacaoServicos from "./pages/SeguroRCPrestacaoServicos";
@@ -926,6 +927,7 @@ const App = () => {
                   <Route path="/seguro-rc-dentistas" element={<SeguroRCDentistas />} />
                   <Route path="/seguro-rc-advogados" element={<SeguroRCAdvogados />} />
                   <Route path="/seguro-rc-engenheiros" element={<SeguroRCEngenheiros />} />
+                  <Route path="/seguros-aeroportuarios" element={<SegurosAeroportuarios />} />
                   <Route path="/seguro-eo-engenharia-aeroportos" element={<SeguroEoEngenhariaAeroportos />} />
                   <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
                   <Route path="/seguro-rc-executivos" element={<SeguroRCExecutivos />} />

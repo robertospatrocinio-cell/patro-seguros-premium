@@ -190,6 +190,7 @@ const coreProducts: SitemapEntry[] = [
 ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const secondaryProducts: SitemapEntry[] = [
+  "/seguros-aeroportuarios",
   "/seguro-viagem", "/seguro-celular", "/seguro-odonto",
   "/seguro-motorista-app", "/seguro-acidentes-pessoais", "/seguro-acidentes-pessoais-passageiros", "/seguro-app-motorista-aplicativo",
   "/seguro-app-taxi-transporte-executivo", "/seguro-app-onibus-vans-frotas",

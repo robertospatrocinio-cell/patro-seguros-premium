@@ -10,8 +10,8 @@ export const COMPANY = {
   telefone: "(11) 5199-7500",
   telefoneE164: "+551151997500",
   telefoneSchema: "+55-11-5199-7500",
-  whatsapp: "+5511948101000",
-  whatsappFormatado: "(11) 94810-1000",
+  whatsapp: "+551151997500",
+  whatsappFormatado: "(11) 5199-7500",
   email: "contato@patroseguros.com.br",
   endereco: {
     logradouro: "Av. Salgado Filho",

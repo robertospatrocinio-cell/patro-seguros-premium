@@ -1,3 +1,4 @@
+import { hubMeta, hubPath, hubSchema } from "../data/aeroportosHub";
 import { eoMeta, eoPath, eoSchema, eoArticlePath } from "../data/eoDiscovery";
 import { ORGANIZATION_SCHEMA } from "../config/company";
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
@@ -1016,6 +1017,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       },
     };
 
+    if (cleanPath === hubPath) return { ...hubMeta, schema: hubSchema };
     if (cleanPath === eoPath) return { ...eoMeta, schema: eoSchema };
     const staticPage = staticPages[cleanPath];
     if (staticPage) {
