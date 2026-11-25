@@ -39,17 +39,10 @@ describe("Design restrito à página inicial", () => {
     expect(hasDeclaration(".patro-home .home-hero-media picture", "height", "100%")).toBe(true);
   });
 
-  it("dá à foto uma área própria no celular sem cobrir o texto", () => {
-    let mobileMedia = false;
-    stylesheet.walkAtRules("media", (media) => {
-      if (media.params !== "(max-width: 1023px)") return;
-      media.walkRules(".patro-home .home-hero-media", (rule) => {
-        rule.walkDecls("position", (declaration) => {
-          mobileMedia = declaration.value === "relative";
-        });
-      });
-    });
-    expect(mobileMedia).toBe(true);
+  it("reserva uma área de proporção conhecida para a foto no celular, separada do texto", () => {
+    expect(hasDeclaration(".patro-home .home-hero-media", "position", "relative")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-hero-media", "aspect-ratio", "16 / 9")).toBe(true);
+    expect(hero.indexOf('className="home-hero-copy"')).toBeLessThan(hero.indexOf('className="home-hero-media"'));
   });
 
   it("preserva a navegação, os formulários e as seções da página", () => {
@@ -83,14 +76,23 @@ describe("Design restrito à página inicial", () => {
     expect(home).toContain('"clique_seguradora_parceira"');
   });
 
-  it("mantém a abertura clara com ações e credenciais separadas da fotografia", () => {
-    expect(hasDeclaration(".patro-home .home-hero", "background", "#fff")).toBe(true);
-    expect(hasDeclaration(".patro-home .home-hero-actions > a:first-child", "background", "var(--home-navy)")).toBe(true);
+  it("dá contraste à abertura e distingue a cotação do contato por WhatsApp", () => {
+    expect(hasDeclaration(".patro-home .home-hero", "background", "var(--home-navy)")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-hero h1", "color", "var(--home-paper)")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-hero-actions > a:first-child", "background", "var(--home-paper)")).toBe(true);
+    expect(hasDeclaration(".patro-home .home-hero-actions > a:last-child", "border-color", "rgb(255 255 255 / 50%)")).toBe(true);
     expect(hero).toContain('aria-labelledby="home-heading"');
     expect(hero).toContain('id="home-heading"');
     expect(hero).toContain('to="/central-de-sinistro"');
     expect(hero).toContain('trackCotacaoClick("hero")');
     expect(hero).toContain('trackWhatsAppClick("hero")');
+  });
+
+  it("mantém os destinos e o rastreamento das ações de cotação e WhatsApp", () => {
+    expect(home).toContain('<Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>');
+    expect(home).toContain('<Link to="/cotacao" onClick={handleFinalCotacaoClick}>');
+    expect(home).toContain('href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleFinalWhatsAppClick}');
+    expect(home).toContain('<Accordion type="single" collapsible className="home-faq-list">');
   });
 
   it("mantém foco visível e respeita redução de movimento", () => {

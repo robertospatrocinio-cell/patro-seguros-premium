@@ -273,18 +273,16 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>
-                <Button size="lg" className="rounded-xl font-bold w-full sm:w-auto">
+            <div className="home-intro-actions">
+              <Button asChild size="lg">
+                <Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>
                   Solicitar cotação de seguro
-                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </Button>
-              </Link>
-              <Link to="/faq">
-                <Button size="lg" variant="outline" className="rounded-xl font-semibold w-full sm:w-auto">
-                  Ver dúvidas frequentes sobre seguros
-                </Button>
-              </Link>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="/faq">Ver dúvidas frequentes sobre seguros</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -436,27 +434,26 @@ const Index = () => {
         {/* Uma única seção de avaliações, sem relatos reproduzidos ou inventados. */}
         <section className="py-20 bg-white" aria-labelledby="home-depoimentos">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-8">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/10">
-                Avaliações no Google
-              </span>
-              <h2 id="home-depoimentos" className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-                O que nossos clientes dizem
-              </h2>
-              <p className="text-2xl font-bold text-slate-900 mb-4">
-                Nota {EMPRESA.metricas.googleRating.toLocaleString("pt-BR")} no Google com {EMPRESA.metricas.googleReviews} avaliações verificadas
-              </p>
-              <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-3 text-sm font-semibold text-primary hover:bg-primary/10">
-                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                Consultar avaliações no Google
-              </a>
+            <div className="home-reviews-layout">
+              <div>
+                <span className="home-reviews-label">Avaliações no Google</span>
+                <h2 id="home-depoimentos">O que nossos clientes dizem</h2>
+              </div>
+              <div className="home-reviews-proof">
+                <p className="home-reviews-score">
+                  Nota {EMPRESA.metricas.googleRating.toLocaleString("pt-BR")} no Google com {EMPRESA.metricas.googleReviews} avaliações verificadas
+                </p>
+                <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer" className="home-reviews-link">
+                  <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+                  Consultar avaliações no Google
+                </a>
+                <p className="home-reviews-note">
+                  Consulte os relatos completos, as datas e as notas diretamente no perfil público da Patro no Google.
+                  Não reproduzimos depoimentos sem uma fonte verificável.
+                </p>
+              </div>
             </div>
-            <p className="max-w-2xl mx-auto text-center text-slate-600 leading-relaxed">
-              Consulte os relatos completos, as datas e as notas diretamente no perfil público da Patro no Google.
-              Não reproduzimos depoimentos sem uma fonte verificável.
-            </p>
-            <div className="mt-8 mx-auto max-w-4xl border-t border-slate-200 pt-8">
+            <div className="home-reviews-source">
               <GooglePreferredSource context="home:prova-social" />
             </div>
           </div>
@@ -468,46 +465,30 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="home-business py-20 bg-slate-900 text-white">
-          <div className="container mx-auto px-4 text-center lg:text-left">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Proteção Especializada para Empresas em Guarulhos</h2>
-                <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                  De frotas a galpões logísticos em Cumbica, oferecemos gestão de riscos completa para o seu negócio
-                  crescer com segurança.
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-left mb-8">
-                  {["Seguro Frota", "Transporte e Carga", "Saúde PME", "Responsabilidade Civil"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-primary" />
-                      <span className="text-sm font-semibold">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link to="/seguro-empresarial">
-                  <Button size="lg" className="w-full sm:w-auto font-bold">
-                    Conhecer Patro Empresas
-                  </Button>
-                </Link>
-              </div>
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl group-hover:bg-primary/30 transition-all duration-500 opacity-50" />
-                <div className="relative bg-white/5 p-4 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 mb-6 text-primary">
-                    <div className="h-1 w-12 bg-primary rounded-full" />
-                    <span className="text-xs font-bold uppercase tracking-widest">Nossa Sede em Guarulhos</span>
-                  </div>
-                  <div className="space-y-4">
-                    <p>{EMPRESA.enderecoCompleto}</p>
-                    <p className="text-sm text-white/70">{EMPRESA.horario}</p>
-                    <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 text-sm font-semibold hover:bg-white/10">
-                      <MapPin className="h-4 w-4" aria-hidden="true" /> Abrir no Google Maps
-                    </a>
-                  </div>
-                </div>
-              </div>
+        <section className="home-business" aria-labelledby="home-business-heading">
+          <div className="container mx-auto px-4">
+            <div className="home-business-content">
+              <h2 id="home-business-heading">Proteção Especializada para Empresas em Guarulhos</h2>
+              <p>
+                De frotas a galpões logísticos em Cumbica, oferecemos gestão de riscos completa para o seu negócio
+                crescer com segurança.
+              </p>
+              <ul className="home-business-coverages">
+                {["Seguro Frota", "Transporte e Carga", "Saúde PME", "Responsabilidade Civil"].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Button asChild size="lg" className="home-business-cta">
+                <Link to="/seguro-empresarial">Conhecer Patro Empresas</Link>
+              </Button>
+            </div>
+            <div className="home-business-office">
+              <h3>Nossa Sede em Guarulhos</h3>
+              <p>{EMPRESA.enderecoCompleto}</p>
+              <p>{EMPRESA.horario}</p>
+              <a href={EMPRESA.redesSociais.google} target="_blank" rel="noopener noreferrer">
+                <MapPin className="h-4 w-4" aria-hidden="true" /> Abrir no Google Maps
+              </a>
             </div>
           </div>
         </section>
@@ -568,30 +549,19 @@ const Index = () => {
         {/* 13. FAQ COMERCIAL — única FAQ da home */}
         <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200" aria-labelledby="home-faq">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2
-              id="home-faq"
-              className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12"
-            >
-              Perguntas Frequentes sobre Seguros em Guarulhos
-            </h2>
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <h2 id="home-faq">Perguntas Frequentes sobre Seguros em Guarulhos</h2>
+            <Accordion type="single" collapsible className="home-faq-list">
               {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-white px-6 rounded-xl border border-slate-200 shadow-sm"
-                >
-                  <AccordionTrigger className="text-left font-bold text-slate-900 hover:text-primary transition-colors py-5">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-slate-700 leading-relaxed pb-5">{faq.answer}</AccordionContent>
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="home-faq-answer">{faq.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-            <div className="mt-8 text-center">
-              <Link to="/central-de-sinistro" className="text-primary font-bold hover:underline inline-flex items-center">
+            <div className="home-faq-support">
+              <Link to="/central-de-sinistro">
                 Dúvidas sobre sinistro? Ver a Central de Sinistro
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -618,26 +588,22 @@ const Index = () => {
         </div>
 
         {/* 14. CTA FINAL */}
-        <section className="home-final-cta py-20 bg-primary text-primary-foreground text-center">
+        <section className="home-final-cta">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-6">Pronto para proteger o que importa?</h2>
-            <p className="text-xl mb-10 opacity-90">Compare propostas em até 2 horas úteis.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/cotacao" onClick={handleFinalCotacaoClick}>
-                <Button size="lg" variant="secondary" className="text-lg h-14 px-10 font-bold w-full sm:w-auto">
-                  Começar cotação agora
-                </Button>
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleFinalWhatsAppClick}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg h-14 px-10 font-bold w-full sm:w-auto bg-transparent border-white/60 text-primary-foreground hover:bg-white/10"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+            <div>
+              <h2>Pronto para proteger o que importa?</h2>
+              <p>Compare propostas em até 2 horas úteis.</p>
+            </div>
+            <div className="home-final-actions">
+              <Button asChild size="lg" variant="secondary">
+                <Link to="/cotacao" onClick={handleFinalCotacaoClick}>Começar cotação agora</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleFinalWhatsAppClick}>
+                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
                   Falar no WhatsApp
-                </Button>
-              </a>
+                </a>
+              </Button>
             </div>
           </div>
         </section>
