@@ -13,6 +13,7 @@ import { hubFaq, hubMessage, hubMeta, hubOrigin, hubPath, hubReadings, hubSchema
 import { isDronePreviewHost } from "@/data/droneAgricolaPreview";
 import { GARANTIA_AEROPORTUARIA_PATH } from "@/data/garantiaAeroportuaria";
 import { APOLICE_CONTRATOS_PATH } from "@/data/apoliceContratosRoute";
+import { GUIA_AEROPORTUARIO_PATH, guiaAeroportuarioTitle } from "@/data/guiaAeroportuarioRoute";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { clearWhatsAppOverride, setWhatsAppOverride } from "@/lib/whatsappOverride";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -73,6 +74,7 @@ export default function SegurosAeroportuarios() {
       </div></section>
       <section className={section}><h2 className={heading}>Leituras para quem administra o contrato</h2><div className="mt-5 max-w-3xl space-y-5">{hubReadings.map(a => <article key={a.path} className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Blog Patro Seguros · {a.topic}</p><h3 className="text-xl"><Link className={link} to={a.path}>{a.title}</Link></h3><p className="text-sm leading-relaxed">{a.summary}</p></article>)}
         {typeof window !== "undefined" && isDronePreviewHost(window.location.hostname) && <>
+          <article className="border-l-2 border-primary bg-muted/40 py-3 pl-5 pr-4"><p className="text-sm text-muted-foreground">Guia pilar em prévia · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={GUIA_AEROPORTUARIO_PATH}>{guiaAeroportuarioTitle}</Link></h3><p className="text-sm leading-relaxed">Compare modalidades por atividade e leve o checklist de conferência para a próxima reunião de contrato.</p></article>
           <article className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Prévia editorial · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={GARANTIA_AEROPORTUARIA_PATH}>Seguro Garantia para contratos aeroportuários</Link></h3><p className="text-sm leading-relaxed">Entenda quando a garantia pode ser exigida e como comparar a apólice com caução e fiança bancária.</p></article>
           <article className="border-l-2 border-primary pl-5"><p className="text-sm text-muted-foreground">Prévia editorial · Aguardando revisão técnica</p><h3 className="text-xl"><Link className={link} to={APOLICE_CONTRATOS_PATH}>Como evitar apólices inadequadas em contratos empresariais</Link></h3><p className="text-sm leading-relaxed">Confira 15 erros que podem afetar o aceite e use a matriz e o checklist para comparar a cláusula com a apólice.</p></article>
         </>}

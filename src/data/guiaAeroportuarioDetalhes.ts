@@ -1,0 +1,63 @@
+export const documentos = [
+  ["Antes de cotar · todos os casos", "Separe a cláusula de seguros, anexos, descrição da atividade, locais, cronograma e forma de subcontratação. Identifique apólices atuais e histórico de sinistros ou reclamações, quando solicitado. Se houver ampliação de escopo em negociação, sinalize o que ainda não foi confirmado."],
+  ["Durante a análise · E&O e responsabilidade civil", "Prepare questionários, atividades e especialidades faturadas, experiência da equipe, contratos representativos e registros técnicos cabíveis, como ART ou RRT, conforme a atividade. Informe áreas operacionais, uso de máquinas, bens de terceiros sob responsabilidade e reclamações ou circunstâncias conforme o questionário."],
+  ["Durante a análise · obra, patrimônio e equipamentos", "Organize orçamento, memorial, cronograma e plano de testes. Para patrimônio e equipamentos, discrimine endereço, valores, propriedade ou locação, forma de transporte e condições de guarda. Verifique se a seguradora pede inspeções, inventário ou documentação adicional."],
+  ["Durante a análise · Seguro Garantia", "Tenha o edital ou a minuta assinada quando já disponível, cláusula de garantia, objeto, valor, prazo e identificação do segurado e do tomador. A seguradora pode solicitar atos societários e informações financeiras, como balanços, para examinar capacidade e condições de contragarantia."],
+  ["Durante a análise · RC Ambiental", "Descreva os materiais manuseados, pontos de armazenamento e fontes de contaminação. Separe licenças, relatórios, histórico ambiental e medidas de contenção ou resposta, se pertinentes e solicitados."],
+  ["Durante a análise · vida em grupo e saúde empresarial", "Comece com o perfil do grupo e informações de elegibilidade. Solicite orientação sobre a base necessária e o canal autorizado para dados pessoais e, quando cabível, dados de saúde. Não encaminhe listas nominais em uma primeira conversa."],
+  ["Emissão, entrega e renovação", "Compare a apólice emitida, condições e endossos com a versão final do contrato. Arquive os comprovantes aceitos e a manifestação da contratante. Antes de renovar, reúna aditivos, mudanças operacionais, histórico de ocorrências e a documentação anterior para avaliar a continuidade."],
+];
+
+export const propostas = [
+  ["Limites e sublimites", "Compare os valores na mesma base: por evento, agregado e por cobertura. Um limite principal igual ao contrato não elimina a diferença se a atividade de maior exposição tiver sublimite menor. Pergunte como despesas de defesa afetam o saldo disponível."],
+  ["Franquias e participações", "Coloque lado a lado o valor fixo, eventual percentual, mínimo e forma de aplicação. Estime o desembolso da empresa em um cenário plausível, sem interpretar o teste como promessa de indenização."],
+  ["Coberturas e exclusões", "Leia a descrição da cobertura junto das exclusões e extensões. Busque referências a aeroportos, aeronaves, bens existentes ou sob guarda, testes e atividades especializadas. Se a redação for ambígua, peça esclarecimento por escrito e confira se o documento final o reflete."],
+  ["Atividades e endossos", "Confronte a declaração de risco com o cronograma e as tarefas próprias e delegadas. Se houver endosso exigido, confirme a redação e o prazo em vez de presumir que o certificado ou uma troca de e-mails alterem a apólice."],
+  ["Retroatividade e vigência", "Compare as datas exatas com início, fases, entrega e encerramento do contrato. Em seguros à base de reclamações, examine a continuidade da retroatividade, os critérios de apresentação da reclamação e as regras de notificação e prazos adicionais."],
+  ["Aceitação e aderência", "Registre para cada proposta: atende, diverge ou ainda não foi confirmado. Diferencie condições pendentes da seguradora da eventual aprovação documental pela contratante. Só compare o preço depois de identificar o que cada proposta efetivamente oferece."],
+];
+
+export const exemplos = [
+  ["Projeto elétrico com execução terceirizada", "Uma consultoria dimensiona um quadro e outra empresa executa a instalação. Um erro de especificação e um dano durante a montagem levantam perguntas distintas. Confira a divisão de responsabilidade técnica, a declaração do escopo de cada empresa e as condições de E&O, RC e obra antes de atribuir a exposição a uma apólice."],
+  ["Climatização em um terminal em funcionamento", "A instalação de chillers envolve içamento, teste e intervenção em instalações já existentes. O cronograma deve discriminar as fases. Pergunte como cada proposta trata equipamentos novos, parte antiga da instalação e danos a terceiros, inclusive durante o teste."],
+  ["Limpeza com armazenamento de químicos", "Uma empresa guarda produtos de limpeza em área cedida e presta serviço próximo ao público. Em um cenário hipotético de vazamento, o dano a um usuário, a contaminação e as despesas de contenção não são a mesma coisa. Descreva o armazenamento e confira as condições dos seguros de RC e ambiental."],
+  ["Logística com trânsito próximo a aeronaves", "Uma empresa leva volumes até um ponto de recebimento em área operacional. O risco sobre a carga não equivale à responsabilidade por dano a equipamento de solo ou aeronave. Confirme o trajeto, a guarda e os veículos aceitos e pergunte à seguradora como são tratadas essas exposições."],
+  ["Obra com adiantamento e prorrogação", "Uma contratada recebe adiantamento previsto no contrato e a obra é prorrogada após mudança de escopo. Compare as obrigações de execução e de adiantamento, se exigidas, com os instrumentos emitidos. Protocole o aditivo e verifique a necessidade de ajustar prazo, valor e descrição antes da data de vencimento."],
+  ["Consultoria ambiental com relatório contestado", "Após a entrega de um parecer, o cliente questiona a metodologia. A empresa precisa localizar a data do ato, o contrato, a manifestação recebida e a apólice pertinente. Conforme a base de contratação, é importante verificar como notificar a circunstância ou reclamação, sem presumir que apenas renovar o seguro resolva a exposição."],
+];
+
+export const glossario = [
+  ["Aceitação do risco", "Decisão da seguradora sobre contratar o risco nas condições analisadas."],
+  ["Aditivo contratual", "Documento que altera o contrato de prestação de serviços, não a apólice."],
+  ["Agregado", "Limite total aplicável a um conjunto de eventos conforme a cobertura e o período definidos."],
+  ["Apólice", "Instrumento que formaliza o seguro contratado e reúne ou referencia as condições aplicáveis."],
+  ["Área operacional", "Área ligada à operação aeroportuária. Registre a delimitação e as condições de acesso do local."],
+  ["Base de ocorrência", "Estrutura em que a data do fato é central para determinar a apólice aplicável, conforme suas condições."],
+  ["Base de reclamações", "Estrutura que considera quando a reclamação é apresentada e os demais critérios temporais do contrato."],
+  ["Beneficiário", "Pessoa ou entidade indicada para receber a prestação nos termos aplicáveis."],
+  ["Certificado", "Documento comprobatório cujo alcance depende do produto e da exigência documental."],
+  ["Circunstância", "Fato que pode levar a futura reclamação; confira os termos de comunicação na apólice."],
+  ["Comissionamento", "Etapa de verificação e preparação do sistema antes de sua entrada em operação."],
+  ["Condições gerais", "Regras comuns do produto que devem ser lidas junto das condições específicas."],
+  ["Condições particulares", "Disposições que individualizam o seguro em relação ao risco contratado."],
+  ["Contragarantia", "Compromisso que pode ser exigido do tomador para resguardar a seguradora no Seguro Garantia."],
+  ["Declaração de risco", "Informações prestadas sobre a atividade, a exposição e as circunstâncias relevantes."],
+  ["Endosso", "Documento formal de alteração das condições ou dos dados de uma apólice."],
+  ["Exclusão", "Situação ou prejuízo que não integra a cobertura nas condições aplicáveis."],
+  ["Franquia", "Parcela ou critério de retenção a cargo do segurado, conforme a cobertura."],
+  ["Indenização", "Prestação devida pela seguradora se atendidas as condições da cobertura."],
+  ["Limite por evento", "Teto aplicável a cada evento na forma definida pelo seguro."],
+  ["Obrigação garantida", "Compromisso do tomador abrangido pelo objeto da garantia emitida."],
+  ["Prazo adicional", "Período previsto, quando aplicável, para apresentação de reclamações conforme condições específicas."],
+  ["Prêmio", "Preço do seguro contratado."],
+  ["Proposta", "Documento com as condições submetidas à contratação; não equivale por si só à apólice emitida."],
+  ["Reclamação", "Demanda apresentada na forma definida pela apólice; o termo tem efeito próprio em certos seguros de RC."],
+  ["Retroatividade", "Regra que pode admitir atos anteriores ao início da vigência dentro do período elegível e dos demais critérios pactuados."],
+  ["Segurado", "Pessoa ou entidade protegida nos termos do seguro; em Seguro Garantia, é o credor da obrigação garantida."],
+  ["Seguradora", "Entidade que assume os riscos previstos no contrato de seguro nos limites pactuados."],
+  ["Sinistro", "Ocorrência cuja caracterização e tratamento dependem dos critérios definidos no seguro."],
+  ["Subcontratado", "Terceiro contratado pelo prestador para executar parte do objeto; verificar o tratamento contratual e securitário."],
+  ["Sublimite", "Teto específico para uma cobertura, extensão ou situação dentro da estrutura de limites."],
+  ["Tomador", "No Seguro Garantia, devedor da obrigação garantida perante o segurado."],
+  ["Vigência", "Período de validade do seguro, sujeito aos critérios de cobertura pactuados."],
+];

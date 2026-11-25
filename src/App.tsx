@@ -135,9 +135,11 @@ const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 const DroneAgricolaPreview = lazy(() => import("@/pages/DroneAgricolaPreview"));
 const GarantiaAeroportuariaPreview = lazy(() => import("@/pages/GarantiaAeroportuariaPreview"));
 const ApoliceContratosPreview = lazy(() => import("@/pages/ApoliceContratosPreview"));
+const GuiaAeroportuarioPreview = lazy(() => import("@/pages/GuiaAeroportuarioPreview"));
 import { DRONE_PREVIEW_PATH, RETA_PREVIEW_PATH, isDronePreviewHost } from "@/data/droneAgricolaPreview";
 import { GARANTIA_AEROPORTUARIA_PATH } from "@/data/garantiaAeroportuaria";
 import { APOLICE_CONTRATOS_PATH } from "@/data/apoliceContratosRoute";
+import { GUIA_AEROPORTUARIO_PATH } from "@/data/guiaAeroportuarioRoute";
 
 
 import InsuranceEditorial from "./pages/InsuranceEditorial";
@@ -689,6 +691,11 @@ const App = () => {
                   <Route path={APOLICE_CONTRATOS_PATH} element={
                     typeof window !== "undefined" && isDronePreviewHost(window.location.hostname)
                       ? <ApoliceContratosPreview />
+                      : <NotFound />
+                  } />
+                  <Route path={GUIA_AEROPORTUARIO_PATH} element={
+                    typeof window !== "undefined" && isDronePreviewHost(window.location.hostname)
+                      ? <GuiaAeroportuarioPreview />
                       : <NotFound />
                   } />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
