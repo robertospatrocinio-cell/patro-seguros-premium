@@ -126,6 +126,26 @@ describe("PageMeta robots meta by hostname", () => {
     expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
   });
 
+  it("remove canonical e prévias de uma página inexistente e restaura na navegação", () => {
+    setHostname("www.patroseguros.com.br");
+    const page = (errorPage: boolean) => (
+      <MemoryRouter initialEntries={["/seguro-auto"]}>
+        <PageMeta title="Seguro Auto" description="Compare coberturas de seguro auto." errorPage={errorPage} />
+      </MemoryRouter>
+    );
+    const { rerender } = render(page(false));
+    rerender(page(true));
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+    expect(document.querySelector('link[rel="canonical"]')).toBeNull();
+    expect(document.querySelector('meta[property^="og:"], meta[name^="twitter:"]')).toBeNull();
+    expect(document.querySelector('[data-breadcrumb="1"]')).toBeNull();
+
+    rerender(page(false));
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "index, follow");
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute("href", "https://www.patroseguros.com.br/seguro-auto");
+    expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute("content", "https://www.patroseguros.com.br/seguro-auto");
+  });
+
   it("limpa a descrição social anterior e não duplica tags ao atualizar", () => {
     setHostname("www.patroseguros.com.br");
     const page = (customAlt?: string, noindex = false) => (

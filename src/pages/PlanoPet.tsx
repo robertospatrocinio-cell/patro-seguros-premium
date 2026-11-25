@@ -7,6 +7,7 @@ const PlanoPet = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      heroImageAlt=""
       title="Plano Pet (Petlove)"
       headline="Plano Petlove: cuidado para seu cão ou gato, com orientação para escolher"
       subtitle="Compare as opções com a Patro Seguros. Confira mensalidade, rede veterinária perto de você, carências e possíveis coparticipações antes de decidir."
@@ -14,6 +15,7 @@ const PlanoPet = () => {
       quoteAnchor="#opcoes-plano-pet"
       afterHeroContent={<PetPlanConversion />}
       galleryContent={<PetPlanMoments />}
+      localSeo={{ skip: true }}
       semGuarulhos
       jumpLinks={[
         { label: "Ver opções para meu pet", href: "#opcoes-plano-pet" },
@@ -22,7 +24,8 @@ const PlanoPet = () => {
         { label: "Tire suas dúvidas", href: "#faq-heading" },
       ]}
       icon="🐶"
-      metaDescription="Plano Pet Petlove: plano de saúde para cães e gatos com consultas, exames e cirurgias. Cotação grátis na Patro Seguros, corretora parceira da Petlove."
+      metaTitle="Plano Petlove para Cães e Gatos | Patro Seguros"
+      metaDescription="Compare os planos Petlove para cães e gatos com a Patro Seguros. Confira a rede veterinária da sua cidade, carências e possíveis coparticipações."
       description="Seu pet faz parte da família. Um plano de saúde pode ajudar a organizar os cuidados veterinários, desde consultas de rotina até procedimentos previstos na opção contratada. A Patro Seguros ajuda você a comparar os planos Petlove e entender as condições antes de contratar."
       detailedDescription={`Para escolher um plano pet, comece pela rotina do seu cão ou gato: idade, cuidados que costuma precisar e clínicas onde você gostaria de ser atendido. Um plano focado em consultas não deve ser comparado com outro que também prevê cirurgias e internação olhando apenas a mensalidade.
 

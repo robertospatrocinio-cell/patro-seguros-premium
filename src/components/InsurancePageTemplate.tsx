@@ -184,6 +184,7 @@ export interface InsurancePageProps {
   faqs: FAQ[];
   relatedInsurances?: { title: string; link: string }[];
   badge?: string;
+  metaTitle?: string;
   metaDescription?: string;
   detailedDescription?: string;
   howItWorks?: HowItWorksStep[];
@@ -204,6 +205,8 @@ export interface InsurancePageProps {
   supportMode?: boolean;
   supportCtaText?: string;
   heroImage?: string;
+  /** Texto da imagem do hero; passe uma string vazia para imagens decorativas. */
+  heroImageAlt?: string;
   mobileHeroImage?: string;
   /**
    * Galeria de 3 a 6 imagens reais do produto (URLs). Quando omitida,
@@ -314,6 +317,7 @@ const InsurancePageTemplate = ({
    coverages, whoNeeds, whyPatro,
    relatedInsurances = [],
   badge,
+  metaTitle,
   metaDescription,
   detailedDescription,
   howItWorks,
@@ -328,6 +332,7 @@ const InsurancePageTemplate = ({
    supportMode,
    supportCtaText,
    heroImage,
+  heroImageAlt,
   mobileHeroImage,
   galleryImages,
   galleryKeywords,
@@ -421,11 +426,11 @@ const InsurancePageTemplate = ({
   return (
     <>
        <PageMeta
-         title={title}
+         title={metaTitle ?? title}
          description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
-         absoluteTitle={!!headline && headline !== title}
+         absoluteTitle={!!metaTitle || (!!headline && headline !== title)}
          skipBreadcrumb
        />
        
@@ -499,7 +504,7 @@ const InsurancePageTemplate = ({
           scope="national"
         />
       )}
-      {(inferQuoteType(title) === "saude" || title.toLowerCase().includes("plano")) && <MedicalOrganizationSchema />}
+      {inferQuoteType(title) === "saude" && <MedicalOrganizationSchema />}
       <Header />
       <main id="main-content" className="outline-none">
         <div className="bg-background border-b py-2 hidden md:block">
@@ -534,11 +539,10 @@ const InsurancePageTemplate = ({
                <OptimizedImage 
                 src={heroImage} 
                 mobileSrc={mobileHeroImage}
-                alt={getHeroAlt()} 
-                title={getHeroAlt()}
+                alt={heroImageAlt ?? getHeroAlt()}
+                title={(heroImageAlt ?? getHeroAlt()) || undefined}
                 className="w-full h-full" 
-                eager 
-                aria-hidden="false" 
+                eager
                 placeholderClass="bg-transparent" 
                 decoding="sync"
 

@@ -199,8 +199,8 @@ const CorretoraDeSegurosEmGuarulhos = () => {
   return (
     <>
       <PageMeta
-        title="Corretora de Seguros em Guarulhos | Patro Seguros"
-        description="Corretora de seguros em Guarulhos com atendimento consultivo. Compare seguradoras para seguro auto, saúde, vida, residencial, empresarial e consórcio."
+        title="Corretora em Guarulhos: Como a Patro Seguros Atende"
+        description="Veja como a Patro Seguros atende famílias e empresas em Guarulhos, da comparação de coberturas entre seguradoras ao apoio em caso de sinistro."
       
       skipBreadcrumb
     />

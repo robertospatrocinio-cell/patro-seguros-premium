@@ -107,7 +107,7 @@ function buildSeoBlock(route, metadata) {
     ? "" : ' style="display:none"';
   return `
     <div id="crawler-content"${visibility}>
-      <h1>${h1}</h1>
+      <h1>${escapeHtml(h1)}</h1>
       ${content.body}
     </div>
   `;
@@ -562,6 +562,9 @@ async function run() {
   let errorHtml = indexContent;
   errorHtml = errorHtml.replace(/<title>[^<]*<\/title>/, `<title>Página Não Encontrada (404) | Patro Seguros</title>`);
   errorHtml = errorHtml.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A página solicitada não foi encontrada. Explore nossos seguros auto, residenciais e de vida em Guarulhos."`);
+  // A missing page is not a duplicate of the homepage and should not share its preview.
+  errorHtml = errorHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, "");
+  errorHtml = errorHtml.replace(/<meta\s+(?:property="og:[^"]+"|name="twitter:[^"]+")[^>]*>/gi, "");
   // Replace the inherited index directive instead of publishing conflicting tags.
   errorHtml = errorHtml.replace(/<meta\s+name="robots"[^>]*>/gi, "");
   errorHtml = errorHtml.replace("</head>", `  <meta name="robots" content="noindex, follow">\n</head>`);

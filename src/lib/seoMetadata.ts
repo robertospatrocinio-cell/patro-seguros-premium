@@ -906,6 +906,11 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
         description: "Solicite uma cotação de seguro auto, residencial, vida ou saúde em Guarulhos. Receba comparativo em até 2h.",
         h1: "Solicitar Cotação de Seguro",
       },
+      "/corretora-de-seguros-em-guarulhos": {
+        title: "Corretora em Guarulhos: Como a Patro Seguros Atende",
+        description: "Veja como a Patro Seguros atende famílias e empresas em Guarulhos, da comparação de coberturas entre seguradoras ao apoio em caso de sinistro.",
+        h1: "Corretora de Seguros em Guarulhos",
+      },
       "/sobre": {
         title: "Sobre a Patro Seguros | Sua Corretora em Guarulhos",
         description: "Conheça a história da Patro Seguros, uma corretora especializada em oferecer as melhores soluções em seguros.",
@@ -929,7 +934,12 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
       "/seguro-auto": {
         title: "Seguro Auto em Guarulhos: Compare Cotações | Patro Seguros",
         description: "Compare coberturas, franquias e assistência para seu seguro auto em Guarulhos. Peça uma cotação à Patro e escolha com orientação de um corretor.",
-        h1: "Seguro Auto em Guarulhos | Patro Seguros — Compare 16 Seguradoras",
+        h1: "Seguro Auto em Guarulhos | Patro Seguros — Compare Propostas",
+      },
+      "/plano-pet": {
+        title: "Plano Petlove para Cães e Gatos | Patro Seguros",
+        description: "Compare os planos Petlove para cães e gatos com a Patro Seguros. Confira a rede veterinária da sua cidade, carências e possíveis coparticipações.",
+        h1: "Plano Petlove: cuidado para seu cão ou gato, com orientação para escolher",
       },
       "/seguro-moto": {
         title: "Seguro de Moto em Guarulhos: Compare | Patro Seguros",

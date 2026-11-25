@@ -20,7 +20,6 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
-import ServiceSchema from "@/components/ServiceSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
@@ -108,11 +107,6 @@ const SeguroAuto = () => {
         description="Seguro auto em Guarulhos: compare propostas conforme seu veículo e perfil. Confira coberturas, franquias e assistências com orientação da Patro Seguros."
         city="Guarulhos"
         faqs={faqs}
-      />
-      <ServiceSchema 
-        name="Seguro Auto" 
-        description="Compare propostas de seguro auto conforme seu perfil com a Patro Seguros. Colisão, roubo, furto, danos a terceiros e assistências dependem da contratação e das condições da apólice. Aceitação, franquias, limites e vigência devem ser conferidos na proposta."
-        serviceType="AutoInsurance"
       />
       <Header />
       <main id="main-content" className="outline-none">

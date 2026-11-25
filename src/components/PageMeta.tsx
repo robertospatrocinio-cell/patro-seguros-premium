@@ -8,6 +8,8 @@ interface PageMetaProps {
   title: string;
   description: string;
   noindex?: boolean;
+  /** Missing or removed content must not publish canonical or social metadata. */
+  errorPage?: boolean;
   absoluteTitle?: boolean;
   /** Open Graph type: "website" (default) for marketing pages, "article" for blog posts. */
   ogType?: "website" | "article" | "product" | "profile";
@@ -35,11 +37,12 @@ const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 70;
 const MAX_DESC_LENGTH = 165;
 
-const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
+const PageMeta = ({ title, description, noindex = false, errorPage = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
   const location = useLocation();
-  const canonicalUrl = canonicalPath !== undefined
+  const canonicalUrl = errorPage ? null : canonicalPath !== undefined
     ? getCanonicalPathUrl(canonicalPath)
     : getCanonicalUrl(location.pathname);
+  const preventIndexing = noindex || errorPage;
 
   useEffect(() => {
     // Acrescenta contexto local somente quando ele ainda não está no título.
@@ -84,42 +87,40 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Description
     setMetaContent('meta[name="description"]', description);
 
-    // Canonical URL — single source of truth. Paginated collections pass canonicalPath
-    // (e.g. "/blog?page=2") so each page self-references and avoids duplicate content.
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
+    // Paginated collections pass canonicalPath so each page self-references.
+    const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonicalUrl === null) {
+      canonical?.remove();
+      document.head.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]').forEach((tag) => tag.remove());
+    } else {
+      const link = canonical ?? document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      if (!canonical) document.head.appendChild(link);
+
+      // Restore sitewide properties too when navigating away from an error page.
+      setMetaContent('meta[property="og:site_name"]', "Patro Seguros");
+      setMetaContent('meta[property="og:locale"]', "pt_BR");
+      setMetaContent('meta[property="og:title"]', fullTitle);
+      setMetaContent('meta[property="og:description"]', description);
+      setMetaContent('meta[property="og:url"]', canonicalUrl);
+      setMetaContent('meta[property="og:type"]', ogType);
+      const imageSource = ogImage ?? getGeneratedOgImage(location.pathname) ?? DEFAULT_OG_IMAGE;
+      const resolvedOgImage = new URL(imageSource, `${BASE_URL}/`).href;
+      setMetaContent('meta[property="og:image"]', resolvedOgImage);
+
+      setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
+      setMetaContent('meta[name="twitter:title"]', fullTitle);
+      setMetaContent('meta[name="twitter:description"]', description);
+      setMetaContent('meta[name="twitter:image"]', resolvedOgImage);
+
+      // Reset on every navigation so an earlier page's image description never leaks.
+      const resolvedOgImageAlt = ogImageAlt ?? (
+        resolvedOgImage === DEFAULT_OG_IMAGE ? "Patro Seguros — Corretora de Seguros" : fullTitle
+      );
+      setMetaContent('meta[property="og:image:alt"]', resolvedOgImageAlt);
+      setMetaContent('meta[name="twitter:image:alt"]', resolvedOgImageAlt);
     }
-    if (canonical) {
-      canonical.setAttribute("href", canonicalUrl);
-    }
-
-    // Open Graph
-    setMetaContent('meta[property="og:title"]', fullTitle);
-    setMetaContent('meta[property="og:description"]', description);
-    setMetaContent('meta[property="og:url"]', canonicalUrl);
-    setMetaContent('meta[property="og:type"]', ogType);
-    // Precedência: prop explícita > OG gerado por bairro/produto×bairro > fallback global.
-    const imageSource = ogImage ?? getGeneratedOgImage(location.pathname) ?? DEFAULT_OG_IMAGE;
-    // Social previews require an absolute URL on the public domain, even when
-    // a page supplies a local path or is opened on the preview host.
-    const resolvedOgImage = new URL(imageSource, `${BASE_URL}/`).href;
-    setMetaContent('meta[property="og:image"]', resolvedOgImage);
-
-    // Twitter
-    setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
-    setMetaContent('meta[name="twitter:title"]', fullTitle);
-    setMetaContent('meta[name="twitter:description"]', description);
-    setMetaContent('meta[name="twitter:image"]', resolvedOgImage);
-
-    // Reset on every navigation so an earlier page's image description never leaks.
-    const resolvedOgImageAlt = ogImageAlt ?? (
-      resolvedOgImage === DEFAULT_OG_IMAGE ? "Patro Seguros — Corretora de Seguros" : fullTitle
-    );
-    setMetaContent('meta[property="og:image:alt"]', resolvedOgImageAlt);
-    setMetaContent('meta[name="twitter:image:alt"]', resolvedOgImageAlt);
 
     // Robots
     // Detecção de preview via sufixo codificado — não expõe nome de plataforma
@@ -132,7 +133,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Cria a tag também quando ela não veio no HTML inicial.
     setMetaContent(
       'meta[name="robots"]',
-      isPreviewHost ? "noindex, nofollow" : noindex ? "noindex, follow" : "index, follow",
+      isPreviewHost ? "noindex, nofollow" : preventIndexing ? "noindex, follow" : "index, follow",
     );
 
     // Image preloads
@@ -169,7 +170,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
-  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalUrl]);
+  }, [title, description, location.pathname, preventIndexing, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalUrl]);
 
   // Debug point for validation tools — same URL as canonical and social tags.
   if (typeof window !== "undefined") {
@@ -181,7 +182,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
   // A raiz `/` não precisa de breadcrumb (sem hierarquia). Rotas administrativas
   // devem passar `skipBreadcrumb` explicitamente ou usar `noindex`.
   const path = location.pathname.replace(/\/+$/, "") || "/";
-  const shouldEmitBreadcrumb = !skipBreadcrumb && !noindex && path !== "/";
+  const shouldEmitBreadcrumb = !skipBreadcrumb && !preventIndexing && path !== "/";
 
   return shouldEmitBreadcrumb ? <BreadcrumbSchema /> : null;
 };

@@ -88,8 +88,13 @@ const NotFound = ({ gone = false }: NotFoundProps) => {
             ? "Conteúdo Removido (410) | Patro Seguros"
             : "Página Não Encontrada (404) | Patro Seguros"
         }
-        description="A página que você está procurando não existe. Encontre o seguro ideal por categoria ou solicite uma cotação gratuita com a Patro Seguros."
+        description={
+          gone
+            ? "Este conteúdo foi descontinuado. Use a busca ou explore as categorias de seguros da Patro Seguros."
+            : "O endereço que você acessou não existe ou foi movido. Encontre a página pela busca ou explore as categorias de seguros da Patro Seguros."
+        }
         noindex
+        errorPage
         skipBreadcrumb
       />
       <Header />
