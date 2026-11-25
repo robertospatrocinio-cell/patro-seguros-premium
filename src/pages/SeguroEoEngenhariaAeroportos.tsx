@@ -3,6 +3,7 @@ import { Check, FileText, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import EoEngenhariaGuia from "@/components/EoEngenhariaGuia";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { COMPANY, WHATSAPP_URL_BASE } from "@/config/company";
@@ -66,6 +67,7 @@ export default function SeguroEoEngenhariaAeroportos() {
       <Breadcrumb items={[{ label: "Seguros Empresariais", href: "/seguros-empresariais" }, { label: "E&O Engenharia para Aeroportos" }]} />
       <Hero />
       <NecessidadeContratual />
+      <EoEngenhariaGuia />
       <nav aria-label="Canais institucionais da Patro Seguros" className="border-t border-border bg-slate-50">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 px-5 py-3 text-sm text-slate-800 sm:px-8">
           <span className="font-semibold">{COMPANY.nomeFantasia}</span>

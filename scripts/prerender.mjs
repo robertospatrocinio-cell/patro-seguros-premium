@@ -103,7 +103,7 @@ function buildSeoBlock(route, metadata) {
     return `<main id="consorcio-static-content" style="max-width:76rem;margin:0 auto;padding:2rem 1rem;line-height:1.7;overflow-wrap:anywhere"><h1>${escapeHtml(h1)}</h1>${content.body}</main>`;
   }
   // Nas páginas agrícolas, mantém a leitura também antes de o JavaScript iniciar.
-  const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone"
+  const visibility = route === "/seguro-drone-agricola" || route === "/seguro-reta-drone" || route === "/seguro-eo-engenharia-aeroportos"
     ? "" : ' style="display:none"';
   return `
     <div id="crawler-content"${visibility}>
@@ -144,6 +144,15 @@ async function run() {
   const { consorcioFaqs, consorcioSchema } = await loadDataModule("src/data/consorcioHub.ts");
   FULL_SEO_CONTENT["/consorcio"] = getConsorcioStaticContent();
   PAGE_FAQS["/consorcio"] = consorcioFaqs;
+  // Mesmo FAQ da rota React, disponível também no HTML sem Chromium/JavaScript.
+  const eoPath = "/seguro-eo-engenharia-aeroportos";
+  const { eoEngenhariaFaq } = await loadDataModule("src/data/eoEngenhariaFaq.ts");
+  const { definicaoEo } = await loadDataModule("src/data/eoEngenhariaAeroportos.ts");
+  PAGE_FAQS[eoPath] = eoEngenhariaFaq;
+  SEO_CONTENT[eoPath] = {
+    h1: getMetadataForRoute(eoPath)?.h1 || "Seguro E&O Engenharia para Aeroportos",
+    body: `<p>${escapeHtml(definicaoEo)}</p><h2>Perguntas frequentes sobre E&amp;O Engenharia para Aeroportos</h2>${eoEngenhariaFaq.map(({ q, a }, index) => `<details id="eo-pergunta-${index + 1}"><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}`,
+  };
   const { CONSORCIO_NATIONAL_PAGES, getConsorcioNationalStaticContent } = await loadDataModule("src/data/consorcioNacional.ts");
   for (const page of CONSORCIO_NATIONAL_PAGES) {
     FULL_SEO_CONTENT[page.path] = getConsorcioNationalStaticContent(page);
