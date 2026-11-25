@@ -36,50 +36,72 @@ test("a vertical é navegável do hub empresarial até E&O e seu guia público",
   await expect(page.locator("#eo-artigo").getByRole("link", { name: "Compare os seguros para prestadores em aeroportos" })).toHaveAttribute("href", "/seguros-aeroportuarios#modalidades-aeroportuarias");
 });
 
-test("triagem: revisar sem enviar e encaminhar o resumo com consentimento e origem", async ({ page }) => {
-  const sends: { lead: { source_origin: string; raw_data: { triagem: Record<string, string>; consent: boolean } }; textBody: string }[] = [];
-  await page.route("**/functions/v1/send-form-email", async route => {
-    sends.push(route.request().postDataJSON());
-    await route.fulfill({ json: { success: true, leadId: "teste" } });
+test("triagem e cotação: consentimento, classificação e anexo opcional", async ({ page }) => {
+  const sends: string[] = [];
+  await page.route("**/functions/v1/submit-lead", async route => {
+    if (route.request().method() !== "POST") return route.fulfill({ status: 204, headers: { "access-control-allow-origin": "*", "access-control-allow-headers": "*", "access-control-allow-methods": "POST, OPTIONS" } });
+    sends.push(route.request().postData() ?? "");
+    await route.fulfill({ headers: { "access-control-allow-origin": "*" }, json: { success: true, intake: "airport-v1", uploaded: true } });
   });
   await page.setViewportSize({ width: 390, height: 840 });
-  await page.goto("/seguros-aeroportuarios#orientacao-aeroportuaria");
+  await page.goto("/seguros-aeroportuarios?utm_source=teste&utm_term=aeroporto#orientacao-aeroportuaria");
   const triage = page.locator("#orientacao-aeroportuaria");
-  const review = triage.getByRole("button", { name: "Ver orientação preliminar" });
-  await review.click();
-  await expect(triage.getByLabel(/qual aeroporto/i)).toBeFocused();
+  await expect(triage.locator("label")).toHaveCount(10);
   await triage.getByLabel(/qual aeroporto/i).fill("Guarulhos (GRU)");
   await triage.getByLabel(/qual serviço/i).selectOption({ label: "Projetos, laudos ou consultoria técnica" });
-  await triage.getByLabel(/existe contrato/i).selectOption("Sim, tenho o documento");
-  await triage.getByLabel(/algum seguro específico/i).selectOption("Seguro Garantia");
-  await triage.getByLabel(/existe prazo/i).fill("A confirmar");
-  await triage.getByLabel(/algum seguro atualmente/i).selectOption("Sim");
-  await review.click();
+  await triage.getByLabel(/exigência de Seguro Garantia/i).selectOption("Sim");
+  await triage.getByRole("button", { name: "Ver orientação preliminar" }).click();
   await expect(triage.getByRole("heading", { name: "Modalidades para avaliar" })).toBeFocused();
-  await expect(triage.getByText("Seguro E&O Engenharia", { exact: true })).toBeVisible();
-  await expect(triage.getByText("Seguro Garantia", { exact: true })).toBeVisible();
+  await expect(triage.getByRole("listitem").filter({ hasText: "Seguro Garantia" })).toBeVisible();
   await triage.getByRole("button", { name: "Revisar respostas" }).click();
   await expect(triage.getByLabel(/qual aeroporto/i)).toHaveValue("Guarulhos (GRU)");
-  await triage.getByLabel(/existe prazo/i).fill("Antes da mobilização");
-  await review.click();
+  await triage.getByRole("button", { name: "Ver orientação preliminar" }).click();
   await triage.getByRole("link", { name: "Continuar com estas respostas" }).click();
   const quote = page.locator("#cotacao-aeroportuaria");
-  await expect(quote.getByText("Antes da mobilização", { exact: true })).toBeVisible();
-  await quote.getByRole("textbox", { name: /^Nome/ }).fill("Teste de triagem");
-  await quote.getByLabel(/WhatsApp com DDD/).fill("11000000000");
-  const submit = quote.getByRole("button", { name: "Enviar informações para análise da Patro Seguros" });
+  await quote.getByText("Confira as respostas que acompanham o pedido", { exact: true }).click();
+  await expect(quote.getByText("Guarulhos (GRU)", { exact: true })).toBeVisible();
+  await quote.getByLabel("Nome do responsável").fill("Pessoa Teste");
+  await quote.getByLabel("Nome da empresa").fill("Empresa Teste");
+  await quote.getByLabel("WhatsApp com DDD").fill("11999990000");
+  await quote.getByLabel("E-mail").fill("teste@example.com");
+  await quote.getByRole("button", { name: "Continuar" }).click();
+  await quote.getByLabel("Modalidade de interesse").selectOption("garantia");
+  await quote.getByRole("button", { name: "Continuar" }).click();
+  const submit = quote.getByRole("button", { name: "Solicitar análise e cotação" });
   await submit.click();
   await expect(quote.getByRole("checkbox")).toBeFocused();
   expect(sends).toHaveLength(0);
+  await quote.getByLabel("Anexar cláusula contratual").setInputFiles({ name: "teste.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.7\n%%EOF") });
   await quote.getByRole("checkbox").check();
   await submit.click();
-  await expect(quote.getByRole("heading", { name: "Solicitação enviada" })).toBeVisible();
+  await expect(quote.getByRole("heading", { name: "Solicitação recebida" })).toBeVisible();
   expect(sends).toHaveLength(1);
-  expect(sends[0].lead.source_origin).toBe("Hub Aeroportuário");
-  expect(sends[0].lead.raw_data.consent).toBe(true);
-  expect(Object.values(sends[0].lead.raw_data.triagem)).toEqual(["Guarulhos (GRU)", "Projetos, laudos ou consultoria técnica", "Sim, tenho o documento", "Seguro Garantia", "Antes da mobilização", "Sim"]);
-  expect(sends[0].textBody).toContain("Origem comercial: Hub Aeroportuário");
-  const wa = new URL((await quote.getByRole("link", { name: "Continuar pelo WhatsApp" }).getAttribute("href"))!);
+  for (const part of ['"intake":"airport-v1"', '"consent":true', '"product":"garantia"', '"airport":"Guarulhos (GRU)"', '"utm_term":"aeroporto"', 'filename="clausula.pdf"']) expect(sends[0]).toContain(part);
+  const wa = new URL((await quote.getByRole("link", { name: "Falar pelo WhatsApp da Patro" }).getAttribute("href"))!);
   expect(wa.origin + wa.pathname).toBe("https://wa.me/551151997500");
-  expect(wa.searchParams.get("text")).not.toContain("mobilização");
+  expect(wa.searchParams.get("text")).not.toContain("Guarulhos (GRU)");
+});
+
+test("analytics do hub mede a triagem uma vez e não expõe respostas nem parâmetros da URL", async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("patro-cookies-accepted", "true");
+  });
+  await page.goto("/seguros-aeroportuarios?utm_content=marcador-privado-url#orientacao-aeroportuaria");
+  const triage = page.locator("#orientacao-aeroportuaria");
+  await triage.getByLabel(/qual aeroporto/i).fill("marcador-privado-resposta");
+  await triage.getByLabel(/exigência de Seguro Garantia/i).selectOption("Sim");
+  await triage.getByRole("button", { name: "Ver orientação preliminar" }).click();
+  await triage.getByRole("button", { name: "Revisar respostas" }).click();
+  await triage.getByRole("button", { name: "Ver orientação preliminar" }).click();
+  const events = await page.evaluate(() => (window.dataLayer ?? []).flatMap(entry => {
+    const obj = entry as Record<string, unknown>;
+    const name = obj.event ?? obj[1];
+    return typeof name === "string" && name.startsWith("airport_") ? [{ name, params: obj.event ? obj : obj[2] }] : [];
+  }));
+  expect(events.filter(({ name }) => name === "airport_hub_view")).toHaveLength(1);
+  expect(events.filter(({ name }) => name === "airport_needs_assessment_start")).toHaveLength(1);
+  expect(events.filter(({ name }) => name === "airport_needs_assessment_complete")).toEqual([
+    { name: "airport_needs_assessment_complete", params: expect.objectContaining({ modality: "garantia", page_location: "https://www.patroseguros.com.br/seguros-aeroportuarios" }) },
+  ]);
+  expect(JSON.stringify(events)).not.toContain("marcador-privado");
 });

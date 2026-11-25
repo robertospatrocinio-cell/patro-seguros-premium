@@ -35,6 +35,7 @@ const CookieBanner = () => {
     if (window.activateAnalytics) {
       window.activateAnalytics("consent_given");
     }
+    window.dispatchEvent(new Event("patro:analytics-consented"));
   };
 
   if (!visible) return null;

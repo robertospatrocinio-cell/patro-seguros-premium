@@ -513,6 +513,27 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const DeferredGlobalUi = () => {
   const { pathname } = useLocation();
+  useEffect(() => {
+    const page = pathname.replace(/\/$/, "");
+    if (page !== "/seguros-aeroportuarios" && page !== "/seguro-eo-engenharia-aeroportos" && !/^\/blog\/(seguro-eo-engenharia-prestadores-servicos-aeroportos|seguro-garantia-contratos-aeroportuarios|como-evitar-apolice-inadequada-contratos-empresariais|guia-completo-seguros-fornecedores-aeroportuarios)$/.test(page)) return;
+    let active = true;
+    let cleanup: (() => void) | undefined;
+    void import("./lib/airportAnalytics").then(({ observeAirportPage, trackAirportView }) => {
+      if (!active) return;
+      const stopObserving = observeAirportPage(page);
+      const onConsent = () => trackAirportView(page);
+      try {
+        const consent = localStorage.getItem("patro-cookies-accepted");
+        if (consent === "true") onConsent();
+        else if (consent !== "false") window.addEventListener("patro:analytics-consented", onConsent, { once: true });
+      } catch { /* Sem acesso ao consentimento, não registramos a visita. */ }
+      cleanup = () => {
+        stopObserving?.();
+        window.removeEventListener("patro:analytics-consented", onConsent);
+      };
+    }).catch(() => { /* O atendimento não depende de analytics. */ });
+    return () => { active = false; cleanup?.(); };
+  }, [pathname]);
   const dronePreview = (pathname === DRONE_PREVIEW_PATH || pathname === RETA_PREVIEW_PATH) &&
     typeof window !== "undefined" && isDronePreviewHost(window.location.hostname);
   // Drones usam consentimento no fluxo e ações locais, sem sobrepor o formulário.

@@ -89,7 +89,7 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>{getInsuranceBadge(lead.insurance_type)}{lead.insurance_type === "E&O Engenharia" && <EoLeadDetails lead={lead}/>}</TableCell>
+                <TableCell>{getInsuranceBadge(lead.insurance_type)}{(lead.insurance_type === "E&O Engenharia" || lead.insurance_type === "Riscos Aeroportuários") && <EoLeadDetails lead={lead}/>}</TableCell>
                 <TableCell><Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">Novo</Badge></TableCell>
                 <TableCell>
                   {lead.responsible_name ? (

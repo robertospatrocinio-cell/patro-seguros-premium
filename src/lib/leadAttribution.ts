@@ -2,6 +2,8 @@ export interface LeadAttribution {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
   landing_page?: string;
   referrer?: string;
 }
@@ -12,11 +14,13 @@ export function safeAttributionPath(value: unknown): string | undefined {
   return value.split(/[?#]/)[0].slice(0, 200);
 }
 
+const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
+
 export function sanitizeLeadAttribution(value: unknown): LeadAttribution {
   if (!value || typeof value !== "object") return {};
   const input = value as Record<string, unknown>;
   const output: LeadAttribution = {};
-  for (const key of ["utm_source", "utm_medium", "utm_campaign"] as const) {
+  for (const key of campaignKeys) {
     const candidate = input[key];
     // Campaign names must not contain email addresses, phones or arbitrary URLs.
     if (typeof candidate === "string" && /^[\p{L}\p{N}_. ()+\-]{1,100}$/u.test(candidate)
@@ -39,6 +43,8 @@ export function getLeadAttribution(): LeadAttribution {
       utm_source: params.get("utm_source"),
       utm_medium: params.get("utm_medium"),
       utm_campaign: params.get("utm_campaign"),
+      utm_term: params.get("utm_term"),
+      utm_content: params.get("utm_content"),
       landing_page: window.location.pathname,
       referrer: document.referrer,
     });
