@@ -21,7 +21,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 
 
 
-const WHATSAPP_NUMBER = "551151997500";
+import { WHATSAPP_DIGITS as WHATSAPP_NUMBER } from "@/config/company";
 
 const formatPhone = (value: string) => {
   const d = value.replace(/\D/g, "").slice(0, 11);

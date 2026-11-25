@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { comparativos } from "@/data/comparativosData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
-const WA = "https://wa.me/5511913800021?text=" + encodeURIComponent("Olá, quero ajuda para comparar planos de seguro com a Patro.");
+import { WHATSAPP_URL_BASE } from "@/config/company";
+
+const WA = `${WHATSAPP_URL_BASE}?text=` + encodeURIComponent("Olá, quero ajuda para comparar planos de seguro com a Patro.");
 
 const ComparativosSegurosHub = () => {
   const url = `${CANONICAL_BASE_URL}/comparativos-seguros`;

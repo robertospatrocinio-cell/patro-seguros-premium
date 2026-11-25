@@ -24,7 +24,7 @@ import { submitLead, savePartialQuote } from "@/lib/leadsApi";
 
 
 
-const WHATSAPP_NUMBER = "551151997500";
+import { WHATSAPP_DIGITS as WHATSAPP_NUMBER } from "@/config/company";
 
 /* ── Form field config types ────────────────────────────── */
 export interface FormFieldConfig {

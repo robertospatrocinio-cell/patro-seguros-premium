@@ -11,7 +11,9 @@ import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { GUIAS_PILARES_BY_SLUG, GUIA_AUTHOR, type GuiaPilar } from "@/data/guiasPilaresData";
 import { ALL_GLOSSARY_TERMS, type FlatGlossaryTerm } from "@/data/glossarioSegurosData";
 
-const WA_BASE = "https://wa.me/5511913800021?text=";
+import { WHATSAPP_URL_BASE } from "@/config/company";
+
+const WA_BASE = `${WHATSAPP_URL_BASE}?text=`;
 
 // Mapeia a "category" editorial do guia pilar para as categorias do glossário.
 const PILLAR_TO_GLOSSARY_CATEGORIES: Record<string, string[]> = {

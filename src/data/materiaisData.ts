@@ -1,3 +1,5 @@
+import { WHATSAPP_URL_BASE } from "../config/company";
+
 export interface MaterialItem {
   slug: string;
   title: string;
@@ -9,7 +11,7 @@ export interface MaterialItem {
   whatsapp: string;
 }
 
-const WA = (msg: string) => `https://wa.me/5511913800021?text=${encodeURIComponent(msg)}`;
+const WA = (msg: string) => `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(msg)}`;
 
 export const materiais: MaterialItem[] = [
   { slug: "checklist-renovar-seguro-auto", title: "Checklist para renovar seguro auto", description: "Passos para revisar coberturas, franquia, perfil e uso antes de renovar sua apólice.", category: "Auto", href: "/materiais/checklist-renovar-seguro-auto", relatedHref: "/seguro-auto", relatedLabel: "Ver Seguro Auto", whatsapp: WA("Olá, quero o checklist de renovação do seguro auto e cotar com a Patro.") },

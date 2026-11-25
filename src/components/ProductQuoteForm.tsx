@@ -13,9 +13,11 @@ type Props = {
   productName?: string; productPath?: string; fields?: CaptacaoField[]; compactContact?: boolean;
   heading?: string; description?: string; submitLabel?: string; nameLabel?: string; expandDetails?: boolean;
   sourceOrigin?: string; whatsappMessage?: string;
+  /** Resumo revisado pelo visitante; acompanha o pedido, não o link de WhatsApp. */
+  reviewedAnswers?: Readonly<Record<string, string>>;
 };
 
-export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false, heading, description, submitLabel, nameLabel, expandDetails = false, sourceOrigin = "captacao-produto", whatsappMessage }: Props) {
+export default function ProductQuoteForm({ productName, productPath, fields, compactContact = false, heading, description, submitLabel, nameLabel, expandDetails = false, sourceOrigin = "captacao-produto", whatsappMessage, reviewedAnswers }: Props) {
   const [selected, setSelected] = useState("/seguro-maquinas-agricolas");
   const profile = getCaptacaoProduto(productPath ?? selected);
   const name = productName ?? profile?.label ?? "Seguro";
@@ -75,10 +77,10 @@ export default function ProductQuoteForm({ productName, productPath, fields, com
     try {
       const params = new URLSearchParams(window.location.search);
       const source = window.location.pathname;
-      const raw = { product_path: product, city: details.quote_city?.trim() || null, message: details.quote_message?.trim() || null, details: Object.fromEntries(extraFields.map(field => [field.id, details[field.id]?.trim() || ""])), consent: true, consent_at: new Date().toISOString(), consent_text: "Autorizo a Patro Seguros a usar estes dados para responder à minha solicitação.", utm_term: params.get("utm_term"), utm_content: params.get("utm_content") };
+      const raw = { ...(reviewedAnswers ? { triagem: reviewedAnswers } : {}), product_path: product, city: details.quote_city?.trim() || null, message: details.quote_message?.trim() || null, details: Object.fromEntries(extraFields.map(field => [field.id, details[field.id]?.trim() || ""])), consent: true, consent_at: new Date().toISOString(), consent_text: "Autorizo a Patro Seguros a usar estes dados para responder à minha solicitação.", utm_term: params.get("utm_term"), utm_content: params.get("utm_content") };
       const { data, error: failure } = await safeInvoke<{ success?: boolean }>("send-form-email", {
         subject: `Solicitação de ${name}`,
-        textBody: [message, `WhatsApp: ${contact.phone}`, `E-mail: ${contact.email || "Não informado"}`, `Origem: ${source}`, ...["utm_source", "utm_medium", "utm_campaign"].map(key => `${key}: ${params.get(key) || "Não informado"}`), raw.consent_text].join("\n"),
+        textBody: [message, ...(reviewedAnswers ? [`Origem comercial: ${sourceOrigin}`, ...Object.entries(reviewedAnswers).map(([label, answer]) => `${label}: ${answer}`)] : []), `WhatsApp: ${contact.phone}`, `E-mail: ${contact.email || "Não informado"}`, `Origem: ${source}`, ...["utm_source", "utm_medium", "utm_campaign"].map(key => `${key}: ${params.get(key) || "Não informado"}`), raw.consent_text].join("\n"),
         lead: { full_name: contact.name.trim(), phone: contact.phone.trim(), email: contact.email.trim() || null, insurance_type: name, source_page: source, source_origin: sourceOrigin, utm_source: params.get("utm_source"), utm_medium: params.get("utm_medium"), utm_campaign: params.get("utm_campaign"), raw_data: raw },
       });
       if (failure || !data?.success) throw new Error("Não confirmado");

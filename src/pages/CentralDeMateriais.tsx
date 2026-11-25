@@ -8,7 +8,9 @@ import { MessageCircle, Download, ArrowRight } from "lucide-react";
 import { materiais } from "@/data/materiaisData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
-const HERO_WA = "https://wa.me/5511913800021?text=" + encodeURIComponent("Olá, quero receber os checklists da Patro Seguros.");
+import { WHATSAPP_URL_BASE } from "@/config/company";
+
+const HERO_WA = `${WHATSAPP_URL_BASE}?text=` + encodeURIComponent("Olá, quero receber os checklists da Patro Seguros.");
 
 const CentralDeMateriais = () => {
   const schema = {

@@ -9,7 +9,9 @@ import { ArrowRight, MessageCircle, Scale, Lightbulb } from "lucide-react";
 import { comparativosBySlug } from "@/data/comparativosData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
-const WA_BASE = "https://wa.me/5511913800021?text=";
+import { WHATSAPP_URL_BASE } from "@/config/company";
+
+const WA_BASE = `${WHATSAPP_URL_BASE}?text=`;
 
 const ComparativoCategoria = () => {
   const { slug } = useParams<{ slug: string }>();

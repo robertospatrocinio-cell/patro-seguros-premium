@@ -8,7 +8,9 @@ import { guiasBlocks } from "@/data/guiasHubData";
 import GooglePreferredSource from "@/components/GooglePreferredSource";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
-const HERO_WA = "https://wa.me/5511913800021?text=" + encodeURIComponent("Olá, quero orientação da Patro Seguros sobre seguros, planos ou consórcios.");
+import { WHATSAPP_URL_BASE } from "@/config/company";
+
+const HERO_WA = `${WHATSAPP_URL_BASE}?text=` + encodeURIComponent("Olá, quero orientação da Patro Seguros sobre seguros, planos ou consórcios.");
 
 const CentralDeGuias = () => {
   const collectionSchema = {
