@@ -52,6 +52,16 @@ describe("URL consistency CLI", () => {
     expect(result.stderr).toContain("/: og:url divergente da canonical");
   });
 
+  it("excludes legacy templates in nested reused build directories", () => {
+    const result = run({
+      "index.html": html(`${base}/`, `${base}/`),
+      "cached/.index.template.html": html(base, `${base}/`),
+      ".index.template.html/index.html": html(base, `${base}/`),
+    });
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain("1 rotas");
+  });
+
   it("still checks standalone public HTML pages", () => {
     const result = run({ "seguro-drone.html": html(`${base}/seguro-drone`, base) });
     expect(result.status).toBe(1);

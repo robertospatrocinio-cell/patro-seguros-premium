@@ -36,6 +36,8 @@ const SKIP_PREFIXES = ["assets/", "admin/"];
 
 function walk(dir, acc = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    // Exclude internal templates before route discovery, including nested copies.
+    if (entry.name === ".index.template" || entry.name === ".index.template.html") continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full, acc);
     else if (entry.name === "index.html" || entry.name.endsWith(".html"))

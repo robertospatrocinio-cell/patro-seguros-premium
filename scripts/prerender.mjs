@@ -124,6 +124,9 @@ async function run() {
   // This is build input, not a public HTML route; SEO walkers must not scan it.
   const TEMPLATE_HTML = path.join(DIST, ".index.template");
   if (!fs.existsSync(TEMPLATE_HTML)) fs.copyFileSync(INDEX_HTML, TEMPLATE_HTML);
+  // Reused build directories can still contain the former HTML template.
+  // Remove only that internal artifact so every HTML walker ignores it.
+  fs.rmSync(path.join(DIST, ".index.template.html"), { force: true });
   const indexContent = fs.readFileSync(TEMPLATE_HTML, "utf-8");
 
   const { getMetadataForRoute } = await loadDataModule("src/lib/seoMetadata.ts");
