@@ -22,6 +22,7 @@ export const solutions: { name: string; scope: string; note: string; href?: stri
   { name: "Seguro de Equipamentos", scope: "Máquinas e ferramentas", note: "Considere os equipamentos próprios ou locados e onde serão usados. Transporte, movimentação e guarda podem ter tratamentos distintos.", href: "/seguro-maquinas" },
   { name: "Seguro Empresarial", scope: "Patrimônio e continuidade", note: "Protege bens nos endereços previstos. Perda de receita após um dano coberto exige avaliação de cobertura específica de lucros cessantes.", href: "/seguro-empresarial" },
   { name: "Seguro de Vida em Grupo", scope: "Proteção da equipe", note: "Prevê benefícios para colaboradores ou beneficiários nos eventos contratados. Verifique o grupo elegível e eventuais obrigações coletivas.", href: "/seguro-vida-pme" },
+  { name: "Seguro de Acidentes Pessoais para Aeroportos", scope: "Acidentes com profissionais segurados", note: "Para avaliar a proteção financeira de prestadores individuais ou equipes em acidentes cobertos. Confira atividades aceitas, capital por pessoa, vigência e documentação exigida.", href: "/seguro-acidentes-pessoais-aeroportos" },
   { name: "Plano de Saúde Empresarial", scope: "Assistência à saúde", note: "Avalie elegibilidade, rede, abrangência e carências. É assistência aos colaboradores, não uma cobertura de responsabilidade civil.", href: "/plano-saude-empresarial" },
 ];
 

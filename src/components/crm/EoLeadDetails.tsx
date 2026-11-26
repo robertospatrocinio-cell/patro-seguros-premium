@@ -30,7 +30,12 @@ export default function EoLeadDetails({lead}:{lead:Lead}) {
   const possibleProducts = Array.isArray(raw.possible_products) ? raw.possible_products.filter((item): item is string => typeof item === "string") : [];
   const fields = [
     ...Object.entries({contact:'Contato na empresa',segment:'Categoria',product:'Modalidade de interesse',channel:'Canal',service:'Serviço',airport:'Aeroporto',deadline:'Prazo',phase:'Fase',motive:'Necessidade',client:'Contratante',limit:'Limite',value:'Valor do contrato'}).map(([key, label]) => ({ key, label, value: get(key) })),
-    { key: 'possible_products', label: 'Modalidades sugeridas para avaliação', value: possibleProducts.join(', ') },
+    ...(get('intake') === 'airport-ap-v1' ? [
+      { key: 'profile', label: 'Perfil do contratante', value: get('profile') },
+      { key: 'workers', label: 'Quantidade de profissionais', value: get('workers') },
+      { key: 'term', label: 'Vigência desejada', value: get('term') },
+      { key: 'coverage', label: 'Coberturas solicitadas', value: get('coverage') },
+    ] : [{ key: 'possible_products', label: 'Modalidades sugeridas para avaliação', value: possibleProducts.join(', ') }]),
     ...AIRPORT_QUESTIONS.filter(({ key }) => key !== 'airport' && key !== 'service' && key !== 'deadline').map(({ key, label }) => ({ key, label, value: assessment[key] })),
     ...['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].map(key => ({ key, label: key, value: attribution[key] })),
     { key: 'notes', label: 'Observações', value: lead.notes },

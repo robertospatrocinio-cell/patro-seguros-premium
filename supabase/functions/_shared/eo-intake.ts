@@ -33,10 +33,16 @@ export async function receiveEo(req: Request, admin: SupabaseClient, ip: string,
     payload = JSON.parse(String(form.get("request")));
   } catch { return reply(400, "format"); }
   if (!isRecord(payload) || payload.consent !== true || payload.website !== "") return reply(400, "request");
-  if (payload.intake !== undefined && payload.intake !== "eo-v1" && payload.intake !== "airport-v1") return reply(400, "request");
+  if (payload.intake !== undefined && payload.intake !== "eo-v1" && payload.intake !== "airport-v1" && payload.intake !== "airport-ap-v1") return reply(400, "request");
   const hub = payload.intake === "airport-v1";
-  const intake = hub ? "airport-v1" : "eo-v1";
-  const page = hub ? AIRPORT_HUB : AIRPORT_EO;
+  const ap = payload.intake === "airport-ap-v1";
+  const intake = ap ? "airport-ap-v1" : hub ? "airport-v1" : "eo-v1";
+  const page = ap ? "/seguro-acidentes-pessoais-aeroportos" : hub ? AIRPORT_HUB : AIRPORT_EO;
+  const individual = ap && payload.profile === "individual";
+  const workers = payload.workers;
+  const term = payload.term ?? "";
+  const coverage = payload.coverage ?? "";
+  if (ap && ((payload.profile !== "company" && !individual) || typeof workers !== "string" || !/^[1-9]\d{0,5}$/.test(workers) || typeof term !== "string" || term.length > 120 || typeof coverage !== "string" || coverage.length > 250)) return reply(400, "context");
   const id = payload.requestId;
   if (typeof id !== "string" || !/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(id)) return reply(400, "request");
   const fields = {} as Record<keyof typeof limits,string>;
@@ -46,11 +52,12 @@ export async function receiveEo(req: Request, admin: SupabaseClient, ip: string,
     fields[key] = v.trim();
   }
   const f = fields;
-  if (f.name.length < 3 || f.company.length < 3 || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(f.email) || !/^(55)?\d{10,11}$/.test(f.phone.replace(/[\s()+-]/g, "")) || (f.cnpj && !/^\d{14}$/.test(f.cnpj.replace(/[./-]/g,"")))) return reply(400, "contact");
+  if (f.name.length < 3 || (!individual && f.company.length < 3) || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(f.email) || !/^(55)?\d{10,11}$/.test(f.phone.replace(/[\s()+-]/g, "")) || (f.cnpj && !/^\d{14}$/.test(f.cnpj.replace(/[./-]/g,"")))) return reply(400, "contact");
+  if (ap && (f.service.length < 3 || f.airport.length < 3 || (individual && (f.company || f.cnpj)))) return reply(400, "context");
   const day = Date.parse(`${f.deadline}T00:00:00Z`);
   if ((f.motive && !motives.includes(f.motive)) || (f.phase && !phases.includes(f.phase)) || (f.deadline && (!/^\d{4}-\d{2}-\d{2}$/.test(f.deadline) || !Number.isFinite(day) || new Date(day).toISOString().slice(0,10) !== f.deadline))) return reply(400, "context");
   if (hub && payload.product && !isAirportProduct(payload.product)) return reply(400, "context");
-  const product = hub ? isAirportProduct(payload.product) ? payload.product : undefined : "eo";
+  const product = ap ? undefined : hub ? isAirportProduct(payload.product) ? payload.product : undefined : "eo";
   const brief: AirportBrief = {};
   if (hub && payload.assessment !== undefined) {
     if (!isRecord(payload.assessment)) return reply(400, "context");
@@ -81,10 +88,11 @@ export async function receiveEo(req: Request, admin: SupabaseClient, ip: string,
   const attr = isRecord(payload.attribution) ? payload.attribution : {};
   const utms = Object.fromEntries(["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].map(k => [k, campaign(attr[k])]));
   const { error } = await admin.from("leads").insert({
-    id, full_name: f.company, responsible_name: f.name, client_type: "pessoa_juridica", phone: f.phone, email: f.email, cpf_cnpj: f.cnpj || null,
-    insurance_type: hub ? AIRPORT_CATEGORY : AIRPORT_PRODUCTS.eo, source_page: page, source_origin: hub ? "Hub Aeroportuário" : "site", ip_address: ip,
+    id, full_name: individual ? f.name : f.company, responsible_name: f.name, client_type: individual ? "pessoa_fisica" : "pessoa_juridica", phone: f.phone, email: f.email, cpf_cnpj: f.cnpj || null,
+    insurance_type: hub || ap ? AIRPORT_CATEGORY : AIRPORT_PRODUCTS.eo, source_page: page, source_origin: hub || ap ? "Hub Aeroportuário" : "site", ip_address: ip,
     lead_score: priority.score, notes: f.notes || null, utm_source: utms.utm_source, utm_medium: utms.utm_medium, utm_campaign: utms.utm_campaign,
-    raw_data: { segment: AIRPORT_CATEGORY, channel: "Formulário", product: product ? AIRPORT_PRODUCTS[product] : null, company: f.company, contact: f.name,
+    raw_data: { segment: AIRPORT_CATEGORY, channel: "Formulário", product: ap ? "Acidentes Pessoais" : product ? AIRPORT_PRODUCTS[product] : null, company: f.company, contact: f.name,
+      ...(ap ? { profile: individual ? "Profissional individual" : "Empresa", workers: String(workers), term: typeof term === "string" ? term.trim() : "", coverage: typeof coverage === "string" ? coverage.trim() : "" } : {}),
       service: f.service || brief.service, airport: f.airport || brief.airport, deadline: f.deadline || brief.deadline, motive: f.motive, phase: f.phase,
       client: f.client, limit: f.limit, value: f.value, priority: priority.label, clause_path: objectPath, contact_consent: true, attribution: utms,
       assessment: brief, possible_products: airportPossibilities(brief).map(key => AIRPORT_PRODUCTS[key]), intake },

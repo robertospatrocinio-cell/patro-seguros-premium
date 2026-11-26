@@ -326,6 +326,7 @@ import SeguroRCDentistas from "./pages/SeguroRCDentistas";
 import SeguroRCEngenheiros from "./pages/SeguroRCEngenheiros";
 const SeguroEoEngenhariaAeroportos = lazy(() => import("./pages/SeguroEoEngenhariaAeroportos"));
 const SegurosAeroportuarios = lazy(() => import("./pages/SegurosAeroportuarios"));
+const SeguroAcidentesPessoaisAeroportos = lazy(() => import("./pages/SeguroAcidentesPessoaisAeroportos"));
 import SeguroRCExecutivos from "./pages/SeguroRCExecutivos";
 import SeguroRCObras from "./pages/SeguroRCObras";
 import SeguroRCPrestacaoServicos from "./pages/SeguroRCPrestacaoServicos";
@@ -515,7 +516,7 @@ const DeferredGlobalUi = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     const page = pathname.replace(/\/$/, "");
-    if (page !== "/seguros-aeroportuarios" && page !== "/seguro-eo-engenharia-aeroportos" && !/^\/blog\/(seguro-eo-engenharia-prestadores-servicos-aeroportos|seguro-garantia-contratos-aeroportuarios|como-evitar-apolice-inadequada-contratos-empresariais|guia-completo-seguros-fornecedores-aeroportuarios)$/.test(page)) return;
+    if (page !== "/seguros-aeroportuarios" && page !== "/seguro-eo-engenharia-aeroportos" && page !== "/seguro-acidentes-pessoais-aeroportos" && !/^\/blog\/(seguro-eo-engenharia-prestadores-servicos-aeroportos|seguro-garantia-contratos-aeroportuarios|como-evitar-apolice-inadequada-contratos-empresariais|guia-completo-seguros-fornecedores-aeroportuarios)$/.test(page)) return;
     let active = true;
     let cleanup: (() => void) | undefined;
     void import("./lib/airportAnalytics").then(({ observeAirportPage, trackAirportView }) => {
@@ -972,6 +973,7 @@ const App = () => {
                   <Route path="/seguro-rc-engenheiros" element={<SeguroRCEngenheiros />} />
                   <Route path="/seguros-aeroportuarios" element={<SegurosAeroportuarios />} />
                   <Route path="/seguro-eo-engenharia-aeroportos" element={<SeguroEoEngenhariaAeroportos />} />
+                  <Route path="/seguro-acidentes-pessoais-aeroportos" element={<SeguroAcidentesPessoaisAeroportos />} />
                   <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
                   <Route path="/seguro-rc-executivos" element={<SeguroRCExecutivos />} />
                   <Route path="/seguro-rc-obras" element={<SeguroRCObras />} />

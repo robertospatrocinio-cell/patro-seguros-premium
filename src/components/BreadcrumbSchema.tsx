@@ -84,7 +84,7 @@ const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
       }
       raw[raw.length - 1] = { ...last, url: currentPath };
     }
-  } else if (currentPath === "/seguros-aeroportuarios" || currentPath === "/seguro-eo-engenharia-aeroportos") {
+  } else if (currentPath === "/seguros-aeroportuarios" || currentPath === "/seguro-eo-engenharia-aeroportos" || currentPath === "/seguro-acidentes-pessoais-aeroportos") {
     raw = [
       { name: "Início", url: "/" },
       { name: "Seguros Empresariais", url: "/seguros-empresariais" },
@@ -92,6 +92,8 @@ const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
     ];
     if (currentPath === "/seguro-eo-engenharia-aeroportos") {
       raw.push({ name: "E&O Engenharia para Aeroportos", url: currentPath });
+    } else if (currentPath === "/seguro-acidentes-pessoais-aeroportos") {
+      raw.push({ name: "Acidentes Pessoais para Aeroportos", url: currentPath });
     }
   } else {
     // Fallback: deriva breadcrumb do próprio pathname.

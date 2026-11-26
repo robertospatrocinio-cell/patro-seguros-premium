@@ -108,6 +108,7 @@ const PRIOR_LASTMOD = loadPriorLastmodMap();
 const highIntentTransactional: SitemapEntry[] = [
    { loc: "/seguros-aeroportuarios", priority: "0.8", changefreq: "monthly" },
    { loc: "/seguro-eo-engenharia-aeroportos", priority: "0.8", changefreq: "monthly" },
+   { loc: "/seguro-acidentes-pessoais-aeroportos", priority: "0.8", changefreq: "monthly" },
    { loc: "/", priority: "1.0", changefreq: "always" },
    { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
    { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "daily" },

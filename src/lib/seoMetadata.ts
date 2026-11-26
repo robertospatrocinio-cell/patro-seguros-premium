@@ -1,4 +1,5 @@
 import { hubMeta, hubPath, hubSchema } from "../data/aeroportosHub";
+import { apMeta, apPath, apSchema } from "../data/airportPersonalAccidents";
 import { eoMeta, eoPath, eoSchema, eoArticlePath } from "../data/eoDiscovery";
 import { ORGANIZATION_SCHEMA } from "../config/company";
 import { getDroneSeo } from "@/data/droneAgricolaSeo";
@@ -1018,6 +1019,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
     };
 
     if (cleanPath === hubPath) return { ...hubMeta, schema: hubSchema };
+    if (cleanPath === apPath) return { ...apMeta, schema: apSchema };
     if (cleanPath === eoPath) return { ...eoMeta, schema: eoSchema };
     const staticPage = staticPages[cleanPath];
     if (staticPage) {

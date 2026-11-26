@@ -8,7 +8,8 @@ const relatedProducts = new Map<string, AirportProduct>([
   ["/seguro-rc", "rc_geral"], ["/seguro-engenharia", "engenharia"], ["/seguro-garantia", "garantia"], ["/seguro-ambiental", "ambiental"], ["/seguro-maquinas", "equipamentos"],
 ]);
 const relatedPages = new Set(["/seguros-empresariais", "/corretora-de-seguros-em-guarulhos", "/verificar-susep", "/seguro-empresarial", "/seguro-vida-pme", "/plano-saude-empresarial"]);
-export const airportPage = (path: string) => path === AIRPORT_HUB || path === AIRPORT_EO || articleProducts.has(path);
+const apPage = "/seguro-acidentes-pessoais-aeroportos";
+export const airportPage = (path: string) => path === AIRPORT_HUB || path === AIRPORT_EO || path === apPage || articleProducts.has(path);
 export function trackAirport(event: AirportEvent, page: string, product?: AirportProduct, target?: string) {
   if (!airportPage(page)) return;
   try {
