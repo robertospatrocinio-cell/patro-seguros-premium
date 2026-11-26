@@ -18,7 +18,7 @@ const measure = "max-w-prose space-y-3";
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "BlogPosting", "@id": `${canonical}#artigo`, mainEntityOfPage: canonical, headline: guiaAeroportuarioTitle, description: guiaDescription, image: `${COMPANY.dominioCanonico}${guiaImage}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@id": `${COMPANY.dominioCanonico}/#organization` }, citation: guiaReferencias.map(({ url }) => url) },
+    { "@type": "BlogPosting", "@id": `${canonical}#artigo`, mainEntityOfPage: canonical, headline: guiaAeroportuarioTitle, description: guiaDescription, image: `${COMPANY.dominioCanonico}${guiaImage}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@type": "Organization", "@id": `${COMPANY.dominioCanonico}/#organization`, name: COMPANY.nomeFantasia, logo: { "@type": "ImageObject", url: `${COMPANY.dominioCanonico}/images/logo-full.webp` } }, citation: guiaReferencias.map(({ url }) => url) },
     { "@type": "FAQPage", "@id": `${canonical}#faq`, inLanguage: "pt-BR", mainEntity: guiaFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ],
 };

@@ -24,7 +24,7 @@ const index = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "BlogPosting", "@id": `${url}#artigo`, mainEntityOfPage: url, headline: apoliceTitle, description: apoliceDescription, image: `${COMPANY.dominioCanonico}${image}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@id": `${COMPANY.dominioCanonico}/#organization` }, citation: apoliceReferences.map((source) => source.url) },
+    { "@type": "BlogPosting", "@id": `${url}#artigo`, mainEntityOfPage: url, headline: apoliceTitle, description: apoliceDescription, image: `${COMPANY.dominioCanonico}${image}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@type": "Organization", "@id": `${COMPANY.dominioCanonico}/#organization`, name: COMPANY.nomeFantasia, logo: { "@type": "ImageObject", url: `${COMPANY.dominioCanonico}/images/logo-full.webp` } }, citation: apoliceReferences.map((source) => source.url) },
     { "@type": "FAQPage", "@id": `${url}#faq`, inLanguage: "pt-BR", mainEntity: apoliceFaqs.map(({ question, answer }) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ],
 };

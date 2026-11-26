@@ -32,7 +32,7 @@ const headingStyle = "mb-4 text-2xl font-bold tracking-tight sm:text-3xl";
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "BlogPosting", "@id": `${url}#artigo`, mainEntityOfPage: url, headline: title, description, image: `${COMPANY.dominioCanonico}${image}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@id": `${COMPANY.dominioCanonico}/#organization` }, citation: references.map(({ url }) => url) },
+    { "@type": "BlogPosting", "@id": `${url}#artigo`, mainEntityOfPage: url, headline: title, description, image: `${COMPANY.dominioCanonico}${image}`, inLanguage: "pt-BR", author: { "@type": "Organization", name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, publisher: { "@type": "Organization", "@id": `${COMPANY.dominioCanonico}/#organization`, name: COMPANY.nomeFantasia, logo: { "@type": "ImageObject", url: `${COMPANY.dominioCanonico}/images/logo-full.webp` } }, citation: references.map(({ url }) => url) },
     { "@type": "FAQPage", "@id": `${url}#faq`, inLanguage: "pt-BR", mainEntity: faqs.map(({ question, answer }) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ],
 };
