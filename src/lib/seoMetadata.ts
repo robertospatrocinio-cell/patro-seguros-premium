@@ -1210,7 +1210,7 @@ function getMetadataForRouteInternal(pathname: string): Metadata | null {
           ...(cleanPath === eoArticlePath ? {
             "@id": `${DOMAIN}${cleanPath}#article`,
             author: { "@id": ORGANIZATION_SCHEMA["@id"], name: post.author },
-            publisher: { "@id": ORGANIZATION_SCHEMA["@id"], name: ORGANIZATION_SCHEMA.name },
+            publisher: { "@type": "Organization", "@id": ORGANIZATION_SCHEMA["@id"], name: ORGANIZATION_SCHEMA.name, logo: { "@type": "ImageObject", url: `${DOMAIN}/images/logo-full.webp` } },
           } : {}),
           "mainEntityOfPage": { "@type": "WebPage", "@id": `${DOMAIN}${cleanPath}` }
         }

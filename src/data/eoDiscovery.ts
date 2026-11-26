@@ -15,6 +15,6 @@ export const eoLocal = "A Patro Seguros atende empresas que prestam serviços no
 export const eoSchema = {
   "@context": "https://schema.org", "@graph": [
     { "@type": "WebPage", "@id": url, url, name: eoMeta.title, description: eoMeta.description, inLanguage: "pt-BR", mainEntity: { "@id": `${url}#service` } },
-    { "@type": "Service", "@id": `${url}#service`, url, name: "Cotação de Seguro E&O Engenharia para Aeroportos", serviceType: "Corretagem de seguro de responsabilidade civil profissional", provider: { "@id": ORGANIZATION_SCHEMA["@id"] }, areaServed: ORGANIZATION_SCHEMA.areaServed },
+    { "@type": "Service", "@id": `${url}#service`, url, name: "Cotação de Seguro E&O Engenharia para Aeroportos", serviceType: "Corretagem de seguro de responsabilidade civil profissional", description: eoMeta.description, provider: { "@type": "InsuranceAgency", "@id": ORGANIZATION_SCHEMA["@id"], name: COMPANY.nomeFantasia, url: COMPANY.dominioCanonico }, areaServed: ORGANIZATION_SCHEMA.areaServed },
   ],
 };
